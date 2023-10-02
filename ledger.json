@@ -1,0 +1,12 @@
+{
+    "ledgerOBJ":{
+        "targetz":[{"symb":"nvda"}],
+        "betz":[
+            {
+                "date":"today",
+                "symb":"nvda",
+                "spot":"100.00"
+            }
+        ]
+    }
+}

@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>ai_visual_ledger</title>
+</head>
+   <body>
+     <style>/* PC */
+        html, body { height: 100%; width:100%; background:black; margin:0}
+        body{padding-top:1em;display:flex;flex-direction:column;
+         justify-content:space-evenly;align-items:center;}
+         .topLeftBtn1{position:absolute;top:3px;left:6px;display:flex;}
+         .topLeftBtn1 .txt1{ color:skyblue; font-size:0.444em;margin:3px 0 0 3px;}
+         .topLeftBtn1 .icon1 {font-size:1em;padding-bottom:6px;}
+         .topRightBtn2{position:absolute;top:3px;right:6px;display:flex;}
+         .topRightBtn2 .txt1{ color:skyblue; font-size:0.444em;margin:3px 0 0 3px;}
+         .topRightBtn2 .icon1 {font-size:1em;padding-bottom:6px;}
+         .docDeleteBtn {border-radius: 100%; background: darkgrey;}
+         .docTopicBtn {border-radius: 13px;margin-top: 10px;background: slategrey;
+            color: skyblue; font-size: 0.666em; padding: 6px;}
+         .docTopicBtn:hover{border:2px solid steelblue}
+        .mainBtn{margin:1em; color:darkblue;} 
+        .subMenuBtn { color:#75bdb7; border-radius: 13px;  background-image: linear-gradient(grey, steelblue, black);
+                   margin:0.666em;cursor:pointer;font-size:0.888em;padding: 2px 6px 4px 6px; }
+        .btnTXT{font-size:1em;}
+        /* .btnTXT:hover{color:navajowhite;} */
+        .hoverTXT:hover{color:navajowhite;}
+        /* .mainBtn:hover{color:navajowhite} */
+        /* .btnTXT:hover{color:navajowhite} */
+        .subMenuBtn:hover{border:2px solid steelblue; color:darkslategrey}
+        .disabled{ color: darkslategrey; border: 1px solid steelblue; 
+            background: transparent !important;}
+        .hiddenTab{ display:none !important;}
+         #textareaBOX {
+            background:darkslateblue;
+            background-attachment: local;
+            background-image:
+               linear-gradient(to right, darkslateblue 20px, transparent 20px),
+               linear-gradient(to left, darkslateblue 20px, transparent 20px),
+               repeating-linear-gradient(darkslateblue, darkslateblue 40px, #344065 40px, #344065 41px, darkslateblue 41px);
+            line-height: 31px;
+            padding: 8px 10px;
+         }
+        
+      @media only screen and (max-width: 800px) { /* TABLET */
+         body{  background-color: #04223c;}
+         .btnTXT{font-size:0.888em;}
+         .mainBtn{margin:0.888em;}
+         .subMenuBtn{font-size:0.666em;}
+      }  
+      @media only screen and (max-width: 500px) { /* PHONE */
+         body{ background-color: #07589f;}
+         .btnTXT{font-size:0.888em;}
+         .mainBtn{margin:0.666em;}
+         .subMenuBtn{font-size:0.666em;}
+      }
+     </style>
+     <aside class="topLeftBtn1">
+      <span class="icon1" style="border-radius:100%;background:steelblue; 
+      border:2px solid grey;">🎪</span><span class="txt1">home</span>
+      </aside>
+      <aside style="font-size: 0.666em;color: steelblue;margin: -10px 0 4px 0;">
+        ai_visualizer</aside>
+      <aside class="topRightBtn2">
+         <span class="txt1">charts</span>
+         <span class="icon1" style="border-radius:100%;background:crimson; 
+         border:2px solid grey;">🎢</span>
+         </aside>      
+      <header style="display:flex;justify-content:space-evenly;
+        background-image: linear-gradient(grey, steelblue, black);
+        box-shadow:0 0 14px 0px steelblue;border-radius:13px; margin:0 auto;
+        width:93%;">
+         <button class="mainBtn" onclick="transcribeTXT()" style="border-radius:8px;
+            background:grey; 
+            cursor:pointer;box-shadow: inset 0px 0px 10px 0px limegreen;">
+            <span style="border-radius:100%;background:limegreen;
+              border:1px solid grey;">
+            🏰</span><span class="btnTXT hoverTXT">Network</span>
+         </button>
+
+         <section id="notConnectedBox" class="mainBtn" style="border-radius:8px;
+         background:limegreen;padding: 6px;">
+            <span>🔴</span> Not Connected 
+        </section>
+
+         <section id="ConnectedBox" class="mainBtn" style="border-radius:8px;
+         background:#6283be;padding: 6px;border: 1px solid darkslateblue;
+         display:none;"><span style="border-radius:33%;background:skyblue;
+              border:1px solid grey;">
+            ⚡</span>Connected
+        </section>
+
+         <section id="savedBox" class="mainBtn" style="border-radius:20px;
+            background:rgb(249, 231, 130);padding:4px 4px 8px 4px;display:none;
+            border: 1px solid rgb(221, 118, 2);color:rgb(221, 118, 2);
+            ">💾 saved.</section>
+
+         <section id="copiedBox" class="mainBtn" style="border-radius:20px;
+            background:#fad688;padding:4px 4px 8px 4px;display:none;
+            border: 1px solid rgb(221, 118, 2);color:rgb(221, 118, 2);
+            ">🎭 copied.</section>
+
+         <section id="errorBox" class="mainBtn" style="border-radius:20px;
+            background:#091d3e;padding:4px 4px 8px 4px;display:none;
+            border: 1px solid rgb(221, 118, 2);color:rgb(221, 118, 2);
+            ">⚠️ error...</section>
+
+
+         <button class= "mainBtn " onclick="stopTXT()" style="border-radius:8px;
+            background:grey;box-shadow: inset 0px 0px 10px 0px crimson;
+            cursor:pointer;"><span style="border-radius:100%;background:firebrick;
+              border:1px solid grey;">
+            💡</span><span class="btnTX hoverTXT">Market</span>
+         </button>
+        </header>
+        <main id="keyBOX" style="display:inline;">
+            Set API_KEY:<input id="keyINPUT"  type="text" placeholder="api_key" ></input>
+            <button onclick="setAPIKEY();">SET</button>
+        </main>
+        <main id="symbolBOX" style="display:none;">
+            Set TICKER_TGT:<input id="symbolINPUT" type="text" placeholder="symbol" ></input>
+            <button onclick="setTickerTGT();">SET TGT</button>
+            <button onclick="updateTickerData();">update data</button>
+        </main>
+        <!-- <menu style="display:flex;justify-content:space-evenly;
+            margin:0;padding:0;margin-top:-6px;border-radius: 30px;
+            box-shadow: inset -2px -8px 17px 0px #3737cf;background: #182b3d;
+            ">
+         <button class="subMenuBtn" onclick="primeFn()">prime🗝</button>
+         <button class="subMenuBtn" onclick="omniFn()">omni🗝️</button>
+         <button class="subMenuBtn" onclick="alphaFn()">alpha🔑</button>
+         <button class="subMenuBtn" onclick="ymdFn()">ymd<span style="font-size: 0.777em;
+            padding-left: 2px;">📅</span></button>
+         <button class="subMenuBtn" onclick="hrFn()"><span style="font-size: 0.777em;
+            ">__</span></button>
+        </menu> -->
+      <section id="allchatBOX"  class="hiddenTab" style="width:80.888%;height:100%;margin: 0 2% 0 2%;
+      border-radius: 13px; border: solid 1px steelblue; box-shadow: 1px 1px 11px 0px cyan;
+      padding: 4% 0 4% 4%; color: cyan;">
+         <header style="font-size: 0.777em;">SAVE CHATS (by title): </header>
+         <article id="btnContainer" style="display:flex;flex-direction:column;
+               align-items:flex-start;">
+         </article>
+      </section>
+      <textarea id="textareaBOX"
+        style="width:80.888%;height:100%;margin: 0 2% 0 2%;
+        border-radius: 13px; border: solid 1px steelblue; box-shadow: 1px 1px 11px 0px cyan;
+        padding: 4% 0 4% 4%; color: cyan; line-height: 2.444em;" spellcheck="false"
+        onkeyup="keyupTXT();">All I need to know, is when Dr.Pepper is at all time high.
+         Also helpful, would be % off of ATH, and recency of ATH.
+        And, Id like to see QUARTERLY HiGH/LOWS (QHL) and MHL (monthly high lows.) 
+        
+        </textarea>
+    <menu style="display:flex;justify-content:space-evenly;background: #182b3d;
+        border-radius: 30px;margin:0;padding:0;margin-bottom:-6px;
+        box-shadow: inset -5px 7px 8px 0px #472c88;">
+        <button class="subMenuBtn" onclick="undoFn()">↶undo</button>
+        <button class="subMenuBtn" onclick="titlelineFn()">#️⃣title</button>
+        <button class="subMenuBtn" onclick="numberlineFn()">🔢1.2.3.</button>
+        <button class="subMenuBtn" onclick="endlineFn()">🔣.,_?!</button>
+        <button class="subMenuBtn" onclick="quotelineFn()">*️⃣quote</button>
+    </menu>
+      <footer style="display:flex;justify-content:space-evenly;width:90%;margin:0 auto; 
+      margin-bottom:0.666%;
+      background-image: linear-gradient(grey, steelblue, black);
+      box-shadow:0 0 14px 0px steelblue;border-radius:13px;">
+       <button class="" onclick="saveChatFn()" style="margin:1em;border-radius:8px;background:grey;
+          cursor:pointer;box-shadow: inset -1px -1px 4px 1px gold;">
+          <span style="border-radius:100%;background:gold;border:1px solid grey;">
+            💾</span> <span class="btnTXT hoverTXT">SAVE CHAT</span>
+       </button>
+       <button class="" onclick="copyChatFn()" style="margin:1em;border-radius:8px;background:grey;
+          cursor:pointer;box-shadow: inset -1px -1px 4px 1px orangered;">
+          <span style="border-radius:100%;background:orangered;border:1px solid grey;">
+            📋</span> <span class="btnTXT hoverTXT">COPY CHAT</span>
+       </button>
+       <button class="" onclick="allChatFn()" style="margin:1em;border-radius:8px;background:grey;
+          cursor:pointer;box-shadow: inset -1px -1px 4px 1px rebeccapurple;">
+          <span style="border-radius:100%;background:rebeccapurple;border:1px solid grey;">
+            🎡</span> <span class="btnTXT hoverTXT">ALL CHATS</span>
+       </button>
+      </footer>
+      <legal style="color:darkslategray;font-size: 0.666em;">copyright 2020-2023 netcinematics, all rights reserved.</legal>
+      <script>
+        const currentDate = new Date();
+        const year = currentDate.getFullYear();
+        const month = (currentDate.getMonth() + 1).toString().padStart(2, '0'); // Adding 1 because months are zero-indexed
+        const day = currentDate.getDate().toString().padStart(2, '0');
+        let current_ymd = `YMD_${year}_${month}_${day}`;
+
+        let keyBOX = document.getElementById('keyBOX');
+        let symbolBOX = document.getElementById('symbolBOX');
+        let keyINPUT = document.getElementById('keyINPUT');
+        let symbolINPUT = document.getElementById('symbolINPUT');
+
+        let stateConnectedBox = document.getElementById('ConnectedBox');
+        let stateNotConnectedBox = document.getElementById('notConnectedBox');
+
+        //CALCULATIONS
+        let target_SYMBOL = 'NVDA';
+        let daily_data = null;
+        let monthly_data = null;
+        let calculate_ATH = 0;
+        let calculate_ATL = 0;
+        let current_PRICE = 0;
+
+
+        let initLedger = ()=>{
+            console.log('load leadger object, and hydrate charts.')
+
+            let ledgerOBJ = {
+                "targetz":[{"symb":"nvda"}],
+                "betz":[
+                    {
+                        "date":"2023_9_20",
+                        "symb":"nvda",
+                        "spot":"100.00"
+                    }
+                ]
+            }
+
+    //         debugger;
+    //         if(!stock_api_key){return;}
+    //         // const apiKey = '';
+    //         const symbol = 'NVDA';
+    //         const apiUrl = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=${stock_api_key}`;
+    //         fetch(apiUrl)
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             debugger;
+    //             // Process the data here (e.g., extract the latest stock price)
+    //             const latestPrice = data['Time Series (5min)'][Object.keys(data['Time Series (5min)'])[0]]['1. open'];
+
+    // //             data['Time Series (5min)'][Object.keys(data['Time Series (5min)'])[0]]['1. open'];
+    // // '175.3700'
+    // // data['Time Series (5min)'][Object.keys(data['Time Series (5min)'])[0]];
+    // // {1. open: '175.3700', 2. high: '175.3700', 3. low: '175.0000', 4. close: '175.0000', 5. volume: '24782'}
+    //             console.log(`Latest price for ${symbol}: ${latestPrice}`);
+    //         })
+    //         .catch(error => {
+    //             console.error('Error fetching data:', error);
+    //         });
+
+
+        }
+
+        
+        let stock_api_key = null;//API_KEY - set in local storage.
+        let init_api_key = ()=>{
+            //Does local storage have API_KEY?
+            if(!localStorage.stock_api_key){ //if no: display enter key
+                stateConnectedBox.style.display = "none";
+                stateNotConnectedBox.style.display = "inline";                   
+                symbolBOX.style.display = "none";
+                keyBOX.style.display = "inline";                   
+                //SHOW NOT CONNECTED. Hide connected. Hide tgt show key input.
+            } else {//if yes init
+                //SHOW CONNNECTED and tgt, hide disconnected and key input
+                stateConnectedBox.style.display = "inline";
+                stateNotConnectedBox.style.display = "none";   
+                symbolBOX.style.display = "inline";
+                keyBOX.style.display = "none"; 
+
+                stock_api_key = (localStorage.stock_api_key)?localStorage.stock_api_key:'';
+                initLedger() 
+            }
+        }; init_api_key();
+
+
+        let init_monthly = ()=>{
+            debugger;
+            // replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
+            // var url = 'https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=IBM&apikey=demo';
+
+            if(!stock_api_key){return;}
+            if(localStorage.monthly_NVDA_data){ //LOAD FROM LOCAL not API.
+                debugger;
+                monthly_data = JSON.parse(localStorage.monthly_NVDA_data);
+                // let, val_ath=0,val_atl=0,curr_price=0,perc_off_ath=0;
+                let data_keys = Object.keys(monthly_data);
+                for(let i=0; i<data_keys.length;i++){
+                    daily_data = monthly_data[data_keys[i]];
+                    if(parseFloat(daily_data["2. high"]) > calculate_ATH){
+                        calculate_ATH = parseFloat(daily_data["2. high"])
+                    }
+                    if(parseFloat(daily_data["3. low"]) < calculate_ATL || calculate_ATL===0){
+                        calculate_ATL = parseFloat(daily_data["3. low"])
+                    }
+                }
+
+                console.log('ATH:',calculate_ATH)
+                console.log('ATL:',calculate_ATL)
+                console.log('Curr Price:', current_PRICE)
+                console.log('%off ATH', perc_off_ath)
+                
+                return;
+            }
+
+
+            // const apiKey = '';
+            // const symbol = 'NVDA';
+            const apiUrl = `https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=${target_SYMBOL}&apikey=${stock_api_key}`;
+            fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                debugger;
+                localStorage.monthly_NVDA_data = JSON.stringify(data["Monthly Adjusted Time Series"]);
+
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+
+
+        }; init_monthly();
+
+        let setAPIKEY = ()=>{
+            debugger;
+            if(keyINPUT.value){
+                stock_api_key = keyINPUT.value;
+                localStorage.stock_api_key = stock_api_key
+                initLedger()
+            }
+        }
+
+        let setTickerTGT = ()=>{
+  
+        }       
+
+
+
+
+         let textareaBOX = document.getElementById('textareaBOX');
+         let allchatBOX = document.getElementById('allchatBOX');
+         let textareaTXT = [], selectedTXT='';
+
+         let stateErrorBox = document.getElementById('errorBox');
+         let stateSavedBox = document.getElementById('savedBox');
+         let stateCopiedBox = document.getElementById('copiedBox');
+         let transcript, txtline, txttgt;
+         let all_chat_docs = [], chat_doc = {};
+         let recognition = new webkitSpeechRecognition() || new SpeechRecognition();       
+         let transcribeTXT = () => {
+            if(textareaBOX.classList.contains('hiddenTab')){//not visible, make visible.
+               allchatBOX.classList.add('hiddenTab')
+               textareaBOX.classList.remove('hiddenTab')
+               return;
+            }
+            recognition.onstart = () => { //------------------Connected
+                toggleRecordState(true);
+            }
+            recognition.onresult = (e) => {//---------------END RECORD
+               transcript = e.results[0][0].transcript;
+               textareaTXT.push(transcript)
+               textareaBOX.value = textareaTXT.join('\n');
+                toggleRecordState(false);
+            }
+            recognition.start();
+         }
+         let toggleRecordState = (state) => { 
+            if(state){//Connected
+                stateConnectedBox.style.display = "inline";
+               stateNotConnectedBox.style.display = "none";   
+               stateErrorBox.style.display = "none";   
+            }else{ //NOT Connected
+                stateConnectedBox.style.display = "none";
+                stateNotConnectedBox.style.display = "inline";        
+                stateErrorBox.style.display = "none";        
+            }
+         }
+         let stopTXT = () => { 
+            recognition.stop();
+            toggleRecordState(false);                  
+         };
+         let primeFn = () => {
+            selectedTXT = textareaBOX.value.substring(textareaBOX.selectionStart, textareaBOX.selectionEnd);
+            if(selectedTXT){
+               function formatPrimeKey() {// Replace spaces with underscores
+                  let addEndSpace = false;
+                  if(selectedTXT.charAt(selectedTXT.length-1)===' '){addEndSpace=true;}
+                  transcript = selectedTXT.replace(/[ ]/g, '_');
+                  transcript = transcript.replace(/[^a-zA-Z_]+/g, '');
+                  transcript = `_${transcript}_`; //Wrap in _
+                  transcript = transcript.replace(/__/g, '_');
+                  transcript = (addEndSpace)?transcript+' ':transcript;
+               }; formatPrimeKey();
+               textareaBOX.value = textareaBOX.value.substring(0, textareaBOX.selectionStart) +
+                  transcript +
+                  textareaBOX.value.substring(textareaBOX.selectionEnd);
+               textareaBOX.focus();
+            }else{ showErrorMSG('⚠️ double click select...') }
+         }
+         let omniFn = () => { 
+            selectedTXT = textareaBOX.value.substring(textareaBOX.selectionStart, textareaBOX.selectionEnd);
+            if(selectedTXT && selectedTXT.indexOf(' ')>-1){
+               let addEndSpace = false;
+               if(selectedTXT.charAt(selectedTXT.length-1)===' '){addEndSpace=true;}
+               transcript = selectedTXT.replace(/ /g,'_')
+               transcript = transcript.replace(/[,.!?<>;:|'"-]/g, '');
+               transcript = (addEndSpace)?transcript+' ':transcript;
+               textareaBOX.value = textareaBOX.value.substring(0, textareaBOX.selectionStart) +
+                  transcript +
+                  textareaBOX.value.substring(textareaBOX.selectionEnd);
+               textareaBOX.focus();
+            }else{ showErrorMSG('⚠️ select text with spaces...') }
+          }
+         let alphaFn = () => { 
+            selectedTXT = textareaBOX.value.substring(textareaBOX.selectionStart, textareaBOX.selectionEnd);
+            if(selectedTXT){
+               function formatAlphaKey() {// Replace spaces with underscores
+                  let addEndSpace = false;
+                  if(selectedTXT.charAt(selectedTXT.length-1)===' '){addEndSpace=true;}
+                  transcript = selectedTXT.replace(/[ ]/g, '').toUpperCase();
+                  transcript = transcript.replace(/[^a-zA-Z_]+/g, '');
+                  transcript = `a${transcript}a`; //Wrap in _
+                  transcript = transcript.replace(/aa/g, 'a');
+                  transcript = (addEndSpace)?transcript+' ':transcript;
+               }; formatAlphaKey();
+               textareaBOX.value = textareaBOX.value.substring(0, textareaBOX.selectionStart) +
+                  transcript +
+                  textareaBOX.value.substring(textareaBOX.selectionEnd);
+               textareaBOX.focus();
+            }else{ showErrorMSG('⚠️ select any word...') }
+          }
+         let ymdFn = () => { 
+            transcript = textareaBOX.value;
+            textareaTXT = transcript.split('\n')             
+            if(textareaTXT && textareaTXT.length>0){
+               textareaTXT.push(current_ymd);
+               textareaBOX.value = textareaTXT.join('\n');
+            }            
+          }
+          let hrFn = () => {
+            transcript = textareaBOX.value;
+            textareaTXT = transcript.split('\n')             
+            if(textareaTXT && textareaTXT.length>0){
+               textareaTXT.push('<hr></hr>');
+               textareaBOX.value = textareaTXT.join('\n');
+            }             
+         }             
+         let undoFn = () => { 
+            transcript = textareaBOX.value;
+            textareaTXT = transcript.split('\n')             
+            if(textareaTXT && textareaTXT.length>0){
+               textareaTXT = textareaTXT.slice(0,textareaTXT.length-1)
+               textareaBOX.value = textareaTXT.join('\n');
+            }
+         };         
+         let titlelineFn = () => {  
+            transcript = textareaBOX.value;
+            textareaTXT = transcript.split('\n')
+            if(textareaTXT && textareaTXT.length>0){
+                txtline = textareaTXT[textareaTXT.length-1]
+                if(txtline.charAt(0)==='#'){
+                    if(txtline.charAt(1)==='#'){
+                        if(txtline.charAt(2)==='#'){// back to blank
+                            txtline = txtline.split(' ')
+                            txtline = txtline.splice(1,txtline.length).join(' ')
+                        }else{ //add 3
+                            txtline = '#'+txtline;
+                        }
+                    }else{ //add 2
+                        txtline = '#'+txtline;
+                    }
+                }else{ //add 1
+                    txtline = '# '+txtline;
+                }
+                textareaTXT[textareaTXT.length-1] = txtline;
+                textareaBOX.value = textareaTXT.join('\n');
+                toggleRecordState(false);
+                recognition.stop();
+            }
+         };          
+         let numberlineFn = () => {  
+            transcript = textareaBOX.value;
+            textareaTXT = transcript.split('\n')
+            if(textareaTXT && textareaTXT.length>0){
+                txtline = textareaTXT[textareaTXT.length-1]
+                function incrementNum(inputString) { //regex iteration of number lists
+                    return inputString.replace(/^(\d+\.)?(.*)$/, function(match, number, rest) {
+                        if (number === undefined) { // If no number, add "1." at the beginning
+                            return "1. " + rest;
+                        } else {// If number, increment and add back to string
+                            return (parseInt(number, 10) + 1) + "." + rest;
+                        }
+                    });
+                }; 
+                txtline = incrementNum(txtline);
+                textareaTXT[textareaTXT.length-1] = txtline;
+                textareaBOX.value = textareaTXT.join('\n');
+                toggleRecordState(false);
+                recognition.stop();
+            }
+         }
+      
+         let quotelineFn = () => { 
+            transcript = textareaBOX.value;
+            textareaTXT = transcript.split('\n')
+            if(textareaTXT && textareaTXT.length>0){
+               if(textareaTXT[textareaTXT.length-1].indexOf('> ')===0){
+                  txtline = textareaTXT[textareaTXT.length-1].replace('> ','')
+               } else {
+                  txtline = '> '+textareaTXT[textareaTXT.length-1]
+               }
+                textareaTXT[textareaTXT.length-1] = txtline;
+                textareaBOX.value = textareaTXT.join('\n');
+                toggleRecordState(false);
+                recognition.stop();
+            }            
+         }
+         let endlineFn = () => {  
+            transcript = textareaBOX.value;
+            textareaTXT = transcript.split('\n')
+            if(textareaTXT && textareaTXT.length>0){
+                txtline = textareaTXT[textareaTXT.length-1]
+                txttgt = txtline.charAt(txtline.length-1)
+                if(txttgt==='.'){ txtline=setCharAt(txtline,txtline.length-1,',');
+                } else if(txttgt===','){ txtline=setCharAt(txtline,txtline.length-1,'_');
+                } else if(txttgt==='_'){ txtline=setCharAt(txtline,txtline.length-1,'?');
+                } else if(txttgt==='?'){ txtline=setCharAt(txtline,txtline.length-1,'!');
+                } else if(txttgt==='!'){ txtline=setCharAt(txtline,txtline.length-1,'.');
+                } else { txtline += '.';}
+                textareaTXT[textareaTXT.length-1] = txtline;
+                textareaBOX.value = textareaTXT.join('\n');
+                toggleRecordState(false);
+                recognition.stop();
+            }
+         };   
+         let saveChatFn = () => { //
+            let updated_doc = false;
+            txttgt = getCurrentDocTitle();
+            all_chat_docs = (localStorage.all_chat_docs)?
+               JSON.parse( localStorage.all_chat_docs ):[];
+            chat_doc = new Object();
+            chat_doc.title = txttgt;
+            chat_doc.txt = textareaBOX.value;               
+            for(let i = 0; i<all_chat_docs.length;i++){
+               if(all_chat_docs[i].title===txttgt){ //replace
+                  all_chat_docs[i] = chat_doc
+                  updated_doc = true;
+                  break;
+               }
+            }
+            if(!updated_doc){
+               all_chat_docs.push(chat_doc)
+            } //SAVE TO LOCAL STORAGE
+            localStorage.all_chat_docs = JSON.stringify(all_chat_docs)
+            //saved msg
+            stateSavedBox.style.display = "inline";
+            stateConnectedBox.style.display = "none";
+            stateNotConnectedBox.style.display = "none";              
+            setTimeout( ()=>{
+               stateSavedBox.style.display = "none";
+               stateConnectedBox.style.display = "none";
+               stateNotConnectedBox.style.display = "inline";  
+               selectedTXT = '';
+            },3000)                        
+         };   
+         let copyChatFn = () => { 
+            textareaBOX.select();
+            transcript = textareaBOX.value;
+            navigator.clipboard.writeText(transcript);
+            //copied msg
+            //saved msg
+            stateCopiedBox.style.display = "inline";
+            stateConnectedBox.style.display = "none";
+            stateNotConnectedBox.style.display = "none";              
+            setTimeout( ()=>{
+               stateCopiedBox.style.display = "none";
+               stateConnectedBox.style.display = "none";
+               stateNotConnectedBox.style.display = "inline";  
+               selectedTXT = '';
+            },3000)               
+            setTimeout( ()=>{document.getSelection().collapseToEnd()},2000)
+         };          
+         let allChatFn = () => { 
+            if(allchatBOX.classList.contains('hiddenTab') ){
+               allchatBOX.classList.remove('hiddenTab')
+               textareaBOX.classList.add('hiddenTab')
+               docLoad();
+            } else {
+               allchatBOX.classList.add('hiddenTab')
+               textareaBOX.classList.remove('hiddenTab')
+            }
+         };   
+//-END-BTN-HANDLERS-------------------------------------------------
+//-HELPER_fns-------------------------------------------------------
+         let getCurrentDocTitle = () => {
+            transcript = textareaBOX.value;
+            textareaTXT = transcript.split('\n')
+            if(textareaTXT && textareaTXT.length>0){            
+               return textareaTXT[0];
+            }
+            return ''
+         }
+         let docLoad = () => { //reload all doc view
+            //load data for view from local storage
+            all_chat_docs = (localStorage.all_chat_docs)?JSON.parse( localStorage.all_chat_docs ):[];
+            const btnContainer = document.getElementById('btnContainer');
+            btnContainer.innerHTML='';
+            // Map over the array and create buttons
+            all_chat_docs.forEach(item => {
+               const section1 = document.createElement('section');
+               section1.classList.add('docRowBox')
+               const button1 = document.createElement('button');
+               button1.textContent = item.title;
+               button1.classList.add('docTopicBtn')
+               button1.onclick = function() { docLookup(item.title); };
+               section1.appendChild(button1);
+               const button2 = document.createElement('button');
+               button2.textContent = '🗑️';
+               button2.classList.add('docDeleteBtn')
+               button2.onclick = function() { docDelete(item.title); };
+               section1.appendChild(button2);                  
+               btnContainer.appendChild(section1);                  
+            });            
+         }
+         let docLookup = (text) => { //load txt, and switch to view
+            transcript = '';
+            all_chat_docs = (localStorage.all_chat_docs)?
+               JSON.parse( localStorage.all_chat_docs ):[];
+            for(var i=0; i<all_chat_docs.length;i++){
+               if(all_chat_docs[i].title===text){
+                  transcript = all_chat_docs[i].txt;
+                  break;
+               }
+            }
+            textareaBOX.value = transcript;
+            textareaTXT = transcript.split('\n')
+            allchatBOX.classList.add('hiddenTab')
+            textareaBOX.classList.remove('hiddenTab') 
+         } 
+         let docDelete = (text) => { //lookup, remove from local storage.
+            all_chat_docs = (localStorage.all_chat_docs)?
+               JSON.parse( localStorage.all_chat_docs ):[];
+            for(var i=0; i<all_chat_docs.length;i++){
+               if(all_chat_docs[i].title===text){ //-----FOUND DOC
+                  // transcript = all_chat_docs[i].txt;
+                  all_chat_docs.splice(i,1)
+                  localStorage.all_chat_docs = JSON.stringify(all_chat_docs)
+                  docLoad();
+                  break; //splice object out
+               }
+            }
+            // allchatBOX.classList.add('hiddenTab')
+            // textareaBOX.classList.remove('hiddenTab') 
+         } 
+         function setCharAt(str,idx,chr) {
+            if(idx > str.length-1) return str;
+            return str.substring(0,idx) + chr + str.substring(idx+1);
+        }        
+         let keyupTXT = (e) => {
+            transcript = textareaBOX.value;
+            textareaTXT = transcript.split('\n')
+         }
+         let showErrorMSG = (err) => {
+            console.log(err)
+            stateErrorBox.innerHTML = err;
+            stateErrorBox.style.display = "inline";
+            stateConnectedBox.style.display = "none";
+            stateNotConnectedBox.style.display = "none";              
+            setTimeout( ()=>{
+               stateErrorBox.style.display = "none";
+               stateConnectedBox.style.display = "none";
+               stateNotConnectedBox.style.display = "inline";  
+               selectedTXT = '';
+            },3000)
+         }
+         // textareaBOX.addEventListener("select", (e) => {
+         //    selectedTXT = e.target.value.substring(
+         //       event.target.selectionStart,
+         //       event.target.selectionEnd,
+         //    );
+         // });
+         recognition.addEventListener("error", (event) => {
+            console.error(`Speech recognition error TRY CHROME browser: ${event.error}`);
+            textareaTXT.push("Try CHROME browser. ~ : )")
+            textareaBOX.innerHTML = textareaTXT.join('\n');
+            toggleRecordState(false);
+        });          
+      </script> 
+   </body>
+</html>

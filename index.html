@@ -40,18 +40,23 @@
             line-height: 31px;
             padding: 8px 10px;
          }
+         #rightBOX,#leftBOX{margin:2px;border: solid 1px steelblue;}
         
       @media only screen and (max-width: 800px) { /* TABLET */
          body{  background-color: #04223c;}
          .btnTXT{font-size:0.888em;}
          .mainBtn{margin:0.888em;}
          .subMenuBtn{font-size:0.666em;}
+         /* #messageBOX{flex-direction: column;} */
+         #rightBOX{margin-right:10px; border:0px} 
+         #leftBOX{margin-left:20px; border:0px }
       }  
       @media only screen and (max-width: 500px) { /* PHONE */
-         body{ background-color: #07589f;}
+         body{ background-color: #032a4b;}
          .btnTXT{font-size:0.888em;}
          .mainBtn{margin:0.666em;}
          .subMenuBtn{font-size:0.666em;}
+         #messageBOX{flex-direction: column;}
       }
      </style>
      <aside class="topLeftBtn1">
@@ -60,6 +65,8 @@
       </aside>
       <aside style="font-size: 0.666em;color: steelblue;margin: -10px 0 4px 0;">
         ai_visualizer</aside>
+      <aside style="font-size: 0.666em;color: steelblue;margin: -10px 0 4px 0;">
+      </aside>
       <aside class="topRightBtn2">
          <span class="txt1">charts</span>
          <span class="icon1" style="border-radius:100%;background:crimson; 
@@ -112,15 +119,29 @@
             💡</span><span class="btnTX hoverTXT">Market</span>
          </button>
         </header>
-        <main id="keyBOX" style="display:inline;">
-            Set API_KEY:<input id="keyINPUT"  type="text" placeholder="api_key" ></input>
-            <button onclick="setAPIKEY();">SET</button>
-        </main>
-        <main id="symbolBOX" style="display:none;">
+      <header id="messageBOX" style="display:flex">
+         <section id="leftBOX" style="display:flex; justify-content: center;
+         border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
+         ">ai probability forcast schedule</section>            
+         <section id="keyBOX" style="display:flex;border: solid 1px steelblue;
+         border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
+         margin:2px;">
+               Set API_KEY:<input id="keyINPUT"  type="text" placeholder="api_key" 
+               style="margin-left: 1em;
+               border-radius: 10px 0px 0px 10px;"></input>
+               <button style="margin-right: 1em;
+               border-radius: 0px 10px 10px 0px; font-size:0.888em;" onclick="setAPIKEY();">SET</button>
+         </section>
+         <section id="rightBOX" style="display:flex;  justify-content: center;
+         border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
+         ">encode and decode a financial ledger</section>
+      
+      </header>         
+        <!-- <main id="symbolBOX" style="display:none;">
             Set TICKER_TGT:<input id="symbolINPUT" type="text" placeholder="symbol" ></input>
             <button onclick="setTickerTGT();">SET TGT</button>
             <button onclick="updateTickerData();">update data</button>
-        </main>
+        </main> -->
         <!-- <menu style="display:flex;justify-content:space-evenly;
             margin:0;padding:0;margin-top:-6px;border-radius: 30px;
             box-shadow: inset -2px -8px 17px 0px #3737cf;background: #182b3d;
@@ -133,24 +154,43 @@
          <button class="subMenuBtn" onclick="hrFn()"><span style="font-size: 0.777em;
             ">__</span></button>
         </menu> -->
-      <section id="allchatBOX"  class="hiddenTab" style="width:80.888%;height:100%;margin: 0 2% 0 2%;
+      <!-- <section id="allchatBOX"  class="hiddenTab" style="width:80.888%;margin: 0 2% 0 2%;
       border-radius: 13px; border: solid 1px steelblue; box-shadow: 1px 1px 11px 0px cyan;
       padding: 4% 0 4% 4%; color: cyan;">
          <header style="font-size: 0.777em;">SAVE CHATS (by title): </header>
          <article id="btnContainer" style="display:flex;flex-direction:column;
                align-items:flex-start;">
          </article>
+      </section> -->
+
+      <section id="encodeBOX"
+        style="width:80.888%;height:10%;margin:2%;
+        border-radius: 13px; border: solid 1px steelblue; 
+        box-shadow: 1px 1px 11px 0px cyan;
+        padding:2%; color: cyan; line-height: 2.444em;"
+        ><span>Encode:</span>
       </section>
-      <textarea id="textareaBOX"
+      
+      <section id="decodeBOX"
         style="width:80.888%;height:100%;margin: 0 2% 0 2%;
+        background: rebeccapurple;
         border-radius: 13px; border: solid 1px steelblue; box-shadow: 1px 1px 11px 0px cyan;
-        padding: 4% 0 4% 4%; color: cyan; line-height: 2.444em;" spellcheck="false"
-        onkeyup="keyupTXT();">All I need to know, is when Dr.Pepper is at all time high.
-         Also helpful, would be % off of ATH, and recency of ATH.
+        padding: 4% 0 4% 4%; color: cyan; line-height: 2.444em;" 
+        ">
+        
+        <span>Decode:</span><br>
+        Generate % off of ATH, and recency of ATH.
         And, Id like to see QUARTERLY HiGH/LOWS (QHL) and MHL (monthly high lows.) 
         
-        </textarea>
-    <menu style="display:flex;justify-content:space-evenly;background: #182b3d;
+       <hr>
+       <span>Schedule:</span><br>
+       <hr>
+       <span>Profit and Loss:</span><br>
+       <hr>
+       <span>History:</span><br>
+
+      </section>
+    <!-- <menu style="display:flex;justify-content:space-evenly;background: #182b3d;
         border-radius: 30px;margin:0;padding:0;margin-bottom:-6px;
         box-shadow: inset -5px 7px 8px 0px #472c88;">
         <button class="subMenuBtn" onclick="undoFn()">↶undo</button>
@@ -158,7 +198,7 @@
         <button class="subMenuBtn" onclick="numberlineFn()">🔢1.2.3.</button>
         <button class="subMenuBtn" onclick="endlineFn()">🔣.,_?!</button>
         <button class="subMenuBtn" onclick="quotelineFn()">*️⃣quote</button>
-    </menu>
+    </menu> -->
       <footer style="display:flex;justify-content:space-evenly;width:90%;margin:0 auto; 
       margin-bottom:0.666%;
       background-image: linear-gradient(grey, steelblue, black);
@@ -204,18 +244,57 @@
         let current_PRICE = 0;
 
 
-        let initLedger = ()=>{
-            console.log('load leadger object, and hydrate charts.')
+        let ledgerOBJs = {
+            "spotz":[
+               {
+                  "ymd":"2023_9_20",
+                  "tickr":"nvda",
+                  "value":100.00
+               },
+               {
+                  "ymd":"2022_9_22",
+                  "tickr":"nvda",
+                  "value":100.00
+               },
+               {
+                  "ymd":"2022_9_22",
+                  "tickr":"cost",
+                  "value":100.00
+               }               
 
-            let ledgerOBJ = {
-                "targetz":[{"symb":"nvda"}],
-                "betz":[
-                    {
-                        "date":"2023_9_20",
-                        "symb":"nvda",
-                        "spot":"100.00"
-                    }
-                ]
+            ]
+         }
+
+
+        let initLedger = ()=>{
+            console.log('load leadger object');
+            //populate encode table
+            for(var i=0; i<ledgerOBJs.length;i++){
+
+            }
+        }; initLedger();
+
+
+
+        
+        let stock_api_key = null;//API_KEY - set in local storage.
+        let init_api_key = ()=>{
+            //Does local storage have API_KEY?
+            if(!localStorage.stock_api_key){ //if no: display enter key
+                stateConnectedBox.style.display = "none";
+                stateNotConnectedBox.style.display = "inline";                   
+                symbolBOX.style.display = "none";
+                keyBOX.style.display = "inline";                   
+                //SHOW NOT CONNECTED. Hide connected. Hide tgt show key input.
+            } else {//if yes init
+                //SHOW CONNNECTED and tgt, hide disconnected and key input
+                stateConnectedBox.style.display = "inline";
+                stateNotConnectedBox.style.display = "none";   
+                symbolBOX.style.display = "inline";
+                keyBOX.style.display = "none"; 
+
+                stock_api_key = (localStorage.stock_api_key)?localStorage.stock_api_key:'';
+                //initLedger() 
             }
 
     //         debugger;
@@ -241,29 +320,10 @@
     //         });
 
 
-        }
+        }; //init_api_key();
 
-        
-        let stock_api_key = null;//API_KEY - set in local storage.
-        let init_api_key = ()=>{
-            //Does local storage have API_KEY?
-            if(!localStorage.stock_api_key){ //if no: display enter key
-                stateConnectedBox.style.display = "none";
-                stateNotConnectedBox.style.display = "inline";                   
-                symbolBOX.style.display = "none";
-                keyBOX.style.display = "inline";                   
-                //SHOW NOT CONNECTED. Hide connected. Hide tgt show key input.
-            } else {//if yes init
-                //SHOW CONNNECTED and tgt, hide disconnected and key input
-                stateConnectedBox.style.display = "inline";
-                stateNotConnectedBox.style.display = "none";   
-                symbolBOX.style.display = "inline";
-                keyBOX.style.display = "none"; 
 
-                stock_api_key = (localStorage.stock_api_key)?localStorage.stock_api_key:'';
-                initLedger() 
-            }
-        }; init_api_key();
+
 
 
         let init_monthly = ()=>{

@@ -3,10 +3,10 @@
 <head>
    <title>ai_visual_ledger</title>
 </head>
-   <body>
+   <body style="display:flex;flex-direction: column;">
      <style>/* PC */
         html, body { height: 100%; width:100%; background:black; margin:0}
-        body{padding-top:1em;display:flex;flex-direction:column;
+        body{padding-top:1em;display:flex;flex-direction:column;overflow:hidden;
          justify-content:space-evenly;align-items:center;}
          .topLeftBtn1{position:absolute;top:3px;left:6px;display:flex;}
          .topLeftBtn1 .txt1{ color:skyblue; font-size:0.444em;margin:3px 0 0 3px;}
@@ -22,6 +22,17 @@
         .subMenuBtn { color:#75bdb7; border-radius: 13px;  background-image: linear-gradient(grey, steelblue, black);
                    margin:0.666em;cursor:pointer;font-size:0.888em;padding: 2px 6px 4px 6px; }
         .btnTXT{font-size:1em;}
+        .genBtn1{font-size:0.666em; border-radius:22px; cursor:pointer;
+         background:#03cbcb; border-radius: 10px;}
+        .genInput1{    border-radius: 10px;
+         max-width: 66px;
+    text-align: center;
+    font-size: 0.666em;
+    color: cyan;;
+    background: #6679a0;
+    margin: 0 1em;}
+        .genRow1{margin:0.111em; width:88%; border:solid 1px steelblue;
+            border-radius:18px;}
         /* .btnTXT:hover{color:navajowhite;} */
         .hoverTXT:hover{color:navajowhite;}
         /* .mainBtn:hover{color:navajowhite} */
@@ -48,11 +59,11 @@
          .mainBtn{margin:0.888em;}
          .subMenuBtn{font-size:0.666em;}
          /* #messageBOX{flex-direction: column;} */
-         #rightBOX{margin-right:10px; border:0px} 
-         #leftBOX{margin-left:20px; border:0px }
+         #rightBOX{margin-right:6%; border:0px} 
+         #leftBOX{margin-left:8%; border:0px }
       }  
       @media only screen and (max-width: 500px) { /* PHONE */
-         body{ background-color: #032a4b;}
+         body{ background-color: #190c3d;}
          .btnTXT{font-size:0.888em;}
          .mainBtn{margin:0.666em;}
          .subMenuBtn{font-size:0.666em;}
@@ -72,7 +83,7 @@
          <span class="icon1" style="border-radius:100%;background:crimson; 
          border:2px solid grey;">🎢</span>
          </aside>      
-      <header style="display:flex;justify-content:space-evenly;
+      <header style="display:flex;justify-content:space-evenly; flex: 0 0 auto;
         background-image: linear-gradient(grey, steelblue, black);
         box-shadow:0 0 14px 0px steelblue;border-radius:13px; margin:0 auto;
         width:93%;">
@@ -119,7 +130,7 @@
             💡</span><span class="btnTX hoverTXT">Market</span>
          </button>
         </header>
-      <header id="messageBOX" style="display:flex">
+      <header id="messageBOX" style="display:flex;flex: 0 0 auto;">
          <section id="leftBOX" style="display:flex; justify-content: center;
          border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
          ">ai probability forcast schedule</section>            
@@ -127,10 +138,10 @@
          border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
          margin:2px;">
                Set API_KEY:<input id="keyINPUT"  type="text" placeholder="api_key" 
-               style="margin-left: 1em;
+               style="margin-left: 1em; background:#233453;
                border-radius: 10px 0px 0px 10px;"></input>
-               <button style="margin-right: 1em;
-               border-radius: 0px 10px 10px 0px; font-size:0.888em;" onclick="setAPIKEY();">SET</button>
+               <button style="margin-right: 1em; background:#03cbcb;cursor:pointer;
+               border-radius: 0px 10px 10px 0px; font-size:0.666em;" onclick="setAPIKEY();">SET</button>
          </section>
          <section id="rightBOX" style="display:flex;  justify-content: center;
          border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
@@ -162,19 +173,27 @@
                align-items:flex-start;">
          </article>
       </section> -->
+<article id="scrollFrame" style="overflow:auto;    display: flex;
+flex-direction: column;
+align-items: center;">
+
 
       <section id="encodeBOX"
-        style="width:80.888%;height:10%;margin:2%;
+        style="width:80.888%;margin:2%; flex:1;
         border-radius: 13px; border: solid 1px steelblue; 
         box-shadow: 1px 1px 11px 0px cyan;
-        padding:2%; color: cyan; line-height: 2.444em;"
+        padding:2%; color: cyan; line-height: 2.444em;
+        display: flex;
+    flex-direction: column;
+
+    "
         ><span>Encode:</span>
       </section>
       
       <section id="decodeBOX"
-        style="width:80.888%;height:100%;margin: 0 2% 0 2%;
+        style="width:80.888%;height:100%;margin: 0 2% 0 2%; flex:1;
         background: rebeccapurple;
-        border-radius: 13px; border: solid 1px steelblue; box-shadow: 1px 1px 11px 0px cyan;
+        border-radius: 13px; border: solid 1px steelblue; box-shadow: 0px 7px 20px 6px #39029e;
         padding: 4% 0 4% 4%; color: cyan; line-height: 2.444em;" 
         ">
         
@@ -190,6 +209,7 @@
        <span>History:</span><br>
 
       </section>
+   </article>
     <!-- <menu style="display:flex;justify-content:space-evenly;background: #182b3d;
         border-radius: 30px;margin:0;padding:0;margin-bottom:-6px;
         box-shadow: inset -5px 7px 8px 0px #472c88;">
@@ -200,7 +220,7 @@
         <button class="subMenuBtn" onclick="quotelineFn()">*️⃣quote</button>
     </menu> -->
       <footer style="display:flex;justify-content:space-evenly;width:90%;margin:0 auto; 
-      margin-bottom:0.666%;
+      margin-bottom:0.666%; flex: 0 0 auto;
       background-image: linear-gradient(grey, steelblue, black);
       box-shadow:0 0 14px 0px steelblue;border-radius:13px;">
        <button class="" onclick="saveChatFn()" style="margin:1em;border-radius:8px;background:grey;
@@ -231,9 +251,13 @@
         let symbolBOX = document.getElementById('symbolBOX');
         let keyINPUT = document.getElementById('keyINPUT');
         let symbolINPUT = document.getElementById('symbolINPUT');
-
+        
         let stateConnectedBox = document.getElementById('ConnectedBox');
         let stateNotConnectedBox = document.getElementById('notConnectedBox');
+        
+
+        let encodeBOX = document.getElementById('encodeBOX');
+        let decodeBOX = document.getElementById('decodeBOX');
 
         //CALCULATIONS
         let target_SYMBOL = 'NVDA';
@@ -269,8 +293,22 @@
         let initLedger = ()=>{
             console.log('load leadger object');
             //populate encode table
-            for(var i=0; i<ledgerOBJs.length;i++){
-
+            // debugger;
+            let encodeRow, input1, btn1 = null,uniqueMAP={};
+            for(var i=0; i<ledgerOBJs.spotz.length;i++){
+               if(uniqueMAP[ledgerOBJs.spotz[i].tickr]){continue;}
+               encodeRow = document.createElement('article')
+               input1 = document.createElement('input')
+               btn1 = document.createElement('button')
+               btn1.innerHTML = 'generate'
+               input1.value = ledgerOBJs.spotz[i].tickr;
+               input1.classList.add('genInput1')
+               btn1.classList.add('genBtn1')
+               encodeRow.classList.add('genRow1')
+               encodeRow.appendChild(input1)
+               encodeRow.appendChild(btn1)
+               encodeBOX.appendChild(encodeRow)
+               uniqueMAP[ledgerOBJs.spotz[i].tickr] = ledgerOBJs.spotz[i];
             }
         }; initLedger();
 
@@ -371,14 +409,14 @@
             });
 
 
-        }; init_monthly();
+        }; //init_monthly();
 
         let setAPIKEY = ()=>{
             debugger;
             if(keyINPUT.value){
                 stock_api_key = keyINPUT.value;
                 localStorage.stock_api_key = stock_api_key
-                initLedger()
+               //  initLedger()
             }
         }
 

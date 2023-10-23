@@ -5,6 +5,7 @@
 </head>
    <body style="display:flex;flex-direction: column;">
      <style>/* PC */
+      hr{border:solid 1px cadetblue}
         html, body { height: 100%; width:100%; background:black; margin:0}
         body{padding-top:1em;display:flex;flex-direction:column;overflow:hidden;
          justify-content:space-evenly;align-items:center;}
@@ -22,17 +23,60 @@
         .subMenuBtn { color:#75bdb7; border-radius: 13px;  background-image: linear-gradient(grey, steelblue, black);
                    margin:0.666em;cursor:pointer;font-size:0.888em;padding: 2px 6px 4px 6px; }
         .btnTXT{font-size:1em;}
+        .addBtn1{border-radius:13px;background:#7bd67b;float: right;
+    margin-right: 2%;cursor:pointer;
+    font-size: 0.666em;
+}
         .genBtn1{font-size:0.666em; border-radius:22px; cursor:pointer;
-         background:#03cbcb; border-radius: 10px;}
+         background:#5fa9a9; border-radius: 10px;color: #5fa9a9
+         margin: 1em;
+      }
+
+      .delBtn1{    border: solid 1px #9e1717;
+    border-radius: 100%;
+    background: #5b1477;
+    font-size: 0.777em;
+   }
+
+        .decodeTick1{          border-radius: 8px;
+    font-size: 0.666em;
+    background: rgb(37, 24, 102);
+    color: cadetblue;
+    margin: 1em;
+    max-width: 66px;
+    text-align: center;
+        }
+        .genPrice1{     border-radius: 8px;
+    font-size: 0.666em;
+    background: #baa485;
+    color: #32428a;
+    padding-left: 1em;
+    margin: 1em;
+    max-width: 84px;
+    text-align: center;}
         .genInput1{    border-radius: 10px;
          max-width: 66px;
     text-align: center;
     font-size: 0.666em;
     color: cyan;;
     background: #6679a0;
-    margin: 0 1em;}
-        .genRow1{margin:0.111em; width:88%; border:solid 1px steelblue;
-            border-radius:18px;}
+    margin: 1em;}
+    .decodeDate1{
+      font-size:0.444em;color: #1a8c8c;
+    }
+        .decodeRow1{margin: 2%;
+    width: 88%;
+    border: solid 1px steelblue;
+    padding: 0 0 0 4%;
+    border-radius: 6px;
+        }
+        .genRow1{margin:0.111em; width:92%; border:solid 1px steelblue;
+            border-radius:18px;padding-left: 3%;
+            display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+         }
         /* .btnTXT:hover{color:navajowhite;} */
         .hoverTXT:hover{color:navajowhite;}
         /* .mainBtn:hover{color:navajowhite} */
@@ -51,10 +95,21 @@
             line-height: 31px;
             padding: 8px 10px;
          }
-         #rightBOX,#leftBOX{margin:2px;border: solid 1px steelblue;}
+         #rightBOX,#leftBOX,#keyBOX{margin:2px;border: solid 1px steelblue;width: 100%;font-size: 0.777em;}
         
+      .smICON{font-size:0.555em;}
+
+      /*  custom scroll bar */
+      /* .scrollBar2 {height:97%; overflow-x:hidden; background:#010111; border: 1px steelblue solid; border-radius:13px; padding:0.5em; } */
+      .scrollBarV {height:97%; overflow-x:scroll; background:#010111; border: 1px steelblue solid; border-radius:13px;  }
+      .scrollBarV::-webkit-scrollbar-track { background-color: #010213;  border-radius: 13px; }
+      .scrollBarV::-webkit-scrollbar { width: 0.666em; height: 100%; }
+      .scrollBarV::-webkit-scrollbar-thumb { background-color: #04223c; border-radius: 13px;
+      background-image: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 0.6) 26%, transparent 26%, transparent 51%, rgba(255, 255, 255, -0.4) 51%, rgba(255, 255, 255, 0.6) 74%, transparent 74%, transparent);
+      }
+
       @media only screen and (max-width: 800px) { /* TABLET */
-         body{  background-color: #04223c;}
+         body{  background-color: #000f1b;}
          .btnTXT{font-size:0.888em;}
          .mainBtn{margin:0.888em;}
          .subMenuBtn{font-size:0.666em;}
@@ -63,12 +118,13 @@
          #leftBOX{margin-left:8%; border:0px }
       }  
       @media only screen and (max-width: 500px) { /* PHONE */
-         body{ background-color: #190c3d;}
+         body{ background-color: #08011e;}
          .btnTXT{font-size:0.888em;}
          .mainBtn{margin:0.666em;}
          .subMenuBtn{font-size:0.666em;}
          #messageBOX{flex-direction: column;}
       }
+
      </style>
      <aside class="topLeftBtn1">
       <span class="icon1" style="border-radius:100%;background:steelblue; 
@@ -96,7 +152,7 @@
          </button>
 
          <section id="notConnectedBox" class="mainBtn" style="border-radius:8px;
-         background:limegreen;padding: 6px;">
+         background:#61f361;padding: 6px;">
             <span>🔴</span> Not Connected 
         </section>
 
@@ -133,19 +189,19 @@
       <header id="messageBOX" style="display:flex;flex: 0 0 auto;">
          <section id="leftBOX" style="display:flex; justify-content: center;
          border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
-         ">ai probability forcast schedule</section>            
+         "><span class="smICON">✴&nbsp;&nbsp;</span> ai probability stock forcast <span class="smICON">&nbsp;✳</span></section>            
          <section id="keyBOX" style="display:flex;border: solid 1px steelblue;
          border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
          margin:2px;">
-               Set API_KEY:<input id="keyINPUT"  type="text" placeholder="api_key" 
+               API:<input id="keyINPUT"  type="text" placeholder="api_key" 
                style="margin-left: 1em; background:#233453;
                border-radius: 10px 0px 0px 10px;"></input>
                <button style="margin-right: 1em; background:#03cbcb;cursor:pointer;
-               border-radius: 0px 10px 10px 0px; font-size:0.666em;" onclick="setAPIKEY();">SET</button>
+               border-radius: 0px 10px 10px 0px; font-size:0.666em;padding: 4px;" onclick="setAPIKEY();">SET</button>
          </section>
          <section id="rightBOX" style="display:flex;  justify-content: center;
          border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
-         ">encode and decode a financial ledger</section>
+         "><span class="smICON">&nbsp;&nbsp;✧&nbsp;</span>generate ledger schedule<span class="smICON">&nbsp;❇</span></section>
       
       </header>         
         <!-- <main id="symbolBOX" style="display:none;">
@@ -173,7 +229,7 @@
                align-items:flex-start;">
          </article>
       </section> -->
-<article id="scrollFrame" style="overflow:auto;    display: flex;
+<article id="scrollFrame" class="scrollBarV" style="overflow:auto;    display: flex;
 flex-direction: column;
 align-items: center;">
 
@@ -183,31 +239,49 @@ align-items: center;">
         border-radius: 13px; border: solid 1px steelblue; 
         box-shadow: 1px 1px 11px 0px cyan;
         padding:2%; color: cyan; line-height: 2.444em;
-        display: flex;
-    flex-direction: column;
+        /* display: flex;
+    flex-direction: column; */
 
     "
-        ><span>Encode:</span>
+        >
+        <span>Encode Stocks:</span><button class="addBtn1" onclick="addTickerBtn()">add🎇</button>
+        <br>
       </section>
       
       <section id="decodeBOX"
         style="width:80.888%;height:100%;margin: 0 2% 0 2%; flex:1;
-        background: rebeccapurple;
+        background: #250149;;
         border-radius: 13px; border: solid 1px steelblue; box-shadow: 0px 7px 20px 6px #39029e;
         padding: 4% 0 4% 4%; color: cyan; line-height: 2.444em;" 
         ">
         
-        <span>Decode:</span><br>
+        <span>Decode Spotz:</span><button class="addBtn1" onclick="addSpotBtn()">add🎆</button>
+        <br>
+        <aside id="decodeSPOTZ"></aside>
         Generate % off of ATH, and recency of ATH.
         And, Id like to see QUARTERLY HiGH/LOWS (QHL) and MHL (monthly high lows.) 
         
        <hr>
-       <span>Schedule:</span><br>
-       <hr>
-       <span>Profit and Loss:</span><br>
-       <hr>
-       <span>History:</span><br>
+       
 
+      </section>
+      <section id="scheduleBOX"
+        style="width:80.888%;height:100%;margin: 2% 2% 0 2%; flex:1;
+        background: #674535;
+        border-radius: 13px; border: solid 1px steelblue; box-shadow: 0px 7px 0px 3px #9b6237;
+        padding: 4% 0 4% 4%; color: #d6a464; line-height: 2.444em;" 
+        ">
+        <span>🌞 Generate Schedule:</span><br>
+        <hr>     
+      </section>
+      <section id="historyBOX"
+        style="width:80%;height:100%;margin: 4% 2% 4% 2%; flex:1;
+        background: #234788;
+        border-radius: 13px; border: solid 1px steelblue; box-shadow: 0px 7px 20px 0px #029e4a;
+        padding: 4% 0 4% 4%; color: cyan; line-height: 2.444em;" 
+        ">
+        <span>🌊 Generate Profit and Loss:</span><br>
+        <hr>   
       </section>
    </article>
     <!-- <menu style="display:flex;justify-content:space-evenly;background: #182b3d;
@@ -258,6 +332,7 @@ align-items: center;">
 
         let encodeBOX = document.getElementById('encodeBOX');
         let decodeBOX = document.getElementById('decodeBOX');
+        let decodeSPOTZ = document.getElementById('decodeSPOTZ');
 
         //CALCULATIONS
         let target_SYMBOL = 'NVDA';
@@ -290,29 +365,76 @@ align-items: center;">
          }
 
 
-        let initLedger = ()=>{
+        let initEncode = ()=>{
             console.log('load leadger object');
             //populate encode table
             // debugger;
-            let encodeRow, input1, btn1 = null,uniqueMAP={};
+            let encodeRow, input1, price1, btn1 = null,uniqueMAP={};
             for(var i=0; i<ledgerOBJs.spotz.length;i++){
                if(uniqueMAP[ledgerOBJs.spotz[i].tickr]){continue;}
                encodeRow = document.createElement('article')
                input1 = document.createElement('input')
+               price1 = document.createElement('input')
+               ath1 = document.createElement('input')
                btn1 = document.createElement('button')
-               btn1.innerHTML = 'generate'
+               del1 = document.createElement('button')
+               del1.innerHTML = '🗑️'
+               del1.classList.add('delBtn1')
+               btn1.innerHTML = 'generate⚡'
                input1.value = ledgerOBJs.spotz[i].tickr;
+               price1.placeholder = "today:$0.00";
+               ath1.placeholder = "ath:$0.00";
                input1.classList.add('genInput1')
+               price1.classList.add('genPrice1')
+               ath1.classList.add('genPrice1')
                btn1.classList.add('genBtn1')
                encodeRow.classList.add('genRow1')
                encodeRow.appendChild(input1)
+               encodeRow.appendChild(price1)
+               encodeRow.appendChild(ath1)
                encodeRow.appendChild(btn1)
+               encodeRow.appendChild(del1)
                encodeBOX.appendChild(encodeRow)
                uniqueMAP[ledgerOBJs.spotz[i].tickr] = ledgerOBJs.spotz[i];
             }
-        }; initLedger();
+        }; initEncode();
 
-
+        let initDecode = ()=>{
+         let decodeRow=null;
+         for(var i=0; i<ledgerOBJs.spotz.length;i++){
+            decodeRow1 = document.createElement('article')
+            decodeRow1.classList.add('decodeRow1')
+            date1 = document.createElement('span')
+            date1.innerHTML = ledgerOBJs.spotz[i].ymd;
+            date1.classList.add('decodeDate1')
+            tick1 = document.createElement('input')
+            price1 = document.createElement('input')
+            ath1 = document.createElement('input')
+            btn1 = document.createElement('button')
+            del1 = document.createElement('button')
+            del1.innerHTML = '🗑️'
+            del1.classList.add('delBtn1')
+            btn1.innerHTML = 'Lock Profit/Loss💥'
+            tick1.value = ledgerOBJs.spotz[i].tickr;
+            tick1.readOnly = true;
+            price1.placeholder = "start:$0.00";
+            ath1.placeholder = "+-:%";
+            tick1.classList.add('decodeTick1')
+            price1.classList.add('genPrice1')
+            ath1.classList.add('genPrice1')
+            btn1.classList.add('genBtn1')
+            decodeRow1.classList.add('genRow1')
+            decodeRow1.appendChild(date1)
+            decodeRow1.appendChild(tick1)
+            decodeRow1.appendChild(price1)
+            decodeRow1.appendChild(ath1)
+            decodeRow1.appendChild(btn1)
+            decodeRow1.appendChild(del1)
+            encodeBOX.appendChild(decodeRow1)
+            decodeSPOTZ.appendChild(decodeRow1)   
+                  
+         }
+        }; initDecode();
 
         
         let stock_api_key = null;//API_KEY - set in local storage.
@@ -425,7 +547,18 @@ align-items: center;">
         }       
 
 
-
+        const addTickerBtn = ()=>{
+         console.log('a')
+        }
+        const addSpotBtn = ()=>{
+         console.log('a')
+        }
+        const deleteTickerBtn = ()=>{
+         console.log('a')
+        }
+        const deleteSpotBtn = ()=>{
+         console.log('a')
+        }
 
          let textareaBOX = document.getElementById('textareaBOX');
          let allchatBOX = document.getElementById('allchatBOX');

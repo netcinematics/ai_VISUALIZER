@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <title>ai_visual_ledger</title>
+   <title>ai_ledger</title>
 </head>
    <body style="display:flex;flex-direction: column;">
      <style>/* PC */
@@ -24,29 +24,36 @@
                    margin:0.666em;cursor:pointer;font-size:0.888em;padding: 2px 6px 4px 6px; }
         .btnTXT{font-size:1em;}
         .addBtn1{border-radius:13px;background:#7bd67b;float: right;
-    margin-right: 2%;cursor:pointer;
-    font-size: 0.666em;
-}
-        .genBtn1{font-size:0.666em; border-radius:22px; cursor:pointer;
-         background:#5fa9a9; border-radius: 10px;color: #5fa9a9
+         margin-right: 2%;cursor:pointer;
+         font-size: 0.666em;margin-top: 0.888em;
+      }
+      .genBtn1{font-size:0.666em; border-radius:22px; cursor:pointer;
+         background:#5fa9a9; border-radius: 10px;color:#060252;
          margin: 1em;
       }
-
+      .decBtn1{font-size:0.666em; border-radius:22px; cursor:pointer;
+         background:#5fa9a9; border-radius: 10px;color:#060252;
+         margin: 1em;
+      }
+      #saveTickBtn1{border-radius:13px;background:#d1d67b;float: right;
+         margin-right: 2%;cursor:pointer;display:none;
+         font-size: 0.666em;margin-top: 0.888em;
+      }
+      #saveSpotBtn1{border-radius:13px;background:#d1d67b;float: right;
+         margin-right: 2%;cursor:pointer;display:none;
+         font-size: 0.666em;margin-top: 0.888em;
+      }
       .delBtn1{    border: solid 1px #9e1717;
     border-radius: 100%;
     background: #5b1477;
     font-size: 0.777em;
+    cursor:pointer;
+    margin-bottom: 0;
+
    }
 
-        .decodeTick1{          border-radius: 8px;
-    font-size: 0.666em;
-    background: rgb(37, 24, 102);
-    color: cadetblue;
-    margin: 1em;
-    max-width: 66px;
-    text-align: center;
-        }
-        .genPrice1{     border-radius: 8px;
+
+   .genPrice1{     border-radius: 8px;
     font-size: 0.666em;
     background: #baa485;
     color: #32428a;
@@ -54,13 +61,48 @@
     margin: 1em;
     max-width: 84px;
     text-align: center;}
-        .genInput1{    border-radius: 10px;
+   .decPrice1{     border-radius: 8px;
+    font-size: 0.666em;
+    background: #baa485;
+    color: #32428a;
+    padding-left: 1em;
+    margin: 1em;
+    max-width: 84px;
+    text-align: center;}
+   .genATH1{     border-radius: 8px;
+    font-size: 0.666em;
+    background: #baa485;
+    color: #32428a;
+    padding-left: 1em;
+    margin: 1em;
+    max-width: 84px;
+    text-align: center;}
+   .decATH1{     border-radius: 8px;
+    font-size: 0.666em;
+    background: #baa485;
+    color: #32428a;
+    padding-left: 1em;
+    margin: 1em;
+    max-width: 84px;
+    text-align: center;}
+   .genTicker1{    border-radius: 10px;
          max-width: 66px;
     text-align: center;
     font-size: 0.666em;
     color: cyan;;
     background: #6679a0;
     margin: 1em;}
+    .genTicker1::-webkit-input-placeholder {
+    color: black;
+ }
+ .decodeTick1{          border-radius: 8px;
+    font-size: 0.666em;
+    background: rgb(37, 24, 102);
+    color: cadetblue;
+    margin: 1em;
+    max-width: 66px;
+    text-align: center;
+        }
     .decodeDate1{
       font-size:0.444em;color: #1a8c8c;
     }
@@ -97,8 +139,12 @@
          }
          #rightBOX,#leftBOX,#keyBOX{margin:2px;border: solid 1px steelblue;width: 100%;font-size: 0.777em;}
         
+         #encodeBOX, #decodeBOX, #instructionBOX, #scheduleBOX, #historyBOX{
+            margin:2%;
+         }
       .smICON{font-size:0.555em;}
 
+      #scrollFrame{width: 80%; }  
       /*  custom scroll bar */
       /* .scrollBar2 {height:97%; overflow-x:hidden; background:#010111; border: 1px steelblue solid; border-radius:13px; padding:0.5em; } */
       .scrollBarV {height:97%; overflow-x:scroll; background:#010111; border: 1px steelblue solid; border-radius:13px;  }
@@ -113,9 +159,9 @@
          .btnTXT{font-size:0.888em;}
          .mainBtn{margin:0.888em;}
          .subMenuBtn{font-size:0.666em;}
-         /* #messageBOX{flex-direction: column;} */
          #rightBOX{margin-right:6%; border:0px} 
          #leftBOX{margin-left:8%; border:0px }
+         .delBtn1{margin-bottom: 1em;}
       }  
       @media only screen and (max-width: 500px) { /* PHONE */
          body{ background-color: #08011e;}
@@ -123,6 +169,11 @@
          .mainBtn{margin:0.666em;}
          .subMenuBtn{font-size:0.666em;}
          #messageBOX{flex-direction: column;}
+         .delBtn1{margin-bottom: 1em;}
+         #encodeBOX, #decodeBOX, #instructionBOX, #scheduleBOX, #historyBOX{
+            margin:2% 0;
+         }  
+         #scrollFrame{width: 95%; }       
       }
 
      </style>
@@ -131,7 +182,7 @@
       border:2px solid grey;">🎪</span><span class="txt1">home</span>
       </aside>
       <aside style="font-size: 0.666em;color: steelblue;margin: -10px 0 4px 0;">
-        ai_visualizer</aside>
+        ai_ledger</aside>
       <aside style="font-size: 0.666em;color: steelblue;margin: -10px 0 4px 0;">
       </aside>
       <aside class="topRightBtn2">
@@ -186,7 +237,8 @@
             💡</span><span class="btnTX hoverTXT">Market</span>
          </button>
         </header>
-      <header id="messageBOX" style="display:flex;flex: 0 0 auto;">
+      <header id="messageBOX" style="display:flex;flex: 0 0 auto;
+      margin: 1em;">
          <section id="leftBOX" style="display:flex; justify-content: center;
          border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
          "><span class="smICON">✴&nbsp;&nbsp;</span> ai probability stock forcast <span class="smICON">&nbsp;✳</span></section>            
@@ -230,12 +282,12 @@
          </article>
       </section> -->
 <article id="scrollFrame" class="scrollBarV" style="overflow:auto;    display: flex;
-flex-direction: column;
+flex-direction: column; max-width: 777px;
 align-items: center;">
 
 
       <section id="encodeBOX"
-        style="width:80.888%;margin:2%; flex:1;
+        style="width:80.888%; flex:1;
         border-radius: 13px; border: solid 1px steelblue; 
         box-shadow: 1px 1px 11px 0px cyan;
         padding:2%; color: cyan; line-height: 2.444em;
@@ -244,46 +296,168 @@ align-items: center;">
 
     "
         >
-        <span>Encode Stocks:</span><button class="addBtn1" onclick="addTickerBtn()">add🎇</button>
-        <br>
-      </section>
-      
-      <section id="decodeBOX"
-        style="width:80.888%;height:100%;margin: 0 2% 0 2%; flex:1;
+        <span>Encode Stocks:</span>
+          <button id="addTickBtn" class="addBtn1" onclick="addTickerClick()">add🎇</button>
+          <button id="saveTickBtn1" onclick="saveTickerClick()">save🌟</button>
+          <br>
+         </section>
+         
+         <section id="decodeBOX"
+         style="width:80.888%;height:100%; flex:1;
         background: #250149;;
         border-radius: 13px; border: solid 1px steelblue; box-shadow: 0px 7px 20px 6px #39029e;
         padding: 4% 0 4% 4%; color: cyan; line-height: 2.444em;" 
         ">
         
-        <span>Decode Spotz:</span><button class="addBtn1" onclick="addSpotBtn()">add🎆</button>
+        <span>Decode Spotz:</span>
+        <button id="addSpotBtn" class="addBtn1" onclick="addSpotClick()">add🎆</button>
+        <button id="saveSpotBtn1" onclick="saveSpotClick()">save⚓</button>
         <br>
         <aside id="decodeSPOTZ"></aside>
-        Generate % off of ATH, and recency of ATH.
-        And, Id like to see QUARTERLY HiGH/LOWS (QHL) and MHL (monthly high lows.) 
         
-       <hr>
-       
+        
+        
 
       </section>
       <section id="scheduleBOX"
-        style="width:80.888%;height:100%;margin: 2% 2% 0 2%; flex:1;
+        style="width:80.888%; flex:1;
         background: #674535;
         border-radius: 13px; border: solid 1px steelblue; box-shadow: 0px 7px 0px 3px #9b6237;
         padding: 4% 0 4% 4%; color: #d6a464; line-height: 2.444em;" 
         ">
-        <span>🌞 Generate Schedule:</span><br>
+        <span>🌞 Generate Schedule & Forcast: 🔔</span><br>
+        <hr>   
+        <hr>   
+
+      
         <hr>     
       </section>
       <section id="historyBOX"
-        style="width:80%;height:100%;margin: 4% 2% 4% 2%; flex:1;
+        style="width:80%;flex:1;
         background: #234788;
         border-radius: 13px; border: solid 1px steelblue; box-shadow: 0px 7px 20px 0px #029e4a;
         padding: 4% 0 4% 4%; color: cyan; line-height: 2.444em;" 
         ">
-        <span>🌊 Generate Profit and Loss:</span><br>
+        <span>🌊 Profit / Loss & Tax:</span><br>
+        <hr>   
+        <hr>   
+
+        
         <hr>   
       </section>
+
+      <section id="instructionBOX"
+        style="width:80%; flex:1;
+        background: #234788;
+        border-radius: 13px; border: solid 1px steelblue; box-shadow: 0px 7px 20px 0px #029e4a;
+        padding: 4% 0 4% 4%; color: cyan; line-height: 2.444em;" 
+        ">
+        <span>💡 Instructions:</span><br>
+        
+        
+        <hr>   
+
+        Ai encode/decode algorithms, to generate, a schedule, 
+        of probabilistic states, with spots defined, 
+        and trades tracked precisely with metadata.
+
+        As scheduled routine integrated quarterly and monthly.
+        At times of tax review (quarterly),
+        Ticker input is encoded, with spot input, and a 
+        schedule of how it compares to static conditions,
+        is generated.
+
+        Static Conditions are like all time high, all time low,
+        52 week high, 52 week low, quarterly high, quarterly low.
+        Also computed, % off of ATH, and recency of ATH, as 1,2,3 months.
+        
+        QUARTERLY HiGH/LOWS (QHL) and MHL (monthly high lows.) 
+        - monthHIGH, monthLOW, quarterHIGH, quarterLOW, yearHIGH, yearLOW
+        <hr>
+         This tool is designed to help solve a few common problems 
+         in a financial ledger. Over and over, similar patters appear.
+         Below are those patterns.
+         Along with the strategy to classify each.
+         In advance of defining probabalistic state.
+         To then trigger articulated response and note keeping.
+
+        Patterns of all possible probability.
+
+         - sold too much, thinking it would go down - but it went way up.
+         - sold correctly, before it tanked.
+         - bought correctly, before it went way up. didnt buy enough.
+         - bought and it tanked. Should've bought less, or not at all.
+      
+
+         As SPOT patterns:
+         - upside hedge spots: put in more, before a BULL. Climbing Stairs.
+         - downside buy spots: put in more, in expected CORRECTION. 
+            Try to time the bottom of a Market Downturn.
+         - rebalance spots: cut loss and move to better percentage spots.
+         - upside sell profit spots: try to time the top.
+
+         Formula:
+         The prime determination of successful investment is ROI.
+         So % ROI is a key metric, among other statistics.
+         The state of each SPOT changes, based on TIME and %ROI
+         
+         EXAMPLE:
+         A spot that is down 10% - 1 week after purchase - still has TIME.
+         But a spot down 10% - years after purchase - is very bad.
+
+         Another EXAMPLE:
+         A stock that had a huge run, is only cash - as booked_profit.
+         So trimming strategically is required to get returns.
+         Alternatively, a stock that has a huge run, but then returns
+         to minimal profit (or loss) - years laters, is out of time.
+         And is a dog. At that point the state changes from a stock
+         that still has time_to_turnaround, or a dog, that needs to 
+         cut_loss and rebalance risk off into better profit_margin spots.
+
+         ANALYTICS:
+         - days_sideways
+         - days_red
+         - days_green
+         - %_green
+         - %_red
+         
+         VISUALIZATIONS:
+         Graphs and charts for ticker over time, to show state.
+         With Natural Language Processing parameters.
+         To trigger various prescribed strategy.
+
+         Over TIME durations: 
+         - stock goes up mild 10% 20% 
+         - stock goes up hot  50%, 100% 500%
+         - stock stays flat +- 10% range 
+         - stock is cold -10% 20%
+         - stock is dog.
+
+         More animated pattern recognitions.
+         hot-bull, mild-bull, mild-bear, hot-bear.
+                  
+         NLP parameters for the SPOTS, 
+         top-out, dip, correction, retracement, head and shoulders.
+         upside-hedge, seeking-bottom,
+         pruning-top, rebalance-out, rebalance-in.
+         % to point. Like % to go under water.
+         And total trade-profits, with total-red positions,
+         And total-green positions.
+
+         With expectations as,
+         Expecting_bull, expecting_bottom.
+
+         RULES:
+         buy on red sell on green,
+         market moves in waves.
+
+
+
+      </section>
+
+
    </article>
+
     <!-- <menu style="display:flex;justify-content:space-evenly;background: #182b3d;
         border-radius: 30px;margin:0;padding:0;margin-bottom:-6px;
         box-shadow: inset -5px 7px 8px 0px #472c88;">
@@ -313,7 +487,7 @@ align-items: center;">
             🎡</span> <span class="btnTXT hoverTXT">ALL CHATS</span>
        </button>
       </footer>
-      <legal style="color:darkslategray;font-size: 0.666em;">copyright 2020-2023 netcinematics, all rights reserved.</legal>
+      <legal style="color:darkslategray;font-size: 0.666em;">copyright 2020-2023 netcinematics llc, all rights reserved.</legal>
       <script>
         const currentDate = new Date();
         const year = currentDate.getFullYear();
@@ -328,13 +502,15 @@ align-items: center;">
         
         let stateConnectedBox = document.getElementById('ConnectedBox');
         let stateNotConnectedBox = document.getElementById('notConnectedBox');
-        
 
         let encodeBOX = document.getElementById('encodeBOX');
         let decodeBOX = document.getElementById('decodeBOX');
         let decodeSPOTZ = document.getElementById('decodeSPOTZ');
 
-        //CALCULATIONS
+        let saveTickBtn1 = document.getElementById('saveTickBtn1');
+        let saveSpotBtn1 = document.getElementById('saveSpotBtn1');
+
+        //FINANCIAL - ANALYTICS - CALCULATIONS
         let target_SYMBOL = 'NVDA';
         let daily_data = null;
         let monthly_data = null;
@@ -368,8 +544,8 @@ align-items: center;">
         let initEncode = ()=>{
             console.log('load leadger object');
             //populate encode table
-            // debugger;
-            let encodeRow, input1, price1, btn1 = null,uniqueMAP={};
+            let encodeRow,input1,price1,ath1,del1,btn1 = null;
+            let uniqueMAP={};
             for(var i=0; i<ledgerOBJs.spotz.length;i++){
                if(uniqueMAP[ledgerOBJs.spotz[i].tickr]){continue;}
                encodeRow = document.createElement('article')
@@ -380,13 +556,19 @@ align-items: center;">
                del1 = document.createElement('button')
                del1.innerHTML = '🗑️'
                del1.classList.add('delBtn1')
+               del1.addEventListener('click',()=>{deleteTickerClick(i)})
                btn1.innerHTML = 'generate⚡'
-               input1.value = ledgerOBJs.spotz[i].tickr;
+               input1.value = ledgerOBJs.spotz[i].tickr.toUpperCase();
+               input1.readOnly = true;
+               ath1.addEventListener("keyup",(e)=>{
+                  saveTickBtn1.style.display = 'block'; });
+               price1.addEventListener("keyup",(e)=>{
+                  saveTickBtn1.style.display = 'block'; });
                price1.placeholder = "today:$0.00";
                ath1.placeholder = "ath:$0.00";
-               input1.classList.add('genInput1')
+               input1.classList.add('genTicker1')
                price1.classList.add('genPrice1')
-               ath1.classList.add('genPrice1')
+               ath1.classList.add('genATH1')
                btn1.classList.add('genBtn1')
                encodeRow.classList.add('genRow1')
                encodeRow.appendChild(input1)
@@ -400,7 +582,7 @@ align-items: center;">
         }; initEncode();
 
         let initDecode = ()=>{
-         let decodeRow=null;
+         let decodeRow1=null,date1,tick1,price1,ath1,btn1 = null;
          for(var i=0; i<ledgerOBJs.spotz.length;i++){
             decodeRow1 = document.createElement('article')
             decodeRow1.classList.add('decodeRow1')
@@ -414,16 +596,21 @@ align-items: center;">
             del1 = document.createElement('button')
             del1.innerHTML = '🗑️'
             del1.classList.add('delBtn1')
+            del1.addEventListener('click',()=>{deleteSpotClick(i)})
             btn1.innerHTML = 'Lock Profit/Loss💥'
             tick1.value = ledgerOBJs.spotz[i].tickr;
             tick1.readOnly = true;
             price1.placeholder = "start:$0.00";
             ath1.placeholder = "+-:%";
+            ath1.addEventListener("keyup",(e)=>{
+                  saveSpotBtn1.style.display = 'block'; });
+            price1.addEventListener("keyup",(e)=>{
+                  saveSpotBtn1.style.display = 'block'; });            
             tick1.classList.add('decodeTick1')
             price1.classList.add('genPrice1')
-            ath1.classList.add('genPrice1')
+            ath1.classList.add('genATH1')
             btn1.classList.add('genBtn1')
-            decodeRow1.classList.add('genRow1')
+            // decodeRow1.classList.add('genRow1')
             decodeRow1.appendChild(date1)
             decodeRow1.appendChild(tick1)
             decodeRow1.appendChild(price1)
@@ -541,23 +728,142 @@ align-items: center;">
                //  initLedger()
             }
         }
-
-        let setTickerTGT = ()=>{
-  
-        }       
-
-
-        const addTickerBtn = ()=>{
-         console.log('a')
+ 
+        const addTickerClick = ()=>{ //new addTickRow, datestamp, tick price input, show save
+         saveTickBtn1.style.display = 'block';
+         let encodeRow,input1,price1,ath1,del1,btn1 = null;
+         encodeRow = document.createElement('article')
+               input1 = document.createElement('input')
+               price1 = document.createElement('input')
+               ath1 = document.createElement('input')
+               btn1 = document.createElement('button')
+               del1 = document.createElement('button')
+               del1.innerHTML = '🗑️'
+               del1.classList.add('delBtn1')
+               del1.addEventListener('click',()=>{deleteTickerClick(i)})
+               btn1.innerHTML = 'generate⚡'
+               input1.value = "";
+               input1.readOnly = false;
+               input1.placeholder = "ticker";
+               price1.placeholder = "today:$0.00";
+               ath1.placeholder = "ath:$0.00";
+               input1.classList.add('genTicker1')
+               price1.classList.add('genPrice1')
+               ath1.classList.add('genATH1')
+               btn1.classList.add('genBtn1')
+               ath1.addEventListener("keyup",(e)=>{
+                  saveTickBtn1.style.display = 'block'; });
+               price1.addEventListener("keyup",(e)=>{
+                  saveTickBtn1.style.display = 'block'; });
+               encodeRow.classList.add('genRow1')
+               encodeRow.appendChild(input1)
+               encodeRow.appendChild(price1)
+               encodeRow.appendChild(ath1)
+               encodeRow.appendChild(btn1)
+               encodeRow.appendChild(del1)
+               encodeBOX.appendChild(encodeRow)         
+      }
+      const saveTickerClick = ()=>{//loop elements, add data, localstorage
+           saveTickBtn1.style.display = 'none';
+           debugger;
+           let items = encodeBOX.children,row,kids,kid,tkr,price,ath,item=null;
+           for(var i=0; i<items.length;i++){
+            item = items[i];
+            if(item.classList.contains('genRow1')){
+               kids = item.children;
+               for(var j=0; j<kids.length;j++){
+                  kid = kids[j];
+                  if(kid.classList.contains('genTicker1')){
+                     kid.value = kid.value.toUpperCase();
+                     tkr = kid.value;
+                     
+                  } if(kid.classList.contains('genPrice1')){
+                     price = kid.value;
+                  } if(kid.classList.contains('genATH1')){
+                     ath = kid.value;
+                  } if(tkr && price && ath){
+                     console.log('save',tkr)
+                  } 
+                  // else {
+                  //    saveTickBtn1.style.display = 'block';
+                  // }
+               }
+            }
+           }
         }
-        const addSpotBtn = ()=>{
-         console.log('a')
+      const saveSpotClick = ()=>{
+           saveSpotBtn1.style.display = 'none';
+           debugger;
+           let items = decodeSPOTZ.children,row,kids,kid,tkr,price,ath,item=null;
+           for(var i=0; i<items.length;i++){
+            item = items[i];
+            if(item.classList.contains('decodeRow1')){
+               kids = item.children;
+               for(var j=0; j<kids.length;j++){
+                  kid = kids[j];
+                  if(kid.classList.contains('decodeTick1')){
+                     kid.value = kid.value.toUpperCase();                     
+                     tkr = kid.value;
+                  } if(kid.classList.contains('decodeDate1')){
+                     price = kid.value;
+                  } if(kid.classList.contains('decATH1')){
+                     ath = kid.value;
+                  } if(tkr && price && ath){
+                     console.log('save',tkr)
+                  }
+               }
+
+            }
+           }           
+         }
+         const addSpotClick = ()=>{
+            saveSpotBtn1.style.display = 'block';
+            let decodeRow1=null,date1,tick1,price1,ath1,btn1 = null;
+            decodeRow1 = document.createElement('article')
+            decodeRow1.classList.add('decodeRow1')
+            date1 = document.createElement('span')
+            date1.innerHTML = "";
+            date1.classList.add('decodeDate1')
+            tick1 = document.createElement('input')
+            price1 = document.createElement('input')
+            ath1 = document.createElement('input')
+            btn1 = document.createElement('button')
+            del1 = document.createElement('button')
+            del1.innerHTML = '🗑️'
+            del1.classList.add('delBtn1')
+            del1.addEventListener('click',()=>{deleteSpotClick(i)})
+            btn1.innerHTML = 'Lock Profit/Loss💥'
+            tick1.value = "";
+            tick1.readOnly = false;
+            price1.placeholder = "start:$0.00";
+            ath1.placeholder = "+-:%";
+            tick1.addEventListener("keyup",(e)=>{
+               saveSpotBtn1.style.display = 'block'; });
+            ath1.addEventListener("keyup",(e)=>{
+               saveSpotBtn1.style.display = 'block'; });
+            price1.addEventListener("keyup",(e)=>{
+               saveSpotBtn1.style.display = 'block'; });            
+            tick1.classList.add('decodeTick1')
+            price1.classList.add('decPrice1')
+            ath1.classList.add('decATH1')
+            btn1.classList.add('decBtn1')
+            // decodeRow1.classList.add('decodeRow1')
+            decodeRow1.appendChild(date1)
+            decodeRow1.appendChild(tick1)
+            decodeRow1.appendChild(price1)
+            decodeRow1.appendChild(ath1)
+            decodeRow1.appendChild(btn1)
+            decodeRow1.appendChild(del1)
+            encodeBOX.appendChild(decodeRow1)
+            decodeSPOTZ.appendChild(decodeRow1)   
+
+
         }
-        const deleteTickerBtn = ()=>{
-         console.log('a')
+        const deleteTickerClick = (i)=>{
+         console.log('c',i)
         }
-        const deleteSpotBtn = ()=>{
-         console.log('a')
+        const deleteSpotClick = (i)=>{
+         console.log('d',i)
         }
 
          let textareaBOX = document.getElementById('textareaBOX');

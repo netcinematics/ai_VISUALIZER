@@ -27,13 +27,17 @@
          margin-right: 2%;cursor:pointer;
          font-size: 0.666em;margin-top: 0.888em;
       }
+        .genReportBtn1{border-radius:13px;background:#bd814f;float: right;
+         margin-right: 2%;cursor:pointer;
+         font-size: 0.666em;margin-top: 0.888em;
+      }
       .genBtn1{font-size:0.666em; border-radius:22px; cursor:pointer;
          background:#5fa9a9; border-radius: 10px;color:#060252;
          margin: 1em;
       }
       .decBtn1{font-size:0.666em; border-radius:22px; cursor:pointer;
          background:#5fa9a9; border-radius: 10px;color:#060252;
-         margin: 1em;
+         /* margin: 1em; */
       }
       #saveTickBtn1{border-radius:13px;background:#d1d67b;float: right;
          margin-right: 2%;cursor:pointer;display:none;
@@ -44,11 +48,12 @@
          font-size: 0.666em;margin-top: 0.888em;
       }
       .delBtn1{    border: solid 1px #9e1717;
-    border-radius: 100%;
-    background: #5b1477;
-    font-size: 0.777em;
+    border-radius: 22px;
+    background: #38014e;
+    font-size: 0.666em;
     cursor:pointer;
-    margin-bottom: 0;
+    margin: 0.444em;
+    /* margin-bottom: 0; */
 
    }
 
@@ -58,7 +63,7 @@
     background: #baa485;
     color: #32428a;
     padding-left: 1em;
-    margin: 1em;
+    /* margin: 1em; */
     max-width: 84px;
     text-align: center;}
    .decPrice1{     border-radius: 8px;
@@ -66,7 +71,7 @@
     background: #baa485;
     color: #32428a;
     padding-left: 1em;
-    margin: 1em;
+    /* margin: 1em; */
     max-width: 84px;
     text-align: center;}
    .genATH1{     border-radius: 8px;
@@ -74,7 +79,7 @@
     background: #baa485;
     color: #32428a;
     padding-left: 1em;
-    margin: 1em;
+    /* margin: 1em; */
     max-width: 84px;
     text-align: center;}
    .decATH1{     border-radius: 8px;
@@ -82,7 +87,7 @@
     background: #baa485;
     color: #32428a;
     padding-left: 1em;
-    margin: 1em;
+    /* margin: 1em; */
     max-width: 84px;
     text-align: center;}
    .genTicker1{    border-radius: 10px;
@@ -91,7 +96,8 @@
     font-size: 0.666em;
     color: cyan;;
     background: #6679a0;
-    margin: 1em;}
+    /* margin: 1em; */
+   }
     .genTicker1::-webkit-input-placeholder {
     color: black;
  }
@@ -99,22 +105,26 @@
     font-size: 0.666em;
     background: rgb(37, 24, 102);
     color: cadetblue;
-    margin: 1em;
+    /* margin: 1em; */
     max-width: 66px;
     text-align: center;
         }
     .decodeDate1{
       font-size:0.444em;color: #1a8c8c;
     }
-        .decodeRow1{margin: 2%;
+   .decodeRow1{margin: 2%;
+      display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;      
     width: 88%;
     border: solid 1px steelblue;
-    padding: 0 0 0 4%;
+    padding: 0 0 0 1%;
     border-radius: 6px;
         }
-        .genRow1{margin:0.111em; width:92%; border:solid 1px steelblue;
-            border-radius:18px;padding-left: 3%;
-            display: flex;
+   .genRow1{margin:0.111em; width:92%; border:solid 1px steelblue;
+   border-radius:18px;padding-left: 3%;padding-top: 0;
+   display: flex;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
@@ -143,7 +153,7 @@
             margin:2%;
          }
       .smICON{font-size:0.555em;}
-
+      #instructionText{display:none;margin:4%;}
       #scrollFrame{width: 80%; }  
       /*  custom scroll bar */
       /* .scrollBar2 {height:97%; overflow-x:hidden; background:#010111; border: 1px steelblue solid; border-radius:13px; padding:0.5em; } */
@@ -161,7 +171,9 @@
          .subMenuBtn{font-size:0.666em;}
          #rightBOX{margin-right:6%; border:0px} 
          #leftBOX{margin-left:8%; border:0px }
-         .delBtn1{margin-bottom: 1em;}
+         /* .delBtn1{margin-bottom: 1em;} */
+         .genRow1{padding:3% 2% 0 2%}
+         .decodeRow1{padding:0 2% 3% 2%}
       }  
       @media only screen and (max-width: 500px) { /* PHONE */
          body{ background-color: #08011e;}
@@ -169,11 +181,13 @@
          .mainBtn{margin:0.666em;}
          .subMenuBtn{font-size:0.666em;}
          #messageBOX{flex-direction: column;}
-         .delBtn1{margin-bottom: 1em;}
+         /* .delBtn1{margin-bottom: 1em;} */
          #encodeBOX, #decodeBOX, #instructionBOX, #scheduleBOX, #historyBOX{
             margin:2% 0;
          }  
          #scrollFrame{width: 95%; }       
+         .genRow1{padding:3% 2% 0 2%}
+         .decodeRow1{padding:0 2% 3% 2%}
       }
 
      </style>
@@ -296,7 +310,7 @@ align-items: center;">
 
     "
         >
-        <span>Encode Stocks:</span>
+        <span>🎯 Encode Stock (metadata):</span>
           <button id="addTickBtn" class="addBtn1" onclick="addTickerClick()">add🎇</button>
           <button id="saveTickBtn1" onclick="saveTickerClick()">save🌟</button>
           <br>
@@ -304,28 +318,26 @@ align-items: center;">
          
          <section id="decodeBOX"
          style="width:80.888%;height:100%; flex:1;
-        background: #250149;;
+        background: #0a0014;
         border-radius: 13px; border: solid 1px steelblue; box-shadow: 0px 7px 20px 6px #39029e;
         padding: 4% 0 4% 4%; color: cyan; line-height: 2.444em;" 
         ">
         
-        <span>Decode Spotz:</span>
+        <span>🎱 Decode Spot (data):</span>
         <button id="addSpotBtn" class="addBtn1" onclick="addSpotClick()">add🎆</button>
         <button id="saveSpotBtn1" onclick="saveSpotClick()">save⚓</button>
         <br>
         <aside id="decodeSPOTZ"></aside>
-        
-        
-        
-
       </section>
+
       <section id="scheduleBOX"
         style="width:80.888%; flex:1;
-        background: #674535;
-        border-radius: 13px; border: solid 1px steelblue; box-shadow: 0px 7px 0px 3px #9b6237;
-        padding: 4% 0 4% 4%; color: #d6a464; line-height: 2.444em;" 
+        background: #1f0a00;
+        border-radius: 13px; border: solid 1px #a9a04b; box-shadow: 0px 7px 7px 3px #9b6237;
+        padding: 4% 0 4% 4%; color: #b19f50; line-height: 2.444em;" 
         ">
-        <span>🌞 Generate Schedule & Forcast: 🔔</span><br>
+        <button id="generateScheduleBtn" class="genReportBtn1" onclick="">🎆generate</button>
+        <span>🔔 Schedule & Forcast 🌞</span><br>
         <hr>   
         <hr>   
 
@@ -334,11 +346,12 @@ align-items: center;">
       </section>
       <section id="historyBOX"
         style="width:80%;flex:1;
-        background: #234788;
-        border-radius: 13px; border: solid 1px steelblue; box-shadow: 0px 7px 20px 0px #029e4a;
+        background: #001206;
+        border-radius: 13px; border: solid 1px darkgreen; box-shadow: 0px 7px 20px 0px #029e4a;
         padding: 4% 0 4% 4%; color: cyan; line-height: 2.444em;" 
         ">
-        <span>🌊 Profit / Loss & Tax:</span><br>
+        <button id="generateProfitBtn" class="genReportBtn1" onclick="">🏰generate</button>
+        <span>🌊 Profit_Loss & Tax 🚨</span><br>
         <hr>   
         <hr>   
 
@@ -348,21 +361,72 @@ align-items: center;">
 
       <section id="instructionBOX"
         style="width:80%; flex:1;
-        background: #234788;
-        border-radius: 13px; border: solid 1px steelblue; box-shadow: 0px 7px 20px 0px #029e4a;
+        background: #234788; font-size:0.666em;
+        border-radius: 13px; border: solid 1px steelblue; box-shadow: 0px 7px 20px 0px #026767;
         padding: 4% 0 4% 4%; color: cyan; line-height: 2.444em;" 
         ">
-        <span>💡 Instructions:</span><br>
+        <button id="openBtn1" class="genReportBtn1" onclick="openBtnClick()">💠show</button>        
+        <span style="font-size: 1.555em;">💡 Instructions:</span><br>
+      <article id="instructionText">
         
         
         <hr>   
 
-        Ai encode/decode algorithms, to generate, a schedule, 
-        of probabilistic states, with spots defined, 
-        and trades tracked precisely with metadata.
+        # STEPS
 
-        As scheduled routine integrated quarterly and monthly.
-        At times of tax review (quarterly),
+        1. ADD numbers QUARTERLY and MONTHLY as WORKSHEET input.
+
+        2. GENERATE REPORT metadata, 
+
+        3. COMPARE against schedule for QUARTERLY and MONTHLY
+
+        4. Try to see clear distinction between
+        
+        - buyRED or cutLOSS
+
+        - upsideHEDGE or dumbMONEY
+
+        - sellGREEN or rideBULL
+
+         # ACTS
+
+         buyHOLD, sellSAFE, cutLOSS, buySPOT, sellSPOT
+
+        # PRINCIPLES
+
+        MARKET_STATES are NOT easy to DEFINE, until years later.
+
+        CURRENT/PREDICTED MARKET_STATE changes over TIME month to month.
+
+        CAPTURE EXPECTATION vs REALITY - side by side.
+
+        Daily limit: one spot per day max.
+
+        Quarterly and Monthly Limits. 
+        
+        - 10SPOT_LIMIT: 1000 per month max, 
+        
+        - 10, 100 SPOT_LIMIT. Per month.
+
+        This financial tool uses NATURAL LANGUAGE PROCESSING to solve that.
+
+
+        # Technical description (ai)
+
+        Ai encode/decode algorithms, to generate, a schedule, 
+        of probabilistic states, with spot nlp, 
+        and trades tracking with metadata.
+
+        As scheduled routine, set EXPECTATIONS,
+        and REVIEW on a MONTHLY and QUARTERLY basis.
+        Specificallly, at times of tax review (quarterly),
+
+        An overall report is generated, where NLP tokens,
+        are used to generate visual charts of market_state.
+
+        MONTHLY and QUARTERLY VISUALS of all spots:
+        sideways, inGREEN, inRED.
+
         Ticker input is encoded, with spot input, and a 
         schedule of how it compares to static conditions,
         is generated.
@@ -371,6 +435,8 @@ align-items: center;">
         52 week high, 52 week low, quarterly high, quarterly low.
         Also computed, % off of ATH, and recency of ATH, as 1,2,3 months.
         
+        LAST-WEDNESDAY (day before last THURSDAY) put in a GUESS and REAL.
+
         QUARTERLY HiGH/LOWS (QHL) and MHL (monthly high lows.) 
         - monthHIGH, monthLOW, quarterHIGH, quarterLOW, yearHIGH, yearLOW
         <hr>
@@ -388,7 +454,6 @@ align-items: center;">
          - bought correctly, before it went way up. didnt buy enough.
          - bought and it tanked. Should've bought less, or not at all.
       
-
          As SPOT patterns:
          - upside hedge spots: put in more, before a BULL. Climbing Stairs.
          - downside buy spots: put in more, in expected CORRECTION. 
@@ -414,12 +479,39 @@ align-items: center;">
          that still has time_to_turnaround, or a dog, that needs to 
          cut_loss and rebalance risk off into better profit_margin spots.
 
+         Strength and volume
+         check low rsi on buy, And
+         check for high selling volume as climax (low buys) sellers tapped out.
+         check high rsi on sell, And
+         check for high buying volume as climax (low sells) buyers tapped out
+         
+         Another Example:
+         Biggest spots for heighest weighted probabilities.
+         Smaller spots for less certain probabilities.
+         Calculate TREND LENGTH, days above MA:100,200
+
+         Another Example:
+         fallback to half of bull run - a year later.
+         Need to see end of bull.
+         Need to see end of bear.
+
+         Topics in news, SELLNEWS or BUYNEWS
+         CATALYST EVENT_ON and EVENT_OFF
+         have an input for topics in the news such as
+         beginning or ending of wars, raising or lowering of interest rates,
+         last thursday of the month (bustshort, bustputs).
+         Or Earnings - how to opposite_respond - earnings calls?
+
          ANALYTICS:
          - days_sideways
          - days_red
          - days_green
          - %_green
          - %_red
+
+         GOAL to make in a YEAR, Goal to make in Quarter, 
+         Goal to make in month
+         Goal to make in week, goal to make in day.
          
          VISUALIZATIONS:
          Graphs and charts for ticker over time, to show state.
@@ -432,6 +524,8 @@ align-items: center;">
          - stock stays flat +- 10% range 
          - stock is cold -10% 20%
          - stock is dog.
+
+         ## NLP Classification mechanism
 
          More animated pattern recognitions.
          hot-bull, mild-bull, mild-bear, hot-bear.
@@ -447,11 +541,19 @@ align-items: center;">
          With expectations as,
          Expecting_bull, expecting_bottom.
 
+         Weighted probabilities, change actions on stocks,
+         based on path that stocks take, over time.
+
+         Where increasing time, increases weighted probability,
+         of correctness of classification.
+          
+
          RULES:
-         buy on red sell on green,
-         market moves in waves.
+         buy the best on red 🔴⚠️
+         sell on green,🚀
+         detect market waves.🌊
 
-
+      </article>
 
       </section>
 
@@ -487,7 +589,10 @@ align-items: center;">
             🎡</span> <span class="btnTXT hoverTXT">ALL CHATS</span>
        </button>
       </footer>
-      <legal style="color:darkslategray;font-size: 0.666em;">copyright 2020-2023 netcinematics llc, all rights reserved.</legal>
+      <legal style="color:darkslategray;font-size: 0.666em;">copyright 2020-2023 netcinematics llc, all rights reserved.
+        this is a personal ledger system, not financial advice. 
+        It is not intended for day trading use, but quarterly and monthly review.
+      </legal>
       <script>
         const currentDate = new Date();
         const year = currentDate.getFullYear();
@@ -510,6 +615,8 @@ align-items: center;">
         let saveTickBtn1 = document.getElementById('saveTickBtn1');
         let saveSpotBtn1 = document.getElementById('saveSpotBtn1');
 
+        let openBtn1 = document.getElementById('openBtn1');
+
         //FINANCIAL - ANALYTICS - CALCULATIONS
         let target_SYMBOL = 'NVDA';
         let daily_data = null;
@@ -518,36 +625,64 @@ align-items: center;">
         let calculate_ATL = 0;
         let current_PRICE = 0;
 
+         //AI_LEDGER - to save in localstorage
+         let ai_ledger=null;
+         let ai_ticks=[],ai_spots=[];
+         let ai_tick={}, ai_spot={};
 
-        let ledgerOBJs = {
-            "spotz":[
-               {
-                  "ymd":"2023_9_20",
-                  "tickr":"nvda",
-                  "value":100.00
-               },
-               {
-                  "ymd":"2022_9_22",
-                  "tickr":"nvda",
-                  "value":100.00
-               },
-               {
-                  "ymd":"2022_9_22",
-                  "tickr":"cost",
-                  "value":100.00
-               }               
+        let ai_ledger_LOAD_from_LOCALSTORAGE=()=>{ //READ from LOCAL STORAGE
+            ai_ledger = (localStorage.ai_ledger)?
+               JSON.parse( localStorage.ai_ledger ):null;
+               // ai_ledger=null;
+            if(!ai_ledger){
+               ai_ledger = {
+                  "ticks":[
+                  {
+                     // "prices":[{ymd:'2002_1_10',price:100},
+                     //       {ymd:'2000_2_20',price:200},
+                     //       {ymd:'2001_1_11',price:300},
+                     //    ],
+                     "price":222,
+                        "tick":"nvda",
+                        "ath":100.00,
+                     },
+                  {
+                     "price":444,
+                        "tick":"cost",
+                        "ath":100.00,
+                     }
+                  ],
+                  "spots":[
+                     {
+                        "ymd":"2023_9_20",
+                        "tick":"nvda",
+                        "value":100.00
+                     },
+                     {
+                        "ymd":"2022_9_22",
+                        "tick":"nvda",
+                        "value":100.00
+                     },
+                     {
+                        "ymd":"2022_9_22",
+                        "tick":"cost",
+                        "value":100.00
+                     }               
 
-            ]
-         }
-
+                  ]
+               }
+            }
+        }; ai_ledger_LOAD_from_LOCALSTORAGE();
 
         let initEncode = ()=>{
-            console.log('load leadger object');
+            console.log('load ai_ledger');
             //populate encode table
             let encodeRow,input1,price1,ath1,del1,btn1 = null;
             let uniqueMAP={};
-            for(var i=0; i<ledgerOBJs.spotz.length;i++){
-               if(uniqueMAP[ledgerOBJs.spotz[i].tickr]){continue;}
+            // for(var i=0; i<ai_ledger.spots.length;i++){
+            for(var i=0; i<ai_ledger.ticks.length;i++){
+               // if(uniqueMAP[ai_ledger.spots[i].tick]){continue;}
+               if(uniqueMAP[ai_ledger.ticks[i].tick]){continue;}
                encodeRow = document.createElement('article')
                input1 = document.createElement('input')
                price1 = document.createElement('input')
@@ -558,14 +693,16 @@ align-items: center;">
                del1.classList.add('delBtn1')
                del1.addEventListener('click',()=>{deleteTickerClick(i)})
                btn1.innerHTML = 'generate⚡'
-               input1.value = ledgerOBJs.spotz[i].tickr.toUpperCase();
-               input1.readOnly = true;
+               input1.value = ai_ledger.ticks[i].tick.toUpperCase();
+               input1.readOnly = false;
                ath1.addEventListener("keyup",(e)=>{
                   saveTickBtn1.style.display = 'block'; });
                price1.addEventListener("keyup",(e)=>{
                   saveTickBtn1.style.display = 'block'; });
                price1.placeholder = "today:$0.00";
+               price1.value = ai_ledger.ticks[i].price;
                ath1.placeholder = "ath:$0.00";
+               ath1.value = ai_ledger.ticks[i].ath;
                input1.classList.add('genTicker1')
                price1.classList.add('genPrice1')
                ath1.classList.add('genATH1')
@@ -577,17 +714,17 @@ align-items: center;">
                encodeRow.appendChild(btn1)
                encodeRow.appendChild(del1)
                encodeBOX.appendChild(encodeRow)
-               uniqueMAP[ledgerOBJs.spotz[i].tickr] = ledgerOBJs.spotz[i];
+               uniqueMAP[ai_ledger.ticks[i].tick] = ai_ledger.ticks[i];
             }
         }; initEncode();
 
         let initDecode = ()=>{
          let decodeRow1=null,date1,tick1,price1,ath1,btn1 = null;
-         for(var i=0; i<ledgerOBJs.spotz.length;i++){
+         for(var i=0; i<ai_ledger.spots.length;i++){
             decodeRow1 = document.createElement('article')
             decodeRow1.classList.add('decodeRow1')
             date1 = document.createElement('span')
-            date1.innerHTML = ledgerOBJs.spotz[i].ymd;
+            date1.innerHTML = ai_ledger.spots[i].ymd;
             date1.classList.add('decodeDate1')
             tick1 = document.createElement('input')
             price1 = document.createElement('input')
@@ -597,20 +734,21 @@ align-items: center;">
             del1.innerHTML = '🗑️'
             del1.classList.add('delBtn1')
             del1.addEventListener('click',()=>{deleteSpotClick(i)})
-            btn1.innerHTML = 'Lock Profit/Loss💥'
-            tick1.value = ledgerOBJs.spotz[i].tickr;
+            btn1.innerHTML = '✨Lock Profit/Loss💥'
+            tick1.value = ai_ledger.spots[i].tick;
             tick1.readOnly = true;
             price1.placeholder = "start:$0.00";
+            price1.value = ai_ledger.spots[i].price;
             ath1.placeholder = "+-:%";
+            ath1.value = ai_ledger.spots[i].ath;
             ath1.addEventListener("keyup",(e)=>{
                   saveSpotBtn1.style.display = 'block'; });
             price1.addEventListener("keyup",(e)=>{
                   saveSpotBtn1.style.display = 'block'; });            
             tick1.classList.add('decodeTick1')
-            price1.classList.add('genPrice1')
-            ath1.classList.add('genATH1')
-            btn1.classList.add('genBtn1')
-            // decodeRow1.classList.add('genRow1')
+            price1.classList.add('decPrice1')
+            ath1.classList.add('decATH1')
+            btn1.classList.add('decBtn1')
             decodeRow1.appendChild(date1)
             decodeRow1.appendChild(tick1)
             decodeRow1.appendChild(price1)
@@ -627,24 +765,23 @@ align-items: center;">
         let stock_api_key = null;//API_KEY - set in local storage.
         let init_api_key = ()=>{
             //Does local storage have API_KEY?
-            if(!localStorage.stock_api_key){ //if no: display enter key
-                stateConnectedBox.style.display = "none";
-                stateNotConnectedBox.style.display = "inline";                   
-                symbolBOX.style.display = "none";
-                keyBOX.style.display = "inline";                   
-                //SHOW NOT CONNECTED. Hide connected. Hide tgt show key input.
-            } else {//if yes init
-                //SHOW CONNNECTED and tgt, hide disconnected and key input
-                stateConnectedBox.style.display = "inline";
-                stateNotConnectedBox.style.display = "none";   
-                symbolBOX.style.display = "inline";
-                keyBOX.style.display = "none"; 
+            // if(!localStorage.stock_api_key){ //if no: display enter key
+            //     stateConnectedBox.style.display = "none";
+            //     stateNotConnectedBox.style.display = "inline";                   
+            //     symbolBOX.style.display = "none";
+            //     keyBOX.style.display = "inline";                   
+            //     //SHOW NOT CONNECTED. Hide connected. Hide tgt show key input.
+            // } else {//if yes init
+            //     //SHOW CONNNECTED and tgt, hide disconnected and key input
+            //     stateConnectedBox.style.display = "inline";
+            //     stateNotConnectedBox.style.display = "none";   
+            //     symbolBOX.style.display = "inline";
+            //     keyBOX.style.display = "none"; 
 
-                stock_api_key = (localStorage.stock_api_key)?localStorage.stock_api_key:'';
-                //initLedger() 
-            }
+            //     stock_api_key = (localStorage.stock_api_key)?localStorage.stock_api_key:'';
+            //     //initLedger() 
+            // }
 
-    //         debugger;
     //         if(!stock_api_key){return;}
     //         // const apiKey = '';
     //         const symbol = 'NVDA';
@@ -652,7 +789,6 @@ align-items: center;">
     //         fetch(apiUrl)
     //         .then(response => response.json())
     //         .then(data => {
-    //             debugger;
     //             // Process the data here (e.g., extract the latest stock price)
     //             const latestPrice = data['Time Series (5min)'][Object.keys(data['Time Series (5min)'])[0]]['1. open'];
 
@@ -674,13 +810,11 @@ align-items: center;">
 
 
         let init_monthly = ()=>{
-            debugger;
             // replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
             // var url = 'https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=IBM&apikey=demo';
 
             if(!stock_api_key){return;}
             if(localStorage.monthly_NVDA_data){ //LOAD FROM LOCAL not API.
-                debugger;
                 monthly_data = JSON.parse(localStorage.monthly_NVDA_data);
                 // let, val_ath=0,val_atl=0,curr_price=0,perc_off_ath=0;
                 let data_keys = Object.keys(monthly_data);
@@ -701,27 +835,21 @@ align-items: center;">
                 
                 return;
             }
-
-
             // const apiKey = '';
             // const symbol = 'NVDA';
             const apiUrl = `https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=${target_SYMBOL}&apikey=${stock_api_key}`;
             fetch(apiUrl)
             .then(response => response.json())
             .then(data => {
-                debugger;
                 localStorage.monthly_NVDA_data = JSON.stringify(data["Monthly Adjusted Time Series"]);
 
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
             });
-
-
         }; //init_monthly();
 
         let setAPIKEY = ()=>{
-            debugger;
             if(keyINPUT.value){
                 stock_api_key = keyINPUT.value;
                 localStorage.stock_api_key = stock_api_key
@@ -765,56 +893,70 @@ align-items: center;">
       }
       const saveTickerClick = ()=>{//loop elements, add data, localstorage
            saveTickBtn1.style.display = 'none';
-           debugger;
-           let items = encodeBOX.children,row,kids,kid,tkr,price,ath,item=null;
-           for(var i=0; i<items.length;i++){
+           let items = encodeBOX.children,row,kids,kid;
+           let tkr,price,ath,item=null;
+           ai_ledger.ticks = []; //CLEAR LEDGER.
+           for(var i=0; i<items.length;i++){ //LOOP DOM ROWS
             item = items[i];
-            if(item.classList.contains('genRow1')){
+            if(item.classList.contains('genRow1')){ //todo FORM remove btns
                kids = item.children;
-               for(var j=0; j<kids.length;j++){
+               tkr = '';price='',ath='';//blank row.
+               for(var j=0; j<kids.length;j++){ //LOOP ROW ITEMS
                   kid = kids[j];
                   if(kid.classList.contains('genTicker1')){
                      kid.value = kid.value.toUpperCase();
                      tkr = kid.value;
-                     
+                     continue;
                   } if(kid.classList.contains('genPrice1')){
                      price = kid.value;
+                     continue;
                   } if(kid.classList.contains('genATH1')){
                      ath = kid.value;
-                  } if(tkr && price && ath){
-                     console.log('save',tkr)
+                     continue;                  
                   } 
-                  // else {
-                  //    saveTickBtn1.style.display = 'block';
-                  // }
                }
             }
+            if(tkr && price && ath){
+               ai_ledger.ticks.push({
+                  tick:tkr,price:price,ath:ath })
+            }
            }
+           //SAVE to LOCAL STORAGE
+           localStorage.ai_ledger = JSON.stringify(ai_ledger)           
         }
       const saveSpotClick = ()=>{
            saveSpotBtn1.style.display = 'none';
-           debugger;
-           let items = decodeSPOTZ.children,row,kids,kid,tkr,price,ath,item=null;
+           let items = decodeSPOTZ.children,row,kids,kid;
+           let tkr,price1=0,date1,ath,item=null;
+           ai_ledger.spots = []; //CLEAR LEDGER.           
            for(var i=0; i<items.length;i++){
             item = items[i];
             if(item.classList.contains('decodeRow1')){
                kids = item.children;
+               tkr = '',price1='',date1='',ath='';//blank row.
                for(var j=0; j<kids.length;j++){
                   kid = kids[j];
                   if(kid.classList.contains('decodeTick1')){
                      kid.value = kid.value.toUpperCase();                     
                      tkr = kid.value;
                   } if(kid.classList.contains('decodeDate1')){
-                     price = kid.value;
+                     date1 = kid.innerHTML;
                   } if(kid.classList.contains('decATH1')){
                      ath = kid.value;
-                  } if(tkr && price && ath){
-                     console.log('save',tkr)
-                  }
+                  } if(kid.classList.contains('decPrice1')){
+                     price1 = kid.value;
+                  } 
                }
-
             }
-           }           
+            if(tkr && price1 && date1 && ath){
+               ai_ledger.spots.push({
+                  tick:tkr,price:price1,ymd:date1,ath:ath })
+            } else {
+               debugger;
+            }
+           } 
+           //SAVE to LOCAL STORAGE
+           localStorage.ai_ledger = JSON.stringify(ai_ledger)                       
          }
          const addSpotClick = ()=>{
             saveSpotBtn1.style.display = 'block';
@@ -822,7 +964,8 @@ align-items: center;">
             decodeRow1 = document.createElement('article')
             decodeRow1.classList.add('decodeRow1')
             date1 = document.createElement('span')
-            date1.innerHTML = "";
+            date1.innerHTML = current_ymd.split('YMD_')[1];//user display
+            // date1.innerHTML = "";
             date1.classList.add('decodeDate1')
             tick1 = document.createElement('input')
             price1 = document.createElement('input')
@@ -847,7 +990,6 @@ align-items: center;">
             price1.classList.add('decPrice1')
             ath1.classList.add('decATH1')
             btn1.classList.add('decBtn1')
-            // decodeRow1.classList.add('decodeRow1')
             decodeRow1.appendChild(date1)
             decodeRow1.appendChild(tick1)
             decodeRow1.appendChild(price1)
@@ -856,14 +998,19 @@ align-items: center;">
             decodeRow1.appendChild(del1)
             encodeBOX.appendChild(decodeRow1)
             decodeSPOTZ.appendChild(decodeRow1)   
-
-
         }
         const deleteTickerClick = (i)=>{
          console.log('c',i)
         }
         const deleteSpotClick = (i)=>{
          console.log('d',i)
+        }
+        const openBtnClick = ()=>{
+          if(instructionText.style.display==='block'){
+             instructionText.style.display='none'
+            } else {
+             instructionText.style.display='block'
+          }
         }
 
          let textareaBOX = document.getElementById('textareaBOX');
@@ -874,40 +1021,41 @@ align-items: center;">
          let stateSavedBox = document.getElementById('savedBox');
          let stateCopiedBox = document.getElementById('copiedBox');
          let transcript, txtline, txttgt;
-         let all_chat_docs = [], chat_doc = {};
-         let recognition = new webkitSpeechRecognition() || new SpeechRecognition();       
-         let transcribeTXT = () => {
-            if(textareaBOX.classList.contains('hiddenTab')){//not visible, make visible.
-               allchatBOX.classList.add('hiddenTab')
-               textareaBOX.classList.remove('hiddenTab')
-               return;
-            }
-            recognition.onstart = () => { //------------------Connected
-                toggleRecordState(true);
-            }
-            recognition.onresult = (e) => {//---------------END RECORD
-               transcript = e.results[0][0].transcript;
-               textareaTXT.push(transcript)
-               textareaBOX.value = textareaTXT.join('\n');
-                toggleRecordState(false);
-            }
-            recognition.start();
-         }
-         let toggleRecordState = (state) => { 
-            if(state){//Connected
-                stateConnectedBox.style.display = "inline";
-               stateNotConnectedBox.style.display = "none";   
-               stateErrorBox.style.display = "none";   
-            }else{ //NOT Connected
-                stateConnectedBox.style.display = "none";
-                stateNotConnectedBox.style.display = "inline";        
-                stateErrorBox.style.display = "none";        
-            }
-         }
-         let stopTXT = () => { 
-            recognition.stop();
-            toggleRecordState(false);                  
-         };
+         // let all_chat_docs = [], chat_doc = {};
+
+         // let recognition = new webkitSpeechRecognition() || new SpeechRecognition();       
+         // let transcribeTXT = () => {
+         //    if(textareaBOX.classList.contains('hiddenTab')){//not visible, make visible.
+         //       allchatBOX.classList.add('hiddenTab')
+         //       textareaBOX.classList.remove('hiddenTab')
+         //       return;
+         //    }
+         //    recognition.onstart = () => { //------------------Connected
+         //        toggleRecordState(true);
+         //    }
+         //    recognition.onresult = (e) => {//---------------END RECORD
+         //       transcript = e.results[0][0].transcript;
+         //       textareaTXT.push(transcript)
+         //       textareaBOX.value = textareaTXT.join('\n');
+         //        toggleRecordState(false);
+         //    }
+         //    recognition.start();
+         // }
+         // let toggleRecordState = (state) => { 
+         //    if(state){//Connected
+         //        stateConnectedBox.style.display = "inline";
+         //       stateNotConnectedBox.style.display = "none";   
+         //       stateErrorBox.style.display = "none";   
+         //    }else{ //NOT Connected
+         //        stateConnectedBox.style.display = "none";
+         //        stateNotConnectedBox.style.display = "inline";        
+         //        stateErrorBox.style.display = "none";        
+         //    }
+         // }
+         // let stopTXT = () => { 
+         //    recognition.stop();
+         //    toggleRecordState(false);                  
+         // };
          let primeFn = () => {
             selectedTXT = textareaBOX.value.substring(textareaBOX.selectionStart, textareaBOX.selectionEnd);
             if(selectedTXT){
@@ -1004,7 +1152,7 @@ align-items: center;">
                 textareaTXT[textareaTXT.length-1] = txtline;
                 textareaBOX.value = textareaTXT.join('\n');
                 toggleRecordState(false);
-                recognition.stop();
+               //  recognition.stop();
             }
          };          
          let numberlineFn = () => {  
@@ -1025,7 +1173,7 @@ align-items: center;">
                 textareaTXT[textareaTXT.length-1] = txtline;
                 textareaBOX.value = textareaTXT.join('\n');
                 toggleRecordState(false);
-                recognition.stop();
+               //  recognition.stop();
             }
          }
       
@@ -1041,7 +1189,7 @@ align-items: center;">
                 textareaTXT[textareaTXT.length-1] = txtline;
                 textareaBOX.value = textareaTXT.join('\n');
                 toggleRecordState(false);
-                recognition.stop();
+               //  recognition.stop();
             }            
          }
          let endlineFn = () => {  
@@ -1059,55 +1207,55 @@ align-items: center;">
                 textareaTXT[textareaTXT.length-1] = txtline;
                 textareaBOX.value = textareaTXT.join('\n');
                 toggleRecordState(false);
-                recognition.stop();
+               //  recognition.stop();
             }
          };   
          let saveChatFn = () => { //
-            let updated_doc = false;
-            txttgt = getCurrentDocTitle();
-            all_chat_docs = (localStorage.all_chat_docs)?
-               JSON.parse( localStorage.all_chat_docs ):[];
-            chat_doc = new Object();
-            chat_doc.title = txttgt;
-            chat_doc.txt = textareaBOX.value;               
-            for(let i = 0; i<all_chat_docs.length;i++){
-               if(all_chat_docs[i].title===txttgt){ //replace
-                  all_chat_docs[i] = chat_doc
-                  updated_doc = true;
-                  break;
-               }
-            }
-            if(!updated_doc){
-               all_chat_docs.push(chat_doc)
-            } //SAVE TO LOCAL STORAGE
-            localStorage.all_chat_docs = JSON.stringify(all_chat_docs)
-            //saved msg
-            stateSavedBox.style.display = "inline";
-            stateConnectedBox.style.display = "none";
-            stateNotConnectedBox.style.display = "none";              
-            setTimeout( ()=>{
-               stateSavedBox.style.display = "none";
-               stateConnectedBox.style.display = "none";
-               stateNotConnectedBox.style.display = "inline";  
-               selectedTXT = '';
-            },3000)                        
+            // let updated_doc = false;
+            // txttgt = getCurrentDocTitle();
+            // all_chat_docs = (localStorage.all_chat_docs)?
+            //    JSON.parse( localStorage.all_chat_docs ):[];
+            // chat_doc = new Object();
+            // chat_doc.title = txttgt;
+            // chat_doc.txt = textareaBOX.value;               
+            // for(let i = 0; i<all_chat_docs.length;i++){
+            //    if(all_chat_docs[i].title===txttgt){ //replace
+            //       all_chat_docs[i] = chat_doc
+            //       updated_doc = true;
+            //       break;
+            //    }
+            // }
+            // if(!updated_doc){
+            //    all_chat_docs.push(chat_doc)
+            // } //SAVE TO LOCAL STORAGE
+            // localStorage.all_chat_docs = JSON.stringify(all_chat_docs)
+            // //saved msg
+            // stateSavedBox.style.display = "inline";
+            // stateConnectedBox.style.display = "none";
+            // stateNotConnectedBox.style.display = "none";              
+            // setTimeout( ()=>{
+            //    stateSavedBox.style.display = "none";
+            //    stateConnectedBox.style.display = "none";
+            //    stateNotConnectedBox.style.display = "inline";  
+            //    selectedTXT = '';
+            // },3000)                        
          };   
          let copyChatFn = () => { 
-            textareaBOX.select();
-            transcript = textareaBOX.value;
-            navigator.clipboard.writeText(transcript);
-            //copied msg
-            //saved msg
-            stateCopiedBox.style.display = "inline";
-            stateConnectedBox.style.display = "none";
-            stateNotConnectedBox.style.display = "none";              
-            setTimeout( ()=>{
-               stateCopiedBox.style.display = "none";
-               stateConnectedBox.style.display = "none";
-               stateNotConnectedBox.style.display = "inline";  
-               selectedTXT = '';
-            },3000)               
-            setTimeout( ()=>{document.getSelection().collapseToEnd()},2000)
+            // textareaBOX.select();
+            // transcript = textareaBOX.value;
+            // navigator.clipboard.writeText(transcript);
+            // //copied msg
+            // //saved msg
+            // stateCopiedBox.style.display = "inline";
+            // stateConnectedBox.style.display = "none";
+            // stateNotConnectedBox.style.display = "none";              
+            // setTimeout( ()=>{
+            //    stateCopiedBox.style.display = "none";
+            //    stateConnectedBox.style.display = "none";
+            //    stateNotConnectedBox.style.display = "inline";  
+            //    selectedTXT = '';
+            // },3000)               
+            // setTimeout( ()=>{document.getSelection().collapseToEnd()},2000)
          };          
          let allChatFn = () => { 
             if(allchatBOX.classList.contains('hiddenTab') ){
@@ -1122,73 +1270,73 @@ align-items: center;">
 //-END-BTN-HANDLERS-------------------------------------------------
 //-HELPER_fns-------------------------------------------------------
          let getCurrentDocTitle = () => {
-            transcript = textareaBOX.value;
-            textareaTXT = transcript.split('\n')
-            if(textareaTXT && textareaTXT.length>0){            
-               return textareaTXT[0];
-            }
-            return ''
+            // transcript = textareaBOX.value;
+            // textareaTXT = transcript.split('\n')
+            // if(textareaTXT && textareaTXT.length>0){            
+            //    return textareaTXT[0];
+            // }
+            // return ''
          }
          let docLoad = () => { //reload all doc view
             //load data for view from local storage
-            all_chat_docs = (localStorage.all_chat_docs)?JSON.parse( localStorage.all_chat_docs ):[];
-            const btnContainer = document.getElementById('btnContainer');
-            btnContainer.innerHTML='';
-            // Map over the array and create buttons
-            all_chat_docs.forEach(item => {
-               const section1 = document.createElement('section');
-               section1.classList.add('docRowBox')
-               const button1 = document.createElement('button');
-               button1.textContent = item.title;
-               button1.classList.add('docTopicBtn')
-               button1.onclick = function() { docLookup(item.title); };
-               section1.appendChild(button1);
-               const button2 = document.createElement('button');
-               button2.textContent = '🗑️';
-               button2.classList.add('docDeleteBtn')
-               button2.onclick = function() { docDelete(item.title); };
-               section1.appendChild(button2);                  
-               btnContainer.appendChild(section1);                  
-            });            
+            // all_chat_docs = (localStorage.all_chat_docs)?JSON.parse( localStorage.all_chat_docs ):[];
+            // const btnContainer = document.getElementById('btnContainer');
+            // btnContainer.innerHTML='';
+            // // Map over the array and create buttons
+            // all_chat_docs.forEach(item => {
+            //    const section1 = document.createElement('section');
+            //    section1.classList.add('docRowBox')
+            //    const button1 = document.createElement('button');
+            //    button1.textContent = item.title;
+            //    button1.classList.add('docTopicBtn')
+            //    button1.onclick = function() { docLookup(item.title); };
+            //    section1.appendChild(button1);
+            //    const button2 = document.createElement('button');
+            //    button2.textContent = '🗑️';
+            //    button2.classList.add('docDeleteBtn')
+            //    button2.onclick = function() { docDelete(item.title); };
+            //    section1.appendChild(button2);                  
+            //    btnContainer.appendChild(section1);                  
+            // });            
          }
          let docLookup = (text) => { //load txt, and switch to view
-            transcript = '';
-            all_chat_docs = (localStorage.all_chat_docs)?
-               JSON.parse( localStorage.all_chat_docs ):[];
-            for(var i=0; i<all_chat_docs.length;i++){
-               if(all_chat_docs[i].title===text){
-                  transcript = all_chat_docs[i].txt;
-                  break;
-               }
-            }
-            textareaBOX.value = transcript;
-            textareaTXT = transcript.split('\n')
-            allchatBOX.classList.add('hiddenTab')
-            textareaBOX.classList.remove('hiddenTab') 
-         } 
-         let docDelete = (text) => { //lookup, remove from local storage.
-            all_chat_docs = (localStorage.all_chat_docs)?
-               JSON.parse( localStorage.all_chat_docs ):[];
-            for(var i=0; i<all_chat_docs.length;i++){
-               if(all_chat_docs[i].title===text){ //-----FOUND DOC
-                  // transcript = all_chat_docs[i].txt;
-                  all_chat_docs.splice(i,1)
-                  localStorage.all_chat_docs = JSON.stringify(all_chat_docs)
-                  docLoad();
-                  break; //splice object out
-               }
-            }
+            // transcript = '';
+            // all_chat_docs = (localStorage.all_chat_docs)?
+            //    JSON.parse( localStorage.all_chat_docs ):[];
+            // for(var i=0; i<all_chat_docs.length;i++){
+            //    if(all_chat_docs[i].title===text){
+            //       transcript = all_chat_docs[i].txt;
+            //       break;
+            //    }
+            // }
+            // textareaBOX.value = transcript;
+            // textareaTXT = transcript.split('\n')
             // allchatBOX.classList.add('hiddenTab')
             // textareaBOX.classList.remove('hiddenTab') 
          } 
-         function setCharAt(str,idx,chr) {
-            if(idx > str.length-1) return str;
-            return str.substring(0,idx) + chr + str.substring(idx+1);
-        }        
-         let keyupTXT = (e) => {
-            transcript = textareaBOX.value;
-            textareaTXT = transcript.split('\n')
-         }
+         let docDelete = (text) => { //lookup, remove from local storage.
+            // all_chat_docs = (localStorage.all_chat_docs)?
+            //    JSON.parse( localStorage.all_chat_docs ):[];
+            // for(var i=0; i<all_chat_docs.length;i++){
+            //    if(all_chat_docs[i].title===text){ //-----FOUND DOC
+            //       // transcript = all_chat_docs[i].txt;
+            //       all_chat_docs.splice(i,1)
+            //       localStorage.all_chat_docs = JSON.stringify(all_chat_docs)
+            //       docLoad();
+            //       break; //splice object out
+            //    }
+            // }
+            // allchatBOX.classList.add('hiddenTab')
+            // textareaBOX.classList.remove('hiddenTab') 
+         } 
+      //    function setCharAt(str,idx,chr) {
+      //       if(idx > str.length-1) return str;
+      //       return str.substring(0,idx) + chr + str.substring(idx+1);
+      //   }        
+      //    let keyupTXT = (e) => {
+      //       transcript = textareaBOX.value;
+      //       textareaTXT = transcript.split('\n')
+      //    }
          let showErrorMSG = (err) => {
             console.log(err)
             stateErrorBox.innerHTML = err;
@@ -1208,12 +1356,12 @@ align-items: center;">
          //       event.target.selectionEnd,
          //    );
          // });
-         recognition.addEventListener("error", (event) => {
-            console.error(`Speech recognition error TRY CHROME browser: ${event.error}`);
-            textareaTXT.push("Try CHROME browser. ~ : )")
-            textareaBOX.innerHTML = textareaTXT.join('\n');
-            toggleRecordState(false);
-        });          
+      //    recognition.addEventListener("error", (event) => {
+      //       console.error(`TRY CHROME browser: ${event.error}`);
+      //       // textareaTXT.push("Try CHROME browser. ~ : )")
+      //       // textareaBOX.innerHTML = textareaTXT.join('\n');
+      //       // toggleRecordState(false);
+      //   });          
       </script> 
    </body>
 </html>

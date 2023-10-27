@@ -22,6 +22,7 @@
         .mainBtn{margin:1em; color:darkblue;} 
         .subMenuBtn { color:#75bdb7; border-radius: 13px;  background-image: linear-gradient(grey, steelblue, black);
                    margin:0.666em;cursor:pointer;font-size:0.888em;padding: 2px 6px 4px 6px; }
+        .boxTitle{font-size:1.222em}
         .btnTXT{font-size:1em;}
         .addBtn1{border-radius:13px;background:#7bd67b;float: right;
          margin-right: 2%;cursor:pointer;
@@ -34,6 +35,11 @@
       .genBtn1{font-size:0.666em; border-radius:22px; cursor:pointer;
          background:#5fa9a9; border-radius: 10px;color:#060252;
          margin: 1em;
+      }
+      .saveBtn2{border-radius:13px;background:#d1d67b;
+         cursor:pointer; margin:1em 0 1em 0;
+         font-size: 0.666em;
+
       }
       .decBtn1{font-size:0.666em; border-radius:22px; cursor:pointer;
          background:#5fa9a9; border-radius: 10px;color:#060252;
@@ -113,22 +119,22 @@
       font-size:0.444em;color: #1a8c8c;
     }
    .decodeRow1{margin: 2%;
-      display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;      
-    width: 88%;
-    border: solid 1px steelblue;
-    padding: 0 0 0 1%;
-    border-radius: 6px;
-        }
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+   flex-wrap: wrap;      
+   width: 88%;
+   border: solid 1px steelblue;
+   padding: 0 0 0 1%;
+   border-radius: 22px;
+   }
    .genRow1{margin:0.111em; width:92%; border:solid 1px steelblue;
    border-radius:18px;padding-left: 3%;padding-top: 0;
    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-         }
+   justify-content: space-around;
+   align-items: center;
+   flex-wrap: wrap;
+   }
         /* .btnTXT:hover{color:navajowhite;} */
         .hoverTXT:hover{color:navajowhite;}
         /* .mainBtn:hover{color:navajowhite} */
@@ -172,8 +178,9 @@
          #rightBOX{margin-right:6%; border:0px} 
          #leftBOX{margin-left:8%; border:0px }
          /* .delBtn1{margin-bottom: 1em;} */
-         .genRow1{padding:3% 2% 0 2%}
+         .genRow1{padding:6px 2% 0 2%}
          .decodeRow1{padding:0 2% 3% 2%}
+         .boxTitle{font-size:0.888em}
       }  
       @media only screen and (max-width: 500px) { /* PHONE */
          body{ background-color: #08011e;}
@@ -186,8 +193,9 @@
             margin:2% 0;
          }  
          #scrollFrame{width: 95%; }       
-         .genRow1{padding:3% 2% 0 2%}
+         .genRow1{padding:2% 2% 0 2%}
          .decodeRow1{padding:0 2% 3% 2%}
+         .boxTitle{font-size:0.777em}
       }
 
      </style>
@@ -310,10 +318,11 @@ align-items: center;">
 
     "
         >
-        <span>🎯 Encode Stock (metadata):</span>
+        <span class="boxTitle">🎯 Encode Stock (metadata):</span>
           <button id="addTickBtn" class="addBtn1" onclick="addTickerClick()">add🎇</button>
           <button id="saveTickBtn1" onclick="saveTickerClick()">save🌟</button>
           <br>
+          <article id="encodeDATA"></article>
          </section>
          
          <section id="decodeBOX"
@@ -323,7 +332,7 @@ align-items: center;">
         padding: 4% 0 4% 4%; color: cyan; line-height: 2.444em;" 
         ">
         
-        <span>🎱 Decode Spot (data):</span>
+        <span class="boxTitle">🎱 Decode Spot (data):</span>
         <button id="addSpotBtn" class="addBtn1" onclick="addSpotClick()">add🎆</button>
         <button id="saveSpotBtn1" onclick="saveSpotClick()">save⚓</button>
         <br>
@@ -337,7 +346,7 @@ align-items: center;">
         padding: 4% 0 4% 4%; color: #b19f50; line-height: 2.444em;" 
         ">
         <button id="generateScheduleBtn" class="genReportBtn1" onclick="">🎆generate</button>
-        <span>🔔 Schedule & Forcast 🌞</span><br>
+        <span class="boxTitle">🔔 Schedule & Forcast 🌞</span><br>
         <hr>   
         <hr>   
 
@@ -351,7 +360,7 @@ align-items: center;">
         padding: 4% 0 4% 4%; color: cyan; line-height: 2.444em;" 
         ">
         <button id="generateProfitBtn" class="genReportBtn1" onclick="">🏰generate</button>
-        <span>🌊 Profit_Loss & Tax 🚨</span><br>
+        <span class="boxTitle">🌊 Profit_Loss & Tax 🚨</span><br>
         <hr>   
         <hr>   
 
@@ -363,10 +372,10 @@ align-items: center;">
         style="width:80%; flex:1;
         background: #234788; font-size:0.666em;
         border-radius: 13px; border: solid 1px steelblue; box-shadow: 0px 7px 20px 0px #026767;
-        padding: 4% 0 4% 4%; color: cyan; line-height: 2.444em;" 
+        padding: 1%; color: cyan; line-height: 2.444em;" 
         ">
         <button id="openBtn1" class="genReportBtn1" onclick="openBtnClick()">💠show</button>        
-        <span style="font-size: 1.555em;">💡 Instructions:</span><br>
+        <span class="boxTitle">💡 Instructions:</span><br>
       <article id="instructionText">
         
         
@@ -547,6 +556,10 @@ align-items: center;">
          Where increasing time, increases weighted probability,
          of correctness of classification.
           
+         Dashboard: 
+         what if it breaks out (earning beat) +10%
+         - what if it tanks 10%?
+         - what if sideways for quarter?
 
          RULES:
          buy the best on red 🔴⚠️
@@ -570,23 +583,23 @@ align-items: center;">
         <button class="subMenuBtn" onclick="quotelineFn()">*️⃣quote</button>
     </menu> -->
       <footer style="display:flex;justify-content:space-evenly;width:90%;margin:0 auto; 
-      margin-bottom:0.666%; flex: 0 0 auto;
+      margin-bottom:0.666%; flex: 0 0 auto;    margin-top: 0.555em;
       background-image: linear-gradient(grey, steelblue, black);
       box-shadow:0 0 14px 0px steelblue;border-radius:13px;">
        <button class="" onclick="saveChatFn()" style="margin:1em;border-radius:8px;background:grey;
           cursor:pointer;box-shadow: inset -1px -1px 4px 1px gold;">
           <span style="border-radius:100%;background:gold;border:1px solid grey;">
-            💾</span> <span class="btnTXT hoverTXT">SAVE CHAT</span>
+            💾</span> <span class="btnTXT hoverTXT">GENERATE</span>
        </button>
-       <button class="" onclick="copyChatFn()" style="margin:1em;border-radius:8px;background:grey;
+       <button class="" onclick="copyLedgerFn()" style="margin:1em;border-radius:8px;background:grey;
           cursor:pointer;box-shadow: inset -1px -1px 4px 1px orangered;">
           <span style="border-radius:100%;background:orangered;border:1px solid grey;">
-            📋</span> <span class="btnTXT hoverTXT">COPY CHAT</span>
+            📋</span> <span class="btnTXT hoverTXT">COPY LEDGER</span>
        </button>
        <button class="" onclick="allChatFn()" style="margin:1em;border-radius:8px;background:grey;
           cursor:pointer;box-shadow: inset -1px -1px 4px 1px rebeccapurple;">
           <span style="border-radius:100%;background:rebeccapurple;border:1px solid grey;">
-            🎡</span> <span class="btnTXT hoverTXT">ALL CHATS</span>
+            🎡</span> <span class="btnTXT hoverTXT">RESTART</span>
        </button>
       </footer>
       <legal style="color:darkslategray;font-size: 0.666em;">copyright 2020-2023 netcinematics llc, all rights reserved.
@@ -609,6 +622,7 @@ align-items: center;">
         let stateNotConnectedBox = document.getElementById('notConnectedBox');
 
         let encodeBOX = document.getElementById('encodeBOX');
+        let encodeDATA = document.getElementById('encodeDATA');
         let decodeBOX = document.getElementById('decodeBOX');
         let decodeSPOTZ = document.getElementById('decodeSPOTZ');
 
@@ -633,7 +647,7 @@ align-items: center;">
         let ai_ledger_LOAD_from_LOCALSTORAGE=()=>{ //READ from LOCAL STORAGE
             ai_ledger = (localStorage.ai_ledger)?
                JSON.parse( localStorage.ai_ledger ):null;
-               // ai_ledger=null;
+               // ai_ledger=null; //reset mock data
             if(!ai_ledger){
                ai_ledger = {
                   "ticks":[
@@ -675,13 +689,11 @@ align-items: center;">
         }; ai_ledger_LOAD_from_LOCALSTORAGE();
 
         let initEncode = ()=>{
-            console.log('load ai_ledger');
-            //populate encode table
+            console.log('load ai_ledger');//populate encode table
             let encodeRow,input1,price1,ath1,del1,btn1 = null;
             let uniqueMAP={};
-            // for(var i=0; i<ai_ledger.spots.length;i++){
+            encodeDATA.innerHTML=''; //blank out reload.
             for(var i=0; i<ai_ledger.ticks.length;i++){
-               // if(uniqueMAP[ai_ledger.spots[i].tick]){continue;}
                if(uniqueMAP[ai_ledger.ticks[i].tick]){continue;}
                encodeRow = document.createElement('article')
                input1 = document.createElement('input')
@@ -713,7 +725,7 @@ align-items: center;">
                encodeRow.appendChild(ath1)
                encodeRow.appendChild(btn1)
                encodeRow.appendChild(del1)
-               encodeBOX.appendChild(encodeRow)
+               encodeDATA.appendChild(encodeRow)
                uniqueMAP[ai_ledger.ticks[i].tick] = ai_ledger.ticks[i];
             }
         }; initEncode();
@@ -755,7 +767,7 @@ align-items: center;">
             decodeRow1.appendChild(ath1)
             decodeRow1.appendChild(btn1)
             decodeRow1.appendChild(del1)
-            encodeBOX.appendChild(decodeRow1)
+            // encodeBOX.appendChild(decodeRow1)
             decodeSPOTZ.appendChild(decodeRow1)   
                   
          }
@@ -859,26 +871,33 @@ align-items: center;">
  
         const addTickerClick = ()=>{ //new addTickRow, datestamp, tick price input, show save
          saveTickBtn1.style.display = 'block';
-         let encodeRow,input1,price1,ath1,del1,btn1 = null;
+         let encodeRow,input1,price1,ath1,del1,saveBtn2 = null;
          encodeRow = document.createElement('article')
                input1 = document.createElement('input')
                price1 = document.createElement('input')
                ath1 = document.createElement('input')
-               btn1 = document.createElement('button')
+               saveBtn2 = document.createElement('button')
                del1 = document.createElement('button')
                del1.innerHTML = '🗑️'
                del1.classList.add('delBtn1')
                del1.addEventListener('click',()=>{deleteTickerClick(i)})
-               btn1.innerHTML = 'generate⚡'
                input1.value = "";
                input1.readOnly = false;
                input1.placeholder = "ticker";
                price1.placeholder = "today:$0.00";
                ath1.placeholder = "ath:$0.00";
                input1.classList.add('genTicker1')
+               input1.style.margin='1em 0 1em 0';
                price1.classList.add('genPrice1')
+               price1.style.margin='1em 0 1em 0';
                ath1.classList.add('genATH1')
-               btn1.classList.add('genBtn1')
+               ath1.style.margin='1em 0 1em 0';
+               // <button id="saveTickBtn1" onclick="saveTickerClick()"></button>
+               saveBtn2.innerHTML = 'save🌟'
+               saveBtn2.classList.add('saveBtn2')
+               saveBtn2.addEventListener("click",(e)=>{
+                  saveTickerClick()
+               });
                ath1.addEventListener("keyup",(e)=>{
                   saveTickBtn1.style.display = 'block'; });
                price1.addEventListener("keyup",(e)=>{
@@ -887,13 +906,13 @@ align-items: center;">
                encodeRow.appendChild(input1)
                encodeRow.appendChild(price1)
                encodeRow.appendChild(ath1)
-               encodeRow.appendChild(btn1)
-               encodeRow.appendChild(del1)
-               encodeBOX.appendChild(encodeRow)         
+               encodeRow.appendChild(saveBtn2)
+               // encodeRow.appendChild(del1)
+               encodeDATA.appendChild(encodeRow)         
       }
       const saveTickerClick = ()=>{//loop elements, add data, localstorage
            saveTickBtn1.style.display = 'none';
-           let items = encodeBOX.children,row,kids,kid;
+           let items = encodeDATA.children,row,kids,kid;
            let tkr,price,ath,item=null;
            ai_ledger.ticks = []; //CLEAR LEDGER.
            for(var i=0; i<items.length;i++){ //LOOP DOM ROWS
@@ -922,7 +941,8 @@ align-items: center;">
             }
            }
            //SAVE to LOCAL STORAGE
-           localStorage.ai_ledger = JSON.stringify(ai_ledger)           
+           localStorage.ai_ledger = JSON.stringify(ai_ledger)  
+           initEncode(); //RELOAD VIEW.         
         }
       const saveSpotClick = ()=>{
            saveSpotBtn1.style.display = 'none';
@@ -996,7 +1016,7 @@ align-items: center;">
             decodeRow1.appendChild(ath1)
             decodeRow1.appendChild(btn1)
             decodeRow1.appendChild(del1)
-            encodeBOX.appendChild(decodeRow1)
+            // encodeBOX.appendChild(decodeRow1)
             decodeSPOTZ.appendChild(decodeRow1)   
         }
         const deleteTickerClick = (i)=>{
@@ -1240,21 +1260,22 @@ align-items: center;">
             //    selectedTXT = '';
             // },3000)                        
          };   
-         let copyChatFn = () => { 
+         let copyLedgerFn = () => { 
             // textareaBOX.select();
             // transcript = textareaBOX.value;
-            // navigator.clipboard.writeText(transcript);
-            // //copied msg
-            // //saved msg
-            // stateCopiedBox.style.display = "inline";
-            // stateConnectedBox.style.display = "none";
-            // stateNotConnectedBox.style.display = "none";              
-            // setTimeout( ()=>{
-            //    stateCopiedBox.style.display = "none";
-            //    stateConnectedBox.style.display = "none";
-            //    stateNotConnectedBox.style.display = "inline";  
-            //    selectedTXT = '';
-            // },3000)               
+
+            navigator.clipboard.writeText(JSON.stringify(ai_ledger) );
+            //copied msg
+            //saved msg
+            stateCopiedBox.style.display = "inline";
+            stateConnectedBox.style.display = "none";
+            stateNotConnectedBox.style.display = "none";              
+            setTimeout( ()=>{
+               stateCopiedBox.style.display = "none";
+               stateConnectedBox.style.display = "none";
+               stateNotConnectedBox.style.display = "inline";  
+               // selectedTXT = '';
+            },3000)               
             // setTimeout( ()=>{document.getSelection().collapseToEnd()},2000)
          };          
          let allChatFn = () => { 

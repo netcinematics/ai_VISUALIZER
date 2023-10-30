@@ -197,6 +197,27 @@
     height: 16px;
     margin-bottom: -1px;
     border: 1px solid steelblue;}
+   .spotAtBOX1{border-radius: 8px;
+    font-size: 0.666em;
+    background: #1a0033;
+    color: cyan;
+    padding-left: 0.555em;
+    margin: 0.222em 1em;
+    display: flex;
+    max-height: 24px;
+    align-items: center;
+    text-align: right;
+   }
+   .spotAtData1{    border-radius: 8px;
+    font-size: 0.888em;
+    background: #02184b;
+    color: cyan;
+    padding: 0 0.444em;
+    text-align: center;
+    max-width: 34px;
+    height: 16px;
+    margin-bottom: -1px;
+    border: 1px solid steelblue;}
    .genTicker1{    border-radius: 10px;
          max-width: 66px;
     text-align: center;
@@ -231,6 +252,26 @@
    padding: 0 0 0 1%;
    padding-left: 2%;
    border-radius: 22px;
+   }
+   .encodeNUMBOX1{
+         font-family: sans-serif;
+      font-size: 0.555em;
+      margin-left: -2em;
+      padding-left: 1em;
+      display: flex;
+   }
+   .encodeSelect1{
+      color:cyan;
+   }
+   .decodeNUMBOX1{
+         font-family: sans-serif;
+      font-size: 0.555em;
+      margin-left: -2em;
+      padding-left: 1em;
+      display: flex;
+   }
+   .decodeSelect1{
+      color:cyan;
    }
    .genRow1{margin: 1%; width:92%; border:solid 1px steelblue;
    border-radius:18px;padding-left: 3%;padding-top: 0;
@@ -273,6 +314,78 @@
       .scrollBarV::-webkit-scrollbar-thumb { background-color: #04223c; border-radius: 13px;
       background-image: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 0.6) 26%, transparent 26%, transparent 51%, rgba(255, 255, 255, -0.4) 51%, rgba(255, 255, 255, 0.6) 74%, transparent 74%, transparent);
       }
+
+
+/* checkbox_frame */
+.checkboxFrame {
+  display: block;
+  position: relative;
+  padding: 0 4px;
+    margin: 13px 6px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkboxFrame input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+border:1px solid lime;
+border-radius:13px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 10px;
+  width: 10px;
+  background-color: black;
+}
+
+/* On mouse-over, add a grey background color */
+.checkboxFrame:hover input ~ .checkmark {
+  background-color: #014601;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkboxFrame input:checked ~ .checkmark {
+  background-color: steelblue;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkboxFrame input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkboxFrame .checkmark:after {
+   left: 4px;
+    top: -1px;
+    width: 2px;
+    height: 6px;
+  border: solid #014601;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
 
       @media only screen and (max-width: 800px) { /* TABLET */
          body{  background-color: #000f1b;}
@@ -423,10 +536,12 @@ align-items: center;">
     "
         >
         <span class="boxTitle">🎯 Encode Stock <span style="font-size:0.666em">(metadata):</span></span>
+        <article id="encodeDATA"></article>
+        <button id="addSellBtn" class="genBtn1" onclick="sellSpotClick()">🗠gener8⚡</button>
+        <button id="saveTickBtn1" onclick="saveTickerClick()">save🌟</button>
           <button id="addTickBtn" class="addBtn1" onclick="addTickerClick()">add🎇</button>
-          <button id="saveTickBtn1" onclick="saveTickerClick()">save🌟</button>
+          <button class="delBtn1" data-arg1="7">🗑️</button>
           <br>
-          <article id="encodeDATA"></article>
          </section>
          
          <section id="decodeBOX"
@@ -437,10 +552,11 @@ align-items: center;">
         ">
         
         <span class="boxTitle">🎱 Decode Spot <span style="font-size:0.666em">(realtime data):</span></span>
+        <aside id="decodeSPOTZ"></aside>
         <button id="addSpotBtn" class="addBtn1" onclick="addSpotClick()">add🎆</button>
         <button id="saveSpotBtn1" onclick="saveSpotClick()">save⚓</button>
+        <button id="addSellBtn" class="genBtn1" onclick="sellSpotClick()">🔒lock sale✅</button>
         <br>
-        <aside id="decodeSPOTZ"></aside>
       </section>
 
       <section id="scheduleBOX"
@@ -449,15 +565,17 @@ align-items: center;">
         border-radius: 13px; border: solid 1px #a9a04b; box-shadow: 0px 7px 7px 3px #9b6237;
         padding: 4% 0 4% 4%; color: #b19f50; line-height: 2.444em;" 
         ">
-        <button id="generateScheduleBtn" class="genReportBtn1" onclick="">generate🌌</button>
+        <button id="generateScheduleBtn" class="genReportBtn1" onclick="">gener8🌌</button>
         <span class="boxTitle">🔔 <span style="font-size:0.555em">Generate</span> Schedule & Forcast 🌞</span><br>
         <article style="font-size:0.666em;">
            <hr>   
+           Monthly Story, for spot-families.
+           <hr>   
            Schedule of responses.
            <hr>   
-           Forcast of triggers.
+           Forcasts or triggers.
            <hr>     
-           Analytic limits.
+           Analytic contraints.
          </article>
       </section>
       <section id="historyBOX"
@@ -466,7 +584,7 @@ align-items: center;">
         border-radius: 13px; border: solid 1px darkgreen; box-shadow: 0px 7px 20px 0px #029e4a;
         padding: 4% 0 4% 4%; color: cyan; line-height: 2.444em;" 
         ">
-        <button id="generateProfitBtn" class="genReportBtn1" onclick="">generate🏰</button>
+        <button id="generateProfitBtn" class="genReportBtn1" onclick="">gener8🏰</button>
         <span class="boxTitle">🌊 <span style="font-size:0.555em">Generate</span> Profit & Tax 🚨</span><br>
         <article style="font-size:0.666em;">
          <hr>   
@@ -681,11 +799,32 @@ align-items: center;">
 
          Where increasing time, increases weighted probability,
          of correctness of classification.
+
+         Quarterly Story: buzzwords: 'higher for longer', 'quantitative easing'
+         etc.
           
-         Dashboard: 
+         TrimSpot: 1,2,3,4...: 10%, date, margin.
+         PressSpots 1,2,3,4...: avg_price, date
+
+         RISK_ON, RISK_OFF.
+         NLP: Nomenclature,Taxonomy,Ontology,Index,FoundationModel.
+         HeadWind, TailWind.
+
+         Forcast Dashboard: 
          what if it breaks out (earning beat) +10%
          - what if it tanks 10%?
          - what if sideways for quarter?
+
+         Analytic display.
+         Individual Spot Profit/Loss.
+         SpotFamily Profit/Loss.
+
+         LAST_DAY, FIRST_DAY.
+         - input data on the last day and first day of data every month.
+         - put a reminder on phone. along with last thursday.
+         - SET NEW upper band and lower band RANGE ALERTS! - every month.
+         - 10% and 20% (mid moves and big moves) 
+
 
          RULES:
          buy the best on red 🔴⚠️
@@ -773,63 +912,40 @@ align-items: center;">
         let ai_ledger_LOAD_from_LOCALSTORAGE=()=>{ //READ from LOCAL STORAGE
             ai_ledger = (localStorage.ai_ledger)?
                JSON.parse( localStorage.ai_ledger ):null;
-               // ai_ledger=null; //reset mock data
             if(!ai_ledger){
                ai_ledger_LOAD_MOCK_DATA();
             }
         }; ai_ledger_LOAD_from_LOCALSTORAGE();
 
         let ai_ledger_LOAD_MOCK_DATA=()=>{ //READ from OBJ
-            // ai_ledger = {
-            //    "ticks":[
-            //    {
-            //       // "prices":[{ymd:'2002_1_10',price:100},
-            //       //       {ymd:'2000_2_20',price:200},
-            //       //       {ymd:'2001_1_11',price:300},
-            //       //    ],
-            //       "price":222,
-            //          "tick":"nvda",
-            //          "ath":100.00,
-            //       },
-            //    {
-            //       "price":444,
-            //          "tick":"cost",
-            //          "ath":100.00,
-            //       }
-            //    ],
-            //    "spots":[
-            //       {
-            //          "ymd":"2023_9_20",
-            //          "tick":"nvda",
-            //          "price":100.00,
-            //          "ath":200
-            //       },
-            //       {
-            //          "ymd":"2022_9_22",
-            //          "tick":"nvda",
-            //          "price":100.00,
-            //          "ath":200
-            //       },
-            //       {
-            //          "ymd":"2022_9_22",
-            //          "tick":"cost",
-            //          "price":100.00,
-            //          "ath":200
-            //       }               
-
-            //    ]
-            // }   
-            ai_ledger = {"ticks":[{"tick":"NVDA","price":"222","ath":"100","price_ymd":"2022_10_30"},{"tick":"COST","price":"444","ath":"100","ath_ymd":"2022_10_11"},{"tick":"MDB","price":"100","ath":"200","ath_ymd":"2022_20_22","price_ymd":"2000_22_20"}],"spots":[{"tick":"NVDA","price":"100","ymd":"2023_9_20"},{"tick":"NVDA","price":"100","ymd":"2022_9_22"},{"tick":"COST","price":"100","ymd":"2022_9_22"},{"tick":"MDB","price":"100","ymd":"2023_10_29"},{"tick":"MDB","price":"111","ymd":"2023_10_29"}]}              
+            // ai_ledger = {"ticks":[{"tick":"NVDA","price":"222","ath":"100","price_ymd":"2022_10_30"},{"tick":"COST","price":"444","ath":"100","ath_ymd":"2022_10_11"},{"tick":"MDB","price":"100","ath":"200","ath_ymd":"2022_20_22","price_ymd":"2000_22_20"}],"spots":[{"tick":"NVDA","price":"100","ymd":"2023_9_20"},{"tick":"NVDA","price":"100","ymd":"2022_9_22"},{"tick":"COST","price":"100","ymd":"2022_9_22"},{"tick":"MDB","price":"100","ymd":"2023_10_29"},{"tick":"MDB","price":"111","ymd":"2023_10_29"}]}              
+            ai_ledger = {"ticks":[{"tick":"NVDA","price":"411","ath":"100","price_ymd":"2022_10_30"},{"tick":"COST","price":"550","ath":"100","ath_ymd":"2022_10_11","price_ymd":"2023_11_01"},{"tick":"MDB","price":"100","ath":"200","ath_ymd":"2022_20_22","price_ymd":"2000_22_20"},{"tick":"MSFT","price_ymd":"2023_11_01"},{"tick":"GOOG","price":"125","price_ymd":"2023_11_01"},{"tick":"QQQ","price":"350","price_ymd":"2023_11_01"},{"tick":"XLK","price":"160","price_ymd":"2023_11_01"},{"tick":"NDAQ","price":"50","price_ymd":"2023_11_01"},{"tick":"COIN","price":"75","price_ymd":"2023_11_01"},{"tick":"BTC","price":"30,000","price_ymd":"2023_11_01"},{"tick":"ETH","price":"1,700","price_ymd":"2023_11_01"},{"tick":"V","price":"230","price_ymd":"2023_11_01"}],"spots":[{"tick":"NVDA","price":"100","ymd":"2023_9_20","role":"SHORT"},{"tick":"NVDA","price":"100","ymd":"2022_9_22","role":"..."},{"tick":"COST","price":"100","ymd":"2022_9_22","role":"..."},{"tick":"MDB","price":"100","ymd":"2023_10_29","role":"SHORT"},{"tick":"MDB","price":"111","ymd":"2023_10_29","role":"..."},{"tick":"GOOG","price":"200","ymd":"2023_10_29","role":"LONG"}]}
         }
 
         let initEncode = ()=>{
             console.log('load ai_ledger');//populate encode table
-            let encodeRow,tick1,priceData1,priceDate1,priceBOX1,athData1,athDate1,athBOX1,del1,btn1 = null;
+            let encodeRow,tick1,priceData1,priceDate1,priceBOX1;
+            let athData1,athDate1,athBOX1,del1,btn1 = null;
+            let encodeNUMBOX1,encodeCHECKBOX1,encodeSelect1;
             let uniqueMAP={};
             encodeDATA.innerHTML=''; //blank out reload.
             for(var i=0; i<ai_ledger.ticks.length;i++){
                if(uniqueMAP[ai_ledger.ticks[i].tick]){continue;}
                encodeRow = document.createElement('article')
+               encodeNUMBOX1 = document.createElement('aside')
+               encodeNUMBOX1.classList.add('encodeNUMBOX1')
+               encodeCHECKBOX1 = document.createElement('label')
+               encodeCHECKBOX1.classList.add('checkboxFrame') //encodeNUMBOX1
+               encodeNUMBOX1.innerHTML=i+1;            
+               encodeSelect1 = document.createElement('input')
+               encodeSelect1.type = "checkbox";
+               encodeCHECKBOX1.appendChild(encodeSelect1)
+               encodeCheckMark1 = document.createElement('span')
+               encodeCheckMark1.classList.add('checkmark')
+               encodeCHECKBOX1.appendChild(encodeCheckMark1)
+               encodeNUMBOX1.appendChild(encodeCHECKBOX1)
+
+
                priceBOX1 = document.createElement('aside')
                athBOX1 = document.createElement('aside')
                priceBOX1.innerHTML = "now $&nbsp;"
@@ -846,7 +962,7 @@ align-items: center;">
                del1.setAttribute('data-arg1',i)
                del1.addEventListener('click',(e)=>{
                   deleteTickerClick(e.target.getAttribute('data-arg1'))})
-               btn1.innerHTML = 'generate⚡'
+               btn1.innerHTML = 'gener8⚡'
                tick1.value = ai_ledger.ticks[i].tick.toUpperCase();
                tick1.readOnly = false;
                tick1.addEventListener("keyup",(e)=>{
@@ -863,7 +979,7 @@ align-items: center;">
                priceDate1.placeholder = "yyyy_mm_dd";
                priceData1.value = ai_ledger.ticks[i].price || '';
                priceDate1.value = ai_ledger.ticks[i].price_ymd || '';
-               athData1.placeholder = "ath:$0.00";
+               athData1.placeholder = "$0.00";
                athData1.value = ai_ledger.ticks[i].ath || '';
                athDate1.placeholder = "yyyy_mm_dd";
                athDate1.value = ai_ledger.ticks[i].ath_ymd || '';
@@ -876,6 +992,7 @@ align-items: center;">
                athBOX1.classList.add('tkrATHBOX1')
                btn1.classList.add('genBtn1')
                encodeRow.classList.add('genRow1')
+               encodeRow.appendChild(encodeNUMBOX1)
                encodeRow.appendChild(tick1)
                priceBOX1.appendChild(priceData1)
                priceBOX1.appendChild(priceDate1)
@@ -883,7 +1000,7 @@ align-items: center;">
                athBOX1.appendChild(athData1)
                athBOX1.appendChild(athDate1)
                encodeRow.appendChild(athBOX1)
-               encodeRow.appendChild(btn1)
+               // encodeRow.appendChild(btn1)
                encodeRow.appendChild(del1)
                encodeDATA.appendChild(encodeRow)
                uniqueMAP[ai_ledger.ticks[i].tick] = ai_ledger.ticks[i];
@@ -891,15 +1008,27 @@ align-items: center;">
         }; initEncode();
 
         let initDecode = ()=>{
-         let decodeRow1,date1,tick1,priceData1,priceBOX1,athData1,athBOX1;
-         let btn1,roleBOX,roleData;
+         let decodeRow1,date1,tick1,priceData1,priceBOX1,atData1,atBOX1;
+         let btn1,roleBOX,roleData,decodeNUMBOX, decodeSelect1,decodeCHECKBOX1;
          decodeSPOTZ.innerHTML=''; //blank out reload.
          for(var i=0; i<ai_ledger.spots.length;i++){
             decodeRow1 = document.createElement('article')
             decodeRow1.classList.add('decodeRow1')
+            decodeNUMBOX1 = document.createElement('aside')
+            decodeNUMBOX1.classList.add('decodeNUMBOX1')
+            decodeCHECKBOX1 = document.createElement('label')
+            decodeCHECKBOX1.classList.add('checkboxFrame') //decodeNUMBOX1
+            decodeNUMBOX1.innerHTML=i+1;            
+            decodeSelect1 = document.createElement('input')
+            decodeSelect1.type = "checkbox";
+            decodeCHECKBOX1.appendChild(decodeSelect1)
+            decodeCheckMark1 = document.createElement('span')
+            decodeCheckMark1.classList.add('checkmark')
+            decodeCHECKBOX1.appendChild(decodeCheckMark1)
+            decodeNUMBOX1.appendChild(decodeCHECKBOX1)
             priceBOX1 = document.createElement('aside')
-            athBOX1 = document.createElement('aside')
-            athBOX1.innerHTML="ath&nbsp;"
+            atBOX1 = document.createElement('aside')
+            atBOX1.innerHTML="@&nbsp;"
             roleBOX = document.createElement('aside')
             roleBOX.innerHTML="role&nbsp;"
             roleData = document.createElement('select')
@@ -919,15 +1048,7 @@ align-items: center;">
             roleBOX.appendChild(roleData)
             roleBOX.classList.add('roleBOX1')
             roleData.classList.add('roleData1')
-
-//    <label for="cars">Choose a car:</label>
-
-// <select name="cars" id="cars">
-//   <option value="volvo">Volvo</option>
-//   <option value="saab">Saab</option>
-//   <option value="mercedes">Mercedes</option>
-//   <option value="audi">Audi</option>
-// </select>            
+         
             date1 = document.createElement('input')
             date1.value = ai_ledger.spots[i].ymd || '';
             date1.classList.add('decodeDate1')
@@ -935,7 +1056,7 @@ align-items: center;">
                   saveSpotBtn1.style.display = 'block'; });
             tick1 = document.createElement('input')
             priceData1 = document.createElement('input')
-            athData1 = document.createElement('input')
+            atData1 = document.createElement('input')
             btn1 = document.createElement('button')
             del1 = document.createElement('button')
             del1.innerHTML = '🗑️'
@@ -949,30 +1070,30 @@ align-items: center;">
             tick1.readOnly = true;
             priceData1.placeholder = "start:$0.00";
             priceData1.value = ai_ledger.spots[i].price || '';
-            // athData1.placeholder = "+-:%";
-            // athData1.value = ai_ledger.spots[i].ath;
-            // athData1.addEventListener("keyup",(e)=>{
-            //       saveSpotBtn1.style.display = 'block'; });
+            atData1.placeholder = "$0.00";
+            atData1.value = ai_ledger.spots[i].at || '';
+            atData1.addEventListener("keyup",(e)=>{
+                  saveSpotBtn1.style.display = 'block'; });
             priceData1.addEventListener("keyup",(e)=>{
                   saveSpotBtn1.style.display = 'block'; }); 
             roleData.addEventListener("change",(e)=>{
                   saveSpotBtn1.style.display = 'block'; });
             roleBOX.value = ai_ledger.spots[i].role || '...';
-            // roleBOX.addEventListener("change",(e)=>{
-            //       saveSpotBtn1.style.display = 'block'; });                             
+                         
             tick1.classList.add('decodeTick1')
             priceBOX1.classList.add('spotPriceBOX1')
             priceData1.classList.add('spotPriceData1')
-            // athData1.classList.add('spotATHData1')
-            // athBOX1.classList.add('spotATHBOX1')
+            atData1.classList.add('spotAtData1')
+            atBOX1.classList.add('spotAtBOX1')
             btn1.classList.add('decBtn1')
+            decodeRow1.appendChild(decodeNUMBOX1)
             decodeRow1.appendChild(date1)
             decodeRow1.appendChild(tick1)
             priceBOX1.innerHTML="$&nbsp;"
             priceBOX1.appendChild(priceData1)
             decodeRow1.appendChild(priceBOX1)
-            athBOX1.appendChild(athData1)
-            // decodeRow1.appendChild(athBOX1)
+            atBOX1.appendChild(atData1)
+            decodeRow1.appendChild(atBOX1)
             decodeRow1.appendChild(roleBOX)
             decodeRow1.appendChild(btn1)
             decodeRow1.appendChild(del1)
@@ -1021,18 +1142,10 @@ align-items: center;">
     //         .catch(error => {
     //             console.error('Error fetching data:', error);
     //         });
-
-
         }; //init_api_key();
-
-
-
-
-
         let init_monthly = ()=>{
             // replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
             // var url = 'https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=IBM&apikey=demo';
-
             if(!stock_api_key){return;}
             if(localStorage.monthly_NVDA_data){ //LOAD FROM LOCAL not API.
                 monthly_data = JSON.parse(localStorage.monthly_NVDA_data);
@@ -1047,12 +1160,10 @@ align-items: center;">
                         calculate_ATL = parseFloat(daily_data["3. low"])
                     }
                 }
-
                 console.log('ATH:',calculate_ATH)
                 console.log('ATL:',calculate_ATL)
                 console.log('Curr Price:', current_PRICE)
                 console.log('%off ATH', perc_off_ath)
-                
                 return;
             }
             // const apiKey = '';

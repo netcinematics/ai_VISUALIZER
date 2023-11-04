@@ -25,7 +25,7 @@
         .boxTitle{font-size:1.222em}
         .btnTXT{font-size:1em;}
         .addBtn1{border-radius:13px;background:#7bd67b;float: right;
-         margin-right: 2%;cursor:pointer;
+         margin-right: 0%;cursor:pointer;
          font-size: 0.666em;margin-top: 0.888em;
       }
         .genReportBtn1{border-radius:13px;background:#bd814f;float: right;
@@ -80,7 +80,7 @@
     color: cyan;
     padding: 0;
     text-align: center;
-    max-width: 60px;
+    max-width: 68px;
     height: 16px;
     margin-bottom: -1px;
     border: 1px solid steelblue;}
@@ -120,7 +120,7 @@
     margin-bottom: -1px;
     border: 1px solid steelblue;}
 
-   .spotPriceBOX1{border-radius: 8px;
+   .spotamountBOX1{border-radius: 8px;
     font-size: 0.666em;
     background: #1a0033;
     color: cyan;
@@ -131,7 +131,7 @@
     align-items: center;
     text-align: right;
    }
-   .spotPriceData1{    border-radius: 8px;
+   .spotamountData1{    border-radius: 8px;
     font-size: 0.888em;
     background: #02184b;
     color: cyan;
@@ -224,18 +224,16 @@
     font-size: 0.666em;
     color: cyan;;
     background: #6679a0;
-    /* margin: 1em; */
    }
     .genTicker1::-webkit-input-placeholder {
     color: rgb(68, 52, 106);
  }
- .decodeTick1{          border-radius: 8px;
-    font-size: 0.666em;
-    background: rgb(37, 24, 102);
-    color: cadetblue;
-    /* margin: 1em; */
-    max-width: 66px;
+ .decodeTick1{  border-radius: 10px;
+         max-width: 66px;
     text-align: center;
+    font-size: 0.666em;
+    color: cyan;;
+    background: #6679a0;
         }
     .decodeDate1{
       font-size:0.444em;color: #1a8c8c;background: none;
@@ -266,7 +264,7 @@
    .decodeNUMBOX1{
          font-family: sans-serif;
       font-size: 0.555em;
-      margin-left: -2em;
+      margin-left: -1em;
       padding-left: 1em;
       display: flex;
    }
@@ -303,9 +301,26 @@
          #encodeBOX, #decodeBOX, #instructionBOX, #scheduleBOX, #historyBOX{
             margin:2%;
          }
+
+         #generatedScheduleBOX, #generatedProfitsBOX{
+            margin:2%;
+         }
+
+.profitRow1 {
+   display: flex;
+    justify-content: space-between;
+    margin-right: 2%;
+}
+.proTick1{
+   width: 1px; /*align item column*/
+}
       .smICON{font-size:0.555em;}
       #instructionText{display:none;margin:4%;}
-      #scrollFrame{width: 80%; }  
+
+      #keyINPUT:-webkit-autofill { -webkit-box-shadow: 0 0 0px 1000px #233453 inset;}
+
+
+      #scrollFrame{width: 88%; }  
       /*  custom scroll bar */
       /* .scrollBar2 {height:97%; overflow-x:hidden; background:#010111; border: 1px steelblue solid; border-radius:13px; padding:0.5em; } */
       .scrollBarV {height:97%; overflow-x:scroll; background:#010111; border: 1px steelblue solid; border-radius:13px;  }
@@ -348,6 +363,7 @@ border-radius:13px;
   height: 10px;
   width: 10px;
   background-color: black;
+  box-shadow: 0px 2px 6px 1px #010191;  
 }
 
 /* On mouse-over, add a grey background color */
@@ -449,8 +465,7 @@ border-radius:13px;
          <section id="ConnectedBox" class="mainBtn" style="border-radius:8px;
          background:#6283be;padding: 6px;border: 1px solid darkslateblue;
          display:none;"><span style="border-radius:33%;background:skyblue;
-              border:1px solid grey;">
-            ⚡</span>Connected
+              border:1px solid grey;">⚡</span>Connected
         </section>
 
          <section id="savedBox" class="mainBtn" style="border-radius:20px;
@@ -477,14 +492,14 @@ border-radius:13px;
          </button>
         </header>
       <header id="messageBOX" style="display:flex;flex: 0 0 auto;
-      margin: 1em;">
+      margin: 0.222em;">
          <section id="leftBOX" style="display:flex; justify-content: center;
          border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
          "><span class="smICON">✴&nbsp;&nbsp;</span> ai probability stock forcast <span class="smICON">&nbsp;✳</span></section>            
          <section id="keyBOX" style="display:flex;border: solid 1px steelblue;
          border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
          margin:2px;">
-               API:<input id="keyINPUT"  type="text" placeholder="api_key" 
+               API:<input id="keyINPUT"  type="password" placeholder="api_key" 
                style="margin-left: 1em; background:#233453;
                border-radius: 10px 0px 0px 10px;"></input>
                <button style="margin-right: 1em; background:#03cbcb;cursor:pointer;
@@ -535,12 +550,14 @@ align-items: center;">
 
     "
         >
-        <span class="boxTitle">🎯 Encode Stock <span style="font-size:0.666em">(metadata):</span></span>
+        <span class="boxTitle">🎯 <span style="font-size:0.888em; color:#2a2acf">1</span> Encode Stocks <span style="font-size:0.666em">(metadata):</span></span>
         <article id="encodeDATA"></article>
-        <button id="addSellBtn" class="genBtn1" onclick="sellSpotClick()">🗠gener8⚡</button>
         <button id="saveTickBtn1" onclick="saveTickerClick()">save🌟</button>
+        <button id="genr8Btn" class="genBtn1" onclick="generateSelected()">⚡gener8🗺️</button>
+        <button class="delBtn1" style="float:right;margin-top:0.888em;margin-right:4%;" onclick="deleteSelectedTicker()">🗑️</button>
           <button id="addTickBtn" class="addBtn1" onclick="addTickerClick()">add🎇</button>
-          <button class="delBtn1" data-arg1="7">🗑️</button>
+          <button id="latestBtn1" class="genBtn1" style="display:none;" onclick="getLatestTickerClick()">latest🔄</button>
+          
           <br>
          </section>
          
@@ -551,11 +568,12 @@ align-items: center;">
         padding: 2%; color: cyan; line-height: 2.444em;" 
         ">
         
-        <span class="boxTitle">🎱 Decode Spot <span style="font-size:0.666em">(realtime data):</span></span>
+        <span class="boxTitle">🎱 <span style="font-size:0.888em;color:#2a2acf">2</span> Decode Spots <span style="font-size:0.666em">(temporal data):</span></span>
         <aside id="decodeSPOTZ"></aside>
+        <button class="delBtn1"  style="float:right;margin-top:0.888em;margin-right:4%;"  onclick="deleteSelectedSpot()">🗑️</button>
         <button id="addSpotBtn" class="addBtn1" onclick="addSpotClick()">add🎆</button>
         <button id="saveSpotBtn1" onclick="saveSpotClick()">save⚓</button>
-        <button id="addSellBtn" class="genBtn1" onclick="sellSpotClick()">🔒lock sale✅</button>
+        <button id="addSellBtn" class="genBtn1" onclick="sellSelectedSpots()">🔒lock sell🧾</button>
         <br>
       </section>
 
@@ -565,9 +583,14 @@ align-items: center;">
         border-radius: 13px; border: solid 1px #a9a04b; box-shadow: 0px 7px 7px 3px #9b6237;
         padding: 4% 0 4% 4%; color: #b19f50; line-height: 2.444em;" 
         ">
-        <button id="generateScheduleBtn" class="genReportBtn1" onclick="">gener8🌌</button>
-        <span class="boxTitle">🔔 <span style="font-size:0.555em">Generate</span> Schedule & Forcast 🌞</span><br>
+        <button id="generateScheduleBtn" class="genReportBtn1" onclick="generateScheduleClick()">gener8✨</button>
+        <span class="boxTitle">🔔 <span style="font-size:0.888em;color:#b19f50;">3</span> Generate Reports🌞</span><br>
         <article style="font-size:0.666em;">
+
+           <hr>   
+           <section id="generatedScheduleBOX"></section>
+           <hr>   
+           Schedule & Forcast  Quarterly Reports          
            <hr>   
            Monthly Story, for spot-families.
            <hr>   
@@ -584,9 +607,11 @@ align-items: center;">
         border-radius: 13px; border: solid 1px darkgreen; box-shadow: 0px 7px 20px 0px #029e4a;
         padding: 4% 0 4% 4%; color: cyan; line-height: 2.444em;" 
         ">
-        <button id="generateProfitBtn" class="genReportBtn1" onclick="">gener8🏰</button>
-        <span class="boxTitle">🌊 <span style="font-size:0.555em">Generate</span> Profit & Tax 🚨</span><br>
+        <button id="generateProfitBtn" class="genReportBtn1" onclick="generateProfitLossClick()">gener8🏰</button>
+        <span class="boxTitle">🌊 <span style="font-size:0.888em;color:cyan;">4</span> Generate Profit/Loss/Tax 🚨</span><br>
         <article style="font-size:0.666em;">
+         <hr>   
+         <section id="generatedProfitsBOX"></section>
          <hr>   
          Profit & Loss.
          <hr>   
@@ -608,6 +633,8 @@ align-items: center;">
         
         
         <hr>   
+        Generate Worksheet, Generate Schedule, Generate Reports.
+        <hr>   
 
         # STEPS
 
@@ -623,7 +650,9 @@ align-items: center;">
 
         - upsideHEDGE or dumbMONEY
 
-        - sellGREEN or rideBULL
+        - sellGREEN or rideBULL, DOWNLIMITLOSS UPLIMITTRIM
+
+        - PRESSUP  PRESSDOWN, TRIMUP, TRIMDOWN.
 
          # ACTS
 
@@ -879,7 +908,7 @@ align-items: center;">
         let current_ymd = `YMD_${year}_${month}_${day}`;
 
         let keyBOX = document.getElementById('keyBOX');
-        let symbolBOX = document.getElementById('symbolBOX');
+      //   let symbolBOX = document.getElementById('symbolBOX');
         let keyINPUT = document.getElementById('keyINPUT');
         let symbolINPUT = document.getElementById('symbolINPUT');
         
@@ -890,9 +919,14 @@ align-items: center;">
         let encodeDATA = document.getElementById('encodeDATA');
         let decodeBOX = document.getElementById('decodeBOX');
         let decodeSPOTZ = document.getElementById('decodeSPOTZ');
+        let scheduleBOX = document.getElementById('scheduleBOX')
 
         let saveTickBtn1 = document.getElementById('saveTickBtn1');
         let saveSpotBtn1 = document.getElementById('saveSpotBtn1');
+
+        let generatedScheduleBOX = document.getElementById('generatedScheduleBOX');         
+        let generatedProfitsBOX = document.getElementById('generatedProfitsBOX');
+
 
         let openBtn1 = document.getElementById('openBtn1');
 
@@ -919,7 +953,12 @@ align-items: center;">
 
         let ai_ledger_LOAD_MOCK_DATA=()=>{ //READ from OBJ
             // ai_ledger = {"ticks":[{"tick":"NVDA","price":"222","ath":"100","price_ymd":"2022_10_30"},{"tick":"COST","price":"444","ath":"100","ath_ymd":"2022_10_11"},{"tick":"MDB","price":"100","ath":"200","ath_ymd":"2022_20_22","price_ymd":"2000_22_20"}],"spots":[{"tick":"NVDA","price":"100","ymd":"2023_9_20"},{"tick":"NVDA","price":"100","ymd":"2022_9_22"},{"tick":"COST","price":"100","ymd":"2022_9_22"},{"tick":"MDB","price":"100","ymd":"2023_10_29"},{"tick":"MDB","price":"111","ymd":"2023_10_29"}]}              
-            ai_ledger = {"ticks":[{"tick":"NVDA","price":"411","ath":"100","price_ymd":"2022_10_30"},{"tick":"COST","price":"550","ath":"100","ath_ymd":"2022_10_11","price_ymd":"2023_11_01"},{"tick":"MDB","price":"100","ath":"200","ath_ymd":"2022_20_22","price_ymd":"2000_22_20"},{"tick":"MSFT","price_ymd":"2023_11_01"},{"tick":"GOOG","price":"125","price_ymd":"2023_11_01"},{"tick":"QQQ","price":"350","price_ymd":"2023_11_01"},{"tick":"XLK","price":"160","price_ymd":"2023_11_01"},{"tick":"NDAQ","price":"50","price_ymd":"2023_11_01"},{"tick":"COIN","price":"75","price_ymd":"2023_11_01"},{"tick":"BTC","price":"30,000","price_ymd":"2023_11_01"},{"tick":"ETH","price":"1,700","price_ymd":"2023_11_01"},{"tick":"V","price":"230","price_ymd":"2023_11_01"}],"spots":[{"tick":"NVDA","price":"100","ymd":"2023_9_20","role":"SHORT"},{"tick":"NVDA","price":"100","ymd":"2022_9_22","role":"..."},{"tick":"COST","price":"100","ymd":"2022_9_22","role":"..."},{"tick":"MDB","price":"100","ymd":"2023_10_29","role":"SHORT"},{"tick":"MDB","price":"111","ymd":"2023_10_29","role":"..."},{"tick":"GOOG","price":"200","ymd":"2023_10_29","role":"LONG"}]}
+            // ai_ledger = {"ticks":[{"tick":"NVDA","price":"411","ath":"100","price_ymd":"2022_10_30"},{"tick":"COST","price":"550","ath":"100","ath_ymd":"2022_10_11","price_ymd":"2023_11_01"},{"tick":"MDB","price":"100","ath":"200","ath_ymd":"2022_20_22","price_ymd":"2000_22_20"},{"tick":"MSFT","price_ymd":"2023_11_01"},{"tick":"GOOG","price":"125","price_ymd":"2023_11_01"},{"tick":"QQQ","price":"350","price_ymd":"2023_11_01"},{"tick":"XLK","price":"160","price_ymd":"2023_11_01"},{"tick":"NDAQ","price":"50","price_ymd":"2023_11_01"},{"tick":"COIN","price":"75","price_ymd":"2023_11_01"},{"tick":"BTC","price":"30,000","price_ymd":"2023_11_01"},{"tick":"ETH","price":"1,700","price_ymd":"2023_11_01"},{"tick":"V","price":"230","price_ymd":"2023_11_01"}],"spots":[{"tick":"NVDA","price":"100","ymd":"2023_9_20","role":"HOLD"},{"tick":"NVDA","price":"100","ymd":"2022_9_22","role":"..."},{"tick":"COST","price":"100","ymd":"2022_9_22","role":"..."},{"tick":"MDB","price":"100","ymd":"2023_10_29","role":"HOLD"},{"tick":"MDB","price":"111","ymd":"2023_10_29","role":"..."},{"tick":"GOOG","price":"200","ymd":"2023_10_29","role":"HOLD"}]}
+            // ai_ledger = {"ticks":[{"tick":"NVDA","price":"405","ath":"100","price_ymd":"2022_10_30"},{"tick":"COST","price":"551","ath":"100","ath_ymd":"2022_10_11","price_ymd":"2023_11_01"},{"tick":"MDB","price":"100","ath":"200","ath_ymd":"2022_20_22","price_ymd":"2000_22_20"},{"tick":"MSFT","price_ymd":"2023_11_01"},{"tick":"GOOG","price":"125","price_ymd":"2023_11_01"},{"tick":"QQQ","price":"350","price_ymd":"2023_11_01"},{"tick":"XLK","price":"160","price_ymd":"2023_11_01"},{"tick":"NDAQ","price":"50","price_ymd":"2023_11_01"},{"tick":"COIN","price":"75","price_ymd":"2023_11_01"},{"tick":"V","price":"231","price_ymd":"2023_11_01"}],"spots":[{"tick":"NVDA","price":"100","ymd":"2023_9_20","role":"HOLD"},{"tick":"NVDA","price":"100","ymd":"2022_9_22","role":"..."},{"tick":"COST","price":"100","ymd":"2022_9_22","role":"..."},{"tick":"MDB","price":"100","ymd":"2023_10_29","role":"WATCH"},{"tick":"MDB","price":"111","ymd":"2023_10_29","role":"HEDGE"},{"tick":"GOOG","price":"200","ymd":"2023_10_29"}]}
+            // ai_ledger = {"ticks":[{"tick":"NVDA","price":"405","ath":"100","price_ymd":"2022_10_30"},{"tick":"COST","price":"551","ath":"100","ath_ymd":"2022_10_11","price_ymd":"2023_11_01"},{"tick":"MDB","price":"100","ath":"200","ath_ymd":"2022_20_22","price_ymd":"2000_22_20"},{"tick":"MSFT","price_ymd":"2023_11_01"},{"tick":"GOOG","price":"125","price_ymd":"2023_11_01"},{"tick":"QQQ","price":"350","price_ymd":"2023_11_01"},{"tick":"XLK","price":"160","price_ymd":"2023_11_01"},{"tick":"NDAQ","price":"50","price_ymd":"2023_11_01"},{"tick":"COIN","price":"75","price_ymd":"2023_11_01"},{"tick":"V","price":"231","price_ymd":"2023_11_01"}],
+            //    "spots":[{"tick":"NVDA","amount":"100","spot_at":"111","ymd":"2023_9_20","role":"HOLD"},{"tick":"NVDA","amount":"100","spot_at":"222","ymd":"2022_9_22","role":"..."},{"tick":"COST","amount":"100","spot_at":"333","ymd":"2022_9_22","role":"..."},{"tick":"MDB","amount":"100","spot_at":"444","ymd":"2023_10_29","role":"WATCH"},{"tick":"MDB","amount":"111","spot_at":"555","ymd":"2023_10_29","role":"HEDGE"},{"tick":"GOOG","amount":"200","spot_at":"666","ymd":"2023_10_29"}]}
+            ai_ledger = {"ticks":[{"tick":"NVDA","price":"432","ath":"100","price_ymd":"YY_MM_DD"},{"tick":"COST","price":"556","ath":"100","ath_ymd":"2022_10_11","price_ymd":"YY_MM_DD"},{"tick":"MDB","price":"326","ath":"200","ath_ymd":"2022_20_22","price_ymd":"YY_MM_DD"},{"tick":"MSFT","price_ymd":"YY_MM_DD","price":"349"},{"tick":"GOOG","price":"128","price_ymd":"YY_MM_DD"},{"tick":"QQQ","price":"362","price_ymd":"YY_MM_DD"},{"tick":"XLK","price":"170","price_ymd":"YY_MM_DD"},{"tick":"NDAQ","price":"50","price_ymd":"YY_MM_DD"},{"tick":"COIN","price":"80","price_ymd":"YY_MM_DD"},{"tick":"V","price":"243","price_ymd":"YY_MM_DD"}],
+               "spots":[{"tick":"NVDA","amount":"200","spot_at":"412","ymd":"2023_10_20","role":"HOLD"},{"tick":"NVDA","amount":"300","spot_at":"459","ymd":"2023_10_10","role":"WATCH"},{"tick":"COST","amount":"200","spot_at":"552","ymd":"2023_10_20","role":"..."},{"tick":"MDB","amount":"300","spot_at":"370","ymd":"2023_10_12","role":"WATCH"},{"tick":"MDB","amount":"200","spot_at":"333","ymd":"2023_09_21","role":"HEDGE"},{"tick":"GOOG","amount":"200","spot_at":"666","ymd":"2023_10_29"},{"tick":"FSLR","amount":"0","spot_at":"0","ymd":"2023_11_02","role":"WATCH"}]}
         }
 
         let initEncode = ()=>{
@@ -939,16 +978,16 @@ align-items: center;">
                encodeNUMBOX1.innerHTML=i+1;            
                encodeSelect1 = document.createElement('input')
                encodeSelect1.type = "checkbox";
+               encodeSelect1.classList.add('tkr_checkmark')
                encodeCHECKBOX1.appendChild(encodeSelect1)
                encodeCheckMark1 = document.createElement('span')
                encodeCheckMark1.classList.add('checkmark')
                encodeCHECKBOX1.appendChild(encodeCheckMark1)
                encodeNUMBOX1.appendChild(encodeCHECKBOX1)
 
-
                priceBOX1 = document.createElement('aside')
                athBOX1 = document.createElement('aside')
-               priceBOX1.innerHTML = "now $&nbsp;"
+               priceBOX1.innerHTML = "close $&nbsp;"
                athBOX1.innerHTML = "ath&nbsp;"
                tick1 = document.createElement('input')
                priceData1 = document.createElement('input')
@@ -979,6 +1018,7 @@ align-items: center;">
                priceDate1.placeholder = "yyyy_mm_dd";
                priceData1.value = ai_ledger.ticks[i].price || '';
                priceDate1.value = ai_ledger.ticks[i].price_ymd || '';
+               // priceLabel.innerHTML = ai_ledger.ticks[i].price_label || '';
                athData1.placeholder = "$0.00";
                athData1.value = ai_ledger.ticks[i].ath || '';
                athDate1.placeholder = "yyyy_mm_dd";
@@ -1001,14 +1041,15 @@ align-items: center;">
                athBOX1.appendChild(athDate1)
                encodeRow.appendChild(athBOX1)
                // encodeRow.appendChild(btn1)
-               encodeRow.appendChild(del1)
+               // encodeRow.appendChild(del1)
                encodeDATA.appendChild(encodeRow)
                uniqueMAP[ai_ledger.ticks[i].tick] = ai_ledger.ticks[i];
             }
         }; initEncode();
 
         let initDecode = ()=>{
-         let decodeRow1,date1,tick1,priceData1,priceBOX1,atData1,atBOX1;
+         let role1,role2,role3,role4,role5,role6;         
+         let decodeRow1,date1,tick1,amountData1,amountBOX1,atData1,atBOX1;
          let btn1,roleBOX,roleData,decodeNUMBOX, decodeSelect1,decodeCHECKBOX1;
          decodeSPOTZ.innerHTML=''; //blank out reload.
          for(var i=0; i<ai_ledger.spots.length;i++){
@@ -1021,12 +1062,13 @@ align-items: center;">
             decodeNUMBOX1.innerHTML=i+1;            
             decodeSelect1 = document.createElement('input')
             decodeSelect1.type = "checkbox";
+            decodeSelect1.classList.add('spot_checkmark')
             decodeCHECKBOX1.appendChild(decodeSelect1)
             decodeCheckMark1 = document.createElement('span')
             decodeCheckMark1.classList.add('checkmark')
             decodeCHECKBOX1.appendChild(decodeCheckMark1)
             decodeNUMBOX1.appendChild(decodeCHECKBOX1)
-            priceBOX1 = document.createElement('aside')
+            amountBOX1 = document.createElement('aside')
             atBOX1 = document.createElement('aside')
             atBOX1.innerHTML="@&nbsp;"
             roleBOX = document.createElement('aside')
@@ -1035,15 +1077,29 @@ align-items: center;">
             role1 = document.createElement('option')
             role2 = document.createElement('option')
             role3 = document.createElement('option')
+            role4 = document.createElement('option')
+            role5 = document.createElement('option')
+            role6 = document.createElement('option')
+            // role2.value = "SHORT"; //TODO WATCH, HOLD, CUTLOSS, TRIM, HEDGE
+            // role3.value = "LONG";
             role1.value = "...";
-            role2.value = "SHORT";
-            role3.value = "LONG";
+            role2.value = "HOLD";
+            role3.value = "WATCH";
+            role4.value = "CUTLOSS";
+            role5.value = "HEDGE";
+            role6.value = "TRIM";
             role1.innerHTML = "...";
-            role2.innerHTML = "SHORT";
-            role3.innerHTML = "LONG";
+            role2.innerHTML = "HOLD";
+            role3.innerHTML = "WATCH";
+            role4.innerHTML = "CUTLOSS";
+            role5.innerHTML = "HEDGE";
+            role6.innerHTML = "TRIM";
             roleData.appendChild(role1);
             roleData.appendChild(role2);
             roleData.appendChild(role3);
+            roleData.appendChild(role4);
+            roleData.appendChild(role5);
+            roleData.appendChild(role6);
             roleData.value = ai_ledger.spots[i].role || '';
             roleBOX.appendChild(roleData)
             roleBOX.classList.add('roleBOX1')
@@ -1055,8 +1111,7 @@ align-items: center;">
             date1.addEventListener("keyup",(e)=>{
                   saveSpotBtn1.style.display = 'block'; });
             tick1 = document.createElement('input')
-            priceData1 = document.createElement('input')
-            atData1 = document.createElement('input')
+            amountData1 = document.createElement('input')
             btn1 = document.createElement('button')
             del1 = document.createElement('button')
             del1.innerHTML = '🗑️'
@@ -1064,39 +1119,39 @@ align-items: center;">
             del1.setAttribute('data-arg1',i)
             del1.addEventListener('click',(e)=>{
                deleteSpotClick(e.target.getAttribute('data-arg1'))})            
-
-            btn1.innerHTML = '✨Lock Profit/Loss💥'
-            tick1.value = ai_ledger.spots[i].tick || '';
-            tick1.readOnly = true;
-            priceData1.placeholder = "start:$0.00";
-            priceData1.value = ai_ledger.spots[i].price || '';
+               btn1.innerHTML = '✨Lock Profit/Loss💥'
+               tick1.value = ai_ledger.spots[i].tick || '';
+               tick1.readOnly = true;
+               amountData1.placeholder = "start:$0.00";
+               amountData1.value = ai_ledger.spots[i].amount || '';
+            atData1 = document.createElement('input')
             atData1.placeholder = "$0.00";
-            atData1.value = ai_ledger.spots[i].at || '';
+            atData1.value = ai_ledger.spots[i].spot_at || '';
             atData1.addEventListener("keyup",(e)=>{
                   saveSpotBtn1.style.display = 'block'; });
-            priceData1.addEventListener("keyup",(e)=>{
+            amountData1.addEventListener("keyup",(e)=>{
                   saveSpotBtn1.style.display = 'block'; }); 
             roleData.addEventListener("change",(e)=>{
                   saveSpotBtn1.style.display = 'block'; });
             roleBOX.value = ai_ledger.spots[i].role || '...';
                          
             tick1.classList.add('decodeTick1')
-            priceBOX1.classList.add('spotPriceBOX1')
-            priceData1.classList.add('spotPriceData1')
+            amountBOX1.classList.add('spotamountBOX1')
+            amountData1.classList.add('spotamountData1')
             atData1.classList.add('spotAtData1')
             atBOX1.classList.add('spotAtBOX1')
             btn1.classList.add('decBtn1')
             decodeRow1.appendChild(decodeNUMBOX1)
             decodeRow1.appendChild(date1)
             decodeRow1.appendChild(tick1)
-            priceBOX1.innerHTML="$&nbsp;"
-            priceBOX1.appendChild(priceData1)
-            decodeRow1.appendChild(priceBOX1)
+            amountBOX1.innerHTML="$&nbsp;"
+            amountBOX1.appendChild(amountData1)
+            decodeRow1.appendChild(amountBOX1)
             atBOX1.appendChild(atData1)
             decodeRow1.appendChild(atBOX1)
             decodeRow1.appendChild(roleBOX)
-            decodeRow1.appendChild(btn1)
-            decodeRow1.appendChild(del1)
+            // decodeRow1.appendChild(btn1)
+            // decodeRow1.appendChild(del1)
             decodeSPOTZ.appendChild(decodeRow1)   
                   
          }
@@ -1183,7 +1238,9 @@ align-items: center;">
         let setAPIKEY = ()=>{
             if(keyINPUT.value){
                 stock_api_key = keyINPUT.value;
-                localStorage.stock_api_key = stock_api_key
+               //  localStorage.stock_api_key = stock_api_key
+               //  debugger;
+               getData_TestConnection();
                //  initLedger()
             }
         }
@@ -1262,20 +1319,24 @@ align-items: center;">
                      tkr = kid.value;
                      continue;
                   } if(kid.classList.contains('tkrPriceBOX1')){
+                     debugger;
                      price = kid.children[0].value;
+                     // price_label = kid.innerHTML;
                      price_ymd = kid.children[1].value;
                      continue;
                   } if(kid.classList.contains('tkrATHBOX1')){
                      ath = kid.children[0].value;
                      ath_ymd = kid.children[1].value;
                      continue;                  
-                  } 
+                  }
                }
             }
             if(tkr){
                let tickObj = new Object();
                tickObj.tick = tkr;
                if(price){tickObj.price = price}
+               // if(price_label){tickObj.price_label = price_label}
+               // if(price_label){tickObj.price_label = "now"}
                if(ath){tickObj.ath = ath}
                if(ath_ymd){tickObj.ath_ymd = ath_ymd}
                if(price_ymd){tickObj.price_ymd = price_ymd}
@@ -1289,13 +1350,13 @@ align-items: center;">
       const saveSpotClick = ()=>{
            saveSpotBtn1.style.display = 'none';
            let items = decodeSPOTZ.children,row,kids,kid;
-           let tkr,price1,date1,role1,item;
+           let tkr,amount1,date1,role1,item,spot_at;
            ai_ledger.spots = []; //CLEAR LEDGER.  
            for(var i=0; i<items.length;i++){
             item = items[i];
             if(item.classList.contains('decodeRow1')){
                kids = item.children;
-               tkr = '',price1='',date1='',ath='';//blank row.
+               tkr = '',amount1='',date1='',ath='';//blank row.
                for(var j=0; j<kids.length;j++){
                   kid = kids[j];
                   if(kid.classList.contains('decodeTick1')){
@@ -1303,10 +1364,10 @@ align-items: center;">
                      tkr = kid.value;
                   } if(kid.classList.contains('decodeDate1')){
                      date1 = kid.value;
-                  } if(kid.classList.contains('spotATHBOX1')){
-                     ath = kid.lastChild.value;
-                  } if(kid.classList.contains('spotPriceBOX1')){
-                     price1 = kid.lastChild.value;
+                  } if(kid.classList.contains('spotAtBOX1')){
+                     spot_at = kid.lastChild.value;
+                  } if(kid.classList.contains('spotamountBOX1')){
+                     amount1 = kid.lastChild.value;
                   } if(kid.classList.contains('roleBOX1')){
                      role1 = kid.lastChild.value;
                   } 
@@ -1315,8 +1376,8 @@ align-items: center;">
             if(tkr){
                let spotObj = new Object();
                spotObj.tick = tkr;
-               if(price1){spotObj.price = price1}
-               if(ath){spotObj.ath = ath}
+               if(amount1){spotObj.amount = amount1}
+               if(spot_at){spotObj.spot_at = spot_at}
                if(date1){spotObj.ymd = date1}
                if(role1){spotObj.role = role1}
                ai_ledger.spots.push(spotObj)
@@ -1328,68 +1389,86 @@ align-items: center;">
          }
          const addSpotClick = ()=>{
             saveSpotBtn1.style.display = 'block';
-            let decodeRow1,date1,tick1,priceData1;
-            // athData1,athBOX1,
-            let saveBtn3,roleBOX,roleData;
+            let decodeRow1,date1,tick1,amountData1;
+            let role1,role2,role3,role4,role5,role6;
+            let saveBtn3,roleBOX,roleData,atBOX1,atData1;
             decodeRow1 = document.createElement('article')
             decodeRow1.classList.add('decodeRow1')
-
+            atBOX1 = document.createElement('aside')
+            atBOX1.innerHTML="@&nbsp;"
             roleBOX = document.createElement('aside')
             roleBOX.innerHTML="role&nbsp;"
             roleData = document.createElement('select')
             role1 = document.createElement('option')
             role2 = document.createElement('option')
             role3 = document.createElement('option')
+            role4 = document.createElement('option')
+            role5 = document.createElement('option')
+            role6 = document.createElement('option')
             role1.value = "...";
-            role2.value = "SHORT";
-            role3.value = "LONG";
+            role2.value = "HOLD";
+            role3.value = "WATCH";
+            role4.value = "CUTLOSS";
+            role5.value = "HEDGE";
+            role6.value = "TRIM";
             role1.innerHTML = "...";
-            role2.innerHTML = "SHORT";
-            role3.innerHTML = "LONG";
+            role2.innerHTML = "HOLD";
+            role3.innerHTML = "WATCH";
+            role4.innerHTML = "CUTLOSS";
+            role5.innerHTML = "HEDGE";
+            role6.innerHTML = "TRIM";
             roleData.appendChild(role1);
             roleData.appendChild(role2);
             roleData.appendChild(role3);
+            roleData.appendChild(role4);
+            roleData.appendChild(role5);
+            roleData.appendChild(role6);
             roleBOX.appendChild(roleData)
             roleBOX.classList.add('roleBOX1')
             roleData.classList.add('roleData1')
-
+            atData1 = document.createElement('input')
+            atData1.placeholder = "$0.00";
+            // atData1.value = ai_ledger.spots[i].spot_at || '';
             saveBtn3 = document.createElement('button')
             date1 = document.createElement('input')
             date1.value = current_ymd.split('YMD_')[1];//user display
             date1.classList.add('decodeDate1')
             tick1 = document.createElement('input')
-            priceData1 = document.createElement('input')
-            priceBOX1 = document.createElement('aside')
+            amountData1 = document.createElement('input')
+            amountBOX1 = document.createElement('aside')
             athBOX1 = document.createElement('aside')
-            priceBOX1.innerHTML = "$&nbsp;"
+            amountBOX1.innerHTML = "$&nbsp;"
             athBOX1.innerHTML = "ath&nbsp;"
             athData1 = document.createElement('input')
             tick1.value = "";
             tick1.readOnly = false;
             tick1.placeholder="ticker"
-            priceData1.placeholder = "0.00";
+            amountData1.placeholder = "0.00";
             athData1.placeholder = "+-:%";
             tick1.addEventListener("keyup",(e)=>{
                saveSpotBtn1.style.display = 'block'; });
             athData1.addEventListener("keyup",(e)=>{
                saveSpotBtn1.style.display = 'block'; });
-            priceData1.addEventListener("keyup",(e)=>{
+            amountData1.addEventListener("keyup",(e)=>{
                saveSpotBtn1.style.display = 'block'; });                         
             tick1.classList.add('decodeTick1')
             saveBtn3.innerHTML = 'save🌟'
             saveBtn3.classList.add('saveBtn2')
             saveBtn3.addEventListener("click",(e)=>{
                saveSpotClick() });
-            priceData1.classList.add('spotPriceData1')
-            priceBOX1.classList.add('spotPriceBOX1')
+            amountData1.classList.add('spotamountData1')
+            amountBOX1.classList.add('spotamountBOX1')
             athData1.classList.add('spotATHData1')
             athBOX1.classList.add('spotATHBOX1')
             decodeRow1.appendChild(date1)
             decodeRow1.appendChild(tick1)
-            priceBOX1.appendChild(priceData1)
-            decodeRow1.appendChild(priceBOX1)
-            athBOX1.appendChild(athData1)
-            // decodeRow1.appendChild(athBOX1)
+            amountBOX1.appendChild(amountData1)
+            decodeRow1.appendChild(amountBOX1)
+            // athBOX1.appendChild(athData1)
+            atData1.classList.add('spotAtData1')
+            atBOX1.classList.add('spotAtBOX1')
+            atBOX1.appendChild(atData1)            
+            decodeRow1.appendChild(atBOX1)
             decodeRow1.appendChild(roleBOX)
             decodeRow1.appendChild(saveBtn3)
             decodeSPOTZ.appendChild(decodeRow1)   
@@ -1414,7 +1493,263 @@ align-items: center;">
             } else {
              instructionText.style.display='block'
           }
+      }
+
+      const deleteSelectedTicker = ()=>{
+         let selected = [],temp=[];
+         let items = document.getElementsByClassName('tkr_checkmark');
+         for(let i=0; i<items.length;i++){
+            if(items[i].checked){
+               selected.push(i)
+               items[i].checked = false;
+            }
+         }
+         if(!selected.length){showErrorMSG(' Nothing selected 😵') 
+            return;}         
+         for(let idx=0; idx<ai_ledger.ticks.length;idx++){
+            if(!selected.includes(idx)){ //not removed
+               temp.push(ai_ledger.ticks[idx])
+            } else {console.log('removed',idx)}
+            // temp.ticks.splice(selected[idx],1); //remove item
+         }
+         ai_ledger.ticks = temp;
+         localStorage.ai_ledger = JSON.stringify(ai_ledger) //SAVE to LOCAL STORAGE
+         initEncode(); //RELOAD VIEW.                 
+
+      }
+      const deleteSelectedSpot = ()=>{
+         let selected = [], temp = [];
+         let items = document.getElementsByClassName('spot_checkmark');
+         for(let i=0; i<items.length;i++){
+            if(items[i].checked){
+               selected.push(i)
+               items[i].checked = false;
+            }
+         }
+         if(!selected.length){showErrorMSG(' Nothing selected 😵') 
+            return;}         
+         for(let idx=0; idx<ai_ledger.spots.length;idx++){
+            if(!selected.includes(idx)){ //not removed
+               temp.push(ai_ledger.spots[idx])
+            } else {console.log('removed',idx)}
+         }
+         ai_ledger.spots = temp;         
+         localStorage.ai_ledger = JSON.stringify(ai_ledger) //SAVE to LOCAL STORAGE
+         initDecode(); //RELOAD VIEW.                
+      }
+        const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
+         //TODO if selected, only run selected
+         // debugger;
+         let tickerBOX1,ticker,tickerSet=[];
+         let ATH_margin, ATH_pct;
+         generatedScheduleBOX.innerHTML = ""
+         tickerSet = ai_ledger.ticks;
+         for(let i=0;i<tickerSet.length;i++){
+            ticker= tickerSet[i];
+            tickerBOX1 = document.createElement('aside')
+            tickerBOX1.innerHTML = ticker.tick;
+            generatedScheduleBOX.appendChild(tickerBOX1)
+         }
         }
+        const generateProfitLossClick = ()=>{ // GENERATE PROFIT AND LOSS DISPLAY
+         //TODO if selected, only run selected
+         let tickerBOX1,ticker,tickerSet=[],spotSet=[],numSPOTS=0;
+         let TickMAP_MetaData={},numSPOT1, profitRow1;
+// debugger;
+         generatedProfitsBOX.innerHTML = ""; //reset view
+         tickerSet = ai_ledger.ticks;
+         spotSet = ai_ledger.spots;
+         
+         for(let i=0;i<spotSet.length;i++){
+            ticker= spotSet[i];
+            if(TickMAP_MetaData[ticker.tick] && TickMAP_MetaData[ticker.tick].num){
+               TickMAP_MetaData[ticker.tick].num++
+            }else{
+               TickMAP_MetaData[ticker.tick] = {};
+               TickMAP_MetaData[ticker.tick].num = 1;
+            }
+         }
+
+         for(let i=0;i<tickerSet.length;i++){
+            ticker= tickerSet[i];
+            profitRow1 = document.createElement('section')
+            profitRow1.classList.add('profitRow1')
+            tickerBOX1 = document.createElement('aside')
+            tickerBOX1.classList.add('proTick1')
+            tickerBOX1.innerHTML = ticker.tick;
+            numSPOT1 = document.createElement('aside')
+            numSPOT1.classList.add('proSpots1')
+            numMargin1 = document.createElement('aside')
+            numMargin1.classList.add('proMargin1')
+            numPCT1 = document.createElement('aside')
+            numPCT1.classList.add('proPCT1')
+            numSPOTS = (TickMAP_MetaData[ticker.tick] && TickMAP_MetaData[ticker.tick].num)?
+               TickMAP_MetaData[ticker.tick].num:0;
+            numSPOT1.innerHTML = 'spots: '+ numSPOTS;
+            // numSPOT1.innerHTML = 'spots: '+ TickMAP_MetaData[ticker.tick].num || 0 ;
+            // numSPOT1.innerHTML = 'spots: '+ (TickMAP_MetaData[ticker.tick].num || 0 ;
+            numMargin1.innerHTML = `margin: +44`;
+            numPCT1.innerHTML = `pct: +1%`;
+            profitRow1.appendChild(tickerBOX1)         
+            profitRow1.appendChild(numSPOT1)         
+            profitRow1.appendChild(numMargin1)         
+            profitRow1.appendChild(numPCT1)         
+            generatedProfitsBOX.appendChild(profitRow1)         
+         }
+        }
+        const generateSelected = ()=>{
+         let selected = [];
+         let items = document.getElementsByClassName('tkr_checkmark');
+         for(let i=0; i<items.length;i++){
+            if(items[i].checked){
+               selected.push(i)
+               items[i].checked = false;
+            }
+         }
+         if(!selected.length){showErrorMSG(' Nothing selected 😵') 
+            return;}
+         ai_schedule = [];
+         ai_analytics = [];
+         for(let i=0; i<selected.length;i++){
+            //calculate +-%, days since ath, 
+         }
+         scheduleBOX.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        })
+
+      }
+      const sellSelectedSpots = ()=>{
+         let selected = [];
+         let items = document.getElementsByClassName('spot_checkmark');
+         for(let i=0; i<items.length;i++){
+            if(items[i].checked){
+               selected.push(i)
+               items[i].checked = false;
+            }
+         }         
+         if(!selected.length){showErrorMSG(' Nothing selected 😵') 
+            return;}  
+      }
+
+      const getLatestTickerClick = ()=>{ //loop all for last close.
+         let item,urls=[];
+         for(let i=0;i<ai_ledger.ticks.length;i++){
+            // if(i>2){continue;}//limiter stay below 20
+            item = ai_ledger.ticks[i];
+            urls.push(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${item.tick}&interval=5min&apikey=${stock_api_key}`)
+         }
+         getData_Quotes(urls)
+         showErrorMSG('🌼 DATA UPDATED!') //todo error. need show message.
+
+      }
+
+      /**************************************************************\
+       * API : interface
+       * \***********************************************************/
+      const getData_Quotes = async (quotes)=>{
+         if(!stock_api_key){ showErrorMSG('🛠️ connect api')
+            return;}
+         if(!quotes.length){return;}
+         try{
+            for(let i=0; i<quotes.length;i++){
+               fetch(quotes[i]).then((data)=>{
+                  if(data.ok){
+                     return data.json();
+                  }
+               }).then((tickData)=>{
+                  let responseTick = tickData["Meta Data"]["2. Symbol"];
+                  if(!responseTick){return;}
+                  let latestClose = tickData["Time Series (5min)"][Object.keys(tickData["Time Series (5min)"])[0]]["4. close"];
+                  if(!latestClose){return;}
+
+                  console.log(responseTick,"last close",latestClose)
+                  updateLatestTickPrice(responseTick,latestClose);
+                  //SHOW CONNNECTED and tgt, hide disconnected and key input
+                  stateConnectedBox.style.display = "inline";
+                  stateNotConnectedBox.style.display = "none";   
+                  keyBOX.style.display = "none"; 
+                  latestBtn1.style.display = "none"; //do not call twice. because of limit
+
+                  localStorage.ai_ledger = JSON.stringify(ai_ledger) //SAVE to LOCAL STORAGE
+                  initEncode(); //RELOAD VIEW. 
+
+               }).catch((error)=>{
+                  showErrorMSG('🛠️ api daily limit')
+                  console.log(error)
+               })
+            }
+         } catch(error) {
+               showErrorMSG('🛠️ api down')
+         }           
+      }
+      const getData_TestConnection = ()=>{
+         if(!stock_api_key){
+            showErrorMSG('🛠️ connect api')
+            return;}
+            // const symbol = 'NVDA';
+            // const apiUrl = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=${stock_api_key}`;
+            // fetch(apiUrl)
+            // .then(response => response.json())
+            // .then(data => {
+                //SHOW CONNNECTED and tgt, hide disconnected and key input
+                stateConnectedBox.style.display = "inline";
+                stateNotConnectedBox.style.display = "none";   
+               //  symbolBOX.style.display = "inline";
+                keyBOX.style.display = "none"; 
+               //  console.log(`Latest price for ${symbol}: ${latestPrice}`);
+                latestBtn1.style.display = "inline";
+            // })
+            // .catch(error => {
+            //    showErrorMSG('🛠️ connect api')
+            //     console.error('Error fetching data:', error);
+            // });                  
+      }
+
+      const getData_Intraday = ()=>{
+         debugger;
+         if(!stock_api_key){return;}
+            const symbol = 'NVDA';
+            const apiUrl = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=${stock_api_key}`;
+            fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+
+                //SHOW CONNNECTED and tgt, hide disconnected and key input
+                stateConnectedBox.style.display = "inline";
+                stateNotConnectedBox.style.display = "none";   
+                symbolBOX.style.display = "inline";
+                keyBOX.style.display = "none"; 
+
+                // Process the data here (e.g., extract the latest stock price)
+                const latestPrice = data['Time Series (5min)'][Object.keys(data['Time Series (5min)'])[0]]['1. open'];
+
+    //             data['Time Series (5min)'][Object.keys(data['Time Series (5min)'])[0]]['1. open'];
+    // '175.3700'
+    // data['Time Series (5min)'][Object.keys(data['Time Series (5min)'])[0]];
+    // {1. open: '175.3700', 2. high: '175.3700', 3. low: '175.0000', 4. close: '175.0000', 5. volume: '24782'}
+                console.log(`Latest price for ${symbol}: ${latestPrice}`);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });         
+      }
+
+
+      function updateLatestTickPrice(responseTick,latestClose){
+         //loop ai_ledger, update price and latest label.
+         let tick='',item=null;
+         for(let i=0; i<ai_ledger.ticks.length;i++){
+            tick=ai_ledger.ticks[i];
+            if(tick.tick===responseTick){ //FOUND ticker record
+               ai_ledger.ticks[i].price = latestClose.split('.')[0];
+               // ai_ledger.ticks[i].price_label = "close";
+               ai_ledger.ticks[i].price_ymd = "YY_MM_DD";
+               break;
+            }
+         }
+      }
+
 
          let stateErrorBox = document.getElementById('errorBox');
          let stateSavedBox = document.getElementById('savedBox');
@@ -1614,8 +1949,13 @@ align-items: center;">
             stateNotConnectedBox.style.display = "none";              
             setTimeout( ()=>{
                stateCopiedBox.style.display = "none";
-               stateConnectedBox.style.display = "none";
-               stateNotConnectedBox.style.display = "inline";  
+               if(stock_api_key){
+                  stateConnectedBox.style.display = "inline";
+                  stateNotConnectedBox.style.display = "none";  
+               }else{
+                  stateConnectedBox.style.display = "none";
+                  stateNotConnectedBox.style.display = "inline";  
+               }               
             },2000)               
          };          
          let resetAllFn = () => { 
@@ -1703,9 +2043,14 @@ align-items: center;">
             stateNotConnectedBox.style.display = "none";              
             setTimeout( ()=>{
                stateErrorBox.style.display = "none";
-               stateConnectedBox.style.display = "none";
-               stateNotConnectedBox.style.display = "inline";  
-               selectedTXT = '';
+               if( stock_api_key   ){
+                  stateConnectedBox.style.display = "inline";
+                  stateNotConnectedBox.style.display = "none";  
+               } else {
+                  stateConnectedBox.style.display = "none";
+                  stateNotConnectedBox.style.display = "inline";  
+               }
+               // selectedTXT = '';
             },3000)
          }
          // textareaBOX.addEventListener("select", (e) => {

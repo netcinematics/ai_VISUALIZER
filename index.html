@@ -311,8 +311,12 @@
     justify-content: space-between;
     margin-right: 2%;
 }
+.profitRow1 aside{
+   display: flex;
+    align-items: center;
+}
 .proTick1{
-   width: 1px; /*align item column*/
+   width: 44px; /*align item column*/
 }
       .smICON{font-size:0.555em;}
       #instructionText{display:none;margin:4%;}
@@ -511,14 +515,6 @@ border-radius:13px;
       
       </header>         
         <!-- <main id="symbolBOX" style="display:none;">
-            Set TICKER_TGT:<input id="symbolINPUT" type="text" placeholder="symbol" ></input>
-            <button onclick="setTickerTGT();">SET TGT</button>
-            <button onclick="updateTickerData();">update data</button>
-        </main> -->
-        <!-- <menu style="display:flex;justify-content:space-evenly;
-            margin:0;padding:0;margin-top:-6px;border-radius: 30px;
-            box-shadow: inset -2px -8px 17px 0px #3737cf;background: #182b3d;
-            ">
          <button class="subMenuBtn" onclick="primeFn()">prime🗝</button>
          <button class="subMenuBtn" onclick="omniFn()">omni🗝️</button>
          <button class="subMenuBtn" onclick="alphaFn()">alpha🔑</button>
@@ -1048,7 +1044,7 @@ align-items: center;">
         }; initEncode();
 
         let initDecode = ()=>{
-         let role1,role2,role3,role4,role5,role6;         
+         let role1,role2,role3,role4,role5,role6,role7;         
          let decodeRow1,date1,tick1,amountData1,amountBOX1,atData1,atBOX1;
          let btn1,roleBOX,roleData,decodeNUMBOX, decodeSelect1,decodeCHECKBOX1;
          decodeSPOTZ.innerHTML=''; //blank out reload.
@@ -1080,7 +1076,8 @@ align-items: center;">
             role4 = document.createElement('option')
             role5 = document.createElement('option')
             role6 = document.createElement('option')
-            // role2.value = "SHORT"; //TODO WATCH, HOLD, CUTLOSS, TRIM, HEDGE
+            role7 = document.createElement('option')
+            // role2.value = "SHORT"; 
             // role3.value = "LONG";
             role1.value = "...";
             role2.value = "HOLD";
@@ -1088,18 +1085,21 @@ align-items: center;">
             role4.value = "CUTLOSS";
             role5.value = "HEDGE";
             role6.value = "TRIM";
+            role7.value = "SAFE";
             role1.innerHTML = "...";
             role2.innerHTML = "HOLD";
             role3.innerHTML = "WATCH";
             role4.innerHTML = "CUTLOSS";
             role5.innerHTML = "HEDGE";
             role6.innerHTML = "TRIM";
+            role7.innerHTML = "SAFE";
             roleData.appendChild(role1);
             roleData.appendChild(role2);
             roleData.appendChild(role3);
             roleData.appendChild(role4);
             roleData.appendChild(role5);
             roleData.appendChild(role6);
+            roleData.appendChild(role7);
             roleData.value = ai_ledger.spots[i].role || '';
             roleBOX.appendChild(roleData)
             roleBOX.classList.add('roleBOX1')
@@ -1553,25 +1553,92 @@ align-items: center;">
         }
         const generateProfitLossClick = ()=>{ // GENERATE PROFIT AND LOSS DISPLAY
          //TODO if selected, only run selected
-         let tickerBOX1,ticker,tickerSet=[],spotSet=[],numSPOTS=0;
-         let TickMAP_MetaData={},numSPOT1, profitRow1;
-// debugger;
+         let ticker,spot_ticker,tickerBOX1,tickerSet=[],spotSet=[],numSPOTS=0;
+         let TickMAP_MetaData={},numSPOT1, profitRow1,curPrice1;
          generatedProfitsBOX.innerHTML = ""; //reset view
          tickerSet = ai_ledger.ticks;
          spotSet = ai_ledger.spots;
-         
-         for(let i=0;i<spotSet.length;i++){
-            ticker= spotSet[i];
-            if(TickMAP_MetaData[ticker.tick] && TickMAP_MetaData[ticker.tick].num){
-               TickMAP_MetaData[ticker.tick].num++
-            }else{
-               TickMAP_MetaData[ticker.tick] = {};
-               TickMAP_MetaData[ticker.tick].num = 1;
-            }
-         }
-
+         debugger;
+         //TICKER INIT - iterator METADATA factory (generator)
          for(let i=0;i<tickerSet.length;i++){
             ticker= tickerSet[i];
+            if(ticker.tick ){ // INIT META DATA obj
+               TickMAP_MetaData[ticker.tick] = {};
+               TickMAP_MetaData[ticker.tick].num = 0;
+               TickMAP_MetaData[ticker.tick].curr_price = (ticker.price || 0);
+               TickMAP_MetaData[ticker.tick].total_amt = 0;
+            }
+         }
+         //SPOT - iterator - calculate - METADATA generator
+         let curr_price, spot_price, total_amt, spot_num, spot_margin, margin_pct, avg_price;
+         for(let i=0;i<spotSet.length;i++){
+            spot_ticker= spotSet[i];
+            if(!TickMAP_MetaData[spot_ticker.tick]){ continue }
+            TickMAP_MetaData[spot_ticker.tick].num++;
+            TickMAP_MetaData[spot_ticker.tick].total_amt =
+               parseInt(TickMAP_MetaData[spot_ticker.tick].total_amt) + parseInt(spot_ticker.amount || 0);               
+            //CALCULATE margins: curr_price - spot_price & amt = spot_margin, /100 = margin_pct
+            // debugger;
+            spot_num = TickMAP_MetaData[spot_ticker.tick].num;
+            curr_price = TickMAP_MetaData[spot_ticker.tick].curr_price;
+            spot_price = spot_ticker.spot_at; //TODO rename at_spot
+            total_amt = TickMAP_MetaData[spot_ticker.tick].total_amt;
+            margin_pct = 0;
+            if(curr_price && spot_num && total_amt){
+               avg_price = total_amt / spot_num;
+               //Margin = (Current price - Average purchase price) / Average purchase price
+               spot_margin = curr_price - avg_price;
+               //Margin = (500 - 200) / 200 = 150%
+
+               // spot_margin = curr_price - spot_price;
+               TickMAP_MetaData[spot_ticker.tick].margin = spot_margin || 0;
+               TickMAP_MetaData[spot_ticker.tick].avg_price = avg_price || 0;
+            }
+            if(spot_margin){
+               debugger;
+               margin_pct = spot_margin / avg_price;
+               TickMAP_MetaData[spot_ticker.tick].margin_pct = margin_pct;
+            }
+
+            // TickMAP_MetaData[spot_ticker.tick].margin = 444
+            // TickMAP_MetaData[spot_ticker.tick].margin_pct = 0.44;
+            // TickMAP_MetaData[spot_ticker.tick].margin_pct = 0.44;
+
+            // Margin = (Purchase Price * Number of Shares) / (1 - Margin Percentage)
+
+/* GPT - Prompt:
+Ticker: 'ABCD'
+Purchase prices: $100, $200, $300
+Current stock price: $500
+Margin Percentage: Let's assume a 50% margin, meaning you provide half of the purchase price, and the other half is borrowed.
+First, calculate the total value of the stock positions:
+
+Total Value of Positions = (100 * 1) + (200 * 1) + (300 * 1) = $600
+
+Now, you can use the margin formula:
+
+Margin = (Total Value of Positions) / (1 - Margin Percentage)
+Margin = $600 / (1 - 0.5) = $600 / 0.5 = $1,200
+*/ 
+/* BARD
+Average purchase price = (100 + 200 + 300) / 3 = 200
+Margin = (Current price - Average purchase price) / Average purchase price
+Margin = (500 - 200) / 200 = 150%
+
+*/
+
+            //CALCUALTE SPOT_DAYS: curr_date - spot_date = spot_days
+            //CALCUALTE ATH_DAYS: curr_date - ath_date = ath_days
+
+         }
+
+         //TODO separate into displayFactory()
+         let avgPrice1;
+         //DISPLAY - iterator
+         for(let i=0;i<tickerSet.length;i++){
+            ticker= tickerSet[i];
+            if(!TickMAP_MetaData[ticker.tick]){continue;}
+            if(!TickMAP_MetaData[ticker.tick].num){continue;}
             profitRow1 = document.createElement('section')
             profitRow1.classList.add('profitRow1')
             tickerBOX1 = document.createElement('aside')
@@ -1579,19 +1646,36 @@ align-items: center;">
             tickerBOX1.innerHTML = ticker.tick;
             numSPOT1 = document.createElement('aside')
             numSPOT1.classList.add('proSpots1')
+            curPrice1 = document.createElement('aside')
+            curPrice1.classList.add('curPrice1')
+            curPrice1.innerHTML =  'last: '+TickMAP_MetaData[ticker.tick].curr_price || 0;
+            avgPrice1 = document.createElement('aside')
+            avgPrice1.classList.add('avgPrice1')
+            avgPrice1.innerHTML =  'avg: '+TickMAP_MetaData[ticker.tick].avg_price || 0;
             numMargin1 = document.createElement('aside')
             numMargin1.classList.add('proMargin1')
             numPCT1 = document.createElement('aside')
             numPCT1.classList.add('proPCT1')
+            numTotalAmt1 = document.createElement('aside')
+            numTotalAmt1.classList.add('proTotalAmt1')
+            numTotalAmt1.innerHTML = 'total: '+TickMAP_MetaData[ticker.tick].total_amt || 0;
             numSPOTS = (TickMAP_MetaData[ticker.tick] && TickMAP_MetaData[ticker.tick].num)?
                TickMAP_MetaData[ticker.tick].num:0;
             numSPOT1.innerHTML = 'spots: '+ numSPOTS;
             // numSPOT1.innerHTML = 'spots: '+ TickMAP_MetaData[ticker.tick].num || 0 ;
             // numSPOT1.innerHTML = 'spots: '+ (TickMAP_MetaData[ticker.tick].num || 0 ;
-            numMargin1.innerHTML = `margin: +44`;
-            numPCT1.innerHTML = `pct: +1%`;
+            numMargin1.innerHTML = `margin: 
+               ${( TickMAP_MetaData[ticker.tick].margin>0 )?'+':''}
+               ${TickMAP_MetaData[ticker.tick].margin}`
+            numPCT1.innerHTML = `pct: 
+               ${( TickMAP_MetaData[ticker.tick].margin>0 )?'+':''}
+               ${TickMAP_MetaData[ticker.tick].margin_pct}%`;
+            // numPCT1.innerHTML = `pct: +1%`;
             profitRow1.appendChild(tickerBOX1)         
             profitRow1.appendChild(numSPOT1)         
+            profitRow1.appendChild(numTotalAmt1)         
+            profitRow1.appendChild(curPrice1)         
+            profitRow1.appendChild(avgPrice1)         
             profitRow1.appendChild(numMargin1)         
             profitRow1.appendChild(numPCT1)         
             generatedProfitsBOX.appendChild(profitRow1)         

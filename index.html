@@ -302,16 +302,20 @@
             margin:2%;
          }
 
-         #generatedScheduleBOX, #generatedProfitsBOX{
+         #generatedScheduleBOX, #generatedProfitsBOX, #generatedMarginsBOX{
             margin:2%;
          }
 
-.profitRow1 {
+.profitRow1, .marginsRow1 {
    display: flex;
     justify-content: space-between;
     margin-right: 2%;
 }
 .profitRow1 aside{
+   display: flex;
+    align-items: center;
+}
+.marginsRow1 aside{
    display: flex;
     align-items: center;
 }
@@ -607,13 +611,17 @@ align-items: center;">
         <span class="boxTitle">🌊 <span style="font-size:0.888em;color:cyan;">4</span> Generate Profit/Loss/Tax 🚨</span><br>
         <article style="font-size:0.666em;">
          <hr>   
+         Margins:
+         <section id="generatedMarginsBOX"></section>
+         <hr>   
+         Profit & Loss:
          <section id="generatedProfitsBOX"></section>
          <hr>   
-         Profit & Loss.
-         <hr>   
-         Tax Calculations.
+         Tax Calculations:
          <hr>     
-         Analytic limits.
+         Analytics
+         <hr>     
+         Quarterly Story:
        </article> 
       </section>
 
@@ -922,6 +930,7 @@ align-items: center;">
 
         let generatedScheduleBOX = document.getElementById('generatedScheduleBOX');         
         let generatedProfitsBOX = document.getElementById('generatedProfitsBOX');
+        let generatedMarginsBOX = document.getElementById('generatedMarginsBOX');
 
 
         let openBtn1 = document.getElementById('openBtn1');
@@ -1539,7 +1548,6 @@ align-items: center;">
       }
         const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
          //TODO if selected, only run selected
-         // debugger;
          let tickerBOX1,ticker,tickerSet=[];
          let ATH_margin, ATH_pct;
          generatedScheduleBOX.innerHTML = ""
@@ -1554,11 +1562,11 @@ align-items: center;">
         const generateProfitLossClick = ()=>{ // GENERATE PROFIT AND LOSS DISPLAY
          //TODO if selected, only run selected
          let ticker,spot_ticker,tickerBOX1,tickerSet=[],spotSet=[],numSPOTS=0;
-         let TickMAP_MetaData={},numSPOT1, profitRow1,curPrice1;
+         let TickMAP_MetaData={},numSPOT1, marginsRow1, profitRow1,curPrice1;
+         generatedMarginsBOX.innerHTML = ""; //reset view
          generatedProfitsBOX.innerHTML = ""; //reset view
          tickerSet = ai_ledger.ticks;
          spotSet = ai_ledger.spots;
-         debugger;
          //TICKER INIT - iterator METADATA factory (generator)
          for(let i=0;i<tickerSet.length;i++){
             ticker= tickerSet[i];
@@ -1566,70 +1574,42 @@ align-items: center;">
                TickMAP_MetaData[ticker.tick] = {};
                TickMAP_MetaData[ticker.tick].num = 0;
                TickMAP_MetaData[ticker.tick].curr_price = (ticker.price || 0);
-               TickMAP_MetaData[ticker.tick].total_amt = 0;
+               TickMAP_MetaData[ticker.tick].sum_spot_amt = 0;
+               TickMAP_MetaData[ticker.tick].total_val = 0;
             }
          }
          //SPOT - iterator - calculate - METADATA generator
-         let curr_price, spot_price, total_amt, spot_num, spot_margin, margin_pct, avg_price;
          for(let i=0;i<spotSet.length;i++){
             spot_ticker= spotSet[i];
             if(!TickMAP_MetaData[spot_ticker.tick]){ continue }
             TickMAP_MetaData[spot_ticker.tick].num++;
-            TickMAP_MetaData[spot_ticker.tick].total_amt =
-               parseInt(TickMAP_MetaData[spot_ticker.tick].total_amt) + parseInt(spot_ticker.amount || 0);               
-            //CALCULATE margins: curr_price - spot_price & amt = spot_margin, /100 = margin_pct
-            // debugger;
-            spot_num = TickMAP_MetaData[spot_ticker.tick].num;
-            curr_price = TickMAP_MetaData[spot_ticker.tick].curr_price;
-            spot_price = spot_ticker.spot_at; //TODO rename at_spot
-            total_amt = TickMAP_MetaData[spot_ticker.tick].total_amt;
+            TickMAP_MetaData[spot_ticker.tick].sum_spot_amt =
+               parseInt(TickMAP_MetaData[spot_ticker.tick].sum_spot_amt) + parseInt(spot_ticker.amount || 0);               
+            TickMAP_MetaData[spot_ticker.tick].total_val += parseInt(spot_ticker.spot_at || 0);               
+         }
+         //SPOT - CALCULATE SPOT MARGIN
+         let curr_price, total_val,sum_spot_amt, spot_num, spot_margin, margin_pct, avg_price;
+         for(let i=0;i<tickerSet.length;i++){
+            ticker= tickerSet[i];
+            if(!TickMAP_MetaData[ticker.tick]){ continue }
+            spot_num = TickMAP_MetaData[ticker.tick].num;
+            curr_price = TickMAP_MetaData[ticker.tick].curr_price;
+            // spot_price = ticker.spot_at; //TODO rename at_spot
+            sum_spot_amt = TickMAP_MetaData[ticker.tick].sum_spot_amt;
+            total_val = TickMAP_MetaData[ticker.tick].total_val;
             margin_pct = 0;
-            if(curr_price && spot_num && total_amt){
-               avg_price = total_amt / spot_num;
-               //Margin = (Current price - Average purchase price) / Average purchase price
+            if(curr_price && spot_num && total_val){
+               avg_price = total_val / spot_num;
                spot_margin = curr_price - avg_price;
-               //Margin = (500 - 200) / 200 = 150%
-
-               // spot_margin = curr_price - spot_price;
-               TickMAP_MetaData[spot_ticker.tick].margin = spot_margin || 0;
-               TickMAP_MetaData[spot_ticker.tick].avg_price = avg_price || 0;
+               TickMAP_MetaData[ticker.tick].margin = spot_margin || 0;
+               TickMAP_MetaData[ticker.tick].avg_price = avg_price || 0;
             }
             if(spot_margin){
-               debugger;
-               margin_pct = spot_margin / avg_price;
-               TickMAP_MetaData[spot_ticker.tick].margin_pct = margin_pct;
+               margin_pct = spot_margin / avg_price * 100;
+               TickMAP_MetaData[ticker.tick].margin_pct = margin_pct;
             }
-
-            // TickMAP_MetaData[spot_ticker.tick].margin = 444
-            // TickMAP_MetaData[spot_ticker.tick].margin_pct = 0.44;
-            // TickMAP_MetaData[spot_ticker.tick].margin_pct = 0.44;
-
-            // Margin = (Purchase Price * Number of Shares) / (1 - Margin Percentage)
-
-/* GPT - Prompt:
-Ticker: 'ABCD'
-Purchase prices: $100, $200, $300
-Current stock price: $500
-Margin Percentage: Let's assume a 50% margin, meaning you provide half of the purchase price, and the other half is borrowed.
-First, calculate the total value of the stock positions:
-
-Total Value of Positions = (100 * 1) + (200 * 1) + (300 * 1) = $600
-
-Now, you can use the margin formula:
-
-Margin = (Total Value of Positions) / (1 - Margin Percentage)
-Margin = $600 / (1 - 0.5) = $600 / 0.5 = $1,200
-*/ 
-/* BARD
-Average purchase price = (100 + 200 + 300) / 3 = 200
-Margin = (Current price - Average purchase price) / Average purchase price
-Margin = (500 - 200) / 200 = 150%
-
-*/
-
             //CALCUALTE SPOT_DAYS: curr_date - spot_date = spot_days
             //CALCUALTE ATH_DAYS: curr_date - ath_date = ath_days
-
          }
 
          //TODO separate into displayFactory()
@@ -1639,6 +1619,8 @@ Margin = (500 - 200) / 200 = 150%
             ticker= tickerSet[i];
             if(!TickMAP_MetaData[ticker.tick]){continue;}
             if(!TickMAP_MetaData[ticker.tick].num){continue;}
+            marginsRow1 = document.createElement('section')
+            marginsRow1.classList.add('marginsRow1')
             profitRow1 = document.createElement('section')
             profitRow1.classList.add('profitRow1')
             tickerBOX1 = document.createElement('aside')
@@ -1658,28 +1640,61 @@ Margin = (500 - 200) / 200 = 150%
             numPCT1.classList.add('proPCT1')
             numTotalAmt1 = document.createElement('aside')
             numTotalAmt1.classList.add('proTotalAmt1')
-            numTotalAmt1.innerHTML = 'total: '+TickMAP_MetaData[ticker.tick].total_amt || 0;
+            numTotalAmt1.innerHTML = 'sum: '+TickMAP_MetaData[ticker.tick].sum_spot_amt || 0;
             numSPOTS = (TickMAP_MetaData[ticker.tick] && TickMAP_MetaData[ticker.tick].num)?
                TickMAP_MetaData[ticker.tick].num:0;
             numSPOT1.innerHTML = 'spots: '+ numSPOTS;
-            // numSPOT1.innerHTML = 'spots: '+ TickMAP_MetaData[ticker.tick].num || 0 ;
-            // numSPOT1.innerHTML = 'spots: '+ (TickMAP_MetaData[ticker.tick].num || 0 ;
             numMargin1.innerHTML = `margin: 
                ${( TickMAP_MetaData[ticker.tick].margin>0 )?'+':''}
                ${TickMAP_MetaData[ticker.tick].margin}`
             numPCT1.innerHTML = `pct: 
                ${( TickMAP_MetaData[ticker.tick].margin>0 )?'+':''}
-               ${TickMAP_MetaData[ticker.tick].margin_pct}%`;
-            // numPCT1.innerHTML = `pct: +1%`;
-            profitRow1.appendChild(tickerBOX1)         
-            profitRow1.appendChild(numSPOT1)         
-            profitRow1.appendChild(numTotalAmt1)         
+               ${TickMAP_MetaData[ticker.tick].margin_pct.toFixed(0)}%`;
+ 
+
+            marginsRow1.appendChild(tickerBOX1)         
+            marginsRow1.appendChild(numSPOT1)         
+            marginsRow1.appendChild(numTotalAmt1)         
+            marginsRow1.appendChild(avgPrice1)         
             profitRow1.appendChild(curPrice1)         
-            profitRow1.appendChild(avgPrice1)         
-            profitRow1.appendChild(numMargin1)         
-            profitRow1.appendChild(numPCT1)         
-            generatedProfitsBOX.appendChild(profitRow1)         
+            marginsRow1.appendChild(numMargin1)         
+            marginsRow1.appendChild(numPCT1)         
+            generatedMarginsBOX.appendChild(marginsRow1)         
+ 
          }
+         //PROFIT and LOSS View
+         debugger;
+         let keyz = Object.keys(TickMAP_MetaData);
+         let bookValue = 0, bankValue=0,itm;
+         let totMargin,totMarginPct,totMarginSum,totMarginBOX,totMarginPctBOX;
+         for(let idx=0; idx<keyz.length;idx++){
+            itm=TickMAP_MetaData[keyz[idx]];
+            bookValue += itm.total_val;
+            bankValue += 3;
+            totMargin += itm.margin;
+            totMarginSum += itm.margin_pct;
+         }
+         totMarginPct = totMarginSum/keyz.length;
+         let totalsRow1,totBookValue1,totBankValue1;
+         totBookValue1 = document.createElement('aside')
+         totBookValue1.classList.add('totBookValue1')
+         totBookValue1.innerHTML = 'book_value: '+bookValue;
+         totMarginBOX = document.createElement('aside')
+         totMarginBOX.classList.add('totMarginBOX')
+         totMarginBOX.innerHTML = 'total margin: '+totMargin;
+         totMarginPctBOX = document.createElement('aside')
+         totMarginPctBOX.classList.add('totMarginPctBOX')
+         totMarginPctBOX.innerHTML = 'total pct: '+totMarginPct;
+         totBankValue1 = document.createElement('aside')
+         totBankValue1.classList.add('totBankValue1')
+         totBankValue1.innerHTML = 'bank_value: '+bankValue;//+TickMAP_MetaData[ticker.tick].sum_spot_amt || 0;                        
+         totalsRow1 = document.createElement('footer')
+         totalsRow1.innerHTML = "Totals:"         
+         totalsRow1.classList.add('totalsRow1') 
+         totalsRow1.appendChild(totBookValue1)         
+         totalsRow1.appendChild(totMarginBOX)         
+         totalsRow1.appendChild(totBankValue1)         
+         generatedProfitsBOX.appendChild(totalsRow1)  
         }
         const generateSelected = ()=>{
          let selected = [];

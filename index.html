@@ -28,9 +28,14 @@
          margin-right: 0%;cursor:pointer;
          font-size: 0.666em;margin-top: 0.888em;
       }
-        .genReportBtn1{border-radius:13px;background:#bd814f;float: right;
+        .genReportBtn1{border-radius:13px;
+         background:#6cd8d8;
+         /* background:#bd814f; */
+         float: right;
          margin-right: 2%;cursor:pointer;
-         font-size: 0.666em;margin-top: 0.888em;
+         font-size: 0.666em;margin-top: 0.888em;padding:0.222em;
+         padding-left: 0.666em;color:#012d56;padding-right: 0.444em;
+    padding-bottom: 0.444em;
       }
       .genBtn1{font-size:0.666em; border-radius:22px; cursor:pointer;
          background:#5fa9a9; border-radius: 10px;color:#060252;
@@ -298,7 +303,7 @@
          }
          #rightBOX,#leftBOX,#keyBOX{margin:2px;border: solid 1px steelblue;width: 100%;font-size: 0.777em;}
         
-         #encodeBOX, #decodeBOX, #instructionBOX, #scheduleBOX, #historyBOX{
+         #encodeBOX, #decodeBOX, #instructionBOX, #scheduleBOX, #historyBOX, #allMarginsBOX{
             margin:2%;
          }
 
@@ -306,10 +311,16 @@
             margin:2%;
          }
 
-.profitRow1, .marginsRow1 {
+.profitRow1, .marginsRow1, .detailRow1 {
    display: flex;
     justify-content: space-between;
     margin-right: 2%;
+}
+.totalsRow1{
+   display: flex;
+    justify-content: space-evenly;
+    font-size: 1.222em;
+    color: limegreen;
 }
 .profitRow1 aside{
    display: flex;
@@ -318,6 +329,15 @@
 .marginsRow1 aside{
    display: flex;
     align-items: center;
+}
+.detailRow1 aside{
+   display: flex;
+   font-size :0.777em;
+    align-items: center;
+    margin-left:2%;
+    padding-left:2%;
+    color:#595fa5;
+    line-height: 1.666em;
 }
 .proTick1{
    width: 44px; /*align item column*/
@@ -430,7 +450,7 @@ border-radius:13px;
          .subMenuBtn{font-size:0.666em;}
          #messageBOX{flex-direction: column;}
          /* .delBtn1{margin-bottom: 1em;} */
-         #encodeBOX, #decodeBOX, #instructionBOX, #scheduleBOX, #historyBOX{
+         #encodeBOX, #decodeBOX, #instructionBOX, #scheduleBOX, #historyBOX, #allMarginsBOX{
             margin:2% 0;
          }  
          #scrollFrame{width: 95%; }       
@@ -550,14 +570,15 @@ align-items: center;">
 
     "
         >
-        <span class="boxTitle">🎯 <span style="font-size:0.888em; color:#2a2acf">1</span> Encode Stocks <span style="font-size:0.666em">(metadata):</span></span>
+        <button id="latestBtn1" class="genBtn1" style="display:none;float:right" onclick="getLatestTickerClick()">latest🔄</button>
+          
+        <span class="boxTitle">🎯 <span style="font-size:0.888em; color:cyan">1</span> Encode Stocks <span style="font-size:0.666em">(metadata) 🔬</span></span>
         <article id="encodeDATA"></article>
         <button id="saveTickBtn1" onclick="saveTickerClick()">save🌟</button>
         <button id="genr8Btn" class="genBtn1" onclick="generateSelected()">⚡gener8🗺️</button>
         <button class="delBtn1" style="float:right;margin-top:0.888em;margin-right:4%;" onclick="deleteSelectedTicker()">🗑️</button>
           <button id="addTickBtn" class="addBtn1" onclick="addTickerClick()">add🎇</button>
-          <button id="latestBtn1" class="genBtn1" style="display:none;" onclick="getLatestTickerClick()">latest🔄</button>
-          
+
           <br>
          </section>
          
@@ -568,7 +589,7 @@ align-items: center;">
         padding: 2%; color: cyan; line-height: 2.444em;" 
         ">
         
-        <span class="boxTitle">🎱 <span style="font-size:0.888em;color:#2a2acf">2</span> Decode Spots <span style="font-size:0.666em">(temporal data):</span></span>
+        <span class="boxTitle">🎱 <span style="font-size:0.888em;color:#2a2acf">2</span> Decode Spots <span style="font-size:0.666em">(timedata) 🎲</span></span>
         <aside id="decodeSPOTZ"></aside>
         <button class="delBtn1"  style="float:right;margin-top:0.888em;margin-right:4%;"  onclick="deleteSelectedSpot()">🗑️</button>
         <button id="addSpotBtn" class="addBtn1" onclick="addSpotClick()">add🎆</button>
@@ -577,14 +598,35 @@ align-items: center;">
         <br>
       </section>
 
+      <section id="allMarginsBOX"
+         style="width:80.888%; flex:1;
+         background:#071936; 
+         border-radius: 13px; border: solid 1px #4ba1a9; box-shadow: 0px 7px 7px 3px #023e16;
+         padding: 4% 0 4% 4%; color: #47c270; line-height: 2.444em;" 
+         ">
+         <button id="generateMarginsBtn" class="genReportBtn1" onclick="generateMarginsClick()">gener8✨</button>
+         <span class="boxTitle">🐤 <span style="font-size:0.888em;color:#47c270;">
+         </span> Generate Margins <span style="font-size:0.666em">(on spots) 💎</span>
+         </span><br>
+         <article style="font-size:0.777em;font-family: sans-serif;line-height:2.222em;">
+            <hr> 
+            Margins:
+            <section id="generatedMarginsBOX"></section>
+            <hr> 
+            <button id="detailsBtn1" class="genReportBtn1" style="display:none;" onclick="setMarginDetailsClick(event)">details🔬</button> 
+            <button id="totalsBtn1" class="genReportBtn1" style="display:none;" onclick="setMarginDetailsClick(event)">totals🔭</button> 
+                      
+      </section>
       <section id="scheduleBOX"
         style="width:80.888%; flex:1;
         background: #1f0a00;
         border-radius: 13px; border: solid 1px #a9a04b; box-shadow: 0px 7px 7px 3px #9b6237;
         padding: 4% 0 4% 4%; color: #b19f50; line-height: 2.444em;" 
         ">
-        <button id="generateScheduleBtn" class="genReportBtn1" onclick="generateScheduleClick()">gener8✨</button>
-        <span class="boxTitle">🔔 <span style="font-size:0.888em;color:#b19f50;">3</span> Generate Reports🌞</span><br>
+        <button id="generateScheduleBtn" class="genReportBtn1" onclick="generateScheduleClick()">gener8📉</button>
+        <span class="boxTitle">🔔 <span style="font-size:0.888em;color:#b19f50;">
+        </span> Generate Schedule</span><span style="font-size:0.666em"> (measures) 📈
+      </span></span><br>
         <article style="font-size:0.666em;">
 
            <hr>   
@@ -608,12 +650,12 @@ align-items: center;">
         padding: 4% 0 4% 4%; color: cyan; line-height: 2.444em;" 
         ">
         <button id="generateProfitBtn" class="genReportBtn1" onclick="generateProfitLossClick()">gener8🏰</button>
-        <span class="boxTitle">🌊 <span style="font-size:0.888em;color:cyan;">4</span> Generate Profit/Loss/Tax 🚨</span><br>
+        <span class="boxTitle">🌊 <span style="font-size:0.888em;color:cyan;">
+         </span> Generate Profit/Loss/Tax </span><span style="font-size:0.666em">(reports) 🚨
+         </span></span><br>
         <article style="font-size:0.666em;">
          <hr>   
-         Margins:
-         <section id="generatedMarginsBOX"></section>
-         <hr>   
+  
          Profit & Loss:
          <section id="generatedProfitsBOX"></section>
          <hr>   
@@ -627,9 +669,12 @@ align-items: center;">
 
       <section id="instructionBOX"
         style="width:80%; flex:1;padding: 1% 2% 1% 2%;
-        background: #234788; font-size:0.666em;
+        background: #000815; font-size:0.666em;
         border-radius: 13px; border: solid 1px steelblue; box-shadow: 0px 7px 20px 0px #026767;
-        color: cyan; line-height: 2.444em;" 
+        color: #341a7f;
+    line-height: 3.222em;
+    font-family: verdana;
+    font-size: 0.777em;     font-weight: bold;
         ">
         <button id="openBtn1" class="genReportBtn1" onclick="openBtnClick()">show💠</button>        
         <span class="boxTitle">💡 Instructions:</span><br>
@@ -638,7 +683,7 @@ align-items: center;">
         
         <hr>   
         Generate Worksheet, Generate Schedule, Generate Reports.
-        <hr>   
+        <hr><br><hr>  
 
         # STEPS
 
@@ -658,10 +703,16 @@ align-items: center;">
 
         - PRESSUP  PRESSDOWN, TRIMUP, TRIMDOWN.
 
+        <hr><br><hr>
          # ACTS
 
          buyHOLD, sellSAFE, cutLOSS, buySPOT, sellSPOT
 
+         #GAMBLE snap  robinhood  roblox
+
+         #DIVERSIFY LLY and FIRSTSOLAR. CRYPTO
+
+         <hr><br><hr>
         # PRINCIPLES
 
         MARKET_STATES are NOT easy to DEFINE, until years later.
@@ -680,6 +731,7 @@ align-items: center;">
 
         This financial tool uses NATURAL LANGUAGE PROCESSING to solve that.
 
+        <hr><br><hr>
 
         # Technical description (ai)
 
@@ -694,7 +746,8 @@ align-items: center;">
         An overall report is generated, where NLP tokens,
         are used to generate visual charts of market_state.
 
-        MONTHLY and QUARTERLY VISUALS of all spots:
+        <hr><br><hr>
+        # MONTHLY and QUARTERLY VISUALS of all spots:
         sideways, inGREEN, inRED.
 
         Ticker input is encoded, with spot input, and a 
@@ -707,6 +760,7 @@ align-items: center;">
         
         LAST-WEDNESDAY (day before last THURSDAY) put in a GUESS and REAL.
 
+        <hr><br><hr>
         QUARTERLY HiGH/LOWS (QHL) and MHL (monthly high lows.) 
         - monthHIGH, monthLOW, quarterHIGH, quarterLOW, yearHIGH, yearLOW
         <hr>
@@ -717,7 +771,8 @@ align-items: center;">
          In advance of defining probabalistic state.
          To then trigger articulated response and note keeping.
 
-        Patterns of all possible probability.
+         <hr><br><hr>
+        # Patterns of all possible probability.
 
          - sold too much, thinking it would go down - but it went way up.
          - sold correctly, before it tanked.
@@ -735,11 +790,11 @@ align-items: center;">
          The prime determination of successful investment is ROI.
          So % ROI is a key metric, among other statistics.
          The state of each SPOT changes, based on TIME and %ROI
-         
+         <hr><br><hr>
          EXAMPLE:
          A spot that is down 10% - 1 week after purchase - still has TIME.
          But a spot down 10% - years after purchase - is very bad.
-
+         <hr><br><hr>
          Another EXAMPLE:
          A stock that had a huge run, is only cash - as booked_profit.
          So trimming strategically is required to get returns.
@@ -748,69 +803,70 @@ align-items: center;">
          And is a dog. At that point the state changes from a stock
          that still has time_to_turnaround, or a dog, that needs to 
          cut_loss and rebalance risk off into better profit_margin spots.
-
+         <hr><br><hr>
          Strength and volume
          check low rsi on buy, And
          check for high selling volume as climax (low buys) sellers tapped out.
          check high rsi on sell, And
          check for high buying volume as climax (low sells) buyers tapped out
          check vix for climax of fear or greed. 
-         
+         VIX_INFLOW (greed,hype,fomo) VIX_OUTFLOWS(fear,risk,uncertainty)
+         <hr><br><hr>
          Another Example:
          Biggest spots for heighest weighted probabilities.
          Smaller spots for less certain probabilities.
          Calculate TREND LENGTH, days above MA:100,200
-
+         <hr><br><hr>
          Another Example:
          fallback to half of bull run - a year later.
          Need to see end of bull.
          Need to see end of bear.
-
+         <hr><br><hr>
          FUD FOMO CASHOUT or CASHIN
-
+         <hr><br><hr>
          Seasonality:
          buy halloween, sell thanksgiving
-
+         <hr><br><hr>
          Bad comps
          last years numbers skewed.
-
+         <hr><br><hr>
          Topics in news, SELLNEWS or BUYNEWS
          CATALYST EVENT_ON and EVENT_OFF
          have an input for topics in the news such as
          beginning or ending of wars, raising or lowering of interest rates,
          last thursday of the month (bustshort, bustputs).
          Or Earnings - how to opposite_respond - earnings calls?
-
+         <hr><br><hr>
          ANALYTICS:
          - days_sideways
          - days_red
          - days_green
          - %_green
          - %_red
-
+         <hr><br><hr>
          GOAL2GO
          GOAL to make in a YEAR, Goal to make in Quarter, 
          Goal to make in month
          Goal to make in week, goal to make in day.
-         
+         <hr><br><hr>
          VISUALIZATIONS:
          Graphs and charts for ticker over time, to show state.
          With Natural Language Processing parameters.
          To trigger various prescribed strategy.
-
+         <hr><br><hr>
          Over TIME durations: 
          - stock goes up mild 10% 20% 
          - stock goes up hot  50%, 100% 500%
          - stock stays flat +- 10% range 
          - stock is cold -10% 20%
          - stock is dog.
-
+         <hr><br><hr>
          FORCAST:
          select box: up middle down - then result.
          And set reactions on results.
          Example: every 20% up sell 10% 
          or 1/3 up, sell 1/4.
-
+         <hr><br><hr>
          ## NLP Classification mechanism
 
          More animated pattern recognitions.
@@ -823,6 +879,47 @@ align-items: center;">
          % to point. Like % to go under water.
          And total trade-profits, with total-red positions,
          And total-green positions.
+         <hr><br><hr>
+         Quarterly_Market_Narratives:
+         - higher for longer - geo-political risks
+         - taboo 10yr over 5% - weakened consumer
+         - consumer stimulus pullback
+         NEGATIVE_TO_POSITIVE shift
+         POSITIVE_TO_NEGATIVE shift
+         NEW_NEGATIVE
+         NEW_POSITIVE
+         UPSIDE_SURPRISE
+         DOWNSIDE_SURPRISE
+         <hr><br><hr>
+         LITMUS_STOCKS. TRENDS_TO_WATCH
+         COSTCO and WMT to read CONSUMER_RISK
+         GOOGLE and MICROSOFT for TECH GROWTH
+         MDB and AMD and NVDIA for AI GROWTH
+         QQQ XLK and SPX for Industry_Trends
+         STATE_CHANGES: 
+         HOOD moves from watch to gamble or
+         HOOD moves from watch to cutloss.
+         
+         <hr><br><hr>
+         KEY_POINT_INDICATOR_worksheet:
+         10yr 5% interest rates
+         200 day moving average bounce to ATH or return
+         breach of 100 day, 200day.
+         breach of 10% up ytd
+         breach of 20% up ytd
+         RSI and Market sentiment fear_greed_index
+         S&P500 4500
+         Russel 200 turnaround
+         <hr><br><hr>
+         HISTORIC_DATA_MATRIX
+         latest_price
+         new_ath 
+         new_high_quarter, new_low_month
+         new_low_quarter, new_low_month
+         month_spot, quarter_spot, ytd_spot
+         resistance_support_ranges
+         
+         <hr><br><hr>
 
          With expectations as,
          Expecting_bull, expecting_bottom.
@@ -842,12 +939,12 @@ align-items: center;">
          RISK_ON, RISK_OFF.
          NLP: Nomenclature,Taxonomy,Ontology,Index,FoundationModel.
          HeadWind, TailWind.
-
+         <hr><br><hr>
          Forcast Dashboard: 
          what if it breaks out (earning beat) +10%
          - what if it tanks 10%?
          - what if sideways for quarter?
-
+         <hr><br><hr>
          Analytic display.
          Individual Spot Profit/Loss.
          SpotFamily Profit/Loss.
@@ -858,7 +955,7 @@ align-items: center;">
          - SET NEW upper band and lower band RANGE ALERTS! - every month.
          - 10% and 20% (mid moves and big moves) 
 
-
+         <hr><br><hr>
          RULES:
          buy the best on red 🔴⚠️
          sell on green,🚀
@@ -933,6 +1030,8 @@ align-items: center;">
         let generatedMarginsBOX = document.getElementById('generatedMarginsBOX');
 
 
+        let detailsBtn1 = document.getElementById('detailsBtn1');
+        let totalsBtn1 = document.getElementById('totalsBtn1');
         let openBtn1 = document.getElementById('openBtn1');
 
         //FINANCIAL - ANALYTICS - CALCULATIONS
@@ -943,7 +1042,10 @@ align-items: center;">
         let calculate_ATL = 0;
         let current_PRICE = 0;
 
-         //AI_LEDGER - to save in localstorage
+         /************************************************\
+          * - AI_LEDGER
+          *  - ability to save in localstorage
+          * ***********************************************/
          let ai_ledger=null;
          let ai_ticks=[],ai_spots=[];
          let ai_tick={}, ai_spot={};
@@ -962,8 +1064,12 @@ align-items: center;">
             // ai_ledger = {"ticks":[{"tick":"NVDA","price":"405","ath":"100","price_ymd":"2022_10_30"},{"tick":"COST","price":"551","ath":"100","ath_ymd":"2022_10_11","price_ymd":"2023_11_01"},{"tick":"MDB","price":"100","ath":"200","ath_ymd":"2022_20_22","price_ymd":"2000_22_20"},{"tick":"MSFT","price_ymd":"2023_11_01"},{"tick":"GOOG","price":"125","price_ymd":"2023_11_01"},{"tick":"QQQ","price":"350","price_ymd":"2023_11_01"},{"tick":"XLK","price":"160","price_ymd":"2023_11_01"},{"tick":"NDAQ","price":"50","price_ymd":"2023_11_01"},{"tick":"COIN","price":"75","price_ymd":"2023_11_01"},{"tick":"V","price":"231","price_ymd":"2023_11_01"}],"spots":[{"tick":"NVDA","price":"100","ymd":"2023_9_20","role":"HOLD"},{"tick":"NVDA","price":"100","ymd":"2022_9_22","role":"..."},{"tick":"COST","price":"100","ymd":"2022_9_22","role":"..."},{"tick":"MDB","price":"100","ymd":"2023_10_29","role":"WATCH"},{"tick":"MDB","price":"111","ymd":"2023_10_29","role":"HEDGE"},{"tick":"GOOG","price":"200","ymd":"2023_10_29"}]}
             // ai_ledger = {"ticks":[{"tick":"NVDA","price":"405","ath":"100","price_ymd":"2022_10_30"},{"tick":"COST","price":"551","ath":"100","ath_ymd":"2022_10_11","price_ymd":"2023_11_01"},{"tick":"MDB","price":"100","ath":"200","ath_ymd":"2022_20_22","price_ymd":"2000_22_20"},{"tick":"MSFT","price_ymd":"2023_11_01"},{"tick":"GOOG","price":"125","price_ymd":"2023_11_01"},{"tick":"QQQ","price":"350","price_ymd":"2023_11_01"},{"tick":"XLK","price":"160","price_ymd":"2023_11_01"},{"tick":"NDAQ","price":"50","price_ymd":"2023_11_01"},{"tick":"COIN","price":"75","price_ymd":"2023_11_01"},{"tick":"V","price":"231","price_ymd":"2023_11_01"}],
             //    "spots":[{"tick":"NVDA","amount":"100","spot_at":"111","ymd":"2023_9_20","role":"HOLD"},{"tick":"NVDA","amount":"100","spot_at":"222","ymd":"2022_9_22","role":"..."},{"tick":"COST","amount":"100","spot_at":"333","ymd":"2022_9_22","role":"..."},{"tick":"MDB","amount":"100","spot_at":"444","ymd":"2023_10_29","role":"WATCH"},{"tick":"MDB","amount":"111","spot_at":"555","ymd":"2023_10_29","role":"HEDGE"},{"tick":"GOOG","amount":"200","spot_at":"666","ymd":"2023_10_29"}]}
-            ai_ledger = {"ticks":[{"tick":"NVDA","price":"432","ath":"100","price_ymd":"YY_MM_DD"},{"tick":"COST","price":"556","ath":"100","ath_ymd":"2022_10_11","price_ymd":"YY_MM_DD"},{"tick":"MDB","price":"326","ath":"200","ath_ymd":"2022_20_22","price_ymd":"YY_MM_DD"},{"tick":"MSFT","price_ymd":"YY_MM_DD","price":"349"},{"tick":"GOOG","price":"128","price_ymd":"YY_MM_DD"},{"tick":"QQQ","price":"362","price_ymd":"YY_MM_DD"},{"tick":"XLK","price":"170","price_ymd":"YY_MM_DD"},{"tick":"NDAQ","price":"50","price_ymd":"YY_MM_DD"},{"tick":"COIN","price":"80","price_ymd":"YY_MM_DD"},{"tick":"V","price":"243","price_ymd":"YY_MM_DD"}],
-               "spots":[{"tick":"NVDA","amount":"200","spot_at":"412","ymd":"2023_10_20","role":"HOLD"},{"tick":"NVDA","amount":"300","spot_at":"459","ymd":"2023_10_10","role":"WATCH"},{"tick":"COST","amount":"200","spot_at":"552","ymd":"2023_10_20","role":"..."},{"tick":"MDB","amount":"300","spot_at":"370","ymd":"2023_10_12","role":"WATCH"},{"tick":"MDB","amount":"200","spot_at":"333","ymd":"2023_09_21","role":"HEDGE"},{"tick":"GOOG","amount":"200","spot_at":"666","ymd":"2023_10_29"},{"tick":"FSLR","amount":"0","spot_at":"0","ymd":"2023_11_02","role":"WATCH"}]}
+            // ai_ledger = {"ticks":[{"tick":"NVDA","price":"432","ath":"100","price_ymd":"2022_10_30"},{"tick":"COST","price":"556","ath":"100","ath_ymd":"2022_10_11","price_ymd":"2022_9_22"},{"tick":"MDB","price":"326","ath":"200","ath_ymd":"2022_20_22","price_ymd":"2022_9_22"},{"tick":"MSFT","price_ymd":"2023_11_01","price":"349"},{"tick":"GOOG","price":"128","price_ymd":"YY_MM_DD"},{"tick":"QQQ","price":"362","price_ymd":"YY_MM_DD"},{"tick":"XLK","price":"170","price_ymd":"YY_MM_DD"},{"tick":"NDAQ","price":"50","price_ymd":"YY_MM_DD"},{"tick":"COIN","price":"80","price_ymd":"YY_MM_DD"},{"tick":"V","price":"243","price_ymd":"YY_MM_DD"}],
+            //    "spots":[{"tick":"NVDA","amount":"200","spot_at":"412","ymd":"2023_10_20","role":"HOLD"},{"tick":"NVDA","amount":"300","spot_at":"459","ymd":"2023_10_10","role":"WATCH"},{"tick":"COST","amount":"200","spot_at":"552","ymd":"2023_10_20","role":"..."},{"tick":"MDB","amount":"300","spot_at":"370","ymd":"2023_10_12","role":"WATCH"},{"tick":"MDB","amount":"200","spot_at":"333","ymd":"2023_09_21","role":"HEDGE"},{"tick":"GOOG","amount":"200","spot_at":"666","ymd":"2023_10_29"},{"tick":"FSLR","amount":"0","spot_at":"0","ymd":"2023_11_02","role":"WATCH"}]}
+            // ai_ledger = {"ticks":[{"tick":"NVDA","price":"464","ath":"493","ath_ymd":"2023_08_31","price_ymd":"2023_11_09"},{"tick":"MDB","price":"326","ath":"569","ath_ymd":"2021_09_19","price_ymd":"2022_9_22"},{"tick":"MSFT","price":"362","ath":"344","ath_ymd":"2023_07_14","price_ymd":"2023_11_09"},{"tick":"GOOGL","price":"133","ath":"150","ath_ymd":"2021_11_19","price_ymd":"2023_11_09"},{"tick":"QQQ","price":"372","ath":"400","ath_ymd":"2021_11_19","price_ymd":"2023_11_09"},{"tick":"XLK","price":"175","ath":"180","ath_ymd":"2023_07_18","price_ymd":"2023_11_09"},{"tick":"NDAQ","price":"51","ath":"70","ath_ymd":"2021_11_05","price_ymd":"2023_11_08"},{"tick":"COIN","price":"89","ath":"105","ath_ymd":"2023_07_14","price_ymd":"2023_11_08"},{"tick":"V","price":"243","ath":"250","ath_ymd":"2023_09_13","price_ymd":"2023_11_09"},{"tick":"COST","price":"563","ath":"590","ath_ymd":"2022_04_08","price_ymd":"2023_11_09"}],
+            //    "spots":[{"tick":"NVDA","amount":"200","spot_at":"412","ymd":"2023_10_20","role":"HOLD"},{"tick":"NVDA","amount":"300","spot_at":"459","ymd":"2023_10_10","role":"WATCH"},{"tick":"COST","amount":"200","spot_at":"552","ymd":"2023_10_20","role":"..."},{"tick":"MDB","amount":"300","spot_at":"370","ymd":"2023_10_12","role":"WATCH"},{"tick":"MDB","amount":"200","spot_at":"333","ymd":"2023_09_21","role":"HEDGE"},{"tick":"FSLR","amount":"0","spot_at":"0","ymd":"2023_11_02","role":"WATCH"},{"tick":"NDAQ","amount":"180","spot_at":"49","ymd":"2023_09_22","role":"TRIM"},{"tick":"V","amount":"200","spot_at":"232","ymd":"2023_10_24","role":"HOLD"},{"tick":"GOOG","amount":"500","spot_at":"130","ymd":"2023_09_29","role":"HOLD"},{"tick":"QQQ","amount":"500","spot_at":"370","ymd":"2023_11_09","role":"TRIM"},{"tick":"XLK","amount":"300","spot_at":"168","ymd":"2023_09_18","role":"HOLD"}]}
+            ai_ledger = {"ticks":[{"tick":"NVDA","price":"464","ath":"493","ath_ymd":"2023_08_31","price_ymd":"2023_11_09"},{"tick":"MDB","price":"326","ath":"569","ath_ymd":"2021_09_19","price_ymd":"2022_9_22"},{"tick":"MSFT","price":"362","ath":"344","ath_ymd":"2023_07_14","price_ymd":"2023_11_09"},{"tick":"GOOGL","price":"133","ath":"150","ath_ymd":"2021_11_19","price_ymd":"2023_11_09"},{"tick":"QQQ","price":"372","ath":"400","ath_ymd":"2021_11_19","price_ymd":"2023_11_09"},{"tick":"XLK","price":"175","ath":"180","ath_ymd":"2023_07_18","price_ymd":"2023_11_09"},{"tick":"NDAQ","price":"51","ath":"70","ath_ymd":"2021_11_05","price_ymd":"2023_11_08"},{"tick":"COIN","price":"89","ath":"105","ath_ymd":"2023_07_14","price_ymd":"2023_11_08"},{"tick":"V","price":"243","ath":"250","ath_ymd":"2023_09_13","price_ymd":"2023_11_09"},{"tick":"COST","price":"563","ath":"590","ath_ymd":"2022_04_08","price_ymd":"2023_11_09"},{"tick":"AMD","price":"113","ath":"130","ath_ymd":"2023_06_12","price_ymd":"2023_11_09"}],
+               "spots":[{"tick":"NVDA","amount":"200","spot_at":"412","ymd":"2023_10_20","role":"TRIM"},{"tick":"NVDA","amount":"300","spot_at":"459","ymd":"2023_10_10","role":"HOLD"},{"tick":"COST","amount":"200","spot_at":"552","ymd":"2023_10_20","role":"SAFE"},{"tick":"MDB","amount":"300","spot_at":"370","ymd":"2023_10_12","role":"WATCH"},{"tick":"MDB","amount":"200","spot_at":"333","ymd":"2023_09_21","role":"WATCH"},{"tick":"FSLR","amount":"0","spot_at":"0","ymd":"2023_11_02","role":"..."},{"tick":"NDAQ","amount":"180","spot_at":"49","ymd":"2023_09_22","role":"TRIM"},{"tick":"V","amount":"200","spot_at":"232","ymd":"2023_10_24","role":"HOLD"},{"tick":"GOOGL","amount":"500","spot_at":"130","ymd":"2023_09_29","role":"TRIM"},{"tick":"QQQ","amount":"500","spot_at":"370","ymd":"2023_11_09","role":"TRIM"},{"tick":"XLK","amount":"300","spot_at":"168","ymd":"2023_09_18","role":"TRIM"},{"tick":"MSFT","amount":"100","spot_at":"330","ymd":"2023_10_26","role":"HOLD"},{"tick":"MSFT","amount":"100","spot_at":"339","ymd":"2023_10_25","role":"HOLD"},{"tick":"MSFT","amount":"200","spot_at":"316","ymd":"2023_10_02","role":"TRIM"},{"tick":"AMD","amount":"200","spot_at":"102","ymd":"2023_10_02","role":"WATCH"}]}
         }
 
         let initEncode = ()=>{
@@ -1053,7 +1159,7 @@ align-items: center;">
         }; initEncode();
 
         let initDecode = ()=>{
-         let role1,role2,role3,role4,role5,role6,role7;         
+         let role1,role2,role3,role4,role5,role6,role7,role8,role9;         
          let decodeRow1,date1,tick1,amountData1,amountBOX1,atData1,atBOX1;
          let btn1,roleBOX,roleData,decodeNUMBOX, decodeSelect1,decodeCHECKBOX1;
          decodeSPOTZ.innerHTML=''; //blank out reload.
@@ -1086,8 +1192,8 @@ align-items: center;">
             role5 = document.createElement('option')
             role6 = document.createElement('option')
             role7 = document.createElement('option')
-            // role2.value = "SHORT"; 
-            // role3.value = "LONG";
+            role8 = document.createElement('option')
+            role9 = document.createElement('option')
             role1.value = "...";
             role2.value = "HOLD";
             role3.value = "WATCH";
@@ -1095,6 +1201,8 @@ align-items: center;">
             role5.value = "HEDGE";
             role6.value = "TRIM";
             role7.value = "SAFE";
+            role8.value = "GAMBLE";
+            role9.value = "EXIT";
             role1.innerHTML = "...";
             role2.innerHTML = "HOLD";
             role3.innerHTML = "WATCH";
@@ -1102,6 +1210,8 @@ align-items: center;">
             role5.innerHTML = "HEDGE";
             role6.innerHTML = "TRIM";
             role7.innerHTML = "SAFE";
+            role8.innerHTML = "GAMBLE";
+            role9.innerHTML = "EXIT";
             roleData.appendChild(role1);
             roleData.appendChild(role2);
             roleData.appendChild(role3);
@@ -1109,6 +1219,8 @@ align-items: center;">
             roleData.appendChild(role5);
             roleData.appendChild(role6);
             roleData.appendChild(role7);
+            roleData.appendChild(role8);
+            roleData.appendChild(role9);
             roleData.value = ai_ledger.spots[i].role || '';
             roleBOX.appendChild(roleData)
             roleBOX.classList.add('roleBOX1')
@@ -1130,12 +1242,14 @@ align-items: center;">
                deleteSpotClick(e.target.getAttribute('data-arg1'))})            
                btn1.innerHTML = '✨Lock Profit/Loss💥'
                tick1.value = ai_ledger.spots[i].tick || '';
-               tick1.readOnly = true;
+               tick1.readOnly = false;
                amountData1.placeholder = "start:$0.00";
                amountData1.value = ai_ledger.spots[i].amount || '';
             atData1 = document.createElement('input')
             atData1.placeholder = "$0.00";
             atData1.value = ai_ledger.spots[i].spot_at || '';
+            tick1.addEventListener("keyup",(e)=>{
+                  saveSpotBtn1.style.display = 'block'; });            
             atData1.addEventListener("keyup",(e)=>{
                   saveSpotBtn1.style.display = 'block'; });
             amountData1.addEventListener("keyup",(e)=>{
@@ -1328,7 +1442,6 @@ align-items: center;">
                      tkr = kid.value;
                      continue;
                   } if(kid.classList.contains('tkrPriceBOX1')){
-                     debugger;
                      price = kid.children[0].value;
                      // price_label = kid.innerHTML;
                      price_ymd = kid.children[1].value;
@@ -1399,7 +1512,7 @@ align-items: center;">
          const addSpotClick = ()=>{
             saveSpotBtn1.style.display = 'block';
             let decodeRow1,date1,tick1,amountData1;
-            let role1,role2,role3,role4,role5,role6;
+            let role1,role2,role3,role4,role5,role6,role7,role8,role9;
             let saveBtn3,roleBOX,roleData,atBOX1,atData1;
             decodeRow1 = document.createElement('article')
             decodeRow1.classList.add('decodeRow1')
@@ -1414,24 +1527,36 @@ align-items: center;">
             role4 = document.createElement('option')
             role5 = document.createElement('option')
             role6 = document.createElement('option')
+            role7 = document.createElement('option')
+            role8 = document.createElement('option')
+            role9 = document.createElement('option')
             role1.value = "...";
             role2.value = "HOLD";
             role3.value = "WATCH";
             role4.value = "CUTLOSS";
             role5.value = "HEDGE";
             role6.value = "TRIM";
+            role7.value = "SAFE";
+            role8.value = "GAMBLE";
+            role9.value = "EXIT";
             role1.innerHTML = "...";
             role2.innerHTML = "HOLD";
             role3.innerHTML = "WATCH";
             role4.innerHTML = "CUTLOSS";
             role5.innerHTML = "HEDGE";
             role6.innerHTML = "TRIM";
+            role7.innerHTML = "SAFE";
+            role8.innerHTML = "GAMBLE";
+            role9.innerHTML = "EXIT";
             roleData.appendChild(role1);
             roleData.appendChild(role2);
             roleData.appendChild(role3);
             roleData.appendChild(role4);
             roleData.appendChild(role5);
             roleData.appendChild(role6);
+            roleData.appendChild(role7);
+            roleData.appendChild(role8);
+            roleData.appendChild(role9);            
             roleBOX.appendChild(roleData)
             roleBOX.classList.add('roleBOX1')
             roleData.classList.add('roleData1')
@@ -1560,11 +1685,32 @@ align-items: center;">
          }
         }
         const generateProfitLossClick = ()=>{ // GENERATE PROFIT AND LOSS DISPLAY
+        }
+
+        let show_margin_details_view = false;
+        const setMarginDetailsClick = (e)=>{
+            if(e.target.id==='detailsBtn1'){
+               detailsBtn1.style.display='none'
+               totalsBtn1.style.display='block'
+               //hide details btn
+               //show totals btn
+               show_margin_details_view = true;
+            }else{
+               //show details btn
+               //hide totals btn
+               detailsBtn1.style.display='block' //show details btn
+               totalsBtn1.style.display='none'               
+               show_margin_details_view = false;
+            }
+            generateMarginsClick();
+        }
+        const generateMarginsClick = ()=>{ // GENERATE Margin DISPLAY
          //TODO if selected, only run selected
          let ticker,spot_ticker,tickerBOX1,tickerSet=[],spotSet=[],numSPOTS=0;
          let TickMAP_MetaData={},numSPOT1, marginsRow1, profitRow1,curPrice1;
          generatedMarginsBOX.innerHTML = ""; //reset view
-         generatedProfitsBOX.innerHTML = ""; //reset view
+         generatedProfitsBOX.innerHTML = ""; //reset view //todo refactor
+         detailsBtn1.style.display='block' //show details btn
          tickerSet = ai_ledger.ticks;
          spotSet = ai_ledger.spots;
          //TICKER INIT - iterator METADATA factory (generator)
@@ -1600,6 +1746,7 @@ align-items: center;">
             margin_pct = 0;
             if(curr_price && spot_num && total_val){
                avg_price = total_val / spot_num;
+               avg_price = avg_price.toFixed(0);//round number 
                spot_margin = curr_price - avg_price;
                TickMAP_MetaData[ticker.tick].margin = spot_margin || 0;
                TickMAP_MetaData[ticker.tick].avg_price = avg_price || 0;
@@ -1613,10 +1760,11 @@ align-items: center;">
          }
 
          //TODO separate into displayFactory()
-         let avgPrice1;
+         let avgPrice1,detailRow1;
          //DISPLAY - iterator
          for(let i=0;i<tickerSet.length;i++){
             ticker= tickerSet[i];
+            
             if(!TickMAP_MetaData[ticker.tick]){continue;}
             if(!TickMAP_MetaData[ticker.tick].num){continue;}
             marginsRow1 = document.createElement('section')
@@ -1656,22 +1804,75 @@ align-items: center;">
             marginsRow1.appendChild(numSPOT1)         
             marginsRow1.appendChild(numTotalAmt1)         
             marginsRow1.appendChild(avgPrice1)         
-            profitRow1.appendChild(curPrice1)         
+            marginsRow1.appendChild(curPrice1)         
             marginsRow1.appendChild(numMargin1)         
             marginsRow1.appendChild(numPCT1)         
             generatedMarginsBOX.appendChild(marginsRow1)         
  
+            if(show_margin_details_view){
+               //loop over spots of and display detailRow.
+               let spotObj,spotDate1,spotAmt1,spotPrice1;
+               let spotMargin2=0,spotPCT2=0,curr_price2;
+               for(var j=0; j<ai_ledger.spots.length;j++){
+                  spotObj = ai_ledger.spots[j];
+                  if(spotObj.tick != ticker.tick){continue}
+                  detailRow1 = document.createElement('section')
+                  detailRow1.classList.add('detailRow1')
+                  // detailRow1.innerHTML = ticker.tick;
+
+                  //CALCULATE individual SPOT MARGIN
+                  curr_price2 = TickMAP_MetaData[ticker.tick].curr_price;
+                  spotMargin2 = curr_price2 - spotObj.spot_at
+                  spotPCT2 = (spotMargin2/spotObj.spot_at) * 100 
+                  spotPCT2 = spotPCT2.toFixed(0);
+
+
+                  spotDate1 = document.createElement('aside')
+                  spotDate1.classList.add('spotDate1')
+                  spotDate1.innerHTML = spotObj.ymd || 0;
+
+                  spotAmt1 = document.createElement('aside')
+                  spotAmt1.classList.add('spotAmt1')
+                  spotAmt1.innerHTML =  'amt '+spotObj.amount || 0;
+
+                  spotPrice1 = document.createElement('aside')
+                  spotPrice1.classList.add('spotPrice1')
+                  spotPrice1.innerHTML =  'price '+spotObj.spot_at || 0;
+
+                  spotMargin1 = document.createElement('aside')
+                  spotMargin1.classList.add('spotMargin1')
+                  spotMargin1.innerHTML =  'margin '+spotMargin2 || 0;
+
+                  spotPCT1 = document.createElement('aside')
+                  spotPCT1.classList.add('spotPCT1')
+                  spotPCT1.innerHTML =  'pct '+ spotPCT2 || 0;
+
+
+                  detailRow1.appendChild(spotDate1)         
+                  detailRow1.appendChild(spotAmt1)         
+                  detailRow1.appendChild(spotPrice1)         
+                  detailRow1.appendChild(spotMargin1)         
+                  detailRow1.appendChild(spotPCT1)
+
+
+                  generatedMarginsBOX.appendChild(detailRow1)   
+
+
+               }
+            }
          }
          //PROFIT and LOSS View
-         debugger;
          let keyz = Object.keys(TickMAP_MetaData);
          let bookValue = 0, bankValue=0,itm;
-         let totMargin,totMarginPct,totMarginSum,totMarginBOX,totMarginPctBOX;
+         let totMargin=0,totMarginPct,totMarginSum,totMarginBOX,totMarginPctBOX;
          for(let idx=0; idx<keyz.length;idx++){
             itm=TickMAP_MetaData[keyz[idx]];
             bookValue += itm.total_val;
             bankValue += 3;
-            totMargin += itm.margin;
+
+            if(itm.margin){
+               totMargin += itm.margin;
+            }
             totMarginSum += itm.margin_pct;
          }
          totMarginPct = totMarginSum/keyz.length;
@@ -1734,21 +1935,29 @@ align-items: center;">
       const getLatestTickerClick = ()=>{ //loop all for last close.
          let item,urls=[];
          for(let i=0;i<ai_ledger.ticks.length;i++){
-            // if(i>2){continue;}//limiter stay below 20
+            // if(i>=1){continue;}//DEV_limiter stay below 20
             item = ai_ledger.ticks[i];
+            // item.tick = 'NVDA';//DEV_specifier 
             urls.push(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${item.tick}&interval=5min&apikey=${stock_api_key}`)
          }
          getData_Quotes(urls)
-         showErrorMSG('🌼 DATA UPDATED!') //todo error. need show message.
+         showErrorMSG('🌼DATA UPDATED🌼') //todo error. need show message not error.
 
       }
+
+      /**************************************************************\
+       * MSGS : interface
+       * \***********************************************************/
+       let stateErrorBox = document.getElementById('errorBox');
+         let stateSavedBox = document.getElementById('savedBox');
+         let stateCopiedBox = document.getElementById('copiedBox');
+ 
 
       /**************************************************************\
        * API : interface
        * \***********************************************************/
       const getData_Quotes = async (quotes)=>{
-         if(!stock_api_key){ showErrorMSG('🛠️ connect api')
-            return;}
+         if(!stock_api_key){ showErrorMSG('🛠️ connect api'); return;}
          if(!quotes.length){return;}
          try{
             for(let i=0; i<quotes.length;i++){
@@ -1761,7 +1970,6 @@ align-items: center;">
                   if(!responseTick){return;}
                   let latestClose = tickData["Time Series (5min)"][Object.keys(tickData["Time Series (5min)"])[0]]["4. close"];
                   if(!latestClose){return;}
-
                   console.log(responseTick,"last close",latestClose)
                   updateLatestTickPrice(responseTick,latestClose);
                   //SHOW CONNNECTED and tgt, hide disconnected and key input
@@ -1834,26 +2042,67 @@ align-items: center;">
             });         
       }
 
+      // let ai_history_matrix = {'NVDA':{ymd_price:{'2023_11_01':'428'}}}
+
 
       function updateLatestTickPrice(responseTick,latestClose){
          //loop ai_ledger, update price and latest label.
-         let tick='',item=null;
+         let tickr='',item=null;
          for(let i=0; i<ai_ledger.ticks.length;i++){
-            tick=ai_ledger.ticks[i];
-            if(tick.tick===responseTick){ //FOUND ticker record
+            tickr=ai_ledger.ticks[i];
+            if(tickr.tick===responseTick){ //FOUND ticker record
                ai_ledger.ticks[i].price = latestClose.split('.')[0];
-               // ai_ledger.ticks[i].price_label = "close";
-               ai_ledger.ticks[i].price_ymd = "YY_MM_DD";
+               ai_ledger.ticks[i].price_ymd = formatYMD();
+               update_History_matrix(
+                  {tick:tickr.tick,
+                     ymd:ai_ledger.ticks[i].price_ymd,
+                     price: ai_ledger.ticks[i].price
+                  })
                break;
             }
          }
       }
 
+      /************************************************\
+       * - AI_HISTORY_MATRIX
+       *  - ability to save in localstorage
+       * ***********************************************/
+         let ai_history_matrix=null;
 
-         let stateErrorBox = document.getElementById('errorBox');
-         let stateSavedBox = document.getElementById('savedBox');
-         let stateCopiedBox = document.getElementById('copiedBox');
- 
+      let ai_history_LOAD_MOCK_DATA=()=>{ //READ from OBJ
+         ai_history_matrix = {'NVDA':{ymd_price:{'2023_11_01':'428'}}}
+      }
+
+      let ai_history_init=()=>{ //READ from LOCAL STORAGE
+         ai_history_matrix = (localStorage.ai_history_matrix)?
+            JSON.parse( localStorage.ai_history_matrix ):null;
+         if(!ai_history_matrix){
+            ai_history_LOAD_MOCK_DATA();
+         }
+      }; ai_history_init();
+
+      /*************************************\
+       * HISTORY_MATRIX - store values in time
+      \*************************************/
+      let update_History_matrix = ( tickr ) => {//data updated: to not lose, push duplicate to history
+         if(!tickr || !tickr.price || !tickr.ymd){return}
+         if(!ai_history_matrix[tickr.tick]) { ai_history_matrix[tickr.tick]= {tick:ai_history_matrix[tickr.tick]} }
+         if(!ai_history_matrix[tickr.tick]['ymd_price']) { ai_history_matrix[tickr.tick]['ymd_price'] = {} }
+         ai_history_matrix[tickr.tick]['ymd_price'][tickr.ymd] = tickr.price;
+         //UPDATE LOCALSTORAGE with ai_history_matrix. SAVE
+         localStorage.ai_history_matrix = JSON.stringify(ai_history_matrix)  
+      }
+      /*************************************\
+       * UTILITIES
+      \*************************************/
+         let formatYMD = () => {
+            const currentDate = new Date();
+            const year = currentDate.getFullYear();
+            const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Month is zero-based, so add 1 and pad with '0'
+            const day = String(currentDate.getDate()).padStart(2, '0');
+            const formattedDate = `${year}_${month}_${day}`;
+            return formattedDate;
+         }
          let primeFn = () => {
             selectedTXT = textareaBOX.value.substring(textareaBOX.selectionStart, textareaBOX.selectionEnd);
             if(selectedTXT){

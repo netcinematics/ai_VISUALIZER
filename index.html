@@ -619,7 +619,7 @@ align-items: center;">
       </section>
       <section id="scheduleBOX"
         style="width:80.888%; flex:1;
-        background: #1f0a00;
+        background: #1a0326;
         border-radius: 13px; border: solid 1px #a9a04b; box-shadow: 0px 7px 7px 3px #9b6237;
         padding: 4% 0 4% 4%; color: #b19f50; line-height: 2.444em;" 
         ">
@@ -981,15 +981,15 @@ align-items: center;">
       margin-bottom:0.666%; flex: 0 0 auto;    margin-top: 0.555em;
       background-image: linear-gradient(grey, steelblue, black);
       box-shadow:0 0 14px 0px steelblue;border-radius:13px;">
-       <button class="" onclick="saveChatFn()" style="margin:1em;border-radius:8px;background:grey;
+       <button class="" onclick="copyLedgerFn()" style="margin:1em;border-radius:8px;background:grey;
           cursor:pointer;box-shadow: inset -1px -1px 4px 1px gold;">
           <span style="border-radius:100%;background:gold;border:1px solid grey;">
-            💾</span> <span class="btnTXT hoverTXT">GENERATE</span>
+            💾</span> <span class="btnTXT hoverTXT">COPY LEDGER</span>
        </button>
-       <button class="" onclick="copyLedgerFn()" style="margin:1em;border-radius:8px;background:grey;
+       <button class="" onclick="copyHistoryFn()" style="margin:1em;border-radius:8px;background:grey;
           cursor:pointer;box-shadow: inset -1px -1px 4px 1px orangered;">
           <span style="border-radius:100%;background:orangered;border:1px solid grey;">
-            📋</span> <span class="btnTXT hoverTXT">COPY LEDGER</span>
+            📋</span> <span class="btnTXT hoverTXT">COPY HISTORY</span>
        </button>
        <button class="" onclick="resetAllFn()" style="margin:1em;border-radius:8px;background:grey;
           cursor:pointer;box-shadow: inset -1px -1px 4px 1px rebeccapurple;">
@@ -1021,6 +1021,7 @@ align-items: center;">
         let decodeBOX = document.getElementById('decodeBOX');
         let decodeSPOTZ = document.getElementById('decodeSPOTZ');
         let scheduleBOX = document.getElementById('scheduleBOX')
+        let allMarginsBOX = document.getElementById('allMarginsBOX')
 
         let saveTickBtn1 = document.getElementById('saveTickBtn1');
         let saveSpotBtn1 = document.getElementById('saveSpotBtn1');
@@ -1068,7 +1069,9 @@ align-items: center;">
             //    "spots":[{"tick":"NVDA","amount":"200","spot_at":"412","ymd":"2023_10_20","role":"HOLD"},{"tick":"NVDA","amount":"300","spot_at":"459","ymd":"2023_10_10","role":"WATCH"},{"tick":"COST","amount":"200","spot_at":"552","ymd":"2023_10_20","role":"..."},{"tick":"MDB","amount":"300","spot_at":"370","ymd":"2023_10_12","role":"WATCH"},{"tick":"MDB","amount":"200","spot_at":"333","ymd":"2023_09_21","role":"HEDGE"},{"tick":"GOOG","amount":"200","spot_at":"666","ymd":"2023_10_29"},{"tick":"FSLR","amount":"0","spot_at":"0","ymd":"2023_11_02","role":"WATCH"}]}
             // ai_ledger = {"ticks":[{"tick":"NVDA","price":"464","ath":"493","ath_ymd":"2023_08_31","price_ymd":"2023_11_09"},{"tick":"MDB","price":"326","ath":"569","ath_ymd":"2021_09_19","price_ymd":"2022_9_22"},{"tick":"MSFT","price":"362","ath":"344","ath_ymd":"2023_07_14","price_ymd":"2023_11_09"},{"tick":"GOOGL","price":"133","ath":"150","ath_ymd":"2021_11_19","price_ymd":"2023_11_09"},{"tick":"QQQ","price":"372","ath":"400","ath_ymd":"2021_11_19","price_ymd":"2023_11_09"},{"tick":"XLK","price":"175","ath":"180","ath_ymd":"2023_07_18","price_ymd":"2023_11_09"},{"tick":"NDAQ","price":"51","ath":"70","ath_ymd":"2021_11_05","price_ymd":"2023_11_08"},{"tick":"COIN","price":"89","ath":"105","ath_ymd":"2023_07_14","price_ymd":"2023_11_08"},{"tick":"V","price":"243","ath":"250","ath_ymd":"2023_09_13","price_ymd":"2023_11_09"},{"tick":"COST","price":"563","ath":"590","ath_ymd":"2022_04_08","price_ymd":"2023_11_09"}],
             //    "spots":[{"tick":"NVDA","amount":"200","spot_at":"412","ymd":"2023_10_20","role":"HOLD"},{"tick":"NVDA","amount":"300","spot_at":"459","ymd":"2023_10_10","role":"WATCH"},{"tick":"COST","amount":"200","spot_at":"552","ymd":"2023_10_20","role":"..."},{"tick":"MDB","amount":"300","spot_at":"370","ymd":"2023_10_12","role":"WATCH"},{"tick":"MDB","amount":"200","spot_at":"333","ymd":"2023_09_21","role":"HEDGE"},{"tick":"FSLR","amount":"0","spot_at":"0","ymd":"2023_11_02","role":"WATCH"},{"tick":"NDAQ","amount":"180","spot_at":"49","ymd":"2023_09_22","role":"TRIM"},{"tick":"V","amount":"200","spot_at":"232","ymd":"2023_10_24","role":"HOLD"},{"tick":"GOOG","amount":"500","spot_at":"130","ymd":"2023_09_29","role":"HOLD"},{"tick":"QQQ","amount":"500","spot_at":"370","ymd":"2023_11_09","role":"TRIM"},{"tick":"XLK","amount":"300","spot_at":"168","ymd":"2023_09_18","role":"HOLD"}]}
-            ai_ledger = {"ticks":[{"tick":"NVDA","price":"464","ath":"493","ath_ymd":"2023_08_31","price_ymd":"2023_11_09"},{"tick":"MDB","price":"326","ath":"569","ath_ymd":"2021_09_19","price_ymd":"2022_9_22"},{"tick":"MSFT","price":"362","ath":"344","ath_ymd":"2023_07_14","price_ymd":"2023_11_09"},{"tick":"GOOGL","price":"133","ath":"150","ath_ymd":"2021_11_19","price_ymd":"2023_11_09"},{"tick":"QQQ","price":"372","ath":"400","ath_ymd":"2021_11_19","price_ymd":"2023_11_09"},{"tick":"XLK","price":"175","ath":"180","ath_ymd":"2023_07_18","price_ymd":"2023_11_09"},{"tick":"NDAQ","price":"51","ath":"70","ath_ymd":"2021_11_05","price_ymd":"2023_11_08"},{"tick":"COIN","price":"89","ath":"105","ath_ymd":"2023_07_14","price_ymd":"2023_11_08"},{"tick":"V","price":"243","ath":"250","ath_ymd":"2023_09_13","price_ymd":"2023_11_09"},{"tick":"COST","price":"563","ath":"590","ath_ymd":"2022_04_08","price_ymd":"2023_11_09"},{"tick":"AMD","price":"113","ath":"130","ath_ymd":"2023_06_12","price_ymd":"2023_11_09"}],
+            // ai_ledger = {"ticks":[{"tick":"NVDA","price":"464","ath":"493","ath_ymd":"2023_08_31","price_ymd":"2023_11_09"},{"tick":"MDB","price":"326","ath":"569","ath_ymd":"2021_09_19","price_ymd":"2022_9_22"},{"tick":"MSFT","price":"362","ath":"344","ath_ymd":"2023_07_14","price_ymd":"2023_11_09"},{"tick":"GOOGL","price":"133","ath":"150","ath_ymd":"2021_11_19","price_ymd":"2023_11_09"},{"tick":"QQQ","price":"372","ath":"400","ath_ymd":"2021_11_19","price_ymd":"2023_11_09"},{"tick":"XLK","price":"175","ath":"180","ath_ymd":"2023_07_18","price_ymd":"2023_11_09"},{"tick":"NDAQ","price":"51","ath":"70","ath_ymd":"2021_11_05","price_ymd":"2023_11_08"},{"tick":"COIN","price":"89","ath":"105","ath_ymd":"2023_07_14","price_ymd":"2023_11_08"},{"tick":"V","price":"243","ath":"250","ath_ymd":"2023_09_13","price_ymd":"2023_11_09"},{"tick":"COST","price":"563","ath":"590","ath_ymd":"2022_04_08","price_ymd":"2023_11_09"},{"tick":"AMD","price":"113","ath":"130","ath_ymd":"2023_06_12","price_ymd":"2023_11_09"}],
+            //    "spots":[{"tick":"NVDA","amount":"200","spot_at":"412","ymd":"2023_10_20","role":"TRIM"},{"tick":"NVDA","amount":"300","spot_at":"459","ymd":"2023_10_10","role":"HOLD"},{"tick":"COST","amount":"200","spot_at":"552","ymd":"2023_10_20","role":"SAFE"},{"tick":"MDB","amount":"300","spot_at":"370","ymd":"2023_10_12","role":"WATCH"},{"tick":"MDB","amount":"200","spot_at":"333","ymd":"2023_09_21","role":"WATCH"},{"tick":"FSLR","amount":"0","spot_at":"0","ymd":"2023_11_02","role":"..."},{"tick":"NDAQ","amount":"180","spot_at":"49","ymd":"2023_09_22","role":"TRIM"},{"tick":"V","amount":"200","spot_at":"232","ymd":"2023_10_24","role":"HOLD"},{"tick":"GOOGL","amount":"500","spot_at":"130","ymd":"2023_09_29","role":"TRIM"},{"tick":"QQQ","amount":"500","spot_at":"370","ymd":"2023_11_09","role":"TRIM"},{"tick":"XLK","amount":"300","spot_at":"168","ymd":"2023_09_18","role":"TRIM"},{"tick":"MSFT","amount":"100","spot_at":"330","ymd":"2023_10_26","role":"HOLD"},{"tick":"MSFT","amount":"100","spot_at":"339","ymd":"2023_10_25","role":"HOLD"},{"tick":"MSFT","amount":"200","spot_at":"316","ymd":"2023_10_02","role":"TRIM"},{"tick":"AMD","amount":"200","spot_at":"102","ymd":"2023_10_02","role":"WATCH"}]}
+            ai_ledger = {"ticks":[{"tick":"NVDA","price":"464","ath":"493","ath_ymd":"2023_08_31","price_ymd":"2023_11_09"},{"tick":"MDB","price":"363","ath":"569","ath_ymd":"2021_09_19","price_ymd":"2022_9_22"},{"tick":"MSFT","price":"362","ath":"344","ath_ymd":"2023_07_14","price_ymd":"2023_11_09"},{"tick":"GOOGL","price":"133","ath":"150","ath_ymd":"2021_11_19","price_ymd":"2023_11_09"},{"tick":"QQQ","price":"372","ath":"400","ath_ymd":"2021_11_19","price_ymd":"2023_11_09"},{"tick":"XLK","price":"175","ath":"180","ath_ymd":"2023_07_18","price_ymd":"2023_11_09"},{"tick":"NDAQ","price":"51","ath":"70","ath_ymd":"2021_11_05","price_ymd":"2023_11_08"},{"tick":"COIN","price":"89","ath":"105","ath_ymd":"2023_07_14","price_ymd":"2023_11_08"},{"tick":"V","price":"243","ath":"250","ath_ymd":"2023_09_13","price_ymd":"2023_11_09"},{"tick":"COST","price":"563","ath":"590","ath_ymd":"2022_04_08","price_ymd":"2023_11_09"},{"tick":"AMD","price":"113","ath":"130","ath_ymd":"2023_06_12","price_ymd":"2023_11_09"}],
                "spots":[{"tick":"NVDA","amount":"200","spot_at":"412","ymd":"2023_10_20","role":"TRIM"},{"tick":"NVDA","amount":"300","spot_at":"459","ymd":"2023_10_10","role":"HOLD"},{"tick":"COST","amount":"200","spot_at":"552","ymd":"2023_10_20","role":"SAFE"},{"tick":"MDB","amount":"300","spot_at":"370","ymd":"2023_10_12","role":"WATCH"},{"tick":"MDB","amount":"200","spot_at":"333","ymd":"2023_09_21","role":"WATCH"},{"tick":"FSLR","amount":"0","spot_at":"0","ymd":"2023_11_02","role":"..."},{"tick":"NDAQ","amount":"180","spot_at":"49","ymd":"2023_09_22","role":"TRIM"},{"tick":"V","amount":"200","spot_at":"232","ymd":"2023_10_24","role":"HOLD"},{"tick":"GOOGL","amount":"500","spot_at":"130","ymd":"2023_09_29","role":"TRIM"},{"tick":"QQQ","amount":"500","spot_at":"370","ymd":"2023_11_09","role":"TRIM"},{"tick":"XLK","amount":"300","spot_at":"168","ymd":"2023_09_18","role":"TRIM"},{"tick":"MSFT","amount":"100","spot_at":"330","ymd":"2023_10_26","role":"HOLD"},{"tick":"MSFT","amount":"100","spot_at":"339","ymd":"2023_10_25","role":"HOLD"},{"tick":"MSFT","amount":"200","spot_at":"316","ymd":"2023_10_02","role":"TRIM"},{"tick":"AMD","amount":"200","spot_at":"102","ymd":"2023_10_02","role":"WATCH"}]}
         }
 
@@ -1671,266 +1674,316 @@ align-items: center;">
          localStorage.ai_ledger = JSON.stringify(ai_ledger) //SAVE to LOCAL STORAGE
          initDecode(); //RELOAD VIEW.                
       }
-        const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
-         //TODO if selected, only run selected
-         let tickerBOX1,ticker,tickerSet=[];
-         let ATH_margin, ATH_pct;
-         generatedScheduleBOX.innerHTML = ""
-         tickerSet = ai_ledger.ticks;
-         for(let i=0;i<tickerSet.length;i++){
-            ticker= tickerSet[i];
-            tickerBOX1 = document.createElement('aside')
-            tickerBOX1.innerHTML = ticker.tick;
-            generatedScheduleBOX.appendChild(tickerBOX1)
-         }
-        }
-        const generateProfitLossClick = ()=>{ // GENERATE PROFIT AND LOSS DISPLAY
-        }
+      const generateProfitLossClick = ()=>{ // GENERATE PROFIT AND LOSS DISPLAY
+         //todo move out of margins? dependent on margins. duplicate?
+      } 
+      
+      let ai_schedule = {quarters:[
+         {id:'2003_Q4_O',trims:[{tick:'nvda',amt:'1',spot:'2',tgt:'3'}]},
+         {id:'2003_Q4_N',trims:[{tick:'mdb',amt:'1',spot:'2',tgt:'3'}]},
+         {id:'2003_Q4_D',trims:[{tick:'cost',amt:'1',spot:'2',tgt:'3'}]}
+      ]}
+      const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
+      //TODO if selected, only run selected
+      let trimBOX1,trimer,trimSet=[];
+      let quarterBOX,monthBOX,monthROW;
+      let trimTick,trimAmt,trimSpot,currPrice3,trimTgt
+      generatedScheduleBOX.innerHTML = ""
+      trimSet = ai_schedule.quarters;//ai_ledger.ticks;
+      for(let i=0;i<trimSet.length;i++){
+         trimer= trimSet[i];
+         quarterBOX = document.createElement('aside')
+         quarterBOX.innerHTML = trimer.tick;
 
-        let show_margin_details_view = false;
-        const setMarginDetailsClick = (e)=>{
-            if(e.target.id==='detailsBtn1'){
-               detailsBtn1.style.display='none'
-               totalsBtn1.style.display='block'
-               //hide details btn
-               //show totals btn
-               show_margin_details_view = true;
-            }else{
-               //show details btn
-               //hide totals btn
-               detailsBtn1.style.display='block' //show details btn
-               totalsBtn1.style.display='none'               
-               show_margin_details_view = false;
-            }
-            generateMarginsClick();
-        }
-        const generateMarginsClick = ()=>{ // GENERATE Margin DISPLAY
-         //TODO if selected, only run selected
-         let ticker,spot_ticker,tickerBOX1,tickerSet=[],spotSet=[],numSPOTS=0;
-         let TickMAP_MetaData={},numSPOT1, marginsRow1, profitRow1,curPrice1;
-         generatedMarginsBOX.innerHTML = ""; //reset view
-         generatedProfitsBOX.innerHTML = ""; //reset view //todo refactor
+               //CALCULATE individual SPOT MARGIN
+               curr_price2 = TickMAP_MetaData[trimer.tick].curr_price;
+               spotMargin2 = curr_price2 - spotObj.spot_at
+               spotPCT2 = (spotMargin2/spotObj.spot_at) * 100 
+               // spotPCT2 = spotPCT2.toFixed(0);
+
+               spotDate1 = document.createElement('aside')
+               spotDate1.classList.add('spotDate1')
+               spotDate1.innerHTML = spotObj.ymd || 0;
+
+               spotAmt1 = document.createElement('aside')
+               spotAmt1.classList.add('spotAmt1')
+               spotAmt1.innerHTML =  'amt '+spotObj.amount || 0;
+
+               spotPrice1 = document.createElement('aside')
+               spotPrice1.classList.add('spotPrice1')
+               spotPrice1.innerHTML =  'price '+spotObj.spot_at || 0;
+
+               spotMargin1 = document.createElement('aside')
+               spotMargin1.classList.add('spotMargin1')
+               // spotMargin1.innerHTML =  'margin '+spotMargin2 || 0;
+               spotMargin1.innerHTML = `margin: 
+                  ${(spotMargin2>0 )?'+':''}${spotMargin2}`                  
+
+               spotPCT1 = document.createElement('aside')
+               spotPCT1.classList.add('spotPCT1')
+               // spotPCT1.innerHTML =  'pct '+ spotPCT2 || 0;
+               spotPCT1.innerHTML = `pct: 
+                  ${(spotPCT2>0 )?'+':''}
+                  ${spotPCT2.toFixed(0)}%`;                  
+
+               detailRow1.appendChild(spotDate1)         
+               detailRow1.appendChild(spotAmt1)         
+               detailRow1.appendChild(spotPrice1)         
+               detailRow1.appendChild(spotMargin1)         
+               detailRow1.appendChild(spotPCT1)
+
+               // generatedMarginsBOX.appendChild(detailRow1)   
+
+
+               monthBOX.appendChild(monthROW)
+               quarterBOX.appendChild(monthBOX)
+         generatedScheduleBOX.appendChild(quarterBOX)
+      }
+      }
+
+      let show_margin_details_view = false;
+      const setMarginDetailsClick = (e)=>{
+         if(e.target.id==='detailsBtn1'){
+            totalsBtn1.style.display='block'
+            show_margin_details_view = true;
+         }else{
+            totalsBtn1.style.display='none'               
+            show_margin_details_view = false;
+         }
+         allMarginsBOX.scrollIntoView({
+         behavior: 'smooth',
+         block: 'start'
+      })
+         generateMarginsClick();
+      }
+      const generateMarginsClick = ()=>{ // GENERATE Margin DISPLAY
+      //TODO if selected, only run selected
+      let ticker,spot_ticker,tickerBOX1,tickerSet=[],spotSet=[],numSPOTS=0;
+      let TickMAP_MetaData={},numSPOT1, marginsRow1, profitRow1,curPrice1;
+      generatedMarginsBOX.innerHTML = ""; //reset view
+      generatedProfitsBOX.innerHTML = ""; //reset view //todo refactor
+      if(show_margin_details_view){
+         detailsBtn1.style.display = 'none'; //hide details
+      }else{
          detailsBtn1.style.display='block' //show details btn
-         tickerSet = ai_ledger.ticks;
-         spotSet = ai_ledger.spots;
-         //TICKER INIT - iterator METADATA factory (generator)
-         for(let i=0;i<tickerSet.length;i++){
-            ticker= tickerSet[i];
-            if(ticker.tick ){ // INIT META DATA obj
-               TickMAP_MetaData[ticker.tick] = {};
-               TickMAP_MetaData[ticker.tick].num = 0;
-               TickMAP_MetaData[ticker.tick].curr_price = (ticker.price || 0);
-               TickMAP_MetaData[ticker.tick].sum_spot_amt = 0;
-               TickMAP_MetaData[ticker.tick].total_val = 0;
-            }
-         }
-         //SPOT - iterator - calculate - METADATA generator
-         for(let i=0;i<spotSet.length;i++){
-            spot_ticker= spotSet[i];
-            if(!TickMAP_MetaData[spot_ticker.tick]){ continue }
-            TickMAP_MetaData[spot_ticker.tick].num++;
-            TickMAP_MetaData[spot_ticker.tick].sum_spot_amt =
-               parseInt(TickMAP_MetaData[spot_ticker.tick].sum_spot_amt) + parseInt(spot_ticker.amount || 0);               
-            TickMAP_MetaData[spot_ticker.tick].total_val += parseInt(spot_ticker.spot_at || 0);               
-         }
-         //SPOT - CALCULATE SPOT MARGIN
-         let curr_price, total_val,sum_spot_amt, spot_num, spot_margin, margin_pct, avg_price;
-         for(let i=0;i<tickerSet.length;i++){
-            ticker= tickerSet[i];
-            if(!TickMAP_MetaData[ticker.tick]){ continue }
-            spot_num = TickMAP_MetaData[ticker.tick].num;
-            curr_price = TickMAP_MetaData[ticker.tick].curr_price;
-            // spot_price = ticker.spot_at; //TODO rename at_spot
-            sum_spot_amt = TickMAP_MetaData[ticker.tick].sum_spot_amt;
-            total_val = TickMAP_MetaData[ticker.tick].total_val;
-            margin_pct = 0;
-            if(curr_price && spot_num && total_val){
-               avg_price = total_val / spot_num;
-               avg_price = avg_price.toFixed(0);//round number 
-               spot_margin = curr_price - avg_price;
-               TickMAP_MetaData[ticker.tick].margin = spot_margin || 0;
-               TickMAP_MetaData[ticker.tick].avg_price = avg_price || 0;
-            }
-            if(spot_margin){
-               margin_pct = spot_margin / avg_price * 100;
-               TickMAP_MetaData[ticker.tick].margin_pct = margin_pct;
-            }
-            //CALCUALTE SPOT_DAYS: curr_date - spot_date = spot_days
-            //CALCUALTE ATH_DAYS: curr_date - ath_date = ath_days
-         }
-
-         //TODO separate into displayFactory()
-         let avgPrice1,detailRow1;
-         //DISPLAY - iterator
-         for(let i=0;i<tickerSet.length;i++){
-            ticker= tickerSet[i];
-            
-            if(!TickMAP_MetaData[ticker.tick]){continue;}
-            if(!TickMAP_MetaData[ticker.tick].num){continue;}
-            marginsRow1 = document.createElement('section')
-            marginsRow1.classList.add('marginsRow1')
-            profitRow1 = document.createElement('section')
-            profitRow1.classList.add('profitRow1')
-            tickerBOX1 = document.createElement('aside')
-            tickerBOX1.classList.add('proTick1')
-            tickerBOX1.innerHTML = ticker.tick;
-            numSPOT1 = document.createElement('aside')
-            numSPOT1.classList.add('proSpots1')
-            curPrice1 = document.createElement('aside')
-            curPrice1.classList.add('curPrice1')
-            curPrice1.innerHTML =  'last: '+TickMAP_MetaData[ticker.tick].curr_price || 0;
-            avgPrice1 = document.createElement('aside')
-            avgPrice1.classList.add('avgPrice1')
-            avgPrice1.innerHTML =  'avg: '+TickMAP_MetaData[ticker.tick].avg_price || 0;
-            numMargin1 = document.createElement('aside')
-            numMargin1.classList.add('proMargin1')
-            numPCT1 = document.createElement('aside')
-            numPCT1.classList.add('proPCT1')
-            numTotalAmt1 = document.createElement('aside')
-            numTotalAmt1.classList.add('proTotalAmt1')
-            numTotalAmt1.innerHTML = 'sum: '+TickMAP_MetaData[ticker.tick].sum_spot_amt || 0;
-            numSPOTS = (TickMAP_MetaData[ticker.tick] && TickMAP_MetaData[ticker.tick].num)?
-               TickMAP_MetaData[ticker.tick].num:0;
-            numSPOT1.innerHTML = 'spots: '+ numSPOTS;
-            numMargin1.innerHTML = `margin: 
-               ${( TickMAP_MetaData[ticker.tick].margin>0 )?'+':''}
-               ${TickMAP_MetaData[ticker.tick].margin}`
-            numPCT1.innerHTML = `pct: 
-               ${( TickMAP_MetaData[ticker.tick].margin>0 )?'+':''}
-               ${TickMAP_MetaData[ticker.tick].margin_pct.toFixed(0)}%`;
- 
-
-            marginsRow1.appendChild(tickerBOX1)         
-            marginsRow1.appendChild(numSPOT1)         
-            marginsRow1.appendChild(numTotalAmt1)         
-            marginsRow1.appendChild(avgPrice1)         
-            marginsRow1.appendChild(curPrice1)         
-            marginsRow1.appendChild(numMargin1)         
-            marginsRow1.appendChild(numPCT1)         
-            generatedMarginsBOX.appendChild(marginsRow1)         
- 
-            if(show_margin_details_view){
-               //loop over spots of and display detailRow.
-               let spotObj,spotDate1,spotAmt1,spotPrice1;
-               let spotMargin2=0,spotPCT2=0,curr_price2;
-               for(var j=0; j<ai_ledger.spots.length;j++){
-                  spotObj = ai_ledger.spots[j];
-                  if(spotObj.tick != ticker.tick){continue}
-                  detailRow1 = document.createElement('section')
-                  detailRow1.classList.add('detailRow1')
-                  // detailRow1.innerHTML = ticker.tick;
-
-                  //CALCULATE individual SPOT MARGIN
-                  curr_price2 = TickMAP_MetaData[ticker.tick].curr_price;
-                  spotMargin2 = curr_price2 - spotObj.spot_at
-                  spotPCT2 = (spotMargin2/spotObj.spot_at) * 100 
-                  spotPCT2 = spotPCT2.toFixed(0);
-
-
-                  spotDate1 = document.createElement('aside')
-                  spotDate1.classList.add('spotDate1')
-                  spotDate1.innerHTML = spotObj.ymd || 0;
-
-                  spotAmt1 = document.createElement('aside')
-                  spotAmt1.classList.add('spotAmt1')
-                  spotAmt1.innerHTML =  'amt '+spotObj.amount || 0;
-
-                  spotPrice1 = document.createElement('aside')
-                  spotPrice1.classList.add('spotPrice1')
-                  spotPrice1.innerHTML =  'price '+spotObj.spot_at || 0;
-
-                  spotMargin1 = document.createElement('aside')
-                  spotMargin1.classList.add('spotMargin1')
-                  spotMargin1.innerHTML =  'margin '+spotMargin2 || 0;
-
-                  spotPCT1 = document.createElement('aside')
-                  spotPCT1.classList.add('spotPCT1')
-                  spotPCT1.innerHTML =  'pct '+ spotPCT2 || 0;
-
-
-                  detailRow1.appendChild(spotDate1)         
-                  detailRow1.appendChild(spotAmt1)         
-                  detailRow1.appendChild(spotPrice1)         
-                  detailRow1.appendChild(spotMargin1)         
-                  detailRow1.appendChild(spotPCT1)
-
-
-                  generatedMarginsBOX.appendChild(detailRow1)   
-
-
-               }
-            }
-         }
-         //PROFIT and LOSS View
-         let keyz = Object.keys(TickMAP_MetaData);
-         let bookValue = 0, bankValue=0,itm;
-         let totMargin=0,totMarginPct,totMarginSum,totMarginBOX,totMarginPctBOX;
-         for(let idx=0; idx<keyz.length;idx++){
-            itm=TickMAP_MetaData[keyz[idx]];
-            bookValue += itm.total_val;
-            bankValue += 3;
-
-            if(itm.margin){
-               totMargin += itm.margin;
-            }
-            totMarginSum += itm.margin_pct;
-         }
-         totMarginPct = totMarginSum/keyz.length;
-         let totalsRow1,totBookValue1,totBankValue1;
-         totBookValue1 = document.createElement('aside')
-         totBookValue1.classList.add('totBookValue1')
-         totBookValue1.innerHTML = 'book_value: '+bookValue;
-         totMarginBOX = document.createElement('aside')
-         totMarginBOX.classList.add('totMarginBOX')
-         totMarginBOX.innerHTML = 'total margin: '+totMargin;
-         totMarginPctBOX = document.createElement('aside')
-         totMarginPctBOX.classList.add('totMarginPctBOX')
-         totMarginPctBOX.innerHTML = 'total pct: '+totMarginPct;
-         totBankValue1 = document.createElement('aside')
-         totBankValue1.classList.add('totBankValue1')
-         totBankValue1.innerHTML = 'bank_value: '+bankValue;//+TickMAP_MetaData[ticker.tick].sum_spot_amt || 0;                        
-         totalsRow1 = document.createElement('footer')
-         totalsRow1.innerHTML = "Totals:"         
-         totalsRow1.classList.add('totalsRow1') 
-         totalsRow1.appendChild(totBookValue1)         
-         totalsRow1.appendChild(totMarginBOX)         
-         totalsRow1.appendChild(totBankValue1)         
-         generatedProfitsBOX.appendChild(totalsRow1)  
-        }
-        const generateSelected = ()=>{
-         let selected = [];
-         let items = document.getElementsByClassName('tkr_checkmark');
-         for(let i=0; i<items.length;i++){
-            if(items[i].checked){
-               selected.push(i)
-               items[i].checked = false;
-            }
-         }
-         if(!selected.length){showErrorMSG(' Nothing selected 😵') 
-            return;}
-         ai_schedule = [];
-         ai_analytics = [];
-         for(let i=0; i<selected.length;i++){
-            //calculate +-%, days since ath, 
-         }
-         scheduleBOX.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        })
-
       }
-      const sellSelectedSpots = ()=>{
-         let selected = [];
-         let items = document.getElementsByClassName('spot_checkmark');
-         for(let i=0; i<items.length;i++){
-            if(items[i].checked){
-               selected.push(i)
-               items[i].checked = false;
-            }
-         }         
-         if(!selected.length){showErrorMSG(' Nothing selected 😵') 
-            return;}  
+      tickerSet = ai_ledger.ticks;
+      spotSet = ai_ledger.spots;
+      //TICKER INIT - iterator METADATA factory (generator)
+      for(let i=0;i<tickerSet.length;i++){
+         ticker= tickerSet[i];
+         if(ticker.tick ){ // INIT META DATA obj
+            TickMAP_MetaData[ticker.tick] = {};
+            TickMAP_MetaData[ticker.tick].num = 0;
+            TickMAP_MetaData[ticker.tick].curr_price = (ticker.price || 0);
+            TickMAP_MetaData[ticker.tick].sum_spot_amt = 0;
+            TickMAP_MetaData[ticker.tick].total_val = 0;
+         }
       }
+      //SPOT - iterator - calculate - METADATA generator
+      for(let i=0;i<spotSet.length;i++){
+         spot_ticker= spotSet[i];
+         if(!TickMAP_MetaData[spot_ticker.tick]){ continue }
+         TickMAP_MetaData[spot_ticker.tick].num++;
+         TickMAP_MetaData[spot_ticker.tick].sum_spot_amt =
+            parseInt(TickMAP_MetaData[spot_ticker.tick].sum_spot_amt) + parseInt(spot_ticker.amount || 0);               
+         TickMAP_MetaData[spot_ticker.tick].total_val += parseInt(spot_ticker.spot_at || 0);               
+      }
+      //SPOT - CALCULATE SPOT MARGIN
+      let curr_price, total_val,sum_spot_amt, spot_num, spot_margin, margin_pct, avg_price;
+      for(let i=0;i<tickerSet.length;i++){
+         ticker= tickerSet[i];
+         if(!TickMAP_MetaData[ticker.tick]){ continue }
+         spot_num = TickMAP_MetaData[ticker.tick].num;
+         curr_price = TickMAP_MetaData[ticker.tick].curr_price;
+         // spot_price = ticker.spot_at; //TODO rename at_spot
+         sum_spot_amt = TickMAP_MetaData[ticker.tick].sum_spot_amt;
+         total_val = TickMAP_MetaData[ticker.tick].total_val;
+         margin_pct = 0;
+         if(curr_price && spot_num && total_val){
+            avg_price = total_val / spot_num;
+            avg_price = avg_price.toFixed(0);//round number 
+            spot_margin = curr_price - avg_price; //CALCULATE SPOT MARGIN
+            TickMAP_MetaData[ticker.tick].margin = spot_margin || 0;
+            TickMAP_MetaData[ticker.tick].avg_price = avg_price || 0;
+         }
+         if(spot_margin){
+            margin_pct = spot_margin / avg_price * 100;
+            TickMAP_MetaData[ticker.tick].margin_pct = margin_pct;
+         }
+      }
+
+      //TODO separate into displayFactory()
+      let avgPrice1,detailRow1;
+      //DISPLAY - iterator
+      for(let i=0;i<tickerSet.length;i++){
+         ticker= tickerSet[i];
+         
+         if(!TickMAP_MetaData[ticker.tick]){continue;}
+         if(!TickMAP_MetaData[ticker.tick].num){continue;}
+         marginsRow1 = document.createElement('section')
+         marginsRow1.classList.add('marginsRow1')
+         profitRow1 = document.createElement('section')
+         profitRow1.classList.add('profitRow1')
+         tickerBOX1 = document.createElement('aside')
+         tickerBOX1.classList.add('proTick1')
+         tickerBOX1.innerHTML = ticker.tick;
+         numSPOT1 = document.createElement('aside')
+         numSPOT1.classList.add('proSpots1')
+         curPrice1 = document.createElement('aside')
+         curPrice1.classList.add('curPrice1')
+         curPrice1.innerHTML =  'last: '+TickMAP_MetaData[ticker.tick].curr_price || 0;
+         avgPrice1 = document.createElement('aside')
+         avgPrice1.classList.add('avgPrice1')
+         avgPrice1.innerHTML =  'avg: '+TickMAP_MetaData[ticker.tick].avg_price || 0;
+         numMargin1 = document.createElement('aside')
+         numMargin1.classList.add('proMargin1')
+         numPCT1 = document.createElement('aside')
+         numPCT1.classList.add('proPCT1')
+         numTotalAmt1 = document.createElement('aside')
+         numTotalAmt1.classList.add('proTotalAmt1')
+         numTotalAmt1.innerHTML = 'sum: '+TickMAP_MetaData[ticker.tick].sum_spot_amt || 0;
+         numSPOTS = (TickMAP_MetaData[ticker.tick] && TickMAP_MetaData[ticker.tick].num)?
+            TickMAP_MetaData[ticker.tick].num:0;
+         numSPOT1.innerHTML = 'spots: '+ numSPOTS;
+         numMargin1.innerHTML = `margin: 
+            ${( TickMAP_MetaData[ticker.tick].margin>0 )?'+':''}
+            ${TickMAP_MetaData[ticker.tick].margin}`
+         numPCT1.innerHTML = `pct: 
+            ${( TickMAP_MetaData[ticker.tick].margin>0 )?'+':''}
+            ${TickMAP_MetaData[ticker.tick].margin_pct.toFixed(0)}%`;
+
+         marginsRow1.appendChild(tickerBOX1)         
+         marginsRow1.appendChild(numSPOT1)         
+         marginsRow1.appendChild(numTotalAmt1)         
+         marginsRow1.appendChild(avgPrice1)         
+         marginsRow1.appendChild(curPrice1)         
+         marginsRow1.appendChild(numMargin1)         
+         marginsRow1.appendChild(numPCT1)         
+         generatedMarginsBOX.appendChild(marginsRow1)         
+
+         if(show_margin_details_view){
+            //loop over spots of and display detailRow.
+            let spotObj,spotDate1,spotAmt1,spotPrice1;
+            let spotMargin2=0,spotPCT2=0,curr_price2;
+            for(var j=0; j<ai_ledger.spots.length;j++){
+               spotObj = ai_ledger.spots[j];
+               if(spotObj.tick != ticker.tick){continue}
+               detailRow1 = document.createElement('section')
+               detailRow1.classList.add('detailRow1')
+               // detailRow1.innerHTML = ticker.tick;
+
+               //CALCULATE individual SPOT MARGIN
+               curr_price2 = TickMAP_MetaData[ticker.tick].curr_price;
+               spotMargin2 = curr_price2 - spotObj.spot_at
+               spotPCT2 = (spotMargin2/spotObj.spot_at) * 100 
+               // spotPCT2 = spotPCT2.toFixed(0);
+
+               spotDate1 = document.createElement('aside')
+               spotDate1.classList.add('spotDate1')
+               spotDate1.innerHTML = spotObj.ymd || 0;
+
+               spotAmt1 = document.createElement('aside')
+               spotAmt1.classList.add('spotAmt1')
+               spotAmt1.innerHTML =  'amt '+spotObj.amount || 0;
+
+               spotPrice1 = document.createElement('aside')
+               spotPrice1.classList.add('spotPrice1')
+               spotPrice1.innerHTML =  'price '+spotObj.spot_at || 0;
+
+               spotMargin1 = document.createElement('aside')
+               spotMargin1.classList.add('spotMargin1')
+               // spotMargin1.innerHTML =  'margin '+spotMargin2 || 0;
+               spotMargin1.innerHTML = `margin: 
+                  ${(spotMargin2>0 )?'+':''}${spotMargin2}`                  
+
+               spotPCT1 = document.createElement('aside')
+               spotPCT1.classList.add('spotPCT1')
+               // spotPCT1.innerHTML =  'pct '+ spotPCT2 || 0;
+               spotPCT1.innerHTML = `pct: 
+                  ${(spotPCT2>0 )?'+':''}
+                  ${spotPCT2.toFixed(0)}%`;                  
+
+               detailRow1.appendChild(spotDate1)         
+               detailRow1.appendChild(spotAmt1)         
+               detailRow1.appendChild(spotPrice1)         
+               detailRow1.appendChild(spotMargin1)         
+               detailRow1.appendChild(spotPCT1)
+
+               generatedMarginsBOX.appendChild(detailRow1)   
+            }
+         }
+      }
+      //PROFIT and LOSS View
+      let keyz = Object.keys(TickMAP_MetaData);
+      let bookValue = 0, bankValue=0,itm;
+      let totMargin=0,totMarginPct,totMarginSum,totMarginBOX,totMarginPctBOX;
+      for(let idx=0; idx<keyz.length;idx++){
+         itm=TickMAP_MetaData[keyz[idx]];
+         bookValue += itm.total_val;
+         bankValue += 3; //TODO sum SOLD PROFITS.
+
+         if(itm.margin){ //CALCULATE TOTAL MARGIN
+            totMargin += itm.margin;
+         }
+         totMarginSum += itm.margin_pct;
+      }
+      totMarginPct = totMarginSum/keyz.length;
+      let totalsRow1,totBookValue1,totBankValue1;
+      totBookValue1 = document.createElement('aside')
+      totBookValue1.classList.add('totBookValue1')
+      totBookValue1.innerHTML = 'book_value: '+bookValue;
+      totMarginBOX = document.createElement('aside')
+      totMarginBOX.classList.add('totMarginBOX')
+      totMarginBOX.innerHTML = 'total margin: '+totMargin;
+      totMarginPctBOX = document.createElement('aside')
+      totMarginPctBOX.classList.add('totMarginPctBOX')
+      totMarginPctBOX.innerHTML = 'total pct: '+totMarginPct;
+      totBankValue1 = document.createElement('aside')
+      totBankValue1.classList.add('totBankValue1')
+      totBankValue1.innerHTML = 'bank_value: '+bankValue;//+TickMAP_MetaData[ticker.tick].sum_spot_amt || 0;                        
+      totalsRow1 = document.createElement('footer')
+      totalsRow1.innerHTML = "Totals:"         
+      totalsRow1.classList.add('totalsRow1') 
+      totalsRow1.appendChild(totBookValue1)         
+      totalsRow1.appendChild(totMarginBOX)         
+      totalsRow1.appendChild(totBankValue1)         
+      generatedProfitsBOX.appendChild(totalsRow1)  
+      }
+      const generateSelected = ()=>{
+      let selected = [];
+      let items = document.getElementsByClassName('tkr_checkmark');
+      for(let i=0; i<items.length;i++){
+         if(items[i].checked){
+            selected.push(i)
+            items[i].checked = false;
+         }
+      }
+      if(!selected.length){showErrorMSG(' Nothing selected 😵') 
+         return;}
+      ai_schedule = [];
+      ai_analytics = [];
+      for(let i=0; i<selected.length;i++){
+         //calculate +-%, days since ath, 
+      }
+      scheduleBOX.scrollIntoView({
+         behavior: 'smooth',
+         block: 'start'
+      })
+
+   }
+   const sellSelectedSpots = ()=>{
+      let selected = [];
+      let items = document.getElementsByClassName('spot_checkmark');
+      for(let i=0; i<items.length;i++){
+         if(items[i].checked){
+            selected.push(i)
+            items[i].checked = false;
+         }
+      }         
+      if(!selected.length){showErrorMSG(' Nothing selected 😵') 
+         return;}  
+   }
 
       const getLatestTickerClick = ()=>{ //loop all for last close.
          let item,urls=[];
@@ -1994,56 +2047,37 @@ align-items: center;">
          if(!stock_api_key){
             showErrorMSG('🛠️ connect api')
             return;}
-            // const symbol = 'NVDA';
-            // const apiUrl = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=${stock_api_key}`;
-            // fetch(apiUrl)
-            // .then(response => response.json())
-            // .then(data => {
-                //SHOW CONNNECTED and tgt, hide disconnected and key input
-                stateConnectedBox.style.display = "inline";
-                stateNotConnectedBox.style.display = "none";   
-               //  symbolBOX.style.display = "inline";
-                keyBOX.style.display = "none"; 
-               //  console.log(`Latest price for ${symbol}: ${latestPrice}`);
-                latestBtn1.style.display = "inline";
-            // })
-            // .catch(error => {
-            //    showErrorMSG('🛠️ connect api')
-            //     console.error('Error fetching data:', error);
-            // });                  
+            //SHOW CONNNECTED and tgt, hide disconnected and key input
+            stateConnectedBox.style.display = "inline";
+            stateNotConnectedBox.style.display = "none";   
+            keyBOX.style.display = "none"; 
+            latestBtn1.style.display = "inline";
       }
 
       const getData_Intraday = ()=>{
-         debugger;
+         // debugger;
          if(!stock_api_key){return;}
             const symbol = 'NVDA';
             const apiUrl = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=${stock_api_key}`;
             fetch(apiUrl)
             .then(response => response.json())
             .then(data => {
-
                 //SHOW CONNNECTED and tgt, hide disconnected and key input
                 stateConnectedBox.style.display = "inline";
                 stateNotConnectedBox.style.display = "none";   
                 symbolBOX.style.display = "inline";
                 keyBOX.style.display = "none"; 
-
                 // Process the data here (e.g., extract the latest stock price)
                 const latestPrice = data['Time Series (5min)'][Object.keys(data['Time Series (5min)'])[0]]['1. open'];
-
-    //             data['Time Series (5min)'][Object.keys(data['Time Series (5min)'])[0]]['1. open'];
-    // '175.3700'
-    // data['Time Series (5min)'][Object.keys(data['Time Series (5min)'])[0]];
-    // {1. open: '175.3700', 2. high: '175.3700', 3. low: '175.0000', 4. close: '175.0000', 5. volume: '24782'}
+               //data['Time Series (5min)'][Object.keys(data['Time Series (5min)'])[0]]['1. open'];
+               // data['Time Series (5min)'][Object.keys(data['Time Series (5min)'])[0]];
+               // {1. open: '175.3700', 2. high: '175.3700', 3. low: '175.0000', 4. close: '175.0000', 5. volume: '24782'}
                 console.log(`Latest price for ${symbol}: ${latestPrice}`);
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
             });         
       }
-
-      // let ai_history_matrix = {'NVDA':{ymd_price:{'2023_11_01':'428'}}}
-
 
       function updateLatestTickPrice(responseTick,latestClose){
          //loop ai_ledger, update price and latest label.
@@ -2063,17 +2097,18 @@ align-items: center;">
          }
       }
 
-      /************************************************\
-       * - AI_HISTORY_MATRIX
-       *  - ability to save in localstorage
-       * ***********************************************/
-         let ai_history_matrix=null;
+   /************************************************\
+    * - AI_HISTORY_MATRIX
+    *  - ability to save in localstorage
+   \************************************************/
+      let ai_history_matrix=null;
 
-      let ai_history_LOAD_MOCK_DATA=()=>{ //READ from OBJ
-         ai_history_matrix = {'NVDA':{ymd_price:{'2023_11_01':'428'}}}
+      const ai_history_LOAD_MOCK_DATA=()=>{ //READ from OBJ
+         // ai_history_matrix = {'NVDA':{ymd_price:{'2023_11_01':'428'}}}
+         ai_history_matrix = {"NVDA":{"ymd_price":{"2023_11_01":"428","2023_11_08":"464","2023_11_09":"464"}}}
       }
 
-      let ai_history_init=()=>{ //READ from LOCAL STORAGE
+      const ai_history_init=()=>{ //READ from LOCAL STORAGE
          ai_history_matrix = (localStorage.ai_history_matrix)?
             JSON.parse( localStorage.ai_history_matrix ):null;
          if(!ai_history_matrix){
@@ -2084,7 +2119,7 @@ align-items: center;">
       /*************************************\
        * HISTORY_MATRIX - store values in time
       \*************************************/
-      let update_History_matrix = ( tickr ) => {//data updated: to not lose, push duplicate to history
+      const update_History_matrix = ( tickr ) => {//data updated: to not lose, push duplicate to history
          if(!tickr || !tickr.price || !tickr.ymd){return}
          if(!ai_history_matrix[tickr.tick]) { ai_history_matrix[tickr.tick]= {tick:ai_history_matrix[tickr.tick]} }
          if(!ai_history_matrix[tickr.tick]['ymd_price']) { ai_history_matrix[tickr.tick]['ymd_price'] = {} }
@@ -2095,7 +2130,7 @@ align-items: center;">
       /*************************************\
        * UTILITIES
       \*************************************/
-         let formatYMD = () => {
+         const formatYMD = () => {
             const currentDate = new Date();
             const year = currentDate.getFullYear();
             const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Month is zero-based, so add 1 and pad with '0'
@@ -2103,6 +2138,49 @@ align-items: center;">
             const formattedDate = `${year}_${month}_${day}`;
             return formattedDate;
          }
+         const copyHistoryFn = () => { //
+            console.log("ai_history_matrix ",ai_history_matrix)
+            navigator.clipboard.writeText(JSON.stringify(ai_history_matrix) );
+            stateCopiedBox.style.display = "inline";
+            stateConnectedBox.style.display = "none";
+            stateNotConnectedBox.style.display = "none";              
+            setTimeout( ()=>{
+               stateCopiedBox.style.display = "none";
+               if(stock_api_key){
+                  stateConnectedBox.style.display = "inline";
+                  stateNotConnectedBox.style.display = "none";  
+               }else{
+                  stateConnectedBox.style.display = "none";
+                  stateNotConnectedBox.style.display = "inline";  
+               }               
+            },2000)                          
+         };   
+         const copyLedgerFn = () => { 
+            console.log("ai_ledger = ",ai_ledger)
+            navigator.clipboard.writeText(JSON.stringify(ai_ledger) );
+            stateCopiedBox.style.display = "inline";
+            stateConnectedBox.style.display = "none";
+            stateNotConnectedBox.style.display = "none";              
+            setTimeout( ()=>{
+               stateCopiedBox.style.display = "none";
+               if(stock_api_key){
+                  stateConnectedBox.style.display = "inline";
+                  stateNotConnectedBox.style.display = "none";  
+               }else{
+                  stateConnectedBox.style.display = "none";
+                  stateNotConnectedBox.style.display = "inline";  
+               }               
+            },2000)               
+         };          
+         const resetAllFn = () => { 
+            ai_ledger_LOAD_MOCK_DATA();
+            ai_history_LOAD_MOCK_DATA();
+           //SAVE to LOCAL STORAGE
+           localStorage.ai_ledger = JSON.stringify(ai_ledger)  
+           localStorage.ai_history_matrix=JSON.stringify(ai_history_matrix)  
+           initEncode(); //RELOAD VIEW.             
+           initDecode(); //RELOAD VIEW.             
+         };            
          let primeFn = () => {
             selectedTXT = textareaBOX.value.substring(textareaBOX.selectionStart, textareaBOX.selectionEnd);
             if(selectedTXT){
@@ -2254,65 +2332,9 @@ align-items: center;">
                 textareaTXT[textareaTXT.length-1] = txtline;
                 textareaBOX.value = textareaTXT.join('\n');
                 toggleRecordState(false);
-               //  recognition.stop();
             }
          };   
-         let saveChatFn = () => { //
-            // let updated_doc = false;
-            // txttgt = getCurrentDocTitle();
-            // all_chat_docs = (localStorage.all_chat_docs)?
-            //    JSON.parse( localStorage.all_chat_docs ):[];
-            // chat_doc = new Object();
-            // chat_doc.title = txttgt;
-            // chat_doc.txt = textareaBOX.value;               
-            // for(let i = 0; i<all_chat_docs.length;i++){
-            //    if(all_chat_docs[i].title===txttgt){ //replace
-            //       all_chat_docs[i] = chat_doc
-            //       updated_doc = true;
-            //       break;
-            //    }
-            // }
-            // if(!updated_doc){
-            //    all_chat_docs.push(chat_doc)
-            // } //SAVE TO LOCAL STORAGE
-            // localStorage.all_chat_docs = JSON.stringify(all_chat_docs)
-            // //saved msg
-            // stateSavedBox.style.display = "inline";
-            // stateConnectedBox.style.display = "none";
-            // stateNotConnectedBox.style.display = "none";              
-            // setTimeout( ()=>{
-            //    stateSavedBox.style.display = "none";
-            //    stateConnectedBox.style.display = "none";
-            //    stateNotConnectedBox.style.display = "inline";  
-            //    selectedTXT = '';
-            // },3000)                        
-         };   
-         let copyLedgerFn = () => { 
-            console.log(ai_ledger)
-            navigator.clipboard.writeText(JSON.stringify(ai_ledger) );
-            //copied msg
-            //saved msg
-            stateCopiedBox.style.display = "inline";
-            stateConnectedBox.style.display = "none";
-            stateNotConnectedBox.style.display = "none";              
-            setTimeout( ()=>{
-               stateCopiedBox.style.display = "none";
-               if(stock_api_key){
-                  stateConnectedBox.style.display = "inline";
-                  stateNotConnectedBox.style.display = "none";  
-               }else{
-                  stateConnectedBox.style.display = "none";
-                  stateNotConnectedBox.style.display = "inline";  
-               }               
-            },2000)               
-         };          
-         let resetAllFn = () => { 
-            ai_ledger_LOAD_MOCK_DATA();
-           //SAVE to LOCAL STORAGE
-           localStorage.ai_ledger = JSON.stringify(ai_ledger)  
-           initEncode(); //RELOAD VIEW.             
-           initDecode(); //RELOAD VIEW.             
-         };   
+
 //-END-BTN-HANDLERS-------------------------------------------------
 //-HELPER_fns-------------------------------------------------------
          let getCurrentDocTitle = () => {

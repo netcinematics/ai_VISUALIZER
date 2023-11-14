@@ -37,6 +37,16 @@
          padding-left: 0.666em;color:#012d56;padding-right: 0.444em;
     padding-bottom: 0.444em;
       }
+        .genReportBtn2{border-radius:13px;
+         background:#6cd8d8;
+         /* background:#bd814f; */
+         float: right;
+         margin-right: 2%;cursor:pointer;
+         font-size: 0.666em;margin-top: 0.888em;
+         /* padding:0.222em; */
+         padding-left: 0.666em;color:#012d56;padding-right: 0.444em;
+    /* padding-bottom: 0.444em; */
+      }
       .genBtn1{font-size:0.666em; border-radius:22px; cursor:pointer;
          background:#5fa9a9; border-radius: 10px;color:#060252;
          margin: 1em;
@@ -55,6 +65,10 @@
          font-size: 0.666em;margin-top: 0.888em;
       }
       #saveSpotBtn1{border-radius:13px;background:#d1d67b;float: right;
+         margin-right: 2%;cursor:pointer;display:none;
+         font-size: 0.666em;margin-top: 0.888em;
+      }
+      .yellowBtn1{border-radius:13px;background:#d1d67b;float: right;
          margin-right: 2%;cursor:pointer;display:none;
          font-size: 0.666em;margin-top: 0.888em;
       }
@@ -317,9 +331,9 @@
          }
 .trimTick{
    font-family: sans-serif;
-    font-weight: bold;
+    /* font-weight: bold; */
     border-radius: 10px;
-        max-width: 66px;
+        max-width: 44px;
    text-align: center;
    font-size: 0.666em;
    color: cyan;;
@@ -731,8 +745,13 @@ align-items: center;">
            <section id="generatedScheduleBOX"></section>
            <hr>   
            <button class="delBtn1"  style="float:right;margin-top:0.888em;margin-right:4%;"  onclick="deleteSelectedSchedule()">🗑️</button>
+           <button id="trimScheduleBtn" class="genBtn1" onclick="trimScheduleClick()">trim🎆</button>
+           <button id="padScheduleBtn1" class="genBtn1" onclick="padScheduleClick()">pad⚓</button>
+           <button id="detailsBtn2" class="genReportBtn2" style="display:block;" onclick="setScheduleDetailsClick(event)">details🔬</button> 
+           <button id="totalsBtn2" class="genReportBtn2" style="display:none;" onclick="setScheduleDetailsClick(event)">totals🔭</button> 
+           
            <button id="addScheduleBtn" class="addBtn1" onclick="addScheduleClick()">add🎆</button>
-           <button id="saveScheduleBtn1" onclick="saveScheduleClick()">save⚓</button>
+           <button id="saveScheduleBtn1" class="yellowBtn1" onclick="saveScheduleClick()">save⚓</button>
            <hr>   
 
            Schedule & Forcast  Quarterly Reports          
@@ -774,7 +793,7 @@ align-items: center;">
         style="width:80%; flex:1;padding: 1% 2% 1% 2%;
         background: #000815; font-size:0.666em;
         border-radius: 13px; border: solid 1px steelblue; box-shadow: 0px 7px 20px 0px #026767;
-        color: #341a7f;
+        color: steelblue;
     line-height: 3.222em;
     font-family: verdana;
     font-size: 0.777em;     font-weight: bold;
@@ -847,15 +866,40 @@ align-items: center;">
          #DIVERSIFY LLY and FIRSTSOLAR. CRYPTO
 
          <hr><br><hr>
-        # PRINCIPLES
+        # PRINCIPLE_BASIS TRADES.
 
-        MARKET_STATES are NOT easy to DEFINE, until years later.
 
-        CURRENT/PREDICTED MARKET_STATE changes over TIME month to month.
-
-        CAPTURE EXPECTATION vs REALITY - side by side.
-
-        Daily limit: one spot per day max.
+        11/14/2023 - clear equity rally vs crypto decline.
+        if bitcoin becomes negative correlated to stocks
+        trimming stocks at top, and buy crypto, for 
+        reversal flight_to_safety sell crypto going down,
+        for bottom of recession or decline, next bull run.
+  
+        RULE: only make PRINCIPLE moves at BOTTOM.
+  
+        11/14/2023 - growth levels on MDB, mirrors NVDA.
+        LOOK for MDB and NVDA to be OVERBOUGHT boll.
+        And switch from GROWTH to TRIM (at higher principle)
+        TRIM_TGT: MDB 2,000BAL and NVDA 5,000BAL
+        TRIM_TGT: MDB & NVDA upper boll band.
+        TRIM_TGT: BANK_10% (2,000), then BANK_20% on TRIM_TOP. 
+        CRASH_TGT: After all Pads used, and still down. 
+        Set new POSITIONS DURING CRASH: 500, 500, 1000.
+        EARLY_TRIM:MDB,AMD,MSFT,GOOG
+        MID_TRIM:XLK,NDAQ,GOOG
+        LATE_TRIM:
+        PAD_LIMIT: 1,000_TOT_MONTH
+        CRASH_LIMIT: 10_POSITION_PRESS_QUARTER
+        PRINCIPLE-FOCUS METHOD.
+        GROWTH_TGT - move to higher principle
+        TRIM_TGT   - pull 100's off the top.
+        SAFE_TGT - intended to not decline
+        PAD_TGT: New_Lower_Low
+        TRIM_TGT: New_Higher_High
+        SAFE_TGT: BANK_PROFITS in very good times.
+        - we do not want safe targets at the top. we want cash.
+        - we want safe targets at toward the bottom, then growth.
+        - Bear Rally great for returns.
 
         Quarterly and Monthly Limits. 
         
@@ -1164,6 +1208,7 @@ align-items: center;">
 
         let saveTickBtn1 = document.getElementById('saveTickBtn1');
         let saveSpotBtn1 = document.getElementById('saveSpotBtn1');
+        let saveScheduleBtn1 = document.getElementById('saveScheduleBtn1');
 
         let generatedScheduleBOX = document.getElementById('generatedScheduleBOX');         
         let generatedProfitsBOX = document.getElementById('generatedProfitsBOX');
@@ -1171,7 +1216,9 @@ align-items: center;">
 
 
         let detailsBtn1 = document.getElementById('detailsBtn1');
+        let detailsBtn2 = document.getElementById('detailsBtn2');
         let totalsBtn1 = document.getElementById('totalsBtn1');
+        let totalsBtn2 = document.getElementById('totalsBtn2');
         let openBtn1 = document.getElementById('openBtn1');
 
         //FINANCIAL - ANALYTICS - CALCULATIONS
@@ -1815,6 +1862,97 @@ align-items: center;">
          localStorage.ai_ledger = JSON.stringify(ai_ledger) //SAVE to LOCAL STORAGE
          initDecode(); //RELOAD VIEW.                
       }
+
+      /*****************************************\
+       * - end DECODE
+      \****************************************/
+      /*****************************************\
+       * - SCHEDULE functions
+      \****************************************/
+      const trimScheduleClick = ()=>{ console.log('a')}
+      const padScheduleClick = ()=>{ console.log('ab')}
+      const addScheduleClick = ()=>{ 
+         saveScheduleBtn1.style.display = 'block'; 
+
+         let scheduleRow1,date1,tick1,amountData1;
+         let role1,role2,role3,role4,role5,role6,role7,role8,role9;
+         let saveBtn3,roleBOX,roleData,atBOX1,atData1;
+         scheduleRow1 = document.createElement('article')
+         scheduleRow1.classList.add('scheduleRow1')
+         atBOX1 = document.createElement('aside')
+         atBOX1.innerHTML="@&nbsp;"
+         roleBOX = document.createElement('aside')
+         roleBOX.innerHTML="role&nbsp;"
+         roleData = document.createElement('select')
+         role1 = document.createElement('option')
+
+         role1.value = "...";
+
+         role1.innerHTML = "...";
+
+         roleData.appendChild(role1);
+           
+         roleBOX.appendChild(roleData)
+         roleBOX.classList.add('roleBOX1')
+         roleData.classList.add('roleData1')
+         atData1 = document.createElement('input')
+         atData1.placeholder = "$0.00";
+         // atData1.value = ai_ledger.spots[i].spot_at || '';
+         saveBtn3 = document.createElement('button')
+         date1 = document.createElement('input')
+         date1.value = current_ymd.split('YMD_')[1];//user display
+         date1.classList.add('scheduleDate1')
+         tick1 = document.createElement('input')
+         amountData1 = document.createElement('input')
+         amountBOX1 = document.createElement('aside')
+         athBOX1 = document.createElement('aside')
+         amountBOX1.innerHTML = "$&nbsp;"
+         athBOX1.innerHTML = "ath&nbsp;"
+         athData1 = document.createElement('input')
+         tick1.value = "";
+         tick1.readOnly = false;
+         tick1.placeholder="ticker"
+         amountData1.placeholder = "0.00";
+         athData1.placeholder = "+-:%";
+         tick1.addEventListener("keyup",(e)=>{
+            saveSpotBtn1.style.display = 'block'; });
+         athData1.addEventListener("keyup",(e)=>{
+            saveSpotBtn1.style.display = 'block'; });
+         amountData1.addEventListener("keyup",(e)=>{
+            saveSpotBtn1.style.display = 'block'; });                         
+         tick1.classList.add('scheduleTick1')
+         saveBtn3.innerHTML = 'save🌟'
+         saveBtn3.classList.add('saveBtn2')
+         saveBtn3.addEventListener("click",(e)=>{
+            saveSpotClick() });
+         amountData1.classList.add('spotamountData1')
+         amountBOX1.classList.add('spotamountBOX1')
+         athData1.classList.add('spotATHData1')
+         athBOX1.classList.add('spotATHBOX1')
+         scheduleRow1.appendChild(date1)
+         scheduleRow1.appendChild(tick1)
+         amountBOX1.appendChild(amountData1)
+         scheduleRow1.appendChild(amountBOX1)
+         // athBOX1.appendChild(athData1)
+         atData1.classList.add('spotAtData1')
+         atBOX1.classList.add('spotAtBOX1')
+         atBOX1.appendChild(atData1)            
+         scheduleRow1.appendChild(atBOX1)
+         scheduleRow1.appendChild(roleBOX)
+         scheduleRow1.appendChild(saveBtn3)
+         // scheduleSPOTZ.appendChild(scheduleRow1)  
+         
+         // capROW.appendChild(crashlvlBOX1)
+         generatedScheduleBOX.appendChild(scheduleRow1)
+   
+      } //end add schedule click
+      const saveScheduleClick = ()=>{ // GENERATE PROFIT AND LOSS DISPLAY
+         console.log('abcdef')
+         saveScheduleBtn1.style.display = 'none'; 
+      }     //end save schedule click        
+
+
+
       const generateProfitLossClick = ()=>{ // GENERATE PROFIT AND LOSS DISPLAY
          //todo move out of margins? dependent on margins. duplicate?
       } 
@@ -1827,27 +1965,47 @@ align-items: center;">
    let ai_schedule=null;
    const ai_schedule_LOAD_MOCK_DATA=()=>{ //READ from OBJ
       ai_schedule = {quarters:[
-         {quarter:'Q4',year:2023,month:'OCT',trims:[
-            {tick:'nvda',cap:'1000',trim_at:'100',pad_at:'200',pad_limit:3,lvl_limit:3},
-            {tick:'mdb',cap:'1000',trim_at:'100',pad_at:'200',pad_limit:3,lvl_limit:3},
-            {tick:'cost',cap:'1000',trim_at:'100',pad_at:'200',pad_limit:3,lvl_limit:3}
+         {quarter:'Q4',year:2023,
+         month:'OCT',
+         monthData:[
+            {type:'pad',tick:'mdb',amt:100,ymd:'2023_10_26'},
+            {type:'pad',tick:'nvda',amt:100,ymd:'2023_10_27'}
+         ],
+         caps:[
+            {tick:'nvda',cap:'1000',trim_at:'100',pad_at:'100',pad_limit:3,lvl_limit:2},
+            {tick:'mdb',cap:'1000',trim_at:'100',pad_at:'100',pad_limit:3,lvl_limit:2},
+            {tick:'cost',cap:'1000',trim_at:'100',pad_at:'100',pad_limit:3,lvl_limit:2}
          ]},
-         {quarter:'Q4',year:2023,month:'NOV',trims:[
-            {tick:'nvda',cap:'1000',trim_at:'100',pad_at:'200',pad_limit:3,lvl_limit:3},
-            {tick:'mdb',cap:'1000',trim_at:'100',pad_at:'200',pad_limit:3,lvl_limit:3},
-            {tick:'cost',cap:'1000',trim_at:'100',pad_at:'200',pad_limit:3,lvl_limit:3}
-         ]},
-         {quarter:'Q4',year:2023,month:'DEC',trims:[
-            {tick:'nvda',cap:'1000',trim_at:'100',pad_at:'200',pad_limit:3,lvl_limit:3},
-            {tick:'mdb',cap:'1000',trim_at:'100',pad_at:'200',pad_limit:3,lvl_limit:3},
-            {tick:'cost',cap:'1000',trim_at:'100',pad_at:'200',pad_limit:3,lvl_limit:3}
+         {quarter:'Q4',year:2023,
+         month:'NOV',
+         monthData:[
+            {type:'trim',tick:'mdb',amt:100,ymd:'2023_11_10'},
+            {type:'trim',tick:'nvda',amt:100,ymd:'2023_11_14'}
+         ],
+         caps:[
+            {tick:'nvda',cap:'1000',trim_at:'100',pad_at:'100',pad_limit:3,lvl_limit:2},
+            {tick:'mdb',cap:'1000',trim_at:'100',pad_at:'100',pad_limit:3,lvl_limit:2},
+            {tick:'cost',cap:'1000',trim_at:'100',pad_at:'100',pad_limit:3,lvl_limit:2}
          ]}
+         // ,
+         // {quarter:'Q4',year:2023,
+         // month:'DEC',
+         // monthData:[
+         //    {type:'trim',amt:100,ymd:'2023_11_14'},
+         //    {type:'pad',amt:100,ymd:'2023_10_27'}
+         // ],
+         // caps:[
+         //    {tick:'nvda',cap:'1000',trim_at:'100',pad_at:'200',pad_limit:3,lvl_limit:3},
+         //    {tick:'mdb',cap:'1000',trim_at:'100',pad_at:'200',pad_limit:3,lvl_limit:3},
+         //    {tick:'cost',cap:'1000',trim_at:'100',pad_at:'200',pad_limit:3,lvl_limit:3}
+         // ]}
       ]}
    }
 
    const ai_schedule_init=()=>{ //READ from LOCAL STORAGE
       ai_schedule = (localStorage.ai_schedule)?
          JSON.parse( localStorage.ai_schedule ):null;
+      ai_schedule = null; //test mock data
       if(!ai_schedule){
          ai_schedule_LOAD_MOCK_DATA();
       }
@@ -1868,53 +2026,56 @@ align-items: center;">
          
       const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
       //TODO if selected, only run selected
-      let trimBOX1,trimer,trimSet=[];
+      let trimBOX1,quarter,quarterSets=[];
       let quarterBOX,monthBOX,quarterTXT,capROW;//trimBtnROW;
-      let trimData, trimTick,trimCap,trim_at,pad_at,pad_limit,lvl_limit;
+      let capsData, trimTick,trimCap,trim_at,pad_at,pad_limit,lvl_limit;
       let trimBtn1,padBtn1,lvlUpBtn1;
       let capBOX1, capData1, trim_atBOX1,trim_atData1,pad_atBOX1,pad_atData1;
       let padlvlBOX1,padlvlData1,crashlvlBOX1,crashlvlData1;
+      let monthData1=[];
       generatedScheduleBOX.innerHTML = ""
-      trimSet = ai_schedule.quarters;//ai_ledger.ticks;
-      for(let i=0;i<trimSet.length;i++){
-         trimer= trimSet[i];
+      quarterSets = ai_schedule.quarters;//ai_ledger.ticks;
+      for(let i=0;i<quarterSets.length;i++){  //BEGIN QUARTERLY LOOP
+         quarter= quarterSets[i];
          quarterBOX = document.createElement('section')
          quarterBOX.classList.add('quarterBOX')
-         // quarterBOX.innerHTML = trimer.quarter+'_'+trimer.year+'_'+trimer.month;
+         // quarterBOX.innerHTML = quarter.quarter+'_'+quarter.year+'_'+quarter.month;
          quarterTXT = document.createElement('span')
          quarterTXT.classList.add('quarterTXT')
-         quarterTXT.innerHTML = trimer.quarter+'_'+trimer.year+'_'+trimer.month;
+         quarterTXT.innerHTML = quarter.quarter+'_'+quarter.year+'_'+quarter.month;
          quarterBOX.appendChild(quarterTXT)
          monthBOX = document.createElement('article')
          monthBOX.classList.add('monthBOX')
 
-         for(let j=0;j<trimer.trims.length;j++){
-               trimData = trimer.trims[j];
+         for(let j=0;j<quarter.caps.length;j++){  //MONTHLY CAP LOOP .
+            capsData = quarter.caps[j];
 
-               capROW = document.createElement('aside')
-               capROW.classList.add('capROW')
+            capROW = document.createElement('aside')
+            capROW.classList.add('capROW')
 
 //selector
-               encodeNUMBOX1 = document.createElement('aside')
-               encodeNUMBOX1.classList.add('encodeNUMBOX1')
-               encodeCHECKBOX1 = document.createElement('label')
-               encodeCHECKBOX1.classList.add('checkboxFrame') //encodeNUMBOX1
-               encodeNUMBOX1.innerHTML=j+1;            
-               encodeSelect1 = document.createElement('input')
-               encodeSelect1.type = "checkbox";
-               encodeSelect1.classList.add('tkr_checkmark')
-               encodeCHECKBOX1.appendChild(encodeSelect1)
-               encodeCheckMark1 = document.createElement('span')
-               encodeCheckMark1.classList.add('checkmark')
-               encodeCHECKBOX1.appendChild(encodeCheckMark1)
-               encodeNUMBOX1.appendChild(encodeCHECKBOX1)
-               capROW.appendChild(encodeNUMBOX1)
+            encodeNUMBOX1 = document.createElement('aside')
+            encodeNUMBOX1.classList.add('encodeNUMBOX1')
+            encodeCHECKBOX1 = document.createElement('label')
+            encodeCHECKBOX1.classList.add('checkboxFrame') //encodeNUMBOX1
+            encodeNUMBOX1.innerHTML=j+1;            
+            encodeSelect1 = document.createElement('input')
+            encodeSelect1.type = "radio";
+            encodeSelect1.name = "scheduleRadio";
+            // encodeSelect1.type = "checkbox";
+            encodeSelect1.classList.add('tkr_checkmark')
+            encodeCHECKBOX1.appendChild(encodeSelect1)
+            encodeCheckMark1 = document.createElement('span')
+            encodeCheckMark1.classList.add('checkmark')
+            encodeCHECKBOX1.appendChild(encodeCheckMark1)
+            encodeNUMBOX1.appendChild(encodeCHECKBOX1)
+            capROW.appendChild(encodeNUMBOX1)
 // end selector
 
-               // trimTick = document.createElement('div')
-               trimTick = document.createElement('input')
-               trimTick.classList.add('trimTick')
-               trimTick.value = trimData.tick.toUpperCase() || 0;
+            // trimTick = document.createElement('div')
+            trimTick = document.createElement('input')
+            trimTick.classList.add('trimTick')
+            trimTick.value = capsData.tick.toUpperCase() || 0;
 
             capBOX1 = document.createElement('aside')
             capBOX1.innerHTML="cap&nbsp";
@@ -1922,8 +2083,8 @@ align-items: center;">
             capData1 = document.createElement('input')
             capData1.classList.add('inputDATA1')
             capData1.placeholder = "$0.00";
-            capData1.value = trimData.cap || '';          
-            capData1.addEventListener("keyup",(e)=>{ // saveSpotBtn1.style.display = 'block'; 
+            capData1.value = capsData.cap || '';          
+            capData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
             });  
             capBOX1.appendChild(capData1)
 
@@ -1933,8 +2094,8 @@ align-items: center;">
             trim_atData1 = document.createElement('input')
             trim_atData1.classList.add('inputDATA2')
             trim_atData1.placeholder = "$0.00";
-            trim_atData1.value = trimData.trim_at || '';          
-            trim_atData1.addEventListener("keyup",(e)=>{ // saveSpotBtn1.style.display = 'block'; 
+            trim_atData1.value = capsData.trim_at || '';          
+            trim_atData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block';  
             });  
             trim_atBOX1.appendChild(trim_atData1)
 
@@ -1944,8 +2105,8 @@ align-items: center;">
             pad_atData1 = document.createElement('input')
             pad_atData1.classList.add('inputDATA2')
             pad_atData1.placeholder = "$0.00";
-            pad_atData1.value = trimData.pad_at || '';          
-            pad_atData1.addEventListener("keyup",(e)=>{ // saveSpotBtn1.style.display = 'block'; 
+            pad_atData1.value = capsData.pad_at || '';          
+            pad_atData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
             });  
             pad_atBOX1.appendChild(pad_atData1)
 
@@ -1955,8 +2116,8 @@ align-items: center;">
             padlvlData1 = document.createElement('input')
             padlvlData1.classList.add('inputDATA3')
             padlvlData1.placeholder = "$0.00";
-            padlvlData1.value = trimData.pad_limit || '';          
-            padlvlData1.addEventListener("keyup",(e)=>{ // saveSpotBtn1.style.display = 'block'; 
+            padlvlData1.value = capsData.pad_limit || '';          
+            padlvlData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
             });  
             padlvlBOX1.appendChild(padlvlData1)
 
@@ -1966,85 +2127,24 @@ align-items: center;">
             crashlvlData1 = document.createElement('input')
             crashlvlData1.classList.add('inputDATA3')
             crashlvlData1.placeholder = "$0.00";
-            crashlvlData1.value = trimData.lvl_limit || 0;          
-            crashlvlData1.addEventListener("keyup",(e)=>{ // saveSpotBtn1.style.display = 'block'; 
+            crashlvlData1.value = capsData.lvl_limit || 0;          
+            crashlvlData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
             });  
             crashlvlBOX1.appendChild(crashlvlData1)
 
-               // trim_at = document.createElement('div')
-               // trim_at.classList.add('trim_at')
-               // trim_at.innerHTML =  'trim_at '+trimData.trim_at || 0;
-
-               // pad_at = document.createElement('div')
-               // pad_at.classList.add('pad_at')
-               // pad_at.innerHTML = 'pad_at '+trimData.pad_at || 0;  
-
-               // pad_limit = document.createElement('div')
-               // pad_limit.classList.add('pad_limit')
-               // pad_limit.innerHTML = 'pad_lvl '+trimData.pad_limit || 0;  
-
-               // lvl_limit = document.createElement('div')
-               // lvl_limit.classList.add('lvl_limit')
-               // lvl_limit.innerHTML = 'crash_lvl '+trimData.lvl_limit || 0;                 
-
-               //new 
-
-            //    amountData1 = document.createElement('input')
-            // amountBOX1 = document.createElement('aside')
-            // amountBOX1.innerHTML = "$&nbsp;"
-            // athBOX1 = document.createElement('aside')
-            // athBOX1.innerHTML = "ath&nbsp;"
-            // athData1 = document.createElement('input')
-
-            //    amountData1.placeholder = "start:$0.00";
-            //    amountData1.value = ai_ledger.spots[i].amount || '';
-            // atData1 = document.createElement('input')
-            // atData1.placeholder = "$0.00";
-            // atData1.value = '4';//ai_ledger.spots[i].spot_at || '';
-            // tick1.addEventListener("keyup",(e)=>{
-            //       saveSpotBtn1.style.display = 'block'; });            
-            // atData1.addEventListener("keyup",(e)=>{
-            //       saveSpotBtn1.style.display = 'block'; });
-            // amountData1.addEventListener("keyup",(e)=>{
-            //       saveSpotBtn1.style.display = 'block'; }); 
-            // // roleData.addEventListener("change",(e)=>{
-            // //       saveSpotBtn1.style.display = 'block'; });
-            // // roleBOX.value = ai_ledger.spots[i].role || '...';
-
-            //    amountBOX1.classList.add('spotamountBOX1')
-            // amountData1.classList.add('spotamountData1')
-            // atData1.classList.add('spotAtData1')
-            // atBOX1.classList.add('spotAtBOX1')
-
-            // amountBOX1.innerHTML="$&nbsp;"
-            // amountBOX1.appendChild(amountData1)
-            // decodeRow1.appendChild(amountBOX1)
-            // atBOX1.appendChild(atData1)
-            // decodeRow1.appendChild(atBOX1)
-            // decodeRow1.appendChild(roleBOX)
-            // // decodeRow1.appendChild(btn1)
-            // // decodeRow1.appendChild(del1)
-            // decodeSPOTZ.appendChild(decodeRow1)   
-
-            //end new
-
-
-
-               
-
-                  capROW.appendChild(capBOX1)         
-                  // capROW.appendChild(trimTick)         
-                  // capROW.appendChild(trimCap)         
-                  capROW.appendChild(trim_atBOX1)         
-                  capROW.appendChild(pad_atBOX1)         
-                  // capROW.appendChild(trim_at)         
-                  // capROW.appendChild(pad_at)         
-                  // capROW.appendChild(pad_limit)         
-                  // capROW.appendChild(lvl_limit)
-                  capROW.appendChild(padlvlBOX1)         
-                  capROW.appendChild(crashlvlBOX1)
-                  monthBOX.appendChild(capROW)
-                  
+            capROW.appendChild(trimTick)         
+            capROW.appendChild(capBOX1)         
+            capROW.appendChild(trim_atBOX1)         
+            capROW.appendChild(pad_atBOX1)         
+            capROW.appendChild(padlvlBOX1)         
+            capROW.appendChild(crashlvlBOX1)
+            monthBOX.appendChild(capROW)
+            
+            // capROW.appendChild(trimCap)         
+            // capROW.appendChild(trim_at)         
+            // capROW.appendChild(pad_at)         
+            // capROW.appendChild(pad_limit)         
+            // capROW.appendChild(lvl_limit)
                   // trimBtnROW = document.createElement('aside')
                   // trimBtnROW.classList.add('trimBtnROW')
                   
@@ -2071,14 +2171,107 @@ align-items: center;">
                   // trimBtnROW.appendChild(padBtn1)
                   // trimBtnROW.appendChild(lvlUpBtn1)
                   // monthBOX.appendChild(trimBtnROW)
-         }
-               // generatedMarginsBOX.appendChild(detailRow1)   
+                  if(show_schedule_details_view){   //BEGIN DETAILS VIEW
+                     let detailRow2;
+                     let monthData = null;
+                     debugger;
+                     for(let k=0;k<quarter.monthData.length;k++){  //CAP DETAILS LOOP.
+                        monthData = quarter.monthData[k];
+                        if(monthData!=capsData.tick){continue;}
+                        detailRow2 = document.createElement('section')
+                        detailRow2.classList.add('detailRow1')
+                        detailRow2.innerHTML = capsData.tick;
+
+                        // detailRow2.appendChild(spotPCT1)
+
+                        monthBOX.appendChild(detailRow2) 
+
+                     }
+                  }  //END DETAILS VIEW
+
+                  // if(show_margin_details_view){ //BEGIN DETAILS VIEW
+                  //    //loop over spots of and display detailRow.
+                  //    let spotObj,spotDate1,spotAmt1,spotPrice1;
+                  //    let spotMargin2=0,spotPCT2=0,curr_price2;
+                  //    for(var j=0; j<ai_ledger.spots.length;j++){
+                  //       spotObj = ai_ledger.spots[j];
+                  //       if(spotObj.tick != ticker.tick){continue}
+                  //       detailRow1 = document.createElement('section')
+                  //       detailRow1.classList.add('detailRow1')
+                  //       // detailRow1.innerHTML = ticker.tick;
+
+                  //       //CALCULATE individual SPOT MARGIN
+                  //       curr_price2 = TickMAP_MetaData[ticker.tick].curr_price;
+                  //       spotMargin2 = curr_price2 - spotObj.spot_at
+                  //       spotPCT2 = (spotMargin2/spotObj.spot_at) * 100 
+                  //       // spotPCT2 = spotPCT2.toFixed(0);
+
+                  //       spotDate1 = document.createElement('aside')
+                  //       spotDate1.classList.add('spotDate1')
+                  //       spotDate1.innerHTML = spotObj.ymd || 0;
+
+                  //       spotAmt1 = document.createElement('aside')
+                  //       spotAmt1.classList.add('spotAmt1')
+                  //       spotAmt1.innerHTML =  'amt '+spotObj.amount || 0;
+
+                  //       spotPrice1 = document.createElement('aside')
+                  //       spotPrice1.classList.add('spotPrice1')
+                  //       spotPrice1.innerHTML =  'price '+spotObj.spot_at || 0;
+
+                  //       spotMargin1 = document.createElement('aside')
+                  //       spotMargin1.classList.add('spotMargin1')
+                  //       // spotMargin1.innerHTML =  'margin '+spotMargin2 || 0;
+                  //       spotMargin1.innerHTML = `margin: 
+                  //          ${(spotMargin2>0 )?'+':''}${spotMargin2}`                  
+
+                  //       spotPCT1 = document.createElement('aside')
+                  //       spotPCT1.classList.add('spotPCT1')
+                  //       // spotPCT1.innerHTML =  'pct '+ spotPCT2 || 0;
+                  //       spotPCT1.innerHTML = `pct: 
+                  //          ${(spotPCT2>0 )?'+':''}
+                  //          ${spotPCT2.toFixed(0)}%`;                  
+
+                  //       detailRow1.appendChild(spotDate1)         
+                  //       detailRow1.appendChild(spotAmt1)         
+                  //       detailRow1.appendChild(spotPrice1)         
+                  //       detailRow1.appendChild(spotMargin1)         
+                  //       detailRow1.appendChild(spotPCT1)
+
+                  //       generatedMarginsBOX.appendChild(detailRow1)   
+                  //    }
+                  // } //END DETAILS VIEW
 
 
-               quarterBOX.appendChild(monthBOX)
+         } //END MONTHLY LOOP
+
+         quarterBOX.appendChild(monthBOX)
          generatedScheduleBOX.appendChild(quarterBOX)
+      } //END QUARTERLY LOOP
+   } //end generate schedule
+
+   let show_schedule_details_view = null;
+      const setScheduleDetailsClick = (e)=>{ 
+         if(e.target.id==='detailsBtn2'){
+            totalsBtn2.style.display='block'
+            detailsBtn2.style.display='none'
+            show_schedule_details_view = true;
+         }else{
+            totalsBtn2.style.display='none'               
+            detailsBtn2.style.display='block'               
+            show_schedule_details_view = false;
+         }
+         scheduleBOX.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+         })
+         generateScheduleClick();
       }
-      }
+
+
+
+      /***************************************
+       * MARGINS
+       * **************************************/
 
       let show_margin_details_view = false;
       const setMarginDetailsClick = (e)=>{
@@ -2201,7 +2394,7 @@ align-items: center;">
          marginsRow1.appendChild(numPCT1)         
          generatedMarginsBOX.appendChild(marginsRow1)         
 
-         if(show_margin_details_view){
+         if(show_margin_details_view){ //BEGIN DETAILS VIEW
             //loop over spots of and display detailRow.
             let spotObj,spotDate1,spotAmt1,spotPrice1;
             let spotMargin2=0,spotPCT2=0,curr_price2;
@@ -2251,7 +2444,7 @@ align-items: center;">
 
                generatedMarginsBOX.appendChild(detailRow1)   
             }
-         }
+         } //END DETAILS VIEW
       }
       //PROFIT and LOSS View
       let keyz = Object.keys(TickMAP_MetaData);
@@ -2289,6 +2482,7 @@ align-items: center;">
       totalsRow1.appendChild(totBankValue1)         
       generatedProfitsBOX.appendChild(totalsRow1)  
       }
+
       const generateSelected = ()=>{
       let selected = [];
       let items = document.getElementsByClassName('tkr_checkmark');
@@ -2336,6 +2530,8 @@ align-items: center;">
          showErrorMSG('🌼DATA UPDATED🌼') //todo error. need show message not error.
 
       }
+
+
 
       /**************************************************************\
        * MSGS : interface

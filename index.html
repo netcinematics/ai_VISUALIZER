@@ -880,7 +880,7 @@ align-items: center;">
         11/14/2023 - growth levels on MDB, mirrors NVDA.
         LOOK for MDB and NVDA to be OVERBOUGHT boll.
         And switch from GROWTH to TRIM (at higher principle)
-        TRIM_TGT: MDB 2,000BAL and NVDA 5,000BAL
+        TRIM_TGT: MDB 2,000_BAL and NVDA 5,000_BAL
         TRIM_TGT: MDB & NVDA upper boll band.
         TRIM_TGT: BANK_10% (2,000), then BANK_20% on TRIM_TOP. 
         CRASH_TGT: After all Pads used, and still down. 
@@ -1980,7 +1980,16 @@ align-items: center;">
          month:'NOV',
          monthData:[
             {type:'trim',tick:'mdb',amt:100,ymd:'2023_11_10'},
-            {type:'trim',tick:'nvda',amt:100,ymd:'2023_11_14'}
+            {type:'trim',tick:'nvda',amt:100,ymd:'2023_11_14'},
+            // {type:'tgt',tick:'nvda',at:'5000_BAL',role:'GROWTH'},
+            // {type:'tgt',tick:'mdb',at:'1500_BAL',role:'GROWTH'},
+            // {type:'tgt',tick:'nvda',at:'BOLL_TOP',role:'TRIM'},
+            // {type:'tgt',tick:'BANK',at:'BANK_20%',role:'SAFE'},
+            // {type:'tgt',tick:'v',at:'SET_BASE',role:'SAFE'},
+            // {type:'tgt',tick:'mdb',at:'BOLL_TOP',role:'TRIM'},
+            // {type:'tgt',tick:'nvda',at:'BOLL_LOW',role:'PAD'},
+            // {type:'tgt',tick:'mdb',at:'BOLL_LOW',role:'PAD'},
+            // {type:'story',txt:'bull rally',details:'soft landing, 10yr<5, cpi drop'}
          ],
          caps:[
             {tick:'nvda',cap:'1000',trim_at:'100',pad_at:'100',pad_limit:3,lvl_limit:2},
@@ -2177,7 +2186,7 @@ align-items: center;">
                      debugger;
                      for(let k=0;k<quarter.monthData.length;k++){  //CAP DETAILS LOOP.
                         monthData = quarter.monthData[k];
-                        if(monthData!=capsData.tick){continue;}
+                        if(monthData.tick!=capsData.tick){continue;}
                         detailRow2 = document.createElement('section')
                         detailRow2.classList.add('detailRow1')
                         detailRow2.innerHTML = capsData.tick;

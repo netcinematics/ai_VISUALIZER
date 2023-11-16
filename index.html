@@ -85,7 +85,7 @@
    .roleBOX1{border-radius: 8px;
     font-size: 0.666em;
     background: #1a0033;
-    color: cyan;
+    color:  #136567;
     padding-left: 0.555em;
     margin: 0.444em 1em;
     display: flex;
@@ -142,7 +142,7 @@
    .spotamountBOX1{border-radius: 8px;
     font-size: 0.666em;
     background: #1a0033;
-    color: cyan;
+    color:  #136567;
     padding-left: 0.555em;
     margin: 0.222em 1em;
     display: flex;
@@ -153,7 +153,7 @@
    .spotamountData1{    border-radius: 8px;
     font-size: 0.888em;
     background: #02184b;
-    color: cyan;
+    color: #136567;
     padding: 0 0.444em;
     text-align: center;
     max-width: 34px;
@@ -219,7 +219,7 @@
    .spotAtBOX1{border-radius: 8px;
     font-size: 0.666em;
     background: #1a0033;
-    color: cyan;
+    color: #136567;
     padding-left: 0.555em;
     margin: 0.222em 1em;
     display: flex;
@@ -358,7 +358,7 @@
    .inputDATA1{    border-radius: 8px;
     font-size: 0.888em;
     background: #02184b;
-    color: cyan;
+    color:    #136567;
     padding: 0 0.444em;
     text-align: center;
     max-width: 34px;
@@ -403,6 +403,16 @@
    display: flex;
     justify-content: space-between;
     margin-right: 2%;
+    flex-wrap: wrap;
+}
+.detailRow2 {
+   display: flex;
+    justify-content: space-between;
+    margin-right: 2%;
+    flex-wrap: wrap;
+    padding-left:2%;
+    font-size: 0.777em;
+    color: #136567;
 }
 .totalsRow1{
    display: flex;
@@ -428,6 +438,13 @@
     line-height: 1.666em;
     text-align: right;
     width: 80px;
+}
+.detailDate1{
+   background: none;
+    color: #4b53b9;
+    font-size: 0.555em;
+    border: none;
+    max-width: 6em;
 }
 .capROW{
    display: flex;
@@ -1874,6 +1891,7 @@ align-items: center;">
       const addScheduleClick = ()=>{ 
          saveScheduleBtn1.style.display = 'block'; 
 
+         //TODO: needs to become QUARTERLY...
          let scheduleRow1,date1,tick1,amountData1;
          let role1,role2,role3,role4,role5,role6,role7,role8,role9;
          let saveBtn3,roleBOX,roleData,atBOX1,atData1;
@@ -1968,8 +1986,8 @@ align-items: center;">
          {quarter:'Q4',year:2023,
          month:'OCT',
          monthData:[
-            {type:'pad',tick:'mdb',amt:100,ymd:'2023_10_26'},
-            {type:'pad',tick:'nvda',amt:100,ymd:'2023_10_27'}
+            {type:'pad',tick:'mdb',amt:100,at:'500',ymd:'2023_10_26',note:'',role:'PAD_TOP'},
+            {type:'pad',tick:'nvda',amt:100,at:'500',ymd:'2023_10_27',note:'',role:'HEDGE'}
          ],
          caps:[
             {tick:'nvda',cap:'1000',trim_at:'100',pad_at:'100',pad_limit:3,lvl_limit:2},
@@ -1979,8 +1997,8 @@ align-items: center;">
          {quarter:'Q4',year:2023,
          month:'NOV',
          monthData:[
-            {type:'trim',tick:'mdb',amt:100,ymd:'2023_11_10'},
-            {type:'trim',tick:'nvda',amt:100,ymd:'2023_11_14'},
+            {type:'trim',tick:'mdb',amt:100,at:'500',ymd:'2023_11_10',note:'',role:'CASH_OUT'},
+            {type:'trim',tick:'nvda',amt:100,at:'500',ymd:'2023_11_14',note:'',role:'BANK_PROFIT'},
             // {type:'tgt',tick:'nvda',at:'5000_BAL',role:'GROWTH'},
             // {type:'tgt',tick:'mdb',at:'1500_BAL',role:'GROWTH'},
             // {type:'tgt',tick:'nvda',at:'BOLL_TOP',role:'TRIM'},
@@ -2061,8 +2079,7 @@ align-items: center;">
 
             capROW = document.createElement('aside')
             capROW.classList.add('capROW')
-
-//selector
+            //selector
             encodeNUMBOX1 = document.createElement('aside')
             encodeNUMBOX1.classList.add('encodeNUMBOX1')
             encodeCHECKBOX1 = document.createElement('label')
@@ -2079,9 +2096,7 @@ align-items: center;">
             encodeCHECKBOX1.appendChild(encodeCheckMark1)
             encodeNUMBOX1.appendChild(encodeCHECKBOX1)
             capROW.appendChild(encodeNUMBOX1)
-// end selector
-
-            // trimTick = document.createElement('div')
+            // end selector
             trimTick = document.createElement('input')
             trimTick.classList.add('trimTick')
             trimTick.value = capsData.tick.toUpperCase() || 0;
@@ -2181,18 +2196,111 @@ align-items: center;">
                   // trimBtnROW.appendChild(lvlUpBtn1)
                   // monthBOX.appendChild(trimBtnROW)
                   if(show_schedule_details_view){   //BEGIN DETAILS VIEW
-                     let detailRow2;
+                     let detailRow2,date1,detAmt,detType,detRole,detNote;
                      let monthData = null;
+                     let role1,role2,role3,role4,role5,role6,role7,role8,role9;
+                     let type1,type2,type3,type4;
+                     let roleBOX,roleData,typeBOX,typeData,atBOX1;
+                     let noteData1,noteBOX1,amtBOX1,atData1,amtData1;
                      debugger;
                      for(let k=0;k<quarter.monthData.length;k++){  //CAP DETAILS LOOP.
                         monthData = quarter.monthData[k];
                         if(monthData.tick!=capsData.tick){continue;}
                         detailRow2 = document.createElement('section')
-                        detailRow2.classList.add('detailRow1')
-                        detailRow2.innerHTML = capsData.tick;
+                        detailRow2.classList.add('detailRow2')
+                        // detailRow2.innerHTML = capsData.tick;
+                        //DETAILS ROW
+                        // {type:'pad',tick:'mdb',amt:100,ymd:'2023_10_26',note:'',role:'PAD_TOP'},
 
+
+                        //*********************** SCHEDULE DETAILS...
+                        // let scheduleRow1,date1,tick1,amountData1;
+                           // let role1,role2,role3,role4,role5,role6,role7,role8,role9;
+                           // let saveBtn3,roleBOX,roleData,atBOX1,atData1;
+                           // scheduleRow1 = document.createElement('article')
+                           // scheduleRow1.classList.add('scheduleRow1')
+
+                           date1 = document.createElement('input')
+                           date1.value = ''+monthData.ymd;//current_ymd.split('YMD_')[1];//user display
+                           date1.classList.add('detailDate1')
+
+                           atBOX1 = document.createElement('aside')
+                           atBOX1.innerHTML="@&nbsp;"
+                           amtBOX1 = document.createElement('aside')
+                           amtBOX1.innerHTML="amt&nbsp;"
+                           roleBOX = document.createElement('aside')
+                           roleBOX.innerHTML="role&nbsp;"
+                           typeBOX = document.createElement('aside')
+                           typeBOX.innerHTML="type&nbsp;"
+                           roleData = document.createElement('select')
+                           typeData = document.createElement('select')
+                           role1 = document.createElement('option')
+                           role1.value = "...";
+                           role1.innerHTML = "...";
+                           type1 = document.createElement('option')
+                           type1.value = "...";
+                           type1.innerHTML = "...";
+                           roleData.appendChild(role1);
+                           typeData.appendChild(type1);
+                           roleBOX.appendChild(roleData)
+                           roleBOX.classList.add('roleBOX1')
+                           typeBOX.appendChild(typeData)
+                           typeBOX.classList.add('roleBOX1')
+                           roleData.classList.add('roleData1')
+                           typeData.classList.add('roleData1')
+                           atData1 = document.createElement('input')
+                           atData1.placeholder = "$0.00";
+                           amtData1 = document.createElement('input')
+                           amtData1.placeholder = "$0.00";
+                           // atData1.value = ai_ledger.spots[i].spot_at || '';
+                           // saveBtn3 = document.createElement('button')
+
+                           // tick1 = document.createElement('input')
+                           noteData1 = document.createElement('input')
+                           noteBOX1 = document.createElement('aside')
+                           noteBOX1.innerHTML = "note&nbsp;"
+                           
+                           // athBOX1.innerHTML = "type&nbsp;"
+                           // athBOX1 = document.createElement('aside')
+                           // athData1 = document.createElement('input')
+                           // tick1.value = "";
+                           // tick1.readOnly = false;
+                           // tick1.placeholder="ticker"
+                           noteData1.placeholder = "...";
+                           // athData1.placeholder = "+-:%";
+                           // tick1.addEventListener("keyup",(e)=>{
+                           //    saveSpotBtn1.style.display = 'block'; });
+                           // athData1.addEventListener("keyup",(e)=>{
+                           //    saveSpotBtn1.style.display = 'block'; });
+                           noteData1.addEventListener("keyup",(e)=>{
+                              saveSpotBtn1.style.display = 'block'; });                         
+                           // tick1.classList.add('scheduleTick1')
+                           // saveBtn3.innerHTML = 'save🌟'
+                           // saveBtn3.classList.add('saveBtn2')
+                           // saveBtn3.addEventListener("click",(e)=>{
+                           //    saveSpotClick() });
+                           noteData1.classList.add('spotamountData1')
+                           noteBOX1.classList.add('spotamountBOX1')
+                           noteBOX1.appendChild(noteData1)
+                           // athData1.classList.add('spotATHData1')
+                           // athBOX1.classList.add('spotATHBOX1')
+                           atData1.classList.add('spotAtData1')
+                           amtData1.classList.add('spotAtData1')
+                           atBOX1.classList.add('spotAtBOX1')
+                           atBOX1.appendChild(atData1)            
+                           amtBOX1.classList.add('spotAtBOX1')
+                           amtBOX1.appendChild(amtData1)            
+                           // scheduleRow1.appendChild(tick1)
+                           detailRow2.appendChild(date1)
+                           detailRow2.appendChild(typeBOX)
+                           detailRow2.appendChild(amtBOX1)
+                           detailRow2.appendChild(atBOX1)
+                           detailRow2.appendChild(roleBOX)
+                           detailRow2.appendChild(noteBOX1)
+
+
+                        //END DETAILS ROW
                         // detailRow2.appendChild(spotPCT1)
-
                         monthBOX.appendChild(detailRow2) 
 
                      }

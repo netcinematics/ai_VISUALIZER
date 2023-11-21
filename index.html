@@ -104,6 +104,18 @@
     margin-bottom: -1px;
     border: 1px solid steelblue;}
 
+    .typeData1 {
+    border-radius: 8px;
+    background: #02184b;
+    color: cyan;
+    padding: 0;
+    text-align: center;
+    max-width: 36px;
+    height: 16px;
+    margin-bottom: -1px;
+    border: 1px solid steelblue;
+    font-size: 1.111em;
+}
 
    .tkrPriceBOX1{border-radius: 8px;
     font-size: 0.666em;
@@ -130,7 +142,7 @@
     .tkrPriceDate1{    border-radius: 8px;
     font-size: 0.888em;
     background: #02184b;
-    color: cyan;
+    color: #546a9b;
     padding: 0 0.444em;
     text-align: center;
     max-width: 40px;
@@ -185,7 +197,7 @@
    .tkrATHDate1{    border-radius: 8px;
     font-size: 0.888em;
     background: #02184b;
-    color: cyan;
+    color:#546a9b;
     padding: 0 0.444em;
     text-align: center;
     max-width: 40px;
@@ -346,7 +358,7 @@
 .inputDATABOX1{border-radius: 8px;
     font-size: 0.666em;
     background: #1a0033;
-    color: cyan;
+    color: #1e8385;
     padding-left: 0.555em;
     margin: 0.222em 1em;
     display: flex;
@@ -410,7 +422,7 @@
     justify-content: space-between;
     margin-right: 2%;
     flex-wrap: wrap;
-    padding-left:2%;
+    padding-left:6.666%;
     font-size: 0.777em;
     color: #136567;
 }
@@ -748,7 +760,7 @@ align-items: center;">
       </section>
       <section id="scheduleBOX"
         style="width:80.888%; flex:1;
-        background: #1a0326;
+        background: #0e0015;
         border-radius: 13px; border: solid 1px #a9a04b; box-shadow: 0px 7px 7px 3px #9b6237;
         padding: 4% 0 4% 4%; color: #b19f50; line-height: 2.444em;" 
         ">
@@ -757,17 +769,16 @@ align-items: center;">
         </span> Generate Schedule</span><span style="font-size:0.666em"> (measures) 📈
       </span></span><br>
         <article>
-
            <hr>   
            <section id="generatedScheduleBOX"></section>
            <hr>   
            <button class="delBtn1"  style="float:right;margin-top:0.888em;margin-right:4%;"  onclick="deleteSelectedSchedule()">🗑️</button>
-           <button id="trimScheduleBtn" class="genBtn1" onclick="trimScheduleClick()">trim🎆</button>
-           <button id="padScheduleBtn1" class="genBtn1" onclick="padScheduleClick()">pad⚓</button>
+           <button id="trimScheduleBtn" class="genBtn1" onclick="trimScheduleClick()">trim🐇</button>
+           <button id="padScheduleBtn1" class="genBtn1" onclick="padScheduleClick()">pad🐒</button>
            <button id="detailsBtn2" class="genReportBtn2" style="display:block;" onclick="setScheduleDetailsClick(event)">details🔬</button> 
            <button id="totalsBtn2" class="genReportBtn2" style="display:none;" onclick="setScheduleDetailsClick(event)">totals🔭</button> 
            
-           <button id="addScheduleBtn" class="addBtn1" onclick="addScheduleClick()">add🎆</button>
+           <button id="addScheduleBtn" class="addBtn1" onclick="addScheduleClick()">add qrtr👻</button>
            <button id="saveScheduleBtn1" class="yellowBtn1" onclick="saveScheduleClick()">save⚓</button>
            <hr>   
 
@@ -838,6 +849,10 @@ align-items: center;">
 
         - upsideHEDGE or
 
+        - TRIM_HIGHER_HIGHS and PAD_LOWER_LOWS
+
+        - place alerts on BUY_RED and SELL_GREEN.
+
         - sellGREEN or rideBULL, DOWNLIMITLOSS UPLIMITTRIM
 
         - PRESSUP  PRESSDOWN, TRIMUP, TRIMDOWN.
@@ -878,7 +893,7 @@ align-items: center;">
 
          buyHOLD, sellSAFE, cutLOSS, buySPOT, sellSPOT
 
-         #GAMBLE snap  robinhood  roblox
+         #risk_on snap  robinhood  roblox
 
          #DIVERSIFY LLY and FIRSTSOLAR. CRYPTO
 
@@ -1092,7 +1107,7 @@ align-items: center;">
          MDB and AMD and NVDIA for AI GROWTH
          QQQ XLK and SPX for Industry_Trends
          STATE_CHANGES: 
-         HOOD moves from watch to gamble or
+         HOOD moves from watch to risk_on or
          HOOD moves from watch to cutloss.
          
          <hr><br><hr>
@@ -1152,9 +1167,9 @@ align-items: center;">
 
          <hr><br><hr>
          RULES:
-         buy the best on red 🔴⚠️
-         sell on green,🚀
-         detect market waves.🌊
+         buy_red_support 🔴⚠️
+         sell_green_resistance,🚀
+         detect & respect market waves.🌊
 
       </article>
 
@@ -1209,7 +1224,6 @@ align-items: center;">
         let current_ymd = `YMD_${year}_${month}_${day}`;
 
         let keyBOX = document.getElementById('keyBOX');
-      //   let symbolBOX = document.getElementById('symbolBOX');
         let keyINPUT = document.getElementById('keyINPUT');
         let symbolINPUT = document.getElementById('symbolINPUT');
         
@@ -1230,7 +1244,6 @@ align-items: center;">
         let generatedScheduleBOX = document.getElementById('generatedScheduleBOX');         
         let generatedProfitsBOX = document.getElementById('generatedProfitsBOX');
         let generatedMarginsBOX = document.getElementById('generatedMarginsBOX');
-
 
         let detailsBtn1 = document.getElementById('detailsBtn1');
         let detailsBtn2 = document.getElementById('detailsBtn2');
@@ -1253,29 +1266,13 @@ align-items: center;">
          let ai_ledger=null;
          let ai_ticks=[],ai_spots=[];
          let ai_tick={}, ai_spot={};
-
         let ai_ledger_LOAD_from_LOCALSTORAGE=()=>{ //READ from LOCAL STORAGE
             ai_ledger = (localStorage.ai_ledger)?
                JSON.parse( localStorage.ai_ledger ):null;
-            if(!ai_ledger){
-               ai_ledger_LOAD_MOCK_DATA();
-            }
+            if(!ai_ledger){ ai_ledger_LOAD_MOCK_DATA(); }
         }; ai_ledger_LOAD_from_LOCALSTORAGE();
 
         let ai_ledger_LOAD_MOCK_DATA=()=>{ //READ from OBJ
-            // ai_ledger = {"ticks":[{"tick":"NVDA","price":"222","ath":"100","price_ymd":"2022_10_30"},{"tick":"COST","price":"444","ath":"100","ath_ymd":"2022_10_11"},{"tick":"MDB","price":"100","ath":"200","ath_ymd":"2022_20_22","price_ymd":"2000_22_20"}],"spots":[{"tick":"NVDA","price":"100","ymd":"2023_9_20"},{"tick":"NVDA","price":"100","ymd":"2022_9_22"},{"tick":"COST","price":"100","ymd":"2022_9_22"},{"tick":"MDB","price":"100","ymd":"2023_10_29"},{"tick":"MDB","price":"111","ymd":"2023_10_29"}]}              
-            // ai_ledger = {"ticks":[{"tick":"NVDA","price":"411","ath":"100","price_ymd":"2022_10_30"},{"tick":"COST","price":"550","ath":"100","ath_ymd":"2022_10_11","price_ymd":"2023_11_01"},{"tick":"MDB","price":"100","ath":"200","ath_ymd":"2022_20_22","price_ymd":"2000_22_20"},{"tick":"MSFT","price_ymd":"2023_11_01"},{"tick":"GOOG","price":"125","price_ymd":"2023_11_01"},{"tick":"QQQ","price":"350","price_ymd":"2023_11_01"},{"tick":"XLK","price":"160","price_ymd":"2023_11_01"},{"tick":"NDAQ","price":"50","price_ymd":"2023_11_01"},{"tick":"COIN","price":"75","price_ymd":"2023_11_01"},{"tick":"BTC","price":"30,000","price_ymd":"2023_11_01"},{"tick":"ETH","price":"1,700","price_ymd":"2023_11_01"},{"tick":"V","price":"230","price_ymd":"2023_11_01"}],"spots":[{"tick":"NVDA","price":"100","ymd":"2023_9_20","role":"HOLD"},{"tick":"NVDA","price":"100","ymd":"2022_9_22","role":"..."},{"tick":"COST","price":"100","ymd":"2022_9_22","role":"..."},{"tick":"MDB","price":"100","ymd":"2023_10_29","role":"HOLD"},{"tick":"MDB","price":"111","ymd":"2023_10_29","role":"..."},{"tick":"GOOG","price":"200","ymd":"2023_10_29","role":"HOLD"}]}
-            // ai_ledger = {"ticks":[{"tick":"NVDA","price":"405","ath":"100","price_ymd":"2022_10_30"},{"tick":"COST","price":"551","ath":"100","ath_ymd":"2022_10_11","price_ymd":"2023_11_01"},{"tick":"MDB","price":"100","ath":"200","ath_ymd":"2022_20_22","price_ymd":"2000_22_20"},{"tick":"MSFT","price_ymd":"2023_11_01"},{"tick":"GOOG","price":"125","price_ymd":"2023_11_01"},{"tick":"QQQ","price":"350","price_ymd":"2023_11_01"},{"tick":"XLK","price":"160","price_ymd":"2023_11_01"},{"tick":"NDAQ","price":"50","price_ymd":"2023_11_01"},{"tick":"COIN","price":"75","price_ymd":"2023_11_01"},{"tick":"V","price":"231","price_ymd":"2023_11_01"}],"spots":[{"tick":"NVDA","price":"100","ymd":"2023_9_20","role":"HOLD"},{"tick":"NVDA","price":"100","ymd":"2022_9_22","role":"..."},{"tick":"COST","price":"100","ymd":"2022_9_22","role":"..."},{"tick":"MDB","price":"100","ymd":"2023_10_29","role":"WATCH"},{"tick":"MDB","price":"111","ymd":"2023_10_29","role":"HEDGE"},{"tick":"GOOG","price":"200","ymd":"2023_10_29"}]}
-            // ai_ledger = {"ticks":[{"tick":"NVDA","price":"405","ath":"100","price_ymd":"2022_10_30"},{"tick":"COST","price":"551","ath":"100","ath_ymd":"2022_10_11","price_ymd":"2023_11_01"},{"tick":"MDB","price":"100","ath":"200","ath_ymd":"2022_20_22","price_ymd":"2000_22_20"},{"tick":"MSFT","price_ymd":"2023_11_01"},{"tick":"GOOG","price":"125","price_ymd":"2023_11_01"},{"tick":"QQQ","price":"350","price_ymd":"2023_11_01"},{"tick":"XLK","price":"160","price_ymd":"2023_11_01"},{"tick":"NDAQ","price":"50","price_ymd":"2023_11_01"},{"tick":"COIN","price":"75","price_ymd":"2023_11_01"},{"tick":"V","price":"231","price_ymd":"2023_11_01"}],
-            //    "spots":[{"tick":"NVDA","amount":"100","spot_at":"111","ymd":"2023_9_20","role":"HOLD"},{"tick":"NVDA","amount":"100","spot_at":"222","ymd":"2022_9_22","role":"..."},{"tick":"COST","amount":"100","spot_at":"333","ymd":"2022_9_22","role":"..."},{"tick":"MDB","amount":"100","spot_at":"444","ymd":"2023_10_29","role":"WATCH"},{"tick":"MDB","amount":"111","spot_at":"555","ymd":"2023_10_29","role":"HEDGE"},{"tick":"GOOG","amount":"200","spot_at":"666","ymd":"2023_10_29"}]}
-            // ai_ledger = {"ticks":[{"tick":"NVDA","price":"432","ath":"100","price_ymd":"2022_10_30"},{"tick":"COST","price":"556","ath":"100","ath_ymd":"2022_10_11","price_ymd":"2022_9_22"},{"tick":"MDB","price":"326","ath":"200","ath_ymd":"2022_20_22","price_ymd":"2022_9_22"},{"tick":"MSFT","price_ymd":"2023_11_01","price":"349"},{"tick":"GOOG","price":"128","price_ymd":"YY_MM_DD"},{"tick":"QQQ","price":"362","price_ymd":"YY_MM_DD"},{"tick":"XLK","price":"170","price_ymd":"YY_MM_DD"},{"tick":"NDAQ","price":"50","price_ymd":"YY_MM_DD"},{"tick":"COIN","price":"80","price_ymd":"YY_MM_DD"},{"tick":"V","price":"243","price_ymd":"YY_MM_DD"}],
-            //    "spots":[{"tick":"NVDA","amount":"200","spot_at":"412","ymd":"2023_10_20","role":"HOLD"},{"tick":"NVDA","amount":"300","spot_at":"459","ymd":"2023_10_10","role":"WATCH"},{"tick":"COST","amount":"200","spot_at":"552","ymd":"2023_10_20","role":"..."},{"tick":"MDB","amount":"300","spot_at":"370","ymd":"2023_10_12","role":"WATCH"},{"tick":"MDB","amount":"200","spot_at":"333","ymd":"2023_09_21","role":"HEDGE"},{"tick":"GOOG","amount":"200","spot_at":"666","ymd":"2023_10_29"},{"tick":"FSLR","amount":"0","spot_at":"0","ymd":"2023_11_02","role":"WATCH"}]}
-            // ai_ledger = {"ticks":[{"tick":"NVDA","price":"464","ath":"493","ath_ymd":"2023_08_31","price_ymd":"2023_11_09"},{"tick":"MDB","price":"326","ath":"569","ath_ymd":"2021_09_19","price_ymd":"2022_9_22"},{"tick":"MSFT","price":"362","ath":"344","ath_ymd":"2023_07_14","price_ymd":"2023_11_09"},{"tick":"GOOGL","price":"133","ath":"150","ath_ymd":"2021_11_19","price_ymd":"2023_11_09"},{"tick":"QQQ","price":"372","ath":"400","ath_ymd":"2021_11_19","price_ymd":"2023_11_09"},{"tick":"XLK","price":"175","ath":"180","ath_ymd":"2023_07_18","price_ymd":"2023_11_09"},{"tick":"NDAQ","price":"51","ath":"70","ath_ymd":"2021_11_05","price_ymd":"2023_11_08"},{"tick":"COIN","price":"89","ath":"105","ath_ymd":"2023_07_14","price_ymd":"2023_11_08"},{"tick":"V","price":"243","ath":"250","ath_ymd":"2023_09_13","price_ymd":"2023_11_09"},{"tick":"COST","price":"563","ath":"590","ath_ymd":"2022_04_08","price_ymd":"2023_11_09"}],
-            //    "spots":[{"tick":"NVDA","amount":"200","spot_at":"412","ymd":"2023_10_20","role":"HOLD"},{"tick":"NVDA","amount":"300","spot_at":"459","ymd":"2023_10_10","role":"WATCH"},{"tick":"COST","amount":"200","spot_at":"552","ymd":"2023_10_20","role":"..."},{"tick":"MDB","amount":"300","spot_at":"370","ymd":"2023_10_12","role":"WATCH"},{"tick":"MDB","amount":"200","spot_at":"333","ymd":"2023_09_21","role":"HEDGE"},{"tick":"FSLR","amount":"0","spot_at":"0","ymd":"2023_11_02","role":"WATCH"},{"tick":"NDAQ","amount":"180","spot_at":"49","ymd":"2023_09_22","role":"TRIM"},{"tick":"V","amount":"200","spot_at":"232","ymd":"2023_10_24","role":"HOLD"},{"tick":"GOOG","amount":"500","spot_at":"130","ymd":"2023_09_29","role":"HOLD"},{"tick":"QQQ","amount":"500","spot_at":"370","ymd":"2023_11_09","role":"TRIM"},{"tick":"XLK","amount":"300","spot_at":"168","ymd":"2023_09_18","role":"HOLD"}]}
-            // ai_ledger = {"ticks":[{"tick":"NVDA","price":"464","ath":"493","ath_ymd":"2023_08_31","price_ymd":"2023_11_09"},{"tick":"MDB","price":"326","ath":"569","ath_ymd":"2021_09_19","price_ymd":"2022_9_22"},{"tick":"MSFT","price":"362","ath":"344","ath_ymd":"2023_07_14","price_ymd":"2023_11_09"},{"tick":"GOOGL","price":"133","ath":"150","ath_ymd":"2021_11_19","price_ymd":"2023_11_09"},{"tick":"QQQ","price":"372","ath":"400","ath_ymd":"2021_11_19","price_ymd":"2023_11_09"},{"tick":"XLK","price":"175","ath":"180","ath_ymd":"2023_07_18","price_ymd":"2023_11_09"},{"tick":"NDAQ","price":"51","ath":"70","ath_ymd":"2021_11_05","price_ymd":"2023_11_08"},{"tick":"COIN","price":"89","ath":"105","ath_ymd":"2023_07_14","price_ymd":"2023_11_08"},{"tick":"V","price":"243","ath":"250","ath_ymd":"2023_09_13","price_ymd":"2023_11_09"},{"tick":"COST","price":"563","ath":"590","ath_ymd":"2022_04_08","price_ymd":"2023_11_09"},{"tick":"AMD","price":"113","ath":"130","ath_ymd":"2023_06_12","price_ymd":"2023_11_09"}],
-            //    "spots":[{"tick":"NVDA","amount":"200","spot_at":"412","ymd":"2023_10_20","role":"TRIM"},{"tick":"NVDA","amount":"300","spot_at":"459","ymd":"2023_10_10","role":"HOLD"},{"tick":"COST","amount":"200","spot_at":"552","ymd":"2023_10_20","role":"SAFE"},{"tick":"MDB","amount":"300","spot_at":"370","ymd":"2023_10_12","role":"WATCH"},{"tick":"MDB","amount":"200","spot_at":"333","ymd":"2023_09_21","role":"WATCH"},{"tick":"FSLR","amount":"0","spot_at":"0","ymd":"2023_11_02","role":"..."},{"tick":"NDAQ","amount":"180","spot_at":"49","ymd":"2023_09_22","role":"TRIM"},{"tick":"V","amount":"200","spot_at":"232","ymd":"2023_10_24","role":"HOLD"},{"tick":"GOOGL","amount":"500","spot_at":"130","ymd":"2023_09_29","role":"TRIM"},{"tick":"QQQ","amount":"500","spot_at":"370","ymd":"2023_11_09","role":"TRIM"},{"tick":"XLK","amount":"300","spot_at":"168","ymd":"2023_09_18","role":"TRIM"},{"tick":"MSFT","amount":"100","spot_at":"330","ymd":"2023_10_26","role":"HOLD"},{"tick":"MSFT","amount":"100","spot_at":"339","ymd":"2023_10_25","role":"HOLD"},{"tick":"MSFT","amount":"200","spot_at":"316","ymd":"2023_10_02","role":"TRIM"},{"tick":"AMD","amount":"200","spot_at":"102","ymd":"2023_10_02","role":"WATCH"}]}
-            // ai_ledger = {"ticks":[{"tick":"NVDA","price":"464","ath":"493","ath_ymd":"2023_08_31","price_ymd":"2023_11_09"},{"tick":"MDB","price":"363","ath":"569","ath_ymd":"2021_09_19","price_ymd":"2022_9_22"},{"tick":"MSFT","price":"362","ath":"344","ath_ymd":"2023_07_14","price_ymd":"2023_11_09"},{"tick":"GOOGL","price":"133","ath":"150","ath_ymd":"2021_11_19","price_ymd":"2023_11_09"},{"tick":"QQQ","price":"372","ath":"400","ath_ymd":"2021_11_19","price_ymd":"2023_11_09"},{"tick":"XLK","price":"175","ath":"180","ath_ymd":"2023_07_18","price_ymd":"2023_11_09"},{"tick":"NDAQ","price":"51","ath":"70","ath_ymd":"2021_11_05","price_ymd":"2023_11_08"},{"tick":"COIN","price":"89","ath":"105","ath_ymd":"2023_07_14","price_ymd":"2023_11_08"},{"tick":"V","price":"243","ath":"250","ath_ymd":"2023_09_13","price_ymd":"2023_11_09"},{"tick":"COST","price":"563","ath":"590","ath_ymd":"2022_04_08","price_ymd":"2023_11_09"},{"tick":"AMD","price":"113","ath":"130","ath_ymd":"2023_06_12","price_ymd":"2023_11_09"}],
-            //    "spots":[{"tick":"NVDA","amount":"200","spot_at":"412","ymd":"2023_10_20","role":"TRIM"},{"tick":"NVDA","amount":"300","spot_at":"459","ymd":"2023_10_10","role":"HOLD"},{"tick":"COST","amount":"200","spot_at":"552","ymd":"2023_10_20","role":"SAFE"},{"tick":"MDB","amount":"300","spot_at":"370","ymd":"2023_10_12","role":"WATCH"},{"tick":"MDB","amount":"200","spot_at":"333","ymd":"2023_09_21","role":"WATCH"},{"tick":"FSLR","amount":"0","spot_at":"0","ymd":"2023_11_02","role":"..."},{"tick":"NDAQ","amount":"180","spot_at":"49","ymd":"2023_09_22","role":"TRIM"},{"tick":"V","amount":"200","spot_at":"232","ymd":"2023_10_24","role":"HOLD"},{"tick":"GOOGL","amount":"500","spot_at":"130","ymd":"2023_09_29","role":"TRIM"},{"tick":"QQQ","amount":"500","spot_at":"370","ymd":"2023_11_09","role":"TRIM"},{"tick":"XLK","amount":"300","spot_at":"168","ymd":"2023_09_18","role":"TRIM"},{"tick":"MSFT","amount":"100","spot_at":"330","ymd":"2023_10_26","role":"HOLD"},{"tick":"MSFT","amount":"100","spot_at":"339","ymd":"2023_10_25","role":"HOLD"},{"tick":"MSFT","amount":"200","spot_at":"316","ymd":"2023_10_02","role":"TRIM"},{"tick":"AMD","amount":"200","spot_at":"102","ymd":"2023_10_02","role":"WATCH"}]}
             ai_ledger = {"ticks":[{"tick":"NVDA","price":"483","ath":"493","ath_ymd":"2023_08_31","price_ymd":"2023_11_11"},{"tick":"MDB","price":"375","ath":"569","ath_ymd":"2021_09_19","price_ymd":"2023_11_11"},{"tick":"MSFT","price":"369","ath":"344","ath_ymd":"2023_07_14","price_ymd":"2023_11_11"},{"tick":"GOOGL","price":"132","ath":"150","ath_ymd":"2021_11_19","price_ymd":"2023_11_11"},{"tick":"QQQ","price":"377","ath":"400","ath_ymd":"2021_11_19","price_ymd":"2023_11_11"},{"tick":"XLK","price":"179","ath":"180","ath_ymd":"2023_07_18","price_ymd":"2023_11_11"},{"tick":"NDAQ","price":"52","ath":"70","ath_ymd":"2021_11_05","price_ymd":"2023_11_11"},{"tick":"COIN","price":"93","ath":"105","ath_ymd":"2023_07_14","price_ymd":"2023_11_11"},{"tick":"V","price":"245","ath":"250","ath_ymd":"2023_09_13","price_ymd":"2023_11_11"},{"tick":"COST","price":"576","ath":"590","ath_ymd":"2022_04_08","price_ymd":"2023_11_11"},{"tick":"AMD","price":"118","ath":"130","ath_ymd":"2023_06_12","price_ymd":"2023_11_11"}],
                "spots":[{"tick":"NVDA","amount":"200","spot_at":"412","ymd":"2023_10_20","role":"TRIM"},{"tick":"NVDA","amount":"300","spot_at":"459","ymd":"2023_10_10","role":"HOLD"},{"tick":"COST","amount":"200","spot_at":"552","ymd":"2023_10_20","role":"SAFE"},{"tick":"MDB","amount":"300","spot_at":"370","ymd":"2023_10_12","role":"WATCH"},{"tick":"MDB","amount":"200","spot_at":"333","ymd":"2023_09_21","role":"WATCH"},{"tick":"FSLR","amount":"0","spot_at":"0","ymd":"2023_11_02","role":"..."},{"tick":"NDAQ","amount":"180","spot_at":"49","ymd":"2023_09_22","role":"TRIM"},{"tick":"V","amount":"200","spot_at":"232","ymd":"2023_10_24","role":"HOLD"},{"tick":"GOOGL","amount":"500","spot_at":"130","ymd":"2023_09_29","role":"TRIM"},{"tick":"QQQ","amount":"500","spot_at":"370","ymd":"2023_11_09","role":"TRIM"},{"tick":"XLK","amount":"300","spot_at":"168","ymd":"2023_09_18","role":"TRIM"},{"tick":"MSFT","amount":"100","spot_at":"330","ymd":"2023_10_26","role":"HOLD"},{"tick":"MSFT","amount":"100","spot_at":"339","ymd":"2023_10_25","role":"HOLD"},{"tick":"MSFT","amount":"200","spot_at":"316","ymd":"2023_10_02","role":"TRIM"},{"tick":"AMD","amount":"200","spot_at":"102","ymd":"2023_10_02","role":"WATCH"}]}
         }
@@ -1405,20 +1402,20 @@ align-items: center;">
             role1.value = "...";
             role2.value = "HOLD";
             role3.value = "WATCH";
-            role4.value = "CUTLOSS";
+            role4.value = "RISKOFF";
             role5.value = "HEDGE";
             role6.value = "TRIM";
             role7.value = "SAFE";
-            role8.value = "GAMBLE";
+            role8.value = "RISKON";
             role9.value = "EXIT";
             role1.innerHTML = "...";
             role2.innerHTML = "HOLD";
             role3.innerHTML = "WATCH";
-            role4.innerHTML = "CUTLOSS";
+            role4.innerHTML = "RISKOFF";
             role5.innerHTML = "HEDGE";
             role6.innerHTML = "TRIM";
             role7.innerHTML = "SAFE";
-            role8.innerHTML = "GAMBLE";
+            role8.innerHTML = "RISKON";
             role9.innerHTML = "EXIT";
             roleData.appendChild(role1);
             roleData.appendChild(role2);
@@ -1745,7 +1742,7 @@ align-items: center;">
             role5.value = "HEDGE";
             role6.value = "TRIM";
             role7.value = "SAFE";
-            role8.value = "GAMBLE";
+            role8.value = "RISK_ON";
             role9.value = "EXIT";
             role1.innerHTML = "...";
             role2.innerHTML = "HOLD";
@@ -1754,7 +1751,7 @@ align-items: center;">
             role5.innerHTML = "HEDGE";
             role6.innerHTML = "TRIM";
             role7.innerHTML = "SAFE";
-            role8.innerHTML = "GAMBLE";
+            role8.innerHTML = "RISK_ON";
             role9.innerHTML = "EXIT";
             roleData.appendChild(role1);
             roleData.appendChild(role2);
@@ -1884,10 +1881,121 @@ align-items: center;">
        * - end DECODE
       \****************************************/
       /*****************************************\
+       * - ai_BANK functions
+      \*****************************************/
+      // ai_schedule = {quarters:{"Q4_2023_OCT":{"NVDA":{type:'trim'}}}}
+      let ai_BANK = {
+         "Q4_2023_OCT": {trxns:[{pads:[],trims:[]}]}
+      }
+      /*****************************************\
        * - SCHEDULE functions
       \****************************************/
-      const trimScheduleClick = ()=>{ console.log('a')}
-      const padScheduleClick = ()=>{ console.log('ab')}
+      const trimScheduleClick = ()=>{ 
+         //selection trim ai_bank{"tick":{balance}}  //increment trim_count.
+         let selected=null, quarterID,transObj;
+         let items = document.getElementsByClassName('cap_checkmark');
+         for(let i=0; i<items.length;i++){
+            if(items[i].checked){
+               selected = items[i]
+               selected.checked = false;
+               break;
+            }
+         }
+         if(!selected){ showErrorMSG(' Nothing selected 😵'); return; }            
+         quarterSet = selected.ymdt.toUpperCase().split('_');
+         quarterTick = quarterSet.pop()
+         quarterID = quarterSet.join('_')
+         if(!ai_BANK[quarterID]){ //INIT
+            ai_BANK[quarterID] = {id:quarterID}
+            ai_BANK[quarterID].trxns = {pads:[],trims:[]}
+         } 
+         transObj = {}
+         transObj.tick = ''
+         transObj.type = ''
+         transObj.amt = ''
+         transObj.at = ''
+         transObj.ymd = ''
+         //FIND UI DATA
+         quarterSets = ai_schedule.quarters;
+         for(var x = 0; x<quarterSets.length;x++){ //UI QUARTER DATA LOOKUP.
+            quarter= quarterSets[x];            
+            if(quarter.quarterID===quarterID){
+               // ai_schedule.quarters[x].monthData.push(transObj)
+               for(var y=0; y<quarter.caps.length;y++){ // LOOK UP CAPS
+                  if(quarter.caps[y].tick.toUpperCase()===quarterTick){
+                     transObj.tick = quarterTick;
+                     transObj.type = 'trim';
+                     transObj.amt =  quarter.caps[y].trim_at || '';
+                     transObj.ymd = formatYMD();
+                     break;             
+                  }
+               }
+               ai_schedule.quarters[x].monthData.push(transObj)
+               break
+            }
+         }
+         if(!transObj && transObj.tick){return}
+         ai_BANK[quarterID].trxns.trims.push(transObj)
+         show_schedule_details_view = true; //SHOW DETAILS
+         totalsBtn2.style.display='block'
+         detailsBtn2.style.display='none'  
+         generateScheduleClick();       
+         //UPDATE LOCALSTORAGE with ai_schedule. SAVE
+         localStorage.ai_schedule = JSON.stringify(ai_schedule)  
+      }
+      const padScheduleClick = ()=>{ 
+         let selected=null, quarterID,transObj;
+         let items = document.getElementsByClassName('cap_checkmark');
+         for(let i=0; i<items.length;i++){
+            if(items[i].checked){
+               selected = items[i]
+               selected.checked = false;
+               break;
+            }
+         }
+         if(!selected){ showErrorMSG(' Nothing selected 😵'); return; }            
+         show_schedule_details_view = true; //SHOW DETAILS
+         quarterSet = selected.ymdt.toUpperCase().split('_');
+         quarterTick = quarterSet.pop()
+         quarterID = quarterSet.join('_')
+         if(!ai_BANK[quarterID]){ //INIT
+            ai_BANK[quarterID] = {id:quarterID}
+            ai_BANK[quarterID].trxns = {pads:[],trims:[]}
+         } 
+         transObj = {}
+         transObj.tick = ''
+         transObj.type = ''
+         transObj.amt = ''
+         transObj.at = ''
+         transObj.ymd = ''
+         //FIND UI DATA
+         quarterSets = ai_schedule.quarters;
+         for(var x = 0; x<quarterSets.length;x++){ //UI QUARTER DATA LOOKUP.
+            quarter= quarterSets[x];            
+            if(quarter.quarterID===quarterID){
+               for(var y=0; y<quarter.caps.length;y++){ // LOOK UP CAPS
+                  if(quarter.caps[y].tick.toUpperCase()===quarterTick){
+                     transObj.tick = quarterTick;
+                     transObj.type = 'pad';
+                     transObj.amt =  quarter.caps[y].trim_at || '';
+                     transObj.ymd = formatYMD();
+                     break;             
+                  }
+               }
+               ai_schedule.quarters[x].monthData.push(transObj)
+               break
+            }
+         }
+         if(!transObj && transObj.tick){return}
+         ai_BANK[quarterID].trxns.pads.push(transObj)
+
+
+         totalsBtn2.style.display='block'
+         detailsBtn2.style.display='none'
+         generateScheduleClick();
+         //UPDATE LOCALSTORAGE with ai_schedule. SAVE
+         localStorage.ai_schedule = JSON.stringify(ai_schedule)  
+      }
       const addScheduleClick = ()=>{ 
          saveScheduleBtn1.style.display = 'block'; 
 
@@ -1904,13 +2012,49 @@ align-items: center;">
          roleData = document.createElement('select')
          role1 = document.createElement('option')
 
+         role2 = document.createElement('option')
+         role3 = document.createElement('option')
+         role4 = document.createElement('option')
+         role5 = document.createElement('option')
+         role6 = document.createElement('option')
+         role7 = document.createElement('option')
+         role8 = document.createElement('option')
+         role9 = document.createElement('option')
          role1.value = "...";
-
+         role2.value = "HOLD";
+         role3.value = "WATCH";
+         role4.value = "RISKOFF";
+         role5.value = "HEDGE";
+         role6.value = "TRIM";
+         role7.value = "SAFE";
+         role8.value = "RISKON";
+         role9.value = "EXIT";
          role1.innerHTML = "...";
-
+         role2.innerHTML = "HOLD";
+         role3.innerHTML = "WATCH";
+         role4.innerHTML = "RISKOFF";
+         role5.innerHTML = "HEDGE";
+         role6.innerHTML = "TRIM";
+         role7.innerHTML = "SAFE";
+         role8.innerHTML = "RISKON";
+         role9.innerHTML = "EXIT";
          roleData.appendChild(role1);
-           
-         roleBOX.appendChild(roleData)
+         roleData.appendChild(role2);
+         roleData.appendChild(role3);
+         roleData.appendChild(role4);
+         roleData.appendChild(role5);
+         roleData.appendChild(role6);
+         roleData.appendChild(role7);
+         roleData.appendChild(role8);
+         roleData.appendChild(role9);
+         // roleData.value = ai_ledger.spots[i].role || '';
+         // roleBOX.appendChild(roleData)
+
+
+         // role1.value = "...";
+         // role1.innerHTML = "...";
+         // roleData.appendChild(role1); 
+         // roleBOX.appendChild(roleData)
          roleBOX.classList.add('roleBOX1')
          roleData.classList.add('roleData1')
          atData1 = document.createElement('input')
@@ -1951,16 +2095,12 @@ align-items: center;">
          scheduleRow1.appendChild(tick1)
          amountBOX1.appendChild(amountData1)
          scheduleRow1.appendChild(amountBOX1)
-         // athBOX1.appendChild(athData1)
          atData1.classList.add('spotAtData1')
          atBOX1.classList.add('spotAtBOX1')
          atBOX1.appendChild(atData1)            
          scheduleRow1.appendChild(atBOX1)
          scheduleRow1.appendChild(roleBOX)
          scheduleRow1.appendChild(saveBtn3)
-         // scheduleSPOTZ.appendChild(scheduleRow1)  
-         
-         // capROW.appendChild(crashlvlBOX1)
          generatedScheduleBOX.appendChild(scheduleRow1)
    
       } //end add schedule click
@@ -1982,11 +2122,13 @@ align-items: center;">
    \************************************************/
    let ai_schedule=null;
    const ai_schedule_LOAD_MOCK_DATA=()=>{ //READ from OBJ
+      // ai_schedule.quarters["Q4_2023_OCT"]["NVDA"]
+      // ai_schedule = {quarters:{"Q4_2023_OCT":{"NVDA":{type:'trim'}}}}
+      // ai_schedule = {"Q4_2023_OCT":{caps{"NVDA":{type:'trim'}}}}
       ai_schedule = {quarters:[
-         {quarter:'Q4',year:2023,
-         month:'OCT',
-         monthData:[
-            {type:'pad',tick:'mdb',amt:100,at:'500',ymd:'2023_10_26',note:'',role:'PAD_TOP'},
+         {quarterID:'Q4_2023_OCT',quarter:'Q4',year:2023,month:'OCT',
+         monthData:[ //TODO remove at? and note?
+            {type:'pad',tick:'mdb',amt:100,at:'500',ymd:'2023_10_26',note:'',role:'WATCH'},
             {type:'pad',tick:'nvda',amt:100,at:'500',ymd:'2023_10_27',note:'',role:'HEDGE'}
          ],
          caps:[
@@ -1994,13 +2136,12 @@ align-items: center;">
             {tick:'mdb',cap:'1000',trim_at:'100',pad_at:'100',pad_limit:3,lvl_limit:2},
             {tick:'cost',cap:'1000',trim_at:'100',pad_at:'100',pad_limit:3,lvl_limit:2}
          ]},
-         {quarter:'Q4',year:2023,
-         month:'NOV',
+         {quarterID:'Q4_2023_NOV',quarter:'Q4',year:2023,month:'NOV',
          monthData:[
-            {type:'trim',tick:'mdb',amt:100,at:'500',ymd:'2023_11_10',note:'',role:'CASH_OUT'},
-            {type:'trim',tick:'nvda',amt:100,at:'500',ymd:'2023_11_14',note:'',role:'BANK_PROFIT'},
-            // {type:'tgt',tick:'nvda',at:'5000_BAL',role:'GROWTH'},
-            // {type:'tgt',tick:'mdb',at:'1500_BAL',role:'GROWTH'},
+            {type:'trim',tick:'mdb',amt:100,at:'500',ymd:'2023_11_10',note:'',role:'SAFE'},
+            {type:'trim',tick:'nvda',amt:100,at:'500',ymd:'2023_11_14',note:'',role:'HOLD'},
+            // {type:'pad',tick:'nvda',at:'5000_BAL',role:'GROWTH'},
+            // {type:'pad',tick:'mdb',at:'1500_BAL',role:'GROWTH'},
             // {type:'tgt',tick:'nvda',at:'BOLL_TOP',role:'TRIM'},
             // {type:'tgt',tick:'BANK',at:'BANK_20%',role:'SAFE'},
             // {type:'tgt',tick:'v',at:'SET_BASE',role:'SAFE'},
@@ -2041,7 +2182,7 @@ align-items: center;">
    /*************************************\
     * SCHEDULE_MATRIX - quarterly values in time
    \*************************************/
-   const update_Schedule_Matrix = ( tickr ) => {//data updated: to not lose, push duplicate to history
+   // const update_Schedule_Matrix = ( tickr ) => {//data updated: to not lose, push duplicate to history
       //TODO
       // if(!tickr || !tickr.price || !tickr.ymd){return}
       // if(!ai_schedule[tickr.tick]) { ai_schedule[tickr.tick]= {tick:ai_schedule[tickr.tick]} }
@@ -2049,7 +2190,7 @@ align-items: center;">
       // ai_schedule[tickr.tick]['ymd_price'][tickr.ymd] = tickr.price;
       // //UPDATE LOCALSTORAGE with ai_schedule. SAVE
       // localStorage.ai_schedule = JSON.stringify(ai_schedule)  
-   }      
+   // }      
          
       const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
       //TODO if selected, only run selected
@@ -2069,7 +2210,8 @@ align-items: center;">
          // quarterBOX.innerHTML = quarter.quarter+'_'+quarter.year+'_'+quarter.month;
          quarterTXT = document.createElement('span')
          quarterTXT.classList.add('quarterTXT')
-         quarterTXT.innerHTML = quarter.quarter+'_'+quarter.year+'_'+quarter.month;
+         // quarterTXT.innerHTML = quarter.quarter+'_'+quarter.year+'_'+quarter.month;
+         quarterTXT.innerHTML = quarter.quarterID.toUpperCase();
          quarterBOX.appendChild(quarterTXT)
          monthBOX = document.createElement('article')
          monthBOX.classList.add('monthBOX')
@@ -2085,11 +2227,12 @@ align-items: center;">
             encodeCHECKBOX1 = document.createElement('label')
             encodeCHECKBOX1.classList.add('checkboxFrame') //encodeNUMBOX1
             encodeNUMBOX1.innerHTML=j+1;            
-            encodeSelect1 = document.createElement('input')
+            encodeSelect1 = document.createElement('input');
+            encodeSelect1.ymdt = (quarter.quarter+'_'+quarter.year+'_'+quarter.month+'_'+capsData.tick).toLowerCase();
             encodeSelect1.type = "radio";
             encodeSelect1.name = "scheduleRadio";
             // encodeSelect1.type = "checkbox";
-            encodeSelect1.classList.add('tkr_checkmark')
+            encodeSelect1.classList.add('cap_checkmark')
             encodeCHECKBOX1.appendChild(encodeSelect1)
             encodeCheckMark1 = document.createElement('span')
             encodeCheckMark1.classList.add('checkmark')
@@ -2163,202 +2306,129 @@ align-items: center;">
             capROW.appendChild(padlvlBOX1)         
             capROW.appendChild(crashlvlBOX1)
             monthBOX.appendChild(capROW)
-            
-            // capROW.appendChild(trimCap)         
-            // capROW.appendChild(trim_at)         
-            // capROW.appendChild(pad_at)         
-            // capROW.appendChild(pad_limit)         
-            // capROW.appendChild(lvl_limit)
-                  // trimBtnROW = document.createElement('aside')
-                  // trimBtnROW.classList.add('trimBtnROW')
-                  
-                  // trimBtn1 = document.createElement('button')
-                  // padBtn1 = document.createElement('button')
-                  // lvlUpBtn1 = document.createElement('button')
-                  // trimBtn1.innerHTML = 'trim🐇'
-                  // trimBtn1.classList.add('genBtn1')
-                  // trimBtn1.addEventListener("click",(e)=>{
-                  //    let trim_id = j;
-                  //    console.log('item',trim_id) });
-                  //    padBtn1.innerHTML = 'pad👻'
-                  // padBtn1.classList.add('genBtn1')                                       
-                  // padBtn1.addEventListener("click",(e)=>{
-                  //    let trim_id = j;
-                  //    console.log('item',trim_id) });  
-                  // lvlUpBtn1.innerHTML = 'lvlup🐒'
-                  // lvlUpBtn1.classList.add('genBtn1')                                     
-                  // lvlUpBtn1.addEventListener("click",(e)=>{
-                  //    let trim_id = j;
-                  //    console.log('item',trim_id) });                  
 
-                  // trimBtnROW.appendChild(trimBtn1)
-                  // trimBtnROW.appendChild(padBtn1)
-                  // trimBtnROW.appendChild(lvlUpBtn1)
-                  // monthBOX.appendChild(trimBtnROW)
-                  if(show_schedule_details_view){   //BEGIN DETAILS VIEW
-                     let detailRow2,date1,detAmt,detType,detRole,detNote;
-                     let monthData = null;
-                     let role1,role2,role3,role4,role5,role6,role7,role8,role9;
-                     let type1,type2,type3,type4;
-                     let roleBOX,roleData,typeBOX,typeData,atBOX1;
-                     let noteData1,noteBOX1,amtBOX1,atData1,amtData1;
-                     debugger;
-                     for(let k=0;k<quarter.monthData.length;k++){  //CAP DETAILS LOOP.
-                        monthData = quarter.monthData[k];
-                        if(monthData.tick!=capsData.tick){continue;}
-                        detailRow2 = document.createElement('section')
-                        detailRow2.classList.add('detailRow2')
-                        // detailRow2.innerHTML = capsData.tick;
-                        //DETAILS ROW
-                        // {type:'pad',tick:'mdb',amt:100,ymd:'2023_10_26',note:'',role:'PAD_TOP'},
+            if(show_schedule_details_view){   //BEGIN DETAILS VIEW
+               let detailRow2,date1,detAmt,detType,detRole,detNote;
+               let monthData = null;
+               let role1,role2,role3,role4,role5,role6,role7,role8,role9;
+               let type1,type2,type3,type4;
+               let roleBOX,roleData,typeBOX,typeData,atBOX1;
+               let noteData1,noteBOX1,amtBOX1,atData1,amtData1;
+               for(let k=0;k<quarter.monthData.length;k++){  //CAP DETAILS LOOP.
+                  monthData = quarter.monthData[k];
+                  if(monthData.tick.toUpperCase()!=capsData.tick.toUpperCase()){continue;}
+                  detailRow2 = document.createElement('section')
+                  detailRow2.classList.add('detailRow2')
+                  //DETAILS ROW
+                     date1 = document.createElement('input')
+                     date1.value = ''+monthData.ymd;
+                     date1.classList.add('detailDate1')
 
+                     atBOX1 = document.createElement('aside')
+                     atBOX1.innerHTML="@&nbsp;"
+                     amtBOX1 = document.createElement('aside')
+                     amtBOX1.innerHTML="amt&nbsp;"
+                     roleBOX = document.createElement('aside')
+                     roleBOX.innerHTML="role&nbsp;"
+                     typeBOX = document.createElement('aside')
+                     typeBOX.innerHTML="type&nbsp;"
+                     roleData = document.createElement('select')
+                     // typeData = document.createElement('select')
+                     typeData = document.createElement('input')
+                     role1 = document.createElement('option')
+                     role2 = document.createElement('option')
+                     role3 = document.createElement('option')
+                     role4 = document.createElement('option')
+                     role5 = document.createElement('option')
+                     role6 = document.createElement('option')
+                     role7 = document.createElement('option')
+                     role8 = document.createElement('option')
+                     role9 = document.createElement('option')
+                     role1.value = "...";
+                     role2.value = "HOLD";
+                     role3.value = "WATCH";
+                     role4.value = "RISKOFF";
+                     role5.value = "HEDGE";
+                     role6.value = "TRIM";
+                     role7.value = "SAFE";
+                     role8.value = "RISKON";
+                     role9.value = "EXIT";
+                     role1.innerHTML = "...";
+                     role2.innerHTML = "HOLD";
+                     role3.innerHTML = "WATCH";
+                     role4.innerHTML = "RISKOFF";
+                     role5.innerHTML = "HEDGE";
+                     role6.innerHTML = "TRIM";
+                     role7.innerHTML = "SAFE";
+                     role8.innerHTML = "RISKON";
+                     role9.innerHTML = "EXIT";
+                     roleData.appendChild(role1);
+                     roleData.appendChild(role2);
+                     roleData.appendChild(role3);
+                     roleData.appendChild(role4);
+                     roleData.appendChild(role5);
+                     roleData.appendChild(role6);
+                     roleData.appendChild(role7);
+                     roleData.appendChild(role8);
+                     roleData.appendChild(role9);
+                     roleData.value = monthData.role || '';
+                     roleBOX.appendChild(roleData)
+                        
 
-                        //*********************** SCHEDULE DETAILS...
-                        // let scheduleRow1,date1,tick1,amountData1;
-                           // let role1,role2,role3,role4,role5,role6,role7,role8,role9;
-                           // let saveBtn3,roleBOX,roleData,atBOX1,atData1;
-                           // scheduleRow1 = document.createElement('article')
-                           // scheduleRow1.classList.add('scheduleRow1')
+                     // role1.value = "...";
+                     // role1.innerHTML = "...";
+                     // type1 = document.createElement('option')
+                     // type1.value = "...";
+                     // type1.innerHTML = "...";
+                     // roleData.appendChild(role1);
+                     // typeData.appendChild(type1);
+                     typeData.value= monthData.type || '';
+                     // roleBOX.appendChild(roleData)
+                     roleBOX.classList.add('roleBOX1')
+                     typeBOX.appendChild(typeData)
+                     typeBOX.classList.add('roleBOX1')
+                     roleData.classList.add('roleData1')
+                     typeData.classList.add('typeData1')
+                     atData1 = document.createElement('input')
+                     atData1.placeholder = "$0.00";
+                     amtData1 = document.createElement('input')
+                     amtData1.placeholder = "$0.00";
+                     amtData1.value = monthData.amt;
 
-                           date1 = document.createElement('input')
-                           date1.value = ''+monthData.ymd;//current_ymd.split('YMD_')[1];//user display
-                           date1.classList.add('detailDate1')
+                     // noteData1 = document.createElement('input')
+                     // noteBOX1 = document.createElement('aside')
+                     // noteBOX1.innerHTML = "note&nbsp;"
+                     // noteData1.placeholder = "...";
+                     // noteData1.addEventListener("keyup",(e)=>{
+                     //    saveSpotBtn1.style.display = 'block'; });                         
 
-                           atBOX1 = document.createElement('aside')
-                           atBOX1.innerHTML="@&nbsp;"
-                           amtBOX1 = document.createElement('aside')
-                           amtBOX1.innerHTML="amt&nbsp;"
-                           roleBOX = document.createElement('aside')
-                           roleBOX.innerHTML="role&nbsp;"
-                           typeBOX = document.createElement('aside')
-                           typeBOX.innerHTML="type&nbsp;"
-                           roleData = document.createElement('select')
-                           typeData = document.createElement('select')
-                           role1 = document.createElement('option')
-                           role1.value = "...";
-                           role1.innerHTML = "...";
-                           type1 = document.createElement('option')
-                           type1.value = "...";
-                           type1.innerHTML = "...";
-                           roleData.appendChild(role1);
-                           typeData.appendChild(type1);
-                           roleBOX.appendChild(roleData)
-                           roleBOX.classList.add('roleBOX1')
-                           typeBOX.appendChild(typeData)
-                           typeBOX.classList.add('roleBOX1')
-                           roleData.classList.add('roleData1')
-                           typeData.classList.add('roleData1')
-                           atData1 = document.createElement('input')
-                           atData1.placeholder = "$0.00";
-                           amtData1 = document.createElement('input')
-                           amtData1.placeholder = "$0.00";
-                           // atData1.value = ai_ledger.spots[i].spot_at || '';
-                           // saveBtn3 = document.createElement('button')
+                     // noteData1.classList.add('spotamountData1')
+                     // noteBOX1.classList.add('spotamountBOX1')
+                     // noteBOX1.appendChild(noteData1)
 
-                           // tick1 = document.createElement('input')
-                           noteData1 = document.createElement('input')
-                           noteBOX1 = document.createElement('aside')
-                           noteBOX1.innerHTML = "note&nbsp;"
-                           
-                           // athBOX1.innerHTML = "type&nbsp;"
-                           // athBOX1 = document.createElement('aside')
-                           // athData1 = document.createElement('input')
-                           // tick1.value = "";
-                           // tick1.readOnly = false;
-                           // tick1.placeholder="ticker"
-                           noteData1.placeholder = "...";
-                           // athData1.placeholder = "+-:%";
-                           // tick1.addEventListener("keyup",(e)=>{
-                           //    saveSpotBtn1.style.display = 'block'; });
-                           // athData1.addEventListener("keyup",(e)=>{
-                           //    saveSpotBtn1.style.display = 'block'; });
-                           noteData1.addEventListener("keyup",(e)=>{
-                              saveSpotBtn1.style.display = 'block'; });                         
-                           // tick1.classList.add('scheduleTick1')
-                           // saveBtn3.innerHTML = 'save🌟'
-                           // saveBtn3.classList.add('saveBtn2')
-                           // saveBtn3.addEventListener("click",(e)=>{
-                           //    saveSpotClick() });
-                           noteData1.classList.add('spotamountData1')
-                           noteBOX1.classList.add('spotamountBOX1')
-                           noteBOX1.appendChild(noteData1)
-                           // athData1.classList.add('spotATHData1')
-                           // athBOX1.classList.add('spotATHBOX1')
-                           atData1.classList.add('spotAtData1')
-                           amtData1.classList.add('spotAtData1')
-                           atBOX1.classList.add('spotAtBOX1')
-                           atBOX1.appendChild(atData1)            
-                           amtBOX1.classList.add('spotAtBOX1')
-                           amtBOX1.appendChild(amtData1)            
-                           // scheduleRow1.appendChild(tick1)
-                           detailRow2.appendChild(date1)
-                           detailRow2.appendChild(typeBOX)
-                           detailRow2.appendChild(amtBOX1)
-                           detailRow2.appendChild(atBOX1)
-                           detailRow2.appendChild(roleBOX)
-                           detailRow2.appendChild(noteBOX1)
+                     atData1.classList.add('spotAtData1')
+                     amtData1.classList.add('spotAtData1')
+                     atBOX1.classList.add('spotAtBOX1')
+                     atBOX1.appendChild(atData1)            
+                     amtBOX1.classList.add('spotAtBOX1')
+                     amtBOX1.appendChild(amtData1)            
+                     // scheduleRow1.appendChild(tick1)
+                     detailRow2.appendChild(date1)
+                     detailRow2.appendChild(typeBOX)
+                     detailRow2.appendChild(amtBOX1)
+                     // detailRow2.appendChild(atBOX1)
+                     detailRow2.appendChild(roleBOX)
+                     // detailRow2.appendChild(noteBOX1)
 
 
-                        //END DETAILS ROW
-                        // detailRow2.appendChild(spotPCT1)
-                        monthBOX.appendChild(detailRow2) 
+                  //END DETAILS ROW
+                  // detailRow2.appendChild(spotPCT1)
+                  monthBOX.appendChild(detailRow2) 
 
-                     }
-                  }  //END DETAILS VIEW
+               } //END DETAILS LOOP
+            }  //END DETAILS VIEW
 
-                  // if(show_margin_details_view){ //BEGIN DETAILS VIEW
-                  //    //loop over spots of and display detailRow.
-                  //    let spotObj,spotDate1,spotAmt1,spotPrice1;
-                  //    let spotMargin2=0,spotPCT2=0,curr_price2;
-                  //    for(var j=0; j<ai_ledger.spots.length;j++){
-                  //       spotObj = ai_ledger.spots[j];
-                  //       if(spotObj.tick != ticker.tick){continue}
-                  //       detailRow1 = document.createElement('section')
-                  //       detailRow1.classList.add('detailRow1')
-                  //       // detailRow1.innerHTML = ticker.tick;
-
-                  //       //CALCULATE individual SPOT MARGIN
-                  //       curr_price2 = TickMAP_MetaData[ticker.tick].curr_price;
-                  //       spotMargin2 = curr_price2 - spotObj.spot_at
-                  //       spotPCT2 = (spotMargin2/spotObj.spot_at) * 100 
-                  //       // spotPCT2 = spotPCT2.toFixed(0);
-
-                  //       spotDate1 = document.createElement('aside')
-                  //       spotDate1.classList.add('spotDate1')
-                  //       spotDate1.innerHTML = spotObj.ymd || 0;
-
-                  //       spotAmt1 = document.createElement('aside')
-                  //       spotAmt1.classList.add('spotAmt1')
-                  //       spotAmt1.innerHTML =  'amt '+spotObj.amount || 0;
-
-                  //       spotPrice1 = document.createElement('aside')
-                  //       spotPrice1.classList.add('spotPrice1')
-                  //       spotPrice1.innerHTML =  'price '+spotObj.spot_at || 0;
-
-                  //       spotMargin1 = document.createElement('aside')
-                  //       spotMargin1.classList.add('spotMargin1')
-                  //       // spotMargin1.innerHTML =  'margin '+spotMargin2 || 0;
-                  //       spotMargin1.innerHTML = `margin: 
-                  //          ${(spotMargin2>0 )?'+':''}${spotMargin2}`                  
-
-                  //       spotPCT1 = document.createElement('aside')
-                  //       spotPCT1.classList.add('spotPCT1')
-                  //       // spotPCT1.innerHTML =  'pct '+ spotPCT2 || 0;
-                  //       spotPCT1.innerHTML = `pct: 
-                  //          ${(spotPCT2>0 )?'+':''}
-                  //          ${spotPCT2.toFixed(0)}%`;                  
-
-                  //       detailRow1.appendChild(spotDate1)         
-                  //       detailRow1.appendChild(spotAmt1)         
-                  //       detailRow1.appendChild(spotPrice1)         
-                  //       detailRow1.appendChild(spotMargin1)         
-                  //       detailRow1.appendChild(spotPCT1)
-
-                  //       generatedMarginsBOX.appendChild(detailRow1)   
-                  //    }
-                  // } //END DETAILS VIEW
-
-
+               
          } //END MONTHLY LOOP
 
          quarterBOX.appendChild(monthBOX)
@@ -2377,10 +2447,10 @@ align-items: center;">
             detailsBtn2.style.display='block'               
             show_schedule_details_view = false;
          }
-         scheduleBOX.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-         })
+         // scheduleBOX.scrollIntoView({
+         //    behavior: 'smooth',
+         //    block: 'start'
+         // })
          generateScheduleClick();
       }
 

@@ -777,7 +777,6 @@ align-items: center;">
            <button id="padScheduleBtn1" class="genBtn1" onclick="padScheduleClick()">pad🐒</button>
            <button id="detailsBtn2" class="genReportBtn2" style="display:block;" onclick="setScheduleDetailsClick(event)">details🔬</button> 
            <button id="totalsBtn2" class="genReportBtn2" style="display:none;" onclick="setScheduleDetailsClick(event)">totals🔭</button> 
-           
            <button id="addScheduleBtn" class="addBtn1" onclick="addScheduleClick()">add qrtr👻</button>
            <button id="saveScheduleBtn1" class="yellowBtn1" onclick="saveScheduleClick()">save⚓</button>
            <hr>   
@@ -1989,7 +1988,6 @@ align-items: center;">
          if(!transObj && transObj.tick){return}
          ai_BANK[quarterID].trxns.pads.push(transObj)
 
-
          totalsBtn2.style.display='block'
          detailsBtn2.style.display='none'
          generateScheduleClick();
@@ -2047,14 +2045,7 @@ align-items: center;">
          roleData.appendChild(role7);
          roleData.appendChild(role8);
          roleData.appendChild(role9);
-         // roleData.value = ai_ledger.spots[i].role || '';
-         // roleBOX.appendChild(roleData)
 
-
-         // role1.value = "...";
-         // role1.innerHTML = "...";
-         // roleData.appendChild(role1); 
-         // roleBOX.appendChild(roleData)
          roleBOX.classList.add('roleBOX1')
          roleData.classList.add('roleData1')
          atData1 = document.createElement('input')
@@ -2107,6 +2098,58 @@ align-items: center;">
       const saveScheduleClick = ()=>{ // GENERATE PROFIT AND LOSS DISPLAY
          console.log('abcdef')
          saveScheduleBtn1.style.display = 'none'; 
+/*
+           saveSpotBtn1.style.display = 'none';
+           */
+          
+          debugger;
+         //   let items = decodeSPOTZ.children,row,kids,kid;
+           let items = generatedScheduleBOX.children,row,kids,kid;
+           let tkr,amount1,date1,role1,item,spot_at;
+           ai_schedule = []; //CLEAR SCHEDULE.  
+           for(var i=0; i<items.length;i++){
+            item = items[i];
+            if(item.classList.contains('quarterBOX')){ continue; }
+            if(item.classList.contains('quarterTXT')){ continue; }
+            if(item.classList.contains('monthBOX')){
+               kids = item.children;
+               tkr = '',amount1='',date1='',ath='';//blank row.
+               for(var j=0; j<kids.length;j++){
+                  kid = kids[j];
+                  if(kid.classList.contains('capROW')){
+                     kid.value = kid.value.toUpperCase();                     
+                     tkr = kid.value;
+                  } if(kid.classList.contains('detailRow2')){
+                     date1 = kid.value;
+                  } if(kid.classList.contains('spotAtBOX1')){
+                     spot_at = kid.lastChild.value;
+                  } if(kid.classList.contains('spotamountBOX1')){
+                     amount1 = kid.lastChild.value;
+                  } if(kid.classList.contains('roleBOX1')){
+                     role1 = kid.lastChild.value;
+                  } 
+               }
+            }
+            if(tkr){
+               let scheduleObj = new Object();
+               scheduleObj.tick = tkr;
+               if(amount1){scheduleObj.amount = amount1}
+               if(spot_at){scheduleObj.spot_at = spot_at}
+               if(date1){scheduleObj.ymd = date1}
+               if(role1){scheduleObj.role = role1}
+               ai_ledger.spots.push(scheduleObj)
+            } else { console.log('unsaved record',i) }
+           } 
+           /*
+           //SAVE to LOCAL STORAGE
+           localStorage.ai_ledger = JSON.stringify(ai_ledger) 
+           initDecode(); //RELOAD VIEW.  
+*/
+           //SAVE to LOCAL STORAGE
+           localStorage.ai_schedule = JSON.stringify(ai_schedule) 
+           generateScheduleClick(); //RELOAD VIEW.  
+
+
       }     //end save schedule click        
 
 
@@ -2173,7 +2216,7 @@ align-items: center;">
    const ai_schedule_init=()=>{ //READ from LOCAL STORAGE
       ai_schedule = (localStorage.ai_schedule)?
          JSON.parse( localStorage.ai_schedule ):null;
-      ai_schedule = null; //test mock data
+      // ai_schedule = null; //test mock data
       if(!ai_schedule){
          ai_schedule_LOAD_MOCK_DATA();
       }

@@ -56,6 +56,15 @@
          font-size: 0.666em;
 
       }
+      .addBtn4{border-radius:13px;background:#d1d67b;
+         cursor:pointer; margin:1em 0 1em 0;
+         font-size: 0.666em;
+         background: cadetblue;
+    border-radius: 13px;
+    max-width: 6em;
+float:right;
+margin-right: 2%;
+      }
       .decBtn1{font-size:0.666em; border-radius:22px; cursor:pointer;
          background:#5fa9a9; border-radius: 10px;color:#060252;
          /* margin: 1em; */
@@ -311,6 +320,20 @@
       padding-left: 1em;
       display: flex;
    }
+   .capsNUMBOX1{
+         font-family: sans-serif;
+      font-size: 0.555em;
+      /* margin-left: -2em;
+      padding-left: 1em; */
+      display: flex;
+   }
+   .capsNUMBOX2{
+         font-family: sans-serif;
+      font-size: 0.555em;
+      margin-left: -2em;
+      padding-left: 1em;
+      display: flex;
+   }
    .encodeSelect1{
       color:cyan;
    }
@@ -362,6 +385,8 @@
             display: flex;
     flex-direction: column;
             margin-top:2em;
+            background:#1b0227;
+            border-radius: 13px;
          }
 .trimTick{
    font-family: sans-serif;
@@ -383,7 +408,8 @@
     background: #1a0033;
     color: #1e8385;
     padding-left: 0.555em;
-    margin: 0.222em 1em;
+    margin: 0.222em 0;
+    /* margin: 0.222em 1em; */
     display: flex;
     max-height: 24px;
     align-items: center;
@@ -429,7 +455,7 @@
     color: #b19f50;
     padding: 0 0.444em;
     text-align: center;
-    max-width: 11px;
+    max-width: 15px;
     height: 16px;
     margin-bottom: -1px;
     border: 1px solid steelblue;}
@@ -448,6 +474,7 @@
     padding-left:6.666%;
     font-size: 0.777em;
     color: #136567;
+    align-items: center;
 }
 .totalsRow1{
    display: flex;
@@ -474,6 +501,12 @@
     text-align: right;
     width: 80px;
 }
+.scheduleRow1{
+   display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2%;
+}
 .detailDate1{
    background: none;
     color: #4b53b9;
@@ -494,6 +527,10 @@
    font-weight: bold;
     font-family: sans-serif;
     color: #3db63f;
+    background: black;
+    border-radius: 14px;
+    padding: 6px;
+    max-width: 7em;    
 }
 .trimBtnROW{
    display: flex;
@@ -525,7 +562,7 @@
   display: block;
   position: relative;
   padding: 0 4px;
-    margin: 13px 6px;
+    margin: 17px 6px 0 6px;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -739,7 +776,7 @@ align-items: center;">
         <span class="boxTitle">🎯 <span style="font-size:0.888em; color:cyan">1</span> Encode Stocks <span style="font-size:0.666em">(metadata) 🔬</span></span>
         <article id="encodeDATA"></article>
         <button id="saveTickBtn1" onclick="saveTickerClick()">save🌟</button>
-        <button id="genr8Btn" class="genBtn1" onclick="generateSelected()">⚡gener8🗺️</button>
+        <!-- <button id="genr8Btn" class="genBtn1" onclick="generateSelected()">⚡gener8🗺️</button> -->
         <button class="delBtn1" style="float:right;margin-top:0.888em;margin-right:4%;" onclick="deleteSelectedTicker()">🗑️</button>
           <button id="addTickBtn" class="addBtn1" onclick="addTickerClick()">add🎇</button>
 
@@ -758,7 +795,7 @@ align-items: center;">
         <button class="delBtn1"  style="float:right;margin-top:0.888em;margin-right:4%;"  onclick="deleteSelectedSpot()">🗑️</button>
         <button id="addSpotBtn" class="addBtn1" onclick="addSpotClick()">add🎆</button>
         <button id="saveSpotBtn1" onclick="saveSpotClick()">save⚓</button>
-        <button id="addSellBtn" class="genBtn1" onclick="sellSelectedSpots()">🔒lock sell🧾</button>
+        <!-- <button id="addSellBtn" class="genBtn1" onclick="sellSelectedSpots()">🔒lock sell🧾</button> -->
         <br>
       </section>
 
@@ -795,11 +832,12 @@ align-items: center;">
            <hr>   
            <section id="generatedScheduleBOX"></section>
            <hr>   
-           <button class="delBtn1"  style="float:right;margin-top:0.888em;margin-right:4%;"  onclick="deleteSelectedSchedule()">🗑️</button>
+           <button class="delBtn1"  style="float:right;margin-top:0.888em;margin-right:4%;"  
+           onclick="deleteSelectedSchedule(event)">🗑️</button> 
            <button id="trimScheduleBtn" class="genBtn1" onclick="trimScheduleClick()">trim🐇</button>
            <button id="padScheduleBtn1" class="genBtn1" onclick="padScheduleClick()">pad🐒</button>
            <button id="detailsBtn2" class="genReportBtn2" style="display:block;" onclick="setScheduleDetailsClick(event)">details🔬</button> 
-           <button id="totalsBtn2" class="genReportBtn2" style="display:none;" onclick="setScheduleDetailsClick(event)">totals🔭</button> 
+           <button id="totalsBtn2" class="genReportBtn2" style="display:none;" onclick="setScheduleDetailsClick(event)">brief🔭</button> 
            <button id="addScheduleBtn" class="addBtn1" onclick="addScheduleClick()">add qrtr👻</button>
            <button id="saveScheduleBtn1" class="yellowBtn1" onclick="saveScheduleClick()">save⚓</button>
            <hr>   
@@ -1356,7 +1394,6 @@ align-items: center;">
                priceDate1.placeholder = "yyyy_mm_dd";
                priceData1.value = ai_ledger.ticks[i].price || '';
                priceDate1.value = ai_ledger.ticks[i].price_ymd || '';
-               // priceLabel.innerHTML = ai_ledger.ticks[i].price_label || '';
                athData1.placeholder = "$0.00";
                athData1.value = ai_ledger.ticks[i].ath || '';
                athDate1.placeholder = "yyyy_mm_dd";
@@ -1789,7 +1826,6 @@ align-items: center;">
             roleData.classList.add('roleData1')
             atData1 = document.createElement('input')
             atData1.placeholder = "$0.00";
-            // atData1.value = ai_ledger.spots[i].spot_at || '';
             saveBtn3 = document.createElement('button')
             date1 = document.createElement('input')
             date1.value = current_ymd.split('YMD_')[1];//user display
@@ -1848,6 +1884,7 @@ align-items: center;">
                initDecode(); //RELOAD VIEW.                 
             }
         }
+
         const openBtnClick = ()=>{
           if(instructionText.style.display==='block'){
              instructionText.style.display='none'
@@ -1887,8 +1924,7 @@ align-items: center;">
                items[i].checked = false;
             }
          }
-         if(!selected.length){showErrorMSG(' Nothing selected 😵') 
-            return;}         
+         if(!selected.length){showErrorMSG(' Nothing selected 😵'); return;}         
          for(let idx=0; idx<ai_ledger.spots.length;idx++){
             if(!selected.includes(idx)){ //not removed
                temp.push(ai_ledger.spots[idx])
@@ -1899,6 +1935,45 @@ align-items: center;">
          initDecode(); //RELOAD VIEW.                
       }
 
+      const deleteSelectedSchedule = (event)=>{ //remove ledger item, save, refresh
+         let capSelected = [], detSelected=[], temp = [];
+         // let items = document.getElementsByClassName('spot_checkmark');
+         let capChecks = document.getElementsByName("scheduleCapsRadio");
+         let detChecks = document.getElementsByName("scheduleDetailsRadio");
+         for(let i=0; i<capChecks.length;i++){
+            if(capChecks[i].checked){
+               capSelected.push(capChecks[i])
+               // capChecks[i].remove();
+               capChecks[i].parentElement.parentElement.parentElement.remove()
+               saveScheduleBtn1.style.display = 'block';
+               break;
+            }
+         }
+         if(!capSelected.length){
+            for(let i=0; i<detChecks.length;i++){
+               if(detChecks[i].checked){
+                  detSelected.push(detChecks[i])
+                  detChecks[i].parentElement.parentElement.parentElement.remove();
+                  // detChecks[i].remove();
+                  saveScheduleBtn1.style.display = 'block';
+                  break;
+               }
+            }
+         }           
+         if(!capSelected.length && !detSelected.length){showErrorMSG(' Nothing selected 😵'); return;}
+         else { 
+            showErrorMSG('💗 Soft Delete ');
+         }           
+    
+         // show save btn.
+         saveScheduleBtn1.style.display = 'block';
+
+
+            // ai_ledger.spots = temp;         
+            // localStorage.ai_ledger = JSON.stringify(ai_ledger) //SAVE to LOCAL STORAGE
+            // initDecode(); //RELOAD VIEW. 
+         }
+
       /*****************************************\
        * - end DECODE
       \****************************************/
@@ -1907,7 +1982,7 @@ align-items: center;">
       \*****************************************/
       // ai_schedule = {quarters:{"Q4_2023_OCT":{"NVDA":{type:'trim'}}}}
       let ai_BANK = {
-         "Q4_2023_OCT": {trxns:[{pads:[],trims:[]}]}
+         "Q4_2023_OCT": {trxns:{pads:[],trims:[]}}
       }
 
       
@@ -1950,13 +2025,12 @@ align-items: center;">
          transObj.at = ''
          transObj.ymd = ''
          //FIND UI DATA
-         quarterSets = ai_schedule.quarters;
+         quarterSets = Object.keys(ai_schedule.quarters);
          for(var x = 0; x<quarterSets.length;x++){ //UI QUARTER DATA LOOKUP.
-            quarter= quarterSets[x];            
-            if(quarter.quarterID===quarterID){
-               // ai_schedule.quarters[x].monthData.push(transObj)
+            quarter= ai_schedule.quarters[quarterSets[x]];            
+            if(quarter.qID===quarterID){
                for(var y=0; y<quarter.caps.length;y++){ // LOOK UP CAPS
-                  if(quarter.caps[y].tick.toUpperCase()===quarterTick){
+                  if(quarter.caps[y].tkr.toUpperCase()===quarterTick){
                      transObj.tick = quarterTick;
                      transObj.type = 'trim';
                      transObj.amt =  quarter.caps[y].trim_at || '';
@@ -1964,11 +2038,11 @@ align-items: center;">
                      break;             
                   }
                }
-               ai_schedule.quarters[x].monthData.push(transObj)
+               ai_schedule.quarters[quarterID].monthData.push(transObj)
                break
             }
          }
-         if(!transObj && transObj.tick){return}
+         if(!transObj || !transObj.tick){return}
          ai_BANK[quarterID].trxns.trims.push(transObj)
          show_schedule_details_view = true; //SHOW DETAILS
          totalsBtn2.style.display='block'
@@ -2003,12 +2077,12 @@ align-items: center;">
          transObj.at = ''
          transObj.ymd = ''
          //FIND UI DATA
-         quarterSets = ai_schedule.quarters;
+         quarterSets = Object.keys(ai_schedule.quarters);
          for(var x = 0; x<quarterSets.length;x++){ //UI QUARTER DATA LOOKUP.
-            quarter= quarterSets[x];            
-            if(quarter.quarterID===quarterID){
+            quarter= ai_schedule.quarters[quarterSets[x]];  
+            if(quarter.qID===quarterID){
                for(var y=0; y<quarter.caps.length;y++){ // LOOK UP CAPS
-                  if(quarter.caps[y].tick.toUpperCase()===quarterTick){
+                  if(quarter.caps[y].tkr.toUpperCase()===quarterTick){
                      transObj.tick = quarterTick;
                      transObj.type = 'pad';
                      transObj.amt =  quarter.caps[y].trim_at || '';
@@ -2016,13 +2090,13 @@ align-items: center;">
                      break;             
                   }
                }
-               ai_schedule.quarters[x].monthData.push(transObj)
+               ai_schedule.quarters[quarterID].monthData.push(transObj)
                break
             }
          }
          if(!transObj && transObj.tick){return}
          ai_BANK[quarterID].trxns.pads.push(transObj)
-
+         show_schedule_details_view = true; //SHOW DETAILS
          totalsBtn2.style.display='block'
          detailsBtn2.style.display='none'
          generateScheduleClick();
@@ -2030,117 +2104,100 @@ align-items: center;">
          localStorage.ai_schedule = JSON.stringify(ai_schedule)  
       }
       const addScheduleClick = ()=>{ 
-         saveScheduleBtn1.style.display = 'block'; 
+         // saveScheduleBtn1.style.display = 'block'; 
 
          //TODO: needs to become QUARTERLY...
          let scheduleRow1,date1,tick1,amountData1;
-         let role1,role2,role3,role4,role5,role6,role7,role8,role9;
+         let role1,role2,role3,role4,role5,role6,role7,role8,role9,role10,role11;
          let saveBtn3,roleBOX,roleData,atBOX1,atData1;
          scheduleRow1 = document.createElement('article')
          scheduleRow1.classList.add('scheduleRow1')
-         atBOX1 = document.createElement('aside')
-         atBOX1.innerHTML="@&nbsp;"
-         roleBOX = document.createElement('aside')
-         roleBOX.innerHTML="role&nbsp;"
-         roleData = document.createElement('select')
-         role1 = document.createElement('option')
 
-         role2 = document.createElement('option')
-         role3 = document.createElement('option')
-         role4 = document.createElement('option')
-         role5 = document.createElement('option')
-         role6 = document.createElement('option')
-         role7 = document.createElement('option')
-         role8 = document.createElement('option')
-         role9 = document.createElement('option')
-         role1.value = "...";
-         role2.value = "HOLD";
-         role3.value = "WATCH";
-         role4.value = "RISKOFF";
-         role5.value = "HEDGE";
-         role6.value = "TRIM";
-         role7.value = "SAFE";
-         role8.value = "RISKON";
-         role9.value = "EXIT";
-         role1.innerHTML = "...";
-         role2.innerHTML = "HOLD";
-         role3.innerHTML = "WATCH";
-         role4.innerHTML = "RISKOFF";
-         role5.innerHTML = "HEDGE";
-         role6.innerHTML = "TRIM";
-         role7.innerHTML = "SAFE";
-         role8.innerHTML = "RISKON";
-         role9.innerHTML = "EXIT";
-         roleData.appendChild(role1);
-         roleData.appendChild(role2);
-         roleData.appendChild(role3);
-         roleData.appendChild(role4);
-         roleData.appendChild(role5);
-         roleData.appendChild(role6);
-         roleData.appendChild(role7);
-         roleData.appendChild(role8);
-         roleData.appendChild(role9);
-
-         roleBOX.classList.add('roleBOX1')
-         roleData.classList.add('roleData1')
-         atData1 = document.createElement('input')
-         atData1.placeholder = "$0.00";
          // atData1.value = ai_ledger.spots[i].spot_at || '';
          saveBtn3 = document.createElement('button')
-         date1 = document.createElement('input')
-         date1.value = current_ymd.split('YMD_')[1];//user display
-         date1.classList.add('scheduleDate1')
+         // date1 = document.createElement('input')
+         // date1.value = current_ymd.split('YMD_')[1];//user display
+         // date1.classList.add('scheduleDate1')
          tick1 = document.createElement('input')
-         amountData1 = document.createElement('input')
-         amountBOX1 = document.createElement('aside')
-         athBOX1 = document.createElement('aside')
-         amountBOX1.innerHTML = "$&nbsp;"
-         athBOX1.innerHTML = "ath&nbsp;"
-         athData1 = document.createElement('input')
+         // amountData1 = document.createElement('input')
+         // amountBOX1 = document.createElement('aside')
+         // athBOX1 = document.createElement('aside')
+         // amountBOX1.innerHTML = "$&nbsp;"
+         // athBOX1.innerHTML = "ath&nbsp;"
+         // athData1 = document.createElement('input')
          tick1.value = "";
-         tick1.readOnly = false;
-         tick1.placeholder="ticker"
-         amountData1.placeholder = "0.00";
-         athData1.placeholder = "+-:%";
-         tick1.addEventListener("keyup",(e)=>{
-            saveScheduleBtn1.style.display = 'block'; });
-         athData1.addEventListener("keyup",(e)=>{
-            saveScheduleBtn1.style.display = 'block'; });
-         amountData1.addEventListener("keyup",(e)=>{
-            saveScheduleBtn1.style.display = 'block'; });                         
-         tick1.classList.add('scheduleTick1')
+         tick1.placeholder="Q#_YYYY_JAN"
+         // amountData1.placeholder = "0.00";
+         // athData1.placeholder = "+-:%";
+         // tick1.addEventListener("keyup",(e)=>{
+         //    saveScheduleBtn1.style.display = 'block'; });
+         // athData1.addEventListener("keyup",(e)=>{
+         //    saveScheduleBtn1.style.display = 'block'; });
+         // amountData1.addEventListener("keyup",(e)=>{
+         //    saveScheduleBtn1.style.display = 'block'; });                         
+         tick1.classList.add('quarterTXT')
          saveBtn3.innerHTML = 'save🌟'
          saveBtn3.classList.add('saveBtn2')
          saveBtn3.addEventListener("click",(e)=>{
-            saveScheduleClick() });
-         amountData1.classList.add('spotamountData1')
-         amountBOX1.classList.add('spotamountBOX1')
-         athData1.classList.add('spotATHData1')
-         athBOX1.classList.add('spotATHBOX1')
-         scheduleRow1.appendChild(date1)
+            saveQuarterClick(e) 
+         });
+
          scheduleRow1.appendChild(tick1)
-         amountBOX1.appendChild(amountData1)
-         scheduleRow1.appendChild(amountBOX1)
-         atData1.classList.add('spotAtData1')
-         atBOX1.classList.add('spotAtBOX1')
-         atBOX1.appendChild(atData1)            
-         scheduleRow1.appendChild(atBOX1)
-         scheduleRow1.appendChild(roleBOX)
          scheduleRow1.appendChild(saveBtn3)
          generatedScheduleBOX.appendChild(scheduleRow1)
    
       } //end add schedule click
 
+      const addCapClick = (quarterID) =>{
+         //go to parent quarter and add a unique row
+         let newCap = {}
+         let qtr = ai_schedule.quarters[quarterID]; //lookup
+         if(!qtr){return}
+            newCap.cap = "1000";
+            newCap.crashlvl = "2";
+            newCap.pad_at = "100";
+            newCap.padlvl = "1";
+            newCap.tkr = "NEW";
+            newCap.trim_at = "100";
+         qtr.caps.push(newCap)
+         // for(var i = 0; i<ai_schedule[quarterID])
+           //SAVE to LOCAL STORAGE
+           localStorage.ai_schedule = JSON.stringify(ai_schedule) 
+         //   generateScheduleClick(); //RELOAD VIEW.  
+           generateScheduleClick(); //RELOAD VIEW.  
 
+           showErrorMSG('⚔️ SAVED ⚔️');    
+
+
+      }
+
+      const saveQuarterClick = (e)=>{ 
+         debugger;
+            //GET input value
+            let keyInput = e.target.parentElement.children[0].value;
+            if(!keyInput){ showErrorMSG('🎀No data🎀'); return; }
+            keyInput = keyInput.toUpperCase();
+            if(ai_schedule[keyInput]){ showErrorMSG('🖖duplicate🤙'); return; }
+            
+            ai_schedule.quarters[keyInput] = {}
+            ai_schedule.quarters[keyInput].qID = keyInput;
+            ai_schedule.quarters[keyInput].caps = [];
+            ai_schedule.quarters[keyInput].monthData = [];
+
+           //SAVE to LOCAL STORAGE
+           localStorage.ai_schedule = JSON.stringify(ai_schedule) 
+         //   generateScheduleClick(); //RELOAD VIEW.  
+           generateScheduleClick(); //RELOAD VIEW.  
+
+           showErrorMSG('⚔️ ADDED ⚔️');          
+      }
       const saveScheduleClick = ()=>{ // GENERATE PROFIT AND LOSS DISPLAY
          saveScheduleBtn1.style.display = 'none'; 
-         //   let quarterBoxes = decodeSPOTZ.children,row,kids,kid;
            let quarterBoxes = generatedScheduleBOX.children,row,kids,kid;
            let tkr,cap,trim_at,pad_at,padlvl,crashlvl;
            let date3,type3,amt3,role3;
            let capData,trimDetail;
            let qtrTXT,dataBox1,dataBox2,qtrBOX, tgtMonth;
-         //   ai_schedule = []; //CLEAR SCHEDULE.  
            ai_schedule = {quarters:{}}; //CLEAR SCHEDULE.  
            for(var i=0; i<quarterBoxes.length;i++){
             qtrBOX = quarterBoxes[i];
@@ -2148,13 +2205,14 @@ align-items: center;">
                kids = qtrBOX.children;
                for(var j=0;j<kids.length;j++){ //MONTH LOOP
                   kid = kids[j];
-                  if(kid.classList.contains('quarterTXT')){ 
-                     qtrTXT = kid.innerHTML
+                  // if(kid.classList.contains('quarterTXT')){ 
+                  if(kid.classList.contains('quarterHeader')){ 
+                     // qtrTXT = kid.innerHTML
+                     qtrTXT = kid.children[0].value;
                      ai_schedule.quarters[qtrTXT] = {qID:qtrTXT}
                      tgtMonth = ai_schedule.quarters[qtrTXT]
                      tgtMonth.caps = [];
                      tgtMonth.monthData = []
-                  // ai_schedule.monthData.push(scheduleObj)
                   }
                   if(kid.classList.contains('monthBOX')){ 
                      console.log('foundb')
@@ -2165,32 +2223,24 @@ align-items: center;">
                            capData = {}, trimData = {};
                            for(var mm = 0; mm<row.children.length;mm++){
                               dataBox1 = row.children[mm]
-// let tkr,cap,amount1,trim_at,pad_at,pad_lvl,crash_lvl;
-//            let date3,type3,amt3,role3;
                               if(dataBox1.classList.contains('trimTick')){
                                  dataBox1.value = dataBox1.value.toUpperCase();                     
                                  capData.tkr = dataBox1.value;
                                  tkr = capData.tkr;
-                                    console.log('founde1',tkr)
                               }
                               else if(dataBox1.classList.contains('inputDATABOX1')){
                                  capData.cap = dataBox1.children[0].value
-                                    console.log('founde2',dataBox1.classList)
                               }
                               else if(dataBox1.classList.contains('inputDATABOX2')){
-                                    console.log('founde3',dataBox1.classList)
                                  capData.trim_at = dataBox1.children[0].value
                               }
                               else if(dataBox1.classList.contains('inputDATABOX3')){
-                                    console.log('founde4',dataBox1.classList)
                                  capData.pad_at = dataBox1.children[0].value
                               }
                               else if(dataBox1.classList.contains('inputDATABOX4')){
-                                    console.log('founde5',dataBox1.classList)
                                  capData.padlvl = dataBox1.children[0].value
                               }
                               else if(dataBox1.classList.contains('inputDATABOX5')){
-                                    console.log('founde6',dataBox1.classList)
                                  capData.crashlvl = dataBox1.children[0].value
                               }
                            }
@@ -2200,36 +2250,27 @@ align-items: center;">
                         else if(row.classList.contains('detailRow2')){                       
                            for(var mm = 0; mm<row.children.length;mm++){
                               dataBox2 = row.children[mm];
-                              // input.detailDate1, aside.roleBOX1, aside.spotAtBOX1, aside.roleBOX1
                               if(dataBox2.classList.contains('detailDate1')){
-                                 console.log('foundF',dataBox2.classList)
-                                 // dataBox2.value = dataBox2.value;
                                  trimData.ymd = dataBox2.value
                                  trimData.tick = tkr //important load.
                               }
                               if(dataBox2.classList.contains('typeBOX1')){
-                                 console.log('foundF',dataBox2.classList)
                                  trimData.type = dataBox2.children[0].value.toLowerCase()
                               }
                               if(dataBox2.classList.contains('amtBOX1')){
-                                 console.log('foundF',dataBox2.classList)
                                  trimData.amt = dataBox2.children[0].value
                               }
                               if(dataBox2.classList.contains('roleBOX1')){
-                                 console.log('foundF',dataBox2.classList)
                                  trimData.role = dataBox2.children[0].value
                               }
                            }
-
                         } // end details row
 
-                        if(capData.tkr){
-                           // debugger;
+                        if(capData.tkr && tgtMonth && tgtMonth.caps){
                            tgtMonth.caps.push(capData);
                            capData = {}
                         }
-                        if (trimData.type){
-                           // trimData.tick = capData.tkr
+                        if (trimData.type && tgtMonth && tgtMonth.monthData){
                            tgtMonth.monthData.push(trimData)
                            trimData = {}
                         }
@@ -2237,60 +2278,16 @@ align-items: center;">
                      } //END CAPS ROW.
                   } //mONTH Items
                } //MONTH LOOP
-               //   if(tgtMonth){
-                  
-               //   }
              } //QUARTER LOOP
-            
-            // if(item.classList.contains('monthBOX')){
-            //    kids = item.children;
-            //    tkr = '',amount1='',date1='',ath='';//blank row.
-            //    for(var j=0; j<kids.length;j++){
-            //       kid = kids[j];
-            //       if(kid.classList.contains('capROW')){
-            //          kid.value = kid.value.toUpperCase();                     
-            //          tkr = kid.value;
-            //       } if(kid.classList.contains('detailRow2')){
-            //          date1 = kid.value;
-            //       } if(kid.classList.contains('spotAtBOX1')){
-            //          spot_at = kid.lastChild.value;
-            //       } if(kid.classList.contains('spotamountBOX1')){
-            //          amount1 = kid.lastChild.value;
-            //       } if(kid.classList.contains('roleBOX1')){
-            //          role1 = kid.lastChild.value;
-            //       } 
-            //    }
-            // }
-            // debugger;
-            // if(tkr){
-               // let scheduleObj = new Object();
-               // {type:'pad',tick:'nvda',amt:100,at:'500',ymd:'2023_10_27',note:'',role:'HEDGE'}
-               // scheduleObj.tick = tkr;
-               // if(spot_at){scheduleObj.spot_at = spot_at}
-               // if(amount1){scheduleObj.amt = amount1}
-               // if(date1){scheduleObj.ymd = date1}
-               // if(role1){scheduleObj.role = role1}
-               // ai_ledger.spots.push(scheduleObj)
-               //WRITE TO SCHEDULE - find quarterID and monthData
-               // ai_schedule = {quarters:[
-               // {quarterID:'Q4_2023_OCT',
-               // quarter:'Q4',year:2023,month:'OCT', //todo remove this 
-               // monthData:[ 
-
-                  // ai_schedule.quarters.qtrTXT = {qID:qtrTXT}
-                  // ai_schedule.monthData.push(scheduleObj)
-
-
-
-            // } else { console.log('unsaved record',i) }
+        
            } 
 
            //SAVE to LOCAL STORAGE
-           debugger;
            localStorage.ai_schedule = JSON.stringify(ai_schedule) 
          //   generateScheduleClick(); //RELOAD VIEW.  
            generateScheduleClick(); //RELOAD VIEW.  
 
+           showErrorMSG('⚔️ SAVED ⚔️');    
 
       }     //end save schedule click        
 
@@ -2301,39 +2298,27 @@ align-items: center;">
 
    let ai_schedule=null;
    const ai_schedule_LOAD_MOCK_DATA=()=>{ //READ from OBJ
-      // ai_schedule.quarters["Q4_2023_OCT"]["NVDA"]
-      // ai_schedule = {quarters:{"Q4_2023_OCT":{"NVDA":{type:'trim'}}}}
-      // ai_schedule = {"Q4_2023_OCT":{caps{"NVDA":{type:'trim'}}}}
       ai_schedule = {quarters:[
-         {quarterID:'Q4_2023_OCT',
+         {qID:'Q4_2023_OCT',
          quarter:'Q4',year:2023,month:'OCT', //todo remove this 
          monthData:[ //TODO remove at? and note?
             {type:'pad',tick:'mdb',amt:100,at:'500',ymd:'2023_10_26',note:'',role:'WATCH'},
             {type:'pad',tick:'nvda',amt:100,at:'500',ymd:'2023_10_27',note:'',role:'HEDGE'}
          ],
          caps:[
-            {tick:'nvda',cap:'1000',trim_at:'100',pad_at:'100',pad_limit:3,lvl_limit:2},
-            {tick:'mdb',cap:'1000',trim_at:'100',pad_at:'100',pad_limit:3,lvl_limit:2},
-            {tick:'cost',cap:'1000',trim_at:'100',pad_at:'100',pad_limit:3,lvl_limit:2}
+            {tkr:'nvda',cap:'1000',trim_at:'100',pad_at:'100',pad_limit:3,lvl_limit:2},
+            {tkr:'mdb',cap:'1000',trim_at:'100',pad_at:'100',pad_limit:3,lvl_limit:2},
+            {tkr:'cost',cap:'1000',trim_at:'100',pad_at:'100',pad_limit:3,lvl_limit:2}
          ]},
-         {quarterID:'Q4_2023_NOV',quarter:'Q4',year:2023,month:'NOV',
+         {qID:'Q4_2023_NOV',quarter:'Q4',year:2023,month:'NOV',
          monthData:[
             {type:'trim',tick:'mdb',amt:100,at:'500',ymd:'2023_11_10',note:'',role:'SAFE'},
             {type:'trim',tick:'nvda',amt:100,at:'500',ymd:'2023_11_14',note:'',role:'HOLD'},
-            // {type:'pad',tick:'nvda',at:'5000_BAL',role:'GROWTH'},
-            // {type:'pad',tick:'mdb',at:'1500_BAL',role:'GROWTH'},
-            // {type:'tgt',tick:'nvda',at:'BOLL_TOP',role:'TRIM'},
-            // {type:'tgt',tick:'BANK',at:'BANK_20%',role:'SAFE'},
-            // {type:'tgt',tick:'v',at:'SET_BASE',role:'SAFE'},
-            // {type:'tgt',tick:'mdb',at:'BOLL_TOP',role:'TRIM'},
-            // {type:'tgt',tick:'nvda',at:'BOLL_LOW',role:'PAD'},
-            // {type:'tgt',tick:'mdb',at:'BOLL_LOW',role:'PAD'},
-            // {type:'story',txt:'bull rally',details:'soft landing, 10yr<5, cpi drop'}
          ],
          caps:[
-            {tick:'nvda',cap:'1000',trim_at:'100',pad_at:'100',pad_limit:3,lvl_limit:2},
-            {tick:'mdb',cap:'1000',trim_at:'100',pad_at:'100',pad_limit:3,lvl_limit:2},
-            {tick:'cost',cap:'1000',trim_at:'100',pad_at:'100',pad_limit:3,lvl_limit:2}
+            {tkr:'nvda',cap:'1000',trim_at:'100',pad_at:'100',pad_limit:3,lvl_limit:2},
+            {tkr:'mdb',cap:'1000',trim_at:'100',pad_at:'100',pad_limit:3,lvl_limit:2},
+            {tkr:'cost',cap:'1000',trim_at:'100',pad_at:'100',pad_limit:3,lvl_limit:2}
          ]}
          // ,
          // {quarter:'Q4',year:2023,
@@ -2372,27 +2357,46 @@ align-items: center;">
       // localStorage.ai_schedule = JSON.stringify(ai_schedule)  
    // }      
          
-      const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
-         let trimBOX1,quarter,quarterSets=[];
+   const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
+      let trimBOX1,quarter,quarterSets=[];
       let quarterBOX,monthBOX,quarterTXT,capROW;//trimBtnROW;
       let capsData, trimTick,trimCap,trim_at,pad_at,pad_limit,lvl_limit;
       let trimBtn1,padBtn1,lvlUpBtn1;
       let capBOX1, capData1, trim_atBOX1,trim_atData1,pad_atBOX1,pad_atData1;
       let padlvlBOX1,padlvlData1,crashlvlBOX1,crashlvlData1;
-      let monthData1=[];
+      let monthData1=[], addBtn4, quarterHeader;
+      let capsNUMBOX1, capsCHECKBOX1, capsSelect1, capsCheckMark1; 
+      let capsNUMBOX2, capsCHECKBOX2, capsSelect2, capsCheckMark2;
       generatedScheduleBOX.innerHTML = ""
-      // quarterSets = ai_schedule.quarters;//ai_ledger.ticks;
       quarterSets = Object.keys(ai_schedule.quarters);//ai_ledger.ticks;
       if(!quarterSets){ console.log('no data'); return}
       for(let i=0;i<quarterSets.length;i++){  //BEGIN QUARTERLY LOOP
          quarter= ai_schedule.quarters[quarterSets[i]];
-         // quarter= quarterSets[i];
          quarterBOX = document.createElement('section')
          quarterBOX.classList.add('quarterBOX')
-         quarterTXT = document.createElement('span')
+
+         quarterHeader = document.createElement('aside')
+         quarterHeader.classList.add('quarterHeader')
+
+         
+         quarterTXT = document.createElement('input')
          quarterTXT.classList.add('quarterTXT')
-         quarterTXT.innerHTML = quarter.qID;//.quarterID.toUpperCase();
-         quarterBOX.appendChild(quarterTXT)
+         quarterTXT.value = quarter.qID;//.quarterID.toUpperCase();
+         quarterTXT.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+            }); 
+
+         addBtn4 = document.createElement('button')
+         addBtn4.innerHTML = 'addcap🌟'
+         addBtn4.classList.add('addBtn4')
+         addBtn4.setAttribute('data-arg2',quarter.qID)
+         addBtn4.addEventListener("click",(e)=>{
+               addCapClick(e.target.getAttribute('data-arg2')) });
+
+         quarterHeader.appendChild(quarterTXT)
+         quarterHeader.appendChild(addBtn4)
+         // quarterBOX.appendChild(addBtn4)
+         quarterBOX.appendChild(quarterHeader)
+
          monthBOX = document.createElement('article')
          monthBOX.classList.add('monthBOX')
 
@@ -2400,27 +2404,29 @@ align-items: center;">
             capsData = quarter.caps[j];
             capROW = document.createElement('aside')
             capROW.classList.add('capROW')
-            //selector
-            encodeNUMBOX1 = document.createElement('aside')
-            encodeNUMBOX1.classList.add('encodeNUMBOX1')
-            encodeCHECKBOX1 = document.createElement('label')
-            encodeCHECKBOX1.classList.add('checkboxFrame') //encodeNUMBOX1
-            encodeNUMBOX1.innerHTML=j+1;            
-            encodeSelect1 = document.createElement('input');
-            encodeSelect1.ymdt = quarter.qID;//(quarter.quarter+'_'+quarter.year+'_'+quarter.month+'_'+capsData.tick).toLowerCase();
-            encodeSelect1.type = "radio";
-            encodeSelect1.name = "scheduleRadio";
-            encodeSelect1.classList.add('cap_checkmark')
-            encodeCHECKBOX1.appendChild(encodeSelect1)
-            encodeCheckMark1 = document.createElement('span')
-            encodeCheckMark1.classList.add('checkmark')
-            encodeCHECKBOX1.appendChild(encodeCheckMark1)
-            encodeNUMBOX1.appendChild(encodeCHECKBOX1)
-            capROW.appendChild(encodeNUMBOX1)
-            // end selector
+            //**********************************************selector
+            capsNUMBOX1 = document.createElement('aside')
+            capsNUMBOX1.classList.add('capsNUMBOX1')//encodeNUMBOX1
+            capsCHECKBOX1 = document.createElement('label')
+            capsCHECKBOX1.classList.add('checkboxFrame') 
+            capsNUMBOX1.innerHTML=j+1;            
+            capsSelect1 = document.createElement('input');
+            capsSelect1.ymdt = quarter.qID+'_'+capsData.tkr.toUpperCase() || '';
+            capsSelect1.type = "radio";
+            capsSelect1.name = "scheduleCapsRadio";
+            capsSelect1.classList.add('cap_checkmark')
+            capsCHECKBOX1.appendChild(capsSelect1)
+            capsCheckMark1 = document.createElement('span')
+            capsCheckMark1.classList.add('checkmark')
+            capsCHECKBOX1.appendChild(capsCheckMark1)
+            capsNUMBOX1.appendChild(capsCHECKBOX1)
+            capROW.appendChild(capsNUMBOX1)
+            // end ************************************** selector
             trimTick = document.createElement('input')
             trimTick.classList.add('trimTick')
             trimTick.value = capsData.tkr.toUpperCase() || 0;
+            trimTick.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+            });             
             capBOX1 = document.createElement('aside')
             capBOX1.innerHTML="cap&nbsp";
             capBOX1.classList.add('inputDATABOX1')
@@ -2433,7 +2439,7 @@ align-items: center;">
             capBOX1.appendChild(capData1)
 
             trim_atBOX1 = document.createElement('aside')
-            trim_atBOX1.innerHTML="trim_at&nbsp";
+            trim_atBOX1.innerHTML="trim&nbsp";
             trim_atBOX1.classList.add('inputDATABOX2')
             trim_atData1 = document.createElement('input')
             trim_atData1.classList.add('inputDATA2')
@@ -2444,7 +2450,7 @@ align-items: center;">
             trim_atBOX1.appendChild(trim_atData1)
 
             pad_atBOX1 = document.createElement('aside')
-            pad_atBOX1.innerHTML="pad_at&nbsp";
+            pad_atBOX1.innerHTML="pad&nbsp";
             pad_atBOX1.classList.add('inputDATABOX3')
             pad_atData1 = document.createElement('input')
             pad_atData1.classList.add('inputDATA2')
@@ -2459,19 +2465,19 @@ align-items: center;">
             padlvlBOX1.classList.add('inputDATABOX4')
             padlvlData1 = document.createElement('input')
             padlvlData1.classList.add('inputDATA3')
-            padlvlData1.placeholder = "$0.00";
-            padlvlData1.value = capsData.pad_limit || '';          
+            padlvlData1.placeholder = "0";
+            padlvlData1.value = capsData.padlvl || '';          
             padlvlData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
             });  
             padlvlBOX1.appendChild(padlvlData1)
 
             crashlvlBOX1 = document.createElement('aside')
-            crashlvlBOX1.innerHTML="crash_lvl&nbsp";
+            crashlvlBOX1.innerHTML="crashlvl&nbsp";
             crashlvlBOX1.classList.add('inputDATABOX5')
             crashlvlData1 = document.createElement('input')
             crashlvlData1.classList.add('inputDATA3')
-            crashlvlData1.placeholder = "$0.00";
-            crashlvlData1.value = capsData.lvl_limit || 0;          
+            crashlvlData1.placeholder = "0";
+            crashlvlData1.value = capsData.crashlvl || 0;          
             crashlvlData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
             });  
             crashlvlBOX1.appendChild(crashlvlData1)
@@ -2487,18 +2493,35 @@ align-items: center;">
             if(show_schedule_details_view){   //BEGIN DETAILS VIEW
                let detailRow2,date1,detAmt,detType,detRole,detNote;
                let monthData = null;
-               let role1,role2,role3,role4,role5,role6,role7,role8,role9;
+               let role1,role2,role3,role4,role5,role6,role7,role8,role9,role10,role11;
                let type1,type2,type3,type4;
                let roleBOX,roleData;
                let typeBOX,typeData,atBOX1;
                let atData1,amtData1;
                for(let k=0;k<quarter.monthData.length;k++){  //CAP DETAILS LOOP.
                   monthData = quarter.monthData[k];
-                  debugger;
                   if(monthData.tick.toUpperCase()!=capsData.tkr.toUpperCase()){continue;}
                   detailRow2 = document.createElement('section')
                   detailRow2.classList.add('detailRow2')
                   //DETAILS ROW
+            //**********************************************selector
+            capsNUMBOX2 = document.createElement('aside')
+            capsNUMBOX2.classList.add('capsNUMBOX2')//encodeNUMBOX1
+            capsCHECKBOX2 = document.createElement('label')
+            capsCHECKBOX2.classList.add('checkboxFrame') 
+            capsNUMBOX2.innerHTML=k+1;            
+            capsSelect2 = document.createElement('input');
+            capsSelect2.ymdt = quarter.qID+'_'+capsData.tkr.toUpperCase() || '';
+            capsSelect2.type = "radio";
+            capsSelect2.name = "scheduleDetailsRadio";
+            capsSelect2.classList.add('cap_checkmark')
+            capsCHECKBOX2.appendChild(capsSelect2)
+            capsCheckMark2 = document.createElement('span')
+            capsCheckMark2.classList.add('checkmark')
+            capsCHECKBOX2.appendChild(capsCheckMark2)
+            capsNUMBOX2.appendChild(capsCHECKBOX2)
+            detailRow2.appendChild(capsNUMBOX2)
+            // end ************************************** selector
                      date1 = document.createElement('input')
                      date1.value = ''+monthData.ymd;
                      date1.classList.add('detailDate1')
@@ -2521,6 +2544,8 @@ align-items: center;">
                      role7 = document.createElement('option')
                      role8 = document.createElement('option')
                      role9 = document.createElement('option')
+                     role10 = document.createElement('option')
+                     role11 = document.createElement('option')
                      role1.value = "...";
                      role2.value = "HOLD";
                      role3.value = "WATCH";
@@ -2530,8 +2555,8 @@ align-items: center;">
                      role7.value = "SAFE";
                      role8.value = "RISKON";
                      role9.value = "EXIT";
-                     // role9.value = "LOWrLOW";
-                     // role9.value = "HIGHrHIGH";
+                     role10.value = "LOWrLOW";
+                     role11.value = "HIGHrHIGH";
                      role1.innerHTML = "...";
                      role2.innerHTML = "HOLD";
                      role3.innerHTML = "WATCH";
@@ -2541,8 +2566,8 @@ align-items: center;">
                      role7.innerHTML = "SAFE";
                      role8.innerHTML = "RISKON";
                      role9.innerHTML = "EXIT";
-                     // role9.innerHTML = "LOWrLOW";
-                     // role9.innerHTML = "HIrHI";
+                     role10.innerHTML = "LOWrLOW";
+                     role11.innerHTML = "HIrHI";
                      roleData.appendChild(role1);
                      roleData.appendChild(role2);
                      roleData.appendChild(role3);
@@ -2552,6 +2577,8 @@ align-items: center;">
                      roleData.appendChild(role7);
                      roleData.appendChild(role8);
                      roleData.appendChild(role9);
+                     roleData.appendChild(role10);
+                     roleData.appendChild(role11);
                      roleData.value = monthData.role || '';
                      roleBOX.appendChild(roleData)
                      
@@ -2570,6 +2597,13 @@ align-items: center;">
                      amtData1.placeholder = "$0.00";
                      amtData1.value = monthData.amt;
                      amtData1.classList.add('spotAtData1')
+
+                     amtData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+                     });  
+
+
+
+
                      amtBOX1.classList.add('amtBOX1')
                      amtBOX1.appendChild(amtData1)            
                      detailRow2.appendChild(date1)
@@ -2582,8 +2616,6 @@ align-items: center;">
 
                } //END DETAILS LOOP
             }  //END DETAILS VIEW
-
-               
          } //END MONTHLY LOOP
 
          quarterBOX.appendChild(monthBOX)
@@ -2591,223 +2623,6 @@ align-items: center;">
       } //END QUARTERLY LOOP
    } //end generate schedule 2
 
-
-
-   //    const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
-   //    let trimBOX1,quarter,quarterSets=[];
-   //    let quarterBOX,monthBOX,quarterTXT,capROW;//trimBtnROW;
-   //    let capsData, trimTick,trimCap,trim_at,pad_at,pad_limit,lvl_limit;
-   //    let trimBtn1,padBtn1,lvlUpBtn1;
-   //    let capBOX1, capData1, trim_atBOX1,trim_atData1,pad_atBOX1,pad_atData1;
-   //    let padlvlBOX1,padlvlData1,crashlvlBOX1,crashlvlData1;
-   //    let monthData1=[];
-   //    generatedScheduleBOX.innerHTML = ""
-   //    quarterSets = ai_schedule.quarters;//ai_ledger.ticks;
-   //    if(!quarterSets){ console.log('no data'); return}
-   //    for(let i=0;i<quarterSets.length;i++){  //BEGIN QUARTERLY LOOP
-   //       quarter= quarterSets[i];
-   //       quarterBOX = document.createElement('section')
-   //       quarterBOX.classList.add('quarterBOX')
-   //       quarterTXT = document.createElement('span')
-   //       quarterTXT.classList.add('quarterTXT')
-   //       quarterTXT.innerHTML = quarter.quarterID.toUpperCase();
-   //       quarterBOX.appendChild(quarterTXT)
-   //       monthBOX = document.createElement('article')
-   //       monthBOX.classList.add('monthBOX')
-
-   //       for(let j=0;j<quarter.caps.length;j++){  //MONTHLY CAP LOOP .
-   //          capsData = quarter.caps[j];
-   //          capROW = document.createElement('aside')
-   //          capROW.classList.add('capROW')
-   //          //selector
-   //          encodeNUMBOX1 = document.createElement('aside')
-   //          encodeNUMBOX1.classList.add('encodeNUMBOX1')
-   //          encodeCHECKBOX1 = document.createElement('label')
-   //          encodeCHECKBOX1.classList.add('checkboxFrame') //encodeNUMBOX1
-   //          encodeNUMBOX1.innerHTML=j+1;            
-   //          encodeSelect1 = document.createElement('input');
-   //          encodeSelect1.ymdt = (quarter.quarter+'_'+quarter.year+'_'+quarter.month+'_'+capsData.tick).toLowerCase();
-   //          encodeSelect1.type = "radio";
-   //          encodeSelect1.name = "scheduleRadio";
-   //          encodeSelect1.classList.add('cap_checkmark')
-   //          encodeCHECKBOX1.appendChild(encodeSelect1)
-   //          encodeCheckMark1 = document.createElement('span')
-   //          encodeCheckMark1.classList.add('checkmark')
-   //          encodeCHECKBOX1.appendChild(encodeCheckMark1)
-   //          encodeNUMBOX1.appendChild(encodeCHECKBOX1)
-   //          capROW.appendChild(encodeNUMBOX1)
-   //          // end selector
-   //          trimTick = document.createElement('input')
-   //          trimTick.classList.add('trimTick')
-   //          trimTick.value = capsData.tick.toUpperCase() || 0;
-   //          capBOX1 = document.createElement('aside')
-   //          capBOX1.innerHTML="cap&nbsp";
-   //          capBOX1.classList.add('inputDATABOX1')
-   //          capData1 = document.createElement('input')
-   //          capData1.classList.add('inputDATA1')
-   //          capData1.placeholder = "$0.00";
-   //          capData1.value = capsData.cap || '';          
-   //          capData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
-   //          });  
-   //          capBOX1.appendChild(capData1)
-
-   //          trim_atBOX1 = document.createElement('aside')
-   //          trim_atBOX1.innerHTML="trim_at&nbsp";
-   //          trim_atBOX1.classList.add('inputDATABOX2')
-   //          trim_atData1 = document.createElement('input')
-   //          trim_atData1.classList.add('inputDATA2')
-   //          trim_atData1.placeholder = "$0.00";
-   //          trim_atData1.value = capsData.trim_at || '';          
-   //          trim_atData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block';  
-   //          });  
-   //          trim_atBOX1.appendChild(trim_atData1)
-
-   //          pad_atBOX1 = document.createElement('aside')
-   //          pad_atBOX1.innerHTML="pad_at&nbsp";
-   //          pad_atBOX1.classList.add('inputDATABOX3')
-   //          pad_atData1 = document.createElement('input')
-   //          pad_atData1.classList.add('inputDATA2')
-   //          pad_atData1.placeholder = "$0.00";
-   //          pad_atData1.value = capsData.pad_at || '';          
-   //          pad_atData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
-   //          });  
-   //          pad_atBOX1.appendChild(pad_atData1)
-
-   //          padlvlBOX1 = document.createElement('aside')
-   //          padlvlBOX1.innerHTML="padlvl&nbsp";
-   //          padlvlBOX1.classList.add('inputDATABOX4')
-   //          padlvlData1 = document.createElement('input')
-   //          padlvlData1.classList.add('inputDATA3')
-   //          padlvlData1.placeholder = "$0.00";
-   //          padlvlData1.value = capsData.pad_limit || '';          
-   //          padlvlData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
-   //          });  
-   //          padlvlBOX1.appendChild(padlvlData1)
-
-   //          crashlvlBOX1 = document.createElement('aside')
-   //          crashlvlBOX1.innerHTML="crash_lvl&nbsp";
-   //          crashlvlBOX1.classList.add('inputDATABOX5')
-   //          crashlvlData1 = document.createElement('input')
-   //          crashlvlData1.classList.add('inputDATA3')
-   //          crashlvlData1.placeholder = "$0.00";
-   //          crashlvlData1.value = capsData.lvl_limit || 0;          
-   //          crashlvlData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
-   //          });  
-   //          crashlvlBOX1.appendChild(crashlvlData1)
-
-   //          capROW.appendChild(trimTick)         
-   //          capROW.appendChild(capBOX1)         
-   //          capROW.appendChild(trim_atBOX1)         
-   //          capROW.appendChild(pad_atBOX1)         
-   //          capROW.appendChild(padlvlBOX1)         
-   //          capROW.appendChild(crashlvlBOX1)
-   //          monthBOX.appendChild(capROW)
-
-   //          if(show_schedule_details_view){   //BEGIN DETAILS VIEW
-   //             let detailRow2,date1,detAmt,detType,detRole,detNote;
-   //             let monthData = null;
-   //             let role1,role2,role3,role4,role5,role6,role7,role8,role9;
-   //             let type1,type2,type3,type4;
-   //             let roleBOX,roleData;
-   //             let typeBOX,typeData,atBOX1;
-   //             let atData1,amtData1;
-   //             for(let k=0;k<quarter.monthData.length;k++){  //CAP DETAILS LOOP.
-   //                monthData = quarter.monthData[k];
-   //                if(monthData.tick.toUpperCase()!=capsData.tick.toUpperCase()){continue;}
-   //                detailRow2 = document.createElement('section')
-   //                detailRow2.classList.add('detailRow2')
-   //                //DETAILS ROW
-   //                   date1 = document.createElement('input')
-   //                   date1.value = ''+monthData.ymd;
-   //                   date1.classList.add('detailDate1')
-   //                   date1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
-   //                   });  
-   //                   amtBOX1 = document.createElement('aside')
-   //                   amtBOX1.innerHTML="amt&nbsp;"
-   //                   roleBOX = document.createElement('aside')
-   //                   roleBOX.innerHTML="role&nbsp;"
-   //                   typeBOX = document.createElement('aside')
-   //                   typeBOX.innerHTML="type&nbsp;"
-   //                   roleData = document.createElement('select')
-   //                   typeData = document.createElement('input')
-   //                   role1 = document.createElement('option')
-   //                   role2 = document.createElement('option')
-   //                   role3 = document.createElement('option')
-   //                   role4 = document.createElement('option')
-   //                   role5 = document.createElement('option')
-   //                   role6 = document.createElement('option')
-   //                   role7 = document.createElement('option')
-   //                   role8 = document.createElement('option')
-   //                   role9 = document.createElement('option')
-   //                   role1.value = "...";
-   //                   role2.value = "HOLD";
-   //                   role3.value = "WATCH";
-   //                   role4.value = "RISKOFF";
-   //                   role5.value = "HEDGE";
-   //                   role6.value = "TRIM";
-   //                   role7.value = "SAFE";
-   //                   role8.value = "RISKON";
-   //                   role9.value = "EXIT";
-   //                   // role9.value = "LOWrLOW";
-   //                   // role9.value = "HIGHrHIGH";
-   //                   role1.innerHTML = "...";
-   //                   role2.innerHTML = "HOLD";
-   //                   role3.innerHTML = "WATCH";
-   //                   role4.innerHTML = "RISKOFF";
-   //                   role5.innerHTML = "HEDGE";
-   //                   role6.innerHTML = "TRIM";
-   //                   role7.innerHTML = "SAFE";
-   //                   role8.innerHTML = "RISKON";
-   //                   role9.innerHTML = "EXIT";
-   //                   // role9.innerHTML = "LOWrLOW";
-   //                   // role9.innerHTML = "HIrHI";
-   //                   roleData.appendChild(role1);
-   //                   roleData.appendChild(role2);
-   //                   roleData.appendChild(role3);
-   //                   roleData.appendChild(role4);
-   //                   roleData.appendChild(role5);
-   //                   roleData.appendChild(role6);
-   //                   roleData.appendChild(role7);
-   //                   roleData.appendChild(role8);
-   //                   roleData.appendChild(role9);
-   //                   roleData.value = monthData.role || '';
-   //                   roleBOX.appendChild(roleData)
-                     
-   //                   roleData.addEventListener("change",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
-   //                   });  
-   //                   typeData.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
-   //                   });  
-
-   //                   typeData.value= monthData.type || '';
-   //                   roleBOX.classList.add('roleBOX1')
-   //                   typeBOX.appendChild(typeData)
-   //                   typeBOX.classList.add('typeBOX1')
-   //                   roleData.classList.add('roleData1')
-   //                   typeData.classList.add('typeData1')
-   //                   amtData1 = document.createElement('input')
-   //                   amtData1.placeholder = "$0.00";
-   //                   amtData1.value = monthData.amt;
-   //                   amtData1.classList.add('spotAtData1')
-   //                   amtBOX1.classList.add('amtBOX1')
-   //                   amtBOX1.appendChild(amtData1)            
-   //                   detailRow2.appendChild(date1)
-   //                   detailRow2.appendChild(typeBOX)
-   //                   detailRow2.appendChild(amtBOX1)
-   //                   detailRow2.appendChild(roleBOX)
-
-   //                //END DETAILS ROW
-   //                monthBOX.appendChild(detailRow2) 
-
-   //             } //END DETAILS LOOP
-   //          }  //END DETAILS VIEW
-
-               
-   //       } //END MONTHLY LOOP
-
-   //       quarterBOX.appendChild(monthBOX)
-   //       generatedScheduleBOX.appendChild(quarterBOX)
-   //    } //END QUARTERLY LOOP
-   // } //end generate schedule
 
    let show_schedule_details_view = null;
       const setScheduleDetailsClick = (e)=>{ 
@@ -3043,40 +2858,40 @@ align-items: center;">
       generatedProfitsBOX.appendChild(totalsRow1)  
       }
 
-      const generateSelected = ()=>{
-      let selected = [];
-      let items = document.getElementsByClassName('tkr_checkmark');
-      for(let i=0; i<items.length;i++){
-         if(items[i].checked){
-            selected.push(i)
-            items[i].checked = false;
-         }
-      }
-      if(!selected.length){showErrorMSG(' Nothing selected 😵') 
-         return;}
-      ai_schedule = [];
-      ai_analytics = [];
-      for(let i=0; i<selected.length;i++){
-         //calculate +-%, days since ath, 
-      }
-      scheduleBOX.scrollIntoView({
-         behavior: 'smooth',
-         block: 'start'
-      })
+   //    const generateSelected = ()=>{
+   //    let selected = [];
+   //    let items = document.getElementsByClassName('tkr_checkmark');
+   //    for(let i=0; i<items.length;i++){
+   //       if(items[i].checked){
+   //          selected.push(i)
+   //          items[i].checked = false;
+   //       }
+   //    }
+   //    if(!selected.length){showErrorMSG(' Nothing selected 😵') 
+   //       return;}
+   //    ai_schedule = [];
+   //    ai_analytics = [];
+   //    for(let i=0; i<selected.length;i++){
+   //       //calculate +-%, days since ath, 
+   //    }
+   //    scheduleBOX.scrollIntoView({
+   //       behavior: 'smooth',
+   //       block: 'start'
+   //    })
 
-   }
-   const sellSelectedSpots = ()=>{
-      let selected = [];
-      let items = document.getElementsByClassName('spot_checkmark');
-      for(let i=0; i<items.length;i++){
-         if(items[i].checked){
-            selected.push(i)
-            items[i].checked = false;
-         }
-      }         
-      if(!selected.length){showErrorMSG(' Nothing selected 😵') 
-         return;}  
-   }
+   // }
+   // const sellSelectedSpots = ()=>{
+   //    let selected = [];
+   //    let items = document.getElementsByClassName('spot_checkmark');
+   //    for(let i=0; i<items.length;i++){
+   //       if(items[i].checked){
+   //          selected.push(i)
+   //          items[i].checked = false;
+   //       }
+   //    }         
+   //    if(!selected.length){showErrorMSG(' Nothing selected 😵') 
+   //       return;}  
+   // }
 
       const getLatestTickerClick = ()=>{ //loop all for last close.
          let item,urls=[];

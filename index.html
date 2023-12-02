@@ -1975,23 +1975,54 @@ align-items: center;">
          let capChecks = document.getElementsByName("scheduleCapsRadio");
          let detChecks = document.getElementsByName("scheduleDetailsRadio");
          for(let i=0; i<capChecks.length;i++){
-            if(capChecks[i].checked){
+            if(capChecks[i].checked){ //SORT THROUGH ai_schedule to delete data and reload
                capSelected.push(capChecks[i])
-               // capChecks[i].remove();
-               // capChecks[i].parentElement.parentElement.parentElement.remove()
-               // saveScheduleBtn1.style.display = 'block';
+               let ymdt = capChecks[i].ymdt;
+               let zArr = capChecks[i].ymdt.split('_')
+               let tickTGT = zArr.pop();
+               let ymd = zArr.join('_')
+               let qtrCaps = ai_schedule.quarters[ymd].caps;
+               let monthData = ai_schedule.quarters[ymd].monthData;
+               for(var j=0; j<qtrCaps.length;j++){ //DELETE TGT DATA
+                  if( tickTGT === qtrCaps[j].tkr ){
+                     qtrCaps.splice(j,1) //remove data
+                     break;
+                  }
+               }
+               for(var k=0; k<monthData.length;k++){ //DELETE MONTH DATA
+                  if( tickTGT === monthData[k].tick ){
+                     monthData.splice(k,1) //remove data
+                     // break;
+                  }
+               }
+               //SAVE & RELOAD VIEW
+               showErrorMSG('💗 Saved. ');
+               localStorage.ai_schedule = JSON.stringify(ai_schedule) //SAVE to LOCAL STORAGE
+               generateScheduleClick(); //RELOAD VIEW. 
                break;
-               // removeChildRow = true;
-               
             }
          }
          if(!capSelected.length && detChecks.length){ // DETAIL ROW SELECTION
-            for(let i=0; i<detChecks.length;i++){
-               if(detChecks[i].checked){
-                  detSelected.push(detChecks[i])
-                  // detChecks[i].parentElement.parentElement.parentElement.remove();
-                  // detChecks[i].remove();
-                  // saveScheduleBtn1.style.display = 'block';
+            for(let j=0; j<detChecks.length;j++){
+               if(detChecks[j].checked){
+                  detSelected.push(detChecks[j])
+                  let ymdtn = detChecks[j].ymdtn
+                  let zArr = detChecks[j].ymdtn.split('_')
+                  let itemNUM = zArr.pop();
+                  let tickTGT = zArr.pop();
+                  let ymd = zArr.join('_')
+                  let monthData = ai_schedule.quarters[ymd].monthData;
+                  // for(var k=0; k<monthData.length;k++){ //DELETE MONTH DATA
+                  if(monthData[itemNUM]){
+
+                     if( tickTGT === monthData[itemNUM].tick ){
+                        monthData.splice(itemNUM,1) //remove data
+                     }
+                  }
+                  //SAVE & RELOAD VIEW
+                  showErrorMSG(' Saved💗 ');
+                  localStorage.ai_schedule = JSON.stringify(ai_schedule) //SAVE to LOCAL STORAGE
+                  generateScheduleClick(); //RELOAD VIEW. 
                   break;
                }
             }
@@ -2000,14 +2031,15 @@ align-items: center;">
 
 
          //NOW SORT THROUGH ai_schedule to delete data and reload
-         if(capSelected.length){ 
-            debugger;
-            let capz = capSelected[0]
-            // ai_schedule.quarters[]
-         }else if (detSelected.length){
-            debugger;
-            let deetz = capSelected[0]
-         }
+         // if(capSelected.length){ 
+         //    debugger;
+         //    let capz = capSelected[0]
+         //    let ymdt = capChecks[0].ymdt
+         //    // ai_schedule.quarters[]
+         // }else if (detSelected.length){
+         //    debugger;
+         //    let deetz = capSelected[0]
+         // }
 
          //SAVE & RELOAD VIEW
 
@@ -2020,13 +2052,8 @@ align-items: center;">
          //    // show save btn.
          //    saveScheduleBtn1.style.display = 'block';
          // }           
-    
-
-
-            // ai_ledger.spots = temp;         
-            // localStorage.ai_ledger = JSON.stringify(ai_ledger) //SAVE to LOCAL STORAGE
-            // initDecode(); //RELOAD VIEW. 
-         }
+   
+      } //end delete tgt fn
 
       /*****************************************\
        * - end DECODE
@@ -2157,8 +2184,6 @@ align-items: center;">
          localStorage.ai_schedule = JSON.stringify(ai_schedule)  
       }
       const addScheduleClick = ()=>{ 
-         // saveScheduleBtn1.style.display = 'block'; 
-
          //TODO: needs to become QUARTERLY...
          let scheduleRow1,date1,tick1,amountData1;
          let role1,role2,role3,role4,role5,role6,role7,role8,role9,role10,role11;
@@ -2202,6 +2227,7 @@ align-items: center;">
       } //end add schedule click
 
       const addCapClick = (quarterID) =>{
+         saveScheduleClick();//FIX: save first for bug on double create row, keeps first row tickr.
          //go to parent quarter and add a unique row
          let newCap = {}
          let qtr = ai_schedule.quarters[quarterID]; //lookup
@@ -2370,7 +2396,7 @@ align-items: center;">
 
    let ai_schedule=null;
    const ai_schedule_LOAD_MOCK_DATA=()=>{ //READ from OBJ
-      ai_schedule = {"quarters":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":false,"caps":[{"tkr":"NVDA","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"MDB","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COST","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"MSFT","cap":"1000","trim_at":"100","pad_at":"50","padlvl":"1","crashlvl":"2"},{"tkr":"QQQ","cap":"500","trim_at":"50","pad_at":"50","padlvl":"1","crashlvl":"2"},{"tkr":"BTC","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"}],"monthData":[{"ymd":"2023_11_27","tick":"NVDA","type":"pad","amt":"100","role":"LOrLO"},{"ymd":"2023_11_27","tick":"MDB","type":"trim","amt":"100","role":"LOrLO"},{"ymd":"2023_11_27","tick":"MDB","type":"pad","amt":"100","role":"EXIT"},{"ymd":"2023_11_27","tick":"COST","type":"pad","amt":"100","role":"LONG"},{"ymd":"2023_11_27","tick":"MSFT","type":"trim","amt":"100","role":"LONG"},{"ymd":"2023_11_27","tick":"QQQ","type":"trim","amt":"50","role":"WATCH"}]},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"caps":[{"tkr":"NVDA","cap":"4500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"MDB","cap":"1500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COST","cap":"2000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"1"},{"tkr":"GOOG","cap":"5000","trim_at":"100","pad_at":"100","padlvl":"2","crashlvl":"3"},{"tkr":"MSFT","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"QQQ","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"XLK","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"AMD","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"V","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COIN","cap":"200","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"META","cap":"100","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"ETH","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"}],"monthData":[{"ymd":"2023_11_30","tick":"COIN","type":"trim","amt":"100","role":"LOrLO"},{"ymd":"2023_11_30","tick":"META","type":"pad","amt":"100","role":"SAFE"},{"ymd":"2023_11_30","tick":"ETH","type":"trim","amt":"100","role":"LOrLO"},{"ymd":"2023_11_30","tick":"ETH","type":"pad","amt":"100","role":"HIGHrHIGH"}]},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":true,"caps":[{"tkr":"NVDA","cap":"4500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"MDB","cap":"1500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COST","cap":"2000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"1"},{"tkr":"GOOG","cap":"5000","trim_at":"100","pad_at":"100","padlvl":"2","crashlvl":"3"},{"tkr":"MSFT","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"QQQ","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"XLK","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"AMD","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"V","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COIN","cap":"200","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"BTC","cap":"2000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"ETH","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"META","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"TSLA","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"}],"monthData":[{"ymd":"2023_12_01","tick":"BTC","type":"trim","amt":"25","role":"RISKOFF"}]},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","expanded":false,"caps":[],"monthData":[]}}}
+      ai_schedule = {"quarters":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":false,"caps":[{"tkr":"NVDA","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"MDB","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COST","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"MSFT","cap":"1000","trim_at":"100","pad_at":"50","padlvl":"1","crashlvl":"2"},{"tkr":"QQQ","cap":"500","trim_at":"50","pad_at":"50","padlvl":"1","crashlvl":"2"},{"tkr":"BTC","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"}],"monthData":[{"ymd":"2023_11_27","tick":"NVDA","type":"pad","amt":"100","role":"LOrLO"},{"ymd":"2023_11_27","tick":"MDB","type":"trim","amt":"100","role":"LOrLO"},{"ymd":"2023_11_27","tick":"MDB","type":"pad","amt":"100","role":"EXIT"},{"ymd":"2023_11_27","tick":"COST","type":"pad","amt":"100","role":"LONG"},{"ymd":"2023_11_27","tick":"MSFT","type":"trim","amt":"100","role":"LONG"},{"ymd":"2023_11_27","tick":"QQQ","type":"trim","amt":"50","role":"WATCH"}]},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"caps":[{"tkr":"NVDA","cap":"4500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"MDB","cap":"1500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COST","cap":"2000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"1"},{"tkr":"GOOG","cap":"5000","trim_at":"100","pad_at":"100","padlvl":"2","crashlvl":"3"},{"tkr":"MSFT","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"QQQ","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"XLK","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"AMD","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"V","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COIN","cap":"200","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"META","cap":"100","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"ETH","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"}],"monthData":[{"ymd":"2023_11_30","tick":"COIN","type":"trim","amt":"100","role":"LOrLO"},{"ymd":"2023_11_30","tick":"META","type":"pad","amt":"100","role":"SAFE"},{"ymd":"2023_11_30","tick":"ETH","type":"trim","amt":"100","role":"LOrLO"},{"ymd":"2023_11_30","tick":"ETH","type":"pad","amt":"100","role":"HIGHrHIGH"}]},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":true,"caps":[{"tkr":"NVDA","cap":"4500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"MDB","cap":"1500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COST","cap":"2000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"1"},{"tkr":"GOOG","cap":"5000","trim_at":"100","pad_at":"100","padlvl":"2","crashlvl":"3"},{"tkr":"MSFT","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"QQQ","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"XLK","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"AMD","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"V","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COIN","cap":"200","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"BTC","cap":"2000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"ETH","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"META","cap":"100","trim_at":"10","pad_at":"10","padlvl":"1","crashlvl":"2"},{"tkr":"TSLA","cap":"100","trim_at":"10","pad_at":"10","padlvl":"2","crashlvl":"2"}],"monthData":[{"ymd":"2023_12_01","tick":"BTC","type":"trim","amt":"25","role":"RISKOFF"}]},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","expanded":false,"caps":[],"monthData":[]}}}
       // ai_schedule = {"quarters":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":false,"caps":[{"tkr":"NVDA","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"MDB","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COST","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"MSFT","cap":"1000","trim_at":"100","pad_at":"50","padlvl":"1","crashlvl":"2"},{"tkr":"QQQ","cap":"500","trim_at":"50","pad_at":"50","padlvl":"1","crashlvl":"2"},{"tkr":"BTC","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"}],"monthData":[{"ymd":"2023_11_27","tick":"NVDA","type":"pad","amt":"100","role":"LOrLO"},{"ymd":"2023_11_27","tick":"MDB","type":"trim","amt":"100","role":"LOrLO"},{"ymd":"2023_11_27","tick":"MDB","type":"pad","amt":"100","role":"EXIT"},{"ymd":"2023_11_27","tick":"COST","type":"pad","amt":"100","role":"LONG"},{"ymd":"2023_11_27","tick":"MSFT","type":"trim","amt":"100","role":"LONG"},{"ymd":"2023_11_27","tick":"QQQ","type":"trim","amt":"50","role":"WATCH"}]},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":true,"caps":[{"tkr":"NVDA","cap":"4500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"MDB","cap":"1500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COST","cap":"2000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"1"},{"tkr":"GOOG","cap":"5000","trim_at":"100","pad_at":"100","padlvl":"2","crashlvl":"3"},{"tkr":"MSFT","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"QQQ","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"XLK","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"AMD","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"V","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COIN","cap":"200","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"META","cap":"100","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"ETH","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"}],"monthData":[{"ymd":"2023_11_30","tick":"COIN","type":"trim","amt":"100","role":"LOrLO"},{"ymd":"2023_11_30","tick":"META","type":"pad","amt":"100","role":"SAFE"},{"ymd":"2023_11_30","tick":"ETH","type":"trim","amt":"100","role":"LOrLO"},{"ymd":"2023_11_30","tick":"ETH","type":"pad","amt":"100","role":"HIGHrHIGH"}]},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":false,"caps":[{"tkr":"NVDA","cap":"4500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"MDB","cap":"1500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COST","cap":"2000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"1"},{"tkr":"GOOG","cap":"5000","trim_at":"100","pad_at":"100","padlvl":"2","crashlvl":"3"},{"tkr":"MSFT","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"QQQ","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"XLK","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"AMD","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"V","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COIN","cap":"200","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"BTC","cap":"2000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"ETH","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"}],"monthData":[]},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","expanded":false,"caps":[],"monthData":[]}}};
       // ai_schedule = {"quarters":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":false,"caps":[{"tkr":"NVDA","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"MDB","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COST","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"MSFT","cap":"1000","trim_at":"100","pad_at":"50","padlvl":"1","crashlvl":"2"},{"tkr":"QQQ","cap":"500","trim_at":"50","pad_at":"50","padlvl":"1","crashlvl":"2"},{"tkr":"BTC","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"}],"monthData":[{"ymd":"2023_11_27","tick":"NVDA","type":"pad","amt":"100","role":"LOrLO"},{"ymd":"2023_11_27","tick":"MDB","type":"trim","amt":"100","role":"LOrLO"},{"ymd":"2023_11_27","tick":"MDB","type":"pad","amt":"100","role":"EXIT"},{"ymd":"2023_11_27","tick":"COST","type":"pad","amt":"100","role":"LONG"},{"ymd":"2023_11_27","tick":"MSFT","type":"trim","amt":"100","role":"LONG"},{"ymd":"2023_11_27","tick":"QQQ","type":"trim","amt":"50","role":"WATCH"}]},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":true,"caps":[{"tkr":"NVDA","cap":"4500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"MDB","cap":"1500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COST","cap":"2000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"1"},{"tkr":"GOOG","cap":"5000","trim_at":"100","pad_at":"100","padlvl":"2","crashlvl":"3"},{"tkr":"MSFT","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"QQQ","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"XLK","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"AMD","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"V","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COIN","cap":"200","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"BTC","cap":"2000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"ETH","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"}],"monthData":[{"ymd":"2023_11_28","tick":"ETH","type":"trim","amt":"100","role":"HIGHrHIGH"},{"ymd":"2023_11_28","tick":"ETH","type":"pad","amt":"100","role":"LOrLO"}]},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":false,"caps":[{"tkr":"NVDA","cap":"4500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"MDB","cap":"1500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COST","cap":"2000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"1"},{"tkr":"GOOG","cap":"5000","trim_at":"100","pad_at":"100","padlvl":"2","crashlvl":"3"},{"tkr":"MSFT","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"QQQ","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"XLK","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"AMD","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"V","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COIN","cap":"200","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"BTC","cap":"2000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"ETH","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"}],"monthData":[]},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","expanded":false,"caps":[],"monthData":[]}}}
       // ai_schedule = {"quarters":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":true,"caps":[{"tkr":"NVDA","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"MDB","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COST","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"MSFT","cap":"1000","trim_at":"100","pad_at":"50","padlvl":"1","crashlvl":"2"},{"tkr":"QQQ","cap":"500","trim_at":"50","pad_at":"50","padlvl":"1","crashlvl":"2"},{"tkr":"BTC","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"}],"monthData":[{"ymd":"2023_11_27","tick":"NVDA","type":"pad","amt":"100","role":"LOWrLOW"},{"ymd":"2023_11_27","tick":"MDB","type":"trim","amt":"100","role":"LOWrLOW"},{"ymd":"2023_11_27","tick":"MDB","type":"pad","amt":"100","role":"EXIT"},{"ymd":"2023_11_27","tick":"COST","type":"pad","amt":"100","role":"HEDGE"},{"ymd":"2023_11_27","tick":"MSFT","type":"trim","amt":"100","role":"HEDGE"},{"ymd":"2023_11_27","tick":"QQQ","type":"trim","amt":"50","role":"WATCH"}]},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":true,"caps":[{"tkr":"NVDA","cap":"4500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"MDB","cap":"1500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COST","cap":"2000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"1"},{"tkr":"GOOG","cap":"5000","trim_at":"100","pad_at":"100","padlvl":"2","crashlvl":"3"},{"tkr":"MSFT","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"QQQ","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"XLK","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"AMD","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"V","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COIN","cap":"200","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"BTC","cap":"2000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"ETH","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"}],"monthData":[{"ymd":"2023_11_28","tick":"ETH","type":"trim","amt":"100","role":"HIGHrHIGH"},{"ymd":"2023_11_28","tick":"ETH","type":"pad","amt":"100","role":"LOWrLOW"}]},
@@ -2561,7 +2587,8 @@ align-items: center;">
                capsCHECKBOX2.classList.add('checkboxFrame') 
                capsNUMBOX2.innerHTML=k+1;            
                capsSelect2 = document.createElement('input');
-               capsSelect2.ymdt = quarter.qID+'_'+capsData.tkr.toUpperCase() || '';
+               capsSelect2.ymdtn = quarter.qID+'_'+capsData.tkr.toUpperCase()+'_'+k || '';
+               // capsSelect2.ymdt = quarter.qID+'_'+capsData.tkr.toUpperCase() || '';
                capsSelect2.type = "radio";
                capsSelect2.name = "scheduleDetailsRadio";
                capsSelect2.classList.add('cap_checkmark')

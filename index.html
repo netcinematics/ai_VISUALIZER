@@ -833,7 +833,7 @@ align-items: center;">
         ">
         <button id="generateScheduleBtn" class="genReportBtn1" onclick="generateScheduleClick()">gener8📉</button>
         <span class="boxTitle">🔔 <span style="font-size:0.888em;color:#b19f50;">
-        </span> Generate Schedule</span><span style="font-size:0.666em"> (measures) 📈
+        </span> Generate Schedule</span><span style="font-size:0.666em"> (TGTz) 📈
       </span></span><br>
         <article>
            <hr>   
@@ -847,17 +847,6 @@ align-items: center;">
            <button id="totalsBtn2" class="genReportBtn2" style="display:none;" onclick="setScheduleDetailsClick(event)">brief🔭</button> 
            <button id="addScheduleBtn" class="addBtn1" onclick="addScheduleClick()">add qrtr👻</button>
            <button id="saveScheduleBtn1" class="yellowBtn1" onclick="saveScheduleClick()">save⚓</button>
-           <hr>   
-
-           Schedule & Forcast  Quarterly Reports          
-           <hr>   
-           Monthly Story, for spot-families.
-           <hr>   
-           Schedule of responses.
-           <hr>   
-           Forcasts or triggers.
-           <hr>     
-           Analytic contraints.
          </article>
       </section>
       <section id="historyBOX"
@@ -876,11 +865,12 @@ align-items: center;">
          Profit & Loss:
          <section id="generatedProfitsBOX"></section>
          <hr>   
-         Tax Calculations:
+         Tax Calculations:<br>
+         Tax_Max: <i>everything 25%</i> - tax-loss-harvesting (later)
          <hr>     
-         Analytics
+         Analytics:<br>
+         <i>ai charts (later)</i>
          <hr>     
-         Quarterly Story:
        </article> 
       </section>
 
@@ -2028,49 +2018,62 @@ align-items: center;">
             }
          } 
          if(!capSelected.length && !detSelected.length){showErrorMSG(' Nothing selected 😵'); return;}
-
-
-         //NOW SORT THROUGH ai_schedule to delete data and reload
-         // if(capSelected.length){ 
-         //    debugger;
-         //    let capz = capSelected[0]
-         //    let ymdt = capChecks[0].ymdt
-         //    // ai_schedule.quarters[]
-         // }else if (detSelected.length){
-         //    debugger;
-         //    let deetz = capSelected[0]
-         // }
-
-         //SAVE & RELOAD VIEW
-
-         // else if (capSelected.length){ //DETAIL ROW DELETE from PARENT DELETE
-         //    //remove detail children rows.
-         //    debugger;
-         // }          
-         // else { 
-         //    showErrorMSG('💗 Soft Delete ');
-         //    // show save btn.
-         //    saveScheduleBtn1.style.display = 'block';
-         // }           
-   
       } //end delete tgt fn
 
+      const generateProfitLossClick = ()=>{ // GENERATE PROFIT AND LOSS DISPLAY
+         //PROFIT and LOSS View
+         let keyz = Object.keys(ai_MetaData_TickMap);
+         let bookValue = 0, bankValue=0,itm;
+         let totMargin=0,totMarginPct,totMarginSum,totMarginBOX,totMarginPctBOX;
+         for(let idx=0; idx<keyz.length;idx++){
+            itm=ai_MetaData_TickMap[keyz[idx]];
+            bookValue += itm.total_val;
+            bankValue += 3; //TODO sum SOLD PROFITS.
+
+            if(itm.margin){ //CALCULATE TOTAL MARGIN
+               totMargin += itm.margin;
+            }
+            totMarginSum += itm.margin_pct;
+         }
+         totMarginPct = totMarginSum/keyz.length;
+         let totalsRow1,totBookValue1,totBankValue1;
+         totBookValue1 = document.createElement('aside')
+         totBookValue1.classList.add('totBookValue1')
+         totBookValue1.innerHTML = 'book_value: '+bookValue;
+         totMarginBOX = document.createElement('aside')
+         totMarginBOX.classList.add('totMarginBOX')
+         totMarginBOX.innerHTML = 'total margin: '+totMargin;
+         totMarginPctBOX = document.createElement('aside')
+         totMarginPctBOX.classList.add('totMarginPctBOX')
+         totMarginPctBOX.innerHTML = 'total pct: '+totMarginPct;
+         totBankValue1 = document.createElement('aside')
+         totBankValue1.classList.add('totBankValue1')
+         totBankValue1.innerHTML = 'bank_value: '+bankValue;//+ai_MetaData_TickMap[ticker.tick].sum_spot_amt || 0;                        
+         totalsRow1 = document.createElement('footer')
+         totalsRow1.innerHTML = "Totals:"         
+         totalsRow1.classList.add('totalsRow1') 
+         totalsRow1.appendChild(totBookValue1)         
+         totalsRow1.appendChild(totMarginBOX)         
+         totalsRow1.appendChild(totBankValue1)         
+         generatedProfitsBOX.appendChild(totalsRow1) 
+         
+
+
+      } 
+
       /*****************************************\
-       * - end DECODE
+       * - end UI fns
       \****************************************/
+
+
+
       /*****************************************\
        * - ai_BANK functions
       \*****************************************/
       let ai_BANK = {
          "Q4_2023_OCT": {trxns:{pads:[],trims:[]}}
       }
-
-      
-
-      const generateProfitLossClick = ()=>{ // GENERATE PROFIT AND LOSS DISPLAY
-         //todo move out of margins? dependent on margins. duplicate?
-      } 
-
+   
 
    /************************************************\
     * - AI_SCHEDULE_MATRIX
@@ -2744,11 +2747,12 @@ align-items: center;">
          block: 'start'
       })
          generateMarginsClick();
-      }
-      const generateMarginsClick = ()=>{ // GENERATE Margin DISPLAY
+   }
+   let ai_MetaData_TickMap={}; //todo rename ai_MetaData_TickMap also separate generation into marginGeneration.
+   const generateMarginsClick = ()=>{ // GENERATE Margin DISPLAY
       //TODO if selected, only run selected
       let ticker,spot_ticker,tickerBOX1,tickerSet=[],spotSet=[],numSPOTS=0;
-      let TickMAP_MetaData={},numSPOT1, marginsRow1, profitRow1,curPrice1;
+      let numSPOT1, marginsRow1, profitRow1,curPrice1;
       generatedMarginsBOX.innerHTML = ""; //reset view
       generatedProfitsBOX.innerHTML = ""; //reset view //todo refactor
       if(show_margin_details_view){
@@ -2762,43 +2766,43 @@ align-items: center;">
       for(let i=0;i<tickerSet.length;i++){
          ticker= tickerSet[i];
          if(ticker.tick ){ // INIT META DATA obj
-            TickMAP_MetaData[ticker.tick] = {};
-            TickMAP_MetaData[ticker.tick].num = 0;
-            TickMAP_MetaData[ticker.tick].curr_price = (ticker.price || 0);
-            TickMAP_MetaData[ticker.tick].sum_spot_amt = 0;
-            TickMAP_MetaData[ticker.tick].total_val = 0;
+            ai_MetaData_TickMap[ticker.tick] = {};
+            ai_MetaData_TickMap[ticker.tick].num = 0;
+            ai_MetaData_TickMap[ticker.tick].curr_price = (ticker.price || 0);
+            ai_MetaData_TickMap[ticker.tick].sum_spot_amt = 0;
+            ai_MetaData_TickMap[ticker.tick].total_val = 0;
          }
       }
       //SPOT - iterator - calculate - METADATA generator
       for(let i=0;i<spotSet.length;i++){
          spot_ticker= spotSet[i];
-         if(!TickMAP_MetaData[spot_ticker.tick]){ continue }
-         TickMAP_MetaData[spot_ticker.tick].num++;
-         TickMAP_MetaData[spot_ticker.tick].sum_spot_amt =
-            parseInt(TickMAP_MetaData[spot_ticker.tick].sum_spot_amt) + parseInt(spot_ticker.amount || 0);               
-         TickMAP_MetaData[spot_ticker.tick].total_val += parseInt(spot_ticker.spot_at || 0);               
+         if(!ai_MetaData_TickMap[spot_ticker.tick]){ continue }
+         ai_MetaData_TickMap[spot_ticker.tick].num++;
+         ai_MetaData_TickMap[spot_ticker.tick].sum_spot_amt =
+            parseInt(ai_MetaData_TickMap[spot_ticker.tick].sum_spot_amt) + parseInt(spot_ticker.amount || 0);               
+         ai_MetaData_TickMap[spot_ticker.tick].total_val += parseInt(spot_ticker.spot_at || 0);               
       }
       //SPOT - CALCULATE SPOT MARGIN
       let curr_price, total_val,sum_spot_amt, spot_num, spot_margin, margin_pct, avg_price;
       for(let i=0;i<tickerSet.length;i++){
          ticker= tickerSet[i];
-         if(!TickMAP_MetaData[ticker.tick]){ continue }
-         spot_num = TickMAP_MetaData[ticker.tick].num;
-         curr_price = TickMAP_MetaData[ticker.tick].curr_price;
+         if(!ai_MetaData_TickMap[ticker.tick]){ continue }
+         spot_num = ai_MetaData_TickMap[ticker.tick].num;
+         curr_price = ai_MetaData_TickMap[ticker.tick].curr_price;
          // spot_price = ticker.spot_at; //TODO rename at_spot
-         sum_spot_amt = TickMAP_MetaData[ticker.tick].sum_spot_amt;
-         total_val = TickMAP_MetaData[ticker.tick].total_val;
+         sum_spot_amt = ai_MetaData_TickMap[ticker.tick].sum_spot_amt;
+         total_val = ai_MetaData_TickMap[ticker.tick].total_val;
          margin_pct = 0;
          if(curr_price && spot_num && total_val){
             avg_price = total_val / spot_num;
             avg_price = avg_price.toFixed(0);//round number 
             spot_margin = curr_price - avg_price; //CALCULATE SPOT MARGIN
-            TickMAP_MetaData[ticker.tick].margin = spot_margin || 0;
-            TickMAP_MetaData[ticker.tick].avg_price = avg_price || 0;
+            ai_MetaData_TickMap[ticker.tick].margin = spot_margin || 0;
+            ai_MetaData_TickMap[ticker.tick].avg_price = avg_price || 0;
          }
          if(spot_margin){
             margin_pct = spot_margin / avg_price * 100;
-            TickMAP_MetaData[ticker.tick].margin_pct = margin_pct;
+            ai_MetaData_TickMap[ticker.tick].margin_pct = margin_pct;
          }
       }
 
@@ -2808,8 +2812,8 @@ align-items: center;">
       for(let i=0;i<tickerSet.length;i++){
          ticker= tickerSet[i];
          
-         if(!TickMAP_MetaData[ticker.tick]){continue;}
-         if(!TickMAP_MetaData[ticker.tick].num){continue;}
+         if(!ai_MetaData_TickMap[ticker.tick]){continue;}
+         if(!ai_MetaData_TickMap[ticker.tick].num){continue;}
          marginsRow1 = document.createElement('section')
          marginsRow1.classList.add('marginsRow1')
          profitRow1 = document.createElement('section')
@@ -2821,26 +2825,26 @@ align-items: center;">
          numSPOT1.classList.add('proSpots1')
          curPrice1 = document.createElement('aside')
          curPrice1.classList.add('curPrice1')
-         curPrice1.innerHTML =  'last: '+TickMAP_MetaData[ticker.tick].curr_price || 0;
+         curPrice1.innerHTML =  'last: '+ai_MetaData_TickMap[ticker.tick].curr_price || 0;
          avgPrice1 = document.createElement('aside')
          avgPrice1.classList.add('avgPrice1')
-         avgPrice1.innerHTML =  'avg: '+TickMAP_MetaData[ticker.tick].avg_price || 0;
+         avgPrice1.innerHTML =  'avg: '+ai_MetaData_TickMap[ticker.tick].avg_price || 0;
          numMargin1 = document.createElement('aside')
          numMargin1.classList.add('proMargin1')
          numPCT1 = document.createElement('aside')
          numPCT1.classList.add('proPCT1')
          numTotalAmt1 = document.createElement('aside')
          numTotalAmt1.classList.add('proTotalAmt1')
-         numTotalAmt1.innerHTML = 'sum: '+TickMAP_MetaData[ticker.tick].sum_spot_amt || 0;
-         numSPOTS = (TickMAP_MetaData[ticker.tick] && TickMAP_MetaData[ticker.tick].num)?
-            TickMAP_MetaData[ticker.tick].num:0;
+         numTotalAmt1.innerHTML = 'sum: '+ai_MetaData_TickMap[ticker.tick].sum_spot_amt || 0;
+         numSPOTS = (ai_MetaData_TickMap[ticker.tick] && ai_MetaData_TickMap[ticker.tick].num)?
+            ai_MetaData_TickMap[ticker.tick].num:0;
          numSPOT1.innerHTML = 'spots: '+ numSPOTS;
          numMargin1.innerHTML = `margin: 
-            ${( TickMAP_MetaData[ticker.tick].margin>0 )?'+':''}
-            ${TickMAP_MetaData[ticker.tick].margin}`
+            ${( ai_MetaData_TickMap[ticker.tick].margin>0 )?'+':''}
+            ${ai_MetaData_TickMap[ticker.tick].margin}`
          numPCT1.innerHTML = `pct: 
-            ${( TickMAP_MetaData[ticker.tick].margin>0 )?'+':''}
-            ${TickMAP_MetaData[ticker.tick].margin_pct.toFixed(0)}%`;
+            ${( ai_MetaData_TickMap[ticker.tick].margin>0 )?'+':''}
+            ${ai_MetaData_TickMap[ticker.tick].margin_pct.toFixed(0)}%`;
 
          marginsRow1.appendChild(tickerBOX1)         
          marginsRow1.appendChild(numSPOT1)         
@@ -2863,7 +2867,7 @@ align-items: center;">
                // detailRow1.innerHTML = ticker.tick;
 
                //CALCULATE individual SPOT MARGIN
-               curr_price2 = TickMAP_MetaData[ticker.tick].curr_price;
+               curr_price2 = ai_MetaData_TickMap[ticker.tick].curr_price;
                spotMargin2 = curr_price2 - spotObj.spot_at
                spotPCT2 = (spotMargin2/spotObj.spot_at) * 100 
                // spotPCT2 = spotPCT2.toFixed(0);
@@ -2903,42 +2907,42 @@ align-items: center;">
             }
          } //END DETAILS VIEW
       }
-      //PROFIT and LOSS View
-      let keyz = Object.keys(TickMAP_MetaData);
-      let bookValue = 0, bankValue=0,itm;
-      let totMargin=0,totMarginPct,totMarginSum,totMarginBOX,totMarginPctBOX;
-      for(let idx=0; idx<keyz.length;idx++){
-         itm=TickMAP_MetaData[keyz[idx]];
-         bookValue += itm.total_val;
-         bankValue += 3; //TODO sum SOLD PROFITS.
+      // //PROFIT and LOSS View
+      // let keyz = Object.keys(ai_MetaData_TickMap);
+      // let bookValue = 0, bankValue=0,itm;
+      // let totMargin=0,totMarginPct,totMarginSum,totMarginBOX,totMarginPctBOX;
+      // for(let idx=0; idx<keyz.length;idx++){
+      //    itm=ai_MetaData_TickMap[keyz[idx]];
+      //    bookValue += itm.total_val;
+      //    bankValue += 3; //TODO sum SOLD PROFITS.
 
-         if(itm.margin){ //CALCULATE TOTAL MARGIN
-            totMargin += itm.margin;
-         }
-         totMarginSum += itm.margin_pct;
-      }
-      totMarginPct = totMarginSum/keyz.length;
-      let totalsRow1,totBookValue1,totBankValue1;
-      totBookValue1 = document.createElement('aside')
-      totBookValue1.classList.add('totBookValue1')
-      totBookValue1.innerHTML = 'book_value: '+bookValue;
-      totMarginBOX = document.createElement('aside')
-      totMarginBOX.classList.add('totMarginBOX')
-      totMarginBOX.innerHTML = 'total margin: '+totMargin;
-      totMarginPctBOX = document.createElement('aside')
-      totMarginPctBOX.classList.add('totMarginPctBOX')
-      totMarginPctBOX.innerHTML = 'total pct: '+totMarginPct;
-      totBankValue1 = document.createElement('aside')
-      totBankValue1.classList.add('totBankValue1')
-      totBankValue1.innerHTML = 'bank_value: '+bankValue;//+TickMAP_MetaData[ticker.tick].sum_spot_amt || 0;                        
-      totalsRow1 = document.createElement('footer')
-      totalsRow1.innerHTML = "Totals:"         
-      totalsRow1.classList.add('totalsRow1') 
-      totalsRow1.appendChild(totBookValue1)         
-      totalsRow1.appendChild(totMarginBOX)         
-      totalsRow1.appendChild(totBankValue1)         
-      generatedProfitsBOX.appendChild(totalsRow1)  
-      }
+      //    if(itm.margin){ //CALCULATE TOTAL MARGIN
+      //       totMargin += itm.margin;
+      //    }
+      //    totMarginSum += itm.margin_pct;
+      // }
+      // totMarginPct = totMarginSum/keyz.length;
+      // let totalsRow1,totBookValue1,totBankValue1;
+      // totBookValue1 = document.createElement('aside')
+      // totBookValue1.classList.add('totBookValue1')
+      // totBookValue1.innerHTML = 'book_value: '+bookValue;
+      // totMarginBOX = document.createElement('aside')
+      // totMarginBOX.classList.add('totMarginBOX')
+      // totMarginBOX.innerHTML = 'total margin: '+totMargin;
+      // totMarginPctBOX = document.createElement('aside')
+      // totMarginPctBOX.classList.add('totMarginPctBOX')
+      // totMarginPctBOX.innerHTML = 'total pct: '+totMarginPct;
+      // totBankValue1 = document.createElement('aside')
+      // totBankValue1.classList.add('totBankValue1')
+      // totBankValue1.innerHTML = 'bank_value: '+bankValue;//+ai_MetaData_TickMap[ticker.tick].sum_spot_amt || 0;                        
+      // totalsRow1 = document.createElement('footer')
+      // totalsRow1.innerHTML = "Totals:"         
+      // totalsRow1.classList.add('totalsRow1') 
+      // totalsRow1.appendChild(totBookValue1)         
+      // totalsRow1.appendChild(totMarginBOX)         
+      // totalsRow1.appendChild(totBankValue1)         
+      // generatedProfitsBOX.appendChild(totalsRow1)  
+   } //END generate margins click
 
    //    const generateSelected = ()=>{
    //    let selected = [];

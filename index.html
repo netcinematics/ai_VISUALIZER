@@ -23,7 +23,7 @@
         .subMenuBtn { color:#75bdb7; border-radius: 13px;  background-image: linear-gradient(grey, steelblue, black);
                    margin:0.666em;cursor:pointer;font-size:0.888em;padding: 2px 6px 4px 6px; }
         .boxTitle{font-size:1.222em; color:#6868dc;}
-        .btnTXT{font-size:1.222em;}
+        .btnTXT{font-size:1em;}
         .addBtn1{border-radius:13px;background:#7bd67b;float: right;
          margin-right: 0%;cursor:pointer;
          font-size: 0.777em;margin-top: 0.888em;
@@ -60,14 +60,13 @@
          cursor:pointer; margin:1em 0 1em 0;
          font-size: 0.777em;
          background: cadetblue;
-    border-radius: 13px;
-    max-width: 6em;
-float:right;
-margin-right: 2%;
+         border-radius: 13px;
+         max-width: 9em;
+         float:right;
+         margin-right: 2%;
       }
       .decBtn1{font-size:0.777em; border-radius:22px; cursor:pointer;
          background:#5fa9a9; border-radius: 10px;color:#060252;
-         /* margin: 1em; */
       }
       #saveTickBtn1{border-radius:13px;background:#d1d67b;float: right;
          margin-right: 2%;cursor:pointer;display:none;
@@ -138,7 +137,7 @@ margin-right: 2%;
 }
 
    .tkrPriceBOX1{border-radius: 8px;
-    font-size: 0.777em;
+    font-size: 0.666em;
     background: #1a0033;
     color: cyan;
     padding-left: 0.555em;
@@ -149,7 +148,7 @@ margin-right: 2%;
     text-align: right;
    }
    .tkrPriceData1{    border-radius: 8px;
-    font-size: 0.888em;
+    font-size: 0.999em;
     background: #02184b;
     color: cyan;
     padding: 0 0.444em;
@@ -165,7 +164,7 @@ margin-right: 2%;
     color: #546a9b;
     padding: 0 0.444em;
     text-align: center;
-    max-width: 40px;
+    max-width: 45px;
     height: 16px;
     font-size: 0.555em;
     margin-bottom: -1px;
@@ -183,7 +182,7 @@ margin-right: 2%;
     text-align: right;
    }
    .spotamountData1{    border-radius: 8px;
-    font-size: 0.999em;
+    font-size: 0.888em;
     background: #02184b;
     color: #136567;
     padding: 0 0.444em;
@@ -194,7 +193,7 @@ margin-right: 2%;
     border: 1px solid steelblue;}
 
     .tkrATHBOX1{border-radius: 8px;
-    font-size: 0.777em;
+    font-size: 0.666em;
     background: #1a0033;
     color: cyan;
     padding-left: 0.555em;
@@ -220,7 +219,7 @@ margin-right: 2%;
     color:#546a9b;
     padding: 0 0.444em;
     text-align: center;
-    max-width: 40px;
+    max-width: 45px;
     height: 16px;
     font-size: 0.555em;
     margin-bottom: -1px;
@@ -271,7 +270,7 @@ margin-right: 2%;
     text-align: right;
    }
    .spotAtData1{    border-radius: 8px;
-    font-size: 0.999em;
+    font-size: 0.888em;
     background: #02184b;
     color: cyan;
     padding: 0 0.444em;
@@ -315,16 +314,14 @@ margin-right: 2%;
    }
    .encodeNUMBOX1{
          font-family: sans-serif;
-      font-size: 0.777em;
+      font-size: 0.555em;
       margin-left: -2em;
       padding-left: 1em;
       display: flex;
    }
    .capsNUMBOX1{
          font-family: sans-serif;
-      font-size: 0.777em;
-      /* margin-left: -2em;
-      padding-left: 1em; */
+      font-size: 0.555em;
       display: flex;
    }
    .capsNUMBOX2{
@@ -334,12 +331,25 @@ margin-right: 2%;
       padding-left: 1em;
       display: flex;
    }
+   .capsNUMBOX3{
+         font-family: sans-serif;
+      font-size: 0.777em;
+      /* margin-left: -2em;
+      padding-left: 1em; */
+      display: flex;
+      margin-top: -8px;
+   }
+
+   .eventzNUM1{
+      padding-top: 0.555em;
+    margin-right: 0.555em;
+   }
    .encodeSelect1{
       color:cyan;
    }
    .decodeNUMBOX1{
          font-family: sans-serif;
-      font-size: 0.777em;
+      font-size: 0.555em;
       margin-left: -1em;
       padding-left: 1em;
       display: flex;
@@ -380,21 +390,40 @@ margin-right: 2%;
          }
 
          #generatedScheduleBOX, #generatedProfitsBOX, #generatedMarginsBOX, 
-         #generatedPadSequenceBOX, #generatedReviewPreviewBOX{
+         #eventzFRAME, #storyzFRAME, #generatedReviewPreviewBOX{
             margin:2%;
          }
-         .quarterBOX{
-            display: flex;
-    flex-direction: column;
-            margin-top:2em;
-            background:#1b0227;
-            border-radius: 13px;
-         }
+.quarterBOX{
+   display: flex;
+flex-direction: column;
+   margin-top:2em;
+   background:#1b0227;
+   border-radius: 13px;
+}
+.eventzBOX{
+   display: flex;
+flex-direction: column;
+   margin-top:2em;
+   background:#4f3529;
+   border-radius: 13px;
+   color:#231501;
+   padding-top:0.555em;
+   box-shadow: inset 0px 0px 6px 0px #f09f02;
+}
+.storyzBOX{
+   display: flex;
+flex-direction: column;
+   margin-top:2em;
+   background:#2c263d;
+   border-radius: 13px;
+   /* color:#231501; */
+   padding-top:0.555em;
+   box-shadow: inset 0px 1px 8px 0px #a44ba9;
+}
 .trimTick{
    font-family: sans-serif;
-    /* font-weight: bold; */
     border-radius: 10px;
-        max-width: 44px;
+        max-width: 52px;
    text-align: center;
    font-size: 0.777em;
    color: cyan;;
@@ -402,6 +431,9 @@ margin-right: 2%;
    height: 1.222em;
    align-self: center;
 
+}
+.inputDATABOX4,.inputDATABOX5{
+   display : none;
 }
 
 .inputDATABOX1, .inputDATABOX2,.inputDATABOX3,.inputDATABOX4,.inputDATABOX5{
@@ -442,7 +474,7 @@ margin-right: 2%;
     align-self: center;
    }
    .inputDATA2{    border-radius: 8px;
-    font-size: 0.999em;
+    font-size: 0.777em;
     background: #02184b;
     color: #b19f50;
     padding: 0 0.444em;
@@ -452,7 +484,7 @@ margin-right: 2%;
     margin-bottom: -1px;
     border: 1px solid steelblue;}
    .inputDATA3{    border-radius: 8px;
-    font-size: 0.999em;
+    font-size: 0.777em;
     background: #02184b;
     color: #b19f50;
     padding: 0 0.444em;
@@ -521,6 +553,16 @@ margin-right: 2%;
     justify-content: space-between;
     flex-wrap: wrap;    margin: 0 10px; 
 }
+.eventzROW{
+   display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 10px;
+    align-items: flex-start;
+    padding-left: 1.444em; 
+    height: 2em;
+    margin-bottom: 0.777em;
+}
 /* .capROW div{
    margin: 0 2% 0 0;    height: 2em;
 } */
@@ -532,7 +574,32 @@ margin-right: 2%;
     background: black;
     border-radius: 14px;
     padding: 6px;
-    max-width: 7em;    
+    max-width: 7em;
+    margin-left: 0.666em;    
+}
+.eventzTXT{
+   line-height: 1em;
+   font-weight: bold;
+    font-family: sans-serif;
+    color: #de9257;
+    background: transparent;
+    border-radius: 14px;
+    padding: 6px;
+    /* max-width: 7em; */
+    margin-left: 0.666em; 
+    border: none;   
+}
+.storyzTXT{
+   line-height: 1em;
+   font-weight: bold;
+    font-family: sans-serif;
+    color: cyan;
+    background: transparent;
+    border-radius: 14px;
+    padding: 6px;
+    /* max-width: 7em; */
+    margin-left: 0.666em; 
+    border: none;   
 }
 .trimBtnROW{
    display: flex;
@@ -566,7 +633,6 @@ margin-right: 2%;
       }
 
 
-/* checkbox_frame */
 .checkboxFrame {
   display: block;
   position: relative;
@@ -587,6 +653,7 @@ margin-right: 2%;
   height: 0;
   width: 0;
 }
+
 
 /* Create a custom checkbox */
 .checkmark {
@@ -849,19 +916,20 @@ align-items: center;">
       </section>
 
       <section id="padSequenceBOX"
-         style="width:80.888%; flex:1;background:#231501;border-radius: 13px; border: solid 1px #a9754b;
+         style="width:80.888%; flex:1;background:#100601;border-radius: 13px; border: solid 1px #a9754b;
          box-shadow: 1px 2px 11px 0px #f09f02;padding: 4% 0 4% 4%; color:#b5997d; line-height: 2.444em;">
-         <button id="generatePadSequencesBtn" class="genReportBtn1" onclick="generatePadSequencesClick()">gener8🎈</button>
+         <button id="generatePadSequencesBtn" class="genReportBtn1" onclick="generateTrimSEQClick()">gener8🎈</button>
          <span class="boxTitle">💡 
           <span style="font-size:0.777em; color:cyan">5</span>
-          <span style="font-size:0.555em">Generate</span>
+          <span style="font-size:0.555em; color:#de9257;">Generate</span>
           <span style="font-size: 1.222em;color:cyan;font-family: monospace;">
-            Correction & Crash</span> 
-          <span style="font-size:0.555em">🎢(qtr TGTz)🚀</span>
+            Dips & Crash</span> 
+          <span style="font-size:0.555em; color:#de9257;">🎢(Eventz)🚀</span>
          </span><br>
          <article style="font-size:0.777em;font-family: sans-serif;line-height:2.222em;">
             <hr> 
-            Trigger PAD SEQUENCE if:
+            <section id="eventzFRAME"></section>
+            <!-- Trigger PAD SEQUENCE if:
             - 10% off YRHi
             - Bollinger Band Retrace
             - RSI Low - VIX Hi
@@ -874,7 +942,7 @@ align-items: center;">
             - because that money elsewhere, is worth the loss.
 
             <section id="generatedPadSequenceBOX"></section>
-            Previews:
+            Previews: -->
             <!-- <section id="generatedPreviewBOX"></section> -->
             <hr> 
             <button id="previewBtn1" class="genReportBtn1" style="display:block;" onclick="setPadSequenceDetailsClick(event)">preview🔭</button> 
@@ -894,10 +962,12 @@ align-items: center;">
          </span><br>
          <article style="font-size:0.777em;font-family: sans-serif;line-height:2.222em;">
             <hr> 
-            Reviews:
+            
+            <section id="storyzFRAME"></section>
+            <!-- Reviews:
             <section id="generatedReviewBOX"></section>
             Previews:
-            <section id="generatedPreviewBOX"></section>
+            <section id="generatedPreviewBOX"></section> -->
             <hr> 
             <button id="previewBtn1" class="genReportBtn1" style="display:block;" onclick="setReviewPreviewDetailsClick(event)">preview🔭</button> 
             <button id="reviewBtn1" class="genReportBtn1" style="display:block;" onclick="setReviewPreviewDetailsClick(event)">review🔬</button> 
@@ -1315,7 +1385,7 @@ align-items: center;">
       <button onclick="copyScheduleFn()" class="btmBtns1" style="border-radius:8px;background:grey;
          cursor:pointer;box-shadow: inset -1px -1px 4px 1px rgb(51, 153, 109);">
          <span style="border-radius:100%;background:rgb(51, 153, 99);border:1px solid grey;">
-            🍧</span> <span class="btnTXT hoverTXT">COPY TGTS</span>
+            🍧</span> <span class="btnTXT hoverTXT">COPY CAPS</span>
       </button>
        <button onclick="resetAllFn()" class="btmBtns1" style="border-radius:8px;background:grey;
           cursor:pointer;box-shadow: inset -1px -1px 4px 1px rebeccapurple;">
@@ -1357,9 +1427,9 @@ align-items: center;">
         let generatedScheduleBOX = document.getElementById('generatedScheduleBOX');         
         let generatedProfitsBOX = document.getElementById('generatedProfitsBOX');
         let generatedMarginsBOX = document.getElementById('generatedMarginsBOX');
-        let generatedReviewBOX = document.getElementById('generatedReviewBOX');         
         let generatedPreviewBOX = document.getElementById('generatedPreviewBOX');         
-        let generatedPadSequenceBOX = document.getElementById('generatedPadSequenceBOX');         
+        let eventzFRAME = document.getElementById('eventzFRAME');         
+        let storyzFRAME = document.getElementById('storyzFRAME');         
 
         let detailsBtn1 = document.getElementById('detailsBtn1');
         let detailsBtn2 = document.getElementById('detailsBtn2');
@@ -1449,11 +1519,11 @@ align-items: center;">
                   saveTickBtn1.style.display = 'block'; });
                priceDate1.addEventListener("keyup",(e)=>{
                   saveTickBtn1.style.display = 'block'; });
-               priceData1.placeholder = "$0.00";
+               priceData1.placeholder = "$0";
                priceDate1.placeholder = "yyyy_mm_dd";
                priceData1.value = ai_ledger.ticks[i].price || '';
                priceDate1.value = ai_ledger.ticks[i].price_ymd || '';
-               athData1.placeholder = "$0.00";
+               athData1.placeholder = "$0";
                athData1.value = ai_ledger.ticks[i].ath || '';
                athDate1.placeholder = "yyyy_mm_dd";
                athDate1.value = ai_ledger.ticks[i].ath_ymd || '';
@@ -1578,10 +1648,10 @@ align-items: center;">
                btn1.innerHTML = '✨Lock Profit/Loss💥'
                tick1.value = ai_ledger.spots[i].tick || '';
                tick1.readOnly = false;
-               amountData1.placeholder = "start:$0.00";
+               amountData1.placeholder = "start:$0";
                amountData1.value = ai_ledger.spots[i].amount || '';
             atData1 = document.createElement('input')
-            atData1.placeholder = "$0.00";
+            atData1.placeholder = "$0";
             atData1.value = ai_ledger.spots[i].spot_at || '';
             tick1.addEventListener("keyup",(e)=>{
                   saveSpotBtn1.style.display = 'block'; });            
@@ -1720,9 +1790,9 @@ align-items: center;">
          tick1.value = "";
          tick1.readOnly = false;
          tick1.placeholder = "ticker";
-         priceData1.placeholder = "$0.00";
+         priceData1.placeholder = "$0";
          priceDate1.placeholder = "yyyy_mm_dd";
-         athData1.placeholder = "$0.00";
+         athData1.placeholder = "$0";
          athDate1.placeholder = "yyyy_mm_dd";
          tick1.classList.add('genTicker1')
          tick1.style.margin='1em 0 1em 0';
@@ -1908,7 +1978,7 @@ align-items: center;">
             roleBOX.classList.add('roleBOX1')
             roleData.classList.add('roleData1')
             atData1 = document.createElement('input')
-            atData1.placeholder = "$0.00";
+            atData1.placeholder = "$0";
             saveBtn3 = document.createElement('button')
             date1 = document.createElement('input')
             date1.value = current_ymd.split('YMD_')[1];//user display
@@ -2028,18 +2098,18 @@ align-items: center;">
                capSelected.push(capChecks[i])
                let ymdt = capChecks[i].ymdt;
                let zArr = capChecks[i].ymdt.split('_')
-               let tickTGT = zArr.pop();
+               let tickCAP = zArr.pop();
                let ymd = zArr.join('_')
                let qtrCaps = ai_schedule.quarters[ymd].caps;
                let monthData = ai_schedule.quarters[ymd].monthData;
-               for(var j=0; j<qtrCaps.length;j++){ //DELETE TGT DATA
-                  if( tickTGT === qtrCaps[j].tkr ){
+               for(var j=0; j<qtrCaps.length;j++){ //DELETE CAP DATA
+                  if( tickCAP === qtrCaps[j].tkr ){
                      qtrCaps.splice(j,1) //remove data
                      break;
                   }
                }
                for(var k=0; k<monthData.length;k++){ //DELETE MONTH DATA
-                  if( tickTGT === monthData[k].tick ){
+                  if( tickCAP === monthData[k].tick ){
                      monthData.splice(k,1) //remove data
                      // break;
                   }
@@ -2058,13 +2128,13 @@ align-items: center;">
                   let ymdtn = detChecks[j].ymdtn
                   let zArr = detChecks[j].ymdtn.split('_')
                   let itemNUM = zArr.pop();
-                  let tickTGT = zArr.pop();
+                  let tickCAP = zArr.pop();
                   let ymd = zArr.join('_')
                   let monthData = ai_schedule.quarters[ymd].monthData;
                   // for(var k=0; k<monthData.length;k++){ //DELETE MONTH DATA
                   if(monthData[itemNUM]){
 
-                     if( tickTGT === monthData[itemNUM].tick ){
+                     if( tickCAP === monthData[itemNUM].tick ){
                         monthData.splice(itemNUM,1) //remove data
                      }
                   }
@@ -2077,7 +2147,7 @@ align-items: center;">
             }
          } 
          if(!capSelected.length && !detSelected.length){showErrorMSG(' Nothing selected 😵'); return;}
-      } //end delete tgt fn
+      } //end delete CAP fn
 
       const generateProfitLossClick = ()=>{ // GENERATE PROFIT AND LOSS DISPLAY
          //PROFIT and LOSS View
@@ -2308,24 +2378,23 @@ align-items: center;">
       }
 
       const saveQuarterClick = (e)=>{ 
-         // debugger;
-            //GET input value
-            let keyInput = e.target.parentElement.children[0].value;
-            if(!keyInput){ showErrorMSG('🎀No data🎀'); return; }
-            keyInput = keyInput.toUpperCase();
-            if(ai_schedule[keyInput]){ showErrorMSG('🖖duplicate🤙'); return; }
-            
-            ai_schedule.quarters[keyInput] = {}
-            ai_schedule.quarters[keyInput].qID = keyInput;
-            ai_schedule.quarters[keyInput].caps = [];
-            ai_schedule.quarters[keyInput].monthData = [];
+         //GET input value
+         let keyInput = e.target.parentElement.children[0].value;
+         if(!keyInput){ showErrorMSG('🎀No data🎀'); return; }
+         keyInput = keyInput.toUpperCase();
+         if(ai_schedule[keyInput]){ showErrorMSG('🖖duplicate🤙'); return; }
+         
+         ai_schedule.quarters[keyInput] = {}
+         ai_schedule.quarters[keyInput].qID = keyInput;
+         ai_schedule.quarters[keyInput].caps = [];
+         ai_schedule.quarters[keyInput].monthData = [];
 
-           //SAVE to LOCAL STORAGE
-           localStorage.ai_schedule = JSON.stringify(ai_schedule) 
-         //   generateScheduleClick(); //RELOAD VIEW.  
-           generateScheduleClick(); //RELOAD VIEW.  
+         //SAVE to LOCAL STORAGE
+         localStorage.ai_schedule = JSON.stringify(ai_schedule) 
+      //   generateScheduleClick(); //RELOAD VIEW.  
+         generateScheduleClick(); //RELOAD VIEW.  
 
-           showErrorMSG('⚔️ ADDED ⚔️');          
+         showErrorMSG('⚔️ ADDED ⚔️');          
       }
    const saveScheduleClick = ()=>{ // GENERATE PROFIT AND LOSS DISPLAY
       saveScheduleBtn1.style.display = 'none'; 
@@ -2333,7 +2402,7 @@ align-items: center;">
          let tkr,cap,trim_at,pad_at,padlvl,crashlvl;
          let date3,type3,amt3,role3;
          let capData,trimDetail, expand1;
-         let qtrTXT,dataBox1,dataBox2,qtrBOX, tgtMonth;
+         let qtrTXT,dataBox1,dataBox2,qtrBOX, CAPMonth;
          let save_schedule = {quarters:{}};
       try{     
            for(var i=0; i<quarterBoxes.length;i++){ //LOOP QUARTER BOX
@@ -2349,10 +2418,10 @@ align-items: center;">
                      expand1 = (kid.children[2].innerHTML==='v')? true : false;
                      save_schedule.quarters[qtrTXT].expanded = expand1;
                      // ai_schedule.quarters[qtrTXT].expanded = expand1;
-                     tgtMonth = save_schedule.quarters[qtrTXT]
-                     // tgtMonth = ai_schedule.quarters[qtrTXT]
-                     tgtMonth.caps = [];
-                     tgtMonth.monthData = []
+                     CAPMonth = save_schedule.quarters[qtrTXT]
+                     // CAPMonth = ai_schedule.quarters[qtrTXT]
+                     CAPMonth.caps = [];
+                     CAPMonth.monthData = []
                   }
                   if(kid.classList.contains('monthBOX')){
                      if(kid.children.length===0){ // NO MONTHBOX data, COLLAPSED.
@@ -2409,17 +2478,17 @@ align-items: center;">
                            }
                         } // end details row
            
-                        // if(capData.tkr && tgtMonth && tgtMonth.caps){
+                        // if(capData.tkr && CAPMonth && CAPMonth.caps){
                         if(capData.tkr){
-                           tgtMonth.caps.push(capData);
+                           CAPMonth.caps.push(capData);
                            capData = {}
                         }
-                        // if (trimData.type && tgtMonth && tgtMonth.monthData){
+                        // if (trimData.type && CAPMonth && CAPMonth.monthData){
                         // if(!show_schedule_details_view){   //could move out of loop, below.
-                        //    tgtMonth.monthData = ai_schedule.quarters[qtrTXT].monthData
+                        //    CAPMonth.monthData = ai_schedule.quarters[qtrTXT].monthData
                         // }                            
                         else if (trimData.type){
-                           tgtMonth.monthData.push(trimData)
+                           CAPMonth.monthData.push(trimData)
                            trimData = {}
                         }
 
@@ -2427,7 +2496,7 @@ align-items: center;">
                   } //END EXPANDED MONTHBOX
                } //MONTH LOOP
                if(!show_schedule_details_view){   //could move out of loop, below.
-                           tgtMonth.monthData = ai_schedule.quarters[qtrTXT].monthData
+                           CAPMonth.monthData = ai_schedule.quarters[qtrTXT].monthData
                         }  
              } // IF QUARTER 
            } //END QUARTER BOX LOOP
@@ -2515,17 +2584,17 @@ align-items: center;">
          expandBtn1.classList.add('addBtn4')
          expandBtn1.setAttribute('data-arg3',quarter.qID)
          expandBtn1.addEventListener("click",(e)=>{
-               expandTGTClick(e.target.getAttribute('data-arg3')) });
+               expandCAPClick(e.target.getAttribute('data-arg3')) });
          addBtn4 = document.createElement('button')
-         addBtn4.innerHTML = 'addtgt🌟'
+         addBtn4.innerHTML = 'addCAP🗺️'
          addBtn4.classList.add('addBtn4')
          addBtn4.setAttribute('data-arg2',quarter.qID)
          addBtn4.addEventListener("click",(e)=>{
                addCapClick(e.target.getAttribute('data-arg2')) });
 
          quarterHeader.appendChild(quarterTXT)
-         quarterHeader.appendChild(addBtn4)
          quarterHeader.appendChild(expandBtn1)
+         quarterHeader.appendChild(addBtn4)
          // quarterBOX.appendChild(addBtn4)
          quarterBOX.appendChild(quarterHeader)
 
@@ -2562,11 +2631,11 @@ align-items: center;">
                trimTick.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
                });             
                capBOX1 = document.createElement('aside')
-               capBOX1.innerHTML="tgt&nbsp";
+               capBOX1.innerHTML="CAP&nbsp";
                capBOX1.classList.add('inputDATABOX1')
                capData1 = document.createElement('input')
                capData1.classList.add('inputDATA1')
-               capData1.placeholder = "$0.00";
+               capData1.placeholder = "$0";
                capData1.value = capsData.cap || '';          
                capData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
                });  
@@ -2577,7 +2646,7 @@ align-items: center;">
                trim_atBOX1.classList.add('inputDATABOX2')
                trim_atData1 = document.createElement('input')
                trim_atData1.classList.add('inputDATA2')
-               trim_atData1.placeholder = "$0.00";
+               trim_atData1.placeholder = "$0";
                trim_atData1.value = capsData.trim_at || '';          
                trim_atData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block';  
                });  
@@ -2588,7 +2657,7 @@ align-items: center;">
                pad_atBOX1.classList.add('inputDATABOX3')
                pad_atData1 = document.createElement('input')
                pad_atData1.classList.add('inputDATA2')
-               pad_atData1.placeholder = "$0.00";
+               pad_atData1.placeholder = "$0";
                pad_atData1.value = capsData.pad_at || '';          
                pad_atData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
                });  
@@ -2737,7 +2806,7 @@ align-items: center;">
                         roleData.classList.add('roleData1')
                         typeData.classList.add('typeData1')
                         amtData1 = document.createElement('input')
-                        amtData1.placeholder = "$0.00";
+                        amtData1.placeholder = "$0";
                         amtData1.value = monthData.amt;
                         amtData1.classList.add('spotAtData1')
 
@@ -2964,8 +3033,7 @@ align-items: center;">
       }
    } //END generate margins click
 
-   const expandTGTClick = (qID)=>{ //expand or collapse section
-      // debugger;
+   const expandCAPClick = (qID)=>{ //expand or collapse section
       let qtr = ai_schedule.quarters[qID];
       qtr.expanded = !qtr.expanded;
          //SAVE to LOCAL STORAGE
@@ -2974,12 +3042,447 @@ align-items: center;">
       showErrorMSG('⚔️ SAVED ⚔️');   
    }
 
-   const generatePadSequencesClick = ()=>{
-      debugger;
+   const expandEventzClick = (qID)=>{ //expand or collapse section
+      let evtz;// = ai_eventz//.quarters[qID];
+      for(var i=0;i<ai_eventz.length;i++){
+         evtz = ai_eventz[i];
+         if(qID===evtz.qID.toString()){
+            evtz.expanded = !evtz.expanded;
+         }
+      }
+         //SAVE to LOCAL STORAGE
+      localStorage.ai_eventz = JSON.stringify(ai_eventz) 
+      generateTrimSEQClick(); //RELOAD VIEW.  
+      showErrorMSG('🌠 SAVED 🌠');   
+   }
+   
+   let ai_eventz = [];
+   ai_eventz = [
+      {qID:1,tkr:'NVDA',title:'10%OFFTOP',type:'DIP',note:'10yr 5%',expanded:true},
+      {qID:2,tkr:'NVDA',title:'50%OFFTOP',type:'CRASH',note:'10yr 4.44%'},
+      {qID:3,tkr:'NVDA',title:'LIQUID_TOP',type:'BLACKSWAN',note:'super-semia'},
+      {qID:4,tkr:'NVDA',title:'event1',type:'BREAKOUT',note:'super-semib'},
+      {qID:5,tkr:'NVDA',title:'event2',type:'BULLFLAG',note:'celebrate good things.'}
+   ];
+
+   const generateTrimSEQClick = ()=>{
+      // saveScheduleBtn1.style.display = 'none'; 
+         // let quarterBoxes = generatedScheduleBOX.children,row,kids,kid;
+         // let tkr,cap,trim_at,pad_at,padlvl,crashlvl;
+         // let date3,type3,amt3,role3;
+         // let capData,trimDetail, expand1;
+         // let qtrTXT,dataBox1,dataBox2,qtrBOX, CAPMonth;
+         // let save_schedule = {quarters:{}};
+      eventzFRAME.innerHTML="";//blank out
+      let eventzSet = ai_eventz, eventz;
+      for(var i=0; i<eventzSet.length;i++){
+         eventz = eventzSet[i];
+         // eventz FORM ----------------------------------------
+         // selector, id, tick, type_select,  expand/contract   addEventBtn
+         // ymd_eventz , TOP_AMT TOP_YMD
+         // amt_range, amt_pos, net_amt, net% 
+         // ymd_crash
+         // Detailz Row.
+         // BreakEven, %toBE %toTrim FirstTrim DaysDown 
+         // RSI, MOM, VOL, BOLL, VIX, DIXY, 10yr, 2yr.
+         // avg_pos current_pos total_pos down_amt down_pct
+         // correction_return crash_return risk_amt
+         // PICK_TOP && PICK_BOTTOM_Correction or PICK_BOTTOM_Crash
+         // days/weeks since breakout, days/weeks since breakdown.
+         // end eventz FORM ------------------------------
+         // blackswanBtn blockbusterBtn addCrash addCorrection details trash
+         // for(let i=0;i<quarterSets.length;i++){  //BEGIN QUARTERLY LOOP
+         // quarter= ai_schedule.quarters[quarterSets[i]];
+         eventzBOX = document.createElement('section')
+         eventzBOX.classList.add('eventzBOX')
+
+         eventzHeader = document.createElement('aside')
+         eventzHeader.classList.add('eventzHeader')
+
+         eventzTXT = document.createElement('input')
+         eventzTXT.classList.add('eventzTXT')
+         eventzTXT.value = eventz.tkr.toUpperCase() +"_"+eventz.type.toUpperCase()+"_"+ year;//.eventzID.toUpperCase();
+         eventzTXT.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+            }); 
+
+         expandBtn1 = document.createElement('button')
+         expandBtn1.innerHTML = '🕸️'
+         expandBtn1.classList.add('addBtn4')
+         expandBtn1.setAttribute('data-arg3',eventz.qID)
+         expandBtn1.addEventListener("click",(e)=>{
+               expandEventzClick(e.target.getAttribute('data-arg3')) });
+         addBtn4 = document.createElement('button')
+         addBtn4.innerHTML = 'addEventz📅';
+         addBtn4.classList.add('addBtn4')
+         addBtn4.setAttribute('data-arg2',eventz.qID)
+         addBtn4.addEventListener("click",(e)=>{
+               addCapClick(e.target.getAttribute('data-arg2')) });
+
+            // const button2 = document.createElement('button');
+            // button2.textContent = '🗑️';
+            // button2.classList.add('docDeleteBtn')
+            // button2.onclick = function() { docDelete(item.title); };
+            
+            eventzHeader.appendChild(eventzTXT)
+            // eventzHeader.appendChild(button2); 
+            eventzHeader.appendChild(expandBtn1)
+            eventzHeader.appendChild(addBtn4)
+         // eventzBOX.appendChild(addBtn4)
+         eventzBOX.appendChild(eventzHeader)
+
+         // monthBOX = document.createElement('article')
+         // monthBOX.classList.add('monthBOX')
+
+         if(eventz.expanded){
+               expandBtn1.innerHTML = '💨'
+               
+            // for(let j=0;j<eventz.caps.length;j++){  //MONTHLY CAP LOOP .
+            //    eventzsData = eventz.eventzs[j];
+               eventzROW = document.createElement('aside')
+               eventzROW.classList.add('eventzROW')
+               //**********************************************selector
+               eventzNUM1 = document.createElement('div');
+               eventzNUM1.classList.add('eventzNUM1')
+               eventzNUM1.innerHTML = "e"+(i+1);
+               eventzNUMBOX1 = document.createElement('aside')
+               eventzNUMBOX1.classList.add('capsNUMBOX3');
+               eventzCHECKBOX1 = document.createElement('label')
+               eventzCHECKBOX1.classList.add('checkboxFrame') 
+               // eventzNUMBOX1.innerHTML=i+1;            
+               eventzSelect1 = document.createElement('input');
+               eventzSelect1.ymdt = eventz.qID || '';
+               eventzSelect1.type = "radio";
+               eventzSelect1.name = "scheduleeventzRadio";
+               eventzSelect1.classList.add('cap_checkmark')
+               eventzCHECKBOX1.appendChild(eventzSelect1)
+               eventzCheckMark1 = document.createElement('span')
+               eventzCheckMark1.classList.add('checkmark')
+               eventzCHECKBOX1.appendChild(eventzCheckMark1)
+               eventzNUMBOX1.appendChild(eventzNUM1)
+               eventzNUMBOX1.appendChild(eventzCHECKBOX1)
+               eventzROW.appendChild(eventzNUMBOX1)
+               // end ************************************** selector
+               //EVENT_TITLE
+               eventzTitle = document.createElement('input')
+               eventzTitle.classList.add('eventzTitle')
+               eventzTitle.value = eventz.title || 0;
+               eventzTitle.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+               });                
+               //EVENT_TYPE
+               roleBOX = document.createElement('aside')
+                        roleBOX.innerHTML="type&nbsp;"
+                        // typeBOX = document.createElement('aside')
+                        // typeBOX.innerHTML="type&nbsp;"
+                        roleData = document.createElement('select')
+                        // typeData = document.createElement('input')
+                        role1 = document.createElement('option')
+                        role2 = document.createElement('option')
+                        role3 = document.createElement('option')
+                        role4 = document.createElement('option')
+                        role5 = document.createElement('option')
+                        role6 = document.createElement('option')
+                        role7 = document.createElement('option')
+                        role8 = document.createElement('option')
+                        role9 = document.createElement('option')
+                        role10 = document.createElement('option')
+                        role11 = document.createElement('option')
+                        role1.value = "...";
+                        role2.value = "HOLD";
+                        role3.value = "WATCH";
+                        role4.value = "RISKOFF";
+                        role5.value = "LONG";
+                        role6.value = "TRIM";
+                        role7.value = "SAFE";
+                        role8.value = "RISKON";
+                        role9.value = "EXIT";
+                        role10.value = "LOrLO";
+                        role11.value = "HIGHrHIGH";
+                        role1.innerHTML = "...";
+                        role2.innerHTML = "HOLD";
+                        role3.innerHTML = "WATCH";
+                        role4.innerHTML = "RISKOFF";
+                        role5.innerHTML = "LONG";
+                        role6.innerHTML = "TRIM";
+                        role7.innerHTML = "SAFE";
+                        role8.innerHTML = "RISKON";
+                        role9.innerHTML = "EXIT";
+                        role10.innerHTML = "LOrLO";
+                        role11.innerHTML = "HIrHI";
+                        roleData.appendChild(role1);
+                        roleData.appendChild(role2);
+                        roleData.appendChild(role3);
+                        roleData.appendChild(role4);
+                        roleData.appendChild(role5);
+                        roleData.appendChild(role6);
+                        roleData.appendChild(role7);
+                        roleData.appendChild(role8);
+                        roleData.appendChild(role9);
+                        roleData.appendChild(role10);
+                        roleData.appendChild(role11);
+                        roleData.value = "..." || '';
+                        roleBOX.appendChild(roleData)
+                        
+                        roleData.addEventListener("change",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+                        });  
+                        // typeData.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+                        // });  
+
+                        // typeData.value= monthData.type || '';
+                        roleBOX.classList.add('roleBOX1')
+                        
+                        // typeBOX.appendChild(typeData)
+                        // typeBOX.classList.add('typeBOX1')
+                        
+                        // if(monthData.type==='trim'){
+                        //    typeData.classList.add('typeTRIMColor')
+                        // } else if (monthData.type==='pad'){
+                        //    typeData.classList.add('typePADColor')
+                        // }
+
+                        roleData.classList.add('roleData1')
+
+               //EVENT_NOTE
+               eventzNote = document.createElement('input')
+               eventzNote.classList.add('eventzNote')
+               eventzNote.value = eventz.note || 0;
+               eventzNote.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+               });     
+
+               eventzROW.appendChild(eventzTitle)
+               eventzROW.appendChild(roleBOX)
+               eventzROW.appendChild(eventzNote)
+               eventzBOX.appendChild(eventzROW)
+            //    capBOX1 = document.createElement('aside')
+            //    capBOX1.innerHTML="CAP&nbsp";
+            //    capBOX1.classList.add('inputDATABOX1')
+            //    capData1 = document.createElement('input')
+            //    capData1.classList.add('inputDATA1')
+            //    capData1.placeholder = "$0";
+            //    capData1.value = eventzData.cap || '';          
+            //    capData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+            //    });  
+            //    capBOX1.appendChild(capData1)
+
+            //    trim_atBOX1 = document.createElement('aside')
+            //    trim_atBOX1.innerHTML="trim&nbsp";
+            //    trim_atBOX1.classList.add('inputDATABOX2')
+            //    trim_atData1 = document.createElement('input')
+            //    trim_atData1.classList.add('inputDATA2')
+            //    trim_atData1.placeholder = "$0";
+            //    trim_atData1.value = eventzData.trim_at || '';          
+            //    trim_atData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block';  
+            //    });  
+            //    trim_atBOX1.appendChild(trim_atData1)
+
+            //    pad_atBOX1 = document.createElement('aside')
+            //    pad_atBOX1.innerHTML="pad&nbsp";
+            //    pad_atBOX1.classList.add('inputDATABOX3')
+            //    pad_atData1 = document.createElement('input')
+            //    pad_atData1.classList.add('inputDATA2')
+            //    pad_atData1.placeholder = "$0";
+            //    pad_atData1.value = eventzData.pad_at || '';          
+            //    pad_atData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+            //    });  
+            //    pad_atBOX1.appendChild(pad_atData1)
+
+            //    padlvlBOX1 = document.createElement('aside')
+            //    padlvlBOX1.innerHTML="padlvl&nbsp";
+            //    padlvlBOX1.classList.add('inputDATABOX4')
+            //    padlvlData1 = document.createElement('input')
+            //    padlvlData1.classList.add('inputDATA3')
+            //    padlvlData1.placeholder = "0";
+            //    padlvlData1.value = eventzData.padlvl || '';          
+            //    padlvlData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+            //    });  
+            //    padlvlBOX1.appendChild(padlvlData1)
+
+            //    crashlvlBOX1 = document.createElement('aside')
+            //    crashlvlBOX1.innerHTML="crashPOS&nbsp";
+            //    crashlvlBOX1.classList.add('inputDATABOX5')
+            //    crashlvlData1 = document.createElement('input')
+            //    crashlvlData1.classList.add('inputDATA3')
+            //    crashlvlData1.placeholder = "0";
+            //    crashlvlData1.value = eventzData.crashlvl || 0;          
+            //    crashlvlData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+            //    });  
+            //    crashlvlBOX1.appendChild(crashlvlData1)
+
+            //    capROW.appendChild(trimTick)         
+            //    capROW.appendChild(capBOX1)         
+            //    capROW.appendChild(trim_atBOX1)         
+            //    capROW.appendChild(pad_atBOX1)         
+            //    capROW.appendChild(padlvlBOX1)         
+            //    capROW.appendChild(crashlvlBOX1)
+            //    monthBOX.appendChild(capROW)
+
+            //    if(show_schedule_details_view){   //BEGIN DETAILS VIEW
+            //       let detailRow2,date1,detAmt,detType,detRole,detNote;
+            //       let monthData = null;
+            //       let role1,role2,role3,role4,role5,role6,role7,role8,role9,role10,role11;
+            //       let type1,type2,type3,type4;
+            //       let roleBOX,roleData;
+            //       let typeBOX,typeData,atBOX1;
+            //       let atData1,amtData1;
+            //       for(let k=0;k<eventz.monthData.length;k++){  //CAP DETAILS LOOP.
+            //          monthData = eventz.monthData[k];
+            //          if(monthData.tick.toUpperCase()!=eventzData.tkr.toUpperCase()){continue;}
+            //          detailRow2 = document.createElement('section')
+            //          detailRow2.classList.add('detailRow2')
+            //          //DETAILS ROW
+            //    //**********************************************selector
+            //    capsNUMBOX2 = document.createElement('aside')
+            //    capsNUMBOX2.classList.add('capsNUMBOX2')//encodeNUMBOX1
+            //    capsCHECKBOX2 = document.createElement('label')
+            //    capsCHECKBOX2.classList.add('checkboxFrame') 
+            //    capsNUMBOX2.innerHTML=k+1;            
+            //    capsSelect2 = document.createElement('input');
+            //    capsSelect2.ymdtn = eventz.qID+'_'+capsData.tkr.toUpperCase()+'_'+k || '';
+            //    // capsSelect2.ymdt = eventz.qID+'_'+capsData.tkr.toUpperCase() || '';
+            //    capsSelect2.type = "radio";
+            //    capsSelect2.name = "scheduleDetailsRadio";
+            //    capsSelect2.classList.add('cap_checkmark')
+            //    capsCHECKBOX2.appendChild(capsSelect2)
+            //    capsCheckMark2 = document.createElement('span')
+            //    capsCheckMark2.classList.add('checkmark')
+            //    capsCHECKBOX2.appendChild(capsCheckMark2)
+            //    capsNUMBOX2.appendChild(capsCHECKBOX2)
+            //    detailRow2.appendChild(capsNUMBOX2)
+            //    // end ************************************** selector
+            //             date1 = document.createElement('input')
+            //             date1.value = ''+monthData.ymd;
+            //             date1.classList.add('detailDate1')
+            //             date1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+            //             });  
+            //             amtBOX1 = document.createElement('aside')
+            //             amtBOX1.innerHTML="amt&nbsp;"
+            //             roleBOX = document.createElement('aside')
+            //             roleBOX.innerHTML="role&nbsp;"
+            //             typeBOX = document.createElement('aside')
+            //             typeBOX.innerHTML="type&nbsp;"
+            //             roleData = document.createElement('select')
+            //             typeData = document.createElement('input')
+            //             role1 = document.createElement('option')
+            //             role2 = document.createElement('option')
+            //             role3 = document.createElement('option')
+            //             role4 = document.createElement('option')
+            //             role5 = document.createElement('option')
+            //             role6 = document.createElement('option')
+            //             role7 = document.createElement('option')
+            //             role8 = document.createElement('option')
+            //             role9 = document.createElement('option')
+            //             role10 = document.createElement('option')
+            //             role11 = document.createElement('option')
+            //             role1.value = "...";
+            //             role2.value = "HOLD";
+            //             role3.value = "WATCH";
+            //             role4.value = "RISKOFF";
+            //             role5.value = "LONG";
+            //             role6.value = "TRIM";
+            //             role7.value = "SAFE";
+            //             role8.value = "RISKON";
+            //             role9.value = "EXIT";
+            //             role10.value = "LOrLO";
+            //             role11.value = "HIGHrHIGH";
+            //             role1.innerHTML = "...";
+            //             role2.innerHTML = "HOLD";
+            //             role3.innerHTML = "WATCH";
+            //             role4.innerHTML = "RISKOFF";
+            //             role5.innerHTML = "LONG";
+            //             role6.innerHTML = "TRIM";
+            //             role7.innerHTML = "SAFE";
+            //             role8.innerHTML = "RISKON";
+            //             role9.innerHTML = "EXIT";
+            //             role10.innerHTML = "LOrLO";
+            //             role11.innerHTML = "HIrHI";
+            //             roleData.appendChild(role1);
+            //             roleData.appendChild(role2);
+            //             roleData.appendChild(role3);
+            //             roleData.appendChild(role4);
+            //             roleData.appendChild(role5);
+            //             roleData.appendChild(role6);
+            //             roleData.appendChild(role7);
+            //             roleData.appendChild(role8);
+            //             roleData.appendChild(role9);
+            //             roleData.appendChild(role10);
+            //             roleData.appendChild(role11);
+            //             roleData.value = monthData.role || '';
+            //             roleBOX.appendChild(roleData)
+                        
+            //             roleData.addEventListener("change",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+            //             });  
+            //             typeData.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+            //             });  
+
+            //             typeData.value= monthData.type || '';
+            //             roleBOX.classList.add('roleBOX1')
+                        
+            //             typeBOX.appendChild(typeData)
+            //             typeBOX.classList.add('typeBOX1')
+                        
+            //             if(monthData.type==='trim'){
+            //                typeData.classList.add('typeTRIMColor')
+            //             } else if (monthData.type==='pad'){
+            //                typeData.classList.add('typePADColor')
+            //             }
+
+            //             roleData.classList.add('roleData1')
+            //             typeData.classList.add('typeData1')
+            //             amtData1 = document.createElement('input')
+            //             amtData1.placeholder = "$0";
+            //             amtData1.value = monthData.amt;
+            //             amtData1.classList.add('spotAtData1')
+
+            //             amtData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+            //             });  
+
+            //             amtBOX1.classList.add('amtBOX1')
+            //             amtBOX1.appendChild(amtData1)            
+            //             detailRow2.appendChild(date1)
+            //             detailRow2.appendChild(typeBOX)
+            //             detailRow2.appendChild(amtBOX1)
+            //             detailRow2.appendChild(roleBOX)
+
+            //          //END DETAILS ROW
+            //          monthBOX.appendChild(detailRow2) 
+
+            //       } //END DETAILS LOOP
+            //    }  //END DETAILS VIEW
+            // } //END MONTHLY LOOP
+         } else {eventz.expanded = false;}//END EXPANDED
+         // eventzBOX.appendChild(monthBOX)
+         eventzFRAME.appendChild(eventzBOX)
+      // } //END QUARTERLY LOOP
+
+
+
+      }//END eventz loop
+   }//end generate EVENTZ
+
+   //*************************************************************STORYZ
+   let ai_storyz = [];
+   ai_storyz = [
+      {qID:1,title:'aaa',txt:'NVDA',type:'DIP',note:'10yr 5%',expanded:true},
+      {qID:2,title:'aab',txt:'NVDA',type:'CRASH',note:'10yr 4.44%'},
+      {qID:3,title:'aac',txt:'NVDA',type:'BLACKSWAN',note:'super-semi'},
+      {qID:4,title:'aad',txt:'NVDA',type:'BREAKDOWN',note:'super-semi'}
+   ];
+
+   const expandStoryzClick = (qID)=>{ //expand or collapse section
+      let stryz;// = ai_eventz//.quarters[qID];
+      for(var i=0;i<ai_storyz.length;i++){
+         stryz = ai_storyz[i];
+         if(qID===stryz.qID.toString()){
+            stryz.expanded = !stryz.expanded;
+         }
+      }
+         //SAVE to LOCAL STORAGE
+      localStorage.ai_storyz = JSON.stringify(ai_storyz) 
+      generateReviewPreviewsClick(); //RELOAD VIEW.  
+      showErrorMSG('📓 SAVED 📓');   
    }
 
    const generateReviewPreviewsClick = () =>{
-      generatedReviewBOX.innerHTML = `2023_NOV_END: flipflop fear greed. 32 to 66. 
+      storyzFRAME.innerHTML = `2023_NOV_END: flipflop fear greed. 32 to 66. 
       SEASONAL: RISK_OFF OCT to RISK_ON NOV. CPI shows low inflation. 9.1 to 3.2.
       Upside surprise to pros, best month of year, 10 yr from 5.5 to 4.4.
       TAILWIND: Priced in Inflation as tamed. Must stay low.
@@ -2999,38 +3502,308 @@ align-items: center;">
       MILESTONES: 
       - multiple 52 week highs.
       - after adding MARGINS to all spots.
-      - added TGTz for TICKerz to trim and pad. 
+      - added CAPz for TICKerz to trim and pad. 
       - With TRIM SCHEDULE.
       - Fed debates RATE_CUT!!! Goldilocks.  Exhuberance in air.
       Q/A: Friday selloff done? ISM recovery? Housing recovery? 
       Energy recovery? Healthcare recovery?
-
       `;
-      generatedPreviewBOX.innerHTML = `2023_DEC_START: 
-         Fed Higher Longer. Expecting lower rates mid 2024.
-         Bulls broaden Rally, Rotate off Mag7. PROBABLE END OF HIKES.
-         PROBABLE Rates come down. PROBABLE Crypto SPOT.
-         NEXT YEAR: EXPECT BAD COMPS AS INFLATION COMES DOWN - exactly during Refocus on Fundamentals.
-         MILESTONES: adding PAD SCHEDULE and Review & Preview.
-         GOALS TRIM 20% AT TOP! GOAL: move 3,000 from TDAMERITRADE to RobinHood.
-         Friday Non Farm Payroll: 
-         EXPECT: unemployment 3 to 4% and flat wage, will boost?
-         EXPECT: mean reversion of falling rates to spook market? 
-         QUESTIONS:
-         Extreme Greed Yet? Blow off Top? Rally to 2024?
-         CPI spooks market selloff?
-         GOAL: call TOP before CHAIR PULLS.
-         ORDERS: diversify for rotation. increase positions.
-         DIVERSIFIED: TSLA, META, PINS, FIVRR. 
-         NOTE: Long rate CUT, means Short rate CUT.
-         Money flows into Equities - for rate cut.
-         Money flows into Risky Assets. RISK ON.
-         Money flows into Crypto for spot.
-         Expect top mid DEC and 
-         significant downside correction QTR1 mean inversion, profit taking
-         any event will spook market. Extreme Greed will pick top.
-         `;
-   }
+      storyzFRAME.innerHTML="";//blank out
+      let storyzSet = ai_storyz, storyz;
+      for(var i=0; i<storyzSet.length;i++){
+         storyz = storyzSet[i];
+         // storyz FORM ----------------------------------------
+         // selector, id, tick, type_select,  expand/contract   addEventBtn
+         // ymd_storyz , TOP_AMT TOP_YMD
+         // amt_range, amt_pos, net_amt, net% 
+         // ymd_crash
+         // Detailz Row.
+         // BreakEven, %toBE %toTrim FirstTrim DaysDown 
+         // RSI, MOM, VOL, BOLL, VIX, DIXY, 10yr, 2yr.
+         // avg_pos current_pos total_pos down_amt down_pct
+         // correction_return crash_return risk_amt
+         // PICK_TOP && PICK_BOTTOM_Correction or PICK_BOTTOM_Crash
+         // days/weeks since breakout, days/weeks since breakdown.
+         // end storyz FORM ------------------------------
+         // blackswanBtn blockbusterBtn addCrash addCorrection details trash
+         // for(let i=0;i<quarterSets.length;i++){  //BEGIN QUARTERLY LOOP
+         // quarter= ai_schedule.quarters[quarterSets[i]];
+         storyzBOX = document.createElement('section')
+         storyzBOX.classList.add('storyzBOX')
+
+         storyzHeader = document.createElement('aside')
+         storyzHeader.classList.add('storyzHeader')
+
+         storyzTXT = document.createElement('input')
+         storyzTXT.classList.add('storyzTXT')
+         storyzTXT.value = storyz.title;//.storyzID.toUpperCase();
+         storyzTXT.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+            }); 
+
+         expandBtn1 = document.createElement('button')
+         expandBtn1.innerHTML = '🕸️'
+         expandBtn1.classList.add('addBtn4')
+         expandBtn1.setAttribute('data-arg3',storyz.qID)
+         expandBtn1.addEventListener("click",(e)=>{
+               expandStoryzClick(e.target.getAttribute('data-arg3')) });
+         // addBtn4 = document.createElement('button')
+         // addBtn4.innerHTML = 'addDIPz📅';
+         // addBtn4.classList.add('addBtn4')
+         // addBtn4.setAttribute('data-arg2',storyz.qID)
+         // addBtn4.addEventListener("click",(e)=>{
+         //       addCapClick(e.target.getAttribute('data-arg2')) });
+
+            // const button2 = document.createElement('button');
+            // button2.textContent = '🗑️';
+            // button2.classList.add('docDeleteBtn')
+            // button2.onclick = function() { docDelete(item.title); };
+            
+            storyzHeader.appendChild(storyzTXT)
+            // storyzHeader.appendChild(button2); 
+            // storyzHeader.appendChild(addBtn4)
+            storyzHeader.appendChild(expandBtn1)
+         // storyzBOX.appendChild(addBtn4)
+         storyzBOX.appendChild(storyzHeader)
+
+         monthBOX = document.createElement('article')
+         monthBOX.classList.add('monthBOX')
+
+         if(storyz.expanded){
+               expandBtn1.innerHTML = '💨'
+            // for(let j=0;j<storyz.caps.length;j++){  //MONTHLY CAP LOOP .
+            //    capsData = storyz.caps[j];
+            //    capROW = document.createElement('aside')
+            //    capROW.classList.add('capROW')
+            //    //**********************************************selector
+            //    capsNUMBOX1 = document.createElement('aside')
+            //    capsNUMBOX1.classList.add('capsNUMBOX1')//encodeNUMBOX1
+            //    capsCHECKBOX1 = document.createElement('label')
+            //    capsCHECKBOX1.classList.add('checkboxFrame') 
+            //    capsNUMBOX1.innerHTML=j+1;            
+            //    capsSelect1 = document.createElement('input');
+            //    capsSelect1.ymdt = storyz.qID+'_'+capsData.tkr.toUpperCase() || '';
+            //    capsSelect1.type = "radio";
+            //    capsSelect1.name = "scheduleCapsRadio";
+            //    capsSelect1.classList.add('cap_checkmark')
+            //    capsCHECKBOX1.appendChild(capsSelect1)
+            //    capsCheckMark1 = document.createElement('span')
+            //    capsCheckMark1.classList.add('checkmark')
+            //    capsCHECKBOX1.appendChild(capsCheckMark1)
+            //    capsNUMBOX1.appendChild(capsCHECKBOX1)
+            //    capROW.appendChild(capsNUMBOX1)
+            //    // end ************************************** selector
+            //    trimTick = document.createElement('input')
+            //    trimTick.classList.add('trimTick')
+            //    trimTick.value = capsData.tkr.toUpperCase() || 0;
+            //    trimTick.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+            //    });             
+            //    capBOX1 = document.createElement('aside')
+            //    capBOX1.innerHTML="CAP&nbsp";
+            //    capBOX1.classList.add('inputDATABOX1')
+            //    capData1 = document.createElement('input')
+            //    capData1.classList.add('inputDATA1')
+            //    capData1.placeholder = "$0";
+            //    capData1.value = capsData.cap || '';          
+            //    capData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+            //    });  
+            //    capBOX1.appendChild(capData1)
+
+            //    trim_atBOX1 = document.createElement('aside')
+            //    trim_atBOX1.innerHTML="trim&nbsp";
+            //    trim_atBOX1.classList.add('inputDATABOX2')
+            //    trim_atData1 = document.createElement('input')
+            //    trim_atData1.classList.add('inputDATA2')
+            //    trim_atData1.placeholder = "$0";
+            //    trim_atData1.value = capsData.trim_at || '';          
+            //    trim_atData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block';  
+            //    });  
+            //    trim_atBOX1.appendChild(trim_atData1)
+
+            //    pad_atBOX1 = document.createElement('aside')
+            //    pad_atBOX1.innerHTML="pad&nbsp";
+            //    pad_atBOX1.classList.add('inputDATABOX3')
+            //    pad_atData1 = document.createElement('input')
+            //    pad_atData1.classList.add('inputDATA2')
+            //    pad_atData1.placeholder = "$0";
+            //    pad_atData1.value = capsData.pad_at || '';          
+            //    pad_atData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+            //    });  
+            //    pad_atBOX1.appendChild(pad_atData1)
+
+            //    padlvlBOX1 = document.createElement('aside')
+            //    padlvlBOX1.innerHTML="padlvl&nbsp";
+            //    padlvlBOX1.classList.add('inputDATABOX4')
+            //    padlvlData1 = document.createElement('input')
+            //    padlvlData1.classList.add('inputDATA3')
+            //    padlvlData1.placeholder = "0";
+            //    padlvlData1.value = capsData.padlvl || '';          
+            //    padlvlData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+            //    });  
+            //    padlvlBOX1.appendChild(padlvlData1)
+
+            //    crashlvlBOX1 = document.createElement('aside')
+            //    crashlvlBOX1.innerHTML="crashPOS&nbsp";
+            //    crashlvlBOX1.classList.add('inputDATABOX5')
+            //    crashlvlData1 = document.createElement('input')
+            //    crashlvlData1.classList.add('inputDATA3')
+            //    crashlvlData1.placeholder = "0";
+            //    crashlvlData1.value = capsData.crashlvl || 0;          
+            //    crashlvlData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+            //    });  
+            //    crashlvlBOX1.appendChild(crashlvlData1)
+
+            //    capROW.appendChild(trimTick)         
+            //    capROW.appendChild(capBOX1)         
+            //    capROW.appendChild(trim_atBOX1)         
+            //    capROW.appendChild(pad_atBOX1)         
+            //    capROW.appendChild(padlvlBOX1)         
+            //    capROW.appendChild(crashlvlBOX1)
+            //    monthBOX.appendChild(capROW)
+
+            //    if(show_schedule_details_view){   //BEGIN DETAILS VIEW
+            //       let detailRow2,date1,detAmt,detType,detRole,detNote;
+            //       let monthData = null;
+            //       let role1,role2,role3,role4,role5,role6,role7,role8,role9,role10,role11;
+            //       let type1,type2,type3,type4;
+            //       let roleBOX,roleData;
+            //       let typeBOX,typeData,atBOX1;
+            //       let atData1,amtData1;
+            //       for(let k=0;k<storyz.monthData.length;k++){  //CAP DETAILS LOOP.
+            //          monthData = storyz.monthData[k];
+            //          if(monthData.tick.toUpperCase()!=capsData.tkr.toUpperCase()){continue;}
+            //          detailRow2 = document.createElement('section')
+            //          detailRow2.classList.add('detailRow2')
+            //          //DETAILS ROW
+            //    //**********************************************selector
+            //    capsNUMBOX2 = document.createElement('aside')
+            //    capsNUMBOX2.classList.add('capsNUMBOX2')//encodeNUMBOX1
+            //    capsCHECKBOX2 = document.createElement('label')
+            //    capsCHECKBOX2.classList.add('checkboxFrame') 
+            //    capsNUMBOX2.innerHTML=k+1;            
+            //    capsSelect2 = document.createElement('input');
+            //    capsSelect2.ymdtn = storyz.qID+'_'+capsData.tkr.toUpperCase()+'_'+k || '';
+            //    // capsSelect2.ymdt = storyz.qID+'_'+capsData.tkr.toUpperCase() || '';
+            //    capsSelect2.type = "radio";
+            //    capsSelect2.name = "scheduleDetailsRadio";
+            //    capsSelect2.classList.add('cap_checkmark')
+            //    capsCHECKBOX2.appendChild(capsSelect2)
+            //    capsCheckMark2 = document.createElement('span')
+            //    capsCheckMark2.classList.add('checkmark')
+            //    capsCHECKBOX2.appendChild(capsCheckMark2)
+            //    capsNUMBOX2.appendChild(capsCHECKBOX2)
+            //    detailRow2.appendChild(capsNUMBOX2)
+            //    // end ************************************** selector
+            //             date1 = document.createElement('input')
+            //             date1.value = ''+monthData.ymd;
+            //             date1.classList.add('detailDate1')
+            //             date1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+            //             });  
+            //             amtBOX1 = document.createElement('aside')
+            //             amtBOX1.innerHTML="amt&nbsp;"
+            //             roleBOX = document.createElement('aside')
+            //             roleBOX.innerHTML="role&nbsp;"
+            //             typeBOX = document.createElement('aside')
+            //             typeBOX.innerHTML="type&nbsp;"
+            //             roleData = document.createElement('select')
+            //             typeData = document.createElement('input')
+            //             role1 = document.createElement('option')
+            //             role2 = document.createElement('option')
+            //             role3 = document.createElement('option')
+            //             role4 = document.createElement('option')
+            //             role5 = document.createElement('option')
+            //             role6 = document.createElement('option')
+            //             role7 = document.createElement('option')
+            //             role8 = document.createElement('option')
+            //             role9 = document.createElement('option')
+            //             role10 = document.createElement('option')
+            //             role11 = document.createElement('option')
+            //             role1.value = "...";
+            //             role2.value = "HOLD";
+            //             role3.value = "WATCH";
+            //             role4.value = "RISKOFF";
+            //             role5.value = "LONG";
+            //             role6.value = "TRIM";
+            //             role7.value = "SAFE";
+            //             role8.value = "RISKON";
+            //             role9.value = "EXIT";
+            //             role10.value = "LOrLO";
+            //             role11.value = "HIGHrHIGH";
+            //             role1.innerHTML = "...";
+            //             role2.innerHTML = "HOLD";
+            //             role3.innerHTML = "WATCH";
+            //             role4.innerHTML = "RISKOFF";
+            //             role5.innerHTML = "LONG";
+            //             role6.innerHTML = "TRIM";
+            //             role7.innerHTML = "SAFE";
+            //             role8.innerHTML = "RISKON";
+            //             role9.innerHTML = "EXIT";
+            //             role10.innerHTML = "LOrLO";
+            //             role11.innerHTML = "HIrHI";
+            //             roleData.appendChild(role1);
+            //             roleData.appendChild(role2);
+            //             roleData.appendChild(role3);
+            //             roleData.appendChild(role4);
+            //             roleData.appendChild(role5);
+            //             roleData.appendChild(role6);
+            //             roleData.appendChild(role7);
+            //             roleData.appendChild(role8);
+            //             roleData.appendChild(role9);
+            //             roleData.appendChild(role10);
+            //             roleData.appendChild(role11);
+            //             roleData.value = monthData.role || '';
+            //             roleBOX.appendChild(roleData)
+                        
+            //             roleData.addEventListener("change",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+            //             });  
+            //             typeData.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+            //             });  
+
+            //             typeData.value= monthData.type || '';
+            //             roleBOX.classList.add('roleBOX1')
+                        
+            //             typeBOX.appendChild(typeData)
+            //             typeBOX.classList.add('typeBOX1')
+                        
+            //             if(monthData.type==='trim'){
+            //                typeData.classList.add('typeTRIMColor')
+            //             } else if (monthData.type==='pad'){
+            //                typeData.classList.add('typePADColor')
+            //             }
+
+            //             roleData.classList.add('roleData1')
+            //             typeData.classList.add('typeData1')
+            //             amtData1 = document.createElement('input')
+            //             amtData1.placeholder = "$0";
+            //             amtData1.value = monthData.amt;
+            //             amtData1.classList.add('spotAtData1')
+
+            //             amtData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+            //             });  
+
+            //             amtBOX1.classList.add('amtBOX1')
+            //             amtBOX1.appendChild(amtData1)            
+            //             detailRow2.appendChild(date1)
+            //             detailRow2.appendChild(typeBOX)
+            //             detailRow2.appendChild(amtBOX1)
+            //             detailRow2.appendChild(roleBOX)
+
+            //          //END DETAILS ROW
+            //          monthBOX.appendChild(detailRow2) 
+
+            //       } //END DETAILS LOOP
+            //    }  //END DETAILS VIEW
+            // } //END MONTHLY LOOP
+         } else {storyz.expanded = false;}//END EXPANDED
+         storyzBOX.appendChild(monthBOX)
+         storyzFRAME.appendChild(storyzBOX)
+      // } //END QUARTERLY LOOP
+
+
+
+      }//END storyz loop
+
+
+   }//END generate Preview
 
    const getLatestTickerClick = ()=>{ //loop all for last close.
       let item,urls=[];
@@ -3072,7 +3845,7 @@ align-items: center;">
                   if(!latestClose){return;}
                   console.log(responseTick,"last close",latestClose)
                   updateLatestTickPrice(responseTick,latestClose);
-                  //SHOW CONNNECTED and tgt, hide disconnected and key input
+                  //SHOW CONNNECTED and CAP, hide disconnected and key input
                   stateConnectedBox.style.display = "inline";
                   stateNotConnectedBox.style.display = "none";   
                   keyBOX.style.display = "none"; 
@@ -3093,7 +3866,7 @@ align-items: center;">
          if(!stock_api_key){
             showErrorMSG('🛠️ connect api')
             return;}
-            //SHOW CONNNECTED and tgt, hide disconnected and key input
+            //SHOW CONNNECTED and CAP, hide disconnected and key input
             stateConnectedBox.style.display = "inline";
             stateNotConnectedBox.style.display = "none";   
             keyBOX.style.display = "none"; 
@@ -3108,7 +3881,7 @@ align-items: center;">
             fetch(apiUrl)
             .then(response => response.json())
             .then(data => {
-                //SHOW CONNNECTED and tgt, hide disconnected and key input
+                //SHOW CONNNECTED and CAP, hide disconnected and key input
                 stateConnectedBox.style.display = "inline";
                 stateNotConnectedBox.style.display = "none";   
                 symbolBOX.style.display = "inline";
@@ -3390,12 +4163,12 @@ align-items: center;">
             textareaTXT = transcript.split('\n')
             if(textareaTXT && textareaTXT.length>0){
                 txtline = textareaTXT[textareaTXT.length-1]
-                txttgt = txtline.charAt(txtline.length-1)
-                if(txttgt==='.'){ txtline=setCharAt(txtline,txtline.length-1,',');
-                } else if(txttgt===','){ txtline=setCharAt(txtline,txtline.length-1,'_');
-                } else if(txttgt==='_'){ txtline=setCharAt(txtline,txtline.length-1,'?');
-                } else if(txttgt==='?'){ txtline=setCharAt(txtline,txtline.length-1,'!');
-                } else if(txttgt==='!'){ txtline=setCharAt(txtline,txtline.length-1,'.');
+                txtCAP = txtline.charAt(txtline.length-1)
+                if(txtCAP==='.'){ txtline=setCharAt(txtline,txtline.length-1,',');
+                } else if(txtCAP===','){ txtline=setCharAt(txtline,txtline.length-1,'_');
+                } else if(txtCAP==='_'){ txtline=setCharAt(txtline,txtline.length-1,'?');
+                } else if(txtCAP==='?'){ txtline=setCharAt(txtline,txtline.length-1,'!');
+                } else if(txtCAP==='!'){ txtline=setCharAt(txtline,txtline.length-1,'.');
                 } else { txtline += '.';}
                 textareaTXT[textareaTXT.length-1] = txtline;
                 textareaBOX.value = textareaTXT.join('\n');

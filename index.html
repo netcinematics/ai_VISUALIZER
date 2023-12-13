@@ -37,6 +37,7 @@
          padding-left: 0.666em;color:#012d56;padding-right: 0.444em;
     padding-bottom: 0.444em;
       }
+
         .genReportBtn2{border-radius:13px;
          background:#6cd8d8;
          /* background:#bd814f; */
@@ -80,7 +81,8 @@
          margin-right: 2%;cursor:pointer;display:none;
          font-size: 0.777em;margin-top: 0.888em;
       }
-      .delBtn1{    border: solid 1px #9e1717;
+      .delBtn1{    
+         border: solid 1px #9e1717;
     border-radius: 22px;
     background: #38014e;
     font-size: 0.777em;
@@ -89,6 +91,17 @@
     /* margin-bottom: 0; */
 
    }
+   .delBtn2{
+ 
+      float: right;
+    margin-top: 0.777em;
+    margin-right: 4%;
+      border: solid 1px #9e1717;
+    border-radius: 22px;
+    background: #38014e;
+    font-size: 1em;
+    cursor:pointer;
+      }   
 
    .roleBOX1{border-radius: 8px;
     font-size: 0.777em;
@@ -541,6 +554,7 @@ flex-direction: column;
     font-size: 0.555em;
     border: none;
     max-width: 6em;
+    margin-top: 6px;
 }
 .capROW{
    display: flex;
@@ -668,6 +682,33 @@ flex-direction: column;
     text-align: right;
     width: 9em;
 }
+.eventzTypeBOX2{border-radius: 8px;
+   border-radius: 8px;
+    font-size: 0.666em;
+    background: #1a0033;
+    color: #136567;
+    padding-left: 0.555em;
+    margin: 0.444em 0.444em;
+    display: flex;
+    max-height: 24px;
+    align-items: center;
+    text-align: right;
+    width: 9em;
+}
+.eventzTypeBOX3{border-radius: 8px;
+   border-radius: 8px;
+    font-size: 0.666em;
+    background: #1a0033;
+    color: #136567;
+    padding-left: 0.555em;
+    margin: 0.444em 0.444em;
+    display: flex;
+    max-height: 24px;
+    align-items: center;
+    text-align: right;
+    width: 9em;
+}
+
 
     .eventzTypeData1 {
     border-radius: 8px;
@@ -982,7 +1023,7 @@ align-items: center;">
       <section id="padSequenceBOX"
          style="width:80.888%; flex:1;background:#100601;border-radius: 13px; border: solid 1px #a9754b;
          box-shadow: 1px 2px 11px 0px #f09f02;padding: 4% 0 4% 4%; color:#b5997d; line-height: 2.444em;">
-         <button id="generatePadSequencesBtn" class="genReportBtn1" onclick="generateTrimSEQClick()">gener8🎈</button>
+         <button id="generatePadSequencesBtn" class="genReportBtn1" onclick="generateEVTZClick()">gener8🎈</button>
          <span class="boxTitle">💡 
           <span style="font-size:0.777em; color:cyan">5</span>
           <span style="font-size:0.555em; color:#de9257;">Generate</span>
@@ -1009,8 +1050,9 @@ align-items: center;">
             Previews: -->
             <!-- <section id="generatedPreviewBOX"></section> -->
             <hr> 
-            <button id="previewBtn1" class="genReportBtn1" style="display:block;" onclick="setPadSequenceDetailsClick(event)">preview🔭</button> 
-            <button id="reviewBtn1" class="genReportBtn1" style="display:block;" onclick="setPadSequenceDetailsClick(event)">review🔬</button> 
+            <button id="evtzDeleteBtn5" class="delBtn2" style="font-size: 1em;" onclick="setEVTZDeleteClick(event)">🗑️</button> 
+            <button id="evtzDetailsBtn5" class="genReportBtn1" style="font-size: 0.888em;" onclick="setEVTZDetailsClick(event)">details🔬</button> 
+            <button id="evtzSaveBtn5" class="genReportBtn1" style="font-size: 0.888em;display:none;" onclick="setEVTZSaveClick(event)">save🤩</button> 
       </section>
 
 
@@ -1487,6 +1529,7 @@ align-items: center;">
         let saveTickBtn1 = document.getElementById('saveTickBtn1');
         let saveSpotBtn1 = document.getElementById('saveSpotBtn1');
         let saveScheduleBtn1 = document.getElementById('saveScheduleBtn1');
+        let evtzSaveBtn5 = document.getElementById('evtzSaveBtn5');
 
         let generatedScheduleBOX = document.getElementById('generatedScheduleBOX');         
         let generatedProfitsBOX = document.getElementById('generatedProfitsBOX');
@@ -1523,11 +1566,6 @@ align-items: center;">
         }; ai_ledger_LOAD_from_LOCALSTORAGE();
 
         let ai_ledger_LOAD_MOCK_DATA=()=>{ //READ from OBJ
-            //ai_ledger = {"ticks":[{"tick":"NVDA","price":"483","ath":"493","ath_ymd":"2023_08_31","price_ymd":"2023_11_11"},{"tick":"MDB","price":"375","ath":"569","ath_ymd":"2021_09_19","price_ymd":"2023_11_11"},{"tick":"MSFT","price":"369","ath":"344","ath_ymd":"2023_07_14","price_ymd":"2023_11_11"},{"tick":"GOOGL","price":"132","ath":"150","ath_ymd":"2021_11_19","price_ymd":"2023_11_11"},{"tick":"QQQ","price":"377","ath":"400","ath_ymd":"2021_11_19","price_ymd":"2023_11_11"},{"tick":"XLK","price":"179","ath":"180","ath_ymd":"2023_07_18","price_ymd":"2023_11_11"},{"tick":"NDAQ","price":"52","ath":"70","ath_ymd":"2021_11_05","price_ymd":"2023_11_11"},{"tick":"COIN","price":"93","ath":"105","ath_ymd":"2023_07_14","price_ymd":"2023_11_11"},{"tick":"V","price":"245","ath":"250","ath_ymd":"2023_09_13","price_ymd":"2023_11_11"},{"tick":"COST","price":"576","ath":"590","ath_ymd":"2022_04_08","price_ymd":"2023_11_11"},{"tick":"AMD","price":"118","ath":"130","ath_ymd":"2023_06_12","price_ymd":"2023_11_11"}],
-            //   "spots":[{"tick":"NVDA","amount":"200","spot_at":"412","ymd":"2023_10_20","role":"TRIM"},{"tick":"NVDA","amount":"300","spot_at":"459","ymd":"2023_10_10","role":"HOLD"},{"tick":"COST","amount":"200","spot_at":"552","ymd":"2023_10_20","role":"SAFE"},{"tick":"MDB","amount":"300","spot_at":"370","ymd":"2023_10_12","role":"WATCH"},{"tick":"MDB","amount":"200","spot_at":"333","ymd":"2023_09_21","role":"WATCH"},{"tick":"FSLR","amount":"0","spot_at":"0","ymd":"2023_11_02","role":"..."},{"tick":"NDAQ","amount":"180","spot_at":"49","ymd":"2023_09_22","role":"TRIM"},{"tick":"V","amount":"200","spot_at":"232","ymd":"2023_10_24","role":"HOLD"},{"tick":"GOOGL","amount":"500","spot_at":"130","ymd":"2023_09_29","role":"TRIM"},{"tick":"QQQ","amount":"500","spot_at":"370","ymd":"2023_11_09","role":"TRIM"},{"tick":"XLK","amount":"300","spot_at":"168","ymd":"2023_09_18","role":"TRIM"},{"tick":"MSFT","amount":"100","spot_at":"330","ymd":"2023_10_26","role":"HOLD"},{"tick":"MSFT","amount":"100","spot_at":"339","ymd":"2023_10_25","role":"HOLD"},{"tick":"MSFT","amount":"200","spot_at":"316","ymd":"2023_10_02","role":"TRIM"},{"tick":"AMD","amount":"200","spot_at":"102","ymd":"2023_10_02","role":"WATCH"}]}
-            // ai_ledger = {"ticks":[{"tick":"NVDA","price":"477","ath":"493","ath_ymd":"2023_08_31","price_ymd":"2023_11_27"},{"tick":"MDB","price":"407","ath":"569","ath_ymd":"2021_09_19","price_ymd":"2023_11_27"},{"tick":"MSFT","price":"377","ath":"371","ath_ymd":"2023_07_14","price_ymd":"2023_11_27"},{"tick":"GOOGL","price":"136","ath":"150","ath_ymd":"2021_11_19","price_ymd":"2023_11_27"},{"tick":"QQQ","price":"389","ath":"400","ath_ymd":"2021_11_19","price_ymd":"2023_11_27"},{"tick":"XLK","price":"184","ath":"182","ath_ymd":"2023_07_18","price_ymd":"2023_11_27"},{"tick":"NDAQ","price":"55","ath":"70","ath_ymd":"2021_11_05","price_ymd":"2023_11_27"},{"tick":"COIN","price":"115","ath":"105","ath_ymd":"2023_07_14","price_ymd":"2023_11_27"},{"tick":"V","price":"254","ath":"250","ath_ymd":"2023_09_13","price_ymd":"2023_11_27"},{"tick":"COST","price":"592","ath":"596","ath_ymd":"2022_04_08","price_ymd":"2023_11_27"},{"tick":"AMD","price":"122","ath":"130","ath_ymd":"2023_06_12","price_ymd":"2023_11_27"},{"tick":"BTC","price":"20000"},{"tick":"ETH","price":"2000"}],"spots":[{"tick":"NVDA","amount":"200","spot_at":"412","ymd":"2023_10_20","role":"TRIM"},{"tick":"NVDA","amount":"300","spot_at":"459","ymd":"2023_10_10","role":"HOLD"},{"tick":"COST","amount":"200","spot_at":"552","ymd":"2023_10_20","role":"SAFE"},{"tick":"MDB","amount":"300","spot_at":"370","ymd":"2023_10_12","role":"WATCH"},{"tick":"MDB","amount":"200","spot_at":"333","ymd":"2023_09_21","role":"WATCH"},{"tick":"V","amount":"200","spot_at":"232","ymd":"2023_10_24","role":"HOLD"},{"tick":"GOOGL","amount":"500","spot_at":"130","ymd":"2023_09_29","role":"TRIM"},{"tick":"QQQ","amount":"500","spot_at":"370","ymd":"2023_11_09","role":"TRIM"},{"tick":"XLK","amount":"300","spot_at":"168","ymd":"2023_09_18","role":"TRIM"},{"tick":"MSFT","amount":"100","spot_at":"330","ymd":"2023_10_26","role":"HOLD"},{"tick":"MSFT","amount":"200","spot_at":"316","ymd":"2023_10_02","role":"TRIM"},{"tick":"AMD","amount":"200","spot_at":"102","ymd":"2023_10_02","role":"WATCH"}]}
-            // ai_ledger = {"ticks":[{"tick":"NVDA","price":"465","ath":"493","ath_ymd":"2023_08_31","price_ymd":"2023_11_30"},{"tick":"MDB","price":"432","ath":"569","ath_ymd":"2021_09_19","price_ymd":"2023_11_30"},{"tick":"MSFT","price":"379","ath":"371","ath_ymd":"2023_07_14","price_ymd":"2023_11_30"},{"tick":"GOOGL","price":"135","ath":"150","ath_ymd":"2021_11_19","price_ymd":"2023_11_30"},{"tick":"QQQ","price":"390","ath":"400","ath_ymd":"2021_11_19","price_ymd":"2023_11_30"},{"tick":"XLK","price":"184","ath":"182","ath_ymd":"2023_07_18","price_ymd":"2023_11_30"},{"tick":"COIN","price":"127","ath":"105","ath_ymd":"2023_07_14","price_ymd":"2023_11_30"},{"tick":"V","price":"254","ath":"250","ath_ymd":"2023_09_13","price_ymd":"2023_11_30"},{"tick":"COST","price":"587","ath":"596","ath_ymd":"2022_04_08","price_ymd":"2023_11_30"},{"tick":"AMD","price":"124","ath":"130","ath_ymd":"2023_06_12","price_ymd":"2023_11_30"},{"tick":"TSLA","price":"245","price_ymd":"2023_11_30"},{"tick":"META","price":"332","price_ymd":"2023_11_30"}],"spots":[{"tick":"NVDA","amount":"100","spot_at":"486","ymd":"2023_11_22","role":"WATCH"},{"tick":"NVDA","amount":"200","spot_at":"494","ymd":"2023_11_17","role":"LONG"},{"tick":"NVDA","amount":"200","spot_at":"412","ymd":"2023_10_20"},{"tick":"NVDA","amount":"300","spot_at":"459","ymd":"2023_10_10","role":"LONG"},{"tick":"MDB","amount":"200","spot_at":"333","ymd":"2023_09_21","role":"WATCH"},{"tick":"V","amount":"200","spot_at":"232","ymd":"2023_10_24","role":"HOLD"},{"tick":"GOOGL","amount":"500","spot_at":"130","ymd":"2023_09_29","role":"TRIM"},{"tick":"QQQ","amount":"500","spot_at":"370","ymd":"2023_11_09","role":"TRIM"},{"tick":"XLK","amount":"300","spot_at":"168","ymd":"2023_09_18","role":"TRIM"},{"tick":"MSFT","amount":"100","spot_at":"330","ymd":"2023_10_26","role":"HOLD"},{"tick":"MSFT","amount":"200","spot_at":"316","ymd":"2023_10_02","role":"TRIM"},{"tick":"AMD","amount":"200","spot_at":"102","ymd":"2023_10_02","role":"LONG"},{"tick":"TSLA","amount":"100","spot_at":"235","ymd":"2023_11_30","role":"PAD"},{"tick":"FSLR","ymd":"2023_11_30","role":"WATCH"},{"tick":"AMZN","ymd":"2023_11_30","role":"WATCH"},{"tick":"META","amount":"100","spot_at":"326","ymd":"2023_11_30","role":"PAD"}]};
-            // ai_ledger = {"ticks":[{"tick":"NVDA","price":"467","ath":"493","ath_ymd":"2023_08_31","price_ymd":"2023_12_01"},{"tick":"MDB","price":"438","ath":"569","ath_ymd":"2021_09_19","price_ymd":"2023_12_01"},{"tick":"MSFT","price":"374","ath":"371","ath_ymd":"2023_07_14","price_ymd":"2023_12_01"},{"tick":"GOOGL","price":"131","ath":"150","ath_ymd":"2021_11_19","price_ymd":"2023_12_01"},{"tick":"QQQ","price":"390","ath":"400","ath_ymd":"2021_11_19","price_ymd":"2023_12_01"},{"tick":"XLK","price":"185","ath":"182","ath_ymd":"2023_07_18","price_ymd":"2023_12_01"},{"tick":"COIN","price":"134","ath":"105","ath_ymd":"2023_07_14","price_ymd":"2023_12_01"},{"tick":"V","price":"256","ath":"250","ath_ymd":"2023_09_13","price_ymd":"2023_12_01"},{"tick":"COST","price":"596","ath":"596","ath_ymd":"2022_04_08","price_ymd":"2023_12_01"},{"tick":"AMD","price":"121","ath":"130","ath_ymd":"2023_06_12","price_ymd":"2023_12_01"},{"tick":"TSLA","price":"238","price_ymd":"2023_12_01"},{"tick":"META","price":"324","price_ymd":"2023_12_01"},{"tick":"PINS"},{"tick":"FVRR"}],"spots":[{"tick":"NVDA","amount":"100","spot_at":"486","ymd":"2023_11_22","role":"WATCH"},{"tick":"NVDA","amount":"200","spot_at":"494","ymd":"2023_11_17","role":"LONG"},{"tick":"NVDA","amount":"200","spot_at":"412","ymd":"2023_10_20","role":"LOrLO"},{"tick":"NVDA","amount":"300","spot_at":"459","ymd":"2023_10_10","role":"LONG"},{"tick":"MDB","amount":"200","spot_at":"333","ymd":"2023_09_21","role":"WATCH"},{"tick":"V","amount":"200","spot_at":"232","ymd":"2023_10_24","role":"HOLD"},{"tick":"GOOGL","amount":"500","spot_at":"130","ymd":"2023_09_29","role":"TRIM"},{"tick":"QQQ","amount":"500","spot_at":"370","ymd":"2023_11_09","role":"TRIM"},{"tick":"XLK","amount":"300","spot_at":"168","ymd":"2023_09_18","role":"TRIM"},{"tick":"MSFT","amount":"100","spot_at":"330","ymd":"2023_10_26","role":"HOLD"},{"tick":"MSFT","amount":"200","spot_at":"316","ymd":"2023_10_02","role":"TRIM"},{"tick":"AMD","amount":"200","spot_at":"102","ymd":"2023_10_02","role":"LONG"},{"tick":"TSLA","amount":"100","spot_at":"235","ymd":"2023_11_30","role":"PAD"},{"tick":"FSLR","ymd":"2023_11_30","role":"WATCH"},{"tick":"AMZN","ymd":"2023_11_30","role":"WATCH"},{"tick":"META","amount":"100","spot_at":"326","ymd":"2023_11_30","role":"PAD"}]}
             ai_ledger = {"ticks":[{"tick":"NVDA","price":"474","ath":"505","ath_ymd":"2023_08_31","price_ymd":"2023_12_11"},{"tick":"MDB","price":"381","ath":"569","ath_ymd":"2021_09_19","price_ymd":"2023_12_11"},{"tick":"MSFT","price":"373","ath":"371","ath_ymd":"2023_07_14","price_ymd":"2023_12_11"},{"tick":"GOOGL","price":"134","ath":"150","ath_ymd":"2021_11_19","price_ymd":"2023_12_11"},{"tick":"QQQ","price":"392","ath":"400","ath_ymd":"2021_11_19","price_ymd":"2023_12_11"},{"tick":"XLK","price":"186","ath":"182","ath_ymd":"2023_07_18","price_ymd":"2023_12_11"},{"tick":"COIN","price":"147","ath":"105","ath_ymd":"2023_07_14","price_ymd":"2023_12_11"},{"tick":"V","price":"255","ath":"250","ath_ymd":"2023_09_13","price_ymd":"2023_12_11"},{"tick":"COST","price":"611","ath":"596","ath_ymd":"2022_04_08","price_ymd":"2023_12_11"},{"tick":"AMD","price":"129","ath":"130","ath_ymd":"2023_06_12","price_ymd":"2023_12_11"},{"tick":"TSLA","price":"243","ath":"300","ath_ymd":"2022_09_15","price_ymd":"2023_12_11"},{"tick":"META","price":"333","ath":"341","ath_ymd":"2023_11_22","price_ymd":"2023_12_11"},{"tick":"PINS","price":"34","ath":"46","ath_ymd":"2021_11_12","price_ymd":"2023_12_11"},{"tick":"FVRR","price":"26","ath":"46","ath_ymd":"2023_02_02","price_ymd":"2023_12_11"}],"spots":[{"tick":"NVDA","amount":"100","spot_at":"486","ymd":"2023_11_22","role":"WATCH"},{"tick":"NVDA","amount":"200","spot_at":"494","ymd":"2023_11_17","role":"LONG"},{"tick":"NVDA","amount":"200","spot_at":"412","ymd":"2023_10_20","role":"LOrLO"},{"tick":"NVDA","amount":"300","spot_at":"459","ymd":"2023_10_10","role":"LONG"},{"tick":"MDB","amount":"200","spot_at":"333","ymd":"2023_09_21","role":"WATCH"},{"tick":"V","amount":"200","spot_at":"232","ymd":"2023_10_24","role":"HOLD"},{"tick":"GOOGL","amount":"500","spot_at":"130","ymd":"2023_09_29","role":"TRIM"},{"tick":"QQQ","amount":"500","spot_at":"370","ymd":"2023_11_09","role":"TRIM"},{"tick":"XLK","amount":"300","spot_at":"168","ymd":"2023_09_18","role":"TRIM"},{"tick":"MSFT","amount":"100","spot_at":"330","ymd":"2023_10_26","role":"HOLD"},{"tick":"MSFT","amount":"200","spot_at":"316","ymd":"2023_10_02","role":"TRIM"},{"tick":"AMD","amount":"200","spot_at":"102","ymd":"2023_10_02","role":"LONG"},{"tick":"TSLA","amount":"100","spot_at":"235","ymd":"2023_11_30","role":"PAD"},{"tick":"FSLR","ymd":"2023_11_30","role":"WATCH"},{"tick":"AMZN","ymd":"2023_11_30","role":"WATCH"},{"tick":"META","amount":"100","spot_at":"326","ymd":"2023_11_30","role":"PAD"}]}
         }
 
@@ -2594,125 +2632,94 @@ const addEVTZClick = (evtzID) =>{
       evt.evtz.push(newEVT)
          //SAVE to LOCAL STORAGE
          localStorage.ai_eventz = JSON.stringify(ai_eventz) 
-      generateTrimSEQClick(); //RELOAD VIEW.  
+      generateEVTZClick(); //RELOAD VIEW.  
       showErrorMSG('⛏ SAVED ⛏');     
 }  
 
-const saveEVTZClick = ()=>{ // SAVE EVENTZ
-saveScheduleBtn1.style.display = 'none'; 
-   let quarterBoxes = generatedScheduleBOX.children,row,kids,kid;
-   let tkr,cap,trim_at,pad_at,padlvl,crashlvl;
-   let date3,type3,amt3,role3;
-   let capData,trimDetail, expand1;
-   let qtrTXT,dataBox1,dataBox2,qtrBOX, CAPMonth;
-   let save_schedule = {quarters:{}};
-try{     
-      for(var i=0; i<quarterBoxes.length;i++){ //LOOP QUARTER BOX
-      qtrBOX = quarterBoxes[i];
-      if(qtrBOX.classList.contains('quarterBOX')){
-         kids = qtrBOX.children;
-         for(var j=0;j<kids.length;j++){ //MONTH LOOP
+const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
+   evtzSaveBtn5.style.display = 'none'; 
+   let evtzBoxes = document.getElementById('eventzFRAME').children
+   let rowItem,kids,kid;
+   let saveTGT;
+   let evtTXT;
+   let save_eventz = [], save_evt={};
+   try{     
+      for(var i=0; i<evtzBoxes.length;i++){ //LOOP QUARTER BOX
+         evtBOX = evtzBoxes[i];
+      if(evtBOX.classList.contains('eventzBOX')){
+         kids = evtBOX.children;
+         for(var j=0;j<kids.length;j++){ //ROW of EVENTZ LOOP
             kid = kids[j];
-            if(kid.classList.contains('quarterHeader')){ 
-               qtrTXT = kid.children[0].value;
-               save_schedule.quarters[qtrTXT] = {qID:qtrTXT}
-               // ai_schedule.quarters[qtrTXT] = {qID:qtrTXT}
-               expand1 = (kid.children[2].innerHTML==='v')? true : false;
-               save_schedule.quarters[qtrTXT].expanded = expand1;
-               // ai_schedule.quarters[qtrTXT].expanded = expand1;
-               CAPMonth = save_schedule.quarters[qtrTXT]
-               // CAPMonth = ai_schedule.quarters[qtrTXT]
-               CAPMonth.caps = [];
-               CAPMonth.monthData = []
-            }
-            if(kid.classList.contains('monthBOX')){
-               if(kid.children.length===0){ // NO MONTHBOX data, COLLAPSED.
-                  save_schedule.quarters[qtrTXT] = ai_schedule.quarters[qtrTXT]
-                  continue; //DO NOT SAVE, use saved data, since it is collapsed.
-               } 
+            save_evt = {}; //new object
+            if(kid.classList.contains('eventzHeader')){ 
+               evtTXT = kid.children[0].value;
+               saveTGT = {title:evtTXT}
+               expand1 = (kid.children[1].innerHTML === '💨')? true : false;
+               saveTGT.expanded = expand1;
+               //GET EVENT
+               for(let aa=0; aa<ai_eventz.length; aa++){
+                  if(evtTXT===ai_eventz[aa].title){
+                     saveTGT.qID = ai_eventz[aa].qID || aa+1;
+                     saveTGT.tkr = ai_eventz[aa].tkr;
+                     saveTGT.type = ai_eventz[aa].type;
+                     saveTGT.ymd = ai_eventz[aa].ymd;
+                     saveTGT.evtz = (expand1)? [] : ai_eventz[aa].evtz || [];
+                     break;
+                  }
+               }
+            } // END HEADER
+            else if(kid.classList.contains('eventzROW')){
+               // if(kid.children.length===0){ // NO MONTHBOX data, COLLAPSED.
+                  // debugger;
+//                   save_schedule.quarters[qtrTXT] = ai_schedule.quarters[qtrTXT]
+//                   continue; //DO NOT SAVE, use saved data, since it is collapsed.
+               // } 
 
                for(var k=0; k<kid.children.length;k++){ //POPULATE DATA from VIEW.
-                  row = kid.children[k]
-                  if(row.classList.contains('capROW')){ 
-                     capData = {};//, trimData = {};
-                     for(var mm = 0; mm<row.children.length;mm++){
-                        dataBox1 = row.children[mm]
-                        if(dataBox1.classList.contains('trimTick')){
-                           dataBox1.value = dataBox1.value.toUpperCase();                     
-                           capData.tkr = dataBox1.value;
-                           tkr = capData.tkr;
-                        }
-                        else if(dataBox1.classList.contains('inputDATABOX1')){
-                           capData.cap = dataBox1.children[0].value
-                        }
-                        else if(dataBox1.classList.contains('inputDATABOX2')){
-                           capData.trim_at = dataBox1.children[0].value
-                        }
-                        else if(dataBox1.classList.contains('inputDATABOX3')){
-                           capData.pad_at = dataBox1.children[0].value
-                        }
-                        else if(dataBox1.classList.contains('inputDATABOX4')){
-                           capData.padlvl = dataBox1.children[0].value
-                        }
-                        else if(dataBox1.classList.contains('inputDATABOX5')){
-                           capData.crashlvl = dataBox1.children[0].value
-                        }
-                     }
-                  } //end cap row
-            
-                  else if(row.classList.contains('detailRow2')){  
-                     trimData = {}; 
-                     for(var mm = 0; mm<row.children.length;mm++){
-                        dataBox2 = row.children[mm];
-                        if(dataBox2.classList.contains('detailDate1')){
-                           trimData.ymd = dataBox2.value
-                           trimData.tick = tkr //important load.
-                        }
-                        if(dataBox2.classList.contains('typeBOX1')){
-                           trimData.type = dataBox2.children[0].value.toLowerCase()
-                        }
-                        if(dataBox2.classList.contains('amtBOX1')){
-                           trimData.amt = dataBox2.children[0].value
-                        }
-                        if(dataBox2.classList.contains('roleBOX1')){
-                           trimData.role = dataBox2.children[0].value
-                        }
-                     }
-                  } // end details row
-      
-                  // if(capData.tkr && CAPMonth && CAPMonth.caps){
-                  if(capData.tkr){
-                     CAPMonth.caps.push(capData);
-                     capData = {}
+                  rowItem = kid.children[k]
+                  if(rowItem.classList.contains('capsNUMBOX3')){
+                     save_evt.eID = rowItem.children[1].innerHTML;
                   }
-                  // if (trimData.type && CAPMonth && CAPMonth.monthData){
-                  // if(!show_schedule_details_view){   //could move out of loop, below.
-                  //    CAPMonth.monthData = ai_schedule.quarters[qtrTXT].monthData
-                  // }                            
-                  else if (trimData.type){
-                     CAPMonth.monthData.push(trimData)
-                     trimData = {}
+                  else if(rowItem.classList.contains('eventzTitle')){
+                     save_evt.title = rowItem.value;
                   }
+                  else if(rowItem.classList.contains('eventzTypeBOX1')){
+                     save_evt.type =  rowItem.children[0].value
+                  }
+                  else if(rowItem.classList.contains('eventzTypeBOX2')){
+                     save_evt.range = rowItem.children[0].value
+                  }
+                  else if(rowItem.classList.contains('eventzTypeBOX3')){
+                     save_evt.spot_amt = rowItem.children[0].value
+                     save_evt.spot_POS = rowItem.children[2].value;
+                  }
+                  else if(rowItem.classList.contains('detailDate2')){
+                     save_evt.ymd = rowItem.value;
+                  }
+               } //END ROW DATA
+               saveTGT.evtz.push(save_evt)
 
-               } //END CAPS ROW.
-            } //END EXPANDED MONTHBOX
-         } //MONTH LOOP
-         if(!show_schedule_details_view){   //could move out of loop, below.
-                     CAPMonth.monthData = ai_schedule.quarters[qtrTXT].monthData
-                  }  
-         } // IF QUARTER 
-      } //END QUARTER BOX LOOP
+            } //end EVENTz ROW
+          } // ROW of EVENTZ LOOP
+          save_eventz.push( saveTGT )
+
+//          if(!show_schedule_details_view){   //could move out of loop, below.
+//                      CAPMonth.monthData = ai_schedule.quarters[qtrTXT].monthData
+//                   }  
+         } // IF eventzBOX
+      } //END EVENTZ BOX LOOP
    } //end TRY
    catch(e){
-      console.log('err in save')
+      console.log('err in save',e)
       showErrorMSG('⚔️ ERR ⚔️'); 
       return;
    }
-   if(save_schedule){
+   if(save_eventz){
+      debugger;
       //SAVE to LOCAL STORAGE
-      ai_schedule = save_schedule;
-      localStorage.ai_schedule = JSON.stringify(ai_schedule) 
-      generateScheduleClick(); //RELOAD VIEW.  
+      ai_eventz = save_eventz;
+      localStorage.ai_eventz = JSON.stringify(ai_eventz) 
+      generateEVTZClick(); //RELOAD VIEW.  
       showErrorMSG('⚔️ SAVED ⚔️');
    }
 }     //end save EVENTZ click  
@@ -2749,6 +2756,12 @@ try{
       }
    }; ai_eventz_init();
 
+    const setEVTZDetailsClick=()=>{
+      debugger;
+    }
+    const setEVTZDeleteClick=()=>{
+      debugger;
+    }
 
 //END EVENTZ***********************************************
    /************************************************\
@@ -2773,16 +2786,7 @@ try{
    /*************************************\
     * SCHEDULE_MATRIX - quarterly values in time
    \*************************************/
-   // const update_Schedule_Matrix = ( tickr ) => {//data updated: to not lose, push duplicate to history
-      //TODO
-      // if(!tickr || !tickr.price || !tickr.ymd){return}
-      // if(!ai_schedule[tickr.tick]) { ai_schedule[tickr.tick]= {tick:ai_schedule[tickr.tick]} }
-      // if(!ai_schedule[tickr.tick]['ymd_price']) { ai_schedule[tickr.tick]['ymd_price'] = {} }
-      // ai_schedule[tickr.tick]['ymd_price'][tickr.ymd] = tickr.price;
-      // //UPDATE LOCALSTORAGE with ai_schedule. SAVE
-      // localStorage.ai_schedule = JSON.stringify(ai_schedule)  
-   // }      
-         
+
    const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
       let trimBOX1,quarter,quarterSets=[];
       let quarterBOX,monthBOX,quarterTXT,capROW;//trimBtnROW;
@@ -3082,12 +3086,9 @@ try{
          generateScheduleClick();
       }
 
-
-
       /***************************************
        * MARGINS
        * **************************************/
-
       let show_margin_details_view = false;
       const setMarginDetailsClick = (e)=>{
          if(e.target.id==='detailsBtn1'){
@@ -3283,34 +3284,12 @@ try{
       }
          //SAVE to LOCAL STORAGE
       localStorage.ai_eventz = JSON.stringify(ai_eventz) 
-      generateTrimSEQClick(); //RELOAD VIEW.  
+      generateEVTZClick(); //RELOAD VIEW.  
       showErrorMSG('🌠 SAVED 🌠');   
    }
-   
-   // let ai_eventz = [];
-   // ai_eventz = [
-   //    {qID:1,tkr:'NVDA',title:'NVDA_DIP_2023',ymd:'2023_12_10',type:'DIP',note:'10yr 5%',expanded:true,
-   //       evtz:[
-   //       {eID:0,title:'10%OFFTOP',ymd:'2023_12_02',type:'WARN',range:'100-200',spot_amt:0,spot_POS:0},
-   //       {eID:1,title:'20%OFFTOP',ymd:'2023_12_01',type:'PAD1',range:'100-200',spot_amt:100,spot_POS:150}]},
-   //    {qID:2,tkr:'NVDA',title:'NVDA_CRASH_2023',ymd:'2023_12_10',type:'CRASH',note:'10yr 4.44%',
-   //       evtz:[{eID:0,title:'50%OFFTOP',ymd:'2023_12_02',type:'DIP'},{eID:1,title:'b',ymd:'2023_12_01',type:'warn'}]},
-   //    {qID:3,tkr:'NVDA',title:'',ymd:'2023_12_10',type:'BLACKSWAN',note:'super-semia',
-   //       evtz:[{eID:0,title:'LIQUID_TOP',ymd:'2023_12_02',type:'DIP'},{eID:1,title:'b',ymd:'2023_12_01',type:'warn'}]},
-   //    {qID:4,tkr:'NVDA',title:'',ymd:'2023_12_10',type:'BREAKOUT',note:'super-semib',
-   //       evtz:[{eID:0,title:'vent1',ymd:'2023_12_02',type:'DIP'},{eID:1,title:'b',ymd:'2023_12_01',type:'warn'}]},
-   //    {qID:5,tkr:'NVDA',title:'',ymd:'2023_12_10',type:'BULLFLAG',note:'celebrate good things.',
-   //       evtz:[{eID:0,title:'event2',ymd:'2023_12_02',type:'DIP'},{eID:1,title:'b',ymd:'2023_12_01',type:'warn'}]}
-   // ];
 
-   const generateTrimSEQClick = ()=>{
-      // saveScheduleBtn1.style.display = 'none'; 
-         // let quarterBoxes = generatedScheduleBOX.children,row,kids,kid;
-         // let tkr,cap,trim_at,pad_at,padlvl,crashlvl;
-         // let date3,type3,amt3,role3;
-         // let capData,trimDetail, expand1;
-         // let qtrTXT,dataBox1,dataBox2,qtrBOX, CAPMonth;
-         // let save_schedule = {quarters:{}};
+
+   const generateEVTZClick = ()=>{
       eventzFRAME.innerHTML="";//blank out
       let eventzSet = ai_eventz, eventz;
       for(var i=0; i<eventzSet.length;i++){
@@ -3339,8 +3318,9 @@ try{
 
          eventzTXT = document.createElement('input')
          eventzTXT.classList.add('eventzTXT')
-         eventzTXT.value = eventz.tkr.toUpperCase() +"_"+eventz.type.toUpperCase()+"_"+ year;//.eventzID.toUpperCase();
-         eventzTXT.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+         eventzTXT.value = eventz.title;
+         // eventzTXT.value = eventz.tkr.toUpperCase() +"_"+eventz.type.toUpperCase()+"_"+ year;//.eventzID.toUpperCase();
+         eventzTXT.addEventListener("keyup",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
             }); 
 
          expandBtn1 = document.createElement('button')
@@ -3356,21 +3336,10 @@ try{
          addBtn4.addEventListener("click",(e)=>{
                addEVTZClick(e.target.getAttribute('data-arg2')) });
 
-            // const button2 = document.createElement('button');
-            // button2.textContent = '🗑️';
-            // button2.classList.add('docDeleteBtn')
-            // button2.onclick = function() { docDelete(item.title); };
-            
             eventzHeader.appendChild(eventzTXT)
-            // eventzHeader.appendChild(button2); 
             eventzHeader.appendChild(expandBtn1)
             eventzHeader.appendChild(addBtn4)
-         // eventzBOX.appendChild(addBtn4)
          eventzBOX.appendChild(eventzHeader)
-
-         // monthBOX = document.createElement('article')
-         // monthBOX.classList.add('monthBOX')
-
          if(eventz.expanded){
                expandBtn1.innerHTML = '💨'
             for(let j=0;j<eventz.evtz.length;j++){  //SUBLIST LOOP .
@@ -3403,7 +3372,7 @@ try{
                eventzTitle = document.createElement('input')
                eventzTitle.classList.add('eventzTitle')
                eventzTitle.value = eventzData.title || 0;
-               eventzTitle.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+               eventzTitle.addEventListener("keyup",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
                });                
                //EVENT_TYPE
                typeBOX = document.createElement('aside')
@@ -3463,7 +3432,7 @@ try{
                         typeData.value = eventzData.type || '...';
                         typeBOX.appendChild(typeData)
                         
-                        typeData.addEventListener("change",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+                        typeData.addEventListener("change",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
                         });  
                         typeBOX.classList.add('eventzTypeBOX1')
                        
@@ -3478,11 +3447,11 @@ try{
                rangeData = document.createElement('input')
                rangeData.value = eventzData.range || '';
                rangeData.classList.add('eventzTypeData1')
-               rangeData.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+               rangeData.addEventListener("keyup",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
             });                 
             rangeBOX = document.createElement('aside')
             rangeBOX.innerHTML="range&nbsp;"
-            rangeBOX.classList.add('eventzTypeBOX1')
+            rangeBOX.classList.add('eventzTypeBOX2')
             rangeBOX.style.width = '10em'
             rangeBOX.appendChild(rangeData)
             //EVENT_SPOT
@@ -3491,12 +3460,12 @@ try{
             spotAmt = document.createElement('input')
             spotAmt.value = eventzData.spot_amt || '';
             spotAmt.classList.add('eventzTypeData2')
-            spotAmt.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+            spotAmt.addEventListener("keyup",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
             });                 
             spotPOS = document.createElement('input')
             spotPOS.value = eventzData.spot_POS || '';
             spotPOS.classList.add('eventzTypeData2')
-            spotPOS.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+            spotPOS.addEventListener("keyup",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
             });                 
             spotBOX = document.createElement('aside')
             spotBOX.innerHTML="$&nbsp;"
@@ -3504,21 +3473,13 @@ try{
             spotBOX.appendChild(spotTxt)
             spotBOX.appendChild(spotPOS)
             spotBOX.style.width = '12em'
-            spotBOX.classList.add('eventzTypeBOX1')
+            spotBOX.classList.add('eventzTypeBOX3')
             //EVENT_DATE
             date1 = document.createElement('input')
             date1.value = eventzData.ymd;
             date1.classList.add('detailDate2')
-            date1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+            date1.addEventListener("keyup",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
             });  
-
-               //EVENT_NOTE
-               // eventzNote = document.createElement('input')
-               // eventzNote.classList.add('eventzNote')
-               // // eventzNote.value = eventz.note || 0;
-               // eventzNote.placeholder = 'notez'
-               // eventzNote.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
-               // });     
 
             eventzROW.appendChild(eventzTitle)
             eventzROW.appendChild(typeBOX)
@@ -3621,250 +3582,27 @@ try{
          expandBtn1.setAttribute('data-arg3',storyz.qID)
          expandBtn1.addEventListener("click",(e)=>{
                expandStoryzClick(e.target.getAttribute('data-arg3')) });
-         // addBtn4 = document.createElement('button')
-         // addBtn4.innerHTML = 'addDIPz📅';
-         // addBtn4.classList.add('addBtn4')
-         // addBtn4.setAttribute('data-arg2',storyz.qID)
-         // addBtn4.addEventListener("click",(e)=>{
-         //       addCapClick(e.target.getAttribute('data-arg2')) });
-
-            // const button2 = document.createElement('button');
-            // button2.textContent = '🗑️';
-            // button2.classList.add('docDeleteBtn')
-            // button2.onclick = function() { docDelete(item.title); };
-            
             storyzHeader.appendChild(storyzTXT)
-            // storyzHeader.appendChild(button2); 
-            // storyzHeader.appendChild(addBtn4)
             storyzHeader.appendChild(expandBtn1)
-         // storyzBOX.appendChild(addBtn4)
          storyzBOX.appendChild(storyzHeader)
 
          monthBOX = document.createElement('article')
          monthBOX.classList.add('monthBOX')
 
+         //EVENT_NOTE
+         // eventzNote = document.createElement('input')
+         // eventzNote.classList.add('eventzNote')
+         // // eventzNote.value = eventz.note || 0;
+         // eventzNote.placeholder = 'notez'
+         // eventzNote.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+         // });    
+
+
+
          if(storyz.expanded){
                expandBtn1.innerHTML = '💨'
-            // for(let j=0;j<storyz.caps.length;j++){  //MONTHLY CAP LOOP .
-            //    capsData = storyz.caps[j];
-            //    capROW = document.createElement('aside')
-            //    capROW.classList.add('capROW')
-            //    //**********************************************selector
-            //    capsNUMBOX1 = document.createElement('aside')
-            //    capsNUMBOX1.classList.add('capsNUMBOX1')//encodeNUMBOX1
-            //    capsCHECKBOX1 = document.createElement('label')
-            //    capsCHECKBOX1.classList.add('checkboxFrame') 
-            //    capsNUMBOX1.innerHTML=j+1;            
-            //    capsSelect1 = document.createElement('input');
-            //    capsSelect1.ymdt = storyz.qID+'_'+capsData.tkr.toUpperCase() || '';
-            //    capsSelect1.type = "radio";
-            //    capsSelect1.name = "scheduleCapsRadio";
-            //    capsSelect1.classList.add('cap_checkmark')
-            //    capsCHECKBOX1.appendChild(capsSelect1)
-            //    capsCheckMark1 = document.createElement('span')
-            //    capsCheckMark1.classList.add('checkmark')
-            //    capsCHECKBOX1.appendChild(capsCheckMark1)
-            //    capsNUMBOX1.appendChild(capsCHECKBOX1)
-            //    capROW.appendChild(capsNUMBOX1)
-            //    // end ************************************** selector
-            //    trimTick = document.createElement('input')
-            //    trimTick.classList.add('trimTick')
-            //    trimTick.value = capsData.tkr.toUpperCase() || 0;
-            //    trimTick.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
-            //    });             
-            //    capBOX1 = document.createElement('aside')
-            //    capBOX1.innerHTML="CAP&nbsp";
-            //    capBOX1.classList.add('inputDATABOX1')
-            //    capData1 = document.createElement('input')
-            //    capData1.classList.add('inputDATA1')
-            //    capData1.placeholder = "$0";
-            //    capData1.value = capsData.cap || '';          
-            //    capData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
-            //    });  
-            //    capBOX1.appendChild(capData1)
-
-            //    trim_atBOX1 = document.createElement('aside')
-            //    trim_atBOX1.innerHTML="trim&nbsp";
-            //    trim_atBOX1.classList.add('inputDATABOX2')
-            //    trim_atData1 = document.createElement('input')
-            //    trim_atData1.classList.add('inputDATA2')
-            //    trim_atData1.placeholder = "$0";
-            //    trim_atData1.value = capsData.trim_at || '';          
-            //    trim_atData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block';  
-            //    });  
-            //    trim_atBOX1.appendChild(trim_atData1)
-
-            //    pad_atBOX1 = document.createElement('aside')
-            //    pad_atBOX1.innerHTML="pad&nbsp";
-            //    pad_atBOX1.classList.add('inputDATABOX3')
-            //    pad_atData1 = document.createElement('input')
-            //    pad_atData1.classList.add('inputDATA2')
-            //    pad_atData1.placeholder = "$0";
-            //    pad_atData1.value = capsData.pad_at || '';          
-            //    pad_atData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
-            //    });  
-            //    pad_atBOX1.appendChild(pad_atData1)
-
-            //    padlvlBOX1 = document.createElement('aside')
-            //    padlvlBOX1.innerHTML="padlvl&nbsp";
-            //    padlvlBOX1.classList.add('inputDATABOX4')
-            //    padlvlData1 = document.createElement('input')
-            //    padlvlData1.classList.add('inputDATA3')
-            //    padlvlData1.placeholder = "0";
-            //    padlvlData1.value = capsData.padlvl || '';          
-            //    padlvlData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
-            //    });  
-            //    padlvlBOX1.appendChild(padlvlData1)
-
-            //    crashlvlBOX1 = document.createElement('aside')
-            //    crashlvlBOX1.innerHTML="crashPOS&nbsp";
-            //    crashlvlBOX1.classList.add('inputDATABOX5')
-            //    crashlvlData1 = document.createElement('input')
-            //    crashlvlData1.classList.add('inputDATA3')
-            //    crashlvlData1.placeholder = "0";
-            //    crashlvlData1.value = capsData.crashlvl || 0;          
-            //    crashlvlData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
-            //    });  
-            //    crashlvlBOX1.appendChild(crashlvlData1)
-
-            //    capROW.appendChild(trimTick)         
-            //    capROW.appendChild(capBOX1)         
-            //    capROW.appendChild(trim_atBOX1)         
-            //    capROW.appendChild(pad_atBOX1)         
-            //    capROW.appendChild(padlvlBOX1)         
-            //    capROW.appendChild(crashlvlBOX1)
-            //    monthBOX.appendChild(capROW)
-
-            //    if(show_schedule_details_view){   //BEGIN DETAILS VIEW
-            //       let detailRow2,date1,detAmt,detType,detRole,detNote;
-            //       let monthData = null;
-            //       let role1,role2,role3,role4,role5,role6,role7,role8,role9,role10,role11;
-            //       let type1,type2,type3,type4;
-            //       let roleBOX,roleData;
-            //       let typeBOX,typeData,atBOX1;
-            //       let atData1,amtData1;
-            //       for(let k=0;k<storyz.monthData.length;k++){  //CAP DETAILS LOOP.
-            //          monthData = storyz.monthData[k];
-            //          if(monthData.tick.toUpperCase()!=capsData.tkr.toUpperCase()){continue;}
-            //          detailRow2 = document.createElement('section')
-            //          detailRow2.classList.add('detailRow2')
-            //          //DETAILS ROW
-            //    //**********************************************selector
-            //    capsNUMBOX2 = document.createElement('aside')
-            //    capsNUMBOX2.classList.add('capsNUMBOX2')//encodeNUMBOX1
-            //    capsCHECKBOX2 = document.createElement('label')
-            //    capsCHECKBOX2.classList.add('checkboxFrame') 
-            //    capsNUMBOX2.innerHTML=k+1;            
-            //    capsSelect2 = document.createElement('input');
-            //    capsSelect2.ymdtn = storyz.qID+'_'+capsData.tkr.toUpperCase()+'_'+k || '';
-            //    // capsSelect2.ymdt = storyz.qID+'_'+capsData.tkr.toUpperCase() || '';
-            //    capsSelect2.type = "radio";
-            //    capsSelect2.name = "scheduleDetailsRadio";
-            //    capsSelect2.classList.add('cap_checkmark')
-            //    capsCHECKBOX2.appendChild(capsSelect2)
-            //    capsCheckMark2 = document.createElement('span')
-            //    capsCheckMark2.classList.add('checkmark')
-            //    capsCHECKBOX2.appendChild(capsCheckMark2)
-            //    capsNUMBOX2.appendChild(capsCHECKBOX2)
-            //    detailRow2.appendChild(capsNUMBOX2)
-            //    // end ************************************** selector
-            //             date1 = document.createElement('input')
-            //             date1.value = ''+monthData.ymd;
-            //             date1.classList.add('detailDate1')
-            //             date1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
-            //             });  
-            //             amtBOX1 = document.createElement('aside')
-            //             amtBOX1.innerHTML="amt&nbsp;"
-            //             roleBOX = document.createElement('aside')
-            //             roleBOX.innerHTML="role&nbsp;"
-            //             typeBOX = document.createElement('aside')
-            //             typeBOX.innerHTML="type&nbsp;"
-            //             roleData = document.createElement('select')
-            //             typeData = document.createElement('input')
-            //             role1 = document.createElement('option')
-            //             role2 = document.createElement('option')
-            //             role3 = document.createElement('option')
-            //             role4 = document.createElement('option')
-            //             role5 = document.createElement('option')
-            //             role6 = document.createElement('option')
-            //             role7 = document.createElement('option')
-            //             role8 = document.createElement('option')
-            //             role9 = document.createElement('option')
-            //             role10 = document.createElement('option')
-            //             role11 = document.createElement('option')
-            //             role1.value = "...";
-            //             role2.value = "HOLD";
-            //             role3.value = "WATCH";
-            //             role4.value = "RISKOFF";
-            //             role5.value = "LONG";
-            //             role6.value = "TRIM";
-            //             role7.value = "SAFE";
-            //             role8.value = "RISKON";
-            //             role9.value = "EXIT";
-            //             role10.value = "LOrLO";
-            //             role11.value = "HIGHrHIGH";
-            //             role1.innerHTML = "...";
-            //             role2.innerHTML = "HOLD";
-            //             role3.innerHTML = "WATCH";
-            //             role4.innerHTML = "RISKOFF";
-            //             role5.innerHTML = "LONG";
-            //             role6.innerHTML = "TRIM";
-            //             role7.innerHTML = "SAFE";
-            //             role8.innerHTML = "RISKON";
-            //             role9.innerHTML = "EXIT";
-            //             role10.innerHTML = "LOrLO";
-            //             role11.innerHTML = "HIrHI";
-            //             roleData.appendChild(role1);
-            //             roleData.appendChild(role2);
-            //             roleData.appendChild(role3);
-            //             roleData.appendChild(role4);
-            //             roleData.appendChild(role5);
-            //             roleData.appendChild(role6);
-            //             roleData.appendChild(role7);
-            //             roleData.appendChild(role8);
-            //             roleData.appendChild(role9);
-            //             roleData.appendChild(role10);
-            //             roleData.appendChild(role11);
-            //             roleData.value = monthData.role || '';
-            //             roleBOX.appendChild(roleData)
-                        
-            //             roleData.addEventListener("change",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
-            //             });  
-            //             typeData.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
-            //             });  
-
-            //             typeData.value= monthData.type || '';
-            //             roleBOX.classList.add('roleBOX1')
-                        
-            //             typeBOX.appendChild(typeData)
-            //             typeBOX.classList.add('typeBOX1')
-                        
-            //             if(monthData.type==='trim'){
-            //                typeData.classList.add('typeTRIMColor')
-            //             } else if (monthData.type==='pad'){
-            //                typeData.classList.add('typePADColor')
-            //             }
-
-            //             roleData.classList.add('roleData1')
-            //             typeData.classList.add('typeData1')
-            //             amtData1 = document.createElement('input')
-            //             amtData1.placeholder = "$0";
-            //             amtData1.value = monthData.amt;
-            //             amtData1.classList.add('spotAtData1')
-
-            //             amtData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
-            //             });  
-
-            //             amtBOX1.classList.add('amtBOX1')
-            //             amtBOX1.appendChild(amtData1)            
-            //             detailRow2.appendChild(date1)
-            //             detailRow2.appendChild(typeBOX)
-            //             detailRow2.appendChild(amtBOX1)
-            //             detailRow2.appendChild(roleBOX)
-
             //          //END DETAILS ROW
             //          monthBOX.appendChild(detailRow2) 
-
             //       } //END DETAILS LOOP
             //    }  //END DETAILS VIEW
             // } //END MONTHLY LOOP
@@ -3872,13 +3610,8 @@ try{
          storyzBOX.appendChild(monthBOX)
          storyzFRAME.appendChild(storyzBOX)
       // } //END QUARTERLY LOOP
-
-
-
       }//END storyz loop
-
-
-   }//END generate Preview
+   }//END generate Preview of STORYz click
 
    const getLatestTickerClick = ()=>{ //loop all for last close.
       let item,urls=[];

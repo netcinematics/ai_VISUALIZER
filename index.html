@@ -331,6 +331,26 @@
       padding-left: 1em;
       display: flex;
    }
+
+   .capsNUMBOX0{
+         font-family: sans-serif;
+      font-size: 0.777em;
+      /* margin-left: -2em;
+      padding-left: 1em; */
+      display: flex;
+      /* margin-top: -8px; */
+      width:4em;
+   }   
+
+   .eventzNUMBOX0{
+         font-family: sans-serif;
+      font-size: 0.777em;
+      display:flex;
+      float:left;
+      margin-top: -6px;
+    width: 4em;
+    margin-left: 1em;
+   }   
    .capsNUMBOX1{
          font-family: sans-serif;
       font-size: 0.555em;
@@ -409,7 +429,7 @@ flex-direction: column;
    border-radius: 13px;
 }
 
-
+.storyzHeader{display:flex;    justify-content: space-between;}
 .storyzBOX{
    display: flex;
 flex-direction: column;
@@ -983,7 +1003,7 @@ align-items: center;">
          <button id="generateMarginsBtn" class="genReportBtn1" onclick="generateMarginsClick()">gener8🎰</button>
          <span class="boxTitle">🐤 <span style="font-size:0.777em; color:cyan">3</span> 
          <span style="font-size:0.555em">Generate</span>
-         <span style="font-size: 1.222em;color:cyan;font-family: monospace;">Margins</span>
+         <span style="font-size: 1.222em;color:cyan;font-family: monospace;">MARGINS</span>
          <span style="font-size:0.555em">📏(on spots)💎</span>
          </span><br>
          <article style="font-size:0.777em;font-family: sans-serif;line-height:2.222em;">
@@ -1002,7 +1022,7 @@ align-items: center;">
         <span class="boxTitle">🔔 
          <span style="font-size:0.777em; color:cyan">4</span>
          <span style="font-size:0.555em">Generate</span>
-         <span style="font-size: 1.222em;color:cyan;font-family: monospace;">Caps & Levels</span>
+         <span style="font-size: 1.222em;color:cyan;font-family: monospace;">CAPS & Levels</span>
          <span style="font-size:0.555em"> 📉(LVLz)📈</span>
         </span><br>
         <article>
@@ -1028,7 +1048,7 @@ align-items: center;">
           <span style="font-size:0.777em; color:cyan">5</span>
           <span style="font-size:0.555em; color:#de9257;">Generate</span>
           <span style="font-size: 1.222em;color:cyan;font-family: monospace;">
-            Dips & Crash</span> 
+            MILESTONES🐾</span> 
           <span style="font-size:0.555em; color:#de9257;">🎢(eventz)🚀</span>
          </span><br>
          <article style="font-size:0.777em;font-family: sans-serif;line-height:2.222em;">
@@ -1051,7 +1071,8 @@ align-items: center;">
             <!-- <section id="generatedPreviewBOX"></section> -->
             <hr> 
             <button id="evtzDeleteBtn5" class="delBtn2" style="font-size: 1em;" onclick="setEVTZDeleteClick(event)">🗑️</button> 
-            <button id="evtzDetailsBtn5" class="genReportBtn1" style="font-size: 0.888em;" onclick="setEVTZDetailsClick(event)">details🔬</button> 
+            <!-- <button id="evtzDetailsBtn5" class="genReportBtn1" style="font-size: 0.888em;" onclick="setEVTZDetailsClick(event)">details🔬</button>  -->
+            <button id="evtzMilestoneBtn5" class="genReportBtn1" style="font-size: 0.888em;" onclick="addEVTZMilestoneClick(event)">add Milestone🐾</button> 
             <button id="evtzSaveBtn5" class="genReportBtn1" style="font-size: 0.888em;display:none;" onclick="setEVTZSaveClick(event)">save🤩</button> 
       </section>
 
@@ -1059,12 +1080,12 @@ align-items: center;">
       <section id="reviewPreviewBOX"
          style="width:80.888%; flex:1;background:#070c36;border-radius: 13px; border: solid 1px #a44ba9; 
          box-shadow:inset 0px 0px 11px 0px #5e336d;padding: 4% 0 4% 4%; color: #917db5; line-height: 2.444em;">
-         <button id="generateReviewPreviewsBtn" class="genReportBtn1" onclick="generateReviewPreviewsClick()">gener8🍿</button>
+         <button id="generateReviewPreviewsBtn" class="genReportBtn1" onclick="generateStoryClick()">gener8🎬</button>
          <span class="boxTitle">🌪️ 
             <span style="font-size:0.777em; color:cyan">6</span>
           <span style="font-size:0.555em">Generate</span>
           <span style="font-size: 1.222em;color:cyan;font-family: monospace;">Reviews & Previews</span>
-          <span style="font-size:0.555em">☝(qtr Q&A)🛠️</span>
+          <span style="font-size:0.555em">☝(storyz)🛠️</span>
          </span><br>
          <article style="font-size:0.777em;font-family: sans-serif;line-height:2.222em;">
             <hr> 
@@ -1075,8 +1096,11 @@ align-items: center;">
             Previews:
             <section id="generatedPreviewBOX"></section> -->
             <hr> 
-            <button id="previewBtn1" class="genReportBtn1" style="display:block;" onclick="setReviewPreviewDetailsClick(event)">preview🔭</button> 
-            <button id="reviewBtn1" class="genReportBtn1" style="display:block;" onclick="setReviewPreviewDetailsClick(event)">review🔬</button> 
+            <button id="storyzDeleteBtn6" class="delBtn2" style="font-size: 1em;" onclick="storyzDeleteClick(event)">🗑️</button> 
+            <button id="storyAddMilestoneBtn6" class="genReportBtn1" style="font-size: 0.888em;" onclick="storyzAddMilestoneClick(event)">add Story🐜🍄</button> 
+            <button id="storyzSaveBtn6" class="genReportBtn1" style="font-size: 0.888em;display:none;" onclick="storyzSaveClick(event)">save🎁</button> 
+            <!-- <button id="previewBtn1" class="genReportBtn1" style="display:block;" onclick="setReviewPreviewDetailsClick(event)">preview🔭</button>  -->
+            <!-- <button id="reviewBtn1" class="genReportBtn1" style="display:block;" onclick="setReviewPreviewDetailsClick(event)">review🔬</button>  -->
       </section>
 
 
@@ -2635,6 +2659,25 @@ const addEVTZClick = (evtzID) =>{
       generateEVTZClick(); //RELOAD VIEW.  
       showErrorMSG('⛏ SAVED ⛏');     
 }  
+const addStoryzClick = (storyBOXID) =>{
+   // saveEVTZClick();//FIX: save first for bug on double create row, keeps first row tickr.
+   //go to parent quarter and add a unique row
+   debugger;
+   let newStory = {}
+   let aStory = ai_storyz[storyBOXID-1];
+   if(!aStory){return}
+      newStory.eID = aStory.evtz.length;
+      newStory.qID = aStory.qID;
+      newStory.title = aStory.title;
+      newStory.ymd = aStory.ymd;
+      newStory.type = aStory.type;
+      newStory.tkr = aStory.tkr;
+      aStory.evtz.push(newStory)
+         //SAVE to LOCAL STORAGE
+         localStorage.ai_storyz = JSON.stringify(ai_storyz) 
+      generateStoryClick(); //RELOAD VIEW.  
+      showErrorMSG('⛏ SAVED ⛏');     
+}  
 
 const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
    evtzSaveBtn5.style.display = 'none'; 
@@ -2756,12 +2799,78 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
       }
    }; ai_eventz_init();
 
-    const setEVTZDetailsClick=()=>{
+   //  const setEVTZDetailsClick=()=>{
+   //    debugger;
+   //  }
+    const addEVTZMilestoneClick=()=>{
       debugger;
     }
-    const setEVTZDeleteClick=()=>{
-      debugger;
-    }
+    const setEVTZDeleteClick=(event)=>{
+      // const deleteSelectedSchedule = (event)=>{ //remove ledger item, save, refresh
+      let evtSelected = [], detSelected=[], temp = [], removeChildRow=false;
+      // let items = document.getElementsByClassName('spot_checkmark');
+      let evtChecks = document.getElementsByName("eventzMasterRadio");
+      let detChecks = document.getElementsByName("eventzDetailsRadio");
+      for(let i=0; i<evtChecks.length;i++){
+         if(evtChecks[i].checked){ //SORT THROUGH ai_schedule to delete data and reload
+            evtSelected.push(evtChecks[i])
+            // let ymdt = evtChecks[i].ymdt;
+            // let zArr = evtChecks[i].ymdt.split('_')
+            // let tickevt = zArr.pop();
+            // let ymd = zArr.join('_')
+            // let qtrevts = ai_schedule.quarters[ymd].evts;
+            // let monthData = ai_schedule.quarters[ymd].monthData;
+            // for(var j=0; j<qtrevts.length;j++){ //DELETE evt DATA
+            //    if( tickevt === qtrevts[j].tkr ){
+            //       qtrevts.splice(j,1) //remove data
+            //       break;
+            //    }
+            // }
+            // for(var k=0; k<monthData.length;k++){ //DELETE MONTH DATA
+            //    if( tickevt === monthData[k].tick ){
+            //       monthData.splice(k,1) //remove data
+            //       // break;
+            //    }
+            // }
+            //SAVE & RELOAD VIEW
+            showErrorMSG('🦕 Saved. ');
+            // localStorage.ai_eventz = JSON.stringify(ai_eventz) //SAVE to LOCAL STORAGE
+            // generateEVTZClick(); //RELOAD VIEW. 
+            break;
+         }
+      }
+      if(!evtSelected.length && detChecks.length){ // DETAIL ROW SELECTION
+         for(let j=0; j<detChecks.length;j++){
+            if(detChecks[j].checked){
+               detSelected.push(detChecks[j])
+               let eID = detChecks[j].eID
+               // let ymdtn = detChecks[j].ymdtn
+               // let zArr = detChecks[j].ymdtn.split('_')
+               // let itemNUM = zArr.pop();
+               // let tickevt = zArr.pop();
+               // let ymd = zArr.join('_')
+               debugger;
+               // let monthData = ai_schedule.quarters[ymd].monthData;
+               for(var k=0; k<ai_eventz.length;k++){ //DELETE MONTH DATA
+                  for(var m=0; m<ai_eventz[k].evtz.length;m++){ //DELETE MONTH DATA
+                     if( eID === ai_eventz[k].evtz[m].eID ){       
+                        ai_eventz[k].evtz.splice(m,1) //remove data
+                        debugger;
+                     }
+                  }
+               }
+               //SAVE & RELOAD VIEW
+               showErrorMSG(' Saved🦖 ');
+               localStorage.ai_eventz = JSON.stringify(ai_eventz) //SAVE to LOCAL STORAGE
+               generateEVTZClick(); //RELOAD VIEW. 
+               
+               break;
+            }
+         }
+      } 
+      if(!evtSelected.length && !detSelected.length){showErrorMSG(' Nothing selected 😵'); return;}
+   } //end delete EVENTZ fn
+
 
 //END EVENTZ***********************************************
    /************************************************\
@@ -3316,6 +3425,32 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
          eventzHeader = document.createElement('aside')
          eventzHeader.classList.add('eventzHeader')
 
+         //**********************************************selector
+         eventzNUM0 = document.createElement('div');
+         eventzNUM0.classList.add('eventzNUM1')
+         eventzNUM0.innerHTML = "m"+(i+1);
+         eventzNUMBOX0 = document.createElement('span')
+         eventzNUMBOX0.classList.add('eventzNUMBOX0');
+         eventzCHECKBOX0 = document.createElement('label')
+         eventzCHECKBOX0.classList.add('checkboxFrame') 
+         // eventzNUMBOX0.innerHTML=i+0;            
+         eventzSelect0 = document.createElement('input');
+         eventzSelect0.qID = eventz.qID || '';
+         eventzSelect0.type = "radio";
+         eventzSelect0.name = "eventzMasterRadio";
+         eventzSelect0.classList.add('cap_checkmark')
+         eventzCHECKBOX0.appendChild(eventzSelect0)
+         eventzCheckMark0 = document.createElement('span')
+         eventzCheckMark0.classList.add('checkmark')
+         eventzCHECKBOX0.appendChild(eventzCheckMark0)
+         eventzNUMBOX0.appendChild(eventzCHECKBOX0)
+         eventzNUMBOX0.appendChild(eventzNUM0)
+         // eventzHeader.appendChild(eventzNUMBOX0)
+         // end ************************************** selector
+
+
+
+
          eventzTXT = document.createElement('input')
          eventzTXT.classList.add('eventzTXT')
          eventzTXT.value = eventz.title;
@@ -3336,6 +3471,7 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
          addBtn4.addEventListener("click",(e)=>{
                addEVTZClick(e.target.getAttribute('data-arg2')) });
 
+               eventzHeader.appendChild(eventzNUMBOX0)
             eventzHeader.appendChild(eventzTXT)
             eventzHeader.appendChild(expandBtn1)
             eventzHeader.appendChild(addBtn4)
@@ -3356,9 +3492,9 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
                eventzCHECKBOX1.classList.add('checkboxFrame') 
                // eventzNUMBOX1.innerHTML=i+1;            
                eventzSelect1 = document.createElement('input');
-               eventzSelect1.ymdt = eventz.qID || '';
+               eventzSelect1.eID = eventzData.eID || '';
                eventzSelect1.type = "radio";
-               eventzSelect1.name = "scheduleeventzRadio";
+               eventzSelect1.name = "eventzDetailsRadio";
                eventzSelect1.classList.add('cap_checkmark')
                eventzCHECKBOX1.appendChild(eventzSelect1)
                eventzCheckMark1 = document.createElement('span')
@@ -3497,7 +3633,8 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
    //*************************************************************STORYZ
    let ai_storyz = [];
    ai_storyz = [
-      {qID:1,title:'aaa',txt:'NVDA',type:'DIP',note:'10yr 5%',expanded:true},
+      {qID:1,title:'aaa',txt:'NVDA',type:'DIP',note:'10yr 5%',expanded:true,
+      txtz:[{title:'111'},{title:'222'}]},
       {qID:2,title:'aab',txt:'NVDA',type:'CRASH',note:'10yr 4.44%'},
       {qID:3,title:'aac',txt:'NVDA',type:'BLACKSWAN',note:'super-semi'},
       {qID:4,title:'aad',txt:'NVDA',type:'BREAKDOWN',note:'super-semi'}
@@ -3513,11 +3650,11 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
       }
          //SAVE to LOCAL STORAGE
       localStorage.ai_storyz = JSON.stringify(ai_storyz) 
-      generateReviewPreviewsClick(); //RELOAD VIEW.  
+      generateStoryClick(); //RELOAD VIEW.  
       showErrorMSG('📓 SAVED 📓');   
    }
 
-   const generateReviewPreviewsClick = () =>{
+   const generateStoryClick = () =>{
       storyzFRAME.innerHTML = `2023_NOV_END: flipflop fear greed. 32 to 66. 
       SEASONAL: RISK_OFF OCT to RISK_ON NOV. CPI shows low inflation. 9.1 to 3.2.
       Upside surprise to pros, best month of year, 10 yr from 5.5 to 4.4.
@@ -3544,6 +3681,12 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
       Q/A: Friday selloff done? ISM recovery? Housing recovery? 
       Energy recovery? Healthcare recovery?
       `;
+      let story2 = `
+      NOTE: mid dec 2023 "as goldilocks as you can get"
+      bear thesis destroyed. no recession. massive 
+      holiday rally. 2 weeks to go before new year.
+      8 straight positive weeks.
+      `
       storyzFRAME.innerHTML="";//blank out
       let storyzSet = ai_storyz, storyz;
       for(var i=0; i<storyzSet.length;i++){
@@ -3570,6 +3713,29 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
          storyzHeader = document.createElement('aside')
          storyzHeader.classList.add('storyzHeader')
 
+         //**********************************************selector
+         storyzNUM0 = document.createElement('div');
+         storyzNUM0.classList.add('eventzNUM1')
+         storyzNUM0.innerHTML = "e"+(i+1);
+         storyzNUMBOX0 = document.createElement('aside')
+         storyzNUMBOX0.classList.add('capsNUMBOX0');
+         storyzCHECKBOX0 = document.createElement('label')
+         storyzCHECKBOX0.classList.add('checkboxFrame') 
+         // storyzNUMBOX0.innerHTML=i+0;            
+         storyzSelect0 = document.createElement('input');
+         storyzSelect0.ymdt = 4;// storyz.qID || '';
+         storyzSelect0.type = "radio";
+         storyzSelect0.name = "storyzMasterRadio";
+         storyzSelect0.classList.add('cap_checkmark')
+         storyzCHECKBOX0.appendChild(storyzSelect0)
+         storyzCheckMark0 = document.createElement('span')
+         storyzCheckMark0.classList.add('checkmark')
+         storyzCHECKBOX0.appendChild(storyzCheckMark0)
+         storyzNUMBOX0.appendChild(storyzCHECKBOX0)
+         storyzNUMBOX0.appendChild(storyzNUM0)
+         // storyzHeader.appendChild(storyzNUMBOX0)
+         // end ************************************** selector
+
          storyzTXT = document.createElement('input')
          storyzTXT.classList.add('storyzTXT')
          storyzTXT.value = storyz.title;//.storyzID.toUpperCase();
@@ -3582,8 +3748,21 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
          expandBtn1.setAttribute('data-arg3',storyz.qID)
          expandBtn1.addEventListener("click",(e)=>{
                expandStoryzClick(e.target.getAttribute('data-arg3')) });
-            storyzHeader.appendChild(storyzTXT)
-            storyzHeader.appendChild(expandBtn1)
+
+
+               addBtn5 = document.createElement('button')
+         addBtn5.innerHTML = 'addStoryz🍿';
+         addBtn5.classList.add('addBtn4')
+         addBtn5.setAttribute('data-arg5','4');//eventz.qID)
+         addBtn5.addEventListener("click",(e)=>{
+               addStoryzClick(e.target.getAttribute('data-arg5')) });
+
+               
+               
+               storyzHeader.appendChild(storyzNUMBOX0)
+               storyzHeader.appendChild(storyzTXT)
+               storyzHeader.appendChild(expandBtn1)
+               storyzHeader.appendChild(addBtn5)               
          storyzBOX.appendChild(storyzHeader)
 
          monthBOX = document.createElement('article')
@@ -3601,11 +3780,154 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
 
          if(storyz.expanded){
                expandBtn1.innerHTML = '💨'
-            //          //END DETAILS ROW
-            //          monthBOX.appendChild(detailRow2) 
-            //       } //END DETAILS LOOP
-            //    }  //END DETAILS VIEW
-            // } //END MONTHLY LOOP
+               if(storyz.txtz){
+               for(let j=0;j<storyz.txtz.length;j++){  //SUBLIST LOOP .
+               storyzData = storyz.txtz[j];
+               storyzROW = document.createElement('aside')
+               storyzROW.classList.add('eventzROW')
+               //**********************************************selector
+               storyzNUM1 = document.createElement('div');
+               storyzNUM1.classList.add('eventzNUM1')
+               storyzNUM1.innerHTML = "e"+(j+1);
+               storyzNUMBOX1 = document.createElement('aside')
+               storyzNUMBOX1.classList.add('capsNUMBOX3');
+               storyzCHECKBOX1 = document.createElement('label')
+               storyzCHECKBOX1.classList.add('checkboxFrame') 
+               // storyzNUMBOX1.innerHTML=i+1;            
+               storyzSelect1 = document.createElement('input');
+               storyzSelect1.ymdt = 4;// storyz.qID || '';
+               storyzSelect1.type = "radio";
+               storyzSelect1.name = "storyzDetailsRadio";
+               storyzSelect1.classList.add('cap_checkmark')
+               storyzCHECKBOX1.appendChild(storyzSelect1)
+               storyzCheckMark1 = document.createElement('span')
+               storyzCheckMark1.classList.add('checkmark')
+               storyzCHECKBOX1.appendChild(storyzCheckMark1)
+               storyzNUMBOX1.appendChild(storyzCHECKBOX1)
+               storyzNUMBOX1.appendChild(storyzNUM1)
+               storyzROW.appendChild(storyzNUMBOX1)
+               // end ************************************** selector
+               //EVENT_TITLE
+               storyzTitle = document.createElement('input')
+               storyzTitle.classList.add('eventzTitle')
+               storyzTitle.value = storyzData.title || 0;
+               storyzTitle.addEventListener("keyup",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
+               });                
+               //EVENT_TYPE
+               typeBOX = document.createElement('aside')
+                        typeBOX.innerHTML="type&nbsp;"
+                        // typeBOX = document.createElement('aside')
+                        // typeBOX.innerHTML="type&nbsp;"
+                        typeData = document.createElement('select')
+                        // typeData = document.createElement('input')
+                        type1 = document.createElement('option')
+                        type2 = document.createElement('option')
+                        type3 = document.createElement('option')
+                        type4 = document.createElement('option')
+                        type5 = document.createElement('option')
+                        type6 = document.createElement('option')
+                        type7 = document.createElement('option')
+                        type8 = document.createElement('option')
+                        type9 = document.createElement('option')
+                        type10 = document.createElement('option')
+                        type11 = document.createElement('option')
+                        type12 = document.createElement('option')
+                        type1.value = "...";
+                        type2.value = "WARN";
+                        type3.value = "PAD1";
+                        type4.value = "PAD2";
+                        type5.value = "PAD3";
+                        type6.value = "PAD4";
+                        type7.value = "PAD5";
+                        type8.value = "BLKSWAN";
+                        type9.value = "BREAK";
+                        type10.value = "LOrLO";
+                        type11.value = "HIrHI";
+                        type12.value = "LiQD8";
+                        type1.innerHTML = "...";
+                        type2.innerHTML = "WARN";
+                        type3.innerHTML = "PAD1";
+                        type4.innerHTML = "PAD2";
+                        type5.innerHTML = "PAD3";
+                        type6.innerHTML = "PAD4";
+                        type7.innerHTML = "PAD5";
+                        type8.innerHTML = "BLKSWAN";
+                        type9.innerHTML = "BREAK";
+                        type10.innerHTML = "LOrLO";
+                        type11.innerHTML = "HIrHI";
+                        type12.innerHTML = "LiQD8";
+                        typeData.appendChild(type1);
+                        typeData.appendChild(type2);
+                        typeData.appendChild(type3);
+                        typeData.appendChild(type4);
+                        typeData.appendChild(type5);
+                        typeData.appendChild(type6);
+                        typeData.appendChild(type7);
+                        typeData.appendChild(type8);
+                        typeData.appendChild(type9);
+                        typeData.appendChild(type10);
+                        typeData.appendChild(type11);
+                        typeData.appendChild(type12);
+                        typeData.value = '...';//storyzData.type || '...';
+                        typeBOX.appendChild(typeData)
+                        
+                        typeData.addEventListener("change",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
+                        });  
+                        typeBOX.classList.add('eventzTypeBOX1')
+                       
+                        // if(monthData.type==='trim'){
+                        //    typeData.classList.add('typeTRIMColor')
+                        // } else if (monthData.type==='pad'){
+                        //    typeData.classList.add('typePADColor')
+                        // }
+                        typeData.classList.add('eventzTypeData1')
+
+               //EVENT_RANGE
+               rangeData = document.createElement('input')
+               rangeData.value = storyzData.range || '';
+               rangeData.classList.add('eventzTypeData1')
+               rangeData.addEventListener("keyup",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
+            });                 
+            rangeBOX = document.createElement('aside')
+            rangeBOX.innerHTML="range&nbsp;"
+            rangeBOX.classList.add('eventzTypeBOX2')
+            rangeBOX.style.width = '10em'
+            rangeBOX.appendChild(rangeData)
+            //EVENT_SPOT
+            spotTxt = document.createElement('span')
+            spotTxt.innerHTML="&nbsp;@&nbsp;"
+            spotAmt = document.createElement('input')
+            spotAmt.value = storyzData.spot_amt || '';
+            spotAmt.classList.add('eventzTypeData2')
+            spotAmt.addEventListener("keyup",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
+            });                 
+            spotPOS = document.createElement('input')
+            spotPOS.value = storyzData.spot_POS || '';
+            spotPOS.classList.add('eventzTypeData2')
+            spotPOS.addEventListener("keyup",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
+            });                 
+            spotBOX = document.createElement('aside')
+            spotBOX.innerHTML="$&nbsp;"
+            spotBOX.appendChild(spotAmt)
+            spotBOX.appendChild(spotTxt)
+            spotBOX.appendChild(spotPOS)
+            spotBOX.style.width = '12em'
+            spotBOX.classList.add('eventzTypeBOX3')
+            //EVENT_DATE
+            date1 = document.createElement('input')
+            date1.value = 4;//storyzData.ymd;
+            date1.classList.add('detailDate2')
+            date1.addEventListener("keyup",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
+            });  
+
+            storyzROW.appendChild(storyzTitle)
+            storyzROW.appendChild(typeBOX)
+            storyzROW.appendChild(rangeBOX)
+            storyzROW.appendChild(spotBOX)
+            storyzROW.appendChild(date1)
+            storyzBOX.appendChild(storyzROW)
+
+          }} //END ROW LOOP DETAILS and if
          } else {storyz.expanded = false;}//END EXPANDED
          storyzBOX.appendChild(monthBOX)
          storyzFRAME.appendChild(storyzBOX)

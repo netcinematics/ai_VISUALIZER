@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <title>ai_ledger</title>
+   <title>gen_ai_ledger</title>
 </head>
    <body style="display:flex;flex-direction: column;">
      <style>/* PC */
@@ -9,6 +9,7 @@
         html, body { height: 100%; width:100%; background:black; margin:0}
         body{padding-top:1em;display:flex;flex-direction:column;overflow:hidden;
          justify-content:space-evenly;align-items:center;    font-size: 1.222rem;}
+         input { width: auto; box-sizing: border-box; }         
          .topLeftBtn1{position:absolute;top:3px;left:6px;display:flex;}
          .topLeftBtn1 .txt1{ color:skyblue; font-size:0.444em;margin:3px 0 0 3px;}
          .topLeftBtn1 .icon1 {font-size:1em;padding-bottom:6px;}
@@ -199,7 +200,7 @@
     color: #136567;
     padding: 0 0.444em;
     text-align: center;
-    max-width: 34px;
+    max-width: 44px;
     height: 16px;
     margin-bottom: -1px;
     border: 1px solid steelblue;}
@@ -287,7 +288,7 @@
     color: cyan;
     padding: 0 0.444em;
     text-align: center;
-    max-width: 34px;
+    max-width: 44px;
     height: 16px;
     margin-bottom: -1px;
     border: 1px solid steelblue;}
@@ -476,7 +477,7 @@ flex-direction: column;
     color:    #136567;
     padding: 0 0.444em;
     text-align: center;
-    max-width: 34px;
+    max-width: 50px;
     height: 16px;
     margin-bottom: -1px;
     border: 1px solid steelblue;}
@@ -561,6 +562,19 @@ flex-direction: column;
     align-items: center;
     padding: 0 2%;
 }
+
+.addEVTZRow1{
+   display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2%;
+    background: #4f3529;
+    border-radius: 22px;
+    border: 1px solid burlywood;
+    margin-top: 1em;
+    box-shadow: 1px 1px 6px burlywood;   
+    flex-wrap: wrap; 
+}
 .detailDate1{
    background: none;
     color: #4b53b9;
@@ -593,7 +607,7 @@ flex-direction: column;
     background: black;
     border-radius: 14px;
     padding: 6px;
-    max-width: 7em;
+    /* max-width: 7em; */
     margin-left: 0.666em;    
 }
 
@@ -678,7 +692,9 @@ flex-direction: column;
     padding: 6px;
     /* max-width: 7em; */
     margin-left: 0.666em; 
-    border: none;   
+    /* border: none;    */
+    /* width: auto; */
+    /* min-width: 18em; */
 }
 .eventzTitle{
    width:10em;
@@ -868,7 +884,7 @@ border-radius:13px;
       border:2px solid grey;">🎪</span><span class="txt1">home</span>
       </aside>
       <aside style="font-size: 0.777em;color: steelblue;margin: -10px 0 4px 0;">
-        ai_ledger</aside>
+        gen_ai_ledger</aside>
       <aside style="font-size: 0.777em;color: steelblue;margin: -10px 0 4px 0;">
       </aside>
       <aside class="topRightBtn2">
@@ -926,7 +942,7 @@ border-radius:13px;
       margin: 0.222em;">
          <section id="leftBOX" style="display:flex; justify-content: center;
          border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
-         "><span class="smICON">✴&nbsp;&nbsp;</span> ai probability stock forcast <span class="smICON">&nbsp;✳</span></section>            
+         "><span class="smICON">✴&nbsp;&nbsp;</span> ai viewz, of generated metadata <span class="smICON">&nbsp;✳</span></section>            
          <section id="keyBOX" style="display:flex;border: solid 1px steelblue;
          border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
          margin:2px;">
@@ -938,7 +954,7 @@ border-radius:13px;
          </section>
          <section id="rightBOX" style="display:flex;  justify-content: center;
          border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
-         "><span class="smICON">&nbsp;&nbsp;✧&nbsp;</span>generate ledger schedule<span class="smICON">&nbsp;❇</span></section>
+         "><span class="smICON">&nbsp;&nbsp;✧&nbsp;</span>generated ledger, schedule, and charts.<span class="smICON">&nbsp;❇</span></section>
       
       </header>         
         <!-- <main id="symbolBOX" style="display:none;">
@@ -2440,33 +2456,15 @@ align-items: center;">
          localStorage.ai_schedule = JSON.stringify(ai_schedule)  
       }
       const addScheduleClick = ()=>{ 
-         //TODO: needs to become QUARTERLY...
          let scheduleRow1,date1,tick1,amountData1;
          let role1,role2,role3,role4,role5,role6,role7,role8,role9,role10,role11;
          let saveBtn3,roleBOX,roleData,atBOX1,atData1;
          scheduleRow1 = document.createElement('article')
          scheduleRow1.classList.add('scheduleRow1')
          saveBtn3 = document.createElement('button')
-         // date1 = document.createElement('input')
-         // date1.value = current_ymd.split('YMD_')[1];//user display
-         // date1.classList.add('scheduleDate1')
          tick1 = document.createElement('input')
-         // amountData1 = document.createElement('input')
-         // amountBOX1 = document.createElement('aside')
-         // athBOX1 = document.createElement('aside')
-         // amountBOX1.innerHTML = "$&nbsp;"
-         // athBOX1.innerHTML = "ath&nbsp;"
-         // athData1 = document.createElement('input')
          tick1.value = "";
          tick1.placeholder="Q#_YYYY_JAN"
-         // amountData1.placeholder = "0.00";
-         // athData1.placeholder = "+-:%";
-         // tick1.addEventListener("keyup",(e)=>{
-         //    saveScheduleBtn1.style.display = 'block'; });
-         // athData1.addEventListener("keyup",(e)=>{
-         //    saveScheduleBtn1.style.display = 'block'; });
-         // amountData1.addEventListener("keyup",(e)=>{
-         //    saveScheduleBtn1.style.display = 'block'; });                         
          tick1.classList.add('quarterTXT')
          saveBtn3.innerHTML = 'save🌟'
          saveBtn3.classList.add('saveBtn2')
@@ -2493,10 +2491,8 @@ align-items: center;">
             newCap.tkr = "NEW";
             newCap.trim_at = "100";
          qtr.caps.push(newCap)
-         // for(var i = 0; i<ai_schedule[quarterID])
            //SAVE to LOCAL STORAGE
            localStorage.ai_schedule = JSON.stringify(ai_schedule) 
-         //   generateScheduleClick(); //RELOAD VIEW.  
            generateScheduleClick(); //RELOAD VIEW.  
            showErrorMSG('⚔️ SAVED ⚔️');    
       }
@@ -2515,11 +2511,11 @@ align-items: center;">
 
          //SAVE to LOCAL STORAGE
          localStorage.ai_schedule = JSON.stringify(ai_schedule) 
-      //   generateScheduleClick(); //RELOAD VIEW.  
          generateScheduleClick(); //RELOAD VIEW.  
 
          showErrorMSG('⚔️ ADDED ⚔️');          
       }
+
    const saveScheduleClick = ()=>{ // GENERATE PROFIT AND LOSS DISPLAY
       saveScheduleBtn1.style.display = 'none'; 
          let quarterBoxes = generatedScheduleBOX.children,row,kids,kid;
@@ -2645,9 +2641,11 @@ const addEVTZClick = (evtzID) =>{
    // saveEVTZClick();//FIX: save first for bug on double create row, keeps first row tickr.
    //go to parent quarter and add a unique row
    let newEVT = {}
-   let evt = ai_eventz[evtzID-1];
+   let evt = ai_eventz[parseInt(evtzID)-1];
    if(!evt){return}
-      newEVT.eID = evt.evtz.length;
+   if(!evt.evtz){evt.evtz=[]}
+      evt.expanded = true;
+      newEVT.eID = evt.evtz.length+1;
       newEVT.qID = evt.qID;
       newEVT.title = evt.title;
       newEVT.ymd = evt.ymd;
@@ -2659,10 +2657,34 @@ const addEVTZClick = (evtzID) =>{
       generateEVTZClick(); //RELOAD VIEW.  
       showErrorMSG('⛏ SAVED ⛏');     
 }  
+
+const saveNewMilestoneClick = (e)=>{ 
+         //GET input value
+         let qID = e.target.getAttribute('data-arg7')
+         let tkr = e.target.parentElement.children[0].value
+         let type = e.target.parentElement.children[1].children[0].value
+         let ymd = e.target.parentElement.children[2].value
+         if( !qID || !tkr || !type || !ymd){
+            showErrorMSG('⚔️ ERR ⚔️');  
+            return
+         }
+         let newMileStone = {}
+         newMileStone.qID = qID
+         newMileStone.tkr = tkr.toUpperCase();
+         newMileStone.type = type
+         newMileStone.ymd = ymd
+         newMileStone.title = `${newMileStone.tkr}_${newMileStone.type}_${newMileStone.ymd}`
+         ai_eventz.push(newMileStone)
+
+         //SAVE to LOCAL STORAGE
+         localStorage.ai_eventz = JSON.stringify(ai_eventz) 
+         generateEVTZClick(); //RELOAD VIEW.  
+         showErrorMSG('⚔️ ADDED ⚔️');          
+      }
+
 const addStoryzClick = (storyBOXID) =>{
    // saveEVTZClick();//FIX: save first for bug on double create row, keeps first row tickr.
    //go to parent quarter and add a unique row
-   debugger;
    let newStory = {}
    let aStory = ai_storyz[storyBOXID-1];
    if(!aStory){return}
@@ -2695,14 +2717,14 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
             kid = kids[j];
             save_evt = {}; //new object
             if(kid.classList.contains('eventzHeader')){ 
-               evtTXT = kid.children[0].value;
+               evtTXT = kid.children[1].value.toUpperCase();
                saveTGT = {title:evtTXT}
-               expand1 = (kid.children[1].innerHTML === '💨')? true : false;
+               expand1 = (kid.children[2].innerHTML === '💨')? true : false;
                saveTGT.expanded = expand1;
                //GET EVENT
                for(let aa=0; aa<ai_eventz.length; aa++){
                   if(evtTXT===ai_eventz[aa].title){
-                     saveTGT.qID = ai_eventz[aa].qID || aa+1;
+                     saveTGT.qID = aa+1; //ai_eventz[aa].qID ||
                      saveTGT.tkr = ai_eventz[aa].tkr;
                      saveTGT.type = ai_eventz[aa].type;
                      saveTGT.ymd = ai_eventz[aa].ymd;
@@ -2740,11 +2762,17 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
                      save_evt.ymd = rowItem.value;
                   }
                } //END ROW DATA
-               saveTGT.evtz.push(save_evt)
+               // if(saveTGT && saveTGT.evtz){
+                  saveTGT.evtz.push(save_evt)
+               // }else{
+               //    debugger;
+               // }
 
             } //end EVENTz ROW
           } // ROW of EVENTZ LOOP
-          save_eventz.push( saveTGT )
+         //  if(saveTGT && saveTGT.evtz){
+             save_eventz.push( saveTGT )
+         //  }
 
 //          if(!show_schedule_details_view){   //could move out of loop, below.
 //                      CAPMonth.monthData = ai_schedule.quarters[qtrTXT].monthData
@@ -2758,7 +2786,6 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
       return;
    }
    if(save_eventz){
-      debugger;
       //SAVE to LOCAL STORAGE
       ai_eventz = save_eventz;
       localStorage.ai_eventz = JSON.stringify(ai_eventz) 
@@ -2781,9 +2808,9 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
             {eID:1,title:'20%OFFTOP',ymd:'2023_12_01',type:'PAD1',range:'100-200',spot_amt:100,spot_POS:150}]},
          {qID:2,tkr:'NVDA',title:'NVDA_CRASH_2023',ymd:'2023_12_10',type:'CRASH',note:'10yr 4.44%',
             evtz:[{eID:0,title:'50%OFFTOP',ymd:'2023_12_02',type:'DIP'},{eID:1,title:'b',ymd:'2023_12_01',type:'warn'}]},
-         {qID:3,tkr:'NVDA',title:'',ymd:'2023_12_10',type:'BLACKSWAN',note:'super-semia',
+         {qID:3,tkr:'NVDA',title:'AAA',ymd:'2023_12_10',type:'BLACKSWAN',note:'super-semia',
             evtz:[{eID:0,title:'LIQUID_TOP',ymd:'2023_12_02',type:'DIP'},{eID:1,title:'b',ymd:'2023_12_01',type:'warn'}]},
-         {qID:4,tkr:'NVDA',title:'',ymd:'2023_12_10',type:'BREAKOUT',note:'super-semib',
+         {qID:4,tkr:'NVDA',title:'BBB',ymd:'2023_12_10',type:'BREAKOUT',note:'super-semib',
             evtz:[{eID:0,title:'vent1',ymd:'2023_12_02',type:'DIP'},{eID:1,title:'b',ymd:'2023_12_01',type:'warn'}]},
          {qID:5,tkr:'NVDA',title:'',ymd:'2023_12_10',type:'BULLFLAG',note:'celebrate good things.',
             evtz:[{eID:0,title:'event2',ymd:'2023_12_02',type:'DIP'},{eID:1,title:'b',ymd:'2023_12_01',type:'warn'}]}
@@ -2799,12 +2826,101 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
       }
    }; ai_eventz_init();
 
-   //  const setEVTZDetailsClick=()=>{
-   //    debugger;
-   //  }
-    const addEVTZMilestoneClick=()=>{
-      debugger;
-    }
+
+   const addEVTZMilestoneClick=()=>{
+      evtzRow1 = document.createElement('article')
+      evtzRow1.classList.add('addEVTZRow1')
+
+      //EVENT_TYPE
+      typeBOX = document.createElement('aside')
+         typeBOX.innerHTML="type&nbsp;"
+         typeData = document.createElement('select')
+         type1 = document.createElement('option')
+         type2 = document.createElement('option')
+         type3 = document.createElement('option')
+         type4 = document.createElement('option')
+         type5 = document.createElement('option')
+         type6 = document.createElement('option')
+         type7 = document.createElement('option')
+         type8 = document.createElement('option')
+         type9 = document.createElement('option')
+         type10 = document.createElement('option')
+         type11 = document.createElement('option')
+         type12 = document.createElement('option')
+         type1.value = "...";
+         type2.value = "WARN";
+         type3.value = "CRASH";
+         type4.value = "DIP";
+         type5.value = "CALLTOP";
+         type6.value = "CALLBTM";
+         type7.value = "PAD5";
+         type8.value = "BLKSWAN";
+         type9.value = "BREAK";
+         type10.value = "LOrLO";
+         type11.value = "HIrHI";
+         type12.value = "LiQD8";
+         type1.innerHTML = "...";
+         type2.innerHTML = "WARN";
+         type3.innerHTML = "CRASH";
+         type4.innerHTML = "DIP";
+         type5.innerHTML = "CALLTOP";
+         type6.innerHTML = "CALLBTM";
+         type7.innerHTML = "PAD5";
+         type8.innerHTML = "BLKSWAN";
+         type9.innerHTML = "BREAK";
+         type10.innerHTML = "LOrLO";
+         type11.innerHTML = "HIrHI";
+         type12.innerHTML = "LiQD8";
+         typeData.appendChild(type1);
+         typeData.appendChild(type2);
+         typeData.appendChild(type3);
+         typeData.appendChild(type4);
+         typeData.appendChild(type5);
+         typeData.appendChild(type6);
+         typeData.appendChild(type7);
+         typeData.appendChild(type8);
+         typeData.appendChild(type9);
+         typeData.appendChild(type10);
+         typeData.appendChild(type11);
+         typeData.appendChild(type12);
+         typeData.value =  '...';
+         typeBOX.appendChild(typeData)
+         typeBOX.classList.add('eventzTypeBOX1')
+      
+         // if(monthData.type==='trim'){
+         //    typeData.classList.add('typeTRIMColor')
+         // } else if (monthData.type==='pad'){
+         //    typeData.classList.add('typePADColor')
+         // }
+         typeData.classList.add('eventzTypeData1')
+
+
+      date1 = document.createElement('input')
+      date1.value = current_ymd.split('YMD_')[1];//user display
+      date1.classList.add('detailDate2')
+
+      tick1 = document.createElement('input')
+      tick1.value = "";
+      tick1.classList.add('quarterTXT')
+      tick1.placeholder="ticker"
+                        
+      saveBtn3 = document.createElement('button')
+      saveBtn3.innerHTML = 'save🌟'
+      saveBtn3.classList.add('saveBtn2')
+      saveBtn3.setAttribute('data-arg7',ai_eventz.length+1)
+      saveBtn3.addEventListener("click",(e)=>{
+         saveNewMilestoneClick(e) 
+      });
+
+      evtzRow1.appendChild(tick1)
+      evtzRow1.appendChild(typeBOX)
+      evtzRow1.appendChild(date1)
+      evtzRow1.appendChild(saveBtn3)
+      eventzFRAME.appendChild(evtzRow1)
+
+    } //end add milestone
+
+
     const setEVTZDeleteClick=(event)=>{
       // const deleteSelectedSchedule = (event)=>{ //remove ledger item, save, refresh
       let evtSelected = [], detSelected=[], temp = [], removeChildRow=false;
@@ -2812,7 +2928,8 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
       let evtChecks = document.getElementsByName("eventzMasterRadio");
       let detChecks = document.getElementsByName("eventzDetailsRadio");
       for(let i=0; i<evtChecks.length;i++){
-         if(evtChecks[i].checked){ //SORT THROUGH ai_schedule to delete data and reload
+         if(evtChecks[i].checked){ //SORT THROUGH ai_eventz to delete data and reload
+            let qID = evtChecks[i].qID;
             evtSelected.push(evtChecks[i])
             // let ymdt = evtChecks[i].ymdt;
             // let zArr = evtChecks[i].ymdt.split('_')
@@ -2820,12 +2937,12 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
             // let ymd = zArr.join('_')
             // let qtrevts = ai_schedule.quarters[ymd].evts;
             // let monthData = ai_schedule.quarters[ymd].monthData;
-            // for(var j=0; j<qtrevts.length;j++){ //DELETE evt DATA
-            //    if( tickevt === qtrevts[j].tkr ){
-            //       qtrevts.splice(j,1) //remove data
-            //       break;
-            //    }
-            // }
+            for(var j=0; j<ai_eventz.length;j++){ //DELETE evt DATA
+               if( qID.toString() === ai_eventz[j].qID.toString() ){
+                  ai_eventz.splice(j,1) //remove data
+                  break;
+               }
+            }
             // for(var k=0; k<monthData.length;k++){ //DELETE MONTH DATA
             //    if( tickevt === monthData[k].tick ){
             //       monthData.splice(k,1) //remove data
@@ -2834,8 +2951,8 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
             // }
             //SAVE & RELOAD VIEW
             showErrorMSG('🦕 Saved. ');
-            // localStorage.ai_eventz = JSON.stringify(ai_eventz) //SAVE to LOCAL STORAGE
-            // generateEVTZClick(); //RELOAD VIEW. 
+            localStorage.ai_eventz = JSON.stringify(ai_eventz) //SAVE to LOCAL STORAGE
+            generateEVTZClick(); //RELOAD VIEW. 
             break;
          }
       }
@@ -2844,18 +2961,14 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
             if(detChecks[j].checked){
                detSelected.push(detChecks[j])
                let eID = detChecks[j].eID
-               // let ymdtn = detChecks[j].ymdtn
-               // let zArr = detChecks[j].ymdtn.split('_')
-               // let itemNUM = zArr.pop();
-               // let tickevt = zArr.pop();
-               // let ymd = zArr.join('_')
-               debugger;
-               // let monthData = ai_schedule.quarters[ymd].monthData;
+               let qID = detChecks[j].parentElement.parentElement.parentElement.parentElement.qID;
                for(var k=0; k<ai_eventz.length;k++){ //DELETE MONTH DATA
-                  for(var m=0; m<ai_eventz[k].evtz.length;m++){ //DELETE MONTH DATA
-                     if( eID === ai_eventz[k].evtz[m].eID ){       
-                        ai_eventz[k].evtz.splice(m,1) //remove data
-                        debugger;
+                  if(ai_eventz[k].qID===qID){
+                     for(var m=0; m<ai_eventz[k].evtz.length;m++){ //DELETE MONTH DATA
+                        if( eID === ai_eventz[k].evtz[m].eID ){       
+                           ai_eventz[k].evtz.splice(m,1) //remove data
+                           break;
+                        }
                      }
                   }
                }
@@ -3387,7 +3500,7 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
       let evtz;// = ai_eventz//.quarters[qID];
       for(var i=0;i<ai_eventz.length;i++){
          evtz = ai_eventz[i];
-         if(qID===evtz.qID.toString()){
+         if(evtz && evtz.qID && qID===evtz.qID.toString()){
             evtz.expanded = !evtz.expanded;
          }
       }
@@ -3403,24 +3516,10 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
       let eventzSet = ai_eventz, eventz;
       for(var i=0; i<eventzSet.length;i++){
          eventz = eventzSet[i];
-         // eventz FORM ----------------------------------------
-         // selector, id, tick, type_select,  expand/contract   addEventBtn
-         // ymd_eventz , TOP_AMT TOP_YMD
-         // amt_range, amt_pos, net_amt, net% 
-         // ymd_crash
-         // Detailz Row.
-         // BreakEven, %toBE %toTrim FirstTrim DaysDown 
-         // RSI, MOM, VOL, BOLL, VIX, DIXY, 10yr, 2yr.
-         // avg_pos current_pos total_pos down_amt down_pct
-         // correction_return crash_return risk_amt
-         // PICK_TOP && PICK_BOTTOM_Correction or PICK_BOTTOM_Crash
-         // days/weeks since breakout, days/weeks since breakdown.
-         // end eventz FORM ------------------------------
-         // blackswanBtn blockbusterBtn addCrash addCorrection details trash
-         // for(let i=0;i<quarterSets.length;i++){  //BEGIN QUARTERLY LOOP
-         // quarter= ai_schedule.quarters[quarterSets[i]];
+         eventz.qID = i+1;
          eventzBOX = document.createElement('section')
          eventzBOX.classList.add('eventzBOX')
+         eventzBOX.qID = i+1;
 
          eventzHeader = document.createElement('aside')
          eventzHeader.classList.add('eventzHeader')
@@ -3433,9 +3532,8 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
          eventzNUMBOX0.classList.add('eventzNUMBOX0');
          eventzCHECKBOX0 = document.createElement('label')
          eventzCHECKBOX0.classList.add('checkboxFrame') 
-         // eventzNUMBOX0.innerHTML=i+0;            
          eventzSelect0 = document.createElement('input');
-         eventzSelect0.qID = eventz.qID || '';
+         eventzSelect0.qID = i+1;//eventz.qID || '';
          eventzSelect0.type = "radio";
          eventzSelect0.name = "eventzMasterRadio";
          eventzSelect0.classList.add('cap_checkmark')
@@ -3445,11 +3543,7 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
          eventzCHECKBOX0.appendChild(eventzCheckMark0)
          eventzNUMBOX0.appendChild(eventzCHECKBOX0)
          eventzNUMBOX0.appendChild(eventzNUM0)
-         // eventzHeader.appendChild(eventzNUMBOX0)
          // end ************************************** selector
-
-
-
 
          eventzTXT = document.createElement('input')
          eventzTXT.classList.add('eventzTXT')
@@ -3461,13 +3555,13 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
          expandBtn1 = document.createElement('button')
          expandBtn1.innerHTML = '🕸️'
          expandBtn1.classList.add('addBtn4')
-         expandBtn1.setAttribute('data-arg3',eventz.qID)
+         expandBtn1.setAttribute('data-arg3',i+1);//eventz.qID)
          expandBtn1.addEventListener("click",(e)=>{
                expandEventzClick(e.target.getAttribute('data-arg3')) });
          addBtn4 = document.createElement('button')
          addBtn4.innerHTML = 'addEventz📅';
          addBtn4.classList.add('addBtn4')
-         addBtn4.setAttribute('data-arg2',eventz.qID)
+         addBtn4.setAttribute('data-arg2',i+1);//eventz.qID)
          addBtn4.addEventListener("click",(e)=>{
                addEVTZClick(e.target.getAttribute('data-arg2')) });
 
@@ -3478,8 +3572,10 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
          eventzBOX.appendChild(eventzHeader)
          if(eventz.expanded){
                expandBtn1.innerHTML = '💨'
+               if(!eventz.evtz){continue}
             for(let j=0;j<eventz.evtz.length;j++){  //SUBLIST LOOP .
                eventzData = eventz.evtz[j];
+               eventzData.eID = j+1;
                eventzROW = document.createElement('aside')
                eventzROW.classList.add('eventzROW')
                //**********************************************selector
@@ -3492,7 +3588,7 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
                eventzCHECKBOX1.classList.add('checkboxFrame') 
                // eventzNUMBOX1.innerHTML=i+1;            
                eventzSelect1 = document.createElement('input');
-               eventzSelect1.eID = eventzData.eID || '';
+               eventzSelect1.eID = j+1;//eventzData.eID || '';
                eventzSelect1.type = "radio";
                eventzSelect1.name = "eventzDetailsRadio";
                eventzSelect1.classList.add('cap_checkmark')
@@ -3512,72 +3608,72 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
                });                
                //EVENT_TYPE
                typeBOX = document.createElement('aside')
-                        typeBOX.innerHTML="type&nbsp;"
-                        // typeBOX = document.createElement('aside')
-                        // typeBOX.innerHTML="type&nbsp;"
-                        typeData = document.createElement('select')
-                        // typeData = document.createElement('input')
-                        type1 = document.createElement('option')
-                        type2 = document.createElement('option')
-                        type3 = document.createElement('option')
-                        type4 = document.createElement('option')
-                        type5 = document.createElement('option')
-                        type6 = document.createElement('option')
-                        type7 = document.createElement('option')
-                        type8 = document.createElement('option')
-                        type9 = document.createElement('option')
-                        type10 = document.createElement('option')
-                        type11 = document.createElement('option')
-                        type12 = document.createElement('option')
-                        type1.value = "...";
-                        type2.value = "WARN";
-                        type3.value = "PAD1";
-                        type4.value = "PAD2";
-                        type5.value = "PAD3";
-                        type6.value = "PAD4";
-                        type7.value = "PAD5";
-                        type8.value = "BLKSWAN";
-                        type9.value = "BREAK";
-                        type10.value = "LOrLO";
-                        type11.value = "HIrHI";
-                        type12.value = "LiQD8";
-                        type1.innerHTML = "...";
-                        type2.innerHTML = "WARN";
-                        type3.innerHTML = "PAD1";
-                        type4.innerHTML = "PAD2";
-                        type5.innerHTML = "PAD3";
-                        type6.innerHTML = "PAD4";
-                        type7.innerHTML = "PAD5";
-                        type8.innerHTML = "BLKSWAN";
-                        type9.innerHTML = "BREAK";
-                        type10.innerHTML = "LOrLO";
-                        type11.innerHTML = "HIrHI";
-                        type12.innerHTML = "LiQD8";
-                        typeData.appendChild(type1);
-                        typeData.appendChild(type2);
-                        typeData.appendChild(type3);
-                        typeData.appendChild(type4);
-                        typeData.appendChild(type5);
-                        typeData.appendChild(type6);
-                        typeData.appendChild(type7);
-                        typeData.appendChild(type8);
-                        typeData.appendChild(type9);
-                        typeData.appendChild(type10);
-                        typeData.appendChild(type11);
-                        typeData.appendChild(type12);
-                        typeData.value = eventzData.type || '...';
-                        typeBOX.appendChild(typeData)
-                        
-                        typeData.addEventListener("change",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
-                        });  
-                        typeBOX.classList.add('eventzTypeBOX1')
-                       
-                        // if(monthData.type==='trim'){
-                        //    typeData.classList.add('typeTRIMColor')
-                        // } else if (monthData.type==='pad'){
-                        //    typeData.classList.add('typePADColor')
-                        // }
-                        typeData.classList.add('eventzTypeData1')
+               typeBOX.innerHTML="type&nbsp;"
+               // typeBOX = document.createElement('aside')
+               // typeBOX.innerHTML="type&nbsp;"
+               typeData = document.createElement('select')
+               // typeData = document.createElement('input')
+               type1 = document.createElement('option')
+               type2 = document.createElement('option')
+               type3 = document.createElement('option')
+               type4 = document.createElement('option')
+               type5 = document.createElement('option')
+               type6 = document.createElement('option')
+               type7 = document.createElement('option')
+               type8 = document.createElement('option')
+               type9 = document.createElement('option')
+               type10 = document.createElement('option')
+               type11 = document.createElement('option')
+               type12 = document.createElement('option')
+               type1.value = "...";
+               type2.value = "WARN";
+               type3.value = "PAD1";
+               type4.value = "PAD2";
+               type5.value = "PAD3";
+               type6.value = "PAD4";
+               type7.value = "PAD5";
+               type8.value = "BLKSWAN";
+               type9.value = "BREAK";
+               type10.value = "LOrLO";
+               type11.value = "HIrHI";
+               type12.value = "LiQD8";
+               type1.innerHTML = "...";
+               type2.innerHTML = "WARN";
+               type3.innerHTML = "PAD1";
+               type4.innerHTML = "PAD2";
+               type5.innerHTML = "PAD3";
+               type6.innerHTML = "PAD4";
+               type7.innerHTML = "PAD5";
+               type8.innerHTML = "BLKSWAN";
+               type9.innerHTML = "BREAK";
+               type10.innerHTML = "LOrLO";
+               type11.innerHTML = "HIrHI";
+               type12.innerHTML = "LiQD8";
+               typeData.appendChild(type1);
+               typeData.appendChild(type2);
+               typeData.appendChild(type3);
+               typeData.appendChild(type4);
+               typeData.appendChild(type5);
+               typeData.appendChild(type6);
+               typeData.appendChild(type7);
+               typeData.appendChild(type8);
+               typeData.appendChild(type9);
+               typeData.appendChild(type10);
+               typeData.appendChild(type11);
+               typeData.appendChild(type12);
+               typeData.value = eventzData.type || '...';
+               typeBOX.appendChild(typeData)
+               
+               typeData.addEventListener("change",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
+               });  
+               typeBOX.classList.add('eventzTypeBOX1')
+            
+               // if(monthData.type==='trim'){
+               //    typeData.classList.add('typeTRIMColor')
+               // } else if (monthData.type==='pad'){
+               //    typeData.classList.add('typePADColor')
+               // }
+               typeData.classList.add('eventzTypeData1')
 
                //EVENT_RANGE
                rangeData = document.createElement('input')
@@ -3654,6 +3750,22 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
       showErrorMSG('📓 SAVED 📓');   
    }
 
+            // eventz FORM ----------------------------------------
+         // selector, id, tick, type_select,  expand/contract   addEventBtn
+         // ymd_eventz , TOP_AMT TOP_YMD
+         // amt_range, amt_pos, net_amt, net% 
+         // ymd_crash
+         // Detailz Row.
+         // BreakEven, %toBE %toTrim FirstTrim DaysDown 
+         // RSI, MOM, VOL, BOLL, VIX, DIXY, 10yr, 2yr.
+         // avg_pos current_pos total_pos down_amt down_pct
+         // correction_return crash_return risk_amt
+         // PICK_TOP && PICK_BOTTOM_Correction or PICK_BOTTOM_Crash
+         // days/weeks since breakout, days/weeks since breakdown.
+         // end eventz FORM ------------------------------
+         // blackswanBtn blockbusterBtn addCrash addCorrection details trash
+         // for(let i=0;i<quarterSets.length;i++){  //BEGIN QUARTERLY LOOP
+         // quarter= ai_schedule.quarters[quarterSets[i]];
    const generateStoryClick = () =>{
       storyzFRAME.innerHTML = `2023_NOV_END: flipflop fear greed. 32 to 66. 
       SEASONAL: RISK_OFF OCT to RISK_ON NOV. CPI shows low inflation. 9.1 to 3.2.

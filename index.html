@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <title>gen_ai_ledger</title>
+   <title>ai_trade_tracker</title>
 </head>
    <body style="display:flex;flex-direction: column;">
      <style>/* PC */
@@ -66,6 +66,7 @@
          max-width: 9em;
          float:right;
          margin-right: 2%;
+         margin-left: 1%;
       }
       .decBtn1{font-size:0.777em; border-radius:22px; cursor:pointer;
          background:#5fa9a9; border-radius: 10px;color:#060252;
@@ -401,7 +402,8 @@
         .disabled{ color: darkslategrey; border: 1px solid steelblue; 
             background: transparent !important;}
         .hiddenTab{ display:none !important;}
-         #textareaBOX {
+        .hiddenBtn1{ display:none !important;}
+         .textareaBOX {
             background:darkslateblue;
             background-attachment: local;
             background-image:
@@ -410,6 +412,8 @@
                repeating-linear-gradient(darkslateblue, darkslateblue 40px, #344065 40px, #344065 41px, darkslateblue 41px);
             line-height: 31px;
             padding: 8px 10px;
+            width: 100%;
+    color: darkcyan;            
          }
          #rightBOX,#leftBOX,#keyBOX{margin:2px;border: solid 1px steelblue;width: 100%;font-size: 0.777em;}
         
@@ -430,7 +434,10 @@ flex-direction: column;
    border-radius: 13px;
 }
 
-.storyzHeader{display:flex;    justify-content: space-between;}
+.storyzHeader{display:flex;    
+   justify-content: space-between; 
+   flex-wrap: wrap;
+}
 .storyzBOX{
    display: flex;
 flex-direction: column;
@@ -440,6 +447,7 @@ flex-direction: column;
    /* color:#231501; */
    padding-top:0.555em;
    box-shadow: inset 0px 1px 8px 0px #a44ba9;
+   
 }
 .trimTick{
    font-family: sans-serif;
@@ -849,6 +857,8 @@ border-radius:13px;
    font-size:0.777em;
 }
 
+
+
       @media only screen and (max-width: 800px) { /* TABLET */
          body{  background-color: #000f1b;}
          .btnTXT{font-size:0.999em;}
@@ -883,8 +893,8 @@ border-radius:13px;
       <span class="icon1" style="border-radius:100%;background:steelblue; 
       border:2px solid grey;">🎪</span><span class="txt1">home</span>
       </aside>
-      <aside style="font-size: 0.777em;color: steelblue;margin: -10px 0 4px 0;">
-        gen_ai_ledger</aside>
+      <aside style="font-size: 1em;color: steelblue;margin: -13px 0 14px 0;text-shadow: 0px -1px 5px #66aef3;">
+        ai_trade_tracker</aside>
       <aside style="font-size: 0.777em;color: steelblue;margin: -10px 0 4px 0;">
       </aside>
       <aside class="topRightBtn2">
@@ -1113,8 +1123,9 @@ align-items: center;">
             <section id="generatedPreviewBOX"></section> -->
             <hr> 
             <button id="storyzDeleteBtn6" class="delBtn2" style="font-size: 1em;" onclick="storyzDeleteClick(event)">🗑️</button> 
-            <button id="storyAddMilestoneBtn6" class="genReportBtn1" style="font-size: 0.888em;" onclick="storyzAddMilestoneClick(event)">add Story🐜🍄</button> 
-            <button id="storyzSaveBtn6" class="genReportBtn1" style="font-size: 0.888em;display:none;" onclick="storyzSaveClick(event)">save🎁</button> 
+            <!-- <button id="storyAddMilestoneBtn6" class="genReportBtn1" style="font-size: 0.888em;" onclick="storyzAddQtrClick(event)">add Notez📜</button>  -->
+            <button id="storyAddStoryzBtn6" class="genReportBtn1" style="font-size: 0.888em;" onclick="addStoryBOXClick(event)">addStoryz🐜🍄</button> 
+            <!-- <button id="storyzSaveBtn6" class="genReportBtn1" style="font-size: 0.888em;display:none;" onclick="storyzSaveClick(event)">save🎁</button>  -->
             <!-- <button id="previewBtn1" class="genReportBtn1" style="display:block;" onclick="setReviewPreviewDetailsClick(event)">preview🔭</button>  -->
             <!-- <button id="reviewBtn1" class="genReportBtn1" style="display:block;" onclick="setReviewPreviewDetailsClick(event)">review🔬</button>  -->
       </section>
@@ -1532,6 +1543,11 @@ align-items: center;">
          cursor:pointer;box-shadow: inset -1px -1px 4px 1px rgb(51, 153, 109);">
          <span style="border-radius:100%;background:rgb(51, 153, 99);border:1px solid grey;">
             🍧</span> <span class="btnTXT hoverTXT">COPY CAPS</span>
+      </button>
+      <button onclick="copyStoryzFn()" class="btmBtns1" style="border-radius:8px;background:grey;
+         cursor:pointer;box-shadow: inset -1px -1px 4px 1px rgb(51, 153, 109);">
+         <span style="border-radius:100%;background:rgb(51, 153, 99);border:1px solid grey;">
+            🍧</span> <span class="btnTXT hoverTXT">COPY STORY</span>
       </button>
        <button onclick="resetAllFn()" class="btmBtns1" style="border-radius:8px;background:grey;
           cursor:pointer;box-shadow: inset -1px -1px 4px 1px rebeccapurple;">
@@ -2005,8 +2021,6 @@ align-items: center;">
                let tickObj = new Object();
                tickObj.tick = tkr;
                if(price){tickObj.price = price}
-               // if(price_label){tickObj.price_label = price_label}
-               // if(price_label){tickObj.price_label = "now"}
                if(ath){tickObj.ath = ath}
                if(ath_ymd){tickObj.ath_ymd = ath_ymd}
                if(price_ymd){tickObj.price_ymd = price_ymd}
@@ -2484,6 +2498,7 @@ align-items: center;">
          let newCap = {}
          let qtr = ai_schedule.quarters[quarterID]; //lookup
          if(!qtr){return}
+            qtr.expanded = true;
             newCap.cap = "1000";
             newCap.crashlvl = "2";
             newCap.pad_at = "100";
@@ -2496,6 +2511,32 @@ align-items: center;">
            generateScheduleClick(); //RELOAD VIEW.  
            showErrorMSG('⚔️ SAVED ⚔️');    
       }
+
+     /************************************************
+      * Add Quarters 
+     /************************************************/
+     const capzAddQtrClick = (quarterID) =>{
+         //go to parent quarter and add a unique row
+         // let newCap = {}
+         // let qtr = ai_schedule.quarters[quarterID]; //lookup
+         // if(!qtr){return}
+         //    qtr.expanded = true;
+         //    newCap.cap = "1000";
+         //    newCap.crashlvl = "2";
+         //    newCap.pad_at = "100";
+         //    newCap.padlvl = "1";
+         //    newCap.tkr = "NEW";
+         //    newCap.trim_at = "100";
+         // qtr.caps.push(newCap)
+         //   //SAVE to LOCAL STORAGE
+         //   localStorage.ai_schedule = JSON.stringify(ai_schedule) 
+         //   generateScheduleClick(); //RELOAD VIEW.  
+           showErrorMSG('⚔️ SAVED ⚔️');    
+      }
+
+     /************************************************
+      * END Add Quarters 
+     /************************************************/
 
       const saveQuarterClick = (e)=>{ 
          //GET input value
@@ -2682,25 +2723,6 @@ const saveNewMilestoneClick = (e)=>{
          showErrorMSG('⚔️ ADDED ⚔️');          
       }
 
-const addStoryzClick = (storyBOXID) =>{
-   // saveEVTZClick();//FIX: save first for bug on double create row, keeps first row tickr.
-   //go to parent quarter and add a unique row
-   let newStory = {}
-   let aStory = ai_storyz[storyBOXID-1];
-   if(!aStory){return}
-      newStory.eID = aStory.evtz.length;
-      newStory.qID = aStory.qID;
-      newStory.title = aStory.title;
-      newStory.ymd = aStory.ymd;
-      newStory.type = aStory.type;
-      newStory.tkr = aStory.tkr;
-      aStory.evtz.push(newStory)
-         //SAVE to LOCAL STORAGE
-         localStorage.ai_storyz = JSON.stringify(ai_storyz) 
-      generateStoryClick(); //RELOAD VIEW.  
-      showErrorMSG('⛏ SAVED ⛏');     
-}  
-
 const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
    evtzSaveBtn5.style.display = 'none'; 
    let evtzBoxes = document.getElementById('eventzFRAME').children
@@ -2802,17 +2824,17 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
    let ai_eventz=null;
    const ai_eventz_LOAD_MOCK_DATA=()=>{ //READ from OBJ
       ai_eventz = [
-         {qID:1,tkr:'NVDA',title:'NVDA_DIP_2023',ymd:'2023_12_10',type:'DIP',note:'10yr 5%',expanded:true,
+         {qID:1,tkr:'NVDA',title:'NVDA_DIP_2023',ymd:'2023_12_10',type:'DIP',txt:'10yr 5%',expanded:true,
             evtz:[
             {eID:0,title:'10%OFFTOP',ymd:'2023_12_02',type:'WARN',range:'100-200',spot_amt:0,spot_POS:0},
             {eID:1,title:'20%OFFTOP',ymd:'2023_12_01',type:'PAD1',range:'100-200',spot_amt:100,spot_POS:150}]},
-         {qID:2,tkr:'NVDA',title:'NVDA_CRASH_2023',ymd:'2023_12_10',type:'CRASH',note:'10yr 4.44%',
+         {qID:2,tkr:'NVDA',title:'NVDA_CRASH_2023',ymd:'2023_12_10',type:'CRASH',txt:'10yr 4.44%',
             evtz:[{eID:0,title:'50%OFFTOP',ymd:'2023_12_02',type:'DIP'},{eID:1,title:'b',ymd:'2023_12_01',type:'warn'}]},
-         {qID:3,tkr:'NVDA',title:'AAA',ymd:'2023_12_10',type:'BLACKSWAN',note:'super-semia',
+         {qID:3,tkr:'NVDA',title:'AAA',ymd:'2023_12_10',type:'BLACKSWAN',txt:'super-semia',
             evtz:[{eID:0,title:'LIQUID_TOP',ymd:'2023_12_02',type:'DIP'},{eID:1,title:'b',ymd:'2023_12_01',type:'warn'}]},
-         {qID:4,tkr:'NVDA',title:'BBB',ymd:'2023_12_10',type:'BREAKOUT',note:'super-semib',
+         {qID:4,tkr:'NVDA',title:'BBB',ymd:'2023_12_10',type:'BREAKOUT',txt:'super-semib',
             evtz:[{eID:0,title:'vent1',ymd:'2023_12_02',type:'DIP'},{eID:1,title:'b',ymd:'2023_12_01',type:'warn'}]},
-         {qID:5,tkr:'NVDA',title:'',ymd:'2023_12_10',type:'BULLFLAG',note:'celebrate good things.',
+         {qID:5,tkr:'NVDA',title:'',ymd:'2023_12_10',type:'BULLFLAG',txt:'celebrate good things.',
             evtz:[{eID:0,title:'event2',ymd:'2023_12_02',type:'DIP'},{eID:1,title:'b',ymd:'2023_12_01',type:'warn'}]}
       ];
    }
@@ -2820,12 +2842,15 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
    const ai_eventz_init=()=>{ //READ from LOCAL STORAGE
       ai_eventz = (localStorage.ai_eventz)?
          JSON.parse( localStorage.ai_eventz ):null;
-      // ai_eventz = null; //test mock data
+      ai_eventz = null; //test mock data
       if(!ai_eventz){
          ai_eventz_LOAD_MOCK_DATA();
       }
    }; ai_eventz_init();
 
+      /************************************************\
+    * -  END AI_EVENTZ_MATRIX
+   \************************************************/
 
    const addEVTZMilestoneClick=()=>{
       evtzRow1 = document.createElement('article')
@@ -2924,31 +2949,18 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
     const setEVTZDeleteClick=(event)=>{
       // const deleteSelectedSchedule = (event)=>{ //remove ledger item, save, refresh
       let evtSelected = [], detSelected=[], temp = [], removeChildRow=false;
-      // let items = document.getElementsByClassName('spot_checkmark');
       let evtChecks = document.getElementsByName("eventzMasterRadio");
       let detChecks = document.getElementsByName("eventzDetailsRadio");
       for(let i=0; i<evtChecks.length;i++){
          if(evtChecks[i].checked){ //SORT THROUGH ai_eventz to delete data and reload
             let qID = evtChecks[i].qID;
             evtSelected.push(evtChecks[i])
-            // let ymdt = evtChecks[i].ymdt;
-            // let zArr = evtChecks[i].ymdt.split('_')
-            // let tickevt = zArr.pop();
-            // let ymd = zArr.join('_')
-            // let qtrevts = ai_schedule.quarters[ymd].evts;
-            // let monthData = ai_schedule.quarters[ymd].monthData;
             for(var j=0; j<ai_eventz.length;j++){ //DELETE evt DATA
                if( qID.toString() === ai_eventz[j].qID.toString() ){
                   ai_eventz.splice(j,1) //remove data
                   break;
                }
             }
-            // for(var k=0; k<monthData.length;k++){ //DELETE MONTH DATA
-            //    if( tickevt === monthData[k].tick ){
-            //       monthData.splice(k,1) //remove data
-            //       // break;
-            //    }
-            // }
             //SAVE & RELOAD VIEW
             showErrorMSG('🦕 Saved. ');
             localStorage.ai_eventz = JSON.stringify(ai_eventz) //SAVE to LOCAL STORAGE
@@ -3006,7 +3018,7 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
    }; ai_schedule_init();
 
    /*************************************\
-    * SCHEDULE_MATRIX - quarterly values in time
+    * END SCHEDULE_MATRIX 
    \*************************************/
 
    const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
@@ -3726,21 +3738,38 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
       }//END eventz loop
    }//end generate EVENTZ
 
-   //*************************************************************STORYZ
-   let ai_storyz = [];
-   ai_storyz = [
-      {qID:1,title:'aaa',txt:'NVDA',type:'DIP',note:'10yr 5%',expanded:true,
-      txtz:[{title:'111'},{title:'222'}]},
-      {qID:2,title:'aab',txt:'NVDA',type:'CRASH',note:'10yr 4.44%'},
-      {qID:3,title:'aac',txt:'NVDA',type:'BLACKSWAN',note:'super-semi'},
-      {qID:4,title:'aad',txt:'NVDA',type:'BREAKDOWN',note:'super-semi'}
-   ];
+      /************************************************\
+    * - AI_STORYZ_MATRIX
+    *  - ability to save quarterly NOTES in localstorage
+   \************************************************/
 
-   const expandStoryzClick = (qID)=>{ //expand or collapse section
+   let ai_storyz=null;
+   const ai_storyz_LOAD_MOCK_DATA=()=>{ //READ
+      ai_storyz = [{"sID":1,"title":"Q4_2023_OCT","expanded":true,"txtz":[{"tID":1,"title":"Review OCT","type":"Review","txt":"nx1","ymd":"2023_12_13"},{"tID":2,"title":"222","txt":"nx2","ymd":"2023_12_13"},{"sID":"1","tID":3,"title":"new story","type":"...","txt":"tell story here","ymd":"2023_12_18"},{"sID":"1","tID":4,"title":"new story","type":"...","txt":"tell story here","ymd":"2023_12_18"}]},{"sID":2,"title":"Q4_2023_NOV","txtz":[{"tID":1,"title":"Review NOV","type":"Review","txt":"nx3","ymd":"2023_12_13"},{"tID":2,"title":"333","txt":"nx4","ymd":"2023_12_13"}],"expanded":false},{"sID":3,"title":"Q4_2023_DEC","txtz":[{"tID":1,"title":"Preview DEC","type":"Preview","txt":"nx5","ymd":"2023_12_13"},{"tID":2,"title":"444","txt":"nx6","ymd":"2023_12_13"}],"expanded":false},{"expanded":true,"sID":4,"title":"Q#_YEAR_JAN","type":"...","txtz":[{"tID":1,"title":"new","txt":"describe...","ymd":"2023_12_18"}]}]
+      // ai_storyz = [
+      //    {sID:1,title:'Q4_2023_OCT',expanded:true,
+      //       txtz:[{tID:1,title:'Review OCT',type:'Review',txt:'nx1',ymd:'2023_12_13'},{tID:2,title:'222',txt:'nx2',ymd:'2023_12_13'}]},
+      //    {sID:2,title:'Q4_2023_NOV',
+      //       txtz:[{tID:1,title:'Review NOV',type:'Review',txt:'nx3',ymd:'2023_12_13'},{tID:2,title:'333',txt:'nx4',ymd:'2023_12_13'}]},
+      //    {sID:3,title:'Q4_2023_DEC',
+      //       txtz:[{tID:1,title:'Preview DEC',type:'Preview',txt:'nx5',ymd:'2023_12_13'},{tID:2,title:'444',txt:'nx6',ymd:'2023_12_13'}]},
+      // ];
+   }
+
+   const ai_storyz_init=()=>{ //READ from LOCAL STORAGE
+      ai_storyz = (localStorage.ai_storyz)?
+         JSON.parse( localStorage.ai_storyz ):null;
+      // ai_storyz = null; //test mock data
+      if(!ai_storyz){
+         ai_storyz_LOAD_MOCK_DATA();
+      }
+   }; ai_storyz_init();
+
+   const expandStoryzClick = (sID)=>{ //expand or collapse section
       let stryz;// = ai_eventz//.quarters[qID];
       for(var i=0;i<ai_storyz.length;i++){
          stryz = ai_storyz[i];
-         if(qID===stryz.qID.toString()){
+         if(sID===stryz.sID.toString()){
             stryz.expanded = !stryz.expanded;
          }
       }
@@ -3750,6 +3779,144 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
       showErrorMSG('📓 SAVED 📓');   
    }
 
+   const addStoryBOXClick = (storyBOXID) =>{
+         // saveScheduleClick();//FIX: save first for bug on double create row, keeps first row tickr.
+         // //go to parent quarter and add a unique row
+         let newStory = {}
+            newStory.expanded = true;
+            newStory.sID = ai_storyz.length+1;
+            newStory.title = "Q#_YEAR_JAN";
+            newStory.type = "...";
+            // newStory.txt = "1";
+            newStory.txtz = [
+               {tID:1,title:'new',
+               txt:'describe...',
+               ymd: current_ymd.split('YMD_')[1] 
+            }]
+               ai_storyz.push(newStory)
+         //   //SAVE to LOCAL STORAGE
+           localStorage.ai_storyz = JSON.stringify(ai_storyz) 
+           generateStoryClick(); //RELOAD VIEW.  
+           showErrorMSG('⚔️ SAVED ⚔️');    
+   }
+
+   const addStoryzClick = (storyBOXID) =>{
+   // saveEVTZClick();//FIX: save first for bug on double create row, keeps first row tickr.
+   //go to parent quarter and add a unique row
+   let newStory = {}
+   let aStory = ai_storyz[storyBOXID-1];
+   if(!aStory){return} //get existing to add SUB TXT 
+      newStory.sID = storyBOXID;
+      newStory.tID = aStory.txtz.length+1;
+      newStory.title = "new story";
+      newStory.type = "...";
+      newStory.txt = "tell story here";
+      newStory.ymd =  current_ymd.split('YMD_')[1];//user display
+      aStory.txtz.push(newStory)
+         //SAVE to LOCAL STORAGE
+         localStorage.ai_storyz = JSON.stringify(ai_storyz) 
+      generateStoryClick(); //RELOAD VIEW.  
+      showErrorMSG('⛏ SAVED ⛏');     
+}  
+
+const storyzDeleteClick = (storyBOXID) =>{
+      debugger;
+      //todo
+      return;
+      // const deleteSelectedSchedule = (event)=>{ //remove ledger item, save, refresh
+         let evtSelected = [], detSelected=[], temp = [], removeChildRow=false;
+      let evtChecks = document.getElementsByName("eventzMasterRadio");
+      let detChecks = document.getElementsByName("eventzDetailsRadio");
+      for(let i=0; i<evtChecks.length;i++){
+         if(evtChecks[i].checked){ //SORT THROUGH ai_eventz to delete data and reload
+            let qID = evtChecks[i].qID;
+            evtSelected.push(evtChecks[i])
+            for(var j=0; j<ai_eventz.length;j++){ //DELETE evt DATA
+               if( qID.toString() === ai_eventz[j].qID.toString() ){
+                  ai_eventz.splice(j,1) //remove data
+                  break;
+               }
+            }
+            //SAVE & RELOAD VIEW
+            showErrorMSG('🦕 Saved. ');
+            localStorage.ai_eventz = JSON.stringify(ai_eventz) //SAVE to LOCAL STORAGE
+            generateEVTZClick(); //RELOAD VIEW. 
+            break;
+         }
+      }
+      if(!evtSelected.length && detChecks.length){ // DETAIL ROW SELECTION
+         for(let j=0; j<detChecks.length;j++){
+            if(detChecks[j].checked){
+               detSelected.push(detChecks[j])
+               let eID = detChecks[j].eID
+               let qID = detChecks[j].parentElement.parentElement.parentElement.parentElement.qID;
+               for(var k=0; k<ai_eventz.length;k++){ //DELETE MONTH DATA
+                  if(ai_eventz[k].qID===qID){
+                     for(var m=0; m<ai_eventz[k].evtz.length;m++){ //DELETE MONTH DATA
+                        if( eID === ai_eventz[k].evtz[m].eID ){       
+                           ai_eventz[k].evtz.splice(m,1) //remove data
+                           break;
+                        }
+                     }
+                  }
+               }
+               //SAVE & RELOAD VIEW
+               showErrorMSG(' Saved🦖 ');
+               localStorage.ai_eventz = JSON.stringify(ai_eventz) //SAVE to LOCAL STORAGE
+               generateEVTZClick(); //RELOAD VIEW. 
+               
+               break;
+            }
+         }
+      } 
+      if(!evtSelected.length && !detSelected.length){showErrorMSG(' Nothing selected 😵'); return;}
+} //end storyz delete
+
+const storyzSaveClick = () => {
+      debugger;
+      //todo;
+      return;
+      saveTickBtn1.style.display = 'none';
+           let items = encodeDATA.children,row,kids,kid;
+           let tkr,price,ath,item=null;
+           ai_ledger.ticks = []; //CLEAR LEDGER.
+           for(var i=0; i<items.length;i++){ //LOOP DOM ROWS
+            item = items[i];
+            if(item.classList.contains('genRow1')){ //todo FORM remove btns
+               kids = item.children;
+               tkr = '';price='',ath='';//blank row.
+               for(var j=0; j<kids.length;j++){ //LOOP ROW ITEMS
+                  kid = kids[j];
+                  if(kid.classList.contains('genTicker1')){
+                     kid.value = kid.value.toUpperCase();
+                     tkr = kid.value;
+                     continue;
+                  } if(kid.classList.contains('tkrPriceBOX1')){
+                     price = kid.children[0].value;
+                     // price_label = kid.innerHTML;
+                     price_ymd = kid.children[1].value;
+                     continue;
+                  } if(kid.classList.contains('tkrATHBOX1')){
+                     ath = kid.children[0].value;
+                     ath_ymd = kid.children[1].value;
+                     continue;                  
+                  }
+               }
+            }
+            if(tkr){
+               let tickObj = new Object();
+               tickObj.tick = tkr;
+               if(price){tickObj.price = price}
+               if(ath){tickObj.ath = ath}
+               if(ath_ymd){tickObj.ath_ymd = ath_ymd}
+               if(price_ymd){tickObj.price_ymd = price_ymd}
+               ai_ledger.ticks.push(tickObj)
+            }
+           }
+           //SAVE to LOCAL STORAGE
+           localStorage.ai_ledger = JSON.stringify(ai_ledger)  
+           initEncode(); //RELOAD VIEW.          
+}//end storyz save click
             // eventz FORM ----------------------------------------
          // selector, id, tick, type_select,  expand/contract   addEventBtn
          // ymd_eventz , TOP_AMT TOP_YMD
@@ -3799,10 +3966,6 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
       holiday rally. 2 weeks to go before new year.
       8 straight positive weeks.
       `
-      storyzFRAME.innerHTML="";//blank out
-      let storyzSet = ai_storyz, storyz;
-      for(var i=0; i<storyzSet.length;i++){
-         storyz = storyzSet[i];
          // storyz FORM ----------------------------------------
          // selector, id, tick, type_select,  expand/contract   addEventBtn
          // ymd_storyz , TOP_AMT TOP_YMD
@@ -3819,6 +3982,12 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
          // blackswanBtn blockbusterBtn addCrash addCorrection details trash
          // for(let i=0;i<quarterSets.length;i++){  //BEGIN QUARTERLY LOOP
          // quarter= ai_schedule.quarters[quarterSets[i]];
+
+      storyzFRAME.innerHTML="";//blank out
+      let storyzSet = ai_storyz, storyz;
+      for(var i=0; i<storyzSet.length;i++){
+         storyz = storyzSet[i];
+
          storyzBOX = document.createElement('section')
          storyzBOX.classList.add('storyzBOX')
 
@@ -3828,14 +3997,14 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
          //**********************************************selector
          storyzNUM0 = document.createElement('div');
          storyzNUM0.classList.add('eventzNUM1')
-         storyzNUM0.innerHTML = "e"+(i+1);
+         storyzNUM0.innerHTML = "s"+(i+1);
          storyzNUMBOX0 = document.createElement('aside')
          storyzNUMBOX0.classList.add('capsNUMBOX0');
          storyzCHECKBOX0 = document.createElement('label')
          storyzCHECKBOX0.classList.add('checkboxFrame') 
          // storyzNUMBOX0.innerHTML=i+0;            
          storyzSelect0 = document.createElement('input');
-         storyzSelect0.ymdt = 4;// storyz.qID || '';
+         // storyzSelect0.ymdt = 4;// storyz.qID || '';
          storyzSelect0.type = "radio";
          storyzSelect0.name = "storyzMasterRadio";
          storyzSelect0.classList.add('cap_checkmark')
@@ -3850,35 +4019,38 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
 
          storyzTXT = document.createElement('input')
          storyzTXT.classList.add('storyzTXT')
+         storyzTXT.placeholder="Q#_YYYY_JAN"
          storyzTXT.value = storyz.title;//.storyzID.toUpperCase();
-         storyzTXT.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
-            }); 
+         storyzTXT.addEventListener("keyup",(e)=>{ 
+            storyzSaveClick(e);
+            // saveScheduleBtn1.style.display = 'block'; 
+            // debugger;
+            // e.target.parentElement.children[4].classList.remove('hiddenBtn1')
+         }); 
 
          expandBtn1 = document.createElement('button')
          expandBtn1.innerHTML = '🕸️'
          expandBtn1.classList.add('addBtn4')
-         expandBtn1.setAttribute('data-arg3',storyz.qID)
+         expandBtn1.setAttribute('data-arg3',storyz.sID)
          expandBtn1.addEventListener("click",(e)=>{
                expandStoryzClick(e.target.getAttribute('data-arg3')) });
 
-
-               addBtn5 = document.createElement('button')
+         addBtn5 = document.createElement('button')
          addBtn5.innerHTML = 'addStoryz🍿';
          addBtn5.classList.add('addBtn4')
-         addBtn5.setAttribute('data-arg5','4');//eventz.qID)
+         addBtn5.setAttribute('data-arg5',storyz.sID)
          addBtn5.addEventListener("click",(e)=>{
-               addStoryzClick(e.target.getAttribute('data-arg5')) });
-
+               addStoryzClick(e.target.getAttribute('data-arg5')) 
+            });
                
-               
-               storyzHeader.appendChild(storyzNUMBOX0)
-               storyzHeader.appendChild(storyzTXT)
-               storyzHeader.appendChild(expandBtn1)
-               storyzHeader.appendChild(addBtn5)               
+         storyzHeader.appendChild(storyzNUMBOX0)
+         storyzHeader.appendChild(storyzTXT)
+         storyzHeader.appendChild(expandBtn1)
+         storyzHeader.appendChild(addBtn5)               
          storyzBOX.appendChild(storyzHeader)
 
-         monthBOX = document.createElement('article')
-         monthBOX.classList.add('monthBOX')
+         // monthBOX = document.createElement('article')
+         // monthBOX.classList.add('monthBOX')
 
          //EVENT_NOTE
          // eventzNote = document.createElement('input')
@@ -3887,8 +4059,6 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
          // eventzNote.placeholder = 'notez'
          // eventzNote.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
          // });    
-
-
 
          if(storyz.expanded){
                expandBtn1.innerHTML = '💨'
@@ -3907,7 +4077,7 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
                storyzCHECKBOX1.classList.add('checkboxFrame') 
                // storyzNUMBOX1.innerHTML=i+1;            
                storyzSelect1 = document.createElement('input');
-               storyzSelect1.ymdt = 4;// storyz.qID || '';
+               // storyzSelect1.ymdt = 4;// storyz.qID || '';
                storyzSelect1.type = "radio";
                storyzSelect1.name = "storyzDetailsRadio";
                storyzSelect1.classList.add('cap_checkmark')
@@ -3919,129 +4089,160 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
                storyzNUMBOX1.appendChild(storyzNUM1)
                storyzROW.appendChild(storyzNUMBOX1)
                // end ************************************** selector
-               //EVENT_TITLE
+               //STORY_SUB_TITLE
                storyzTitle = document.createElement('input')
                storyzTitle.classList.add('eventzTitle')
                storyzTitle.value = storyzData.title || 0;
-               storyzTitle.addEventListener("keyup",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
+               storyzTitle.addEventListener("keyup",(e)=>{ 
+                  e.target.parentElement.children[4].classList.remove('hiddenBtn1')
+               });     
+               
+               //STORY_TXT AREA
+               storyzTXTBOX = document.createElement('textarea')
+               storyzTXTBOX.classList.add('scrollBarV')
+               storyzTXTBOX.classList.add('textareaBOX')
+               storyzTXTBOX.spellcheck = false;
+               storyzTXTBOX.value = storyz.txtz[j].txt;//'abc';//storyzData.title || 0;
+               storyzTXTBOX.addEventListener("keyup",(e)=>{ 
+                  e.target.parentElement.children[4].classList.remove('hiddenBtn1')
+               }); 
+               
+               //EVENT_DATE
+               date1 = document.createElement('input')
+               date1.value = storyzData.ymd;
+               date1.classList.add('detailDate2')
+               date1.addEventListener("keyup",(e)=>{ 
+                  e.target.parentElement.children[4].classList.remove('hiddenBtn1')
+               });                 
+
+               // <button id="storyzSaveBtn6" class="genReportBtn1" style="font-size: 0.888em;display:none;" onclick="storyzSaveClick(event)">save🎁</button> 
+               //STORY_TXT AREA
+               storyzSaveBTN = document.createElement('button')
+               storyzSaveBTN.classList.add('genReportBtn1')
+               storyzSaveBTN.classList.add('hiddenBtn1')
+               storyzSaveBTN.innerHTML = 'save🎁';//storyzData.title || 0;
+               storyzSaveBTN.addEventListener("click",(e)=>{ 
+                  storyzSaveClick(e); 
                });                
+                     //       <textarea id="textareaBOX" onmouseup="setCursorRowFn()" 
+      // class="scrollBarV"
+//  spellcheck="false" onkeyup="keyupTXT();">
+// Click speak, and say something...</textarea>
+
                //EVENT_TYPE
-               typeBOX = document.createElement('aside')
-                        typeBOX.innerHTML="type&nbsp;"
-                        // typeBOX = document.createElement('aside')
-                        // typeBOX.innerHTML="type&nbsp;"
-                        typeData = document.createElement('select')
-                        // typeData = document.createElement('input')
-                        type1 = document.createElement('option')
-                        type2 = document.createElement('option')
-                        type3 = document.createElement('option')
-                        type4 = document.createElement('option')
-                        type5 = document.createElement('option')
-                        type6 = document.createElement('option')
-                        type7 = document.createElement('option')
-                        type8 = document.createElement('option')
-                        type9 = document.createElement('option')
-                        type10 = document.createElement('option')
-                        type11 = document.createElement('option')
-                        type12 = document.createElement('option')
-                        type1.value = "...";
-                        type2.value = "WARN";
-                        type3.value = "PAD1";
-                        type4.value = "PAD2";
-                        type5.value = "PAD3";
-                        type6.value = "PAD4";
-                        type7.value = "PAD5";
-                        type8.value = "BLKSWAN";
-                        type9.value = "BREAK";
-                        type10.value = "LOrLO";
-                        type11.value = "HIrHI";
-                        type12.value = "LiQD8";
-                        type1.innerHTML = "...";
-                        type2.innerHTML = "WARN";
-                        type3.innerHTML = "PAD1";
-                        type4.innerHTML = "PAD2";
-                        type5.innerHTML = "PAD3";
-                        type6.innerHTML = "PAD4";
-                        type7.innerHTML = "PAD5";
-                        type8.innerHTML = "BLKSWAN";
-                        type9.innerHTML = "BREAK";
-                        type10.innerHTML = "LOrLO";
-                        type11.innerHTML = "HIrHI";
-                        type12.innerHTML = "LiQD8";
-                        typeData.appendChild(type1);
-                        typeData.appendChild(type2);
-                        typeData.appendChild(type3);
-                        typeData.appendChild(type4);
-                        typeData.appendChild(type5);
-                        typeData.appendChild(type6);
-                        typeData.appendChild(type7);
-                        typeData.appendChild(type8);
-                        typeData.appendChild(type9);
-                        typeData.appendChild(type10);
-                        typeData.appendChild(type11);
-                        typeData.appendChild(type12);
-                        typeData.value = '...';//storyzData.type || '...';
-                        typeBOX.appendChild(typeData)
-                        
-                        typeData.addEventListener("change",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
-                        });  
-                        typeBOX.classList.add('eventzTypeBOX1')
-                       
-                        // if(monthData.type==='trim'){
-                        //    typeData.classList.add('typeTRIMColor')
-                        // } else if (monthData.type==='pad'){
-                        //    typeData.classList.add('typePADColor')
-                        // }
-                        typeData.classList.add('eventzTypeData1')
+               // typeBOX = document.createElement('aside')
+               // typeBOX.innerHTML="type&nbsp;"
+               // // typeBOX = document.createElement('aside')
+               // // typeBOX.innerHTML="type&nbsp;"
+               // typeData = document.createElement('select')
+               // // typeData = document.createElement('input')
+               // type1 = document.createElement('option')
+               // type2 = document.createElement('option')
+               // type3 = document.createElement('option')
+               // type4 = document.createElement('option')
+               // type5 = document.createElement('option')
+               // type6 = document.createElement('option')
+               // type7 = document.createElement('option')
+               // type8 = document.createElement('option')
+               // type9 = document.createElement('option')
+               // type10 = document.createElement('option')
+               // type11 = document.createElement('option')
+               // type12 = document.createElement('option')
+               // type1.value = "...";
+               // type2.value = "WARN";
+               // type3.value = "PAD1";
+               // type4.value = "PAD2";
+               // type5.value = "PAD3";
+               // type6.value = "PAD4";
+               // type7.value = "PAD5";
+               // type8.value = "BLKSWAN";
+               // type9.value = "BREAK";
+               // type10.value = "LOrLO";
+               // type11.value = "HIrHI";
+               // type12.value = "LiQD8";
+               // type1.innerHTML = "...";
+               // type2.innerHTML = "WARN";
+               // type3.innerHTML = "PAD1";
+               // type4.innerHTML = "PAD2";
+               // type5.innerHTML = "PAD3";
+               // type6.innerHTML = "PAD4";
+               // type7.innerHTML = "PAD5";
+               // type8.innerHTML = "BLKSWAN";
+               // type9.innerHTML = "BREAK";
+               // type10.innerHTML = "LOrLO";
+               // type11.innerHTML = "HIrHI";
+               // type12.innerHTML = "LiQD8";
+               // typeData.appendChild(type1);
+               // typeData.appendChild(type2);
+               // typeData.appendChild(type3);
+               // typeData.appendChild(type4);
+               // typeData.appendChild(type5);
+               // typeData.appendChild(type6);
+               // typeData.appendChild(type7);
+               // typeData.appendChild(type8);
+               // typeData.appendChild(type9);
+               // typeData.appendChild(type10);
+               // typeData.appendChild(type11);
+               // typeData.appendChild(type12);
+               // typeData.value = '...';//storyzData.type || '...';
+               // typeBOX.appendChild(typeData)
+               
+               // typeData.addEventListener("change",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
+               // });  
+               // typeBOX.classList.add('eventzTypeBOX1')
+               
+               // if(monthData.type==='trim'){
+               //    typeData.classList.add('typeTRIMColor')
+               // } else if (monthData.type==='pad'){
+               //    typeData.classList.add('typePADColor')
+               // }
+               // typeData.classList.add('eventzTypeData1')
 
                //EVENT_RANGE
-               rangeData = document.createElement('input')
-               rangeData.value = storyzData.range || '';
-               rangeData.classList.add('eventzTypeData1')
-               rangeData.addEventListener("keyup",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
-            });                 
-            rangeBOX = document.createElement('aside')
-            rangeBOX.innerHTML="range&nbsp;"
-            rangeBOX.classList.add('eventzTypeBOX2')
-            rangeBOX.style.width = '10em'
-            rangeBOX.appendChild(rangeData)
-            //EVENT_SPOT
-            spotTxt = document.createElement('span')
-            spotTxt.innerHTML="&nbsp;@&nbsp;"
-            spotAmt = document.createElement('input')
-            spotAmt.value = storyzData.spot_amt || '';
-            spotAmt.classList.add('eventzTypeData2')
-            spotAmt.addEventListener("keyup",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
-            });                 
-            spotPOS = document.createElement('input')
-            spotPOS.value = storyzData.spot_POS || '';
-            spotPOS.classList.add('eventzTypeData2')
-            spotPOS.addEventListener("keyup",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
-            });                 
-            spotBOX = document.createElement('aside')
-            spotBOX.innerHTML="$&nbsp;"
-            spotBOX.appendChild(spotAmt)
-            spotBOX.appendChild(spotTxt)
-            spotBOX.appendChild(spotPOS)
-            spotBOX.style.width = '12em'
-            spotBOX.classList.add('eventzTypeBOX3')
-            //EVENT_DATE
-            date1 = document.createElement('input')
-            date1.value = 4;//storyzData.ymd;
-            date1.classList.add('detailDate2')
-            date1.addEventListener("keyup",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
-            });  
+            //    rangeData = document.createElement('input')
+            //    rangeData.value = storyzData.range || '';
+            //    rangeData.classList.add('eventzTypeData1')
+            //    rangeData.addEventListener("keyup",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
+            // });                 
+            // rangeBOX = document.createElement('aside')
+            // rangeBOX.innerHTML="range&nbsp;"
+            // rangeBOX.classList.add('eventzTypeBOX2')
+            // rangeBOX.style.width = '10em'
+            // rangeBOX.appendChild(rangeData)
+            // //EVENT_SPOT
+            // spotTxt = document.createElement('span')
+            // spotTxt.innerHTML="&nbsp;@&nbsp;"
+            // spotAmt = document.createElement('input')
+            // spotAmt.value = storyzData.spot_amt || '';
+            // spotAmt.classList.add('eventzTypeData2')
+            // spotAmt.addEventListener("keyup",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
+            // });                 
+            // spotPOS = document.createElement('input')
+            // spotPOS.value = storyzData.spot_POS || '';
+            // spotPOS.classList.add('eventzTypeData2')
+            // spotPOS.addEventListener("keyup",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
+            // });                 
+            // spotBOX = document.createElement('aside')
+            // spotBOX.innerHTML="$&nbsp;"
+            // spotBOX.appendChild(spotAmt)
+            // spotBOX.appendChild(spotTxt)
+            // spotBOX.appendChild(spotPOS)
+            // spotBOX.style.width = '12em'
+            // spotBOX.classList.add('eventzTypeBOX3')
+
 
             storyzROW.appendChild(storyzTitle)
-            storyzROW.appendChild(typeBOX)
-            storyzROW.appendChild(rangeBOX)
-            storyzROW.appendChild(spotBOX)
             storyzROW.appendChild(date1)
+            storyzROW.appendChild(storyzTXTBOX)
+            storyzROW.appendChild(storyzSaveBTN)
+            // storyzROW.appendChild(typeBOX)
+            // storyzROW.appendChild(rangeBOX)
+            // storyzROW.appendChild(spotBOX)
             storyzBOX.appendChild(storyzROW)
 
           }} //END ROW LOOP DETAILS and if
          } else {storyz.expanded = false;}//END EXPANDED
-         storyzBOX.appendChild(monthBOX)
+         // storyzBOX.appendChild(monthBOX)
          storyzFRAME.appendChild(storyzBOX)
       // } //END QUARTERLY LOOP
       }//END storyz loop
@@ -4239,6 +4440,23 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
          const copyScheduleFn = () => { 
             console.log("ai_schedule = ",ai_schedule)
             navigator.clipboard.writeText(JSON.stringify(ai_schedule) );
+            stateCopiedBox.style.display = "inline";
+            stateConnectedBox.style.display = "none";
+            stateNotConnectedBox.style.display = "none";              
+            setTimeout( ()=>{
+               stateCopiedBox.style.display = "none";
+               if(stock_api_key){
+                  stateConnectedBox.style.display = "inline";
+                  stateNotConnectedBox.style.display = "none";  
+               }else{
+                  stateConnectedBox.style.display = "none";
+                  stateNotConnectedBox.style.display = "inline";  
+               }               
+            },2000)  
+         }
+         const copyStoryzFn = () => { 
+            console.log("ai_storyz = ",ai_storyz)
+            navigator.clipboard.writeText(JSON.stringify(ai_storyz) );
             stateCopiedBox.style.display = "inline";
             stateConnectedBox.style.display = "none";
             stateNotConnectedBox.style.display = "none";              

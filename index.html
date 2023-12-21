@@ -38,6 +38,16 @@
          padding-left: 0.666em;color:#012d56;padding-right: 0.444em;
     padding-bottom: 0.444em;
       }
+        .storyzHeaderSaveBtn1{border-radius:13px;
+         background:#6cd8d8;
+         float: right;
+         margin-right: 2%;cursor:pointer;
+         font-size: 0.777em;margin-top: 0.888em;padding:0.222em;
+         padding-left: 0.666em;color:#012d56;padding-right: 0.444em;
+         padding-bottom: 0.444em;
+         height: 2em;
+         padding-top: 1px;    
+      }
 
         .genReportBtn2{border-radius:13px;
          background:#6cd8d8;
@@ -410,10 +420,11 @@
                linear-gradient(to right, darkslateblue 20px, transparent 20px),
                linear-gradient(to left, darkslateblue 20px, transparent 20px),
                repeating-linear-gradient(darkslateblue, darkslateblue 40px, #344065 40px, #344065 41px, darkslateblue 41px);
-            line-height: 31px;
+            line-height: 44px;
             padding: 8px 10px;
             width: 100%;
-    color: darkcyan;            
+    color: darkcyan;  
+         font-size:0.888em;          
          }
          #rightBOX,#leftBOX,#keyBOX{margin:2px;border: solid 1px steelblue;width: 100%;font-size: 0.777em;}
         
@@ -619,7 +630,7 @@ flex-direction: column;
     margin-left: 0.666em;    
 }
 
-.storyzTXT{
+.storyzTITLE{
    line-height: 1em;
    font-weight: bold;
     font-family: sans-serif;
@@ -648,9 +659,9 @@ flex-direction: column;
       #scrollFrame{width: 88%; }  
       /*  custom scroll bar */
       /* .scrollBar2 {height:97%; overflow-x:hidden; background:#010111; border: 1px steelblue solid; border-radius:13px; padding:0.5em; } */
-      .scrollBarV {height:97%; overflow-x:scroll; background:#010111; border: 1px steelblue solid; border-radius:13px;  }
+      .scrollBarV {height:97%; overflow-x:scroll; background:#010111; border: 1px steelblue solid; border-radius:13px;}
       .scrollBarV::-webkit-scrollbar-track { background-color: #010213;  border-radius: 13px; }
-      .scrollBarV::-webkit-scrollbar { width: 0.666em; height: 100%; }
+      .scrollBarV::-webkit-scrollbar { width: 1.222em; height: 100%;  }
       .scrollBarV::-webkit-scrollbar-thumb { background-color: #04223c; border-radius: 13px;
       background-image: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 0.6) 26%, transparent 26%, transparent 51%, rgba(255, 255, 255, -0.4) 51%, rgba(255, 255, 255, 0.6) 74%, transparent 74%, transparent);
       }
@@ -3746,7 +3757,8 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
 
    let ai_storyz=null;
    const ai_storyz_LOAD_MOCK_DATA=()=>{ //READ
-      ai_storyz = [{"sID":1,"title":"Q4_2023_OCT","expanded":true,"txtz":[{"tID":1,"title":"Review OCT","type":"Review","txt":"nx1","ymd":"2023_12_13"},{"tID":2,"title":"222","txt":"nx2","ymd":"2023_12_13"},{"sID":"1","tID":3,"title":"new story","type":"...","txt":"tell story here","ymd":"2023_12_18"},{"sID":"1","tID":4,"title":"new story","type":"...","txt":"tell story here","ymd":"2023_12_18"}]},{"sID":2,"title":"Q4_2023_NOV","txtz":[{"tID":1,"title":"Review NOV","type":"Review","txt":"nx3","ymd":"2023_12_13"},{"tID":2,"title":"333","txt":"nx4","ymd":"2023_12_13"}],"expanded":false},{"sID":3,"title":"Q4_2023_DEC","txtz":[{"tID":1,"title":"Preview DEC","type":"Preview","txt":"nx5","ymd":"2023_12_13"},{"tID":2,"title":"444","txt":"nx6","ymd":"2023_12_13"}],"expanded":false},{"expanded":true,"sID":4,"title":"Q#_YEAR_JAN","type":"...","txtz":[{"tID":1,"title":"new","txt":"describe...","ymd":"2023_12_18"}]}]
+      // ai_storyz = [{"sID":1,"title":"Q4_2023_OCT","expanded":true,"txtz":[{"tID":1,"title":"Review OCT","type":"Review","txt":"nx1","ymd":"2023_12_13"},{"tID":2,"title":"222","txt":"nx2","ymd":"2023_12_13"},{"sID":"1","tID":3,"title":"new story","type":"...","txt":"tell story here","ymd":"2023_12_18"},{"sID":"1","tID":4,"title":"new story","type":"...","txt":"tell story here","ymd":"2023_12_18"}]},{"sID":2,"title":"Q4_2023_NOV","txtz":[{"tID":1,"title":"Review NOV","type":"Review","txt":"nx3","ymd":"2023_12_13"},{"tID":2,"title":"333","txt":"nx4","ymd":"2023_12_13"}],"expanded":false},{"sID":3,"title":"Q4_2023_DEC","txtz":[{"tID":1,"title":"Preview DEC","type":"Preview","txt":"nx5","ymd":"2023_12_13"},{"tID":2,"title":"444","txt":"nx6","ymd":"2023_12_13"}],"expanded":false},{"expanded":true,"sID":4,"title":"Q#_YEAR_JAN","type":"...","txtz":[{"tID":1,"title":"new","txt":"describe...","ymd":"2023_12_18"}]}]
+      ai_storyz = [{"title":"Q4_2023_OCT","expanded":false,"sID":1,"txtz":[{"tID":1,"title":"Review OCT","ymd":"2023_12_13","txt":"OCT Dreary MOOD. Bears rule roost shouting about 5% 10yr.\nChanting recession - that never comes. Because 5% is TOP.\nOCT 27th was BOTTOM for NVDA. BTC predicts Rally.\n\"Soft landing\" uncertain. \n // RSI, MOM, VOL, BOLL, VIX, DIXY, 10yr, 2yr.","eID":1}]},{"title":"Q4_2023_NOV","expanded":false,"sID":2,"txtz":[{"tID":1,"title":"Review NOV","ymd":"2023_12_13","txt":"2023_NOV_END: flipflop fear to greed. 32 to 66. \n  \"Highly Schitzophrenic breaks fever to bullish\" \n   As soft landing is confirmed and false narrative silenced.\n   SEASONAL: RISK_OFF OCT to RISK_ON NOV. \n   Market Focus on \"Magnificent 7\".\n   CPI shows low inflation. 9.1 to 3.2.\n   Upside surprise to pros, best month of year, \n10 yr from 5.5 to 4.4.\n   TAILWIND: Priced in Inflation as tamed. Must stay low.\n   HEADWIND: It can change on geo political events.\n   Avoided Headwinds: gov shutdown 2x. labor disputes 2x.  War contagen 2x. \n   PROBABLE SOFT LANDING. Market driver 10yr not earning.\n   RESISTANCE lvls at: S&P 4,600, GOOG 337, NVDA 500.\n   F/G:Fear back to pre covid levels. Oil down. VIX low. Goldilocks.\n   Winners: Mag7 & ai. \n   Losers Housing and energy, ISM.\n   Tailwinds: Bears in Bond market, get record return to end nov.\n   consumers give record black friday.\n   NOTE: SHORTSQUEEZE on COIN and MDB. Maybe others.\n   NOTE: Earning POPS for ... AMD.\n   ORDERS:\n   TRIMMED AGGRESSIVELY. GOAL: 20% cash. SUCCESS!\n   MILESTONES: \n   - multiple 52 week highs.\n   - after adding MARGINS to all spots.\n   - added CAPz for TICKerz to trim and pad. \n   - With TRIM SCHEDULE.\n   - Fed debates RATE_CUT!!! Goldilocks.  Exhuberance in air.\n   Q/A: Friday selloff done? ISM recovery? Housing recovery? \n   Energy recovery? Healthcare recovery?","eID":1}]},{"title":"Q4_2023_DEC","expanded":true,"sID":3,"txtz":[{"tID":1,"title":"MID_DEC","ymd":"2023_12_13","txt":"   NOTE: mid dec 2023 \"as goldilocks as you can get\"\n   bear thesis destroyed. no recession. massive pivot 15th\n   holiday rally. 2 weeks to go before new year.\n  VIX all time lows. Markets all time highs. Trim aggressively.\n   Cashing tops consistently/automatically. \n   Greed to excessive greed. Then pullback.\n   8 straight positive weeks. 9 day win streak ends on 2% air pocket DEC_20: Flash Crash -2% in 1hr. Trim SUCCESS at TOP!\nNext Day Rebound.\nBITCOIN predicts S&P 3 times - 2wks to 8 days. Both run and crash.\nFLASHPOINTS - COINBASE and BITCOIN:\n1 ShortSqueeze for christmas. Padding COIN.\n2 BTC EFT for NEWYEAR. Padding BTC.\n3 Halvening for BTC 2nd Qtr APRIL.\nBOTH ACCOUNTS FINALLY TRANSFER from SCHWAB to ROBINHOOD 35,000BAL.","eID":1}]},{"title":"Q1_2024_JAN","expanded":false,"sID":4,"txtz":[{"tID":1,"title":"new","ymd":"2023_12_21","txt":"describe...","eID":1}]}]
    }
 
    const ai_storyz_init=()=>{ //READ from LOCAL STORAGE
@@ -3774,20 +3786,18 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
 
    const addStoryBOXClick = (storyBOXID) =>{
          // saveScheduleClick();//FIX: save first for bug on double create row, keeps first row tickr.
-         // //go to parent quarter and add a unique row
          let newStory = {}
             newStory.expanded = true;
             newStory.sID = ai_storyz.length+1;
             newStory.title = "Q#_YEAR_JAN";
             newStory.type = "...";
-            // newStory.txt = "1";
             newStory.txtz = [
                {tID:1,title:'new',
                txt:'describe...',
                ymd: current_ymd.split('YMD_')[1] 
             }]
-               ai_storyz.push(newStory)
-         //   //SAVE to LOCAL STORAGE
+            ai_storyz.push(newStory)
+           //SAVE to LOCAL STORAGE
            localStorage.ai_storyz = JSON.stringify(ai_storyz) 
            generateStoryClick(); //RELOAD VIEW.  
            showErrorMSG('⚔️ SAVED ⚔️');    
@@ -3795,7 +3805,6 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
 
    const addStoryzClick = (storyBOXID) =>{
    // saveEVTZClick();//FIX: save first for bug on double create row, keeps first row tickr.
-   //go to parent quarter and add a unique row
    let newStory = {}
    let aStory = ai_storyz[storyBOXID-1];
    if(!aStory){return} //get existing to add SUB TXT 
@@ -3806,8 +3815,8 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
       newStory.txt = "tell story here";
       newStory.ymd =  current_ymd.split('YMD_')[1];//user display
       aStory.txtz.push(newStory)
-         //SAVE to LOCAL STORAGE
-         localStorage.ai_storyz = JSON.stringify(ai_storyz) 
+      //SAVE to LOCAL STORAGE
+      localStorage.ai_storyz = JSON.stringify(ai_storyz) 
       generateStoryClick(); //RELOAD VIEW.  
       showErrorMSG('⛏ SAVED ⛏');     
 }  
@@ -3884,28 +3893,18 @@ const storyzSaveClick = () => {
                //GET EVENT
                for(let aa=0; aa<ai_storyz.length; aa++){
                   if(storyREF===ai_storyz[aa].title){
-                     // {"expanded":true,"sID":4,"title":"Q#_YEAR_JAN","type":"...","
-                     // txtz":[{"tID":1,"title":"new","txt":"describe...","ymd":"2023_12_18"}
                      saveTGT.sID = aa+1; //ai_storyz[aa].qID ||
                      saveTGT.title = storyTXT;
-                     // saveTGT.title = ai_storyz[aa].title;
-                     // saveTGT.type = ai_storyz[aa].type;
                      if(saveTGT.expanded){
                         saveTGT.txtz = [];
                      } else {
                         saveTGT.txtz = ai_storyz[aa].txtz;
                      }
-                     // saveTGT.storyz = (expand1)? [] : ai_storyz[aa].storyz || [];
                      break;
                   }
                }
             } // END HEADER
-            // else if(kid.classList.contains('storyzROW')){
             else if(kid.id==='storyzROW'){
-               // if(kid.children.length===0){ // NO MONTHBOX data, COLLAPSED.
-//                   save_schedule.quarters[qtrTXT] = ai_schedule.quarters[qtrTXT]
-//                   continue; //DO NOT SAVE, use saved data, since it is collapsed.
-               // } 
                for(var k=0; k<kid.children.length;k++){ //POPULATE DATA from VIEW.
                   rowItem = kid.children[k]
                   if(rowItem.id==='storyzNUMBOX1'){
@@ -3942,342 +3941,268 @@ const storyzSaveClick = () => {
    }  
 } //end storyz save click
 
-            // eventz FORM ----------------------------------------
-         // selector, id, tick, type_select,  expand/contract   addEventBtn
-         // ymd_eventz , TOP_AMT TOP_YMD
-         // amt_range, amt_pos, net_amt, net% 
-         // ymd_crash
-         // Detailz Row.
-         // BreakEven, %toBE %toTrim FirstTrim DaysDown 
-         // RSI, MOM, VOL, BOLL, VIX, DIXY, 10yr, 2yr.
-         // avg_pos current_pos total_pos down_amt down_pct
-         // correction_return crash_return risk_amt
-         // PICK_TOP && PICK_BOTTOM_Correction or PICK_BOTTOM_Crash
-         // days/weeks since breakout, days/weeks since breakdown.
-         // end eventz FORM ------------------------------
-         // blackswanBtn blockbusterBtn addCrash addCorrection details trash
-         // for(let i=0;i<quarterSets.length;i++){  //BEGIN QUARTERLY LOOP
-         // quarter= ai_schedule.quarters[quarterSets[i]];
-   const generateStoryClick = () =>{
-      storyzFRAME.innerHTML = `2023_NOV_END: flipflop fear greed. 32 to 66. 
-      SEASONAL: RISK_OFF OCT to RISK_ON NOV. CPI shows low inflation. 9.1 to 3.2.
-      Upside surprise to pros, best month of year, 10 yr from 5.5 to 4.4.
-      TAILWIND: Priced in Inflation as tamed. Must stay low.
-      HEADWIND: It can change on geo political events.
-      Avoided Headwinds: gov shutdown 2x. labor disputes 2x.  War contagen 2x. 
-      PROBABLE SOFT LANDING. Market driver 10yr not earning.
-      RESISTANCE lvls at: S&P 4,600, GOOG 337, NVDA 500.
-      F/G:Fear back to pre covid levels. Oil down. VIX low. Goldilocks.
-      Winners: Mag7 & ai. 
-      Losers Housing and energy, ISM.
-      Tailwinds: Bears in Bond market, get record return to end nov.
-      consumers give record black friday.
-      NOTE: SHORTSQUEEZE on COIN and MDB. Maybe others.
-      NOTE: Earning POPS for ... AMD.
-      ORDERS:
-      TRIMMED AGGRESSIVELY. GOAL: 20% cash.
-      MILESTONES: 
-      - multiple 52 week highs.
-      - after adding MARGINS to all spots.
-      - added CAPz for TICKerz to trim and pad. 
-      - With TRIM SCHEDULE.
-      - Fed debates RATE_CUT!!! Goldilocks.  Exhuberance in air.
-      Q/A: Friday selloff done? ISM recovery? Housing recovery? 
-      Energy recovery? Healthcare recovery?
-      `;
-      let story2 = `
-      NOTE: mid dec 2023 "as goldilocks as you can get"
-      bear thesis destroyed. no recession. massive 
-      holiday rally. 2 weeks to go before new year.
-      8 straight positive weeks.
-      `
-         // storyz FORM ----------------------------------------
-         // selector, id, tick, type_select,  expand/contract   addEventBtn
-         // ymd_storyz , TOP_AMT TOP_YMD
-         // amt_range, amt_pos, net_amt, net% 
-         // ymd_crash
-         // Detailz Row.
-         // BreakEven, %toBE %toTrim FirstTrim DaysDown 
-         // RSI, MOM, VOL, BOLL, VIX, DIXY, 10yr, 2yr.
-         // avg_pos current_pos total_pos down_amt down_pct
-         // correction_return crash_return risk_amt
-         // PICK_TOP && PICK_BOTTOM_Correction or PICK_BOTTOM_Crash
-         // days/weeks since breakout, days/weeks since breakdown.
-         // end storyz FORM ------------------------------
-         // blackswanBtn blockbusterBtn addCrash addCorrection details trash
-         // for(let i=0;i<quarterSets.length;i++){  //BEGIN QUARTERLY LOOP
-         // quarter= ai_schedule.quarters[quarterSets[i]];
+const generateStoryClick = () =>{
+   storyzFRAME.innerHTML="";//blank out
+   let storyzSet = ai_storyz, storyz;
+   for(var i=0; i<storyzSet.length;i++){
+      storyz = storyzSet[i];
 
-      storyzFRAME.innerHTML="";//blank out
-      let storyzSet = ai_storyz, storyz;
-      for(var i=0; i<storyzSet.length;i++){
-         storyz = storyzSet[i];
+      storyzBOX = document.createElement('section')
+      storyzBOX.sID = i+1;
+      storyz.sID = i+1;
+      storyzBOX.classList.add('storyzBOX')
 
-         storyzBOX = document.createElement('section')
-         storyzBOX.sID = i+1;
-         storyz.sID = i+1;
-         storyzBOX.classList.add('storyzBOX')
+      storyzHeader = document.createElement('aside')
+      storyzHeader.classList.add('storyzHeader')
 
-         storyzHeader = document.createElement('aside')
-         storyzHeader.classList.add('storyzHeader')
+      //**********************************************selector
+      storyzNUM0 = document.createElement('div');
+      storyzNUM0.classList.add('eventzNUM1')
+      storyzNUM0.innerHTML = "s"+(i+1);
+      storyzNUMBOX0 = document.createElement('aside')
+      storyzNUMBOX0.classList.add('capsNUMBOX0');
+      storyzCHECKBOX0 = document.createElement('label')
+      storyzCHECKBOX0.classList.add('checkboxFrame') 
+      storyzSelect0 = document.createElement('input');
+      storyzSelect0.type = "radio";
+      storyzSelect0.name = "storyzMasterRadio";
+      storyzSelect0.sID = i+1;
+      storyzSelect0.classList.add('storyz_checkmark')
+      storyzCHECKBOX0.appendChild(storyzSelect0)
+      storyzCheckMark0 = document.createElement('span')
+      storyzCheckMark0.classList.add('checkmark')
+      storyzCHECKBOX0.appendChild(storyzCheckMark0)
+      storyzNUMBOX0.appendChild(storyzCHECKBOX0)
+      storyzNUMBOX0.appendChild(storyzNUM0)
+      // storyzHeader.appendChild(storyzNUMBOX0)
+      // end ************************************** selector
 
-         //**********************************************selector
-         storyzNUM0 = document.createElement('div');
-         storyzNUM0.classList.add('eventzNUM1')
-         storyzNUM0.innerHTML = "s"+(i+1);
-         storyzNUMBOX0 = document.createElement('aside')
-         storyzNUMBOX0.classList.add('capsNUMBOX0');
-         storyzCHECKBOX0 = document.createElement('label')
-         storyzCHECKBOX0.classList.add('checkboxFrame') 
-         storyzSelect0 = document.createElement('input');
-         storyzSelect0.type = "radio";
-         storyzSelect0.name = "storyzMasterRadio";
-         storyzSelect0.sID = i+1;
-         storyzSelect0.classList.add('storyz_checkmark')
-         storyzCHECKBOX0.appendChild(storyzSelect0)
-         storyzCheckMark0 = document.createElement('span')
-         storyzCheckMark0.classList.add('checkmark')
-         storyzCHECKBOX0.appendChild(storyzCheckMark0)
-         storyzNUMBOX0.appendChild(storyzCHECKBOX0)
-         storyzNUMBOX0.appendChild(storyzNUM0)
-         // storyzHeader.appendChild(storyzNUMBOX0)
-         // end ************************************** selector
+      storyzTITLE = document.createElement('input')
+      storyzTITLE.classList.add('storyzTITLE')
+      storyzTITLE.placeholder="Q#_YYYY_JAN"
+      storyzTITLE.value = storyz.title.toUpperCase();//.storyzID.toUpperCase();
+      storyzTITLE.uID = storyzTITLE.value;//for unique ref.
+      storyzTITLE.addEventListener("keyup",(e)=>{ 
+         e.target.parentElement.children[4].classList.remove('hiddenBtn1')
+      }); 
 
-         storyzTXT = document.createElement('input')
-         storyzTXT.classList.add('storyzTXT')
-         storyzTXT.placeholder="Q#_YYYY_JAN"
-         storyzTXT.value = storyz.title.toUpperCase();//.storyzID.toUpperCase();
-         storyzTXT.uID = storyzTXT.value;//for unique ref.
-         storyzTXT.addEventListener("keyup",(e)=>{ 
-            storyzSaveClick(e);
-         }); 
+      expandBtn1 = document.createElement('button')
+      expandBtn1.innerHTML = '🕸️'
+      expandBtn1.classList.add('addBtn4')
+      expandBtn1.setAttribute('data-arg3',storyz.sID)
+      expandBtn1.addEventListener("click",(e)=>{
+            expandStoryzClick(e.target.getAttribute('data-arg3')) });
 
-         expandBtn1 = document.createElement('button')
-         expandBtn1.innerHTML = '🕸️'
-         expandBtn1.classList.add('addBtn4')
-         expandBtn1.setAttribute('data-arg3',storyz.sID)
-         expandBtn1.addEventListener("click",(e)=>{
-               expandStoryzClick(e.target.getAttribute('data-arg3')) });
+      addBtn5 = document.createElement('button')
+      addBtn5.innerHTML = 'addTXTz🍿';
+      addBtn5.classList.add('addBtn4')
+      addBtn5.setAttribute('data-arg5',storyz.sID)
+      addBtn5.addEventListener("click",(e)=>{
+            addStoryzClick(e.target.getAttribute('data-arg5')) 
+         });
 
-         addBtn5 = document.createElement('button')
-         addBtn5.innerHTML = 'addStoryz🍿';
-         addBtn5.classList.add('addBtn4')
-         addBtn5.setAttribute('data-arg5',storyz.sID)
-         addBtn5.addEventListener("click",(e)=>{
-               addStoryzClick(e.target.getAttribute('data-arg5')) 
-            });
-               
-         storyzHeader.appendChild(storyzNUMBOX0)
-         storyzHeader.appendChild(storyzTXT)
-         storyzHeader.appendChild(expandBtn1)
-         storyzHeader.appendChild(addBtn5)               
-         storyzBOX.appendChild(storyzHeader)
+      //STORY_HEADER_SAVE_BTNs
+      storyzHeaderSaveBTN = document.createElement('button')
+      storyzHeaderSaveBTN.classList.add('storyzHeaderSaveBtn1')
+      storyzHeaderSaveBTN.classList.add('hiddenBtn1')
+      storyzHeaderSaveBTN.innerHTML = 'save🎁';//storyzData.title || 0;
+      storyzHeaderSaveBTN.addEventListener("click",(e)=>{ 
+         storyzSaveClick(e); 
+      });          
+            
+      storyzHeader.appendChild(storyzNUMBOX0)
+      storyzHeader.appendChild(storyzTITLE)
+      storyzHeader.appendChild(expandBtn1)
+      storyzHeader.appendChild(addBtn5)               
+      storyzHeader.appendChild(storyzHeaderSaveBTN)               
+      storyzBOX.appendChild(storyzHeader)
 
-         // monthBOX = document.createElement('article')
-         // monthBOX.classList.add('monthBOX')
+      if(storyz.expanded){
+         expandBtn1.innerHTML = '💨'
+         if(storyz.txtz){
+            for(let j=0;j<storyz.txtz.length;j++){  //SUBLIST LOOP .
+            storyzData = storyz.txtz[j];
+            storyzData.eID = j+1;
+            storyzROW = document.createElement('aside')
+            storyzROW.id = 'storyzROW';
+            storyzROW.classList.add('eventzROW')
+            //**********************************************selector
+            storyzNUM1 = document.createElement('div');
+            storyzNUM1.classList.add('eventzNUM1')
+            // storyzNUM1.eID = 
+            storyzNUM1.innerHTML = "e"+(j+1);
+            storyzNUMBOX1 = document.createElement('aside')
+            storyzNUMBOX1.classList.add('capsNUMBOX3');
+            storyzNUMBOX1.id = 'storyzNUMBOX1';
+            storyzCHECKBOX1 = document.createElement('label')
+            storyzCHECKBOX1.classList.add('checkboxFrame') 
+            storyzSelect1 = document.createElement('input');
+            storyzSelect1.id = 'storyzSelect1';
+            storyzSelect1.tID = j+1;
+            storyzSelect1.type = "radio";
+            storyzSelect1.name = "storyzDetailsRadio";
+            storyzSelect1.classList.add('storyz_checkmark')
+            storyzCHECKBOX1.appendChild(storyzSelect1)
+            storyzCheckMark1 = document.createElement('span')
+            storyzCheckMark1.classList.add('checkmark')
+            storyzCHECKBOX1.appendChild(storyzCheckMark1)
+            storyzNUMBOX1.appendChild(storyzCHECKBOX1)
+            storyzNUMBOX1.appendChild(storyzNUM1)
+            storyzROW.appendChild(storyzNUMBOX1)
+            // end ************************************** selector
+            //STORY_SUB_TITLE
+            storyzTitle = document.createElement('input')
+            storyzTitle.id = 'storyzTitle';
+            storyzTitle.classList.add('eventzTitle')
+            storyzTitle.value = storyzData.title || 0;
+            storyzTitle.addEventListener("keyup",(e)=>{ 
+               e.target.parentElement.children[4].classList.remove('hiddenBtn1')
+            });     
+            
+            //STORY_TXT AREA
+            storyzTXTBOX = document.createElement('textarea')
+            storyzTXTBOX.id = 'storyzTXTArea'
+            storyzTXTBOX.classList.add('scrollBarV')
+            storyzTXTBOX.classList.add('textareaBOX')
+            storyzTXTBOX.spellcheck = false;
+            storyzTXTBOX.value = storyz.txtz[j].txt;//'abc';//storyzData.title || 0;
+            storyzTXTBOX.addEventListener("keyup",(e)=>{ 
+               e.target.parentElement.children[4].classList.remove('hiddenBtn1')
+            }); 
+            
+            //EVENT_DATE
+            date1 = document.createElement('input')
+            date1.id = 'storyzDate1'
+            date1.value = storyzData.ymd;
+            date1.classList.add('detailDate2')
+            date1.addEventListener("keyup",(e)=>{ 
+               e.target.parentElement.children[4].classList.remove('hiddenBtn1')
+            });                 
 
-         //EVENT_NOTE
-         // eventzNote = document.createElement('input')
-         // eventzNote.classList.add('eventzNote')
-         // // eventzNote.value = eventz.note || 0;
-         // eventzNote.placeholder = 'notez'
-         // eventzNote.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
-         // });    
+            //STORY_SAVE_BTNs
+            storyzSaveBTN = document.createElement('button')
+            storyzSaveBTN.classList.add('genReportBtn1')
+            storyzSaveBTN.classList.add('hiddenBtn1')
+            storyzSaveBTN.innerHTML = 'save🎁';//storyzData.title || 0;
+            storyzSaveBTN.addEventListener("click",(e)=>{ 
+               storyzSaveClick(e); 
+            });                
 
-         if(storyz.expanded){
-            expandBtn1.innerHTML = '💨'
-            if(storyz.txtz){
-               for(let j=0;j<storyz.txtz.length;j++){  //SUBLIST LOOP .
-               storyzData = storyz.txtz[j];
-               storyzData.eID = j+1;
-               storyzROW = document.createElement('aside')
-               storyzROW.id = 'storyzROW';
-               storyzROW.classList.add('eventzROW')
-               //**********************************************selector
-               storyzNUM1 = document.createElement('div');
-               storyzNUM1.classList.add('eventzNUM1')
-               // storyzNUM1.eID = 
-               storyzNUM1.innerHTML = "e"+(j+1);
-               storyzNUMBOX1 = document.createElement('aside')
-               storyzNUMBOX1.classList.add('capsNUMBOX3');
-               storyzNUMBOX1.id = 'storyzNUMBOX1';
-               storyzCHECKBOX1 = document.createElement('label')
-               storyzCHECKBOX1.classList.add('checkboxFrame') 
-               storyzSelect1 = document.createElement('input');
-               storyzSelect1.id = 'storyzSelect1';
-               storyzSelect1.tID = j+1;
-               storyzSelect1.type = "radio";
-               storyzSelect1.name = "storyzDetailsRadio";
-               storyzSelect1.classList.add('storyz_checkmark')
-               storyzCHECKBOX1.appendChild(storyzSelect1)
-               storyzCheckMark1 = document.createElement('span')
-               storyzCheckMark1.classList.add('checkmark')
-               storyzCHECKBOX1.appendChild(storyzCheckMark1)
-               storyzNUMBOX1.appendChild(storyzCHECKBOX1)
-               storyzNUMBOX1.appendChild(storyzNUM1)
-               storyzROW.appendChild(storyzNUMBOX1)
-               // end ************************************** selector
-               //STORY_SUB_TITLE
-               storyzTitle = document.createElement('input')
-               storyzTitle.id = 'storyzTitle';
-               storyzTitle.classList.add('eventzTitle')
-               storyzTitle.value = storyzData.title || 0;
-               storyzTitle.addEventListener("keyup",(e)=>{ 
-                  e.target.parentElement.children[4].classList.remove('hiddenBtn1')
-               });     
-               
-               //STORY_TXT AREA
-               storyzTXTBOX = document.createElement('textarea')
-               storyzTXTBOX.id = 'storyzTXTArea'
-               storyzTXTBOX.classList.add('scrollBarV')
-               storyzTXTBOX.classList.add('textareaBOX')
-               storyzTXTBOX.spellcheck = false;
-               storyzTXTBOX.value = storyz.txtz[j].txt;//'abc';//storyzData.title || 0;
-               storyzTXTBOX.addEventListener("keyup",(e)=>{ 
-                  e.target.parentElement.children[4].classList.remove('hiddenBtn1')
-               }); 
-               
-               //EVENT_DATE
-               date1 = document.createElement('input')
-               date1.id = 'storyzDate1'
-               date1.value = storyzData.ymd;
-               date1.classList.add('detailDate2')
-               date1.addEventListener("keyup",(e)=>{ 
-                  e.target.parentElement.children[4].classList.remove('hiddenBtn1')
-               });                 
+            //EVENT_TYPE
+            // typeBOX = document.createElement('aside')
+            // typeBOX.innerHTML="type&nbsp;"
+            // // typeBOX = document.createElement('aside')
+            // // typeBOX.innerHTML="type&nbsp;"
+            // typeData = document.createElement('select')
+            // // typeData = document.createElement('input')
+            // type1 = document.createElement('option')
+            // type2 = document.createElement('option')
+            // type3 = document.createElement('option')
+            // type4 = document.createElement('option')
+            // type5 = document.createElement('option')
+            // type6 = document.createElement('option')
+            // type7 = document.createElement('option')
+            // type8 = document.createElement('option')
+            // type9 = document.createElement('option')
+            // type10 = document.createElement('option')
+            // type11 = document.createElement('option')
+            // type12 = document.createElement('option')
+            // type1.value = "...";
+            // type2.value = "WARN";
+            // type3.value = "PAD1";
+            // type4.value = "PAD2";
+            // type5.value = "PAD3";
+            // type6.value = "PAD4";
+            // type7.value = "PAD5";
+            // type8.value = "BLKSWAN";
+            // type9.value = "BREAK";
+            // type10.value = "LOrLO";
+            // type11.value = "HIrHI";
+            // type12.value = "LiQD8";
+            // type1.innerHTML = "...";
+            // type2.innerHTML = "WARN";
+            // type3.innerHTML = "PAD1";
+            // type4.innerHTML = "PAD2";
+            // type5.innerHTML = "PAD3";
+            // type6.innerHTML = "PAD4";
+            // type7.innerHTML = "PAD5";
+            // type8.innerHTML = "BLKSWAN";
+            // type9.innerHTML = "BREAK";
+            // type10.innerHTML = "LOrLO";
+            // type11.innerHTML = "HIrHI";
+            // type12.innerHTML = "LiQD8";
+            // typeData.appendChild(type1);
+            // typeData.appendChild(type2);
+            // typeData.appendChild(type3);
+            // typeData.appendChild(type4);
+            // typeData.appendChild(type5);
+            // typeData.appendChild(type6);
+            // typeData.appendChild(type7);
+            // typeData.appendChild(type8);
+            // typeData.appendChild(type9);
+            // typeData.appendChild(type10);
+            // typeData.appendChild(type11);
+            // typeData.appendChild(type12);
+            // typeData.value = '...';//storyzData.type || '...';
+            // typeBOX.appendChild(typeData)
+            
+            // typeData.addEventListener("change",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
+            // });  
+            // typeBOX.classList.add('eventzTypeBOX1')
+            
+            // if(monthData.type==='trim'){
+            //    typeData.classList.add('typeTRIMColor')
+            // } else if (monthData.type==='pad'){
+            //    typeData.classList.add('typePADColor')
+            // }
+            // typeData.classList.add('eventzTypeData1')
 
-               // <button id="storyzSaveBtn6" class="genReportBtn1" style="font-size: 0.888em;display:none;" onclick="storyzSaveClick(event)">save🎁</button> 
-               //STORY_TXT AREA
-               storyzSaveBTN = document.createElement('button')
-               storyzSaveBTN.classList.add('genReportBtn1')
-               storyzSaveBTN.classList.add('hiddenBtn1')
-               storyzSaveBTN.innerHTML = 'save🎁';//storyzData.title || 0;
-               storyzSaveBTN.addEventListener("click",(e)=>{ 
-                  storyzSaveClick(e); 
-               });                
-                     //       <textarea id="textareaBOX" onmouseup="setCursorRowFn()" 
-      // class="scrollBarV"
-//  spellcheck="false" onkeyup="keyupTXT();">
-// Click speak, and say something...</textarea>
+            //EVENT_RANGE
+         //    rangeData = document.createElement('input')
+         //    rangeData.value = storyzData.range || '';
+         //    rangeData.classList.add('eventzTypeData1')
+         //    rangeData.addEventListener("keyup",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
+         // });                 
+         // rangeBOX = document.createElement('aside')
+         // rangeBOX.innerHTML="range&nbsp;"
+         // rangeBOX.classList.add('eventzTypeBOX2')
+         // rangeBOX.style.width = '10em'
+         // rangeBOX.appendChild(rangeData)
+         // //EVENT_SPOT
+         // spotTxt = document.createElement('span')
+         // spotTxt.innerHTML="&nbsp;@&nbsp;"
+         // spotAmt = document.createElement('input')
+         // spotAmt.value = storyzData.spot_amt || '';
+         // spotAmt.classList.add('eventzTypeData2')
+         // spotAmt.addEventListener("keyup",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
+         // });                 
+         // spotPOS = document.createElement('input')
+         // spotPOS.value = storyzData.spot_POS || '';
+         // spotPOS.classList.add('eventzTypeData2')
+         // spotPOS.addEventListener("keyup",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
+         // });                 
+         // spotBOX = document.createElement('aside')
+         // spotBOX.innerHTML="$&nbsp;"
+         // spotBOX.appendChild(spotAmt)
+         // spotBOX.appendChild(spotTxt)
+         // spotBOX.appendChild(spotPOS)
+         // spotBOX.style.width = '12em'
+         // spotBOX.classList.add('eventzTypeBOX3')
+         storyzROW.appendChild(storyzTitle)
+         storyzROW.appendChild(date1)
+         storyzROW.appendChild(storyzTXTBOX)
+         storyzROW.appendChild(storyzSaveBTN)
+         // storyzROW.appendChild(typeBOX)
+         // storyzROW.appendChild(rangeBOX)
+         // storyzROW.appendChild(spotBOX)
+         storyzBOX.appendChild(storyzROW)
 
-               //EVENT_TYPE
-               // typeBOX = document.createElement('aside')
-               // typeBOX.innerHTML="type&nbsp;"
-               // // typeBOX = document.createElement('aside')
-               // // typeBOX.innerHTML="type&nbsp;"
-               // typeData = document.createElement('select')
-               // // typeData = document.createElement('input')
-               // type1 = document.createElement('option')
-               // type2 = document.createElement('option')
-               // type3 = document.createElement('option')
-               // type4 = document.createElement('option')
-               // type5 = document.createElement('option')
-               // type6 = document.createElement('option')
-               // type7 = document.createElement('option')
-               // type8 = document.createElement('option')
-               // type9 = document.createElement('option')
-               // type10 = document.createElement('option')
-               // type11 = document.createElement('option')
-               // type12 = document.createElement('option')
-               // type1.value = "...";
-               // type2.value = "WARN";
-               // type3.value = "PAD1";
-               // type4.value = "PAD2";
-               // type5.value = "PAD3";
-               // type6.value = "PAD4";
-               // type7.value = "PAD5";
-               // type8.value = "BLKSWAN";
-               // type9.value = "BREAK";
-               // type10.value = "LOrLO";
-               // type11.value = "HIrHI";
-               // type12.value = "LiQD8";
-               // type1.innerHTML = "...";
-               // type2.innerHTML = "WARN";
-               // type3.innerHTML = "PAD1";
-               // type4.innerHTML = "PAD2";
-               // type5.innerHTML = "PAD3";
-               // type6.innerHTML = "PAD4";
-               // type7.innerHTML = "PAD5";
-               // type8.innerHTML = "BLKSWAN";
-               // type9.innerHTML = "BREAK";
-               // type10.innerHTML = "LOrLO";
-               // type11.innerHTML = "HIrHI";
-               // type12.innerHTML = "LiQD8";
-               // typeData.appendChild(type1);
-               // typeData.appendChild(type2);
-               // typeData.appendChild(type3);
-               // typeData.appendChild(type4);
-               // typeData.appendChild(type5);
-               // typeData.appendChild(type6);
-               // typeData.appendChild(type7);
-               // typeData.appendChild(type8);
-               // typeData.appendChild(type9);
-               // typeData.appendChild(type10);
-               // typeData.appendChild(type11);
-               // typeData.appendChild(type12);
-               // typeData.value = '...';//storyzData.type || '...';
-               // typeBOX.appendChild(typeData)
-               
-               // typeData.addEventListener("change",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
-               // });  
-               // typeBOX.classList.add('eventzTypeBOX1')
-               
-               // if(monthData.type==='trim'){
-               //    typeData.classList.add('typeTRIMColor')
-               // } else if (monthData.type==='pad'){
-               //    typeData.classList.add('typePADColor')
-               // }
-               // typeData.classList.add('eventzTypeData1')
-
-               //EVENT_RANGE
-            //    rangeData = document.createElement('input')
-            //    rangeData.value = storyzData.range || '';
-            //    rangeData.classList.add('eventzTypeData1')
-            //    rangeData.addEventListener("keyup",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
-            // });                 
-            // rangeBOX = document.createElement('aside')
-            // rangeBOX.innerHTML="range&nbsp;"
-            // rangeBOX.classList.add('eventzTypeBOX2')
-            // rangeBOX.style.width = '10em'
-            // rangeBOX.appendChild(rangeData)
-            // //EVENT_SPOT
-            // spotTxt = document.createElement('span')
-            // spotTxt.innerHTML="&nbsp;@&nbsp;"
-            // spotAmt = document.createElement('input')
-            // spotAmt.value = storyzData.spot_amt || '';
-            // spotAmt.classList.add('eventzTypeData2')
-            // spotAmt.addEventListener("keyup",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
-            // });                 
-            // spotPOS = document.createElement('input')
-            // spotPOS.value = storyzData.spot_POS || '';
-            // spotPOS.classList.add('eventzTypeData2')
-            // spotPOS.addEventListener("keyup",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
-            // });                 
-            // spotBOX = document.createElement('aside')
-            // spotBOX.innerHTML="$&nbsp;"
-            // spotBOX.appendChild(spotAmt)
-            // spotBOX.appendChild(spotTxt)
-            // spotBOX.appendChild(spotPOS)
-            // spotBOX.style.width = '12em'
-            // spotBOX.classList.add('eventzTypeBOX3')
-
-
-            storyzROW.appendChild(storyzTitle)
-            storyzROW.appendChild(date1)
-            storyzROW.appendChild(storyzTXTBOX)
-            storyzROW.appendChild(storyzSaveBTN)
-            // storyzROW.appendChild(typeBOX)
-            // storyzROW.appendChild(rangeBOX)
-            // storyzROW.appendChild(spotBOX)
-            storyzBOX.appendChild(storyzROW)
-
-          }} //END ROW LOOP DETAILS and if
-         } else {storyz.expanded = false;}//END EXPANDED
-         // storyzBOX.appendChild(monthBOX)
-         storyzFRAME.appendChild(storyzBOX)
-      // } //END QUARTERLY LOOP
-      }//END storyz loop
-   }//END generate Preview of STORYz click
+         }} //END ROW LOOP DETAILS and if
+      } else {storyz.expanded = false;}//END EXPANDED
+      storyzFRAME.appendChild(storyzBOX)
+   // } //END QUARTERLY LOOP
+   }//END storyz loop
+}//END generate Preview of STORYz click
 
    const getLatestTickerClick = ()=>{ //loop all for last close.
       let item,urls=[];

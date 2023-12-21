@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <title>ai_trade_tracker</title>
+   <title>genai_trade_tracker</title>
 </head>
    <body style="display:flex;flex-direction: column;">
      <style>/* PC */
@@ -894,7 +894,7 @@ border-radius:13px;
       border:2px solid grey;">🎪</span><span class="txt1">home</span>
       </aside>
       <aside style="font-size: 1em;color: steelblue;margin: -13px 0 14px 0;text-shadow: 0px -1px 5px #66aef3;">
-        ai_trade_tracker</aside>
+        genai_trade_tracker</aside>
       <aside style="font-size: 0.777em;color: steelblue;margin: -10px 0 4px 0;">
       </aside>
       <aside class="topRightBtn2">
@@ -952,7 +952,7 @@ border-radius:13px;
       margin: 0.222em;">
          <section id="leftBOX" style="display:flex; justify-content: center;
          border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
-         "><span class="smICON">✴&nbsp;&nbsp;</span> ai viewz, of generated metadata <span class="smICON">&nbsp;✳</span></section>            
+         "><span class="smICON">✴&nbsp;&nbsp;</span> ai viewz, of ledger metadata <span class="smICON">&nbsp;✳</span></section>            
          <section id="keyBOX" style="display:flex;border: solid 1px steelblue;
          border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
          margin:2px;">
@@ -964,7 +964,8 @@ border-radius:13px;
          </section>
          <section id="rightBOX" style="display:flex;  justify-content: center;
          border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
-         "><span class="smICON">&nbsp;&nbsp;✧&nbsp;</span>generated ledger, schedule, and charts.<span class="smICON">&nbsp;❇</span></section>
+         "><span class="smICON">&nbsp;&nbsp;✧&nbsp;</span>
+         generated margins, schedules, trade idea trax and charts.<span class="smICON">&nbsp;❇</span></section>
       
       </header>         
         <!-- <main id="symbolBOX" style="display:none;">
@@ -3548,7 +3549,7 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
          eventzSelect0.qID = i+1;//eventz.qID || '';
          eventzSelect0.type = "radio";
          eventzSelect0.name = "eventzMasterRadio";
-         eventzSelect0.classList.add('cap_checkmark')
+         eventzSelect0.classList.add('cap_checkmark') //todo
          eventzCHECKBOX0.appendChild(eventzSelect0)
          eventzCheckMark0 = document.createElement('span')
          eventzCheckMark0.classList.add('checkmark')
@@ -3603,7 +3604,7 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
                eventzSelect1.eID = j+1;//eventzData.eID || '';
                eventzSelect1.type = "radio";
                eventzSelect1.name = "eventzDetailsRadio";
-               eventzSelect1.classList.add('cap_checkmark')
+               eventzSelect1.classList.add('cap_checkmark') //todo
                eventzCHECKBOX1.appendChild(eventzSelect1)
                eventzCheckMark1 = document.createElement('span')
                eventzCheckMark1.classList.add('checkmark')
@@ -3746,14 +3747,6 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
    let ai_storyz=null;
    const ai_storyz_LOAD_MOCK_DATA=()=>{ //READ
       ai_storyz = [{"sID":1,"title":"Q4_2023_OCT","expanded":true,"txtz":[{"tID":1,"title":"Review OCT","type":"Review","txt":"nx1","ymd":"2023_12_13"},{"tID":2,"title":"222","txt":"nx2","ymd":"2023_12_13"},{"sID":"1","tID":3,"title":"new story","type":"...","txt":"tell story here","ymd":"2023_12_18"},{"sID":"1","tID":4,"title":"new story","type":"...","txt":"tell story here","ymd":"2023_12_18"}]},{"sID":2,"title":"Q4_2023_NOV","txtz":[{"tID":1,"title":"Review NOV","type":"Review","txt":"nx3","ymd":"2023_12_13"},{"tID":2,"title":"333","txt":"nx4","ymd":"2023_12_13"}],"expanded":false},{"sID":3,"title":"Q4_2023_DEC","txtz":[{"tID":1,"title":"Preview DEC","type":"Preview","txt":"nx5","ymd":"2023_12_13"},{"tID":2,"title":"444","txt":"nx6","ymd":"2023_12_13"}],"expanded":false},{"expanded":true,"sID":4,"title":"Q#_YEAR_JAN","type":"...","txtz":[{"tID":1,"title":"new","txt":"describe...","ymd":"2023_12_18"}]}]
-      // ai_storyz = [
-      //    {sID:1,title:'Q4_2023_OCT',expanded:true,
-      //       txtz:[{tID:1,title:'Review OCT',type:'Review',txt:'nx1',ymd:'2023_12_13'},{tID:2,title:'222',txt:'nx2',ymd:'2023_12_13'}]},
-      //    {sID:2,title:'Q4_2023_NOV',
-      //       txtz:[{tID:1,title:'Review NOV',type:'Review',txt:'nx3',ymd:'2023_12_13'},{tID:2,title:'333',txt:'nx4',ymd:'2023_12_13'}]},
-      //    {sID:3,title:'Q4_2023_DEC',
-      //       txtz:[{tID:1,title:'Preview DEC',type:'Preview',txt:'nx5',ymd:'2023_12_13'},{tID:2,title:'444',txt:'nx6',ymd:'2023_12_13'}]},
-      // ];
    }
 
    const ai_storyz_init=()=>{ //READ from LOCAL STORAGE
@@ -3820,103 +3813,135 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
 }  
 
 const storyzDeleteClick = (storyBOXID) =>{
-      debugger;
-      //todo
-      return;
-      // const deleteSelectedSchedule = (event)=>{ //remove ledger item, save, refresh
-         let evtSelected = [], detSelected=[], temp = [], removeChildRow=false;
-      let evtChecks = document.getElementsByName("eventzMasterRadio");
-      let detChecks = document.getElementsByName("eventzDetailsRadio");
-      for(let i=0; i<evtChecks.length;i++){
-         if(evtChecks[i].checked){ //SORT THROUGH ai_eventz to delete data and reload
-            let qID = evtChecks[i].qID;
-            evtSelected.push(evtChecks[i])
-            for(var j=0; j<ai_eventz.length;j++){ //DELETE evt DATA
-               if( qID.toString() === ai_eventz[j].qID.toString() ){
-                  ai_eventz.splice(j,1) //remove data
-                  break;
-               }
-            }
-            //SAVE & RELOAD VIEW
-            showErrorMSG('🦕 Saved. ');
-            localStorage.ai_eventz = JSON.stringify(ai_eventz) //SAVE to LOCAL STORAGE
-            generateEVTZClick(); //RELOAD VIEW. 
-            break;
-         }
-      }
-      if(!evtSelected.length && detChecks.length){ // DETAIL ROW SELECTION
-         for(let j=0; j<detChecks.length;j++){
-            if(detChecks[j].checked){
-               detSelected.push(detChecks[j])
-               let eID = detChecks[j].eID
-               let qID = detChecks[j].parentElement.parentElement.parentElement.parentElement.qID;
-               for(var k=0; k<ai_eventz.length;k++){ //DELETE MONTH DATA
-                  if(ai_eventz[k].qID===qID){
-                     for(var m=0; m<ai_eventz[k].evtz.length;m++){ //DELETE MONTH DATA
-                        if( eID === ai_eventz[k].evtz[m].eID ){       
-                           ai_eventz[k].evtz.splice(m,1) //remove data
-                           break;
-                        }
-                     }
-                  }
-               }
-               //SAVE & RELOAD VIEW
-               showErrorMSG(' Saved🦖 ');
-               localStorage.ai_eventz = JSON.stringify(ai_eventz) //SAVE to LOCAL STORAGE
-               generateEVTZClick(); //RELOAD VIEW. 
-               
+   // const deleteSelectedSchedule = (event)=>{ //remove ledger item, save, refresh
+   let storyzSelected = [], detSelected=[], temp = [], removeChildRow=false;
+   let storyzChecks = document.getElementsByName("storyzMasterRadio");
+   let detChecks = document.getElementsByName("storyzDetailsRadio");
+   for(let i=0; i<storyzChecks.length;i++){
+      if(storyzChecks[i].checked){ //SORT THROUGH ai_storyz to delete data and reload
+         let sID = storyzChecks[i].sID;
+         storyzSelected.push(storyzChecks[i])
+         for(var j=0; j<ai_storyz.length;j++){ //DELETE storyz DATA
+            if( sID.toString() === ai_storyz[j].sID.toString() ){
+               ai_storyz.splice(j,1) //remove data
                break;
             }
          }
-      } 
-      if(!evtSelected.length && !detSelected.length){showErrorMSG(' Nothing selected 😵'); return;}
-} //end storyz delete
-
-const storyzSaveClick = () => {
-      debugger;
-      //todo;
-      return;
-      saveTickBtn1.style.display = 'none';
-           let items = encodeDATA.children,row,kids,kid;
-           let tkr,price,ath,item=null;
-           ai_ledger.ticks = []; //CLEAR LEDGER.
-           for(var i=0; i<items.length;i++){ //LOOP DOM ROWS
-            item = items[i];
-            if(item.classList.contains('genRow1')){ //todo FORM remove btns
-               kids = item.children;
-               tkr = '';price='',ath='';//blank row.
-               for(var j=0; j<kids.length;j++){ //LOOP ROW ITEMS
-                  kid = kids[j];
-                  if(kid.classList.contains('genTicker1')){
-                     kid.value = kid.value.toUpperCase();
-                     tkr = kid.value;
-                     continue;
-                  } if(kid.classList.contains('tkrPriceBOX1')){
-                     price = kid.children[0].value;
-                     // price_label = kid.innerHTML;
-                     price_ymd = kid.children[1].value;
-                     continue;
-                  } if(kid.classList.contains('tkrATHBOX1')){
-                     ath = kid.children[0].value;
-                     ath_ymd = kid.children[1].value;
-                     continue;                  
+         //SAVE & RELOAD VIEW
+         showErrorMSG('🦕 Saved. ');
+         localStorage.ai_storyz = JSON.stringify(ai_storyz) //SAVE to LOCAL STORAGE
+         generateStoryClick(); //RELOAD VIEW. 
+         break;
+      }
+   }
+   if(!storyzSelected.length && detChecks.length){ // DETAIL ROW SELECTION
+      for(let j=0; j<detChecks.length;j++){
+         if(detChecks[j].checked){
+            detSelected.push(detChecks[j])
+            let tID = detChecks[j].tID
+            let sID = detChecks[j].parentElement.parentElement.parentElement.parentElement.sID;
+            for(var k=0; k<ai_storyz.length;k++){ //DELETE MONTH DATA
+               if(ai_storyz[k].sID===sID){
+                  for(var m=0; m<ai_storyz[k].txtz.length;m++){ //DELETE MONTH DATA
+                     if( tID === ai_storyz[k].txtz[m].tID ){       
+                        ai_storyz[k].txtz.splice(m,1) //remove data
+                        break;
+                     }
                   }
                }
             }
-            if(tkr){
-               let tickObj = new Object();
-               tickObj.tick = tkr;
-               if(price){tickObj.price = price}
-               if(ath){tickObj.ath = ath}
-               if(ath_ymd){tickObj.ath_ymd = ath_ymd}
-               if(price_ymd){tickObj.price_ymd = price_ymd}
-               ai_ledger.ticks.push(tickObj)
-            }
-           }
-           //SAVE to LOCAL STORAGE
-           localStorage.ai_ledger = JSON.stringify(ai_ledger)  
-           initEncode(); //RELOAD VIEW.          
-}//end storyz save click
+            //SAVE & RELOAD VIEW
+            showErrorMSG(' Saved🦖 ');
+            localStorage.ai_storyz = JSON.stringify(ai_storyz) //SAVE to LOCAL STORAGE
+            generateStoryClick(); //RELOAD VIEW. 
+            break;
+         }
+      }
+   } 
+   if(!storyzSelected.length && !detSelected.length){showErrorMSG(' Nothing selected 😵'); return;}
+} //end storyz delete
+
+const storyzSaveClick = () => {
+   let storyzBoxes = document.getElementById('storyzFRAME').children
+   let rowItem,kids,kid;
+   let saveTGT;
+   let storyTXT;
+   let save_storyz = [], save_story={};
+   try{     
+      for(var i=0; i<storyzBoxes.length;i++){ //LOOP QUARTER BOX
+         storyBOX = storyzBoxes[i];
+      if(storyBOX.classList.contains('storyzBOX')){
+         kids = storyBOX.children;
+         for(var j=0;j<kids.length;j++){ //ROW of storyz LOOP
+            kid = kids[j];
+            save_story = {}; //new object
+            if(kid.classList.contains('storyzHeader')){ 
+               storyTXT = kid.children[1].value.toUpperCase();
+               storyREF = kid.children[1].uID;
+               saveTGT = {title:storyTXT}
+               expand1 = (kid.children[2].innerHTML === '💨')? true : false;
+               saveTGT.expanded = expand1;
+               //GET EVENT
+               for(let aa=0; aa<ai_storyz.length; aa++){
+                  if(storyREF===ai_storyz[aa].title){
+                     // {"expanded":true,"sID":4,"title":"Q#_YEAR_JAN","type":"...","
+                     // txtz":[{"tID":1,"title":"new","txt":"describe...","ymd":"2023_12_18"}
+                     saveTGT.sID = aa+1; //ai_storyz[aa].qID ||
+                     saveTGT.title = storyTXT;
+                     // saveTGT.title = ai_storyz[aa].title;
+                     // saveTGT.type = ai_storyz[aa].type;
+                     if(saveTGT.expanded){
+                        saveTGT.txtz = [];
+                     } else {
+                        saveTGT.txtz = ai_storyz[aa].txtz;
+                     }
+                     // saveTGT.storyz = (expand1)? [] : ai_storyz[aa].storyz || [];
+                     break;
+                  }
+               }
+            } // END HEADER
+            // else if(kid.classList.contains('storyzROW')){
+            else if(kid.id==='storyzROW'){
+               // if(kid.children.length===0){ // NO MONTHBOX data, COLLAPSED.
+//                   save_schedule.quarters[qtrTXT] = ai_schedule.quarters[qtrTXT]
+//                   continue; //DO NOT SAVE, use saved data, since it is collapsed.
+               // } 
+               for(var k=0; k<kid.children.length;k++){ //POPULATE DATA from VIEW.
+                  rowItem = kid.children[k]
+                  if(rowItem.id==='storyzNUMBOX1'){
+                     save_story.tID = rowItem.children[0].children[0].tID
+                  }
+                  else if(rowItem.id==='storyzTitle'){
+                     save_story.title = rowItem.value;
+                  }
+                  else if(rowItem.id=== 'storyzDate1'){
+                     save_story.ymd = rowItem.value;
+                  }
+                  else if(rowItem.id === 'storyzTXTArea'){
+                     save_story.txt = rowItem.value
+                  }
+               } //END ROW DATA
+               saveTGT.txtz.push(save_story)
+            } //end storyz ROW
+         } // ROW of storyz LOOP
+         save_storyz.push( saveTGT )
+         } // IF storyzBOX
+      } //END storyz BOX LOOP
+   } //end TRY
+   catch(e){
+      console.log('err in save',e)
+      showErrorMSG('⚔️ ERR ⚔️'); 
+      return;
+   }
+   if(save_storyz){
+      //SAVE to LOCAL STORAGE
+      ai_storyz = save_storyz;
+      localStorage.ai_storyz = JSON.stringify(ai_storyz) 
+      generateStoryClick(); //RELOAD VIEW.  
+      showErrorMSG('⚔️ SAVED ⚔️');
+   }  
+} //end storyz save click
+
             // eventz FORM ----------------------------------------
          // selector, id, tick, type_select,  expand/contract   addEventBtn
          // ymd_eventz , TOP_AMT TOP_YMD
@@ -3989,6 +4014,8 @@ const storyzSaveClick = () => {
          storyz = storyzSet[i];
 
          storyzBOX = document.createElement('section')
+         storyzBOX.sID = i+1;
+         storyz.sID = i+1;
          storyzBOX.classList.add('storyzBOX')
 
          storyzHeader = document.createElement('aside')
@@ -4002,12 +4029,11 @@ const storyzSaveClick = () => {
          storyzNUMBOX0.classList.add('capsNUMBOX0');
          storyzCHECKBOX0 = document.createElement('label')
          storyzCHECKBOX0.classList.add('checkboxFrame') 
-         // storyzNUMBOX0.innerHTML=i+0;            
          storyzSelect0 = document.createElement('input');
-         // storyzSelect0.ymdt = 4;// storyz.qID || '';
          storyzSelect0.type = "radio";
          storyzSelect0.name = "storyzMasterRadio";
-         storyzSelect0.classList.add('cap_checkmark')
+         storyzSelect0.sID = i+1;
+         storyzSelect0.classList.add('storyz_checkmark')
          storyzCHECKBOX0.appendChild(storyzSelect0)
          storyzCheckMark0 = document.createElement('span')
          storyzCheckMark0.classList.add('checkmark')
@@ -4020,12 +4046,10 @@ const storyzSaveClick = () => {
          storyzTXT = document.createElement('input')
          storyzTXT.classList.add('storyzTXT')
          storyzTXT.placeholder="Q#_YYYY_JAN"
-         storyzTXT.value = storyz.title;//.storyzID.toUpperCase();
+         storyzTXT.value = storyz.title.toUpperCase();//.storyzID.toUpperCase();
+         storyzTXT.uID = storyzTXT.value;//for unique ref.
          storyzTXT.addEventListener("keyup",(e)=>{ 
             storyzSaveClick(e);
-            // saveScheduleBtn1.style.display = 'block'; 
-            // debugger;
-            // e.target.parentElement.children[4].classList.remove('hiddenBtn1')
          }); 
 
          expandBtn1 = document.createElement('button')
@@ -4061,26 +4085,30 @@ const storyzSaveClick = () => {
          // });    
 
          if(storyz.expanded){
-               expandBtn1.innerHTML = '💨'
-               if(storyz.txtz){
+            expandBtn1.innerHTML = '💨'
+            if(storyz.txtz){
                for(let j=0;j<storyz.txtz.length;j++){  //SUBLIST LOOP .
                storyzData = storyz.txtz[j];
+               storyzData.eID = j+1;
                storyzROW = document.createElement('aside')
+               storyzROW.id = 'storyzROW';
                storyzROW.classList.add('eventzROW')
                //**********************************************selector
                storyzNUM1 = document.createElement('div');
                storyzNUM1.classList.add('eventzNUM1')
+               // storyzNUM1.eID = 
                storyzNUM1.innerHTML = "e"+(j+1);
                storyzNUMBOX1 = document.createElement('aside')
                storyzNUMBOX1.classList.add('capsNUMBOX3');
+               storyzNUMBOX1.id = 'storyzNUMBOX1';
                storyzCHECKBOX1 = document.createElement('label')
                storyzCHECKBOX1.classList.add('checkboxFrame') 
-               // storyzNUMBOX1.innerHTML=i+1;            
                storyzSelect1 = document.createElement('input');
-               // storyzSelect1.ymdt = 4;// storyz.qID || '';
+               storyzSelect1.id = 'storyzSelect1';
+               storyzSelect1.tID = j+1;
                storyzSelect1.type = "radio";
                storyzSelect1.name = "storyzDetailsRadio";
-               storyzSelect1.classList.add('cap_checkmark')
+               storyzSelect1.classList.add('storyz_checkmark')
                storyzCHECKBOX1.appendChild(storyzSelect1)
                storyzCheckMark1 = document.createElement('span')
                storyzCheckMark1.classList.add('checkmark')
@@ -4091,6 +4119,7 @@ const storyzSaveClick = () => {
                // end ************************************** selector
                //STORY_SUB_TITLE
                storyzTitle = document.createElement('input')
+               storyzTitle.id = 'storyzTitle';
                storyzTitle.classList.add('eventzTitle')
                storyzTitle.value = storyzData.title || 0;
                storyzTitle.addEventListener("keyup",(e)=>{ 
@@ -4099,6 +4128,7 @@ const storyzSaveClick = () => {
                
                //STORY_TXT AREA
                storyzTXTBOX = document.createElement('textarea')
+               storyzTXTBOX.id = 'storyzTXTArea'
                storyzTXTBOX.classList.add('scrollBarV')
                storyzTXTBOX.classList.add('textareaBOX')
                storyzTXTBOX.spellcheck = false;
@@ -4109,6 +4139,7 @@ const storyzSaveClick = () => {
                
                //EVENT_DATE
                date1 = document.createElement('input')
+               date1.id = 'storyzDate1'
                date1.value = storyzData.ymd;
                date1.classList.add('detailDate2')
                date1.addEventListener("keyup",(e)=>{ 

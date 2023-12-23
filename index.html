@@ -36,7 +36,7 @@ hr{border-top: solid 1px cadetblue;
    float: right;
    margin-right: 2%;cursor:pointer;
    font-size: 0.777em;
-   margin-top: 2px; 
+   margin-top: 0.555em; 
    padding:0.222em;
    padding-left: 0.666em;color:#012d56;padding-right: 0.444em;
    padding-bottom: 0.444em;
@@ -93,11 +93,11 @@ hr{border-top: solid 1px cadetblue;
 }
 #saveTickBtn1{border-radius:13px;background:#d1d67b;float: right;
    margin-right: 2%;cursor:pointer;display:none;
-   font-size: 0.777em;margin-top: 0.888em;
+   font-size: 0.777em;
 }
 #saveSpotBtn1{border-radius:13px;background:#d1d67b;float: right;
    margin-right: 2%;cursor:pointer;display:none;
-   font-size: 0.777em;margin-top: 0.888em;
+   font-size: 0.777em;
 }
 .yellowBtn1{border-radius:13px;background:#d1d67b;float: right;
    margin-right: 2%;cursor:pointer;display:none;
@@ -185,7 +185,7 @@ hr{border-top: solid 1px cadetblue;
    color: cyan;
    padding: 0 0.444em;
    text-align: center;
-   max-width: 34px;
+   max-width: 50px;
    height: 16px;
    margin-bottom: -1px;
    border: 1px solid steelblue;}
@@ -219,7 +219,7 @@ hr{border-top: solid 1px cadetblue;
    color: #136567;
    padding: 0 0.444em;
    text-align: center;
-   max-width: 44px;
+   max-width: 50px;
    height: 16px;
    margin-bottom: -1px;
    border: 1px solid steelblue;}
@@ -234,6 +234,7 @@ hr{border-top: solid 1px cadetblue;
    max-height: 24px;
    align-items: center;
    text-align: right;
+   width:fit-content;
 }
 .tkrATHData1{    border-radius: 8px;
    font-size: 0.999em;
@@ -241,21 +242,25 @@ hr{border-top: solid 1px cadetblue;
    color: cyan;
    padding: 0 0.444em;
    text-align: center;
-   max-width: 34px;
+   max-width: 50px;
    height: 16px;
    margin-bottom: -1px;
    border: 1px solid steelblue;}
 .tkrATHDate1{    border-radius: 8px;
    font-size: 0.999em;
-   background: #02184b;
-   color:#546a9b;
    padding: 0 0.444em;
    text-align: center;
    max-width: 45px;
    height: 16px;
-   font-size: 0.555em;
    margin-bottom: -1px;
-   border: 1px solid steelblue;}
+   background: transparent;
+    border: none;
+    font-size: 0.6em;
+    color: cadetblue;
+    background: #02184b;
+    margin-top: 0.222em;
+    min-width: 7em;
+}
 
 
 .spotATHBOX1{border-radius: 8px;
@@ -307,7 +312,7 @@ hr{border-top: solid 1px cadetblue;
    color: cyan;
    padding: 0 0.444em;
    text-align: center;
-   max-width: 44px;
+   max-width: 50px;
    height: 16px;
    margin-bottom: -1px;
    border: 1px solid steelblue;}
@@ -456,9 +461,9 @@ flex-direction: column;
    margin-top:2em;
    background:#2c263d;
    border-radius: 13px;
-   padding-top:0.555em;
+   padding-top:0.222em;
    box-shadow: inset 0px 1px 8px 0px #a44ba9;
-   
+   padding-left: 3%;
 }
 .trimTick{
    font-family: sans-serif;
@@ -651,7 +656,7 @@ flex-direction: column;
       #keyINPUT:-webkit-autofill { -webkit-box-shadow: 0 0 0px 1000px #233453 inset;}
 
 
-      #scrollFrame{width: 88%; }  
+      #scrollFrame{width: 88%; padding-top:2.666%}  
       /*  custom scroll bar */
       .scrollBarV {height:97%; overflow-x:scroll; background:#010111; border: 1px steelblue solid; border-radius:13px;}
       .scrollBarV::-webkit-scrollbar-track { background-color: #010213;  border-radius: 13px; }
@@ -963,7 +968,7 @@ align-items: center;">
 
       <section id="encodeBOX"
         style="width:80.888%; flex:1;border-radius: 13px; border: solid 1px steelblue; 
-        box-shadow: inset 1px 1px 11px 0px cyan; padding:2%; color: cyan; line-height: 2.444em;">
+        box-shadow: inset 1px 1px 11px 0px cyan; padding:2%;padding-top: 3%;padding-left:4%; color: cyan; line-height: 2.444em;">
         <button id="latestBtn1" class="genBtn1" style="display:none;float:right" onclick="getLatestTickerClick()">latest🔄</button>
         <span class="boxTitle">🎯 <span style="font-size:0.777em; color:cyan">1</span>
          <span style="font-size:0.555em">Encode</span>
@@ -979,7 +984,7 @@ align-items: center;">
          </section>
       <section id="decodeBOX"
          style="width:80.888%; flex:1;background: #0a0014;border-radius: 13px; border: solid 1px steelblue; box-shadow: 0px 7px 20px 6px #39029e;
-        padding: 2%; color: cyan; line-height: 2.444em;">
+        padding: 2%;padding-left:4%;padding-top: 3%; color: cyan; line-height: 2.444em;">
         
         <span class="boxTitle">🎲 <span style="font-size:0.777em; color:cyan">2</span>
          <span style="font-size:0.555em">Decode</span>
@@ -996,7 +1001,8 @@ align-items: center;">
 
       <section id="allMarginsBOX"
          style="width:80.888%; flex:1;background:#071936;border-radius: 13px; border: solid 1px #4ba1a9; 
-         box-shadow: inset 0px 1px 20px 0px #023e16;padding: 4% 0 2% 4%; color: #47c270; line-height: 2.444em;" 
+         box-shadow: inset 0px 1px 20px 0px #023e16;padding: 2%;padding-left:4%;padding-top: 3%;
+          color: #47c270; line-height: 2.444em;" 
          ">
          <button id=expandCollapseBtn3 class="expandCollapseBtn1" onclick="marginsExpandCollapseClick()">🕸️</button>
          <!-- <button id="generateMarginsBtn" class="genReportBtn1" onclick="initMarginsClick()">gener8🎰</button> -->
@@ -1015,7 +1021,8 @@ align-items: center;">
       </section>
       <section id="scheduleBOX"
         style="width:80.888%; flex:1;background:#0e0015;border-radius:13px; 
-        border:#f46f05;box-shadow:inset 0px 0px 7px 0px #f0ae02;padding: 4% 0 4% 4%; color: #b19f50; line-height: 2.444em;">
+        border:#f46f05;box-shadow:inset 0px 0px 7px 0px #f0ae02;padding: 2%;padding-top: 3%;
+        padding-left:4%; color: #b19f50; line-height: 2.444em;">
         <!-- <button id="generateScheduleBtn" class="genReportBtn1" onclick="generateScheduleClick()">gener8📉</button> -->
         <button id=expandCollapseBtn4 class="expandCollapseBtn1" onclick="capsExpandCollapseClick()">🕸️</button>        
         <span class="boxTitle">🔔 
@@ -1034,13 +1041,15 @@ align-items: center;">
            <button id="padScheduleBtn1" class="genBtn1" onclick="padScheduleClick()">pad🐒</button>
            <button id="detailsBtn2" class="genReportBtn2" style="display:block;" onclick="setScheduleDetailsClick(event)">details🔬</button> 
            <button id="totalsBtn2" class="genReportBtn2" style="display:none;" onclick="setScheduleDetailsClick(event)">brief🔭</button> 
-           <button id="addScheduleBtn" class="addBtn1" onclick="addScheduleClick()">add qrtr👻</button>
+           <button id="addScheduleBtn" class="addBtn1" style="margin-top: 0.888em;margin-right: 1%;" onclick="addScheduleClick()">
+            add qrtr👻</button>
            <button id="saveScheduleBtn1" class="yellowBtn1" onclick="saveScheduleClick()">save⚓</button>
          </article>
       </section>
       <section id="padSequenceBOX"
          style="width:80.888%; flex:1;background:#100601;border-radius: 13px; border: solid 1px #a9754b;
-         box-shadow: 1px 2px 11px 0px #f09f02;padding: 4% 0 4% 4%; color:#b5997d; line-height: 2.444em;">
+         box-shadow: 1px 2px 11px 0px #f09f02;padding: 2%; padding-left:4%;padding-top: 3%;
+         color:#b5997d; line-height: 2.444em;">
          <!-- <button id="generatePadSequencesBtn" class="genReportBtn1" onclick="generateEVTZClick()">gener8🎈</button> -->
          <button id=expandCollapseBtn5 class="expandCollapseBtn1" onclick="eventzExpandCollapseClick()">🕸️</button>
          <span class="boxTitle">💡 
@@ -1060,7 +1069,8 @@ align-items: center;">
       </section>
       <section id="reviewPreviewBOX"
          style="width:80.888%; flex:1;background:#070c36;border-radius: 13px; border: solid 1px #a44ba9; 
-         box-shadow:inset 0px 0px 11px 0px #5e336d;padding: 4% 0 4% 4%; color: #917db5; line-height: 2.444em;">
+         box-shadow:inset 0px 0px 11px 0px #5e336d;padding: 2%; padding-left:4%;padding-top: 3%;
+         color: #917db5; line-height: 2.444em;">
          <!-- <button id="generateReviewPreviewsBtn" class="genReportBtn1" onclick="generateStoryClick()">gener8🎬</button> -->
          <button id=expandCollapseBtn6 class="expandCollapseBtn1" onclick="storyzExpandCollapseClick()">🕸️</button>
          <span class="boxTitle">🌪️ 
@@ -1078,7 +1088,7 @@ align-items: center;">
       </section>
       <section id="historyBOX"
         style="width:80%;flex:1; background: #010301; border-radius: 13px; border: solid 1px darkgreen; box-shadow: 0px 7px 20px 0px #029e4a;
-        padding: 4% 0 4% 4%; color: cyan; line-height: 2.444em;">
+        padding: 2%; padding-left:4%; padding-top: 3%; color: cyan; line-height: 2.444em;">
         <!-- <button id="generateProfitBtn" class="genReportBtn1" onclick="generateProfitLossClick()">gener8🏰</button> -->
         <button id=expandCollapseBtn7 class="expandCollapseBtn1" onclick="totalzExpandCollapseClick()">🕸️</button>
         <span class="boxTitle">🌊 
@@ -1108,7 +1118,7 @@ align-items: center;">
         color: steelblue; line-height: 3.222em;
     font-family: verdana; font-size: 0.888em;     font-weight: bold;
         ">
-        <button id="openBtn1" class="genReportBtn1" onclick="openBtnClick()">show💠</button>        
+        <button id="openBtn1" class="genReportBtn1" style="margin-top: 1em;" onclick="openBtnClick()">show💠</button>        
         <span class="boxTitle">💡 Instructions:</span><br>
       <article id="instructionText">
         <hr>   
@@ -2838,6 +2848,7 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
    \************************************************/
 
    const addEVTZMilestoneClick=()=>{
+      ai_ledger.eventz_expanded = true;
       evtzRow1 = document.createElement('article')
       evtzRow1.classList.add('addEVTZRow1')
 
@@ -3797,7 +3808,7 @@ const ai_storyz_LOAD_MOCK_DATA=()=>{ //READ
 const ai_storyz_init=()=>{ //READ from LOCAL STORAGE
    ai_storyz = (localStorage.ai_storyz)?
       JSON.parse( localStorage.ai_storyz ):null;
-   // ai_storyz = null; //test mock data
+   ai_storyz = null; //test mock data
    if(!ai_storyz){
       ai_storyz_LOAD_MOCK_DATA();
    }
@@ -3819,6 +3830,7 @@ const ai_storyz_init=()=>{ //READ from LOCAL STORAGE
 
    const addStoryBOXClick = (storyBOXID) =>{
          // saveScheduleClick();//FIX: save first for bug on double create row, keeps first row tickr.
+         ai_ledger.storyz_expanded = true;
          let newStory = {}
             newStory.expanded = true;
             newStory.sID = ai_storyz.length+1;

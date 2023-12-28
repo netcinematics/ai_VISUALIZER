@@ -77,6 +77,17 @@ hr{border-top: solid 1px cadetblue;
    margin-right: 2%;
    margin-left: 1%;
 }
+.expandCollapseBtn0{
+   border-radius:13px;background:#d1d67b;
+   cursor:pointer; margin:1em 0 1em 0;
+   font-size: 0.777em;
+   background: cadetblue;
+   border-radius: 13px;
+   max-width: 9em;
+   float:right;
+   margin-right: 2%;
+   margin-left: 1%;
+}
 .expandCollapseBtn1{
    border-radius:13px;background:#d1d67b;
    cursor:pointer; margin:1em 0 1em 0;
@@ -196,11 +207,14 @@ hr{border-top: solid 1px cadetblue;
    color: #546a9b;
    padding: 0 0.444em;
    text-align: center;
-   max-width: 45px;
+   max-width: 50px;
    height: 16px;
    font-size: 0.555em;
    margin-bottom: -1px;
-   border: 1px solid steelblue;}
+   border: none;
+   color: cadetblue;
+   font-size: 0.6em;
+}
 
 .spotamountBOX1{border-radius: 8px;
    font-size: 0.777em;
@@ -450,6 +464,13 @@ flex-direction: column;
    background:#1b0227;
    border-radius: 13px;
 }
+.QuickQuarterBOX{
+   display: flex;
+flex-direction: column;
+   margin-top:0.111em;
+   background:#010e14;
+   border-radius: 13px;
+}
 
 .storyzHeader{display:flex;    
    justify-content: space-between; 
@@ -614,6 +635,11 @@ flex-direction: column;
     margin-top: 6px;
 }
 .capROW{
+   display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;    margin: 0 10px; 
+}
+.QuickROW{
    display: flex;
     justify-content: space-between;
     flex-wrap: wrap;    margin: 0 10px; 
@@ -879,6 +905,9 @@ border-radius:13px;
          }  
          #scrollFrame{width: 95%; }       
          .boxTitle{font-size:0.777em}
+         #appFooter{
+            font-size: 0.666em;
+         }
       }
 
      </style>
@@ -965,6 +994,48 @@ border-radius:13px;
 <article id="scrollFrame" class="scrollBarV" style="overflow:auto;    display: flex;
 flex-direction: column; max-width: 777px;
 align-items: center;">
+
+
+      <section id="QuickBOX"
+        style="width:80.888%; flex:1;    background: #001512;
+        border-radius: 13px;
+        border: #35f405;
+        box-shadow: inset 0px 0px 7px 0px #02f048;padding: 2%;padding-top: 3%;
+        padding-left:4%; color: #b19f50; line-height: 2.444em;">
+        <button id=expandCollapseBtn0 class="expandCollapseBtn1" onclick="ExpandCollapseQuickClick()">🕸️</button>        
+        <span class="boxTitle">🦁 
+         <span style="font-size:0.777em; color:cyan">0</span>
+         <span style="font-size:0.555em">Quick</span>
+         <span style="font-size: 1.222em;color:cyan;font-family: monospace;">TRIM & PAD</span>
+         <span style="font-size:0.555em"> 🐇(viewz)🐒</span>
+        </span><br>
+        <article>
+           <hr>   
+           <section id="generatedQuickBOX"></section>
+           <hr>   
+           <button class="delBtn1"  style="float:right;margin-top:0.888em;margin-right:4%;"  
+           onclick="deleteSelectedQuick(event)">🗑️</button> 
+           <!-- <button id="trimQuickBtn" class="genBtn1" onclick="trimQuickClick()">trim🐇</button> -->
+           <!-- <button id="padQuickBtn1" class="genBtn1" onclick="padQuickClick()">pad🐒</button> -->
+           <!-- <button id="detailsBtn2" class="genReportBtn2" style="display:block;" onclick="setQuickDetailsClick(event)">details🔬</button>  -->
+           <!-- <button id="totalsBtn2" class="genReportBtn2" style="display:none;" onclick="setQuickDetailsClick(event)">brief🔭</button>  -->
+           <button id="addQuickBtn" class="addBtn1" style="margin-top: 0.888em;margin-right: 1%;" onclick="addQuickSectionClick()">
+            add qrtr👻</button>
+           <button id="saveQuickBtn1" class="yellowBtn1" onclick="saveQuickClick()">save⚓</button>
+         </article>
+      </section>
+
+<!-- 
+   #QuickBOX
+   #generatedQuickBOX 
+generateScheduleClick   
+quickExpandCollapseClick
+deleteSelectedQuick
+trimQuickClick
+padQuickClick
+setQuickDetailsClick
+addQuickDetailsClick
+-->
 
       <section id="encodeBOX"
         style="width:80.888%; flex:1;border-radius: 13px; border: solid 1px steelblue; 
@@ -1135,9 +1206,17 @@ align-items: center;">
 
         4. Try to see clear distinction between
         
-        - buyRED or cutLOSS
+         RULES:
+         DETERMINE MARKET MID, HI, LO.
+         Important change of behaviors for HI or LO.
+         HI_MARKET = LOWER_CAPS. TRIM_TOP. SMALLER PADS. Avoid hidry greed fomo.
+         LO_MARKET = HIGHER_CAPS. PAD_LOW, LARGER PADS. Avoid freeze fear fogl.
 
-        - upsideHEDGE or
+        - buyRED or cutLOSS
+        
+        - upsideHEDGE or hidry bet.
+
+
 
         - TRIM_HIGHER_HIGHS and PAD_LOWER_LOWS
 
@@ -1484,29 +1563,34 @@ align-items: center;">
         <button class="subMenuBtn" onclick="endlineFn()">🔣.,_?!</button>
         <button class="subMenuBtn" onclick="quotelineFn()">*️⃣quote</button>
     </menu> -->
-      <footer style="display:flex;justify-content:space-evenly;width:90%;margin:0 auto; 
+      <footer id="appFooter" style="display:flex;justify-content:space-evenly;width:90%;margin:0 auto; 
       margin-bottom:0.666%; flex: 0 0 auto;    margin-top: 0.555em;
       background-image: linear-gradient(grey, steelblue, black);
       box-shadow:0 0 14px 0px steelblue;border-radius:13px;">
        <button onclick="copyLedgerFn()" class="btmBtns1" style="border-radius:8px;background:grey;
           cursor:pointer;box-shadow: inset -1px -1px 4px 1px gold;">
           <span style="border-radius:100%;background:gold;border:1px solid grey;">
-            💾</span> <span class="btnTXT hoverTXT">COPY LEDGER</span>
+            💾</span> <span class="btnTXT hoverTXT">CHAT LEDGER</span>
        </button>
        <button onclick="copyHistoryFn()" class="btmBtns1" style="border-radius:8px;background:grey;
           cursor:pointer;box-shadow: inset -1px -1px 4px 1px orangered;">
           <span style="border-radius:100%;background:orangered;border:1px solid grey;">
-            📋</span> <span class="btnTXT hoverTXT">COPY HISTORY</span>
+            📋</span> <span class="btnTXT hoverTXT">CHAT HISTORY</span>
        </button>
       <button onclick="copyScheduleFn()" class="btmBtns1" style="border-radius:8px;background:grey;
          cursor:pointer;box-shadow: inset -1px -1px 4px 1px rgb(51, 153, 109);">
          <span style="border-radius:100%;background:rgb(51, 153, 99);border:1px solid grey;">
-            🍧</span> <span class="btnTXT hoverTXT">COPY CAPS</span>
+            🍧</span> <span class="btnTXT hoverTXT">CHAT CAPS</span>
+      </button>
+      <button onclick="copyMilestonesFn()" class="btmBtns1" style="border-radius:8px;background:grey;
+         cursor:pointer;box-shadow: inset -1px -1px 4px 1px rgb(51, 87, 153);">
+         <span style="border-radius:100%;background:rgb(51, 88, 153);border:1px solid grey;">
+            🍬</span> <span class="btnTXT hoverTXT">CHAT EVENTS</span>
       </button>
       <button onclick="copyStoryzFn()" class="btmBtns1" style="border-radius:8px;background:grey;
-         cursor:pointer;box-shadow: inset -1px -1px 4px 1px rgb(51, 153, 109);">
-         <span style="border-radius:100%;background:rgb(51, 153, 99);border:1px solid grey;">
-            🍧</span> <span class="btnTXT hoverTXT">COPY STORY</span>
+         cursor:pointer;box-shadow: inset -1px -1px 4px 1px rgb(68, 51, 153);">
+         <span style="border-radius:100%;background:rgb(61, 51, 153);border:1px solid grey;">
+            🎈</span> <span class="btnTXT hoverTXT">CHAT STORY</span>
       </button>
        <button onclick="resetAllFn()" class="btmBtns1" style="border-radius:8px;background:grey;
           cursor:pointer;box-shadow: inset -1px -1px 4px 1px rebeccapurple;">
@@ -1516,7 +1600,7 @@ align-items: center;">
       </footer>
       <legal style="color:darkslategray;font-size: 0.666em;">copyright 2020-2023 netcinematics llc, all rights reserved.
         this is a personal ledger system, not financial advice. 
-        It is not intended for day trading use, but quarterly and monthly review.
+        Not for day trading use, but quarterly review. Technical Research, of ai experiment to generate actual_intelligence from artificial-intelligence.
       </legal>
 <script>
    const currentDate = new Date();
@@ -1537,6 +1621,7 @@ align-items: center;">
    let decodeBOX = document.getElementById('decodeBOX');
    let decodeSPOTZ = document.getElementById('decodeSPOTZ');
    let scheduleBOX = document.getElementById('scheduleBOX')
+   let QuickBOX = document.getElementById('QuickBOX')
    let allMarginsBOX = document.getElementById('allMarginsBOX')
    let reviewPreviewBOX = document.getElementById('reviewPreviewBOX')
    let padSequenceBOX = document.getElementById('padSequenceBOX')
@@ -1547,6 +1632,7 @@ align-items: center;">
    let evtzSaveBtn5 = document.getElementById('evtzSaveBtn5');
 
    let generatedScheduleBOX = document.getElementById('generatedScheduleBOX');         
+   let generatedQuickBOX = document.getElementById('generatedQuickBOX');         
    let generatedProfitsBOX = document.getElementById('generatedProfitsBOX');
    let generatedMarginsBOX = document.getElementById('generatedMarginsBOX');
    let generatedPreviewBOX = document.getElementById('generatedPreviewBOX');         
@@ -1560,6 +1646,7 @@ align-items: center;">
    let openBtn1 = document.getElementById('openBtn1');
    
    //EXPANDCOLLAPSE
+   let expandCollapseBtn0 = document.getElementById('expandCollapseBtn0');
    let expandCollapseBtn1 = document.getElementById('expandCollapseBtn1');
    let expandCollapseBtn2 = document.getElementById('expandCollapseBtn2');
    let expandCollapseBtn3 = document.getElementById('expandCollapseBtn3');
@@ -1577,25 +1664,6 @@ align-items: center;">
    let current_PRICE = 0;
 
 /************************************************\
- * - AI_LEDGER - ability to save in localstorage
- * ***********************************************/
-// let ai_ledger=null;
-// let ai_ticks=[],ai_spots=[];
-// let ai_tick={}, ai_spot={};
-// let ai_ledger_LOAD_from_LOCALSTORAGE=()=>{ //READ from LOCAL STORAGE
-//    // ai_ledger = null; //DEV load mock data
-//    ai_ledger = (localStorage.ai_ledger)?
-//       JSON.parse( localStorage.ai_ledger ):null;
-//    if(!ai_ledger){ ai_ledger_LOAD_MOCK_DATA(); }
-// }; ai_ledger_LOAD_from_LOCALSTORAGE();
-
-// let ai_ledger_LOAD_MOCK_DATA=()=>{ //READ from OBJ
-   // ai_ledger = {"ticks":[{"tick":"NVDA","price":"474","ath":"505","ath_ymd":"2023_08_31","price_ymd":"2023_12_11"},{"tick":"MDB","price":"381","ath":"569","ath_ymd":"2021_09_19","price_ymd":"2023_12_11"},{"tick":"MSFT","price":"373","ath":"371","ath_ymd":"2023_07_14","price_ymd":"2023_12_11"},{"tick":"GOOGL","price":"134","ath":"150","ath_ymd":"2021_11_19","price_ymd":"2023_12_11"},{"tick":"QQQ","price":"392","ath":"400","ath_ymd":"2021_11_19","price_ymd":"2023_12_11"},{"tick":"XLK","price":"186","ath":"182","ath_ymd":"2023_07_18","price_ymd":"2023_12_11"},{"tick":"COIN","price":"147","ath":"105","ath_ymd":"2023_07_14","price_ymd":"2023_12_11"},{"tick":"V","price":"255","ath":"250","ath_ymd":"2023_09_13","price_ymd":"2023_12_11"},{"tick":"COST","price":"611","ath":"596","ath_ymd":"2022_04_08","price_ymd":"2023_12_11"},{"tick":"AMD","price":"129","ath":"130","ath_ymd":"2023_06_12","price_ymd":"2023_12_11"},{"tick":"TSLA","price":"243","ath":"300","ath_ymd":"2022_09_15","price_ymd":"2023_12_11"},{"tick":"META","price":"333","ath":"341","ath_ymd":"2023_11_22","price_ymd":"2023_12_11"},{"tick":"PINS","price":"34","ath":"46","ath_ymd":"2021_11_12","price_ymd":"2023_12_11"},{"tick":"FVRR","price":"26","ath":"46","ath_ymd":"2023_02_02","price_ymd":"2023_12_11"}],
-   // "spots":[{"tick":"NVDA","amount":"100","spot_at":"486","ymd":"2023_11_22","role":"WATCH"},{"tick":"NVDA","amount":"200","spot_at":"494","ymd":"2023_11_17","role":"LONG"},{"tick":"NVDA","amount":"200","spot_at":"412","ymd":"2023_10_20","role":"LOrLO"},{"tick":"NVDA","amount":"300","spot_at":"459","ymd":"2023_10_10","role":"LONG"},{"tick":"MDB","amount":"200","spot_at":"333","ymd":"2023_09_21","role":"WATCH"},{"tick":"V","amount":"200","spot_at":"232","ymd":"2023_10_24","role":"HOLD"},{"tick":"GOOGL","amount":"500","spot_at":"130","ymd":"2023_09_29","role":"TRIM"},{"tick":"QQQ","amount":"500","spot_at":"370","ymd":"2023_11_09","role":"TRIM"},{"tick":"XLK","amount":"300","spot_at":"168","ymd":"2023_09_18","role":"TRIM"},{"tick":"MSFT","amount":"100","spot_at":"330","ymd":"2023_10_26","role":"HOLD"},{"tick":"MSFT","amount":"200","spot_at":"316","ymd":"2023_10_02","role":"TRIM"},{"tick":"AMD","amount":"200","spot_at":"102","ymd":"2023_10_02","role":"LONG"},{"tick":"TSLA","amount":"100","spot_at":"235","ymd":"2023_11_30","role":"PAD"},{"tick":"FSLR","ymd":"2023_11_30","role":"WATCH"},{"tick":"AMZN","ymd":"2023_11_30","role":"WATCH"},{"tick":"META","amount":"100","spot_at":"326","ymd":"2023_11_30","role":"PAD"}],
-   // "expanded":false}
-// }
-
-/************************************************\
  * - ai_ledger_MATRIX
  *  - ability to save quarterly NOTES in localstorage
 \************************************************/
@@ -1604,13 +1672,13 @@ const ai_ledger_LOAD_MOCK_DATA=()=>{ //READ
    ai_ledger = {"ticks":[{"tick":"NVDA","price":"474","ath":"505","ath_ymd":"2023_08_31","price_ymd":"2023_12_11"},{"tick":"MDB","price":"381","ath":"569","ath_ymd":"2021_09_19","price_ymd":"2023_12_11"},{"tick":"MSFT","price":"373","ath":"371","ath_ymd":"2023_07_14","price_ymd":"2023_12_11"},{"tick":"GOOGL","price":"134","ath":"150","ath_ymd":"2021_11_19","price_ymd":"2023_12_11"},{"tick":"QQQ","price":"392","ath":"400","ath_ymd":"2021_11_19","price_ymd":"2023_12_11"},{"tick":"XLK","price":"186","ath":"182","ath_ymd":"2023_07_18","price_ymd":"2023_12_11"},{"tick":"COIN","price":"147","ath":"105","ath_ymd":"2023_07_14","price_ymd":"2023_12_11"},{"tick":"V","price":"255","ath":"250","ath_ymd":"2023_09_13","price_ymd":"2023_12_11"},{"tick":"COST","price":"611","ath":"596","ath_ymd":"2022_04_08","price_ymd":"2023_12_11"},{"tick":"AMD","price":"129","ath":"130","ath_ymd":"2023_06_12","price_ymd":"2023_12_11"},{"tick":"TSLA","price":"243","ath":"300","ath_ymd":"2022_09_15","price_ymd":"2023_12_11"},{"tick":"META","price":"333","ath":"341","ath_ymd":"2023_11_22","price_ymd":"2023_12_11"},{"tick":"PINS","price":"34","ath":"46","ath_ymd":"2021_11_12","price_ymd":"2023_12_11"},{"tick":"FVRR","price":"26","ath":"46","ath_ymd":"2023_02_02","price_ymd":"2023_12_11"}],
    "spots":[{"tick":"NVDA","amount":"100","spot_at":"486","ymd":"2023_11_22","role":"WATCH"},{"tick":"NVDA","amount":"200","spot_at":"494","ymd":"2023_11_17","role":"LONG"},{"tick":"NVDA","amount":"200","spot_at":"412","ymd":"2023_10_20","role":"LOrLO"},{"tick":"NVDA","amount":"300","spot_at":"459","ymd":"2023_10_10","role":"LONG"},{"tick":"MDB","amount":"200","spot_at":"333","ymd":"2023_09_21","role":"WATCH"},{"tick":"V","amount":"200","spot_at":"232","ymd":"2023_10_24","role":"HOLD"},{"tick":"GOOGL","amount":"500","spot_at":"130","ymd":"2023_09_29","role":"TRIM"},{"tick":"QQQ","amount":"500","spot_at":"370","ymd":"2023_11_09","role":"TRIM"},{"tick":"XLK","amount":"300","spot_at":"168","ymd":"2023_09_18","role":"TRIM"},{"tick":"MSFT","amount":"100","spot_at":"330","ymd":"2023_10_26","role":"HOLD"},{"tick":"MSFT","amount":"200","spot_at":"316","ymd":"2023_10_02","role":"TRIM"},{"tick":"AMD","amount":"200","spot_at":"102","ymd":"2023_10_02","role":"LONG"},{"tick":"TSLA","amount":"100","spot_at":"235","ymd":"2023_11_30","role":"PAD"},{"tick":"FSLR","ymd":"2023_11_30","role":"WATCH"},{"tick":"AMZN","ymd":"2023_11_30","role":"WATCH"},{"tick":"META","amount":"100","spot_at":"326","ymd":"2023_11_30","role":"PAD"}],
    "asset_expanded":false,"spot_expanded":false,"margin_expanded":false,
-   "caps_expanded":false,"eventz_expanded":false,"totalz_expanded":false
+   "caps_expanded":false,"eventz_expanded":false,"totalz_expanded":false,"quick_expanded":false
    }   
 }
 const ai_ledger_init=()=>{ //READ from LOCAL STORAGE
    ai_ledger = (localStorage.ai_ledger)?
       JSON.parse( localStorage.ai_ledger ):null;
-   ai_ledger = null; //DEV: load mock data
+   // ai_ledger = null; //DEV: load mock data
    if(!ai_ledger){
       ai_ledger_LOAD_MOCK_DATA();
    }
@@ -1918,388 +1986,387 @@ let setAPIKEY = ()=>{
    if(keyINPUT.value){
          stock_api_key = keyINPUT.value;
       //  localStorage.stock_api_key = stock_api_key
-      //  debugger;
       getData_TestConnection();
       //  initLedger()
    }
 }
 
-      const addTickerClick = ()=>{ 
-         ai_ledger.asset_expanded = true;
-         initEncode();
-         // saveTickBtn1.style.display = 'block';
-         let encodeRow,tick1,priceData1,priceDate1,athData1,athDate1,athBOX1,saveBtn2;
-         encodeRow = document.createElement('article')
-         priceBOX1 = document.createElement('aside')
-         athBOX1 = document.createElement('aside')
-         priceBOX1.innerHTML="now&nbsp;"
-         athBOX1.innerHTML="ath&nbsp;"
-         tick1 = document.createElement('input')
-         priceData1 = document.createElement('input')
-         priceDate1 = document.createElement('input')
-         athData1 = document.createElement('input')
-         athDate1 = document.createElement('input')
-         saveBtn2 = document.createElement('button')
-         tick1.value = "";
-         tick1.readOnly = false;
-         tick1.placeholder = "ticker";
-         priceData1.placeholder = "$0";
-         priceDate1.placeholder = "yyyy_mm_dd";
-         athData1.placeholder = "$0";
-         athDate1.placeholder = "yyyy_mm_dd";
-         tick1.classList.add('genTicker1')
-         tick1.style.margin='1em 0 1em 0';
-         priceData1.classList.add('tkrPriceData1')
-         priceDate1.classList.add('tkrPriceDate1')
-         priceBOX1.classList.add('tkrPriceBOX1')
-         priceData1.style.margin='1em 0 1em 0';
-         priceDate1.style.margin='1em 0 1em 0';
-         athData1.classList.add('tkrATHData1') //todo remove genATH1 and rename
-         athDate1.classList.add('tkrATHDate1') //todo remove genATH1 and rename
-         athBOX1.classList.add('tkrATHBOX1')
-         athData1.style.margin='1em 0 1em 0';
-         athDate1.style.margin='1em 0 1em 0';
-         saveBtn2.innerHTML = 'save🌟'
-         saveBtn2.classList.add('saveBtn2')
-         saveBtn2.addEventListener("click",(e)=>{
-            saveTickerClick() });
-         athData1.addEventListener("keyup",(e)=>{
-            saveTickBtn1.style.display = 'block'; });
-         athDate1.addEventListener("keyup",(e)=>{
-            saveTickBtn1.style.display = 'block'; });
-         priceData1.addEventListener("keyup",(e)=>{
-            saveTickBtn1.style.display = 'block'; });
-         priceDate1.addEventListener("keyup",(e)=>{
-            saveTickBtn1.style.display = 'block'; });
-         encodeRow.classList.add('genRow1')
-         encodeRow.appendChild(tick1)
-         priceBOX1.appendChild(priceData1)
-         priceBOX1.appendChild(priceDate1)
-         encodeRow.appendChild(priceBOX1)
-         athBOX1.appendChild(athData1)
-         athBOX1.appendChild(athDate1)
-         encodeRow.appendChild(athBOX1)
-         encodeRow.appendChild(saveBtn2)
-         // encodeRow.appendChild(del1)
-         encodeDATA.appendChild(encodeRow)         
+const addTickerClick = ()=>{ 
+   ai_ledger.asset_expanded = true;
+   initEncode();
+   // saveTickBtn1.style.display = 'block';
+   let encodeRow,tick1,priceData1,priceDate1,athData1,athDate1,athBOX1,saveBtn2;
+   encodeRow = document.createElement('article')
+   priceBOX1 = document.createElement('aside')
+   athBOX1 = document.createElement('aside')
+   priceBOX1.innerHTML="now&nbsp;"
+   athBOX1.innerHTML="ath&nbsp;"
+   tick1 = document.createElement('input')
+   priceData1 = document.createElement('input')
+   priceDate1 = document.createElement('input')
+   athData1 = document.createElement('input')
+   athDate1 = document.createElement('input')
+   saveBtn2 = document.createElement('button')
+   tick1.value = "";
+   tick1.readOnly = false;
+   tick1.placeholder = "ticker";
+   priceData1.placeholder = "$0";
+   priceDate1.placeholder = "yyyy_mm_dd";
+   athData1.placeholder = "$0";
+   athDate1.placeholder = "yyyy_mm_dd";
+   tick1.classList.add('genTicker1')
+   tick1.style.margin='1em 0 1em 0';
+   priceData1.classList.add('tkrPriceData1')
+   priceDate1.classList.add('tkrPriceDate1')
+   priceBOX1.classList.add('tkrPriceBOX1')
+   priceData1.style.margin='1em 0 1em 0';
+   priceDate1.style.margin='1em 0 1em 0';
+   athData1.classList.add('tkrATHData1') //todo remove genATH1 and rename
+   athDate1.classList.add('tkrATHDate1') //todo remove genATH1 and rename
+   athBOX1.classList.add('tkrATHBOX1')
+   athData1.style.margin='1em 0 1em 0';
+   athDate1.style.margin='1em 0 1em 0';
+   saveBtn2.innerHTML = 'save🌟'
+   saveBtn2.classList.add('saveBtn2')
+   saveBtn2.addEventListener("click",(e)=>{
+      saveTickerClick() });
+   athData1.addEventListener("keyup",(e)=>{
+      saveTickBtn1.style.display = 'block'; });
+   athDate1.addEventListener("keyup",(e)=>{
+      saveTickBtn1.style.display = 'block'; });
+   priceData1.addEventListener("keyup",(e)=>{
+      saveTickBtn1.style.display = 'block'; });
+   priceDate1.addEventListener("keyup",(e)=>{
+      saveTickBtn1.style.display = 'block'; });
+   encodeRow.classList.add('genRow1')
+   encodeRow.appendChild(tick1)
+   priceBOX1.appendChild(priceData1)
+   priceBOX1.appendChild(priceDate1)
+   encodeRow.appendChild(priceBOX1)
+   athBOX1.appendChild(athData1)
+   athBOX1.appendChild(athDate1)
+   encodeRow.appendChild(athBOX1)
+   encodeRow.appendChild(saveBtn2)
+   // encodeRow.appendChild(del1)
+   encodeDATA.appendChild(encodeRow)         
+}
+const saveTickerClick = ()=>{//loop elements, add data, localstorage
+      saveTickBtn1.style.display = 'none';
+      let items = encodeDATA.children,row,kids,kid;
+      let tkr,price,ath,item=null;
+      ai_ledger.ticks = []; //CLEAR LEDGER.
+      for(var i=0; i<items.length;i++){ //LOOP DOM ROWS
+      item = items[i];
+      if(item.classList.contains('genRow1')){ //todo FORM remove btns
+         kids = item.children;
+         tkr = '';price='',ath='';//blank row.
+         for(var j=0; j<kids.length;j++){ //LOOP ROW ITEMS
+            kid = kids[j];
+            if(kid.classList.contains('genTicker1')){
+               kid.value = kid.value.toUpperCase();
+               tkr = kid.value;
+               continue;
+            } if(kid.classList.contains('tkrPriceBOX1')){
+               price = kid.children[0].value;
+               // price_label = kid.innerHTML;
+               price_ymd = kid.children[1].value;
+               continue;
+            } if(kid.classList.contains('tkrATHBOX1')){
+               ath = kid.children[0].value;
+               ath_ymd = kid.children[1].value;
+               continue;                  
+            }
+         }
       }
-      const saveTickerClick = ()=>{//loop elements, add data, localstorage
-           saveTickBtn1.style.display = 'none';
-           let items = encodeDATA.children,row,kids,kid;
-           let tkr,price,ath,item=null;
-           ai_ledger.ticks = []; //CLEAR LEDGER.
-           for(var i=0; i<items.length;i++){ //LOOP DOM ROWS
-            item = items[i];
-            if(item.classList.contains('genRow1')){ //todo FORM remove btns
-               kids = item.children;
-               tkr = '';price='',ath='';//blank row.
-               for(var j=0; j<kids.length;j++){ //LOOP ROW ITEMS
-                  kid = kids[j];
-                  if(kid.classList.contains('genTicker1')){
-                     kid.value = kid.value.toUpperCase();
-                     tkr = kid.value;
-                     continue;
-                  } if(kid.classList.contains('tkrPriceBOX1')){
-                     price = kid.children[0].value;
-                     // price_label = kid.innerHTML;
-                     price_ymd = kid.children[1].value;
-                     continue;
-                  } if(kid.classList.contains('tkrATHBOX1')){
-                     ath = kid.children[0].value;
-                     ath_ymd = kid.children[1].value;
-                     continue;                  
-                  }
-               }
-            }
-            if(tkr){
-               let tickObj = new Object();
-               tickObj.tick = tkr;
-               if(price){tickObj.price = price}
-               if(ath){tickObj.ath = ath}
-               if(ath_ymd){tickObj.ath_ymd = ath_ymd}
-               if(price_ymd){tickObj.price_ymd = price_ymd}
-               ai_ledger.ticks.push(tickObj)
-            }
-           }
-           //SAVE to LOCAL STORAGE
-           localStorage.ai_ledger = JSON.stringify(ai_ledger)  
-           initEncode(); //RELOAD VIEW.         
-        }
-      const saveSpotClick = ()=>{
-           saveSpotBtn1.style.display = 'none';
-           let items = decodeSPOTZ.children,row,kids,kid;
-           let tkr,amount1,date1,role1,item,spot_at;
-           ai_ledger.spots = []; //CLEAR LEDGER.  
-           for(var i=0; i<items.length;i++){
-            item = items[i];
-            if(item.classList.contains('decodeRow1')){
-               kids = item.children;
-               tkr = '',amount1='',date1='',ath='';//blank row.
-               for(var j=0; j<kids.length;j++){
-                  kid = kids[j];
-                  if(kid.classList.contains('decodeTick1')){
-                     kid.value = kid.value.toUpperCase();                     
-                     tkr = kid.value;
-                  } if(kid.classList.contains('decodeDate1')){
-                     date1 = kid.value;
-                  } if(kid.classList.contains('spotAtBOX1')){
-                     spot_at = kid.lastChild.value;
-                  } if(kid.classList.contains('spotamountBOX1')){
-                     amount1 = kid.lastChild.value;
-                  } if(kid.classList.contains('roleBOX1')){
-                     role1 = kid.lastChild.value;
-                  } 
-               }
-            }
-            if(tkr){
-               let spotObj = new Object();
-               spotObj.tick = tkr;
-               if(amount1){spotObj.amount = amount1}
-               if(spot_at){spotObj.spot_at = spot_at}
-               if(date1){spotObj.ymd = date1}
-               if(role1){spotObj.role = role1}
-               ai_ledger.spots.push(spotObj)
-            } else { console.log('unsaved record',i) }
-           } 
-           //SAVE to LOCAL STORAGE
-           localStorage.ai_ledger = JSON.stringify(ai_ledger) 
-           initDecode(); //RELOAD VIEW.                      
-         }
-         const addSpotClick = ()=>{
-            ai_ledger.spot_expanded = true;
-            // saveSpotBtn1.style.display = 'block';
-            let decodeRow1,date1,tick1,amountData1;
-            let role1,role2,role3,role4,role5,role6,role7,role8,role9,role10,role11,role12;
-            let saveBtn3,roleBOX,roleData,atBOX1,atData1;
-            decodeRow1 = document.createElement('article')
-            decodeRow1.classList.add('decodeRow1')
-            atBOX1 = document.createElement('aside')
-            atBOX1.innerHTML="@&nbsp;"
-            roleBOX = document.createElement('aside')
-            roleBOX.innerHTML="role&nbsp;"
-            roleData = document.createElement('select')
-            role1 = document.createElement('option')
-            role2 = document.createElement('option')
-            role3 = document.createElement('option')
-            role4 = document.createElement('option')
-            role5 = document.createElement('option')
-            role6 = document.createElement('option')
-            role7 = document.createElement('option')
-            role8 = document.createElement('option')
-            role9 = document.createElement('option')
-            role10 = document.createElement('option')
-            role11 = document.createElement('option')
-            role12 = document.createElement('option')
-            role1.value = "...";
-            role2.value = "HOLD";
-            role3.value = "WATCH";
-            role4.value = "CUTLOSS";
-            role5.value = "LONG";
-            role6.value = "TRIM";
-            role7.value = "SAFE";
-            role8.value = "RISK_ON";
-            role9.value = "EXIT";
-            role10.value = "PAD";
-            role11.value = "HIrHI";
-            role12.value = "LOrLO";
-            role1.innerHTML = "...";
-            role2.innerHTML = "HOLD";
-            role3.innerHTML = "WATCH";
-            role4.innerHTML = "CUTLOSS";
-            role5.innerHTML = "LONG";
-            role6.innerHTML = "TRIM";
-            role7.innerHTML = "SAFE";
-            role8.innerHTML = "RISK_ON";
-            role9.innerHTML = "EXIT";
-            role10.innerHTML = "PAD";
-            role11.innerHTML = "HIrHI";
-            role12.innerHTML = "LOrLO";            
-            roleData.appendChild(role1);
-            roleData.appendChild(role2);
-            roleData.appendChild(role3);
-            roleData.appendChild(role4);
-            roleData.appendChild(role5);
-            roleData.appendChild(role6);
-            roleData.appendChild(role7);
-            roleData.appendChild(role8);
-            roleData.appendChild(role9);            
-            roleData.appendChild(role10);            
-            roleData.appendChild(role11);            
-            roleData.appendChild(role12);            
-            roleBOX.appendChild(roleData)
-            roleBOX.classList.add('roleBOX1')
-            roleData.classList.add('roleData1')
-            atData1 = document.createElement('input')
-            atData1.placeholder = "$0";
-            saveBtn3 = document.createElement('button')
-            date1 = document.createElement('input')
-            date1.value = current_ymd.split('YMD_')[1];//user display
-            date1.classList.add('decodeDate1')
-            tick1 = document.createElement('input')
-            amountData1 = document.createElement('input')
-            amountBOX1 = document.createElement('aside')
-            athBOX1 = document.createElement('aside')
-            amountBOX1.innerHTML = "$&nbsp;"
-            athBOX1.innerHTML = "ath&nbsp;"
-            athData1 = document.createElement('input')
-            tick1.value = "";
-            tick1.readOnly = false;
-            tick1.placeholder="ticker"
-            amountData1.placeholder = "0.00";
-            athData1.placeholder = "+-:%";
-            tick1.addEventListener("keyup",(e)=>{
-               saveSpotBtn1.style.display = 'block'; });
-            athData1.addEventListener("keyup",(e)=>{
-               saveSpotBtn1.style.display = 'block'; });
-            amountData1.addEventListener("keyup",(e)=>{
-               saveSpotBtn1.style.display = 'block'; });                         
-            tick1.classList.add('decodeTick1')
-            saveBtn3.innerHTML = 'save🌟'
-            saveBtn3.classList.add('saveBtn2')
-            saveBtn3.addEventListener("click",(e)=>{
-               saveSpotClick() });
-            amountData1.classList.add('spotamountData1')
-            amountBOX1.classList.add('spotamountBOX1')
-            athData1.classList.add('spotATHData1')
-            athBOX1.classList.add('spotATHBOX1')
-            decodeRow1.appendChild(date1)
-            decodeRow1.appendChild(tick1)
-            amountBOX1.appendChild(amountData1)
-            decodeRow1.appendChild(amountBOX1)
-            // athBOX1.appendChild(athData1)
-            atData1.classList.add('spotAtData1')
-            atBOX1.classList.add('spotAtBOX1')
-            atBOX1.appendChild(atData1)            
-            decodeRow1.appendChild(atBOX1)
-            decodeRow1.appendChild(roleBOX)
-            decodeRow1.appendChild(saveBtn3)
-            decodeSPOTZ.appendChild(decodeRow1)   
-        }
-        const deleteTickerClick = (idx)=>{
-            if(idx>-1){
-               ai_ledger.ticks.splice(idx,1); //remove item
-               localStorage.ai_ledger = JSON.stringify(ai_ledger) //SAVE to LOCAL STORAGE
-               initEncode(); //RELOAD VIEW.                 
-            }
-        }
-        const deleteSpotClick = (idx)=>{ //remove ledger item, save, refresh
-         if(idx>-1){
-               ai_ledger.spots.splice(idx,1); //remove item
-               localStorage.ai_ledger = JSON.stringify(ai_ledger) //SAVE to LOCAL STORAGE
-               initDecode(); //RELOAD VIEW.                 
-            }
-        }
-
-        const openBtnClick = ()=>{
-          if(instructionText.style.display==='block'){
-             instructionText.style.display='none'
-            } else {
-             instructionText.style.display='block'
-          }
+      if(tkr){
+         let tickObj = new Object();
+         tickObj.tick = tkr;
+         if(price){tickObj.price = price}
+         if(ath){tickObj.ath = ath}
+         if(ath_ymd){tickObj.ath_ymd = ath_ymd}
+         if(price_ymd){tickObj.price_ymd = price_ymd}
+         ai_ledger.ticks.push(tickObj)
       }
-
-      const deleteSelectedTicker = ()=>{
-         let selected = [],temp=[];
-         let items = document.getElementsByClassName('tkr_checkmark');
-         for(let i=0; i<items.length;i++){
-            if(items[i].checked){
-               selected.push(i)
-               items[i].checked = false;
-            }
+      }
+      //SAVE to LOCAL STORAGE
+      localStorage.ai_ledger = JSON.stringify(ai_ledger)  
+      initEncode(); //RELOAD VIEW.         
+   }
+const saveSpotClick = ()=>{
+      saveSpotBtn1.style.display = 'none';
+      let items = decodeSPOTZ.children,row,kids,kid;
+      let tkr,amount1,date1,role1,item,spot_at;
+      ai_ledger.spots = []; //CLEAR LEDGER.  
+      for(var i=0; i<items.length;i++){
+      item = items[i];
+      if(item.classList.contains('decodeRow1')){
+         kids = item.children;
+         tkr = '',amount1='',date1='',ath='';//blank row.
+         for(var j=0; j<kids.length;j++){
+            kid = kids[j];
+            if(kid.classList.contains('decodeTick1')){
+               kid.value = kid.value.toUpperCase();                     
+               tkr = kid.value;
+            } if(kid.classList.contains('decodeDate1')){
+               date1 = kid.value;
+            } if(kid.classList.contains('spotAtBOX1')){
+               spot_at = kid.lastChild.value;
+            } if(kid.classList.contains('spotamountBOX1')){
+               amount1 = kid.lastChild.value;
+            } if(kid.classList.contains('roleBOX1')){
+               role1 = kid.lastChild.value;
+            } 
          }
-         if(!selected.length){showErrorMSG(' Nothing selected 😵') 
-            return;}         
-         for(let idx=0; idx<ai_ledger.ticks.length;idx++){
-            if(!selected.includes(idx)){ //not removed
-               temp.push(ai_ledger.ticks[idx])
-            } else {console.log('removed',idx)}
-            // temp.ticks.splice(selected[idx],1); //remove item
-         }
-         ai_ledger.ticks = temp;
+      }
+      if(tkr){
+         let spotObj = new Object();
+         spotObj.tick = tkr;
+         if(amount1){spotObj.amount = amount1}
+         if(spot_at){spotObj.spot_at = spot_at}
+         if(date1){spotObj.ymd = date1}
+         if(role1){spotObj.role = role1}
+         ai_ledger.spots.push(spotObj)
+      } else { console.log('unsaved record',i) }
+      } 
+      //SAVE to LOCAL STORAGE
+      localStorage.ai_ledger = JSON.stringify(ai_ledger) 
+      initDecode(); //RELOAD VIEW.                      
+   }
+   const addSpotClick = ()=>{
+      ai_ledger.spot_expanded = true;
+      // saveSpotBtn1.style.display = 'block';
+      let decodeRow1,date1,tick1,amountData1;
+      let role1,role2,role3,role4,role5,role6,role7,role8,role9,role10,role11,role12;
+      let saveBtn3,roleBOX,roleData,atBOX1,atData1;
+      decodeRow1 = document.createElement('article')
+      decodeRow1.classList.add('decodeRow1')
+      atBOX1 = document.createElement('aside')
+      atBOX1.innerHTML="@&nbsp;"
+      roleBOX = document.createElement('aside')
+      roleBOX.innerHTML="role&nbsp;"
+      roleData = document.createElement('select')
+      role1 = document.createElement('option')
+      role2 = document.createElement('option')
+      role3 = document.createElement('option')
+      role4 = document.createElement('option')
+      role5 = document.createElement('option')
+      role6 = document.createElement('option')
+      role7 = document.createElement('option')
+      role8 = document.createElement('option')
+      role9 = document.createElement('option')
+      role10 = document.createElement('option')
+      role11 = document.createElement('option')
+      role12 = document.createElement('option')
+      role1.value = "...";
+      role2.value = "HOLD";
+      role3.value = "WATCH";
+      role4.value = "CUTLOSS";
+      role5.value = "LONG";
+      role6.value = "TRIM";
+      role7.value = "SAFE";
+      role8.value = "RISK_ON";
+      role9.value = "EXIT";
+      role10.value = "PAD";
+      role11.value = "HIrHI";
+      role12.value = "LOrLO";
+      role1.innerHTML = "...";
+      role2.innerHTML = "HOLD";
+      role3.innerHTML = "WATCH";
+      role4.innerHTML = "CUTLOSS";
+      role5.innerHTML = "LONG";
+      role6.innerHTML = "TRIM";
+      role7.innerHTML = "SAFE";
+      role8.innerHTML = "RISK_ON";
+      role9.innerHTML = "EXIT";
+      role10.innerHTML = "PAD";
+      role11.innerHTML = "HIrHI";
+      role12.innerHTML = "LOrLO";            
+      roleData.appendChild(role1);
+      roleData.appendChild(role2);
+      roleData.appendChild(role3);
+      roleData.appendChild(role4);
+      roleData.appendChild(role5);
+      roleData.appendChild(role6);
+      roleData.appendChild(role7);
+      roleData.appendChild(role8);
+      roleData.appendChild(role9);            
+      roleData.appendChild(role10);            
+      roleData.appendChild(role11);            
+      roleData.appendChild(role12);            
+      roleBOX.appendChild(roleData)
+      roleBOX.classList.add('roleBOX1')
+      roleData.classList.add('roleData1')
+      atData1 = document.createElement('input')
+      atData1.placeholder = "$0";
+      saveBtn3 = document.createElement('button')
+      date1 = document.createElement('input')
+      date1.value = current_ymd.split('YMD_')[1];//user display
+      date1.classList.add('decodeDate1')
+      tick1 = document.createElement('input')
+      amountData1 = document.createElement('input')
+      amountBOX1 = document.createElement('aside')
+      athBOX1 = document.createElement('aside')
+      amountBOX1.innerHTML = "$&nbsp;"
+      athBOX1.innerHTML = "ath&nbsp;"
+      athData1 = document.createElement('input')
+      tick1.value = "";
+      tick1.readOnly = false;
+      tick1.placeholder="ticker"
+      amountData1.placeholder = "0.00";
+      athData1.placeholder = "+-:%";
+      tick1.addEventListener("keyup",(e)=>{
+         saveSpotBtn1.style.display = 'block'; });
+      athData1.addEventListener("keyup",(e)=>{
+         saveSpotBtn1.style.display = 'block'; });
+      amountData1.addEventListener("keyup",(e)=>{
+         saveSpotBtn1.style.display = 'block'; });                         
+      tick1.classList.add('decodeTick1')
+      saveBtn3.innerHTML = 'save🌟'
+      saveBtn3.classList.add('saveBtn2')
+      saveBtn3.addEventListener("click",(e)=>{
+         saveSpotClick() });
+      amountData1.classList.add('spotamountData1')
+      amountBOX1.classList.add('spotamountBOX1')
+      athData1.classList.add('spotATHData1')
+      athBOX1.classList.add('spotATHBOX1')
+      decodeRow1.appendChild(date1)
+      decodeRow1.appendChild(tick1)
+      amountBOX1.appendChild(amountData1)
+      decodeRow1.appendChild(amountBOX1)
+      // athBOX1.appendChild(athData1)
+      atData1.classList.add('spotAtData1')
+      atBOX1.classList.add('spotAtBOX1')
+      atBOX1.appendChild(atData1)            
+      decodeRow1.appendChild(atBOX1)
+      decodeRow1.appendChild(roleBOX)
+      decodeRow1.appendChild(saveBtn3)
+      decodeSPOTZ.appendChild(decodeRow1)   
+   }
+   const deleteTickerClick = (idx)=>{
+      if(idx>-1){
+         ai_ledger.ticks.splice(idx,1); //remove item
          localStorage.ai_ledger = JSON.stringify(ai_ledger) //SAVE to LOCAL STORAGE
          initEncode(); //RELOAD VIEW.                 
-
       }
-      const deleteSelectedSpot = ()=>{
-         let selected = [], temp = [];
-         let items = document.getElementsByClassName('spot_checkmark');
-         for(let i=0; i<items.length;i++){
-            if(items[i].checked){
-               selected.push(i)
-               items[i].checked = false;
-            }
-         }
-         if(!selected.length){showErrorMSG(' Nothing selected 😵'); return;}         
-         for(let idx=0; idx<ai_ledger.spots.length;idx++){
-            if(!selected.includes(idx)){ //not removed
-               temp.push(ai_ledger.spots[idx])
-            } else {console.log('removed',idx)}
-         }
-         ai_ledger.spots = temp;         
+   }
+   const deleteSpotClick = (idx)=>{ //remove ledger item, save, refresh
+   if(idx>-1){
+         ai_ledger.spots.splice(idx,1); //remove item
          localStorage.ai_ledger = JSON.stringify(ai_ledger) //SAVE to LOCAL STORAGE
-         initDecode(); //RELOAD VIEW.                
+         initDecode(); //RELOAD VIEW.                 
       }
+   }
 
-      const deleteSelectedSchedule = (event)=>{ //remove ledger item, save, refresh
-         let capSelected = [], detSelected=[], temp = [], removeChildRow=false;
-         // let items = document.getElementsByClassName('spot_checkmark');
-         let capChecks = document.getElementsByName("scheduleCapsRadio");
-         let detChecks = document.getElementsByName("scheduleDetailsRadio");
-         for(let i=0; i<capChecks.length;i++){
-            if(capChecks[i].checked){ //SORT THROUGH ai_schedule to delete data and reload
-               capSelected.push(capChecks[i])
-               let ymdt = capChecks[i].ymdt;
-               let zArr = capChecks[i].ymdt.split('_')
-               let tickCAP = zArr.pop();
-               let ymd = zArr.join('_')
-               let qtrCaps = ai_schedule.quarters[ymd].caps;
-               let monthData = ai_schedule.quarters[ymd].monthData;
-               for(var j=0; j<qtrCaps.length;j++){ //DELETE CAP DATA
-                  if( tickCAP === qtrCaps[j].tkr ){
-                     qtrCaps.splice(j,1) //remove data
-                     break;
-                  }
-               }
-               for(var k=0; k<monthData.length;k++){ //DELETE MONTH DATA
-                  if( tickCAP === monthData[k].tick ){
-                     monthData.splice(k,1) //remove data
-                     // break;
-                  }
-               }
-               //SAVE & RELOAD VIEW
-               showErrorMSG('💗 Saved. ');
-               localStorage.ai_schedule = JSON.stringify(ai_schedule) //SAVE to LOCAL STORAGE
-               generateScheduleClick(); //RELOAD VIEW. 
+   const openBtnClick = ()=>{
+      if(instructionText.style.display==='block'){
+         instructionText.style.display='none'
+      } else {
+         instructionText.style.display='block'
+      }
+}
+
+const deleteSelectedTicker = ()=>{
+   let selected = [],temp=[];
+   let items = document.getElementsByClassName('tkr_checkmark');
+   for(let i=0; i<items.length;i++){
+      if(items[i].checked){
+         selected.push(i)
+         items[i].checked = false;
+      }
+   }
+   if(!selected.length){showErrorMSG(' Nothing selected 😵') 
+      return;}         
+   for(let idx=0; idx<ai_ledger.ticks.length;idx++){
+      if(!selected.includes(idx)){ //not removed
+         temp.push(ai_ledger.ticks[idx])
+      } else {console.log('removed',idx)}
+      // temp.ticks.splice(selected[idx],1); //remove item
+   }
+   ai_ledger.ticks = temp;
+   localStorage.ai_ledger = JSON.stringify(ai_ledger) //SAVE to LOCAL STORAGE
+   initEncode(); //RELOAD VIEW.                 
+
+}
+const deleteSelectedSpot = ()=>{
+   let selected = [], temp = [];
+   let items = document.getElementsByClassName('spot_checkmark');
+   for(let i=0; i<items.length;i++){
+      if(items[i].checked){
+         selected.push(i)
+         items[i].checked = false;
+      }
+   }
+   if(!selected.length){showErrorMSG(' Nothing selected 😵'); return;}         
+   for(let idx=0; idx<ai_ledger.spots.length;idx++){
+      if(!selected.includes(idx)){ //not removed
+         temp.push(ai_ledger.spots[idx])
+      } else {console.log('removed',idx)}
+   }
+   ai_ledger.spots = temp;         
+   localStorage.ai_ledger = JSON.stringify(ai_ledger) //SAVE to LOCAL STORAGE
+   initDecode(); //RELOAD VIEW.                
+}
+
+const deleteSelectedSchedule = (event)=>{ //remove ledger item, save, refresh
+   let capSelected = [], detSelected=[], temp = [], removeChildRow=false;
+   // let items = document.getElementsByClassName('spot_checkmark');
+   let capChecks = document.getElementsByName("scheduleCapsRadio");
+   let detChecks = document.getElementsByName("scheduleDetailsRadio");
+   for(let i=0; i<capChecks.length;i++){
+      if(capChecks[i].checked){ //SORT THROUGH ai_schedule to delete data and reload
+         capSelected.push(capChecks[i])
+         let ymdt = capChecks[i].ymdt;
+         let zArr = capChecks[i].ymdt.split('_')
+         let tickCAP = zArr.pop();
+         let ymd = zArr.join('_')
+         let qtrCaps = ai_schedule.quarters[ymd].caps;
+         let monthData = ai_schedule.quarters[ymd].monthData;
+         for(var j=0; j<qtrCaps.length;j++){ //DELETE CAP DATA
+            if( tickCAP === qtrCaps[j].tkr ){
+               qtrCaps.splice(j,1) //remove data
                break;
             }
          }
-         if(!capSelected.length && detChecks.length){ // DETAIL ROW SELECTION
-            for(let j=0; j<detChecks.length;j++){
-               if(detChecks[j].checked){
-                  detSelected.push(detChecks[j])
-                  let ymdtn = detChecks[j].ymdtn
-                  let zArr = detChecks[j].ymdtn.split('_')
-                  let itemNUM = zArr.pop();
-                  let tickCAP = zArr.pop();
-                  let ymd = zArr.join('_')
-                  let monthData = ai_schedule.quarters[ymd].monthData;
-                  // for(var k=0; k<monthData.length;k++){ //DELETE MONTH DATA
-                  if(monthData[itemNUM]){
+         for(var k=0; k<monthData.length;k++){ //DELETE MONTH DATA
+            if( tickCAP === monthData[k].tick ){
+               monthData.splice(k,1) //remove data
+               // break;
+            }
+         }
+         //SAVE & RELOAD VIEW
+         showErrorMSG('💗 Saved. ');
+         localStorage.ai_schedule = JSON.stringify(ai_schedule) //SAVE to LOCAL STORAGE
+         generateScheduleClick(); //RELOAD VIEW. 
+         break;
+      }
+   }
+   if(!capSelected.length && detChecks.length){ // DETAIL ROW SELECTION
+      for(let j=0; j<detChecks.length;j++){
+         if(detChecks[j].checked){
+            detSelected.push(detChecks[j])
+            let ymdtn = detChecks[j].ymdtn
+            let zArr = detChecks[j].ymdtn.split('_')
+            let itemNUM = zArr.pop();
+            let tickCAP = zArr.pop();
+            let ymd = zArr.join('_')
+            let monthData = ai_schedule.quarters[ymd].monthData;
+            // for(var k=0; k<monthData.length;k++){ //DELETE MONTH DATA
+            if(monthData[itemNUM]){
 
-                     if( tickCAP === monthData[itemNUM].tick ){
-                        monthData.splice(itemNUM,1) //remove data
-                     }
-                  }
-                  //SAVE & RELOAD VIEW
-                  showErrorMSG(' Saved💗 ');
-                  localStorage.ai_schedule = JSON.stringify(ai_schedule) //SAVE to LOCAL STORAGE
-                  generateScheduleClick(); //RELOAD VIEW. 
-                  break;
+               if( tickCAP === monthData[itemNUM].tick ){
+                  monthData.splice(itemNUM,1) //remove data
                }
             }
-         } 
-         if(!capSelected.length && !detSelected.length){showErrorMSG(' Nothing selected 😵'); return;}
-      } //end delete CAP fn
+            //SAVE & RELOAD VIEW
+            showErrorMSG(' Saved💗 ');
+            localStorage.ai_schedule = JSON.stringify(ai_schedule) //SAVE to LOCAL STORAGE
+            generateScheduleClick(); //RELOAD VIEW. 
+            break;
+         }
+      }
+   } 
+   if(!capSelected.length && !detSelected.length){showErrorMSG(' Nothing selected 😵'); return;}
+} //end delete CAP fn
 
 const generateProfitLossClick = ()=>{ // GENERATE PROFIT AND LOSS DISPLAY
    //PROFIT and LOSS View
@@ -2355,12 +2422,657 @@ const generateProfitLossClick = ()=>{ // GENERATE PROFIT AND LOSS DISPLAY
       let ai_BANK = {
          "Q4_2023_OCT": {trxns:{pads:[],trims:[]}}
       }
-   
+  
 
+//EVENTZ***********************************************
+const addEVTZClick = (evtzID) =>{
+   // saveEVTZClick();//FIX: save first for bug on double create row, keeps first row tickr.
+   //go to parent quarter and add a unique row
+   let newEVT = {}
+   let evt = ai_eventz[parseInt(evtzID)-1];
+   if(!evt){return}
+   if(!evt.evtz){evt.evtz=[]}
+      evt.expanded = true;
+      newEVT.eID = evt.evtz.length+1;
+      newEVT.qID = evt.qID;
+      newEVT.title = evt.title;
+      newEVT.ymd = evt.ymd;
+      newEVT.type = evt.type;
+      newEVT.tkr = evt.tkr;
+      evt.evtz.push(newEVT)
+         //SAVE to LOCAL STORAGE
+         localStorage.ai_eventz = JSON.stringify(ai_eventz) 
+      generateEVTZClick(); //RELOAD VIEW.  
+      showErrorMSG('⛏ SAVED ⛏');     
+}  
+
+const saveNewMilestoneClick = (e)=>{ 
+         //GET input value
+         let qID = e.target.getAttribute('data-arg7')
+         let tkr = e.target.parentElement.children[0].value
+         let type = e.target.parentElement.children[1].children[0].value
+         let ymd = e.target.parentElement.children[2].value
+         if( !qID || !tkr || !type || !ymd){
+            showErrorMSG('⚔️ ERR ⚔️');  
+            return
+         }
+         let newMileStone = {}
+         newMileStone.qID = qID
+         newMileStone.tkr = tkr.toUpperCase();
+         newMileStone.type = type
+         newMileStone.ymd = ymd
+         newMileStone.title = `${newMileStone.tkr}_${newMileStone.type}_${newMileStone.ymd}`
+         ai_eventz.push(newMileStone)
+
+         //SAVE to LOCAL STORAGE
+         localStorage.ai_eventz = JSON.stringify(ai_eventz) 
+         generateEVTZClick(); //RELOAD VIEW.  
+         showErrorMSG('⚔️ ADDED ⚔️');          
+      }
+
+const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
+   evtzSaveBtn5.style.display = 'none'; 
+   let evtzBoxes = document.getElementById('eventzFRAME').children
+   let rowItem,kids,kid;
+   let saveTGT;
+   let evtTXT;
+   let save_eventz = [], save_evt={};
+   try{     
+      for(var i=0; i<evtzBoxes.length;i++){ //LOOP QUARTER BOX
+         evtBOX = evtzBoxes[i];
+      if(evtBOX.classList.contains('eventzBOX')){
+         kids = evtBOX.children;
+         for(var j=0;j<kids.length;j++){ //ROW of EVENTZ LOOP
+            kid = kids[j];
+            save_evt = {}; //new object
+            if(kid.classList.contains('eventzHeader')){ 
+               evtTXT = kid.children[1].value.toUpperCase();
+               saveTGT = {title:evtTXT}
+               expand1 = (kid.children[2].innerHTML === '💨')? true : false;
+               saveTGT.expanded = expand1;
+               //GET EVENT
+               for(let aa=0; aa<ai_eventz.length; aa++){
+                  if(evtTXT===ai_eventz[aa].title){
+                     saveTGT.qID = aa+1; //ai_eventz[aa].qID ||
+                     saveTGT.tkr = ai_eventz[aa].tkr;
+                     saveTGT.type = ai_eventz[aa].type;
+                     saveTGT.ymd = ai_eventz[aa].ymd;
+                     saveTGT.evtz = (expand1)? [] : ai_eventz[aa].evtz || [];
+                     break;
+                  }
+               }
+            } // END HEADER
+            else if(kid.classList.contains('eventzROW')){
+               // if(kid.children.length===0){ // NO MONTHBOX data, COLLAPSED.
+//                   save_schedule.quarters[qtrTXT] = ai_schedule.quarters[qtrTXT]
+//                   continue; //DO NOT SAVE, use saved data, since it is collapsed.
+               // } 
+
+               for(var k=0; k<kid.children.length;k++){ //POPULATE DATA from VIEW.
+                  rowItem = kid.children[k]
+                  if(rowItem.classList.contains('capsNUMBOX3')){
+                     save_evt.eID = rowItem.children[1].innerHTML;
+                  }
+                  else if(rowItem.classList.contains('eventzTitle')){
+                     save_evt.title = rowItem.value;
+                  }
+                  else if(rowItem.classList.contains('eventzTypeBOX1')){
+                     save_evt.type =  rowItem.children[0].value
+                  }
+                  else if(rowItem.classList.contains('eventzTypeBOX2')){
+                     save_evt.range = rowItem.children[0].value
+                  }
+                  else if(rowItem.classList.contains('eventzTypeBOX3')){
+                     save_evt.spot_amt = rowItem.children[0].value
+                     save_evt.spot_POS = rowItem.children[2].value;
+                  }
+                  else if(rowItem.classList.contains('detailDate2')){
+                     save_evt.ymd = rowItem.value;
+                  }
+               } //END ROW DATA
+               // if(saveTGT && saveTGT.evtz){
+                  saveTGT.evtz.push(save_evt)
+               // }else{
+               // }
+
+            } //end EVENTz ROW
+          } // ROW of EVENTZ LOOP
+         //  if(saveTGT && saveTGT.evtz){
+             save_eventz.push( saveTGT )
+         //  }
+
+//          if(!show_schedule_details_view){   //could move out of loop, below.
+//                      CAPMonth.monthData = ai_schedule.quarters[qtrTXT].monthData
+//                   }  
+         } // IF eventzBOX
+      } //END EVENTZ BOX LOOP
+   } //end TRY
+   catch(e){
+      console.log('err in save',e)
+      showErrorMSG('⚔️ ERR ⚔️'); 
+      return;
+   }
+   if(save_eventz){
+      //SAVE to LOCAL STORAGE
+      ai_eventz = save_eventz;
+      localStorage.ai_eventz = JSON.stringify(ai_eventz) 
+      generateEVTZClick(); //RELOAD VIEW.  
+      showErrorMSG('⚔️ SAVED ⚔️');
+   }
+}     //end save EVENTZ click  
+
+   /************************************************\
+    * - AI_EVENTZ_MATRIX
+    *  - ability to save quarterly data in localstorage
+   \************************************************/
+
+   let ai_eventz=null;
+   const ai_eventz_LOAD_MOCK_DATA=()=>{ //READ from OBJ
+      // ai_eventz = [
+      //    {qID:1,tkr:'NVDA',title:'NVDA_DIP_2023',ymd:'2023_12_10',type:'DIP',txt:'10yr 5%',expanded:true,
+      //       evtz:[
+      //       {eID:0,title:'10%OFFTOP',ymd:'2023_12_02',type:'WARN',range:'100-200',spot_amt:0,spot_POS:0},
+      //       {eID:1,title:'20%OFFTOP',ymd:'2023_12_01',type:'PAD1',range:'100-200',spot_amt:100,spot_POS:150}]},
+      //    {qID:2,tkr:'NVDA',title:'NVDA_CRASH_2023',ymd:'2023_12_10',type:'CRASH',txt:'10yr 4.44%',
+      //       evtz:[{eID:0,title:'50%OFFTOP',ymd:'2023_12_02',type:'DIP'},{eID:1,title:'b',ymd:'2023_12_01',type:'warn'}]},
+      //    {qID:3,tkr:'NVDA',title:'AAA',ymd:'2023_12_10',type:'BLACKSWAN',txt:'super-semia',
+      //       evtz:[{eID:0,title:'LIQUID_TOP',ymd:'2023_12_02',type:'DIP'},{eID:1,title:'b',ymd:'2023_12_01',type:'warn'}]},
+      //    {qID:4,tkr:'NVDA',title:'BBB',ymd:'2023_12_10',type:'BREAKOUT',txt:'super-semib',
+      //       evtz:[{eID:0,title:'vent1',ymd:'2023_12_02',type:'DIP'},{eID:1,title:'b',ymd:'2023_12_01',type:'warn'}]},
+      //    {qID:5,tkr:'NVDA',title:'',ymd:'2023_12_10',type:'BULLFLAG',txt:'celebrate good things.',
+      //       evtz:[{eID:0,title:'event2',ymd:'2023_12_02',type:'DIP'},{eID:1,title:'b',ymd:'2023_12_01',type:'warn'}]}
+      // ];
+      ai_eventz = [{"title":"NVDA_DIP_2023","expanded":true,"qID":1,"tkr":"NVDA","type":"DIP","ymd":"2023_12_10","evtz":[{"eID":1,"title":"10%OFFTOP","type":"WARN","range":"100-200","spot_amt":"0","spot_POS":"0","ymd":"2023_12_02"},{"eID":2,"title":"20%OFFTOP","type":"PAD1","range":"100-200","spot_amt":"100","spot_POS":"150","ymd":"2023_12_01"}]},{"title":"NVDA_TOP_2023","expanded":false,"qID":2}]
+   }
+
+   const ai_eventz_init=()=>{ //READ from LOCAL STORAGE
+      ai_eventz = (localStorage.ai_eventz)?
+         JSON.parse( localStorage.ai_eventz ):null;
+      // ai_eventz = null; //test mock data
+      if(!ai_eventz){
+         ai_eventz_LOAD_MOCK_DATA();
+      }
+   }; ai_eventz_init();
+
+      /************************************************\
+    * -  END AI_EVENTZ_MATRIX
+   \************************************************/
+
+   const addEVTZMilestoneClick=()=>{
+      ai_ledger.eventz_expanded = true;
+      evtzRow1 = document.createElement('article')
+      evtzRow1.classList.add('addEVTZRow1')
+
+      //EVENT_TYPE
+      typeBOX = document.createElement('aside')
+         typeBOX.innerHTML="type&nbsp;"
+         typeData = document.createElement('select')
+         type1 = document.createElement('option')
+         type2 = document.createElement('option')
+         type3 = document.createElement('option')
+         type4 = document.createElement('option')
+         type5 = document.createElement('option')
+         type6 = document.createElement('option')
+         type7 = document.createElement('option')
+         type8 = document.createElement('option')
+         type9 = document.createElement('option')
+         type10 = document.createElement('option')
+         type11 = document.createElement('option')
+         type12 = document.createElement('option')
+         type1.value = "...";
+         type2.value = "WARN";
+         type3.value = "CRASH";
+         type4.value = "DIP";
+         type5.value = "CALLTOP";
+         type6.value = "CALLBTM";
+         type7.value = "PAD5";
+         type8.value = "BLKSWAN";
+         type9.value = "BREAK";
+         type10.value = "LOrLO";
+         type11.value = "HIrHI";
+         type12.value = "LiQD8";
+         type1.innerHTML = "...";
+         type2.innerHTML = "WARN";
+         type3.innerHTML = "CRASH";
+         type4.innerHTML = "DIP";
+         type5.innerHTML = "CALLTOP";
+         type6.innerHTML = "CALLBTM";
+         type7.innerHTML = "PAD5";
+         type8.innerHTML = "BLKSWAN";
+         type9.innerHTML = "BREAK";
+         type10.innerHTML = "LOrLO";
+         type11.innerHTML = "HIrHI";
+         type12.innerHTML = "LiQD8";
+         typeData.appendChild(type1);
+         typeData.appendChild(type2);
+         typeData.appendChild(type3);
+         typeData.appendChild(type4);
+         typeData.appendChild(type5);
+         typeData.appendChild(type6);
+         typeData.appendChild(type7);
+         typeData.appendChild(type8);
+         typeData.appendChild(type9);
+         typeData.appendChild(type10);
+         typeData.appendChild(type11);
+         typeData.appendChild(type12);
+         typeData.value =  '...';
+         typeBOX.appendChild(typeData)
+         typeBOX.classList.add('eventzTypeBOX1')
+      
+         // if(monthData.type==='trim'){
+         //    typeData.classList.add('typeTRIMColor')
+         // } else if (monthData.type==='pad'){
+         //    typeData.classList.add('typePADColor')
+         // }
+         typeData.classList.add('eventzTypeData1')
+
+
+      date1 = document.createElement('input')
+      date1.value = current_ymd.split('YMD_')[1];//user display
+      date1.classList.add('detailDate2')
+
+      tick1 = document.createElement('input')
+      tick1.value = "";
+      tick1.classList.add('quarterTXT')
+      tick1.placeholder="ticker"
+                        
+      saveBtn3 = document.createElement('button')
+      saveBtn3.innerHTML = 'save🌟'
+      saveBtn3.classList.add('saveBtn2')
+      saveBtn3.setAttribute('data-arg7',ai_eventz.length+1)
+      saveBtn3.addEventListener("click",(e)=>{
+         saveNewMilestoneClick(e) 
+      });
+
+      evtzRow1.appendChild(tick1)
+      evtzRow1.appendChild(typeBOX)
+      evtzRow1.appendChild(date1)
+      evtzRow1.appendChild(saveBtn3)
+      eventzFRAME.appendChild(evtzRow1)
+
+    } //end add milestone
+
+
+    const setEVTZDeleteClick=(event)=>{
+      // const deleteSelectedSchedule = (event)=>{ //remove ledger item, save, refresh
+      let evtSelected = [], detSelected=[], temp = [], removeChildRow=false;
+      let evtChecks = document.getElementsByName("eventzMasterRadio");
+      let detChecks = document.getElementsByName("eventzDetailsRadio");
+      for(let i=0; i<evtChecks.length;i++){
+         if(evtChecks[i].checked){ //SORT THROUGH ai_eventz to delete data and reload
+            let qID = evtChecks[i].qID;
+            evtSelected.push(evtChecks[i])
+            for(var j=0; j<ai_eventz.length;j++){ //DELETE evt DATA
+               if( qID.toString() === ai_eventz[j].qID.toString() ){
+                  ai_eventz.splice(j,1) //remove data
+                  break;
+               }
+            }
+            //SAVE & RELOAD VIEW
+            showErrorMSG('🦕 Saved. ');
+            localStorage.ai_eventz = JSON.stringify(ai_eventz) //SAVE to LOCAL STORAGE
+            generateEVTZClick(); //RELOAD VIEW. 
+            break;
+         }
+      }
+      if(!evtSelected.length && detChecks.length){ // DETAIL ROW SELECTION
+         for(let j=0; j<detChecks.length;j++){
+            if(detChecks[j].checked){
+               detSelected.push(detChecks[j])
+               let eID = detChecks[j].eID
+               let qID = detChecks[j].parentElement.parentElement.parentElement.parentElement.qID;
+               for(var k=0; k<ai_eventz.length;k++){ //DELETE MONTH DATA
+                  if(ai_eventz[k].qID===qID){
+                     for(var m=0; m<ai_eventz[k].evtz.length;m++){ //DELETE MONTH DATA
+                        if( eID === ai_eventz[k].evtz[m].eID ){       
+                           ai_eventz[k].evtz.splice(m,1) //remove data
+                           break;
+                        }
+                     }
+                  }
+               }
+               //SAVE & RELOAD VIEW
+               showErrorMSG(' Saved🦖 ');
+               localStorage.ai_eventz = JSON.stringify(ai_eventz) //SAVE to LOCAL STORAGE
+               generateEVTZClick(); //RELOAD VIEW. 
+               
+               break;
+            }
+         }
+      } 
+      if(!evtSelected.length && !detSelected.length){showErrorMSG(' Nothing selected 😵'); return;}
+   } //end delete EVENTZ fn
+
+
+//END EVENTZ***********************************************
+
+
+//BEGIN SCHEDULE*******************************************
    /************************************************\
     * - AI_SCHEDULE_MATRIX
     *  - ability to save quarterly data in localstorage
    \************************************************/
+
+   let ai_schedule=null;
+   const ai_schedule_LOAD_MOCK_DATA=()=>{ //READ from OBJ
+      ai_schedule = {"quarters":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":false,"caps":[{"tkr":"NVDA","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"MDB","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COST","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"MSFT","cap":"1000","trim_at":"100","pad_at":"50","padlvl":"1","crashlvl":"2"},{"tkr":"QQQ","cap":"500","trim_at":"50","pad_at":"50","padlvl":"1","crashlvl":"2"},{"tkr":"BTC","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"}],"monthData":[{"ymd":"2023_11_27","tick":"NVDA","type":"pad","amt":"100","role":"LOrLO"},{"ymd":"2023_11_27","tick":"MDB","type":"trim","amt":"100","role":"LOrLO"},{"ymd":"2023_11_27","tick":"MDB","type":"pad","amt":"100","role":"EXIT"},{"ymd":"2023_11_27","tick":"COST","type":"pad","amt":"100","role":"LONG"},{"ymd":"2023_11_27","tick":"MSFT","type":"trim","amt":"100","role":"LONG"},{"ymd":"2023_11_27","tick":"QQQ","type":"trim","amt":"50","role":"WATCH"}]},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"caps":[{"tkr":"NVDA","cap":"4500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"MDB","cap":"1500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COST","cap":"2000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"1"},{"tkr":"GOOG","cap":"5000","trim_at":"100","pad_at":"100","padlvl":"2","crashlvl":"3"},{"tkr":"MSFT","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"QQQ","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"XLK","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"AMD","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"V","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COIN","cap":"200","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"META","cap":"100","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"ETH","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"}],"monthData":[{"ymd":"2023_11_30","tick":"COIN","type":"trim","amt":"100","role":"LOrLO"},{"ymd":"2023_11_30","tick":"META","type":"pad","amt":"100","role":"SAFE"},{"ymd":"2023_11_30","tick":"ETH","type":"trim","amt":"100","role":"LOrLO"},{"ymd":"2023_11_30","tick":"ETH","type":"pad","amt":"100","role":"HIGHrHIGH"}]},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":true,"caps":[{"tkr":"NVDA","cap":"4500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"MDB","cap":"1500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COST","cap":"2000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"1"},{"tkr":"GOOG","cap":"5000","trim_at":"100","pad_at":"100","padlvl":"2","crashlvl":"3"},{"tkr":"MSFT","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"QQQ","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"XLK","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"AMD","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"V","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COIN","cap":"200","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"BTC","cap":"2000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"ETH","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"META","cap":"100","trim_at":"10","pad_at":"10","padlvl":"1","crashlvl":"2"},{"tkr":"TSLA","cap":"100","trim_at":"10","pad_at":"10","padlvl":"2","crashlvl":"2"}],"monthData":[{"ymd":"2023_12_01","tick":"BTC","type":"trim","amt":"25","role":"RISKOFF"},{"tick":"AAA","type":"pad","amt":"100","at":"","ymd":"2023_12_02"}]},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","expanded":false,"caps":[],"monthData":[]}}}
+   }
+
+   const ai_schedule_init=()=>{ //READ from LOCAL STORAGE
+      ai_schedule = (localStorage.ai_schedule)?
+         JSON.parse( localStorage.ai_schedule ):null;
+      // ai_schedule = null; //test mock data
+      if(!ai_schedule){
+         ai_schedule_LOAD_MOCK_DATA();
+      }
+   }; ai_schedule_init();
+
+   /*************************************\
+    * SCHEDULE_MATRIX functions
+   \*************************************/
+
+const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
+   let trimBOX1,quarter,quarterSets=[];
+   let quarterBOX,monthBOX,quarterTXT,capROW;//trimBtnROW;
+   let capsData, trimTick,trimCap,trim_at,pad_at,pad_limit,lvl_limit;
+   let trimBtn1,padBtn1,lvlUpBtn1,expandBtn1;
+   let capBOX1, capData1, trim_atBOX1,trim_atData1,pad_atBOX1,pad_atData1;
+   let padlvlBOX1,padlvlData1,crashlvlBOX1,crashlvlData1;
+   let monthData1=[], addBtn4, quarterHeader;
+   let capsNUMBOX1, capsCHECKBOX1, capsSelect1, capsCheckMark1; 
+   let capsNUMBOX2, capsCHECKBOX2, capsSelect2, capsCheckMark2;
+   generatedScheduleBOX.innerHTML = ""
+   quarterSets = Object.keys(ai_schedule.quarters);//ai_ledger.ticks;
+   if(!quarterSets){ console.log('no data'); return}
+   if(ai_ledger.caps_expanded){
+      expandCollapseBtn4.innerHTML = '💨'   
+      for(let i=0;i<quarterSets.length;i++){  //BEGIN QUARTERLY LOOP
+         quarter= ai_schedule.quarters[quarterSets[i]];
+         quarterBOX = document.createElement('section')
+         quarterBOX.classList.add('quarterBOX')
+
+         quarterHeader = document.createElement('aside')
+         quarterHeader.classList.add('quarterHeader')
+
+         quarterTXT = document.createElement('input')
+         quarterTXT.classList.add('quarterTXT')
+         quarterTXT.value = quarter.qID;//.quarterID.toUpperCase();
+         quarterTXT.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+            }); 
+
+         expandBtn1 = document.createElement('button')
+         expandBtn1.innerHTML = '🕸️'
+         expandBtn1.classList.add('addBtn4')
+         expandBtn1.setAttribute('data-arg3',quarter.qID)
+         expandBtn1.addEventListener("click",(e)=>{
+               expandCAPClick(e.target.getAttribute('data-arg3')) });
+         addBtn4 = document.createElement('button')
+         addBtn4.innerHTML = 'addCAP🗺️'
+         addBtn4.classList.add('addBtn4')
+         addBtn4.setAttribute('data-arg2',quarter.qID)
+         addBtn4.addEventListener("click",(e)=>{
+               addCapClick(e.target.getAttribute('data-arg2')) });
+
+         quarterHeader.appendChild(quarterTXT)
+         quarterHeader.appendChild(expandBtn1)
+         quarterHeader.appendChild(addBtn4)
+         // quarterBOX.appendChild(addBtn4)
+         quarterBOX.appendChild(quarterHeader)
+
+         monthBOX = document.createElement('article')
+         monthBOX.classList.add('monthBOX')
+
+         if(quarter.expanded){
+            expandBtn1.innerHTML = '💨'
+            for(let j=0;j<quarter.caps.length;j++){  //MONTHLY CAP LOOP .
+               capsData = quarter.caps[j];
+               capROW = document.createElement('aside')
+               capROW.classList.add('capROW')
+               //**********************************************selector
+               capsNUMBOX1 = document.createElement('aside')
+               capsNUMBOX1.classList.add('capsNUMBOX1')//encodeNUMBOX1
+               capsCHECKBOX1 = document.createElement('label')
+               capsCHECKBOX1.classList.add('checkboxFrame') 
+               capsNUMBOX1.innerHTML=j+1;            
+               capsSelect1 = document.createElement('input');
+               capsSelect1.ymdt = quarter.qID+'_'+capsData.tkr.toUpperCase() || '';
+               capsSelect1.type = "radio";
+               capsSelect1.name = "scheduleCapsRadio";
+               capsSelect1.classList.add('cap_checkmark')
+               capsCHECKBOX1.appendChild(capsSelect1)
+               capsCheckMark1 = document.createElement('span')
+               capsCheckMark1.classList.add('checkmark')
+               capsCHECKBOX1.appendChild(capsCheckMark1)
+               capsNUMBOX1.appendChild(capsCHECKBOX1)
+               capROW.appendChild(capsNUMBOX1)
+               // end ************************************** selector
+               trimTick = document.createElement('input')
+               trimTick.classList.add('trimTick')
+               trimTick.value = capsData.tkr.toUpperCase() || 0;
+               trimTick.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+               });             
+               capBOX1 = document.createElement('aside')
+               capBOX1.innerHTML="CAP&nbsp";
+               capBOX1.classList.add('inputDATABOX1')
+               capData1 = document.createElement('input')
+               capData1.classList.add('inputDATA1')
+               capData1.placeholder = "$0";
+               capData1.value = capsData.cap || '';          
+               capData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+               });  
+               capBOX1.appendChild(capData1)
+
+               trim_atBOX1 = document.createElement('aside')
+               trim_atBOX1.innerHTML="trim&nbsp";
+               trim_atBOX1.classList.add('inputDATABOX2')
+               trim_atData1 = document.createElement('input')
+               trim_atData1.classList.add('inputDATA2')
+               trim_atData1.placeholder = "$0";
+               trim_atData1.value = capsData.trim_at || '';          
+               trim_atData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block';  
+               });  
+               trim_atBOX1.appendChild(trim_atData1)
+
+               pad_atBOX1 = document.createElement('aside')
+               pad_atBOX1.innerHTML="pad&nbsp";
+               pad_atBOX1.classList.add('inputDATABOX3')
+               pad_atData1 = document.createElement('input')
+               pad_atData1.classList.add('inputDATA2')
+               pad_atData1.placeholder = "$0";
+               pad_atData1.value = capsData.pad_at || '';          
+               pad_atData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+               });  
+               pad_atBOX1.appendChild(pad_atData1)
+
+               padlvlBOX1 = document.createElement('aside')
+               padlvlBOX1.innerHTML="padlvl&nbsp";
+               padlvlBOX1.classList.add('inputDATABOX4')
+               padlvlData1 = document.createElement('input')
+               padlvlData1.classList.add('inputDATA3')
+               padlvlData1.placeholder = "0";
+               padlvlData1.value = capsData.padlvl || '';          
+               padlvlData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+               });  
+               padlvlBOX1.appendChild(padlvlData1)
+
+               crashlvlBOX1 = document.createElement('aside')
+               crashlvlBOX1.innerHTML="crashPOS&nbsp";
+               crashlvlBOX1.classList.add('inputDATABOX5')
+               crashlvlData1 = document.createElement('input')
+               crashlvlData1.classList.add('inputDATA3')
+               crashlvlData1.placeholder = "0";
+               crashlvlData1.value = capsData.crashlvl || 0;          
+               crashlvlData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+               });  
+               crashlvlBOX1.appendChild(crashlvlData1)
+
+               capROW.appendChild(trimTick)         
+               capROW.appendChild(capBOX1)         
+               capROW.appendChild(trim_atBOX1)         
+               capROW.appendChild(pad_atBOX1)         
+               capROW.appendChild(padlvlBOX1)         
+               capROW.appendChild(crashlvlBOX1)
+               monthBOX.appendChild(capROW)
+
+               if(show_schedule_details_view){   //BEGIN DETAILS VIEW
+                  let detailRow2,date1,detAmt,detType,detRole,detNote;
+                  let monthData = null;
+                  let role1,role2,role3,role4,role5,role6,role7,role8,role9,role10,role11;
+                  let type1,type2,type3,type4;
+                  let roleBOX,roleData;
+                  let typeBOX,typeData,atBOX1;
+                  let atData1,amtData1;
+                  for(let k=0;k<quarter.monthData.length;k++){  //CAP DETAILS LOOP.
+                     monthData = quarter.monthData[k];
+                     if(monthData.tick.toUpperCase()!=capsData.tkr.toUpperCase()){continue;}
+                     detailRow2 = document.createElement('section')
+                     detailRow2.classList.add('detailRow2')
+                     //DETAILS ROW
+               //**********************************************selector
+               capsNUMBOX2 = document.createElement('aside')
+               capsNUMBOX2.classList.add('capsNUMBOX2')//encodeNUMBOX1
+               capsCHECKBOX2 = document.createElement('label')
+               capsCHECKBOX2.classList.add('checkboxFrame') 
+               capsNUMBOX2.innerHTML=k+1;            
+               capsSelect2 = document.createElement('input');
+               capsSelect2.ymdtn = quarter.qID+'_'+capsData.tkr.toUpperCase()+'_'+k || '';
+               // capsSelect2.ymdt = quarter.qID+'_'+capsData.tkr.toUpperCase() || '';
+               capsSelect2.type = "radio";
+               capsSelect2.name = "scheduleDetailsRadio";
+               capsSelect2.classList.add('cap_checkmark')
+               capsCHECKBOX2.appendChild(capsSelect2)
+               capsCheckMark2 = document.createElement('span')
+               capsCheckMark2.classList.add('checkmark')
+               capsCHECKBOX2.appendChild(capsCheckMark2)
+               capsNUMBOX2.appendChild(capsCHECKBOX2)
+               detailRow2.appendChild(capsNUMBOX2)
+               // end ************************************** selector
+                        date1 = document.createElement('input')
+                        date1.value = ''+monthData.ymd;
+                        date1.classList.add('detailDate1')
+                        date1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+                        });  
+                        amtBOX1 = document.createElement('aside')
+                        amtBOX1.innerHTML="amt&nbsp;"
+                        roleBOX = document.createElement('aside')
+                        roleBOX.innerHTML="role&nbsp;"
+                        typeBOX = document.createElement('aside')
+                        typeBOX.innerHTML="type&nbsp;"
+                        roleData = document.createElement('select')
+                        typeData = document.createElement('input')
+                        role1 = document.createElement('option')
+                        role2 = document.createElement('option')
+                        role3 = document.createElement('option')
+                        role4 = document.createElement('option')
+                        role5 = document.createElement('option')
+                        role6 = document.createElement('option')
+                        role7 = document.createElement('option')
+                        role8 = document.createElement('option')
+                        role9 = document.createElement('option')
+                        role10 = document.createElement('option')
+                        role11 = document.createElement('option')
+                        role1.value = "...";
+                        role2.value = "HOLD";
+                        role3.value = "WATCH";
+                        role4.value = "RISKOFF";
+                        role5.value = "LONG";
+                        role6.value = "TRIM";
+                        role7.value = "SAFE";
+                        role8.value = "RISKON";
+                        role9.value = "EXIT";
+                        role10.value = "LOrLO";
+                        role11.value = "HIGHrHIGH";
+                        role1.innerHTML = "...";
+                        role2.innerHTML = "HOLD";
+                        role3.innerHTML = "WATCH";
+                        role4.innerHTML = "RISKOFF";
+                        role5.innerHTML = "LONG";
+                        role6.innerHTML = "TRIM";
+                        role7.innerHTML = "SAFE";
+                        role8.innerHTML = "RISKON";
+                        role9.innerHTML = "EXIT";
+                        role10.innerHTML = "LOrLO";
+                        role11.innerHTML = "HIrHI";
+                        roleData.appendChild(role1);
+                        roleData.appendChild(role2);
+                        roleData.appendChild(role3);
+                        roleData.appendChild(role4);
+                        roleData.appendChild(role5);
+                        roleData.appendChild(role6);
+                        roleData.appendChild(role7);
+                        roleData.appendChild(role8);
+                        roleData.appendChild(role9);
+                        roleData.appendChild(role10);
+                        roleData.appendChild(role11);
+                        roleData.value = monthData.role || '';
+                        roleBOX.appendChild(roleData)
+                        
+                        roleData.addEventListener("change",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+                        });  
+                        typeData.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+                        });  
+
+                        typeData.value= monthData.type || '';
+                        roleBOX.classList.add('roleBOX1')
+                        
+                        typeBOX.appendChild(typeData)
+                        typeBOX.classList.add('typeBOX1')
+                        
+                        if(monthData.type==='trim'){
+                           typeData.classList.add('typeTRIMColor')
+                        } else if (monthData.type==='pad'){
+                           typeData.classList.add('typePADColor')
+                        }
+
+                        roleData.classList.add('roleData1')
+                        typeData.classList.add('typeData1')
+                        amtData1 = document.createElement('input')
+                        amtData1.placeholder = "$0";
+                        amtData1.value = monthData.amt;
+                        amtData1.classList.add('spotAtData1')
+
+                        amtData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+                        });  
+
+                        amtBOX1.classList.add('amtBOX1')
+                        amtBOX1.appendChild(amtData1)            
+                        detailRow2.appendChild(date1)
+                        detailRow2.appendChild(typeBOX)
+                        detailRow2.appendChild(amtBOX1)
+                        detailRow2.appendChild(roleBOX)
+
+                     //END DETAILS ROW
+                     monthBOX.appendChild(detailRow2) 
+
+                  } //END DETAILS LOOP
+               }  //END DETAILS VIEW
+            } //END MONTHLY LOOP
+         } else {quarter.expanded = false;}//END EXPANDED
+         quarterBOX.appendChild(monthBOX)
+         generatedScheduleBOX.appendChild(quarterBOX)
+      } //END QUARTERLY LOOP
+   }//END if collapsed view
+} //end generate schedule 2
+
+
+   let show_schedule_details_view = null;
+      const setScheduleDetailsClick = (e)=>{ 
+         if(e.target.id==='detailsBtn2'){
+            totalsBtn2.style.display='block'
+            detailsBtn2.style.display='none'
+            show_schedule_details_view = true;
+         }else{
+            totalsBtn2.style.display='none'               
+            detailsBtn2.style.display='block'               
+            show_schedule_details_view = false;
+         }
+         // scheduleBOX.scrollIntoView({
+         //    behavior: 'smooth',
+         //    block: 'start'
+         // })
+         generateScheduleClick();
+      }
+
       /*****************************************\
        * - SCHEDULE functions
       \****************************************/
@@ -2671,371 +3383,22 @@ const generateProfitLossClick = ()=>{ // GENERATE PROFIT AND LOSS DISPLAY
          }
       }     //end save schedule click        
         
+      //END SCHEDULE_MATRIX-METHODS**********************************************
 
-//EVENTZ***********************************************
-const addEVTZClick = (evtzID) =>{
-   // saveEVTZClick();//FIX: save first for bug on double create row, keeps first row tickr.
-   //go to parent quarter and add a unique row
-   let newEVT = {}
-   let evt = ai_eventz[parseInt(evtzID)-1];
-   if(!evt){return}
-   if(!evt.evtz){evt.evtz=[]}
-      evt.expanded = true;
-      newEVT.eID = evt.evtz.length+1;
-      newEVT.qID = evt.qID;
-      newEVT.title = evt.title;
-      newEVT.ymd = evt.ymd;
-      newEVT.type = evt.type;
-      newEVT.tkr = evt.tkr;
-      evt.evtz.push(newEVT)
-         //SAVE to LOCAL STORAGE
-         localStorage.ai_eventz = JSON.stringify(ai_eventz) 
-      generateEVTZClick(); //RELOAD VIEW.  
-      showErrorMSG('⛏ SAVED ⛏');     
-}  
-
-const saveNewMilestoneClick = (e)=>{ 
-         //GET input value
-         let qID = e.target.getAttribute('data-arg7')
-         let tkr = e.target.parentElement.children[0].value
-         let type = e.target.parentElement.children[1].children[0].value
-         let ymd = e.target.parentElement.children[2].value
-         if( !qID || !tkr || !type || !ymd){
-            showErrorMSG('⚔️ ERR ⚔️');  
-            return
-         }
-         let newMileStone = {}
-         newMileStone.qID = qID
-         newMileStone.tkr = tkr.toUpperCase();
-         newMileStone.type = type
-         newMileStone.ymd = ymd
-         newMileStone.title = `${newMileStone.tkr}_${newMileStone.type}_${newMileStone.ymd}`
-         ai_eventz.push(newMileStone)
-
-         //SAVE to LOCAL STORAGE
-         localStorage.ai_eventz = JSON.stringify(ai_eventz) 
-         generateEVTZClick(); //RELOAD VIEW.  
-         showErrorMSG('⚔️ ADDED ⚔️');          
-      }
-
-const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
-   evtzSaveBtn5.style.display = 'none'; 
-   let evtzBoxes = document.getElementById('eventzFRAME').children
-   let rowItem,kids,kid;
-   let saveTGT;
-   let evtTXT;
-   let save_eventz = [], save_evt={};
-   try{     
-      for(var i=0; i<evtzBoxes.length;i++){ //LOOP QUARTER BOX
-         evtBOX = evtzBoxes[i];
-      if(evtBOX.classList.contains('eventzBOX')){
-         kids = evtBOX.children;
-         for(var j=0;j<kids.length;j++){ //ROW of EVENTZ LOOP
-            kid = kids[j];
-            save_evt = {}; //new object
-            if(kid.classList.contains('eventzHeader')){ 
-               evtTXT = kid.children[1].value.toUpperCase();
-               saveTGT = {title:evtTXT}
-               expand1 = (kid.children[2].innerHTML === '💨')? true : false;
-               saveTGT.expanded = expand1;
-               //GET EVENT
-               for(let aa=0; aa<ai_eventz.length; aa++){
-                  if(evtTXT===ai_eventz[aa].title){
-                     saveTGT.qID = aa+1; //ai_eventz[aa].qID ||
-                     saveTGT.tkr = ai_eventz[aa].tkr;
-                     saveTGT.type = ai_eventz[aa].type;
-                     saveTGT.ymd = ai_eventz[aa].ymd;
-                     saveTGT.evtz = (expand1)? [] : ai_eventz[aa].evtz || [];
-                     break;
-                  }
-               }
-            } // END HEADER
-            else if(kid.classList.contains('eventzROW')){
-               // if(kid.children.length===0){ // NO MONTHBOX data, COLLAPSED.
-                  // debugger;
-//                   save_schedule.quarters[qtrTXT] = ai_schedule.quarters[qtrTXT]
-//                   continue; //DO NOT SAVE, use saved data, since it is collapsed.
-               // } 
-
-               for(var k=0; k<kid.children.length;k++){ //POPULATE DATA from VIEW.
-                  rowItem = kid.children[k]
-                  if(rowItem.classList.contains('capsNUMBOX3')){
-                     save_evt.eID = rowItem.children[1].innerHTML;
-                  }
-                  else if(rowItem.classList.contains('eventzTitle')){
-                     save_evt.title = rowItem.value;
-                  }
-                  else if(rowItem.classList.contains('eventzTypeBOX1')){
-                     save_evt.type =  rowItem.children[0].value
-                  }
-                  else if(rowItem.classList.contains('eventzTypeBOX2')){
-                     save_evt.range = rowItem.children[0].value
-                  }
-                  else if(rowItem.classList.contains('eventzTypeBOX3')){
-                     save_evt.spot_amt = rowItem.children[0].value
-                     save_evt.spot_POS = rowItem.children[2].value;
-                  }
-                  else if(rowItem.classList.contains('detailDate2')){
-                     save_evt.ymd = rowItem.value;
-                  }
-               } //END ROW DATA
-               // if(saveTGT && saveTGT.evtz){
-                  saveTGT.evtz.push(save_evt)
-               // }else{
-               //    debugger;
-               // }
-
-            } //end EVENTz ROW
-          } // ROW of EVENTZ LOOP
-         //  if(saveTGT && saveTGT.evtz){
-             save_eventz.push( saveTGT )
-         //  }
-
-//          if(!show_schedule_details_view){   //could move out of loop, below.
-//                      CAPMonth.monthData = ai_schedule.quarters[qtrTXT].monthData
-//                   }  
-         } // IF eventzBOX
-      } //END EVENTZ BOX LOOP
-   } //end TRY
-   catch(e){
-      console.log('err in save',e)
-      showErrorMSG('⚔️ ERR ⚔️'); 
-      return;
-   }
-   if(save_eventz){
-      //SAVE to LOCAL STORAGE
-      ai_eventz = save_eventz;
-      localStorage.ai_eventz = JSON.stringify(ai_eventz) 
-      generateEVTZClick(); //RELOAD VIEW.  
-      showErrorMSG('⚔️ SAVED ⚔️');
-   }
-}     //end save EVENTZ click  
-
-   /************************************************\
-    * - AI_EVENTZ_MATRIX
-    *  - ability to save quarterly data in localstorage
-   \************************************************/
-
-   let ai_eventz=null;
-   const ai_eventz_LOAD_MOCK_DATA=()=>{ //READ from OBJ
-      ai_eventz = [
-         {qID:1,tkr:'NVDA',title:'NVDA_DIP_2023',ymd:'2023_12_10',type:'DIP',txt:'10yr 5%',expanded:true,
-            evtz:[
-            {eID:0,title:'10%OFFTOP',ymd:'2023_12_02',type:'WARN',range:'100-200',spot_amt:0,spot_POS:0},
-            {eID:1,title:'20%OFFTOP',ymd:'2023_12_01',type:'PAD1',range:'100-200',spot_amt:100,spot_POS:150}]},
-         {qID:2,tkr:'NVDA',title:'NVDA_CRASH_2023',ymd:'2023_12_10',type:'CRASH',txt:'10yr 4.44%',
-            evtz:[{eID:0,title:'50%OFFTOP',ymd:'2023_12_02',type:'DIP'},{eID:1,title:'b',ymd:'2023_12_01',type:'warn'}]},
-         {qID:3,tkr:'NVDA',title:'AAA',ymd:'2023_12_10',type:'BLACKSWAN',txt:'super-semia',
-            evtz:[{eID:0,title:'LIQUID_TOP',ymd:'2023_12_02',type:'DIP'},{eID:1,title:'b',ymd:'2023_12_01',type:'warn'}]},
-         {qID:4,tkr:'NVDA',title:'BBB',ymd:'2023_12_10',type:'BREAKOUT',txt:'super-semib',
-            evtz:[{eID:0,title:'vent1',ymd:'2023_12_02',type:'DIP'},{eID:1,title:'b',ymd:'2023_12_01',type:'warn'}]},
-         {qID:5,tkr:'NVDA',title:'',ymd:'2023_12_10',type:'BULLFLAG',txt:'celebrate good things.',
-            evtz:[{eID:0,title:'event2',ymd:'2023_12_02',type:'DIP'},{eID:1,title:'b',ymd:'2023_12_01',type:'warn'}]}
-      ];
-   }
-
-   const ai_eventz_init=()=>{ //READ from LOCAL STORAGE
-      ai_eventz = (localStorage.ai_eventz)?
-         JSON.parse( localStorage.ai_eventz ):null;
-      ai_eventz = null; //test mock data
-      if(!ai_eventz){
-         ai_eventz_LOAD_MOCK_DATA();
-      }
-   }; ai_eventz_init();
-
-      /************************************************\
-    * -  END AI_EVENTZ_MATRIX
-   \************************************************/
-
-   const addEVTZMilestoneClick=()=>{
-      ai_ledger.eventz_expanded = true;
-      evtzRow1 = document.createElement('article')
-      evtzRow1.classList.add('addEVTZRow1')
-
-      //EVENT_TYPE
-      typeBOX = document.createElement('aside')
-         typeBOX.innerHTML="type&nbsp;"
-         typeData = document.createElement('select')
-         type1 = document.createElement('option')
-         type2 = document.createElement('option')
-         type3 = document.createElement('option')
-         type4 = document.createElement('option')
-         type5 = document.createElement('option')
-         type6 = document.createElement('option')
-         type7 = document.createElement('option')
-         type8 = document.createElement('option')
-         type9 = document.createElement('option')
-         type10 = document.createElement('option')
-         type11 = document.createElement('option')
-         type12 = document.createElement('option')
-         type1.value = "...";
-         type2.value = "WARN";
-         type3.value = "CRASH";
-         type4.value = "DIP";
-         type5.value = "CALLTOP";
-         type6.value = "CALLBTM";
-         type7.value = "PAD5";
-         type8.value = "BLKSWAN";
-         type9.value = "BREAK";
-         type10.value = "LOrLO";
-         type11.value = "HIrHI";
-         type12.value = "LiQD8";
-         type1.innerHTML = "...";
-         type2.innerHTML = "WARN";
-         type3.innerHTML = "CRASH";
-         type4.innerHTML = "DIP";
-         type5.innerHTML = "CALLTOP";
-         type6.innerHTML = "CALLBTM";
-         type7.innerHTML = "PAD5";
-         type8.innerHTML = "BLKSWAN";
-         type9.innerHTML = "BREAK";
-         type10.innerHTML = "LOrLO";
-         type11.innerHTML = "HIrHI";
-         type12.innerHTML = "LiQD8";
-         typeData.appendChild(type1);
-         typeData.appendChild(type2);
-         typeData.appendChild(type3);
-         typeData.appendChild(type4);
-         typeData.appendChild(type5);
-         typeData.appendChild(type6);
-         typeData.appendChild(type7);
-         typeData.appendChild(type8);
-         typeData.appendChild(type9);
-         typeData.appendChild(type10);
-         typeData.appendChild(type11);
-         typeData.appendChild(type12);
-         typeData.value =  '...';
-         typeBOX.appendChild(typeData)
-         typeBOX.classList.add('eventzTypeBOX1')
-      
-         // if(monthData.type==='trim'){
-         //    typeData.classList.add('typeTRIMColor')
-         // } else if (monthData.type==='pad'){
-         //    typeData.classList.add('typePADColor')
-         // }
-         typeData.classList.add('eventzTypeData1')
-
-
-      date1 = document.createElement('input')
-      date1.value = current_ymd.split('YMD_')[1];//user display
-      date1.classList.add('detailDate2')
-
-      tick1 = document.createElement('input')
-      tick1.value = "";
-      tick1.classList.add('quarterTXT')
-      tick1.placeholder="ticker"
-                        
-      saveBtn3 = document.createElement('button')
-      saveBtn3.innerHTML = 'save🌟'
-      saveBtn3.classList.add('saveBtn2')
-      saveBtn3.setAttribute('data-arg7',ai_eventz.length+1)
-      saveBtn3.addEventListener("click",(e)=>{
-         saveNewMilestoneClick(e) 
-      });
-
-      evtzRow1.appendChild(tick1)
-      evtzRow1.appendChild(typeBOX)
-      evtzRow1.appendChild(date1)
-      evtzRow1.appendChild(saveBtn3)
-      eventzFRAME.appendChild(evtzRow1)
-
-    } //end add milestone
-
-
-    const setEVTZDeleteClick=(event)=>{
-      // const deleteSelectedSchedule = (event)=>{ //remove ledger item, save, refresh
-      let evtSelected = [], detSelected=[], temp = [], removeChildRow=false;
-      let evtChecks = document.getElementsByName("eventzMasterRadio");
-      let detChecks = document.getElementsByName("eventzDetailsRadio");
-      for(let i=0; i<evtChecks.length;i++){
-         if(evtChecks[i].checked){ //SORT THROUGH ai_eventz to delete data and reload
-            let qID = evtChecks[i].qID;
-            evtSelected.push(evtChecks[i])
-            for(var j=0; j<ai_eventz.length;j++){ //DELETE evt DATA
-               if( qID.toString() === ai_eventz[j].qID.toString() ){
-                  ai_eventz.splice(j,1) //remove data
-                  break;
-               }
-            }
-            //SAVE & RELOAD VIEW
-            showErrorMSG('🦕 Saved. ');
-            localStorage.ai_eventz = JSON.stringify(ai_eventz) //SAVE to LOCAL STORAGE
-            generateEVTZClick(); //RELOAD VIEW. 
-            break;
-         }
-      }
-      if(!evtSelected.length && detChecks.length){ // DETAIL ROW SELECTION
-         for(let j=0; j<detChecks.length;j++){
-            if(detChecks[j].checked){
-               detSelected.push(detChecks[j])
-               let eID = detChecks[j].eID
-               let qID = detChecks[j].parentElement.parentElement.parentElement.parentElement.qID;
-               for(var k=0; k<ai_eventz.length;k++){ //DELETE MONTH DATA
-                  if(ai_eventz[k].qID===qID){
-                     for(var m=0; m<ai_eventz[k].evtz.length;m++){ //DELETE MONTH DATA
-                        if( eID === ai_eventz[k].evtz[m].eID ){       
-                           ai_eventz[k].evtz.splice(m,1) //remove data
-                           break;
-                        }
-                     }
-                  }
-               }
-               //SAVE & RELOAD VIEW
-               showErrorMSG(' Saved🦖 ');
-               localStorage.ai_eventz = JSON.stringify(ai_eventz) //SAVE to LOCAL STORAGE
-               generateEVTZClick(); //RELOAD VIEW. 
-               
-               break;
-            }
-         }
-      } 
-      if(!evtSelected.length && !detSelected.length){showErrorMSG(' Nothing selected 😵'); return;}
-   } //end delete EVENTZ fn
-
-
-//END EVENTZ***********************************************
-   /************************************************\
-    * - AI_SCHEDULE_MATRIX
-    *  - ability to save quarterly data in localstorage
-   \************************************************/
-
-   let ai_schedule=null;
-   const ai_schedule_LOAD_MOCK_DATA=()=>{ //READ from OBJ
-      ai_schedule = {"quarters":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":false,"caps":[{"tkr":"NVDA","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"MDB","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COST","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"MSFT","cap":"1000","trim_at":"100","pad_at":"50","padlvl":"1","crashlvl":"2"},{"tkr":"QQQ","cap":"500","trim_at":"50","pad_at":"50","padlvl":"1","crashlvl":"2"},{"tkr":"BTC","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"}],"monthData":[{"ymd":"2023_11_27","tick":"NVDA","type":"pad","amt":"100","role":"LOrLO"},{"ymd":"2023_11_27","tick":"MDB","type":"trim","amt":"100","role":"LOrLO"},{"ymd":"2023_11_27","tick":"MDB","type":"pad","amt":"100","role":"EXIT"},{"ymd":"2023_11_27","tick":"COST","type":"pad","amt":"100","role":"LONG"},{"ymd":"2023_11_27","tick":"MSFT","type":"trim","amt":"100","role":"LONG"},{"ymd":"2023_11_27","tick":"QQQ","type":"trim","amt":"50","role":"WATCH"}]},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"caps":[{"tkr":"NVDA","cap":"4500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"MDB","cap":"1500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COST","cap":"2000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"1"},{"tkr":"GOOG","cap":"5000","trim_at":"100","pad_at":"100","padlvl":"2","crashlvl":"3"},{"tkr":"MSFT","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"QQQ","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"XLK","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"AMD","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"V","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COIN","cap":"200","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"META","cap":"100","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"ETH","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"}],"monthData":[{"ymd":"2023_11_30","tick":"COIN","type":"trim","amt":"100","role":"LOrLO"},{"ymd":"2023_11_30","tick":"META","type":"pad","amt":"100","role":"SAFE"},{"ymd":"2023_11_30","tick":"ETH","type":"trim","amt":"100","role":"LOrLO"},{"ymd":"2023_11_30","tick":"ETH","type":"pad","amt":"100","role":"HIGHrHIGH"}]},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":true,"caps":[{"tkr":"NVDA","cap":"4500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"MDB","cap":"1500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COST","cap":"2000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"1"},{"tkr":"GOOG","cap":"5000","trim_at":"100","pad_at":"100","padlvl":"2","crashlvl":"3"},{"tkr":"MSFT","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"QQQ","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"XLK","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"AMD","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"V","cap":"500","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"COIN","cap":"200","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"BTC","cap":"2000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"ETH","cap":"1000","trim_at":"100","pad_at":"100","padlvl":"1","crashlvl":"2"},{"tkr":"META","cap":"100","trim_at":"10","pad_at":"10","padlvl":"1","crashlvl":"2"},{"tkr":"TSLA","cap":"100","trim_at":"10","pad_at":"10","padlvl":"2","crashlvl":"2"}],"monthData":[{"ymd":"2023_12_01","tick":"BTC","type":"trim","amt":"25","role":"RISKOFF"},{"tick":"AAA","type":"pad","amt":"100","at":"","ymd":"2023_12_02"}]},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","expanded":false,"caps":[],"monthData":[]}}}
-   }
-
-   const ai_schedule_init=()=>{ //READ from LOCAL STORAGE
-      ai_schedule = (localStorage.ai_schedule)?
-         JSON.parse( localStorage.ai_schedule ):null;
-      ai_schedule = null; //test mock data
-      if(!ai_schedule){
-         ai_schedule_LOAD_MOCK_DATA();
-      }
-   }; ai_schedule_init();
-
-   /*************************************\
-    * END SCHEDULE_MATRIX 
-   \*************************************/
-
-const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
-   let trimBOX1,quarter,quarterSets=[];
-   let quarterBOX,monthBOX,quarterTXT,capROW;//trimBtnROW;
-   let capsData, trimTick,trimCap,trim_at,pad_at,pad_limit,lvl_limit;
-   let trimBtn1,padBtn1,lvlUpBtn1,expandBtn1;
-   let capBOX1, capData1, trim_atBOX1,trim_atData1,pad_atBOX1,pad_atData1;
-   let padlvlBOX1,padlvlData1,crashlvlBOX1,crashlvlData1;
-   let monthData1=[], addBtn4, quarterHeader;
-   let capsNUMBOX1, capsCHECKBOX1, capsSelect1, capsCheckMark1; 
-   let capsNUMBOX2, capsCHECKBOX2, capsSelect2, capsCheckMark2;
-   generatedScheduleBOX.innerHTML = ""
+/***************************************
+ * BEGIN: QUICKFUNCTIONS
+ * **************************************/
+ let show_Quick_details_view = null;
+ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
+   generatedQuickBOX.innerHTML = ""
    quarterSets = Object.keys(ai_schedule.quarters);//ai_ledger.ticks;
    if(!quarterSets){ console.log('no data'); return}
-   if(ai_ledger.caps_expanded){
-      expandCollapseBtn4.innerHTML = '💨'   
+   if(ai_ledger.quick_expanded){
+      expandCollapseBtn0.innerHTML = '💨'   
       for(let i=0;i<quarterSets.length;i++){  //BEGIN QUARTERLY LOOP
          quarter= ai_schedule.quarters[quarterSets[i]];
          quarterBOX = document.createElement('section')
-         quarterBOX.classList.add('quarterBOX')
+         quarterBOX.classList.add('QuickQuarterBOX')
 
          quarterHeader = document.createElement('aside')
          quarterHeader.classList.add('quarterHeader')
@@ -3043,59 +3406,58 @@ const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
          quarterTXT = document.createElement('input')
          quarterTXT.classList.add('quarterTXT')
          quarterTXT.value = quarter.qID;//.quarterID.toUpperCase();
-         quarterTXT.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+         quarterTXT.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
             }); 
 
-         expandBtn1 = document.createElement('button')
-         expandBtn1.innerHTML = '🕸️'
-         expandBtn1.classList.add('addBtn4')
-         expandBtn1.setAttribute('data-arg3',quarter.qID)
-         expandBtn1.addEventListener("click",(e)=>{
-               expandCAPClick(e.target.getAttribute('data-arg3')) });
+         expandBtn0 = document.createElement('button')
+         expandBtn0.innerHTML = '🕸️'
+         expandBtn0.classList.add('addBtn4')
+         expandBtn0.setAttribute('data-arg3',quarter.qID)
+         expandBtn0.addEventListener("click",(e)=>{
+               expandQuickTickerClick(e.target.getAttribute('data-arg3')) });
          addBtn4 = document.createElement('button')
-         addBtn4.innerHTML = 'addCAP🗺️'
+         addBtn4.innerHTML = 'add Ticker🧭'
          addBtn4.classList.add('addBtn4')
          addBtn4.setAttribute('data-arg2',quarter.qID)
          addBtn4.addEventListener("click",(e)=>{
-               addCapClick(e.target.getAttribute('data-arg2')) });
+               addQuickTickerClick(e.target.getAttribute('data-arg2')) });
 
          quarterHeader.appendChild(quarterTXT)
-         quarterHeader.appendChild(expandBtn1)
+         quarterHeader.appendChild(expandBtn0)
          quarterHeader.appendChild(addBtn4)
-         // quarterBOX.appendChild(addBtn4)
          quarterBOX.appendChild(quarterHeader)
 
          monthBOX = document.createElement('article')
          monthBOX.classList.add('monthBOX')
 
          if(quarter.expanded){
-            expandBtn1.innerHTML = '💨'
+            expandBtn0.innerHTML = '💨'
             for(let j=0;j<quarter.caps.length;j++){  //MONTHLY CAP LOOP .
-               capsData = quarter.caps[j];
-               capROW = document.createElement('aside')
-               capROW.classList.add('capROW')
+               QuicksData = quarter.caps[j];
+               QuickROW = document.createElement('aside')
+               QuickROW.classList.add('QuickROW')
                //**********************************************selector
-               capsNUMBOX1 = document.createElement('aside')
-               capsNUMBOX1.classList.add('capsNUMBOX1')//encodeNUMBOX1
-               capsCHECKBOX1 = document.createElement('label')
-               capsCHECKBOX1.classList.add('checkboxFrame') 
-               capsNUMBOX1.innerHTML=j+1;            
-               capsSelect1 = document.createElement('input');
-               capsSelect1.ymdt = quarter.qID+'_'+capsData.tkr.toUpperCase() || '';
-               capsSelect1.type = "radio";
-               capsSelect1.name = "scheduleCapsRadio";
-               capsSelect1.classList.add('cap_checkmark')
-               capsCHECKBOX1.appendChild(capsSelect1)
-               capsCheckMark1 = document.createElement('span')
-               capsCheckMark1.classList.add('checkmark')
-               capsCHECKBOX1.appendChild(capsCheckMark1)
-               capsNUMBOX1.appendChild(capsCHECKBOX1)
-               capROW.appendChild(capsNUMBOX1)
+               QuicksNUMBOX1 = document.createElement('aside')
+               QuicksNUMBOX1.classList.add('capsNUMBOX1')//encodeNUMBOX1
+               QuicksCHECKBOX1 = document.createElement('label')
+               QuicksCHECKBOX1.classList.add('checkboxFrame') 
+               QuicksNUMBOX1.innerHTML=j+1;            
+               QuicksSelect1 = document.createElement('input');
+               QuicksSelect1.ymdt = quarter.qID+'_'+QuicksData.tkr.toUpperCase() || '';
+               QuicksSelect1.type = "radio";
+               QuicksSelect1.name = "QuickCapsRadio";
+               QuicksSelect1.classList.add('cap_checkmark')
+               QuicksCHECKBOX1.appendChild(QuicksSelect1)
+               QuicksCheckMark1 = document.createElement('span')
+               QuicksCheckMark1.classList.add('checkmark')
+               QuicksCHECKBOX1.appendChild(QuicksCheckMark1)
+               QuicksNUMBOX1.appendChild(QuicksCHECKBOX1)
+               QuickROW.appendChild(QuicksNUMBOX1)
                // end ************************************** selector
                trimTick = document.createElement('input')
                trimTick.classList.add('trimTick')
-               trimTick.value = capsData.tkr.toUpperCase() || 0;
-               trimTick.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+               trimTick.value = QuicksData.tkr.toUpperCase() || 0;
+               trimTick.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
                });             
                capBOX1 = document.createElement('aside')
                capBOX1.innerHTML="CAP&nbsp";
@@ -3103,8 +3465,8 @@ const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
                capData1 = document.createElement('input')
                capData1.classList.add('inputDATA1')
                capData1.placeholder = "$0";
-               capData1.value = capsData.cap || '';          
-               capData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+               capData1.value = QuicksData.cap || '';          
+               capData1.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
                });  
                capBOX1.appendChild(capData1)
 
@@ -3114,8 +3476,8 @@ const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
                trim_atData1 = document.createElement('input')
                trim_atData1.classList.add('inputDATA2')
                trim_atData1.placeholder = "$0";
-               trim_atData1.value = capsData.trim_at || '';          
-               trim_atData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block';  
+               trim_atData1.value = QuicksData.trim_at || '';          
+               trim_atData1.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block';  
                });  
                trim_atBOX1.appendChild(trim_atData1)
 
@@ -3125,8 +3487,8 @@ const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
                pad_atData1 = document.createElement('input')
                pad_atData1.classList.add('inputDATA2')
                pad_atData1.placeholder = "$0";
-               pad_atData1.value = capsData.pad_at || '';          
-               pad_atData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+               pad_atData1.value = QuicksData.pad_at || '';          
+               pad_atData1.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
                });  
                pad_atBOX1.appendChild(pad_atData1)
 
@@ -3136,8 +3498,8 @@ const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
                padlvlData1 = document.createElement('input')
                padlvlData1.classList.add('inputDATA3')
                padlvlData1.placeholder = "0";
-               padlvlData1.value = capsData.padlvl || '';          
-               padlvlData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+               padlvlData1.value = QuicksData.padlvl || '';          
+               padlvlData1.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
                });  
                padlvlBOX1.appendChild(padlvlData1)
 
@@ -3147,20 +3509,20 @@ const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
                crashlvlData1 = document.createElement('input')
                crashlvlData1.classList.add('inputDATA3')
                crashlvlData1.placeholder = "0";
-               crashlvlData1.value = capsData.crashlvl || 0;          
-               crashlvlData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+               crashlvlData1.value = QuicksData.crashlvl || 0;          
+               crashlvlData1.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
                });  
                crashlvlBOX1.appendChild(crashlvlData1)
 
-               capROW.appendChild(trimTick)         
-               capROW.appendChild(capBOX1)         
-               capROW.appendChild(trim_atBOX1)         
-               capROW.appendChild(pad_atBOX1)         
-               capROW.appendChild(padlvlBOX1)         
-               capROW.appendChild(crashlvlBOX1)
-               monthBOX.appendChild(capROW)
+               QuickROW.appendChild(trimTick)         
+               QuickROW.appendChild(capBOX1)         
+               QuickROW.appendChild(trim_atBOX1)         
+               QuickROW.appendChild(pad_atBOX1)         
+               QuickROW.appendChild(padlvlBOX1)         
+               QuickROW.appendChild(crashlvlBOX1)
+               monthBOX.appendChild(QuickROW)
 
-               if(show_schedule_details_view){   //BEGIN DETAILS VIEW
+               if(show_Quick_details_view){   //BEGIN DETAILS VIEW
                   let detailRow2,date1,detAmt,detType,detRole,detNote;
                   let monthData = null;
                   let role1,role2,role3,role4,role5,role6,role7,role8,role9,role10,role11;
@@ -3168,35 +3530,35 @@ const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
                   let roleBOX,roleData;
                   let typeBOX,typeData,atBOX1;
                   let atData1,amtData1;
-                  for(let k=0;k<quarter.monthData.length;k++){  //CAP DETAILS LOOP.
+                  for(let k=0;k<quarter.monthData.length;k++){  //Quick DETAILS LOOP.
                      monthData = quarter.monthData[k];
-                     if(monthData.tick.toUpperCase()!=capsData.tkr.toUpperCase()){continue;}
+                     if(monthData.tick.toUpperCase()!=QuicksData.tkr.toUpperCase()){continue;}
                      detailRow2 = document.createElement('section')
                      detailRow2.classList.add('detailRow2')
                      //DETAILS ROW
                //**********************************************selector
-               capsNUMBOX2 = document.createElement('aside')
-               capsNUMBOX2.classList.add('capsNUMBOX2')//encodeNUMBOX1
-               capsCHECKBOX2 = document.createElement('label')
-               capsCHECKBOX2.classList.add('checkboxFrame') 
-               capsNUMBOX2.innerHTML=k+1;            
-               capsSelect2 = document.createElement('input');
-               capsSelect2.ymdtn = quarter.qID+'_'+capsData.tkr.toUpperCase()+'_'+k || '';
-               // capsSelect2.ymdt = quarter.qID+'_'+capsData.tkr.toUpperCase() || '';
-               capsSelect2.type = "radio";
-               capsSelect2.name = "scheduleDetailsRadio";
-               capsSelect2.classList.add('cap_checkmark')
-               capsCHECKBOX2.appendChild(capsSelect2)
-               capsCheckMark2 = document.createElement('span')
-               capsCheckMark2.classList.add('checkmark')
-               capsCHECKBOX2.appendChild(capsCheckMark2)
-               capsNUMBOX2.appendChild(capsCHECKBOX2)
-               detailRow2.appendChild(capsNUMBOX2)
+               QuicksNUMBOX2 = document.createElement('aside')
+               QuicksNUMBOX2.classList.add('capsNUMBOX2')//encodeNUMBOX1
+               QuicksCHECKBOX2 = document.createElement('label')
+               QuicksCHECKBOX2.classList.add('checkboxFrame') 
+               QuicksNUMBOX2.innerHTML=k+1;            
+               QuicksSelect2 = document.createElement('input');
+               QuicksSelect2.ymdtn = quarter.qID+'_'+QuicksData.tkr.toUpperCase()+'_'+k || '';
+               // QuicksSelect2.ymdt = quarter.qID+'_'+QuicksData.tkr.toUpperCase() || '';
+               QuicksSelect2.type = "radio";
+               QuicksSelect2.name = "QuickDetailsRadio";
+               QuicksSelect2.classList.add('cap_checkmark')
+               QuicksCHECKBOX2.appendChild(QuicksSelect2)
+               QuicksCheckMark2 = document.createElement('span')
+               QuicksCheckMark2.classList.add('checkmark')
+               QuicksCHECKBOX2.appendChild(QuicksCheckMark2)
+               QuicksNUMBOX2.appendChild(QuicksCHECKBOX2)
+               detailRow2.appendChild(QuicksNUMBOX2)
                // end ************************************** selector
                         date1 = document.createElement('input')
                         date1.value = ''+monthData.ymd;
                         date1.classList.add('detailDate1')
-                        date1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+                        date1.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
                         });  
                         amtBOX1 = document.createElement('aside')
                         amtBOX1.innerHTML="amt&nbsp;"
@@ -3253,9 +3615,9 @@ const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
                         roleData.value = monthData.role || '';
                         roleBOX.appendChild(roleData)
                         
-                        roleData.addEventListener("change",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+                        roleData.addEventListener("change",(e)=>{ saveQuickBtn1.style.display = 'block'; 
                         });  
-                        typeData.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+                        typeData.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
                         });  
 
                         typeData.value= monthData.type || '';
@@ -3277,7 +3639,7 @@ const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
                         amtData1.value = monthData.amt;
                         amtData1.classList.add('spotAtData1')
 
-                        amtData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+                        amtData1.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
                         });  
 
                         amtBOX1.classList.add('amtBOX1')
@@ -3295,30 +3657,369 @@ const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
             } //END MONTHLY LOOP
          } else {quarter.expanded = false;}//END EXPANDED
          quarterBOX.appendChild(monthBOX)
-         generatedScheduleBOX.appendChild(quarterBOX)
+         generatedQuickBOX.appendChild(quarterBOX)
       } //END QUARTERLY LOOP
+   }else{
+      expandCollapseBtn0.innerHTML = '🕸️'   
    }//END if collapsed view
-} //end generate schedule 2
+} //end generate Quick 2
+generateQuickClick();
 
 
-   let show_schedule_details_view = null;
-      const setScheduleDetailsClick = (e)=>{ 
-         if(e.target.id==='detailsBtn2'){
-            totalsBtn2.style.display='block'
-            detailsBtn2.style.display='none'
-            show_schedule_details_view = true;
-         }else{
-            totalsBtn2.style.display='none'               
-            detailsBtn2.style.display='block'               
-            show_schedule_details_view = false;
-         }
-         // scheduleBOX.scrollIntoView({
-         //    behavior: 'smooth',
-         //    block: 'start'
-         // })
-         generateScheduleClick();
+const setQuickDetailsClick = (e)=>{ 
+   debugger;
+   if(e.target.id==='detailsBtn2'){
+      totalsBtn2.style.display='block'
+      detailsBtn2.style.display='none'
+      show_Quick_details_view = true;
+   }else{
+      totalsBtn2.style.display='none'               
+      detailsBtn2.style.display='block'               
+      show_Quick_details_view = false;
+   }
+   // QuickBOX.scrollIntoView({
+   //    behavior: 'smooth',
+   //    block: 'start'
+   // })
+   generateQuickClick();
+}
+
+const trimQuickClick = ()=>{ 
+   debugger;
+   //selection trim ai_bank{"tick":{balance}}  //increment trim_count.
+   let selected=null, quarterID,transObj;
+   let items = document.getElementsByClassName('Quick_checkmark');
+   for(let i=0; i<items.length;i++){
+      if(items[i].checked){
+         selected = items[i]
+         selected.checked = false;
+         break;
       }
+   }
+   if(!selected){ showErrorMSG(' Nothing selected 😵'); return; }            
+   quarterSet = selected.ymdt.toUpperCase().split('_');
+   quarterTick = quarterSet.pop()
+   quarterID = quarterSet.join('_')
+   if(!ai_BANK[quarterID]){ //INIT
+      ai_BANK[quarterID] = {id:quarterID}
+      ai_BANK[quarterID].trxns = {pads:[],trims:[]}
+   } 
+   transObj = {}
+   transObj.tick = ''
+   transObj.type = ''
+   transObj.amt = ''
+   transObj.at = ''
+   transObj.ymd = ''
+   //FIND UI DATA
+   quarterSets = Object.keys(ai_schedule.quarters);
+   for(var x = 0; x<quarterSets.length;x++){ //UI QUARTER DATA LOOKUP.
+      quarter= ai_schedule.quarters[quarterSets[x]];            
+      if(quarter.qID===quarterID){
+         for(var y=0; y<quarter.caps.length;y++){ // LOOK UP CAPS
+            if(quarter.caps[y].tkr.toUpperCase()===quarterTick){
+               transObj.tick = quarterTick;
+               transObj.type = 'trim';
+               transObj.amt =  quarter.caps[y].trim_at || '';
+               transObj.ymd = formatYMD();
+               break;             
+            }
+         }
+         ai_schedule.quarters[quarterID].monthData.push(transObj)
+         break
+      }
+   }
+   if(!transObj || !transObj.tick){return}
+   ai_BANK[quarterID].trxns.trims.push(transObj)
+   show_Quick_details_view = true; //SHOW DETAILS
+   totalsBtn2.style.display='block'
+   detailsBtn2.style.display='none'  
+   generateQuickClick();       
+   //UPDATE LOCALSTORAGE with ai_schedule. SAVE
+   localStorage.ai_schedule = JSON.stringify(ai_schedule)  
+}
+const padQuickClick = ()=>{ 
+   debugger;
+   let selected=null, quarterID,transObj;
+   let items = document.getElementsByClassName('cap_checkmark');
+   for(let i=0; i<items.length;i++){
+      if(items[i].checked){
+         selected = items[i]
+         selected.checked = false;
+         break;
+      }
+   }
+   if(!selected){ showErrorMSG(' Nothing selected 😵'); return; }            
+   show_Quick_details_view = true; //SHOW DETAILS
+   quarterSet = selected.ymdt.toUpperCase().split('_');
+   quarterTick = quarterSet.pop()
+   quarterID = quarterSet.join('_')
+   if(!ai_BANK[quarterID]){ //INIT
+      ai_BANK[quarterID] = {id:quarterID}
+      ai_BANK[quarterID].trxns = {pads:[],trims:[]}
+   } 
+   transObj = {}
+   transObj.tick = ''
+   transObj.type = ''
+   transObj.amt = ''
+   transObj.at = ''
+   transObj.ymd = ''
+   //FIND UI DATA
+   quarterSets = Object.keys(ai_schedule.quarters);
+   for(var x = 0; x<quarterSets.length;x++){ //UI QUARTER DATA LOOKUP.
+      quarter= ai_schedule.quarters[quarterSets[x]];  
+      if(quarter.qID===quarterID){
+         for(var y=0; y<quarter.caps.length;y++){ // LOOK UP CAPS
+            if(quarter.caps[y].tkr.toUpperCase()===quarterTick){
+               transObj.tick = quarterTick;
+               transObj.type = 'pad';
+               transObj.amt =  quarter.caps[y].trim_at || '';
+               transObj.ymd = formatYMD();
+               break;             
+            }
+         }
+         ai_schedule.quarters[quarterID].monthData.push(transObj)
+         break
+      }
+   }
+   if(!transObj && transObj.tick){return}
+   ai_BANK[quarterID].trxns.pads.push(transObj)
+   show_Quick_details_view = true; //SHOW DETAILS
+   totalsBtn2.style.display='block'
+   detailsBtn2.style.display='none'
+   generateQuickClick();
+   //UPDATE LOCALSTORAGE with ai_schedule. SAVE
+   localStorage.ai_schedule = JSON.stringify(ai_schedule)  
+}
+const addQuickSectionClick = ()=>{ 
+   debugger;
+   let QuickRow1,date1,tick1,amountData1;
+   let role1,role2,role3,role4,role5,role6,role7,role8,role9,role10,role11;
+   let saveBtn3,roleBOX,roleData,atBOX1,atData1;
+   QuickRow1 = document.createElement('article')
+   QuickRow1.classList.add('QuickRow1')
+   saveBtn3 = document.createElement('button')
+   tick1 = document.createElement('input')
+   tick1.value = "";
+   tick1.placeholder="Q#_YYYY_JAN"
+   tick1.classList.add('quarterTXT')
+   saveBtn3.innerHTML = 'save🌟'
+   saveBtn3.classList.add('saveBtn2')
+   saveBtn3.addEventListener("click",(e)=>{
+      saveQuarterClick(e) 
+   });
 
+   QuickRow1.appendChild(tick1)
+   QuickRow1.appendChild(saveBtn3)
+   generatedQuickBOX.appendChild(QuickRow1)
+
+} //end add Quick click
+
+const addQuickTickerClick = (quarterID) =>{
+   debugger;
+   saveQuickClick();//FIX: save first for bug on double create row, keeps first row tickr.
+   //go to parent quarter and add a unique row
+   let newCap = {}
+   let qtr = ai_schedule.quarters[quarterID]; //lookup
+   if(!qtr){return}
+      qtr.expanded = true;
+      newCap.cap = "1000";
+      newCap.crashlvl = "2";
+      newCap.pad_at = "100";
+      newCap.padlvl = "1";
+      newCap.tkr = "NEW";
+      newCap.trim_at = "100";
+   qtr.caps.push(newCap)
+      //SAVE to LOCAL STORAGE
+      localStorage.ai_schedule = JSON.stringify(ai_schedule) 
+      generateQuickClick(); //RELOAD VIEW.  
+      showErrorMSG('⚔️ SAVED ⚔️');    
+}
+
+/************************************************
+* Add Quarters 
+/************************************************/
+const addQuickQtrClick = (quarterID) =>{
+   debugger;
+   //go to parent quarter and add a unique row
+   // let newCap = {}
+   // let qtr = ai_schedule.quarters[quarterID]; //lookup
+   // if(!qtr){return}
+   //    qtr.expanded = true;
+   //    newCap.cap = "1000";
+   //    newCap.crashlvl = "2";
+   //    newCap.pad_at = "100";
+   //    newCap.padlvl = "1";
+   //    newCap.tkr = "NEW";
+   //    newCap.trim_at = "100";
+   // qtr.caps.push(newCap)
+   //   //SAVE to LOCAL STORAGE
+   //   localStorage.ai_schedule = JSON.stringify(ai_schedule) 
+   //   generateScheduleClick(); //RELOAD VIEW.  
+      showErrorMSG('⚔️ SAVED ⚔️');    
+}
+
+/************************************************
+* END Add Quarters 
+/************************************************/
+
+const saveQuickQtrClick = (e)=>{ 
+   debugger;
+   //GET input value
+   let keyInput = e.target.parentElement.children[0].value;
+   if(!keyInput){ showErrorMSG('🎀No data🎀'); return; }
+   keyInput = keyInput.toUpperCase();
+   if(ai_schedule[keyInput]){ showErrorMSG('🖖duplicate🤙'); return; }
+   
+   ai_schedule.quarters[keyInput] = {}
+   ai_schedule.quarters[keyInput].qID = keyInput;
+   ai_schedule.quarters[keyInput].caps = [];
+   ai_schedule.quarters[keyInput].monthData = [];
+
+   //SAVE to LOCAL STORAGE
+   localStorage.ai_schedule = JSON.stringify(ai_schedule) 
+   generateQuickClick(); //RELOAD VIEW.  
+
+   showErrorMSG('⚔️ ADDED ⚔️');          
+}
+
+const saveQuickClick = ()=>{ // GENERATE PROFIT AND LOSS DISPLAY
+   debugger;
+saveQuickBtn1.style.display = 'none'; 
+   let quarterBoxes = generatedQuickBOX.children,row,kids,kid;
+   let tkr,cap,trim_at,pad_at,padlvl,crashlvl;
+   let date3,type3,amt3,role3;
+   let capData,trimDetail, expand1;
+   let qtrTXT,dataBox1,dataBox2,qtrBOX, CAPMonth;
+   let save_Quick = {quarters:{}};
+try{     
+      for(var i=0; i<quarterBoxes.length;i++){ //LOOP QUARTER BOX
+      qtrBOX = quarterBoxes[i];
+      if(qtrBOX.classList.contains('QuickQuarterBOX')){
+         kids = qtrBOX.children;
+         for(var j=0;j<kids.length;j++){ //MONTH LOOP
+            kid = kids[j];
+            if(kid.classList.contains('quarterHeader')){ 
+               qtrTXT = kid.children[0].value;
+               save_Quick.quarters[qtrTXT] = {qID:qtrTXT}
+               expand1 = (kid.children[2].innerHTML==='v')? true : false;
+               save_Quick.quarters[qtrTXT].expanded = expand1;
+               CAPMonth = save_Quick.quarters[qtrTXT]
+               CAPMonth.caps = [];
+               CAPMonth.monthData = []
+            }
+            if(kid.classList.contains('monthBOX')){
+               if(kid.children.length===0){ // NO MONTHBOX data, COLLAPSED.
+                  save_schedule.quarters[qtrTXT] = ai_schedule.quarters[qtrTXT]
+                  continue; //DO NOT SAVE, use saved data, since it is collapsed.
+               } 
+               for(var k=0; k<kid.children.length;k++){ //POPULATE DATA from VIEW.
+                  row = kid.children[k]
+                  if(row.classList.contains('capROW')){ 
+                     capData = {};//, trimData = {};
+                     for(var mm = 0; mm<row.children.length;mm++){
+                        dataBox1 = row.children[mm]
+                        if(dataBox1.classList.contains('trimTick')){
+                           dataBox1.value = dataBox1.value.toUpperCase();                     
+                           capData.tkr = dataBox1.value;
+                           tkr = capData.tkr;
+                        }
+                        else if(dataBox1.classList.contains('inputDATABOX1')){
+                           capData.cap = dataBox1.children[0].value
+                        }
+                        else if(dataBox1.classList.contains('inputDATABOX2')){
+                           capData.trim_at = dataBox1.children[0].value
+                        }
+                        else if(dataBox1.classList.contains('inputDATABOX3')){
+                           capData.pad_at = dataBox1.children[0].value
+                        }
+                        else if(dataBox1.classList.contains('inputDATABOX4')){
+                           capData.padlvl = dataBox1.children[0].value
+                        }
+                        else if(dataBox1.classList.contains('inputDATABOX5')){
+                           capData.crashlvl = dataBox1.children[0].value
+                        }
+                     }
+                  } //end cap row
+            
+                  else if(row.classList.contains('detailRow2')){  
+                     trimData = {}; 
+                     for(var mm = 0; mm<row.children.length;mm++){
+                        dataBox2 = row.children[mm];
+                        if(dataBox2.classList.contains('detailDate1')){
+                           trimData.ymd = dataBox2.value
+                           trimData.tick = tkr //important load.
+                        }
+                        if(dataBox2.classList.contains('typeBOX1')){
+                           trimData.type = dataBox2.children[0].value.toLowerCase()
+                        }
+                        if(dataBox2.classList.contains('amtBOX1')){
+                           trimData.amt = dataBox2.children[0].value
+                        }
+                        if(dataBox2.classList.contains('roleBOX1')){
+                           trimData.role = dataBox2.children[0].value
+                        }
+                     }
+                  } // end details row
+      
+                  // if(capData.tkr && CAPMonth && CAPMonth.caps){
+                  if(capData.tkr){
+                     CAPMonth.caps.push(capData);
+                     capData = {}
+                  }
+                  // if (trimData.type && CAPMonth && CAPMonth.monthData){
+                  // if(!show_Quick_details_view){   //could move out of loop, below.
+                  //    CAPMonth.monthData = ai_schedule.quarters[qtrTXT].monthData
+                  // }                            
+                  else if (trimData.type){
+                     CAPMonth.monthData.push(trimData)
+                     trimData = {}
+                  }
+
+               } //END CAPS ROW.
+            } //END EXPANDED MONTHBOX
+         } //MONTH LOOP
+         if(!show_Quick_details_view){   //could move out of loop, below.
+                     CAPMonth.monthData = ai_schedule.quarters[qtrTXT].monthData
+                  }  
+         } // IF QUARTER 
+      } //END QUARTER BOX LOOP
+   } //end TRY
+   catch(e){
+      console.log('err in save')
+      showErrorMSG('⚔️ ERR ⚔️'); 
+      return;
+   }
+   if(save_Quick){
+      //SAVE to LOCAL STORAGE
+      ai_schedule = save_Quick;
+      localStorage.ai_schedule = JSON.stringify(ai_schedule) 
+      generateQuickClick(); //RELOAD VIEW.  
+      showErrorMSG('⚔️ SAVED ⚔️');
+   }
+}     //end save Quick click        
+
+const ExpandCollapseQuickClick = ()=>{
+   ai_ledger.quick_expanded = !ai_ledger.quick_expanded;
+   //SAVE to LOCAL STORAGE
+   localStorage.ai_ledger = JSON.stringify(ai_ledger)  
+   generateQuickClick(); //RELOAD VIEW. 
+   showErrorMSG('⚔️ SAVED ⚔️');     
+}
+
+const expandQuickTickerClick = (qID)=>{ //expand or collapse section
+   let qtr = ai_schedule.quarters[qID];
+   qtr.expanded = !qtr.expanded;
+      //SAVE to LOCAL STORAGE
+   localStorage.ai_schedule = JSON.stringify(ai_schedule) 
+   generateQuickClick(); //RELOAD VIEW.  
+   showErrorMSG('⚔️ SAVED ⚔️');   
+}
+
+
+/***************************************
+ * END: QUICKFUNCTIONS
+ * **************************************/
+      
 /***************************************
  * MARGINS
  * **************************************/
@@ -3639,8 +4340,8 @@ const generateEVTZClick = ()=>{
             eventzHeader.appendChild(addBtn4)
          eventzBOX.appendChild(eventzHeader)
          if(eventz.expanded){
-               expandBtn1.innerHTML = '💨'
-               if(!eventz.evtz){continue}
+            expandBtn1.innerHTML = '💨'
+            if(!eventz.evtz){eventz.evtz=[]}
             for(let j=0;j<eventz.evtz.length;j++){  //SUBLIST LOOP .
                eventzData = eventz.evtz[j];
                eventzData.eID = j+1;
@@ -3758,12 +4459,12 @@ const generateEVTZClick = ()=>{
             spotTxt = document.createElement('span')
             spotTxt.innerHTML="&nbsp;@&nbsp;"
             spotAmt = document.createElement('input')
-            spotAmt.value = eventzData.spot_amt || '';
+            spotAmt.value = eventzData.spot_amt || '0';
             spotAmt.classList.add('eventzTypeData2')
             spotAmt.addEventListener("keyup",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
             });                 
             spotPOS = document.createElement('input')
-            spotPOS.value = eventzData.spot_POS || '';
+            spotPOS.value = eventzData.spot_POS || '0';
             spotPOS.classList.add('eventzTypeData2')
             spotPOS.addEventListener("keyup",(e)=>{ evtzSaveBtn5.style.display = 'block'; 
             });                 
@@ -4149,396 +4850,412 @@ const generateStoryClick = () =>{
    }//END if collapsed view
 }//END generate Preview of STORYz click
 
-   const getLatestTickerClick = ()=>{ //loop all for last close.
-      let item,urls=[];
-      for(let i=0;i<ai_ledger.ticks.length;i++){
-         // if(i>=1){continue;}//DEV_limiter stay below 20
-         item = ai_ledger.ticks[i];
-         // item.tick = 'NVDA';//DEV_specifier 
-         urls.push(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${item.tick}&interval=5min&apikey=${stock_api_key}`)
-      }
-      getData_Quotes(urls)
-      showErrorMSG('🌼DATA UPDATED🌼') //todo error. need show message not error.
-
+const getLatestTickerClick = ()=>{ //loop all for last close.
+   let item,urls=[];
+   for(let i=0;i<ai_ledger.ticks.length;i++){
+      // if(i>=1){continue;}//DEV_limiter stay below 20
+      item = ai_ledger.ticks[i];
+      // item.tick = 'NVDA';//DEV_specifier 
+      urls.push(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${item.tick}&interval=5min&apikey=${stock_api_key}`)
    }
+   getData_Quotes(urls)
+   showErrorMSG('🌼DATA UPDATED🌼') //todo error. need show message not error.
 
-      /**************************************************************\
-       * MSGS : interface
-       * \***********************************************************/
-       let stateErrorBox = document.getElementById('errorBox');
-         let stateSavedBox = document.getElementById('savedBox');
-         let stateCopiedBox = document.getElementById('copiedBox');
- 
+}
 
-      /**************************************************************\
-       * API : interface
-       * \***********************************************************/
-      const getData_Quotes = async (quotes)=>{
-         if(!stock_api_key){ showErrorMSG('🛠️ connect api'); return;}
-         if(!quotes.length){return;}
-         try{
-            for(let i=0; i<quotes.length;i++){
-               fetch(quotes[i]).then((data)=>{
-                  if(data.ok){
-                     return data.json();
-                  }
-               }).then((tickData)=>{
-                  let responseTick = tickData["Meta Data"]["2. Symbol"];
-                  if(!responseTick){return;}
-                  let latestClose = tickData["Time Series (5min)"][Object.keys(tickData["Time Series (5min)"])[0]]["4. close"];
-                  if(!latestClose){return;}
-                  console.log(responseTick,"last close",latestClose)
-                  updateLatestTickPrice(responseTick,latestClose);
-                  //SHOW CONNNECTED and CAP, hide disconnected and key input
-                  stateConnectedBox.style.display = "inline";
-                  stateNotConnectedBox.style.display = "none";   
-                  keyBOX.style.display = "none"; 
-                  latestBtn1.style.display = "none"; //do not call twice. because of limit
-                  localStorage.ai_ledger = JSON.stringify(ai_ledger) //SAVE to LOCAL STORAGE
-                  initEncode(); //RELOAD VIEW. 
+/**************************************************************\
+ * MSGS : interface
+ * \***********************************************************/
+   let stateErrorBox = document.getElementById('errorBox');
+   let stateSavedBox = document.getElementById('savedBox');
+   let stateCopiedBox = document.getElementById('copiedBox');
 
-               }).catch((error)=>{
-                  showErrorMSG('🛠️ api daily limit')
-                  console.log(error)
-               })
+
+/**************************************************************\
+ * API : interface
+ * \***********************************************************/
+const getData_Quotes = async (quotes)=>{
+   if(!stock_api_key){ showErrorMSG('🛠️ connect api'); return;}
+   if(!quotes.length){return;}
+   try{
+      for(let i=0; i<quotes.length;i++){
+         fetch(quotes[i]).then((data)=>{
+            if(data.ok){
+               return data.json();
             }
-         } catch(error) {
-               showErrorMSG('🛠️ api down')
-         }           
-      }
-      const getData_TestConnection = ()=>{
-         if(!stock_api_key){
-            showErrorMSG('🛠️ connect api')
-            return;}
+         }).then((tickData)=>{
+            let responseTick = tickData["Meta Data"]["2. Symbol"];
+            if(!responseTick){return;}
+            let latestClose = tickData["Time Series (5min)"][Object.keys(tickData["Time Series (5min)"])[0]]["4. close"];
+            if(!latestClose){return;}
+            console.log(responseTick,"last close",latestClose)
+            updateLatestTickPrice(responseTick,latestClose);
             //SHOW CONNNECTED and CAP, hide disconnected and key input
             stateConnectedBox.style.display = "inline";
             stateNotConnectedBox.style.display = "none";   
             keyBOX.style.display = "none"; 
-            latestBtn1.style.display = "inline";
-      }
+            latestBtn1.style.display = "none"; //do not call twice. because of limit
+            localStorage.ai_ledger = JSON.stringify(ai_ledger) //SAVE to LOCAL STORAGE
+            initEncode(); //RELOAD VIEW. 
 
-      const getData_Intraday = ()=>{
-         // debugger;
-         if(!stock_api_key){return;}
-            const symbol = 'NVDA';
-            const apiUrl = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=${stock_api_key}`;
-            fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                //SHOW CONNNECTED and CAP, hide disconnected and key input
-                stateConnectedBox.style.display = "inline";
-                stateNotConnectedBox.style.display = "none";   
-                symbolBOX.style.display = "inline";
-                keyBOX.style.display = "none"; 
-                // Process the data here (e.g., extract the latest stock price)
-                const latestPrice = data['Time Series (5min)'][Object.keys(data['Time Series (5min)'])[0]]['1. open'];
-               //data['Time Series (5min)'][Object.keys(data['Time Series (5min)'])[0]]['1. open'];
-               // data['Time Series (5min)'][Object.keys(data['Time Series (5min)'])[0]];
-               // {1. open: '175.3700', 2. high: '175.3700', 3. low: '175.0000', 4. close: '175.0000', 5. volume: '24782'}
-                console.log(`Latest price for ${symbol}: ${latestPrice}`);
+         }).catch((error)=>{
+            showErrorMSG('🛠️ api daily limit')
+            console.log(error)
+         })
+      }
+   } catch(error) {
+         showErrorMSG('🛠️ api down')
+   }           
+}
+const getData_TestConnection = ()=>{
+   if(!stock_api_key){
+      showErrorMSG('🛠️ connect api')
+      return;}
+      //SHOW CONNNECTED and CAP, hide disconnected and key input
+      stateConnectedBox.style.display = "inline";
+      stateNotConnectedBox.style.display = "none";   
+      keyBOX.style.display = "none"; 
+      latestBtn1.style.display = "inline";
+}
+
+const getData_Intraday = ()=>{
+   if(!stock_api_key){return;}
+      const symbol = 'NVDA';
+      const apiUrl = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=${stock_api_key}`;
+      fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+            //SHOW CONNNECTED and CAP, hide disconnected and key input
+            stateConnectedBox.style.display = "inline";
+            stateNotConnectedBox.style.display = "none";   
+            symbolBOX.style.display = "inline";
+            keyBOX.style.display = "none"; 
+            // Process the data here (e.g., extract the latest stock price)
+            const latestPrice = data['Time Series (5min)'][Object.keys(data['Time Series (5min)'])[0]]['1. open'];
+         //data['Time Series (5min)'][Object.keys(data['Time Series (5min)'])[0]]['1. open'];
+         // data['Time Series (5min)'][Object.keys(data['Time Series (5min)'])[0]];
+         // {1. open: '175.3700', 2. high: '175.3700', 3. low: '175.0000', 4. close: '175.0000', 5. volume: '24782'}
+            console.log(`Latest price for ${symbol}: ${latestPrice}`);
+      })
+      .catch(error => {
+            console.error('Error fetching data:', error);
+      });         
+}
+
+function updateLatestTickPrice(responseTick,latestClose){
+   //loop ai_ledger, update price and latest label.
+   let tickr='',item=null;
+   for(let i=0; i<ai_ledger.ticks.length;i++){
+      tickr=ai_ledger.ticks[i];
+      if(tickr.tick===responseTick){ //FOUND ticker record
+         ai_ledger.ticks[i].price = latestClose.split('.')[0];
+         ai_ledger.ticks[i].price_ymd = formatYMD();
+         update_History_matrix(
+            {tick:tickr.tick,
+               ymd:ai_ledger.ticks[i].price_ymd,
+               price: ai_ledger.ticks[i].price
             })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-            });         
+         break;
       }
+   }
+}
 
-      function updateLatestTickPrice(responseTick,latestClose){
-         //loop ai_ledger, update price and latest label.
-         let tickr='',item=null;
-         for(let i=0; i<ai_ledger.ticks.length;i++){
-            tickr=ai_ledger.ticks[i];
-            if(tickr.tick===responseTick){ //FOUND ticker record
-               ai_ledger.ticks[i].price = latestClose.split('.')[0];
-               ai_ledger.ticks[i].price_ymd = formatYMD();
-               update_History_matrix(
-                  {tick:tickr.tick,
-                     ymd:ai_ledger.ticks[i].price_ymd,
-                     price: ai_ledger.ticks[i].price
-                  })
-               break;
-            }
-         }
-      }
+/************************************************\
+ * - AI_HISTORY_MATRIX
+ *  - ability to save in localstorage
+\************************************************/
+let ai_history_matrix=null;
 
-   /************************************************\
-    * - AI_HISTORY_MATRIX
-    *  - ability to save in localstorage
-   \************************************************/
-      let ai_history_matrix=null;
+const ai_history_LOAD_MOCK_DATA=()=>{ //READ from OBJ
+   // ai_history_matrix = {'NVDA':{ymd_price:{'2023_11_01':'428'}}}
+   // ai_history_matrix = {"NVDA":{"ymd_price":{"2023_11_01":"428","2023_11_08":"464","2023_11_09":"464"}}}
+   // ai_history_matrix = {"NVDA":{"ymd_price":{"2023_11_01":"428","2023_11_08":"464","2023_11_09":"464","2023_11_11":"483"}},"V":{"ymd_price":{"2023_11_11":"245"}},"MSFT":{"ymd_price":{"2023_11_11":"369"}},"MDB":{"ymd_price":{"2023_11_11":"375"}},"XLK":{"ymd_price":{"2023_11_11":"179"}},"NDAQ":{"ymd_price":{"2023_11_11":"52"}},"AMD":{"ymd_price":{"2023_11_11":"118"}},"COST":{"ymd_price":{"2023_11_11":"576"}},"COIN":{"ymd_price":{"2023_11_11":"93"}},"QQQ":{"ymd_price":{"2023_11_11":"377"}},"GOOGL":{"ymd_price":{"2023_11_11":"132"}}}
+   // ai_history_matrix = {"NVDA":{"ymd_price":{"2023_11_01":"428","2023_11_08":"464","2023_11_09":"464","2023_11_11":"483","2023_11_16":"488","2023_11_20":"493","2023_11_24":"477","2023_11_27":"477"}},"V":{"ymd_price":{"2023_11_11":"245","2023_11_16":"248","2023_11_20":"249","2023_11_24":"254","2023_11_27":"254"}},"MSFT":{"ymd_price":{"2023_11_11":"369","2023_11_16":"371","2023_11_20":"366","2023_11_24":"377","2023_11_27":"377"}},"MDB":{"ymd_price":{"2023_11_11":"375","2023_11_16":"391","2023_11_20":"392","2023_11_24":"407","2023_11_27":"407"}},"XLK":{"ymd_price":{"2023_11_11":"179","2023_11_16":"182","2023_11_20":"182","2023_11_24":"184","2023_11_27":"184"}},"NDAQ":{"ymd_price":{"2023_11_11":"52","2023_11_16":"52","2023_11_20":"53","2023_11_24":"55","2023_11_27":"55"}},"AMD":{"ymd_price":{"2023_11_11":"118","2023_11_16":"117","2023_11_20":"120","2023_11_24":"122","2023_11_27":"122"}},"COST":{"ymd_price":{"2023_11_11":"576","2023_11_16":"596","2023_11_20":"576","2023_11_24":"592","2023_11_27":"592"}},"COIN":{"ymd_price":{"2023_11_11":"93","2023_11_16":"99","2023_11_20":"98","2023_11_24":"115","2023_11_27":"115"}},"QQQ":{"ymd_price":{"2023_11_11":"377","2023_11_16":"385","2023_11_20":"385","2023_11_24":"389","2023_11_27":"389"}},"GOOGL":{"ymd_price":{"2023_11_11":"132","2023_11_16":"135","2023_11_20":"135","2023_11_24":"136","2023_11_27":"136"}}}
+   // ai_history_matrix = {"NVDA":{"ymd_price":{"2023_11_01":"428","2023_11_08":"464","2023_11_09":"464","2023_11_11":"483","2023_11_16":"488","2023_11_20":"493","2023_11_24":"477","2023_11_27":"477","2023_11_28":"477","2023_11_30":"481","2023_12_01":"467"}},"V":{"ymd_price":{"2023_11_11":"245","2023_11_16":"248","2023_11_20":"249","2023_11_24":"254","2023_11_27":"254","2023_11_28":"253","2023_11_30":"254","2023_12_01":"256"}},"MSFT":{"ymd_price":{"2023_11_11":"369","2023_11_16":"371","2023_11_20":"366","2023_11_24":"377","2023_11_27":"377","2023_11_28":"382","2023_11_30":"379","2023_12_01":"374"}},"MDB":{"ymd_price":{"2023_11_11":"375","2023_11_16":"391","2023_11_20":"392","2023_11_24":"407","2023_11_27":"407","2023_11_28":"408","2023_11_30":"432","2023_12_01":"438"}},"XLK":{"ymd_price":{"2023_11_11":"179","2023_11_16":"182","2023_11_20":"182","2023_11_24":"184","2023_11_27":"184","2023_11_28":"184","2023_11_30":"184","2023_12_01":"185"}},"NDAQ":{"ymd_price":{"2023_11_11":"52","2023_11_16":"52","2023_11_20":"53","2023_11_24":"55","2023_11_27":"55","2023_11_28":"55","2023_11_30":"55"}},"AMD":{"ymd_price":{"2023_11_11":"118","2023_11_16":"117","2023_11_20":"120","2023_11_24":"122","2023_11_27":"122","2023_11_28":"122","2023_11_30":"124","2023_12_01":"121"}},"COST":{"ymd_price":{"2023_11_11":"576","2023_11_16":"596","2023_11_20":"576","2023_11_24":"592","2023_11_27":"592","2023_11_28":"594","2023_11_30":"587","2023_12_01":"596"}},"COIN":{"ymd_price":{"2023_11_11":"93","2023_11_16":"99","2023_11_20":"98","2023_11_24":"115","2023_11_27":"115","2023_11_28":"127","2023_11_30":"127","2023_12_01":"134"}},"QQQ":{"ymd_price":{"2023_11_11":"377","2023_11_16":"385","2023_11_20":"385","2023_11_24":"389","2023_11_27":"389","2023_11_28":"390","2023_11_30":"390","2023_12_01":"390"}},"GOOGL":{"ymd_price":{"2023_11_11":"132","2023_11_16":"135","2023_11_20":"135","2023_11_24":"136","2023_11_27":"136","2023_11_28":"137","2023_11_30":"135","2023_12_01":"131"}},"TSLA":{"ymd_price":{"2023_11_30":"245","2023_12_01":"238"}},"META":{"ymd_price":{"2023_11_30":"332","2023_12_01":"324"}}}
+   ai_history_matrix = {"NVDA":{"ymd_price":{"2023_11_01":"428","2023_11_08":"464","2023_11_09":"464","2023_11_11":"483","2023_11_16":"488","2023_11_20":"493","2023_11_24":"477","2023_11_27":"477","2023_11_28":"477","2023_11_30":"481","2023_12_01":"467","2023_12_07":"453","2023_12_08":"466","2023_12_11":"474","2023_12_14":"484","2023_12_15":"481","2023_12_20":"495","2023_12_21":"483"}},"V":{"ymd_price":{"2023_11_11":"245","2023_11_16":"248","2023_11_20":"249","2023_11_24":"254","2023_11_27":"254","2023_11_28":"253","2023_11_30":"254","2023_12_01":"256","2023_12_07":"254","2023_12_08":"255","2023_12_11":"255","2023_12_14":"262","2023_12_15":"259","2023_12_20":"259","2023_12_21":"257"}},"MSFT":{"ymd_price":{"2023_11_11":"369","2023_11_16":"371","2023_11_20":"366","2023_11_24":"377","2023_11_27":"377","2023_11_28":"382","2023_11_30":"379","2023_12_01":"374","2023_12_07":"368","2023_12_08":"370","2023_12_11":"373","2023_12_14":"375","2023_12_15":"366","2023_12_20":"373","2023_12_21":"371"}},"MDB":{"ymd_price":{"2023_11_11":"375","2023_11_16":"391","2023_11_20":"392","2023_11_24":"407","2023_11_27":"407","2023_11_28":"408","2023_11_30":"432","2023_12_01":"438","2023_12_07":"384","2023_12_08":"384","2023_12_11":"381","2023_12_14":"411","2023_12_15":"419","2023_12_20":"410","2023_12_21":"403"}},"XLK":{"ymd_price":{"2023_11_11":"179","2023_11_16":"182","2023_11_20":"182","2023_11_24":"184","2023_11_27":"184","2023_11_28":"184","2023_11_30":"184","2023_12_01":"185","2023_12_07":"182","2023_12_08":"185","2023_12_11":"186","2023_12_14":"191","2023_12_15":"190","2023_12_20":"192","2023_12_21":"189"}},"NDAQ":{"ymd_price":{"2023_11_11":"52","2023_11_16":"52","2023_11_20":"53","2023_11_24":"55","2023_11_27":"55","2023_11_28":"55","2023_11_30":"55"}},"AMD":{"ymd_price":{"2023_11_11":"118","2023_11_16":"117","2023_11_20":"120","2023_11_24":"122","2023_11_27":"122","2023_11_28":"122","2023_11_30":"124","2023_12_01":"121","2023_12_07":"118","2023_12_08":"128","2023_12_11":"129","2023_12_14":"138","2023_12_15":"137","2023_12_20":"139","2023_12_21":"135"}},"COST":{"ymd_price":{"2023_11_11":"576","2023_11_16":"596","2023_11_20":"576","2023_11_24":"592","2023_11_27":"592","2023_11_28":"594","2023_11_30":"587","2023_12_01":"596","2023_12_07":"603","2023_12_08":"610","2023_12_11":"611","2023_12_14":"642","2023_12_15":"639","2023_12_20":"677","2023_12_21":"662"}},"COIN":{"ymd_price":{"2023_11_11":"93","2023_11_16":"99","2023_11_20":"98","2023_11_24":"115","2023_11_27":"115","2023_11_28":"127","2023_11_30":"127","2023_12_01":"134","2023_12_07":"133","2023_12_08":"135","2023_12_11":"147","2023_12_14":"152","2023_12_15":"152","2023_12_20":"159","2023_12_21":"161"}},"QQQ":{"ymd_price":{"2023_11_11":"377","2023_11_16":"385","2023_11_20":"385","2023_11_24":"389","2023_11_27":"389","2023_11_28":"390","2023_11_30":"390","2023_12_01":"390","2023_12_07":"385","2023_12_08":"390","2023_12_11":"392","2023_12_14":"405","2023_12_15":"403","2023_12_20":"409","2023_12_21":"403"}},"GOOGL":{"ymd_price":{"2023_11_11":"132","2023_11_16":"135","2023_11_20":"135","2023_11_24":"136","2023_11_27":"136","2023_11_28":"137","2023_11_30":"135","2023_12_01":"131","2023_12_07":"131","2023_12_08":"137","2023_12_11":"134","2023_12_14":"133","2023_12_15":"131","2023_12_20":"136","2023_12_21":"138"}},"TSLA":{"ymd_price":{"2023_11_30":"245","2023_12_01":"238","2023_12_07":"240","2023_12_08":"242","2023_12_11":"243","2023_12_14":"239","2023_12_15":"250","2023_12_20":"257","2023_12_21":"248"}},"META":{"ymd_price":{"2023_11_30":"332","2023_12_01":"324","2023_12_07":"317","2023_12_08":"326","2023_12_11":"333","2023_12_14":"335","2023_12_15":"333","2023_12_20":"350","2023_12_21":"349"}},"PINS":{"ymd_price":{"2023_12_07":"33","2023_12_08":"34","2023_12_11":"34","2023_12_14":"36","2023_12_15":"36","2023_12_20":"38","2023_12_21":"37"}},"FVRR":{"ymd_price":{"2023_12_07":"26","2023_12_08":"26","2023_12_11":"26","2023_12_14":"27","2023_12_15":"28","2023_12_20":"28","2023_12_21":"27"}}}
+}
 
-      const ai_history_LOAD_MOCK_DATA=()=>{ //READ from OBJ
-         // ai_history_matrix = {'NVDA':{ymd_price:{'2023_11_01':'428'}}}
-         // ai_history_matrix = {"NVDA":{"ymd_price":{"2023_11_01":"428","2023_11_08":"464","2023_11_09":"464"}}}
-         // ai_history_matrix = {"NVDA":{"ymd_price":{"2023_11_01":"428","2023_11_08":"464","2023_11_09":"464","2023_11_11":"483"}},"V":{"ymd_price":{"2023_11_11":"245"}},"MSFT":{"ymd_price":{"2023_11_11":"369"}},"MDB":{"ymd_price":{"2023_11_11":"375"}},"XLK":{"ymd_price":{"2023_11_11":"179"}},"NDAQ":{"ymd_price":{"2023_11_11":"52"}},"AMD":{"ymd_price":{"2023_11_11":"118"}},"COST":{"ymd_price":{"2023_11_11":"576"}},"COIN":{"ymd_price":{"2023_11_11":"93"}},"QQQ":{"ymd_price":{"2023_11_11":"377"}},"GOOGL":{"ymd_price":{"2023_11_11":"132"}}}
-         // ai_history_matrix = {"NVDA":{"ymd_price":{"2023_11_01":"428","2023_11_08":"464","2023_11_09":"464","2023_11_11":"483","2023_11_16":"488","2023_11_20":"493","2023_11_24":"477","2023_11_27":"477"}},"V":{"ymd_price":{"2023_11_11":"245","2023_11_16":"248","2023_11_20":"249","2023_11_24":"254","2023_11_27":"254"}},"MSFT":{"ymd_price":{"2023_11_11":"369","2023_11_16":"371","2023_11_20":"366","2023_11_24":"377","2023_11_27":"377"}},"MDB":{"ymd_price":{"2023_11_11":"375","2023_11_16":"391","2023_11_20":"392","2023_11_24":"407","2023_11_27":"407"}},"XLK":{"ymd_price":{"2023_11_11":"179","2023_11_16":"182","2023_11_20":"182","2023_11_24":"184","2023_11_27":"184"}},"NDAQ":{"ymd_price":{"2023_11_11":"52","2023_11_16":"52","2023_11_20":"53","2023_11_24":"55","2023_11_27":"55"}},"AMD":{"ymd_price":{"2023_11_11":"118","2023_11_16":"117","2023_11_20":"120","2023_11_24":"122","2023_11_27":"122"}},"COST":{"ymd_price":{"2023_11_11":"576","2023_11_16":"596","2023_11_20":"576","2023_11_24":"592","2023_11_27":"592"}},"COIN":{"ymd_price":{"2023_11_11":"93","2023_11_16":"99","2023_11_20":"98","2023_11_24":"115","2023_11_27":"115"}},"QQQ":{"ymd_price":{"2023_11_11":"377","2023_11_16":"385","2023_11_20":"385","2023_11_24":"389","2023_11_27":"389"}},"GOOGL":{"ymd_price":{"2023_11_11":"132","2023_11_16":"135","2023_11_20":"135","2023_11_24":"136","2023_11_27":"136"}}}
-         // ai_history_matrix = {"NVDA":{"ymd_price":{"2023_11_01":"428","2023_11_08":"464","2023_11_09":"464","2023_11_11":"483","2023_11_16":"488","2023_11_20":"493","2023_11_24":"477","2023_11_27":"477","2023_11_28":"477","2023_11_30":"481","2023_12_01":"467"}},"V":{"ymd_price":{"2023_11_11":"245","2023_11_16":"248","2023_11_20":"249","2023_11_24":"254","2023_11_27":"254","2023_11_28":"253","2023_11_30":"254","2023_12_01":"256"}},"MSFT":{"ymd_price":{"2023_11_11":"369","2023_11_16":"371","2023_11_20":"366","2023_11_24":"377","2023_11_27":"377","2023_11_28":"382","2023_11_30":"379","2023_12_01":"374"}},"MDB":{"ymd_price":{"2023_11_11":"375","2023_11_16":"391","2023_11_20":"392","2023_11_24":"407","2023_11_27":"407","2023_11_28":"408","2023_11_30":"432","2023_12_01":"438"}},"XLK":{"ymd_price":{"2023_11_11":"179","2023_11_16":"182","2023_11_20":"182","2023_11_24":"184","2023_11_27":"184","2023_11_28":"184","2023_11_30":"184","2023_12_01":"185"}},"NDAQ":{"ymd_price":{"2023_11_11":"52","2023_11_16":"52","2023_11_20":"53","2023_11_24":"55","2023_11_27":"55","2023_11_28":"55","2023_11_30":"55"}},"AMD":{"ymd_price":{"2023_11_11":"118","2023_11_16":"117","2023_11_20":"120","2023_11_24":"122","2023_11_27":"122","2023_11_28":"122","2023_11_30":"124","2023_12_01":"121"}},"COST":{"ymd_price":{"2023_11_11":"576","2023_11_16":"596","2023_11_20":"576","2023_11_24":"592","2023_11_27":"592","2023_11_28":"594","2023_11_30":"587","2023_12_01":"596"}},"COIN":{"ymd_price":{"2023_11_11":"93","2023_11_16":"99","2023_11_20":"98","2023_11_24":"115","2023_11_27":"115","2023_11_28":"127","2023_11_30":"127","2023_12_01":"134"}},"QQQ":{"ymd_price":{"2023_11_11":"377","2023_11_16":"385","2023_11_20":"385","2023_11_24":"389","2023_11_27":"389","2023_11_28":"390","2023_11_30":"390","2023_12_01":"390"}},"GOOGL":{"ymd_price":{"2023_11_11":"132","2023_11_16":"135","2023_11_20":"135","2023_11_24":"136","2023_11_27":"136","2023_11_28":"137","2023_11_30":"135","2023_12_01":"131"}},"TSLA":{"ymd_price":{"2023_11_30":"245","2023_12_01":"238"}},"META":{"ymd_price":{"2023_11_30":"332","2023_12_01":"324"}}}
-         ai_history_matrix = {"NVDA":{"ymd_price":{"2023_11_01":"428","2023_11_08":"464","2023_11_09":"464","2023_11_11":"483","2023_11_16":"488","2023_11_20":"493","2023_11_24":"477","2023_11_27":"477","2023_11_28":"477","2023_11_30":"481","2023_12_01":"467","2023_12_07":"453","2023_12_08":"466","2023_12_11":"474","2023_12_14":"484","2023_12_15":"481","2023_12_20":"495","2023_12_21":"483"}},"V":{"ymd_price":{"2023_11_11":"245","2023_11_16":"248","2023_11_20":"249","2023_11_24":"254","2023_11_27":"254","2023_11_28":"253","2023_11_30":"254","2023_12_01":"256","2023_12_07":"254","2023_12_08":"255","2023_12_11":"255","2023_12_14":"262","2023_12_15":"259","2023_12_20":"259","2023_12_21":"257"}},"MSFT":{"ymd_price":{"2023_11_11":"369","2023_11_16":"371","2023_11_20":"366","2023_11_24":"377","2023_11_27":"377","2023_11_28":"382","2023_11_30":"379","2023_12_01":"374","2023_12_07":"368","2023_12_08":"370","2023_12_11":"373","2023_12_14":"375","2023_12_15":"366","2023_12_20":"373","2023_12_21":"371"}},"MDB":{"ymd_price":{"2023_11_11":"375","2023_11_16":"391","2023_11_20":"392","2023_11_24":"407","2023_11_27":"407","2023_11_28":"408","2023_11_30":"432","2023_12_01":"438","2023_12_07":"384","2023_12_08":"384","2023_12_11":"381","2023_12_14":"411","2023_12_15":"419","2023_12_20":"410","2023_12_21":"403"}},"XLK":{"ymd_price":{"2023_11_11":"179","2023_11_16":"182","2023_11_20":"182","2023_11_24":"184","2023_11_27":"184","2023_11_28":"184","2023_11_30":"184","2023_12_01":"185","2023_12_07":"182","2023_12_08":"185","2023_12_11":"186","2023_12_14":"191","2023_12_15":"190","2023_12_20":"192","2023_12_21":"189"}},"NDAQ":{"ymd_price":{"2023_11_11":"52","2023_11_16":"52","2023_11_20":"53","2023_11_24":"55","2023_11_27":"55","2023_11_28":"55","2023_11_30":"55"}},"AMD":{"ymd_price":{"2023_11_11":"118","2023_11_16":"117","2023_11_20":"120","2023_11_24":"122","2023_11_27":"122","2023_11_28":"122","2023_11_30":"124","2023_12_01":"121","2023_12_07":"118","2023_12_08":"128","2023_12_11":"129","2023_12_14":"138","2023_12_15":"137","2023_12_20":"139","2023_12_21":"135"}},"COST":{"ymd_price":{"2023_11_11":"576","2023_11_16":"596","2023_11_20":"576","2023_11_24":"592","2023_11_27":"592","2023_11_28":"594","2023_11_30":"587","2023_12_01":"596","2023_12_07":"603","2023_12_08":"610","2023_12_11":"611","2023_12_14":"642","2023_12_15":"639","2023_12_20":"677","2023_12_21":"662"}},"COIN":{"ymd_price":{"2023_11_11":"93","2023_11_16":"99","2023_11_20":"98","2023_11_24":"115","2023_11_27":"115","2023_11_28":"127","2023_11_30":"127","2023_12_01":"134","2023_12_07":"133","2023_12_08":"135","2023_12_11":"147","2023_12_14":"152","2023_12_15":"152","2023_12_20":"159","2023_12_21":"161"}},"QQQ":{"ymd_price":{"2023_11_11":"377","2023_11_16":"385","2023_11_20":"385","2023_11_24":"389","2023_11_27":"389","2023_11_28":"390","2023_11_30":"390","2023_12_01":"390","2023_12_07":"385","2023_12_08":"390","2023_12_11":"392","2023_12_14":"405","2023_12_15":"403","2023_12_20":"409","2023_12_21":"403"}},"GOOGL":{"ymd_price":{"2023_11_11":"132","2023_11_16":"135","2023_11_20":"135","2023_11_24":"136","2023_11_27":"136","2023_11_28":"137","2023_11_30":"135","2023_12_01":"131","2023_12_07":"131","2023_12_08":"137","2023_12_11":"134","2023_12_14":"133","2023_12_15":"131","2023_12_20":"136","2023_12_21":"138"}},"TSLA":{"ymd_price":{"2023_11_30":"245","2023_12_01":"238","2023_12_07":"240","2023_12_08":"242","2023_12_11":"243","2023_12_14":"239","2023_12_15":"250","2023_12_20":"257","2023_12_21":"248"}},"META":{"ymd_price":{"2023_11_30":"332","2023_12_01":"324","2023_12_07":"317","2023_12_08":"326","2023_12_11":"333","2023_12_14":"335","2023_12_15":"333","2023_12_20":"350","2023_12_21":"349"}},"PINS":{"ymd_price":{"2023_12_07":"33","2023_12_08":"34","2023_12_11":"34","2023_12_14":"36","2023_12_15":"36","2023_12_20":"38","2023_12_21":"37"}},"FVRR":{"ymd_price":{"2023_12_07":"26","2023_12_08":"26","2023_12_11":"26","2023_12_14":"27","2023_12_15":"28","2023_12_20":"28","2023_12_21":"27"}}}
-      }
+const ai_history_init=()=>{ //READ from LOCAL STORAGE
+   ai_history_matrix = (localStorage.ai_history_matrix)?
+      JSON.parse( localStorage.ai_history_matrix ):null;
+   if(!ai_history_matrix){
+      ai_history_LOAD_MOCK_DATA();
+   }
+}; ai_history_init();
 
-      const ai_history_init=()=>{ //READ from LOCAL STORAGE
-         ai_history_matrix = (localStorage.ai_history_matrix)?
-            JSON.parse( localStorage.ai_history_matrix ):null;
-         if(!ai_history_matrix){
-            ai_history_LOAD_MOCK_DATA();
-         }
-      }; ai_history_init();
-
-      /*************************************\
-       * HISTORY_MATRIX - store values in time
-      \*************************************/
-      const update_History_matrix = ( tickr ) => {//data updated: to not lose, push duplicate to history
-         if(!tickr || !tickr.price || !tickr.ymd){return}
-         if(!ai_history_matrix[tickr.tick]) { ai_history_matrix[tickr.tick]= {tick:ai_history_matrix[tickr.tick]} }
-         if(!ai_history_matrix[tickr.tick]['ymd_price']) { ai_history_matrix[tickr.tick]['ymd_price'] = {} }
-         ai_history_matrix[tickr.tick]['ymd_price'][tickr.ymd] = tickr.price;
-         //UPDATE LOCALSTORAGE with ai_history_matrix. SAVE
-         localStorage.ai_history_matrix = JSON.stringify(ai_history_matrix)  
-      }
-      /*************************************\
-       * UTILITIES
-      \*************************************/
-         const formatYMD = () => {
-            const currentDate = new Date();
-            const year = currentDate.getFullYear();
-            const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Month is zero-based, so add 1 and pad with '0'
-            const day = String(currentDate.getDate()).padStart(2, '0');
-            const formattedDate = `${year}_${month}_${day}`;
-            return formattedDate;
-         }
-         const copyHistoryFn = () => { //
-            console.log("ai_history_matrix ",ai_history_matrix)
-            navigator.clipboard.writeText(JSON.stringify(ai_history_matrix) );
-            stateCopiedBox.style.display = "inline";
-            stateConnectedBox.style.display = "none";
-            stateNotConnectedBox.style.display = "none";              
-            setTimeout( ()=>{
-               stateCopiedBox.style.display = "none";
-               if(stock_api_key){
-                  stateConnectedBox.style.display = "inline";
-                  stateNotConnectedBox.style.display = "none";  
-               }else{
-                  stateConnectedBox.style.display = "none";
-                  stateNotConnectedBox.style.display = "inline";  
-               }               
-            },2000)                          
-         };   
-         const copyLedgerFn = () => { 
-            console.log("ai_ledger = ",ai_ledger)
-            navigator.clipboard.writeText(JSON.stringify(ai_ledger) );
-            stateCopiedBox.style.display = "inline";
-            stateConnectedBox.style.display = "none";
-            stateNotConnectedBox.style.display = "none";              
-            setTimeout( ()=>{
-               stateCopiedBox.style.display = "none";
-               if(stock_api_key){
-                  stateConnectedBox.style.display = "inline";
-                  stateNotConnectedBox.style.display = "none";  
-               }else{
-                  stateConnectedBox.style.display = "none";
-                  stateNotConnectedBox.style.display = "inline";  
-               }               
-            },2000)               
-         };          
-         const copyScheduleFn = () => { 
-            console.log("ai_schedule = ",ai_schedule)
-            navigator.clipboard.writeText(JSON.stringify(ai_schedule) );
-            stateCopiedBox.style.display = "inline";
-            stateConnectedBox.style.display = "none";
-            stateNotConnectedBox.style.display = "none";              
-            setTimeout( ()=>{
-               stateCopiedBox.style.display = "none";
-               if(stock_api_key){
-                  stateConnectedBox.style.display = "inline";
-                  stateNotConnectedBox.style.display = "none";  
-               }else{
-                  stateConnectedBox.style.display = "none";
-                  stateNotConnectedBox.style.display = "inline";  
-               }               
-            },2000)  
-         }
-         const copyStoryzFn = () => { 
-            console.log("ai_storyz = ",ai_storyz)
-            navigator.clipboard.writeText(JSON.stringify(ai_storyz) );
-            stateCopiedBox.style.display = "inline";
-            stateConnectedBox.style.display = "none";
-            stateNotConnectedBox.style.display = "none";              
-            setTimeout( ()=>{
-               stateCopiedBox.style.display = "none";
-               if(stock_api_key){
-                  stateConnectedBox.style.display = "inline";
-                  stateNotConnectedBox.style.display = "none";  
-               }else{
-                  stateConnectedBox.style.display = "none";
-                  stateNotConnectedBox.style.display = "inline";  
-               }               
-            },2000)  
-         }
-         const resetAllFn = () => { 
-            ai_ledger_LOAD_MOCK_DATA();
-            ai_history_LOAD_MOCK_DATA();
-            ai_schedule_LOAD_MOCK_DATA();
-            ai_eventz_LOAD_MOCK_DATA();
-           //SAVE to LOCAL STORAGE
-           localStorage.ai_ledger = JSON.stringify(ai_ledger)  
-           localStorage.ai_history_matrix=JSON.stringify(ai_history_matrix)  
-           localStorage.ai_schedule=JSON.stringify(ai_schedule)  
-           localStorage.ai_eventz=JSON.stringify(ai_eventz)  
-           initEncode(); //RELOAD VIEW.             
-           initDecode(); //RELOAD VIEW.             
-         };            
-         let primeFn = () => {
-            selectedTXT = textareaBOX.value.substring(textareaBOX.selectionStart, textareaBOX.selectionEnd);
-            if(selectedTXT){
-               function formatPrimeKey() {// Replace spaces with underscores
-                  let addEndSpace = false;
-                  if(selectedTXT.charAt(selectedTXT.length-1)===' '){addEndSpace=true;}
-                  transcript = selectedTXT.replace(/[ ]/g, '_');
-                  transcript = transcript.replace(/[^a-zA-Z_]+/g, '');
-                  transcript = `_${transcript}_`; //Wrap in _
-                  transcript = transcript.replace(/__/g, '_');
-                  transcript = (addEndSpace)?transcript+' ':transcript;
-               }; formatPrimeKey();
-               textareaBOX.value = textareaBOX.value.substring(0, textareaBOX.selectionStart) +
-                  transcript +
-                  textareaBOX.value.substring(textareaBOX.selectionEnd);
-               textareaBOX.focus();
-            }else{ showErrorMSG('⚠️ double click select...') }
-         }
-         let omniFn = () => { 
-            selectedTXT = textareaBOX.value.substring(textareaBOX.selectionStart, textareaBOX.selectionEnd);
-            if(selectedTXT && selectedTXT.indexOf(' ')>-1){
-               let addEndSpace = false;
-               if(selectedTXT.charAt(selectedTXT.length-1)===' '){addEndSpace=true;}
-               transcript = selectedTXT.replace(/ /g,'_')
-               transcript = transcript.replace(/[,.!?<>;:|'"-]/g, '');
-               transcript = (addEndSpace)?transcript+' ':transcript;
-               textareaBOX.value = textareaBOX.value.substring(0, textareaBOX.selectionStart) +
-                  transcript +
-                  textareaBOX.value.substring(textareaBOX.selectionEnd);
-               textareaBOX.focus();
-            }else{ showErrorMSG('⚠️ select text with spaces...') }
-          }
-         let alphaFn = () => { 
-            selectedTXT = textareaBOX.value.substring(textareaBOX.selectionStart, textareaBOX.selectionEnd);
-            if(selectedTXT){
-               function formatAlphaKey() {// Replace spaces with underscores
-                  let addEndSpace = false;
-                  if(selectedTXT.charAt(selectedTXT.length-1)===' '){addEndSpace=true;}
-                  transcript = selectedTXT.replace(/[ ]/g, '').toUpperCase();
-                  transcript = transcript.replace(/[^a-zA-Z_]+/g, '');
-                  transcript = `a${transcript}a`; //Wrap in _
-                  transcript = transcript.replace(/aa/g, 'a');
-                  transcript = (addEndSpace)?transcript+' ':transcript;
-               }; formatAlphaKey();
-               textareaBOX.value = textareaBOX.value.substring(0, textareaBOX.selectionStart) +
-                  transcript +
-                  textareaBOX.value.substring(textareaBOX.selectionEnd);
-               textareaBOX.focus();
-            }else{ showErrorMSG('⚠️ select any word...') }
-          }
-         let ymdFn = () => { 
-            transcript = textareaBOX.value;
-            textareaTXT = transcript.split('\n')             
-            if(textareaTXT && textareaTXT.length>0){
-               textareaTXT.push(current_ymd);
-               textareaBOX.value = textareaTXT.join('\n');
-            }            
-          }
-          let hrFn = () => {
-            transcript = textareaBOX.value;
-            textareaTXT = transcript.split('\n')             
-            if(textareaTXT && textareaTXT.length>0){
-               textareaTXT.push('<hr></hr>');
-               textareaBOX.value = textareaTXT.join('\n');
-            }             
-         }             
-         let undoFn = () => { 
-            transcript = textareaBOX.value;
-            textareaTXT = transcript.split('\n')             
-            if(textareaTXT && textareaTXT.length>0){
-               textareaTXT = textareaTXT.slice(0,textareaTXT.length-1)
-               textareaBOX.value = textareaTXT.join('\n');
-            }
-         };         
-         let titlelineFn = () => {  
-            transcript = textareaBOX.value;
-            textareaTXT = transcript.split('\n')
-            if(textareaTXT && textareaTXT.length>0){
-                txtline = textareaTXT[textareaTXT.length-1]
-                if(txtline.charAt(0)==='#'){
-                    if(txtline.charAt(1)==='#'){
-                        if(txtline.charAt(2)==='#'){// back to blank
-                            txtline = txtline.split(' ')
-                            txtline = txtline.splice(1,txtline.length).join(' ')
-                        }else{ //add 3
-                            txtline = '#'+txtline;
-                        }
-                    }else{ //add 2
-                        txtline = '#'+txtline;
-                    }
-                }else{ //add 1
-                    txtline = '# '+txtline;
-                }
-                textareaTXT[textareaTXT.length-1] = txtline;
-                textareaBOX.value = textareaTXT.join('\n');
-                toggleRecordState(false);
-               //  recognition.stop();
-            }
-         };          
-         let numberlineFn = () => {  
-            transcript = textareaBOX.value;
-            textareaTXT = transcript.split('\n')
-            if(textareaTXT && textareaTXT.length>0){
-                txtline = textareaTXT[textareaTXT.length-1]
-                function incrementNum(inputString) { //regex iteration of number lists
-                    return inputString.replace(/^(\d+\.)?(.*)$/, function(match, number, rest) {
-                        if (number === undefined) { // If no number, add "1." at the beginning
-                            return "1. " + rest;
-                        } else {// If number, increment and add back to string
-                            return (parseInt(number, 10) + 1) + "." + rest;
-                        }
-                    });
-                }; 
-                txtline = incrementNum(txtline);
-                textareaTXT[textareaTXT.length-1] = txtline;
-                textareaBOX.value = textareaTXT.join('\n');
-                toggleRecordState(false);
-               //  recognition.stop();
-            }
-         }
-      
-         let quotelineFn = () => { 
-            transcript = textareaBOX.value;
-            textareaTXT = transcript.split('\n')
-            if(textareaTXT && textareaTXT.length>0){
-               if(textareaTXT[textareaTXT.length-1].indexOf('> ')===0){
-                  txtline = textareaTXT[textareaTXT.length-1].replace('> ','')
-               } else {
-                  txtline = '> '+textareaTXT[textareaTXT.length-1]
+/*************************************\
+ * HISTORY_MATRIX - store values in time
+\*************************************/
+const update_History_matrix = ( tickr ) => {//data updated: to not lose, push duplicate to history
+   if(!tickr || !tickr.price || !tickr.ymd){return}
+   if(!ai_history_matrix[tickr.tick]) { ai_history_matrix[tickr.tick]= {tick:ai_history_matrix[tickr.tick]} }
+   if(!ai_history_matrix[tickr.tick]['ymd_price']) { ai_history_matrix[tickr.tick]['ymd_price'] = {} }
+   ai_history_matrix[tickr.tick]['ymd_price'][tickr.ymd] = tickr.price;
+   //UPDATE LOCALSTORAGE with ai_history_matrix. SAVE
+   localStorage.ai_history_matrix = JSON.stringify(ai_history_matrix)  
+}
+/*************************************\
+ * UTILITIES
+\*************************************/
+const formatYMD = () => {
+   const currentDate = new Date();
+   const year = currentDate.getFullYear();
+   const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Month is zero-based, so add 1 and pad with '0'
+   const day = String(currentDate.getDate()).padStart(2, '0');
+   const formattedDate = `${year}_${month}_${day}`;
+   return formattedDate;
+}
+const copyHistoryFn = () => { //
+   console.log("ai_history_matrix ",ai_history_matrix)
+   navigator.clipboard.writeText(JSON.stringify(ai_history_matrix) );
+   stateCopiedBox.style.display = "inline";
+   stateConnectedBox.style.display = "none";
+   stateNotConnectedBox.style.display = "none";              
+   setTimeout( ()=>{
+      stateCopiedBox.style.display = "none";
+      if(stock_api_key){
+         stateConnectedBox.style.display = "inline";
+         stateNotConnectedBox.style.display = "none";  
+      }else{
+         stateConnectedBox.style.display = "none";
+         stateNotConnectedBox.style.display = "inline";  
+      }               
+   },2000)                          
+};   
+const copyLedgerFn = () => { 
+   console.log("ai_ledger = ",ai_ledger)
+   navigator.clipboard.writeText(JSON.stringify(ai_ledger) );
+   stateCopiedBox.style.display = "inline";
+   stateConnectedBox.style.display = "none";
+   stateNotConnectedBox.style.display = "none";              
+   setTimeout( ()=>{
+      stateCopiedBox.style.display = "none";
+      if(stock_api_key){
+         stateConnectedBox.style.display = "inline";
+         stateNotConnectedBox.style.display = "none";  
+      }else{
+         stateConnectedBox.style.display = "none";
+         stateNotConnectedBox.style.display = "inline";  
+      }               
+   },2000)               
+};          
+const copyScheduleFn = () => { 
+   console.log("ai_schedule = ",ai_schedule)
+   navigator.clipboard.writeText(JSON.stringify(ai_schedule) );
+   stateCopiedBox.style.display = "inline";
+   stateConnectedBox.style.display = "none";
+   stateNotConnectedBox.style.display = "none";              
+   setTimeout( ()=>{
+      stateCopiedBox.style.display = "none";
+      if(stock_api_key){
+         stateConnectedBox.style.display = "inline";
+         stateNotConnectedBox.style.display = "none";  
+      }else{
+         stateConnectedBox.style.display = "none";
+         stateNotConnectedBox.style.display = "inline";  
+      }               
+   },2000)  
+}
+const copyMilestonesFn = () => { 
+   console.log("ai_eventz = ",ai_eventz)
+   navigator.clipboard.writeText(JSON.stringify(ai_eventz) );
+   stateCopiedBox.style.display = "inline";
+   stateConnectedBox.style.display = "none";
+   stateNotConnectedBox.style.display = "none";              
+   setTimeout( ()=>{
+      stateCopiedBox.style.display = "none";
+      if(stock_api_key){
+         stateConnectedBox.style.display = "inline";
+         stateNotConnectedBox.style.display = "none";  
+      }else{
+         stateConnectedBox.style.display = "none";
+         stateNotConnectedBox.style.display = "inline";  
+      }               
+   },2000)  
+}
+const copyStoryzFn = () => { 
+   console.log("ai_storyz = ",ai_storyz)
+   navigator.clipboard.writeText(JSON.stringify(ai_storyz) );
+   stateCopiedBox.style.display = "inline";
+   stateConnectedBox.style.display = "none";
+   stateNotConnectedBox.style.display = "none";              
+   setTimeout( ()=>{
+      stateCopiedBox.style.display = "none";
+      if(stock_api_key){
+         stateConnectedBox.style.display = "inline";
+         stateNotConnectedBox.style.display = "none";  
+      }else{
+         stateConnectedBox.style.display = "none";
+         stateNotConnectedBox.style.display = "inline";  
+      }               
+   },2000)  
+}
+const resetAllFn = () => { 
+   ai_ledger_LOAD_MOCK_DATA();
+   ai_history_LOAD_MOCK_DATA();
+   ai_schedule_LOAD_MOCK_DATA();
+   ai_eventz_LOAD_MOCK_DATA();
+   //SAVE to LOCAL STORAGE
+   localStorage.ai_ledger = JSON.stringify(ai_ledger)  
+   localStorage.ai_history_matrix=JSON.stringify(ai_history_matrix)  
+   localStorage.ai_schedule=JSON.stringify(ai_schedule)  
+   localStorage.ai_eventz=JSON.stringify(ai_eventz)  
+   initEncode(); //RELOAD VIEW.             
+   initDecode(); //RELOAD VIEW.             
+};            
+let primeFn = () => {
+   selectedTXT = textareaBOX.value.substring(textareaBOX.selectionStart, textareaBOX.selectionEnd);
+   if(selectedTXT){
+      function formatPrimeKey() {// Replace spaces with underscores
+         let addEndSpace = false;
+         if(selectedTXT.charAt(selectedTXT.length-1)===' '){addEndSpace=true;}
+         transcript = selectedTXT.replace(/[ ]/g, '_');
+         transcript = transcript.replace(/[^a-zA-Z_]+/g, '');
+         transcript = `_${transcript}_`; //Wrap in _
+         transcript = transcript.replace(/__/g, '_');
+         transcript = (addEndSpace)?transcript+' ':transcript;
+      }; formatPrimeKey();
+      textareaBOX.value = textareaBOX.value.substring(0, textareaBOX.selectionStart) +
+         transcript +
+         textareaBOX.value.substring(textareaBOX.selectionEnd);
+      textareaBOX.focus();
+   }else{ showErrorMSG('⚠️ double click select...') }
+}
+let omniFn = () => { 
+   selectedTXT = textareaBOX.value.substring(textareaBOX.selectionStart, textareaBOX.selectionEnd);
+   if(selectedTXT && selectedTXT.indexOf(' ')>-1){
+      let addEndSpace = false;
+      if(selectedTXT.charAt(selectedTXT.length-1)===' '){addEndSpace=true;}
+      transcript = selectedTXT.replace(/ /g,'_')
+      transcript = transcript.replace(/[,.!?<>;:|'"-]/g, '');
+      transcript = (addEndSpace)?transcript+' ':transcript;
+      textareaBOX.value = textareaBOX.value.substring(0, textareaBOX.selectionStart) +
+         transcript +
+         textareaBOX.value.substring(textareaBOX.selectionEnd);
+      textareaBOX.focus();
+   }else{ showErrorMSG('⚠️ select text with spaces...') }
+   }
+let alphaFn = () => { 
+   selectedTXT = textareaBOX.value.substring(textareaBOX.selectionStart, textareaBOX.selectionEnd);
+   if(selectedTXT){
+      function formatAlphaKey() {// Replace spaces with underscores
+         let addEndSpace = false;
+         if(selectedTXT.charAt(selectedTXT.length-1)===' '){addEndSpace=true;}
+         transcript = selectedTXT.replace(/[ ]/g, '').toUpperCase();
+         transcript = transcript.replace(/[^a-zA-Z_]+/g, '');
+         transcript = `a${transcript}a`; //Wrap in _
+         transcript = transcript.replace(/aa/g, 'a');
+         transcript = (addEndSpace)?transcript+' ':transcript;
+      }; formatAlphaKey();
+      textareaBOX.value = textareaBOX.value.substring(0, textareaBOX.selectionStart) +
+         transcript +
+         textareaBOX.value.substring(textareaBOX.selectionEnd);
+      textareaBOX.focus();
+   }else{ showErrorMSG('⚠️ select any word...') }
+   }
+let ymdFn = () => { 
+   transcript = textareaBOX.value;
+   textareaTXT = transcript.split('\n')             
+   if(textareaTXT && textareaTXT.length>0){
+      textareaTXT.push(current_ymd);
+      textareaBOX.value = textareaTXT.join('\n');
+   }            
+   }
+   let hrFn = () => {
+   transcript = textareaBOX.value;
+   textareaTXT = transcript.split('\n')             
+   if(textareaTXT && textareaTXT.length>0){
+      textareaTXT.push('<hr></hr>');
+      textareaBOX.value = textareaTXT.join('\n');
+   }             
+}             
+let undoFn = () => { 
+   transcript = textareaBOX.value;
+   textareaTXT = transcript.split('\n')             
+   if(textareaTXT && textareaTXT.length>0){
+      textareaTXT = textareaTXT.slice(0,textareaTXT.length-1)
+      textareaBOX.value = textareaTXT.join('\n');
+   }
+};         
+let titlelineFn = () => {  
+   transcript = textareaBOX.value;
+   textareaTXT = transcript.split('\n')
+   if(textareaTXT && textareaTXT.length>0){
+         txtline = textareaTXT[textareaTXT.length-1]
+         if(txtline.charAt(0)==='#'){
+            if(txtline.charAt(1)==='#'){
+               if(txtline.charAt(2)==='#'){// back to blank
+                     txtline = txtline.split(' ')
+                     txtline = txtline.splice(1,txtline.length).join(' ')
+               }else{ //add 3
+                     txtline = '#'+txtline;
                }
-                textareaTXT[textareaTXT.length-1] = txtline;
-                textareaBOX.value = textareaTXT.join('\n');
-                toggleRecordState(false);
-               //  recognition.stop();
-            }            
-         }
-         let endlineFn = () => {  
-            transcript = textareaBOX.value;
-            textareaTXT = transcript.split('\n')
-            if(textareaTXT && textareaTXT.length>0){
-                txtline = textareaTXT[textareaTXT.length-1]
-                txtCAP = txtline.charAt(txtline.length-1)
-                if(txtCAP==='.'){ txtline=setCharAt(txtline,txtline.length-1,',');
-                } else if(txtCAP===','){ txtline=setCharAt(txtline,txtline.length-1,'_');
-                } else if(txtCAP==='_'){ txtline=setCharAt(txtline,txtline.length-1,'?');
-                } else if(txtCAP==='?'){ txtline=setCharAt(txtline,txtline.length-1,'!');
-                } else if(txtCAP==='!'){ txtline=setCharAt(txtline,txtline.length-1,'.');
-                } else { txtline += '.';}
-                textareaTXT[textareaTXT.length-1] = txtline;
-                textareaBOX.value = textareaTXT.join('\n');
-                toggleRecordState(false);
+            }else{ //add 2
+               txtline = '#'+txtline;
             }
-         };   
+         }else{ //add 1
+            txtline = '# '+txtline;
+         }
+         textareaTXT[textareaTXT.length-1] = txtline;
+         textareaBOX.value = textareaTXT.join('\n');
+         toggleRecordState(false);
+      //  recognition.stop();
+   }
+};          
+let numberlineFn = () => {  
+   transcript = textareaBOX.value;
+   textareaTXT = transcript.split('\n')
+   if(textareaTXT && textareaTXT.length>0){
+         txtline = textareaTXT[textareaTXT.length-1]
+         function incrementNum(inputString) { //regex iteration of number lists
+            return inputString.replace(/^(\d+\.)?(.*)$/, function(match, number, rest) {
+               if (number === undefined) { // If no number, add "1." at the beginning
+                     return "1. " + rest;
+               } else {// If number, increment and add back to string
+                     return (parseInt(number, 10) + 1) + "." + rest;
+               }
+            });
+         }; 
+         txtline = incrementNum(txtline);
+         textareaTXT[textareaTXT.length-1] = txtline;
+         textareaBOX.value = textareaTXT.join('\n');
+         toggleRecordState(false);
+      //  recognition.stop();
+   }
+}
+
+let quotelineFn = () => { 
+   transcript = textareaBOX.value;
+   textareaTXT = transcript.split('\n')
+   if(textareaTXT && textareaTXT.length>0){
+      if(textareaTXT[textareaTXT.length-1].indexOf('> ')===0){
+         txtline = textareaTXT[textareaTXT.length-1].replace('> ','')
+      } else {
+         txtline = '> '+textareaTXT[textareaTXT.length-1]
+      }
+         textareaTXT[textareaTXT.length-1] = txtline;
+         textareaBOX.value = textareaTXT.join('\n');
+         toggleRecordState(false);
+      //  recognition.stop();
+   }            
+}
+let endlineFn = () => {  
+   transcript = textareaBOX.value;
+   textareaTXT = transcript.split('\n')
+   if(textareaTXT && textareaTXT.length>0){
+         txtline = textareaTXT[textareaTXT.length-1]
+         txtCAP = txtline.charAt(txtline.length-1)
+         if(txtCAP==='.'){ txtline=setCharAt(txtline,txtline.length-1,',');
+         } else if(txtCAP===','){ txtline=setCharAt(txtline,txtline.length-1,'_');
+         } else if(txtCAP==='_'){ txtline=setCharAt(txtline,txtline.length-1,'?');
+         } else if(txtCAP==='?'){ txtline=setCharAt(txtline,txtline.length-1,'!');
+         } else if(txtCAP==='!'){ txtline=setCharAt(txtline,txtline.length-1,'.');
+         } else { txtline += '.';}
+         textareaTXT[textareaTXT.length-1] = txtline;
+         textareaBOX.value = textareaTXT.join('\n');
+         toggleRecordState(false);
+   }
+};   
 
 //-END-BTN-HANDLERS-------------------------------------------------
 //-HELPER_fns-------------------------------------------------------

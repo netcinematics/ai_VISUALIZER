@@ -387,6 +387,18 @@ border-radius: 22px;
    width: 4em;
    margin-left: 1em;
 }   
+.quickNUMBOX0{
+   font-family: sans-serif;
+   font-size: 0.555em;
+   float:left;
+   margin-top: 3px;
+}
+.quickNUMBOX1{
+   font-family: sans-serif;
+   font-size: 0.555em;
+   display: flex;
+   margin-top: 6px;
+}
 .capsNUMBOX1{
    font-family: sans-serif;
    font-size: 0.555em;
@@ -489,14 +501,16 @@ flex-direction: column;
 .trimTick{
    font-family: sans-serif;
    border-radius: 10px;
-   max-width: 52px;
+   /* max-width: 52px; */
+   /* display:flex; */
    text-align: center;
    font-size: 0.777em;
    color: cyan;;
    background: #6679a0;
-   height: 1.222em;
+   /* height: 1.222em; */
    align-self: center;
-
+   min-width: 10%;
+    width: 0;
 }
 .inputDATABOX4,.inputDATABOX5{
    display : none;
@@ -516,6 +530,18 @@ flex-direction: column;
     text-align: right;
     align-self: center;
 }
+.inputDATA0{    border-radius: 8px;
+    font-size: 0.777em;
+    background: #02184b;
+    color:    #136567;
+    /* padding: 0 0.444em; */
+    text-align: center;
+    /* max-width: 50px; */
+    min-width: 100%;
+    width: 0;
+    height: 20px;
+    margin-bottom: -1px;
+    border: 1px solid steelblue;}
 .inputDATA1{    border-radius: 8px;
     font-size: 0.999em;
     background: #02184b;
@@ -643,6 +669,19 @@ flex-direction: column;
    display: flex;
     justify-content: space-between;
     flex-wrap: wrap;    margin: 0 10px; 
+}
+.quarterTitle{
+   /* line-height: 1em; */
+   font-weight: bold;
+    font-family: sans-serif;
+    color: #3db63f;
+    background: black;
+    border-radius: 14px;
+    padding: 6px;
+    /* max-width: 7em; */
+    margin-left: 0.666em;    
+    min-width: 20%;
+    width: 0;    
 }
 .quarterTXT{
    line-height: 1em;
@@ -1024,18 +1063,6 @@ align-items: center;">
            <button id="saveQuickBtn1" class="yellowBtn1" onclick="saveQuickClick()">save⚓</button>
          </article>
       </section>
-
-<!-- 
-   #QuickBOX
-   #generatedQuickBOX 
-generateScheduleClick   
-quickExpandCollapseClick
-deleteSelectedQuick
-trimQuickClick
-padQuickClick
-setQuickDetailsClick
-addQuickDetailsClick
--->
 
       <section id="encodeBOX"
         style="width:80.888%; flex:1;border-radius: 13px; border: solid 1px steelblue; 
@@ -3399,16 +3426,31 @@ const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
          quarter= ai_schedule.quarters[quarterSets[i]];
          quarterBOX = document.createElement('section')
          quarterBOX.classList.add('QuickQuarterBOX')
-
          quarterHeader = document.createElement('aside')
          quarterHeader.classList.add('quarterHeader')
-
+         //**********************************************selector
+         QuicksNUMBOX0 = document.createElement('span')
+         QuicksNUMBOX0.classList.add('quickNUMBOX0')
+         QuicksCHECKBOX0 = document.createElement('label')
+         QuicksCHECKBOX0.classList.add('checkboxFrame') 
+         // QuicksNUMBOX0.innerHTML=i+1;            
+         QuicksSelect0 = document.createElement('input');
+         // QuicksSelect0.ymdt = quarter.qID+'_'+QuicksData.tkr.toUpperCase() || '';
+         QuicksSelect0.type = "radio";
+         QuicksSelect0.name = "QuickCapsRadio";
+         QuicksSelect0.classList.add('cap_checkmark')
+         QuicksCHECKBOX0.appendChild(QuicksSelect0)
+         QuicksCheckMark0 = document.createElement('span')
+         QuicksCheckMark0.classList.add('checkmark')
+         QuicksCHECKBOX0.appendChild(QuicksCheckMark0)
+         QuicksNUMBOX0.appendChild(QuicksCHECKBOX0)
+         quarterHeader.appendChild(QuicksNUMBOX0)
+         // end ************************************** selector         
          quarterTXT = document.createElement('input')
-         quarterTXT.classList.add('quarterTXT')
-         quarterTXT.value = quarter.qID;//.quarterID.toUpperCase();
+         quarterTXT.classList.add('quarterTitle')
+         quarterTXT.value = quarter.qID;
          quarterTXT.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
             }); 
-
          expandBtn0 = document.createElement('button')
          expandBtn0.innerHTML = '🕸️'
          expandBtn0.classList.add('addBtn4')
@@ -3421,15 +3463,12 @@ const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
          addBtn4.setAttribute('data-arg2',quarter.qID)
          addBtn4.addEventListener("click",(e)=>{
                addQuickTickerClick(e.target.getAttribute('data-arg2')) });
-
          quarterHeader.appendChild(quarterTXT)
          quarterHeader.appendChild(expandBtn0)
          quarterHeader.appendChild(addBtn4)
          quarterBOX.appendChild(quarterHeader)
-
          monthBOX = document.createElement('article')
          monthBOX.classList.add('monthBOX')
-
          if(quarter.expanded){
             expandBtn0.innerHTML = '💨'
             for(let j=0;j<quarter.caps.length;j++){  //MONTHLY CAP LOOP .
@@ -3438,7 +3477,7 @@ const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
                QuickROW.classList.add('QuickROW')
                //**********************************************selector
                QuicksNUMBOX1 = document.createElement('aside')
-               QuicksNUMBOX1.classList.add('capsNUMBOX1')//encodeNUMBOX1
+               QuicksNUMBOX1.classList.add('quickNUMBOX1')//encodeNUMBOX1
                QuicksCHECKBOX1 = document.createElement('label')
                QuicksCHECKBOX1.classList.add('checkboxFrame') 
                QuicksNUMBOX1.innerHTML=j+1;            
@@ -3463,65 +3502,69 @@ const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
                capBOX1.innerHTML="CAP&nbsp";
                capBOX1.classList.add('inputDATABOX1')
                capData1 = document.createElement('input')
-               capData1.classList.add('inputDATA1')
+               capData1.classList.add('inputDATA0')
                capData1.placeholder = "$0";
                capData1.value = QuicksData.cap || '';          
                capData1.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
                });  
                capBOX1.appendChild(capData1)
-
                trim_atBOX1 = document.createElement('aside')
-               trim_atBOX1.innerHTML="trim&nbsp";
+               trim_atBOX1.innerHTML="trims&nbsp";
                trim_atBOX1.classList.add('inputDATABOX2')
                trim_atData1 = document.createElement('input')
-               trim_atData1.classList.add('inputDATA2')
+               // trim_atData1.classList.add('inputDATA2')
+               trim_atData1.classList.add('inputDATA0')
                trim_atData1.placeholder = "$0";
                trim_atData1.value = QuicksData.trim_at || '';          
                trim_atData1.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block';  
                });  
                trim_atBOX1.appendChild(trim_atData1)
-
                pad_atBOX1 = document.createElement('aside')
-               pad_atBOX1.innerHTML="pad&nbsp";
+               pad_atBOX1.innerHTML="pads&nbsp";
                pad_atBOX1.classList.add('inputDATABOX3')
                pad_atData1 = document.createElement('input')
-               pad_atData1.classList.add('inputDATA2')
+               pad_atData1.classList.add('inputDATA0')
+               // pad_atData1.classList.add('inputDATA2')
                pad_atData1.placeholder = "$0";
                pad_atData1.value = QuicksData.pad_at || '';          
                pad_atData1.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
                });  
                pad_atBOX1.appendChild(pad_atData1)
-
                padlvlBOX1 = document.createElement('aside')
-               padlvlBOX1.innerHTML="padlvl&nbsp";
+               padlvlBOX1.innerHTML="NET&nbsp";
                padlvlBOX1.classList.add('inputDATABOX4')
                padlvlData1 = document.createElement('input')
-               padlvlData1.classList.add('inputDATA3')
+               padlvlData1.classList.add('inputDATA0')
                padlvlData1.placeholder = "0";
                padlvlData1.value = QuicksData.padlvl || '';          
                padlvlData1.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
                });  
                padlvlBOX1.appendChild(padlvlData1)
-
-               crashlvlBOX1 = document.createElement('aside')
-               crashlvlBOX1.innerHTML="crashPOS&nbsp";
-               crashlvlBOX1.classList.add('inputDATABOX5')
-               crashlvlData1 = document.createElement('input')
-               crashlvlData1.classList.add('inputDATA3')
-               crashlvlData1.placeholder = "0";
-               crashlvlData1.value = QuicksData.crashlvl || 0;          
-               crashlvlData1.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
-               });  
-               crashlvlBOX1.appendChild(crashlvlData1)
+               // crashlvlBOX1 = document.createElement('aside')
+               // crashlvlBOX1.innerHTML="crashPOS&nbsp";
+               // crashlvlBOX1.classList.add('inputDATABOX5')
+               // crashlvlData1 = document.createElement('input')
+               // crashlvlData1.classList.add('inputDATA3')
+               // crashlvlData1.placeholder = "0";
+               // crashlvlData1.value = QuicksData.crashlvl || 0;          
+               // crashlvlData1.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
+               // });  
+               // crashlvlBOX1.appendChild(crashlvlData1)
+               expandBtn1 = document.createElement('button')
+               expandBtn1.innerHTML = '🕸️'
+               expandBtn1.classList.add('addBtn4')
+               expandBtn1.setAttribute('data-arg3',quarter.qID)
+               expandBtn1.addEventListener("click",(e)=>{
+                     expandQuickTicksClick(e.target.getAttribute('data-arg3')) });
 
                QuickROW.appendChild(trimTick)         
                QuickROW.appendChild(capBOX1)         
                QuickROW.appendChild(trim_atBOX1)         
                QuickROW.appendChild(pad_atBOX1)         
                QuickROW.appendChild(padlvlBOX1)         
-               QuickROW.appendChild(crashlvlBOX1)
+               // QuickROW.appendChild(crashlvlBOX1)
+               QuickROW.appendChild(expandBtn1)
                monthBOX.appendChild(QuickROW)
-
                if(show_Quick_details_view){   //BEGIN DETAILS VIEW
                   let detailRow2,date1,detAmt,detType,detRole,detNote;
                   let monthData = null;
@@ -3536,122 +3579,112 @@ const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
                      detailRow2 = document.createElement('section')
                      detailRow2.classList.add('detailRow2')
                      //DETAILS ROW
-               //**********************************************selector
-               QuicksNUMBOX2 = document.createElement('aside')
-               QuicksNUMBOX2.classList.add('capsNUMBOX2')//encodeNUMBOX1
-               QuicksCHECKBOX2 = document.createElement('label')
-               QuicksCHECKBOX2.classList.add('checkboxFrame') 
-               QuicksNUMBOX2.innerHTML=k+1;            
-               QuicksSelect2 = document.createElement('input');
-               QuicksSelect2.ymdtn = quarter.qID+'_'+QuicksData.tkr.toUpperCase()+'_'+k || '';
-               // QuicksSelect2.ymdt = quarter.qID+'_'+QuicksData.tkr.toUpperCase() || '';
-               QuicksSelect2.type = "radio";
-               QuicksSelect2.name = "QuickDetailsRadio";
-               QuicksSelect2.classList.add('cap_checkmark')
-               QuicksCHECKBOX2.appendChild(QuicksSelect2)
-               QuicksCheckMark2 = document.createElement('span')
-               QuicksCheckMark2.classList.add('checkmark')
-               QuicksCHECKBOX2.appendChild(QuicksCheckMark2)
-               QuicksNUMBOX2.appendChild(QuicksCHECKBOX2)
-               detailRow2.appendChild(QuicksNUMBOX2)
-               // end ************************************** selector
-                        date1 = document.createElement('input')
-                        date1.value = ''+monthData.ymd;
-                        date1.classList.add('detailDate1')
-                        date1.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
-                        });  
-                        amtBOX1 = document.createElement('aside')
-                        amtBOX1.innerHTML="amt&nbsp;"
-                        roleBOX = document.createElement('aside')
-                        roleBOX.innerHTML="role&nbsp;"
-                        typeBOX = document.createElement('aside')
-                        typeBOX.innerHTML="type&nbsp;"
-                        roleData = document.createElement('select')
-                        typeData = document.createElement('input')
-                        role1 = document.createElement('option')
-                        role2 = document.createElement('option')
-                        role3 = document.createElement('option')
-                        role4 = document.createElement('option')
-                        role5 = document.createElement('option')
-                        role6 = document.createElement('option')
-                        role7 = document.createElement('option')
-                        role8 = document.createElement('option')
-                        role9 = document.createElement('option')
-                        role10 = document.createElement('option')
-                        role11 = document.createElement('option')
-                        role1.value = "...";
-                        role2.value = "HOLD";
-                        role3.value = "WATCH";
-                        role4.value = "RISKOFF";
-                        role5.value = "LONG";
-                        role6.value = "TRIM";
-                        role7.value = "SAFE";
-                        role8.value = "RISKON";
-                        role9.value = "EXIT";
-                        role10.value = "LOrLO";
-                        role11.value = "HIGHrHIGH";
-                        role1.innerHTML = "...";
-                        role2.innerHTML = "HOLD";
-                        role3.innerHTML = "WATCH";
-                        role4.innerHTML = "RISKOFF";
-                        role5.innerHTML = "LONG";
-                        role6.innerHTML = "TRIM";
-                        role7.innerHTML = "SAFE";
-                        role8.innerHTML = "RISKON";
-                        role9.innerHTML = "EXIT";
-                        role10.innerHTML = "LOrLO";
-                        role11.innerHTML = "HIrHI";
-                        roleData.appendChild(role1);
-                        roleData.appendChild(role2);
-                        roleData.appendChild(role3);
-                        roleData.appendChild(role4);
-                        roleData.appendChild(role5);
-                        roleData.appendChild(role6);
-                        roleData.appendChild(role7);
-                        roleData.appendChild(role8);
-                        roleData.appendChild(role9);
-                        roleData.appendChild(role10);
-                        roleData.appendChild(role11);
-                        roleData.value = monthData.role || '';
-                        roleBOX.appendChild(roleData)
-                        
-                        roleData.addEventListener("change",(e)=>{ saveQuickBtn1.style.display = 'block'; 
-                        });  
-                        typeData.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
-                        });  
-
-                        typeData.value= monthData.type || '';
-                        roleBOX.classList.add('roleBOX1')
-                        
-                        typeBOX.appendChild(typeData)
-                        typeBOX.classList.add('typeBOX1')
-                        
-                        if(monthData.type==='trim'){
-                           typeData.classList.add('typeTRIMColor')
-                        } else if (monthData.type==='pad'){
-                           typeData.classList.add('typePADColor')
-                        }
-
-                        roleData.classList.add('roleData1')
-                        typeData.classList.add('typeData1')
-                        amtData1 = document.createElement('input')
-                        amtData1.placeholder = "$0";
-                        amtData1.value = monthData.amt;
-                        amtData1.classList.add('spotAtData1')
-
-                        amtData1.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
-                        });  
-
-                        amtBOX1.classList.add('amtBOX1')
-                        amtBOX1.appendChild(amtData1)            
-                        detailRow2.appendChild(date1)
-                        detailRow2.appendChild(typeBOX)
-                        detailRow2.appendChild(amtBOX1)
-                        detailRow2.appendChild(roleBOX)
-
+                     //**********************************************selector
+                     QuicksNUMBOX2 = document.createElement('aside')
+                     QuicksNUMBOX2.classList.add('capsNUMBOX2')//encodeNUMBOX1
+                     QuicksCHECKBOX2 = document.createElement('label')
+                     QuicksCHECKBOX2.classList.add('checkboxFrame') 
+                     QuicksNUMBOX2.innerHTML=k+1;            
+                     QuicksSelect2 = document.createElement('input');
+                     QuicksSelect2.ymdtn = quarter.qID+'_'+QuicksData.tkr.toUpperCase()+'_'+k || '';
+                     QuicksSelect2.type = "radio";
+                     QuicksSelect2.name = "QuickDetailsRadio";
+                     QuicksSelect2.classList.add('cap_checkmark')
+                     QuicksCHECKBOX2.appendChild(QuicksSelect2)
+                     QuicksCheckMark2 = document.createElement('span')
+                     QuicksCheckMark2.classList.add('checkmark')
+                     QuicksCHECKBOX2.appendChild(QuicksCheckMark2)
+                     QuicksNUMBOX2.appendChild(QuicksCHECKBOX2)
+                     detailRow2.appendChild(QuicksNUMBOX2)
+                     // end ************************************** selector
+                     date1 = document.createElement('input')
+                     date1.value = ''+monthData.ymd;
+                     date1.classList.add('detailDate1')
+                     date1.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
+                     });  
+                     amtBOX1 = document.createElement('aside')
+                     amtBOX1.innerHTML="amt&nbsp;"
+                     roleBOX = document.createElement('aside')
+                     roleBOX.innerHTML="role&nbsp;"
+                     typeBOX = document.createElement('aside')
+                     typeBOX.innerHTML="type&nbsp;"
+                     roleData = document.createElement('select')
+                     typeData = document.createElement('input')
+                     role1 = document.createElement('option')
+                     role2 = document.createElement('option')
+                     role3 = document.createElement('option')
+                     role4 = document.createElement('option')
+                     role5 = document.createElement('option')
+                     role6 = document.createElement('option')
+                     role7 = document.createElement('option')
+                     role8 = document.createElement('option')
+                     role9 = document.createElement('option')
+                     role10 = document.createElement('option')
+                     role11 = document.createElement('option')
+                     role1.value = "...";
+                     role2.value = "HOLD";
+                     role3.value = "WATCH";
+                     role4.value = "RISKOFF";
+                     role5.value = "LONG";
+                     role6.value = "TRIM";
+                     role7.value = "SAFE";
+                     role8.value = "RISKON";
+                     role9.value = "EXIT";
+                     role10.value = "LOrLO";
+                     role11.value = "HIGHrHIGH";
+                     role1.innerHTML = "...";
+                     role2.innerHTML = "HOLD";
+                     role3.innerHTML = "WATCH";
+                     role4.innerHTML = "RISKOFF";
+                     role5.innerHTML = "LONG";
+                     role6.innerHTML = "TRIM";
+                     role7.innerHTML = "SAFE";
+                     role8.innerHTML = "RISKON";
+                     role9.innerHTML = "EXIT";
+                     role10.innerHTML = "LOrLO";
+                     role11.innerHTML = "HIrHI";
+                     roleData.appendChild(role1);
+                     roleData.appendChild(role2);
+                     roleData.appendChild(role3);
+                     roleData.appendChild(role4);
+                     roleData.appendChild(role5);
+                     roleData.appendChild(role6);
+                     roleData.appendChild(role7);
+                     roleData.appendChild(role8);
+                     roleData.appendChild(role9);
+                     roleData.appendChild(role10);
+                     roleData.appendChild(role11);
+                     roleData.value = monthData.role || '';
+                     roleBOX.appendChild(roleData)
+                     roleData.addEventListener("change",(e)=>{ saveQuickBtn1.style.display = 'block'; 
+                     });  
+                     typeData.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
+                     });  
+                     typeData.value= monthData.type || '';
+                     roleBOX.classList.add('roleBOX1')
+                     typeBOX.appendChild(typeData)
+                     typeBOX.classList.add('typeBOX1')
+                     if(monthData.type==='trim'){
+                        typeData.classList.add('typeTRIMColor')
+                     } else if (monthData.type==='pad'){
+                        typeData.classList.add('typePADColor')
+                     }
+                     roleData.classList.add('roleData1')
+                     typeData.classList.add('typeData1')
+                     amtData1 = document.createElement('input')
+                     amtData1.placeholder = "$0";
+                     amtData1.value = monthData.amt;
+                     amtData1.classList.add('spotAtData1')
+                     amtData1.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
+                     });  
+                     amtBOX1.classList.add('amtBOX1')
+                     amtBOX1.appendChild(amtData1)            
+                     detailRow2.appendChild(date1)
+                     detailRow2.appendChild(typeBOX)
+                     detailRow2.appendChild(amtBOX1)
+                     detailRow2.appendChild(roleBOX)
                      //END DETAILS ROW
                      monthBOX.appendChild(detailRow2) 
-
                   } //END DETAILS LOOP
                }  //END DETAILS VIEW
             } //END MONTHLY LOOP
@@ -4014,6 +4047,17 @@ const expandQuickTickerClick = (qID)=>{ //expand or collapse section
    generateQuickClick(); //RELOAD VIEW.  
    showErrorMSG('⚔️ SAVED ⚔️');   
 }
+const expandQuickTicksClick = (qID)=>{ //expand or collapse section
+   debugger;
+   let qtr = ai_schedule.quarters[qID];
+   qtr.expanded = !qtr.expanded;
+      //SAVE to LOCAL STORAGE
+   localStorage.ai_schedule = JSON.stringify(ai_schedule) 
+   generateQuickClick(); //RELOAD VIEW.  
+   showErrorMSG('⚔️ SAVED ⚔️');   
+}
+
+
 
 
 /***************************************

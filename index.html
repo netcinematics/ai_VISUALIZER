@@ -63,11 +63,48 @@ hr{border-top: solid 1px cadetblue;
    background:#5fa9a9; border-radius: 10px;color:#060252;
    margin: 1em;
 }
-.saveBtn2{border-radius:13px;background:#d1d67b;
+.editBtn01{
+   border-radius: 13px;
+   background: #6ebc97;
+    cursor: pointer;
+    margin: 1% 1% 1% 1%;
+    font-size: 0.666em;
+    height: 1.444em;
+    padding: 1% 1%;
+    display: flex;
+    color: #174345;
+    align-items: center;
+}
+.editBtn02{
+   border-radius: 13px;
+   background: #e29d98;
+    cursor: pointer;
+    margin: 1% 1% 1% 1%;
+    font-size: 0.666em;
+    height: 1.444em;
+    padding: 1% 1%;
+    display: flex;
+    color: #174345;
+    align-items: center;
+}
+.saveBtn0{
+   border-radius: 13px;
+    background: #d1d67b;
+    cursor: pointer;
+    margin: 1% 1% 1% 1%;
+    font-size: 0.666em;
+    height: 1.444em;
+    padding: 1% 1%;
+    display: flex;
+    align-items: center;
+}
+.saveBtn2{border-radius:13px;
+   background:#d1d67b;
    cursor:pointer; margin:1em 0 1em 0;
    font-size: 0.777em;
 }
-.addBtn4{border-radius:13px;background:#d1d67b;
+.addBtn4{border-radius:13px;
+   /* background:#d1d67b; */
    cursor:pointer; margin:1em 0 1em 0;
    font-size: 0.777em;
    background: cadetblue;
@@ -76,6 +113,55 @@ hr{border-top: solid 1px cadetblue;
    float:right;
    margin-right: 2%;
    margin-left: 1%;
+}
+.addBtn5{border-radius:13px;
+   /* background:#d1d67b; */
+   cursor:pointer; 
+   /* margin:3px 0 3px 0; */
+   font-size: 0.777em;
+   background: cadetblue;
+   border-radius: 13px;
+   max-width: 9em;
+   float:right;
+   margin-right: 2%;
+   margin-left: 1%;
+   margin-top: 2%;
+}
+.addBtn6{border-radius:13px;
+   /* background:#d1d67b; */
+   cursor:pointer; 
+   /* margin:3px 0 3px 0; */
+   font-size: 0.777em;
+   background: #05393b;
+   border-radius: 13px;
+   max-width: 9em;
+   float:right;
+   margin-right: 2%;
+   margin-left: 1%;
+   margin-top: 0.6em;
+    max-height: 1.777em;
+    padding-top:0;
+}
+.addBtn7{border-radius:13px;
+   /* background:#d1d67b; */
+   cursor:pointer; 
+   /* margin:3px 0 3px 0; */
+   /* font-size: 0.777em; */
+   background: #20053b;
+   border-radius: 13px;
+   max-width: 9em;
+   float:right;
+   margin-right: 2%;
+   margin-left: 1%;
+   /* margin-top: 0.6em; */
+    max-height: 1.777em;
+    padding-top:0;
+    height: 1.555em;
+    margin-top: 0.111em;
+    margin-bottom: 0.444em;
+    padding-top: 0;
+    font-size: 0.6em;
+    padding-bottom: 20px;    
 }
 .expandCollapseBtn0{
    border-radius:13px;background:#d1d67b;
@@ -397,7 +483,7 @@ border-radius: 22px;
    font-family: sans-serif;
    font-size: 0.555em;
    display: flex;
-   margin-top: 6px;
+   margin-top: 0px;
 }
 .capsNUMBOX1{
    font-family: sans-serif;
@@ -458,6 +544,20 @@ border-radius: 22px;
 color: darkcyan;  
 font-size:0.888em;          
 }
+.textareaBOX2 {
+   background:darkslateblue;
+   background-attachment: local;
+   background-image:
+      linear-gradient(to right, darkslateblue 20px, transparent 20px),
+      linear-gradient(to left, darkslateblue 20px, transparent 20px),
+      repeating-linear-gradient(darkslateblue, darkslateblue 40px, #344065 40px, #344065 41px, darkslateblue 41px);
+   line-height: 44px;
+   padding: 2% 3%;
+   width: 100%;
+   padding-left: 8%;
+color: darkcyan;  
+font-size:0.666em;          
+}
 #rightBOX,#leftBOX,#keyBOX{margin:2px;border: solid 1px steelblue;width: 100%;font-size: 0.777em;}
 
 #encodeBOX, #decodeBOX, #instructionBOX, #scheduleBOX, #padSequenceBOX, 
@@ -479,7 +579,7 @@ flex-direction: column;
 .QuickQuarterBOX{
    display: flex;
 flex-direction: column;
-   margin-top:0.111em;
+   margin-top:0.222em;
    background:#010e14;
    border-radius: 13px;
 }
@@ -509,7 +609,7 @@ flex-direction: column;
    background: #6679a0;
    /* height: 1.222em; */
    align-self: center;
-   min-width: 10%;
+   min-width: 4em;
     width: 0;
 }
 .inputDATABOX4,.inputDATABOX5{
@@ -521,14 +621,17 @@ flex-direction: column;
     font-size: 0.777em;
     background: #1a0033;
     color: #1e8385;
-    padding-left: 0.555em;
-    margin: 0.222em 0;
-    /* margin: 0.222em 1em; */
+    /* padding-left: 0.555em; */
+    padding-left: 0.444em;
+    /* margin: 0.222em 0; */
+    margin: 0.222em 1em;
     display: flex;
     max-height: 24px;
     align-items: center;
     text-align: right;
     align-self: center;
+    padding-right: 1em;
+    font-family: arial;    
 }
 .inputDATA0{    border-radius: 8px;
     font-size: 0.777em;
@@ -557,7 +660,7 @@ flex-direction: column;
     font-size: 0.777em;
     background: #1a0033;
     color: #b19f50;
-    padding-left: 0.555em;
+    padding-left: 0.444em;
     margin: 0.222em 1em;
     display: flex;
     max-height: 24px;
@@ -602,6 +705,151 @@ flex-direction: column;
     font-size: 0.777em;
     color: #136567;
     align-items: center;
+}
+
+.fifoGRIDROW {
+   display: flex;
+    justify-content: space-between;
+    margin-right: 2%;
+    flex-wrap: wrap;
+    font-size: 0.777em;
+    color: #136567;
+    align-items: flex-start;
+    background: #0b0014;
+    font-size: 1.111em;
+    margin-left: 5.555%;
+    border-radius: 13px;
+    margin-right: 2%;
+    margin-top: 0.555%;
+    margin-bottom: 0.555%;
+    flex-direction: column;
+    padding-left: 2%;
+    padding-top: 1%;    
+}
+.fifoGRIDBOX{
+   margin-left: 1%;
+    border: 1px solid steelblue;
+    border-radius: 13px;
+    padding: 0 1%;
+    width: 93.333%;
+    margin-bottom: 2%;
+    margin-top: 1%;
+}
+.fifoTITLE1{
+   font-size: 0.666em;
+    color: #4d23a3;
+    padding: 0;
+    background: transparent;
+    border: none;
+}
+.fifoTrimYMD{
+   font-size:0.444em;
+   color:steelblue;
+   display: flex;
+    text-align: center;
+    background: transparent;
+    align-self: center;
+    min-width: 7em;
+    width: 0;
+    border: none;   
+}
+.fifoTrimNUM{
+  font-size:0.666em;
+  color:lime;
+  display: flex;
+    text-align: center;
+    background: transparent;
+    align-self: center;
+    min-width: 4em;
+    width: 0;
+    border: none;    
+}
+.fifoPadYMD{
+   font-size:0.444em;
+   color:steelblue;
+   display: flex;
+    text-align: center;
+    background: transparent;
+    align-self: center;
+    min-width: 7em;
+    width: 0;
+    border: none;  
+}
+.fifoPadNUM{
+  font-size:0.666em;
+  color:red;
+  display: flex;
+    text-align: center;
+    background: transparent;
+    align-self: center;
+    min-width: 4em;
+    width: 0;
+    border: none;  
+}
+.fifoData{
+   display: flex;
+    width: 3em;
+    flex-direction: column;
+    margin: 1%;
+}
+.fifoBOX{
+   display:flex;
+
+}
+.btnzROW {
+   display: flex;
+    justify-content: space-between;
+    margin-right: 2%;
+    flex-wrap: wrap;
+    padding-left:6.666%;
+    font-size: 0.777em;
+    color: #136567;
+    align-items: center;
+    background: #0b0014;
+    font-size: 1.111em;
+    margin-left: 5.555%;
+    border-radius: 13px;
+    margin-right: 2%;
+    margin-top: 0.555%;
+    margin-bottom: 0.555%;
+    padding: 0.222em;    
+}
+.inputSAVEROW {
+   display: none;
+    justify-content: space-between;
+    margin-right: 2%;
+    flex-wrap: wrap;
+    padding-left:6.666%;
+    font-size: 0.777em;
+    color: #136567;
+    align-items: center;
+    background: #0b0014;
+    font-size: 1.111em;
+    margin-left: 5.555%;
+    border-radius: 13px;
+    margin-right: 2%;
+    margin-top: 0.555%;
+    margin-bottom: 0.555%;
+    padding: 0.222em;    
+}
+.tickrNOTEZROW {
+   display: flex;
+    justify-content: space-between;
+    margin-right: 2%;
+    flex-wrap: wrap;
+    padding-left:6.666%;
+    font-size: 0.777em;
+    color: #136567;
+    align-items: center;
+    background: #0b0014;
+    font-size: 1.111em;
+    margin-left: 5.555%;
+    border-radius: 13px;
+    margin-right: 2%;
+    margin-top: 0.555%;
+    margin-bottom: 0.555%;
+    padding: 0.222em;
+    padding-left: 2%;    
 }
 .totalsRow1{
    display: flex;
@@ -668,7 +916,12 @@ flex-direction: column;
 .QuickROW{
    display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;    margin: 0 10px; 
+    flex-wrap: wrap;    
+    margin: 0 10px; 
+    border-radius: 30%;
+    background: #060615;
+    padding-left: 2%;    
+    
 }
 .quarterTitle{
    /* line-height: 1em; */
@@ -860,9 +1113,27 @@ flex-direction: column;
   -ms-user-select: none;
   user-select: none;
 }
+.checkboxFrame2 {
+  display: block;
+  position: relative;
+  padding: 0 4px;
+    margin: 14px 6px 0 6px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
 /* Hide the browser's default checkbox */
 .checkboxFrame input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.checkboxFrame2 input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -892,6 +1163,15 @@ border-radius:13px;
 .checkboxFrame input:checked ~ .checkmark {
   background-color: steelblue;
 }
+/* On mouse-over, add a grey background color */
+.checkboxFrame2:hover input ~ .checkmark {
+  background-color: #014601;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkboxFrame2 input:checked ~ .checkmark {
+  background-color: steelblue;
+}
 
 /* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
@@ -917,11 +1197,32 @@ border-radius:13px;
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+/* Show the checkmark when checked */
+.checkboxFrame2 input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkboxFrame2 .checkmark:after {
+   left: 4px;
+    top: -1px;
+    width: 2px;
+    height: 6px;
+  border: solid #014601;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
 
 .btmBtns1{
    margin:1em 1%;
    font-size:0.777em;
 }
+
+
+.redTXT{color:#a43d3d!important;}
+.greenTXT{color:#3db63f !important;}
 
       @media only screen and (max-width: 800px) { /* TABLET */
          body{  background-color: #000f1b;}
@@ -1040,13 +1341,13 @@ align-items: center;">
         border-radius: 13px;
         border: #35f405;
         box-shadow: inset 0px 0px 7px 0px #02f048;padding: 2%;padding-top: 3%;
-        padding-left:4%; color: #b19f50; line-height: 2.444em;">
+        padding-left:4%; color: #b19f50; line-height: 2.111em;">
         <button id=expandCollapseBtn0 class="expandCollapseBtn1" onclick="ExpandCollapseQuickClick()">🕸️</button>        
         <span class="boxTitle">🦁 
          <span style="font-size:0.777em; color:cyan">0</span>
-         <span style="font-size:0.555em">Quick</span>
-         <span style="font-size: 1.222em;color:cyan;font-family: monospace;">TRIM & PAD</span>
-         <span style="font-size:0.555em"> 🐇(viewz)🐒</span>
+         <span style="font-size:0.555em">⏱🗠</span>
+         <span style="font-size: 1.222em;color:cyan;font-family: monospace;">QUICK TRAK</span>
+         <span style="font-size:0.555em"> 🐇(trim|pad)🐒</span>
         </span><br>
         <article>
            <hr>   
@@ -1223,6 +1524,14 @@ align-items: center;">
         Generate Worksheet, Generate Schedule, Generate Reports.
         <hr><br><hr>  
 
+        Accordion Design pattern Financial ledger
+        
+        and Trade Tracking System. 
+        
+        With ai Methodology and ai data 
+        
+        for dynamic ai charts.
+
         # STEPS
 
         1. ADD numbers QUARTERLY and MONTHLY as WORKSHEET input.
@@ -1233,6 +1542,20 @@ align-items: center;">
 
         4. Try to see clear distinction between
         
+        AXIOMS
+
+        - do not fight fed
+        - trust the TREND, while rates and cuts play.
+        - seachange pivot to cut.
+        - historic analysis 1995
+        - aggressive 6 months into 1st cut.
+        - down 6 months after 1st cut.
+        - H1 and H2 in addition to Q1,Q2,Q3,Q4
+        - Look at early_cycle late_cycle playbook.
+        - softlanding confirmed by Q1 disinflation data and rates.
+        - risk reward analysis. profit_system.
+
+
          RULES:
          DETERMINE MARKET MID, HI, LO.
          Important change of behaviors for HI or LO.
@@ -1243,7 +1566,10 @@ align-items: center;">
         
         - upsideHEDGE or hidry bet.
 
+       - TRIM_CAPS at TOP, PAD_CAPS at BTM. (52WKHI, 52WKLO)
 
+         - TRIM_CAPS_TOP @ 52WKHI
+         - PAD_CAPS_BTM  @ 52WKLO
 
         - TRIM_HIGHER_HIGHS and PAD_LOWER_LOWS
 
@@ -3410,20 +3736,146 @@ const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
          }
       }     //end save schedule click        
         
-      //END SCHEDULE_MATRIX-METHODS**********************************************
+//END SCHEDULE_MATRIX-METHODS**********************************************
+/************************************************\
+ * - AI_MAIN_MATRIX
+ *  - ability to save trimz and padz with NOTES in localstorage
+\************************************************/
+let ai_main=null;
+const ai_main_LOAD_MOCK_DATA=()=>{ //READ
+   ai_main = {"qrtrz":{
+      "Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":true,
+         "tickrz":[{"tkr":"NVDA","cap":"1000","expanded":true,
+            "trimz":[
+               {"ymd":"2023_11_29","amt":"100","role":"HIrHI"},
+               {"ymd":"2023_12_30","amt":"50","role":"HIrHI"}
+            ],
+            "padz":[
+               {"ymd":"2023_11_27","amt":"50","role":"LOrLO"},
+               {"ymd":"2023_13_21","amt":"100","role":"LOrLO"}
+            ],
+            "netPCT":"1","notez":"2","notez_expanded":false
+         },{"tkr":"MDB","cap":"1000",
+            "trimz":[],
+            "padz":[],
+            "netPCT":"1","notez":"2"
+         },{"tkr":"COST","cap":"1000",
+            "trimz":[],
+            "padz":[],
+            "netPCT":"1","notez":"2"
+         },{"tkr":"MSFT","cap":"1000",
+            "trimz":[],
+            "padz":[],
+            "netPCT":"1","notez":"2"
+         },{"tkr":"QQQ","cap":"500",
+            "trims":[],
+            "padz":[],
+            "netPCT":"1","notez":"2"
+         },{"tkr":"BTC","cap":"1000",
+            "trimz":[],
+            "padz":[],
+            "netPCT":"1","notez":"2"
+         }
+      ]
+         // ,
+         // "monthData":[
+         //    {"ymd":"2023_11_27","tick":"NVDA","type":"pad","amt":"100","role":"LOrLO"},{"ymd":"2023_11_27","tick":"MDB","type":"trim","amt":"100","role":"LOrLO"},{"ymd":"2023_11_27","tick":"MDB","type":"pad","amt":"100","role":"EXIT"},{"ymd":"2023_11_27","tick":"COST","type":"pad","amt":"100","role":"LONG"},{"ymd":"2023_11_27","tick":"MSFT","type":"trim","amt":"100","role":"LONG"},{"ymd":"2023_11_27","tick":"QQQ","type":"trim","amt":"50","role":"WATCH"}
+         // ]
+      },
+      "Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netPCT":"1","notez":"1"},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netPCT":"2","notez":"3"},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netPCT":"1","notez":"2"}]
+      // ,"monthData":[
+      //    {"ymd":"2023_11_30","tick":"COIN","type":"trim","amt":"100","role":"LOrLO"},{"ymd":"2023_11_30","tick":"META","type":"pad","amt":"100","role":"SAFE"},{"ymd":"2023_11_30","tick":"ETH","type":"trim","amt":"100","role":"LOrLO"},{"ymd":"2023_11_30","tick":"ETH","type":"pad","amt":"100","role":"HIGHrHIGH"}
+      // ]
+      },
+      "Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":true,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netPCT":"1","notez":"1"},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netPCT":"2","notez":"3"},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"BTC","cap":"2000","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"TSLA","cap":"100","trimz":[],"padz":[],"netPCT":"2","notez":"2"}]
+      // ,"monthData":[
+      //    {"ymd":"2023_12_01","tick":"BTC","type":"trim","amt":"25","role":"RISKOFF"},{"tick":"AAA","type":"pad","amt":"100","at":"","ymd":"2023_12_02"}
+      // ]
+      },
+      "Q1_2024_JAN":{"qID":"Q1_2024_JAN","expanded":false,"tickrz":[]
+      // ,"monthData":[]
+      }
+      }}
+}
 
-/***************************************
- * BEGIN: QUICKFUNCTIONS
- * **************************************/
- let show_Quick_details_view = null;
- const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
-   generatedQuickBOX.innerHTML = ""
-   quarterSets = Object.keys(ai_schedule.quarters);//ai_ledger.ticks;
-   if(!quarterSets){ console.log('no data'); return}
+const ai_main_init=()=>{ //READ from LOCAL STORAGE
+   ai_main = (localStorage.ai_main)?
+      JSON.parse( localStorage.ai_main ):null;
+   ai_main = null; //test mock data
+   if(!ai_main){
+      ai_main_LOAD_MOCK_DATA();
+   }
+}; ai_main_init();
+
+// let ai_main = {"qrtrz":{
+// "Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":true,
+//    "tickrz":[{"tkr":"NVDA","cap":"1000","expanded":true,
+//       "trimz":[
+//          {"ymd":"2023_11_29","amt":"100","role":"HIrHI"},
+//          {"ymd":"2023_12_30","amt":"50","role":"HIrHI"}
+//       ],
+//       "padz":[
+//          {"ymd":"2023_11_27","amt":"50","role":"LOrLO"},
+//          {"ymd":"2023_13_21","amt":"100","role":"LOrLO"}
+//       ],
+//       "netPCT":"1","notez":"2","notez_expanded":true
+//    },{"tkr":"MDB","cap":"1000",
+//       "trimz":[],
+//       "padz":[],
+//       "netPCT":"1","notez":"2"
+//    },{"tkr":"COST","cap":"1000",
+//       "trimz":[],
+//       "padz":[],
+//       "netPCT":"1","notez":"2"
+//    },{"tkr":"MSFT","cap":"1000",
+//       "trimz":[],
+//       "padz":[],
+//       "netPCT":"1","notez":"2"
+//    },{"tkr":"QQQ","cap":"500",
+//       "trims":[],
+//       "padz":[],
+//       "netPCT":"1","notez":"2"
+//    },{"tkr":"BTC","cap":"1000",
+//       "trimz":[],
+//       "padz":[],
+//       "netPCT":"1","notez":"2"
+//    }
+//   ]
+//    // ,
+//    // "monthData":[
+//    //    {"ymd":"2023_11_27","tick":"NVDA","type":"pad","amt":"100","role":"LOrLO"},{"ymd":"2023_11_27","tick":"MDB","type":"trim","amt":"100","role":"LOrLO"},{"ymd":"2023_11_27","tick":"MDB","type":"pad","amt":"100","role":"EXIT"},{"ymd":"2023_11_27","tick":"COST","type":"pad","amt":"100","role":"LONG"},{"ymd":"2023_11_27","tick":"MSFT","type":"trim","amt":"100","role":"LONG"},{"ymd":"2023_11_27","tick":"QQQ","type":"trim","amt":"50","role":"WATCH"}
+//    // ]
+// },
+// "Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netPCT":"1","notez":"1"},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netPCT":"2","notez":"3"},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netPCT":"1","notez":"2"}]
+// // ,"monthData":[
+// //    {"ymd":"2023_11_30","tick":"COIN","type":"trim","amt":"100","role":"LOrLO"},{"ymd":"2023_11_30","tick":"META","type":"pad","amt":"100","role":"SAFE"},{"ymd":"2023_11_30","tick":"ETH","type":"trim","amt":"100","role":"LOrLO"},{"ymd":"2023_11_30","tick":"ETH","type":"pad","amt":"100","role":"HIGHrHIGH"}
+// // ]
+// },
+// "Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":true,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netPCT":"1","notez":"1"},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netPCT":"2","notez":"3"},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"BTC","cap":"2000","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netPCT":"1","notez":"2"},{"tkr":"TSLA","cap":"100","trimz":[],"padz":[],"netPCT":"2","notez":"2"}]
+// // ,"monthData":[
+// //    {"ymd":"2023_12_01","tick":"BTC","type":"trim","amt":"25","role":"RISKOFF"},{"tick":"AAA","type":"pad","amt":"100","at":"","ymd":"2023_12_02"}
+// // ]
+// },
+// "Q1_2024_JAN":{"qID":"Q1_2024_JAN","expanded":false,"tickrz":[]
+// // ,"monthData":[]
+// }
+// }}
+
+const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
+   generatedQuickBOX.innerHTML = "" //clear view
+   // quarterSets = Object.keys(ai_schedule.quarters);//ai_ledger.ticks;
+   qrtrSetz = Object.keys(ai_main.qrtrz);//ai_ledger.ticks;
+   //['Q4_2023_OCT', 'Q4_2023_NOV', 'Q4_2023_DEC', 'Q1_2024_JAN']
+   // ai_schedule.quarters['Q4_2023_NOV']
+   // {qID: 'Q4_2023_NOV', expanded: false, caps: Array(13), monthData: Array(4)}
+   let QRTR = null;
+
+   if(!qrtrSetz){ console.log('no data'); return}
    if(ai_ledger.quick_expanded){
       expandCollapseBtn0.innerHTML = '💨'   
-      for(let i=0;i<quarterSets.length;i++){  //BEGIN QUARTERLY LOOP
-         quarter= ai_schedule.quarters[quarterSets[i]];
+      for(let i=0;i<qrtrSetz.length;i++){  //BEGIN QUARTERLY LOOP
+         QRTR= ai_main.qrtrz[qrtrSetz[i]];
+         // quarter= ai_schedule.quarters[qrtrSetz[i]];
          quarterBOX = document.createElement('section')
          quarterBOX.classList.add('QuickQuarterBOX')
          quarterHeader = document.createElement('aside')
@@ -3432,10 +3884,11 @@ const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
          QuicksNUMBOX0 = document.createElement('span')
          QuicksNUMBOX0.classList.add('quickNUMBOX0')
          QuicksCHECKBOX0 = document.createElement('label')
-         QuicksCHECKBOX0.classList.add('checkboxFrame') 
+         QuicksCHECKBOX0.classList.add('checkboxFrame2') 
          // QuicksNUMBOX0.innerHTML=i+1;            
          QuicksSelect0 = document.createElement('input');
-         // QuicksSelect0.ymdt = quarter.qID+'_'+QuicksData.tkr.toUpperCase() || '';
+         // QuicksSelect0.ymdt = quarter.qID+'_'+tickrData.tkr.toUpperCase() || '';
+         // QuicksSelect0.qID = QRTR.qID || '';
          QuicksSelect0.type = "radio";
          QuicksSelect0.name = "QuickCapsRadio";
          QuicksSelect0.classList.add('cap_checkmark')
@@ -3446,33 +3899,43 @@ const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
          QuicksNUMBOX0.appendChild(QuicksCHECKBOX0)
          quarterHeader.appendChild(QuicksNUMBOX0)
          // end ************************************** selector         
-         quarterTXT = document.createElement('input')
-         quarterTXT.classList.add('quarterTitle')
-         quarterTXT.value = quarter.qID;
-         quarterTXT.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
+         quarterTITLE = document.createElement('input')
+         quarterTITLE.classList.add('quarterTitle')
+         quarterTITLE.value = QRTR.qID;
+         // quarterTITLE.value = quarter.qID;
+         quarterTITLE.addEventListener("keyup",(e)=>{ 
+               saveQuickBtn1.style.display = 'block'; 
             }); 
          expandBtn0 = document.createElement('button')
          expandBtn0.innerHTML = '🕸️'
-         expandBtn0.classList.add('addBtn4')
-         expandBtn0.setAttribute('data-arg3',quarter.qID)
-         expandBtn0.addEventListener("click",(e)=>{
-               expandQuickTickerClick(e.target.getAttribute('data-arg3')) });
+         expandBtn0.classList.add('addBtn5')
+         // expandBtn0.setAttribute('data-arg3',quarter.qID)
+         expandBtn0.setAttribute('data-arg3',QRTR.qID)
+         expandBtn0.addEventListener("click",(e)=>{ //EXPAND TICK MAIN.
+               expandQuickTickerClick(e.target.getAttribute('data-arg3')) 
+            });
          addBtn4 = document.createElement('button')
          addBtn4.innerHTML = 'add Ticker🧭'
-         addBtn4.classList.add('addBtn4')
-         addBtn4.setAttribute('data-arg2',quarter.qID)
+         addBtn4.classList.add('addBtn5')
+         addBtn4.setAttribute('data-arg2',QRTR.qID)
          addBtn4.addEventListener("click",(e)=>{
-               addQuickTickerClick(e.target.getAttribute('data-arg2')) });
-         quarterHeader.appendChild(quarterTXT)
+               addQuickTickerClick(e.target.getAttribute('data-arg2')) 
+            });
+         quarterHeader.appendChild(quarterTITLE)
          quarterHeader.appendChild(expandBtn0)
          quarterHeader.appendChild(addBtn4)
          quarterBOX.appendChild(quarterHeader)
-         monthBOX = document.createElement('article')
-         monthBOX.classList.add('monthBOX')
-         if(quarter.expanded){
+         tickerRowBOX = document.createElement('article')
+         tickerRowBOX.classList.add('monthBOX')
+         if(QRTR.expanded){
             expandBtn0.innerHTML = '💨'
-            for(let j=0;j<quarter.caps.length;j++){  //MONTHLY CAP LOOP .
-               QuicksData = quarter.caps[j];
+            for(let j=0;j<QRTR.tickrz.length;j++){  //MONTHLY CAP LOOP .
+               tickrData = QRTR.tickrz[j];
+
+               tickrData.trimTOT = 300
+               tickrData.padTOT  = 60
+               tickrData.netPCT = '20%'
+
                QuickROW = document.createElement('aside')
                QuickROW.classList.add('QuickROW')
                //**********************************************selector
@@ -3482,7 +3945,7 @@ const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
                QuicksCHECKBOX1.classList.add('checkboxFrame') 
                QuicksNUMBOX1.innerHTML=j+1;            
                QuicksSelect1 = document.createElement('input');
-               QuicksSelect1.ymdt = quarter.qID+'_'+QuicksData.tkr.toUpperCase() || '';
+               QuicksSelect1.ymdt = QRTR.qID+'_'+tickrData.tkr.toUpperCase() || '';
                QuicksSelect1.type = "radio";
                QuicksSelect1.name = "QuickCapsRadio";
                QuicksSelect1.classList.add('cap_checkmark')
@@ -3495,7 +3958,7 @@ const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
                // end ************************************** selector
                trimTick = document.createElement('input')
                trimTick.classList.add('trimTick')
-               trimTick.value = QuicksData.tkr.toUpperCase() || 0;
+               trimTick.value = tickrData.tkr.toUpperCase() || 0;
                trimTick.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
                });             
                capBOX1 = document.createElement('aside')
@@ -3504,192 +3967,386 @@ const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
                capData1 = document.createElement('input')
                capData1.classList.add('inputDATA0')
                capData1.placeholder = "$0";
-               capData1.value = QuicksData.cap || '';          
+               capData1.value = tickrData.cap || '';          
                capData1.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
                });  
                capBOX1.appendChild(capData1)
-               trim_atBOX1 = document.createElement('aside')
-               trim_atBOX1.innerHTML="trims&nbsp";
-               trim_atBOX1.classList.add('inputDATABOX2')
-               trim_atData1 = document.createElement('input')
-               // trim_atData1.classList.add('inputDATA2')
-               trim_atData1.classList.add('inputDATA0')
-               trim_atData1.placeholder = "$0";
-               trim_atData1.value = QuicksData.trim_at || '';          
-               trim_atData1.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block';  
+               trimTOTBOX1 = document.createElement('aside')
+               trimTOTBOX1.innerHTML="trims&nbsp";
+               trimTOTBOX1.classList.add('inputDATABOX2')
+               trimTOTBOX1.classList.add('greenTXT')
+               trimTOTData1 = document.createElement('input')
+               // trimTOTData1.classList.add('inputDATA2')
+               trimTOTData1.classList.add('inputDATA0')
+               trimTOTData1.placeholder = "$0";
+               trimTOTData1.value = tickrData.trimTOT || '';          
+               trimTOTData1.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block';  
                });  
-               trim_atBOX1.appendChild(trim_atData1)
-               pad_atBOX1 = document.createElement('aside')
-               pad_atBOX1.innerHTML="pads&nbsp";
-               pad_atBOX1.classList.add('inputDATABOX3')
-               pad_atData1 = document.createElement('input')
-               pad_atData1.classList.add('inputDATA0')
-               // pad_atData1.classList.add('inputDATA2')
-               pad_atData1.placeholder = "$0";
-               pad_atData1.value = QuicksData.pad_at || '';          
-               pad_atData1.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
+               trimTOTBOX1.appendChild(trimTOTData1)
+               padTOTBOX1 = document.createElement('aside')
+               padTOTBOX1.innerHTML="pads&nbsp";
+               padTOTBOX1.classList.add('inputDATABOX3')
+               padTOTBOX1.classList.add('redTXT')
+               padTOTData1 = document.createElement('input')
+               padTOTData1.classList.add('inputDATA0')
+               // padTOTData1.classList.add('inputDATA2')
+               padTOTData1.placeholder = "$0";
+               padTOTData1.value = tickrData.padTOT || '';          
+               padTOTData1.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
                });  
-               pad_atBOX1.appendChild(pad_atData1)
-               padlvlBOX1 = document.createElement('aside')
-               padlvlBOX1.innerHTML="NET&nbsp";
-               padlvlBOX1.classList.add('inputDATABOX4')
-               padlvlData1 = document.createElement('input')
-               padlvlData1.classList.add('inputDATA0')
-               padlvlData1.placeholder = "0";
-               padlvlData1.value = QuicksData.padlvl || '';          
-               padlvlData1.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
+               padTOTBOX1.appendChild(padTOTData1)
+               netPCTBOX1 = document.createElement('aside')
+               netPCTBOX1.innerHTML="NET&nbsp";
+               netPCTBOX1.classList.add('inputDATABOX4')
+               netPCTData1 = document.createElement('input')
+               netPCTData1.classList.add('inputDATA0')
+               netPCTData1.placeholder = "0";
+               netPCTData1.value = tickrData.netPCT || '';          
+               netPCTData1.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
                });  
-               padlvlBOX1.appendChild(padlvlData1)
-               // crashlvlBOX1 = document.createElement('aside')
-               // crashlvlBOX1.innerHTML="crashPOS&nbsp";
-               // crashlvlBOX1.classList.add('inputDATABOX5')
-               // crashlvlData1 = document.createElement('input')
-               // crashlvlData1.classList.add('inputDATA3')
-               // crashlvlData1.placeholder = "0";
-               // crashlvlData1.value = QuicksData.crashlvl || 0;          
-               // crashlvlData1.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
-               // });  
-               // crashlvlBOX1.appendChild(crashlvlData1)
+               netPCTBOX1.appendChild(netPCTData1)
+
                expandBtn1 = document.createElement('button')
                expandBtn1.innerHTML = '🕸️'
-               expandBtn1.classList.add('addBtn4')
-               expandBtn1.setAttribute('data-arg3',quarter.qID)
+               expandBtn1.classList.add('addBtn6')
+               expandBtn1.setAttribute('data-arg6',QRTR.qID)
+               expandBtn1.setAttribute('data-arg7',tickrData.tkr.toUpperCase())
                expandBtn1.addEventListener("click",(e)=>{
-                     expandQuickTicksClick(e.target.getAttribute('data-arg3')) });
+                  expandQuickTicksClick( //EXPAND TICK SUB DETAILS.
+                     e.target.getAttribute('data-arg6'),
+                     e.target.getAttribute('data-arg7')) 
+                  });
 
                QuickROW.appendChild(trimTick)         
                QuickROW.appendChild(capBOX1)         
-               QuickROW.appendChild(trim_atBOX1)         
-               QuickROW.appendChild(pad_atBOX1)         
-               QuickROW.appendChild(padlvlBOX1)         
+               QuickROW.appendChild(trimTOTBOX1)         
+               QuickROW.appendChild(padTOTBOX1)         
+               QuickROW.appendChild(netPCTBOX1)         
                // QuickROW.appendChild(crashlvlBOX1)
                QuickROW.appendChild(expandBtn1)
-               monthBOX.appendChild(QuickROW)
-               if(show_Quick_details_view){   //BEGIN DETAILS VIEW
-                  let detailRow2,date1,detAmt,detType,detRole,detNote;
-                  let monthData = null;
-                  let role1,role2,role3,role4,role5,role6,role7,role8,role9,role10,role11;
-                  let type1,type2,type3,type4;
-                  let roleBOX,roleData;
-                  let typeBOX,typeData,atBOX1;
-                  let atData1,amtData1;
-                  for(let k=0;k<quarter.monthData.length;k++){  //Quick DETAILS LOOP.
-                     monthData = quarter.monthData[k];
-                     if(monthData.tick.toUpperCase()!=QuicksData.tkr.toUpperCase()){continue;}
-                     detailRow2 = document.createElement('section')
-                     detailRow2.classList.add('detailRow2')
-                     //DETAILS ROW
-                     //**********************************************selector
-                     QuicksNUMBOX2 = document.createElement('aside')
-                     QuicksNUMBOX2.classList.add('capsNUMBOX2')//encodeNUMBOX1
-                     QuicksCHECKBOX2 = document.createElement('label')
-                     QuicksCHECKBOX2.classList.add('checkboxFrame') 
-                     QuicksNUMBOX2.innerHTML=k+1;            
-                     QuicksSelect2 = document.createElement('input');
-                     QuicksSelect2.ymdtn = quarter.qID+'_'+QuicksData.tkr.toUpperCase()+'_'+k || '';
-                     QuicksSelect2.type = "radio";
-                     QuicksSelect2.name = "QuickDetailsRadio";
-                     QuicksSelect2.classList.add('cap_checkmark')
-                     QuicksCHECKBOX2.appendChild(QuicksSelect2)
-                     QuicksCheckMark2 = document.createElement('span')
-                     QuicksCheckMark2.classList.add('checkmark')
-                     QuicksCHECKBOX2.appendChild(QuicksCheckMark2)
-                     QuicksNUMBOX2.appendChild(QuicksCHECKBOX2)
-                     detailRow2.appendChild(QuicksNUMBOX2)
-                     // end ************************************** selector
-                     date1 = document.createElement('input')
-                     date1.value = ''+monthData.ymd;
-                     date1.classList.add('detailDate1')
-                     date1.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
+               tickerRowBOX.appendChild(QuickROW)
+
+               if(tickrData.expanded){ //BEGIN DETAILS VIEW
+                  expandBtn1.innerHTML = '💨'
+                  //BEGIN FIFO GRID ROW
+                  fifoGRIDROW = document.createElement('section')
+                  fifoGRIDROW.classList.add('fifoGRIDROW')
+                     gridTitle = document.createElement('input')
+                     gridTitle.value = 'fifo grid';
+                     gridTitle.classList.add('fifoTITLE1')
+                     gridTitle.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
                      });  
-                     amtBOX1 = document.createElement('aside')
-                     amtBOX1.innerHTML="amt&nbsp;"
-                     roleBOX = document.createElement('aside')
-                     roleBOX.innerHTML="role&nbsp;"
-                     typeBOX = document.createElement('aside')
-                     typeBOX.innerHTML="type&nbsp;"
-                     roleData = document.createElement('select')
-                     typeData = document.createElement('input')
-                     role1 = document.createElement('option')
-                     role2 = document.createElement('option')
-                     role3 = document.createElement('option')
-                     role4 = document.createElement('option')
-                     role5 = document.createElement('option')
-                     role6 = document.createElement('option')
-                     role7 = document.createElement('option')
-                     role8 = document.createElement('option')
-                     role9 = document.createElement('option')
-                     role10 = document.createElement('option')
-                     role11 = document.createElement('option')
-                     role1.value = "...";
-                     role2.value = "HOLD";
-                     role3.value = "WATCH";
-                     role4.value = "RISKOFF";
-                     role5.value = "LONG";
-                     role6.value = "TRIM";
-                     role7.value = "SAFE";
-                     role8.value = "RISKON";
-                     role9.value = "EXIT";
-                     role10.value = "LOrLO";
-                     role11.value = "HIGHrHIGH";
-                     role1.innerHTML = "...";
-                     role2.innerHTML = "HOLD";
-                     role3.innerHTML = "WATCH";
-                     role4.innerHTML = "RISKOFF";
-                     role5.innerHTML = "LONG";
-                     role6.innerHTML = "TRIM";
-                     role7.innerHTML = "SAFE";
-                     role8.innerHTML = "RISKON";
-                     role9.innerHTML = "EXIT";
-                     role10.innerHTML = "LOrLO";
-                     role11.innerHTML = "HIrHI";
-                     roleData.appendChild(role1);
-                     roleData.appendChild(role2);
-                     roleData.appendChild(role3);
-                     roleData.appendChild(role4);
-                     roleData.appendChild(role5);
-                     roleData.appendChild(role6);
-                     roleData.appendChild(role7);
-                     roleData.appendChild(role8);
-                     roleData.appendChild(role9);
-                     roleData.appendChild(role10);
-                     roleData.appendChild(role11);
-                     roleData.value = monthData.role || '';
-                     roleBOX.appendChild(roleData)
-                     roleData.addEventListener("change",(e)=>{ saveQuickBtn1.style.display = 'block'; 
-                     });  
-                     typeData.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
-                     });  
-                     typeData.value= monthData.type || '';
-                     roleBOX.classList.add('roleBOX1')
-                     typeBOX.appendChild(typeData)
-                     typeBOX.classList.add('typeBOX1')
-                     if(monthData.type==='trim'){
-                        typeData.classList.add('typeTRIMColor')
-                     } else if (monthData.type==='pad'){
-                        typeData.classList.add('typePADColor')
+                     fifoGRIDROW.appendChild(gridTitle)
+                     
+                     fifoGRIDBOX = document.createElement('section')
+                     fifoGRIDBOX.classList.add('fifoGRIDBOX')
+
+                     fifoROW = document.createElement('section')
+                     fifoROW.classList.add('fifoBOX')
+                     let longLength = 0,trimNUM=0,padNUM=0,trimYMD=0,padYMD=0;
+                     longLength=(tickrData.trimz.length>=tickrData.padz)
+                        ? tickrData.trimz.length : tickrData.padz.length
+                     for(var k=0; k<longLength;k++ ){
+                        if(k<tickrData.trimz.length){
+                           trimNUM = tickrData.trimz[k].amt || 0;
+                           trimYMD = tickrData.trimz[k].ymd || 0;
+                        }else{ trimNUM='-'; trimYMD='-' }
+                        if(k<tickrData.padz.length){
+                           padNUM = tickrData.padz[k].amt || 0;
+                           padYMD = tickrData.padz[k].ymd || 0;
+
+                        }else{ padNUM='-'; padYMD='-' }
+                        
+                        fifoBOX = document.createElement('section')
+                        fifoBOX.classList.add('fifoData')
+                        dateTrim = document.createElement('input')
+                        dateTrim.value = trimYMD;
+                        dateTrim.classList.add('fifoTrimYMD')
+                        dateTrim.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
+                        });  
+                        trimAMT = document.createElement('input')
+                        trimAMT.value = trimNUM;
+                        trimAMT.classList.add('fifoTrimNUM')
+                        trimAMT.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
+                        });  
+                        padAMT = document.createElement('input')
+                        padAMT.value = padNUM;
+                        padAMT.classList.add('fifoPadNUM')
+                        padAMT.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
+                        });  
+                        datePad = document.createElement('input')
+                        datePad.value = padYMD;
+                        datePad.classList.add('fifoPadYMD')
+                        datePad.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
+                        });  
+                        fifoBOX.appendChild(dateTrim)
+                        fifoBOX.appendChild(trimAMT)
+                        fifoBOX.appendChild(padAMT)
+                        fifoBOX.appendChild(datePad)
+                        fifoROW.appendChild(fifoBOX)
                      }
-                     roleData.classList.add('roleData1')
-                     typeData.classList.add('typeData1')
-                     amtData1 = document.createElement('input')
-                     amtData1.placeholder = "$0";
-                     amtData1.value = monthData.amt;
-                     amtData1.classList.add('spotAtData1')
-                     amtData1.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
+                     fifoGRIDBOX.appendChild(fifoROW)
+                     fifoGRIDROW.appendChild(fifoGRIDBOX)
+
+                  tickerRowBOX.appendChild(fifoGRIDROW) 
+                  //END FIFO GRID ROW
+                  //BEGIN btnz ROW ***********************************
+                  btnzROW = document.createElement('section')
+                  btnzROW.classList.add('btnzROW')
+                     editTitle = document.createElement('input')
+                     editTitle.value = 'EDIT';
+                     editTitle.classList.add('detailDate1')
+                     editTitle.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
                      });  
-                     amtBOX1.classList.add('amtBOX1')
-                     amtBOX1.appendChild(amtData1)            
-                     detailRow2.appendChild(date1)
-                     detailRow2.appendChild(typeBOX)
-                     detailRow2.appendChild(amtBOX1)
-                     detailRow2.appendChild(roleBOX)
-                     //END DETAILS ROW
-                     monthBOX.appendChild(detailRow2) 
-                  } //END DETAILS LOOP
+                     btnzROW.appendChild(editTitle)
+                     quickTrimBtn0 = document.createElement('button')
+                     quickTrimBtn0.innerHTML = 'trim🐇'
+                     quickTrimBtn0.classList.add('editBtn01')
+                     quickTrimBtn0.addEventListener("click",(e)=>{
+                        //show save row and set edit type
+                        let saveROW = e.target.parentElement.nextSibling;
+                        saveROW.style.display = 'flex';
+                        saveROW.editType = 'trim'      
+                     });
+                     btnzROW.appendChild(quickTrimBtn0)
+                     quickPadBtn0 = document.createElement('button')
+                     quickPadBtn0.innerHTML = 'pad🐒'
+                     quickPadBtn0.classList.add('editBtn02')
+                     quickPadBtn0.addEventListener("click",(e)=>{
+                        let saveROW = e.target.parentElement.nextSibling;
+                        saveROW.style.display = 'flex';
+                        saveROW.editType = 'pad'    
+                     });
+                     btnzROW.appendChild(quickPadBtn0)
+                     saveBtn0 = document.createElement('button')
+                     saveBtn0.innerHTML = 'save🌟'
+                     saveBtn0.classList.add('saveBtn0')
+                     saveBtn0.addEventListener("click",(e)=>{
+                        debugger;
+                        // let saveROW = e.target.parentElement;
+                        // saveROW.style.display = 'none';
+                        // if(saveROW.editType==='trim'){
+                           
+                        // } else if(saveROW.editType==='trim'){
+
+                        // }
+                     });
+                     btnzROW.appendChild(saveBtn0)
+
+                     
+                  tickerRowBOX.appendChild(btnzROW) 
+                  //END btnz ROW *******************************************
+                  //BEGIN inputSAVE ROW
+                  inputSAVEROW = document.createElement('section')
+                  inputSAVEROW.classList.add('inputSAVEROW')
+                     saveTitle = document.createElement('input')
+                     saveTitle.value = 'SAVE';
+                     saveTitle.classList.add('detailDate1')
+                     saveTitle.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
+                     });  
+                     inputSAVEROW.appendChild(saveTitle)
+
+                     tradeAMTBOX1 = document.createElement('aside')
+                     tradeAMTBOX1.innerHTML="AMT&nbsp";
+                     tradeAMTBOX1.classList.add('inputDATABOX4')
+                     tradeAMTData1 = document.createElement('input')
+                     tradeAMTData1.classList.add('inputDATA0')
+                     tradeAMTData1.placeholder = "0";
+                     tradeAMTData1.value = tickrData.netPCT || '';          
+                     tradeAMTData1.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
+                     });  
+                     tradeAMTBOX1.appendChild(tradeAMTData1)
+                     inputSAVEROW.appendChild(tradeAMTBOX1)
+                     
+                     
+                     date01 = document.createElement('input')
+                     date01.value = '10_12_2023';
+                     date01.classList.add('detailDate1')
+                     date01.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
+                     });  
+                     inputSAVEROW.appendChild(date01)
+
+                     saveBtn03 = document.createElement('button')
+                     saveBtn03.innerHTML = 'save🌟'
+                     saveBtn03.classList.add('saveBtn0')
+                     saveBtn03.addEventListener("click",(e)=>{
+                        let saveROW = e.target.parentElement;
+                        saveROW.style.display = 'none';
+                        if(saveROW.editType==='trim'){
+                           
+                        } else if(saveROW.editType==='trim'){
+
+                        }
+                        
+                     });
+                     inputSAVEROW.appendChild(saveBtn03)
+
+                  tickerRowBOX.appendChild(inputSAVEROW) 
+                  //END inputSAVE ROW
+                  //BEGIN tickrNOTEZ ROW
+                  tickrNOTEZROW = document.createElement('section')
+                  tickrNOTEZROW.classList.add('tickrNOTEZROW')
+                     notezTitle = document.createElement('input')
+                     notezTitle.value = 'NOTES';//tickrData.ymd || '';
+                     notezTitle.classList.add('detailDate1')
+                     notezTitle.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
+                     });  
+                     tickrNOTEZROW.appendChild(notezTitle)
+                     expandBtn02 = document.createElement('button')
+                     expandBtn02.innerHTML = '🕸️'
+                     expandBtn02.classList.add('addBtn7')
+                     expandBtn02.setAttribute('data-arg6',QRTR.qID)
+                     expandBtn02.setAttribute('data-arg7',tickrData.tkr.toUpperCase())
+                     expandBtn02.addEventListener("click",(e)=>{
+                        debugger;
+                        expandQuickNotezClick(
+                           e.target.getAttribute('data-arg6'),
+                           e.target.getAttribute('data-arg7')) 
+                     });
+                     tickrNOTEZROW.appendChild(expandBtn02)
+                     if(tickrData.notez_expanded){ //expand Notes VIEW 
+                        expandBtn02.innerHTML = '💨'    
+                        //STORY_TXT AREA
+                        tickrNOTEZTXT = document.createElement('textarea')
+                        tickrNOTEZTXT.id = 'notezTXTArea'
+                        tickrNOTEZTXT.classList.add('scrollBarV')
+                        tickrNOTEZTXT.classList.add('textareaBOX2')
+                        tickrNOTEZTXT.spellcheck = false;
+                        tickrNOTEZTXT.value = tickrData.notez || '';
+                        tickrNOTEZTXT.addEventListener("keyup",(e)=>{ 
+                           e.target.parentElement.children[4].classList.remove('hiddenBtn1')
+                        }); 
+                        
+                        tickrNOTEZROW.appendChild(tickrNOTEZTXT)
+                     }
+                  tickerRowBOX.appendChild(tickrNOTEZROW) 
+                  //END tickrNOTEZ ROW
+
+
+                  // let detailRow2,date1,detAmt,detType,detRole,detNote;
+                  // let role1,role2,role3,role4,role5,role6,role7,role8,role9,role10,role11;
+                  // let type1,type2,type3,type4;
+                  // let roleBOX,roleData;
+                  // let typeBOX,typeData,atBOX1;
+                  // let atData1,amtData1;
+                  // let monthData = null;
+                  // for(let k=0;k<QRTR.monthData.length;k++){  //Quick DETAILS LOOP.
+                  //    monthData = QRTR.monthData[k];
+                  //    if(monthData.tick.toUpperCase()!=tickrData.tkr.toUpperCase()){continue;}
+                  //    detailRow2 = document.createElement('section')
+                  //    detailRow2.classList.add('detailRow2')
+                  //    //DETAILS ROW
+                  //    //**********************************************selector
+                  //    QuicksNUMBOX2 = document.createElement('aside')
+                  //    QuicksNUMBOX2.classList.add('capsNUMBOX2')//encodeNUMBOX1
+                  //    QuicksCHECKBOX2 = document.createElement('label')
+                  //    QuicksCHECKBOX2.classList.add('checkboxFrame') 
+                  //    QuicksNUMBOX2.innerHTML=k+1;            
+                  //    QuicksSelect2 = document.createElement('input');
+                  //    QuicksSelect2.ymdtn = QRTR.qID+'_'+tickrData.tkr.toUpperCase()+'_'+k || '';
+                  //    QuicksSelect2.type = "radio";
+                  //    QuicksSelect2.name = "QuickDetailsRadio";
+                  //    QuicksSelect2.classList.add('cap_checkmark')
+                  //    QuicksCHECKBOX2.appendChild(QuicksSelect2)
+                  //    QuicksCheckMark2 = document.createElement('span')
+                  //    QuicksCheckMark2.classList.add('checkmark')
+                  //    QuicksCHECKBOX2.appendChild(QuicksCheckMark2)
+                  //    QuicksNUMBOX2.appendChild(QuicksCHECKBOX2)
+                  //    detailRow2.appendChild(QuicksNUMBOX2)
+                  //    // end ************************************** selector
+                  //    date1 = document.createElement('input')
+                  //    date1.value = ''+monthData.ymd;
+                  //    date1.classList.add('detailDate1')
+                  //    date1.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
+                  //    });  
+                  //    amtBOX1 = document.createElement('aside')
+                  //    amtBOX1.innerHTML="amt&nbsp;"
+                  //    roleBOX = document.createElement('aside')
+                  //    roleBOX.innerHTML="role&nbsp;"
+                  //    typeBOX = document.createElement('aside')
+                  //    typeBOX.innerHTML="type&nbsp;"
+                  //    roleData = document.createElement('select')
+                  //    typeData = document.createElement('input')
+                  //    role1 = document.createElement('option')
+                  //    role2 = document.createElement('option')
+                  //    role3 = document.createElement('option')
+                  //    role4 = document.createElement('option')
+                  //    role5 = document.createElement('option')
+                  //    role6 = document.createElement('option')
+                  //    role7 = document.createElement('option')
+                  //    role8 = document.createElement('option')
+                  //    role9 = document.createElement('option')
+                  //    role10 = document.createElement('option')
+                  //    role11 = document.createElement('option')
+                  //    role1.value = "...";
+                  //    role2.value = "HOLD";
+                  //    role3.value = "WATCH";
+                  //    role4.value = "RISKOFF";
+                  //    role5.value = "LONG";
+                  //    role6.value = "TRIM";
+                  //    role7.value = "SAFE";
+                  //    role8.value = "RISKON";
+                  //    role9.value = "EXIT";
+                  //    role10.value = "LOrLO";
+                  //    role11.value = "HIGHrHIGH";
+                  //    role1.innerHTML = "...";
+                  //    role2.innerHTML = "HOLD";
+                  //    role3.innerHTML = "WATCH";
+                  //    role4.innerHTML = "RISKOFF";
+                  //    role5.innerHTML = "LONG";
+                  //    role6.innerHTML = "TRIM";
+                  //    role7.innerHTML = "SAFE";
+                  //    role8.innerHTML = "RISKON";
+                  //    role9.innerHTML = "EXIT";
+                  //    role10.innerHTML = "LOrLO";
+                  //    role11.innerHTML = "HIrHI";
+                  //    roleData.appendChild(role1);
+                  //    roleData.appendChild(role2);
+                  //    roleData.appendChild(role3);
+                  //    roleData.appendChild(role4);
+                  //    roleData.appendChild(role5);
+                  //    roleData.appendChild(role6);
+                  //    roleData.appendChild(role7);
+                  //    roleData.appendChild(role8);
+                  //    roleData.appendChild(role9);
+                  //    roleData.appendChild(role10);
+                  //    roleData.appendChild(role11);
+                  //    roleData.value = monthData.role || '';
+                  //    roleBOX.appendChild(roleData)
+                  //    roleData.addEventListener("change",(e)=>{ saveQuickBtn1.style.display = 'block'; 
+                  //    });  
+                  //    typeData.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
+                  //    });  
+                  //    typeData.value= monthData.type || '';
+                  //    roleBOX.classList.add('roleBOX1')
+                  //    typeBOX.appendChild(typeData)
+                  //    typeBOX.classList.add('typeBOX1')
+                  //    if(monthData.type==='trim'){
+                  //       typeData.classList.add('typeTRIMColor')
+                  //    } else if (monthData.type==='pad'){
+                  //       typeData.classList.add('typePADColor')
+                  //    }
+                  //    roleData.classList.add('roleData1')
+                  //    typeData.classList.add('typeData1')
+                  //    amtData1 = document.createElement('input')
+                  //    amtData1.placeholder = "$0";
+                  //    amtData1.value = monthData.amt;
+                  //    amtData1.classList.add('spotAtData1')
+                  //    amtData1.addEventListener("keyup",(e)=>{ saveQuickBtn1.style.display = 'block'; 
+                  //    });  
+                  //    amtBOX1.classList.add('amtBOX1')
+                  //    amtBOX1.appendChild(amtData1)            
+                  //    detailRow2.appendChild(date1)
+                  //    detailRow2.appendChild(typeBOX)
+                  //    detailRow2.appendChild(amtBOX1)
+                  //    detailRow2.appendChild(roleBOX)
+                  //    //END DETAILS ROW
+                  //    tickerRowBOX.appendChild(detailRow2) 
+                  // } //END DETAILS LOOP
                }  //END DETAILS VIEW
             } //END MONTHLY LOOP
-         } else {quarter.expanded = false;}//END EXPANDED
-         quarterBOX.appendChild(monthBOX)
+         } else {QRTR.expanded = false;}//END EXPANDED
+         quarterBOX.appendChild(tickerRowBOX)
          generatedQuickBOX.appendChild(quarterBOX)
       } //END QUARTERLY LOOP
    }else{
@@ -3699,130 +4356,133 @@ const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
 generateQuickClick();
 
 
-const setQuickDetailsClick = (e)=>{ 
-   debugger;
-   if(e.target.id==='detailsBtn2'){
-      totalsBtn2.style.display='block'
-      detailsBtn2.style.display='none'
-      show_Quick_details_view = true;
-   }else{
-      totalsBtn2.style.display='none'               
-      detailsBtn2.style.display='block'               
-      show_Quick_details_view = false;
-   }
-   // QuickBOX.scrollIntoView({
-   //    behavior: 'smooth',
-   //    block: 'start'
-   // })
-   generateQuickClick();
-}
+// const setQuickDetailsClick = (e)=>{ 
+//    debugger;
+//    if(e.target.id==='detailsBtn2'){
+//       totalsBtn2.style.display='block'
+//       detailsBtn2.style.display='none'
+//       show_Quick_details_view = true;
+//    }else{
+//       totalsBtn2.style.display='none'               
+//       detailsBtn2.style.display='block'               
+//       show_Quick_details_view = false;
+//    }
+//    // QuickBOX.scrollIntoView({
+//    //    behavior: 'smooth',
+//    //    block: 'start'
+//    // })
+//    generateQuickClick();
+// }
 
-const trimQuickClick = ()=>{ 
-   debugger;
-   //selection trim ai_bank{"tick":{balance}}  //increment trim_count.
-   let selected=null, quarterID,transObj;
-   let items = document.getElementsByClassName('Quick_checkmark');
-   for(let i=0; i<items.length;i++){
-      if(items[i].checked){
-         selected = items[i]
-         selected.checked = false;
-         break;
-      }
-   }
-   if(!selected){ showErrorMSG(' Nothing selected 😵'); return; }            
-   quarterSet = selected.ymdt.toUpperCase().split('_');
-   quarterTick = quarterSet.pop()
-   quarterID = quarterSet.join('_')
-   if(!ai_BANK[quarterID]){ //INIT
-      ai_BANK[quarterID] = {id:quarterID}
-      ai_BANK[quarterID].trxns = {pads:[],trims:[]}
-   } 
-   transObj = {}
-   transObj.tick = ''
-   transObj.type = ''
-   transObj.amt = ''
-   transObj.at = ''
-   transObj.ymd = ''
-   //FIND UI DATA
-   quarterSets = Object.keys(ai_schedule.quarters);
-   for(var x = 0; x<quarterSets.length;x++){ //UI QUARTER DATA LOOKUP.
-      quarter= ai_schedule.quarters[quarterSets[x]];            
-      if(quarter.qID===quarterID){
-         for(var y=0; y<quarter.caps.length;y++){ // LOOK UP CAPS
-            if(quarter.caps[y].tkr.toUpperCase()===quarterTick){
-               transObj.tick = quarterTick;
-               transObj.type = 'trim';
-               transObj.amt =  quarter.caps[y].trim_at || '';
-               transObj.ymd = formatYMD();
-               break;             
-            }
-         }
-         ai_schedule.quarters[quarterID].monthData.push(transObj)
-         break
-      }
-   }
-   if(!transObj || !transObj.tick){return}
-   ai_BANK[quarterID].trxns.trims.push(transObj)
-   show_Quick_details_view = true; //SHOW DETAILS
-   totalsBtn2.style.display='block'
-   detailsBtn2.style.display='none'  
-   generateQuickClick();       
-   //UPDATE LOCALSTORAGE with ai_schedule. SAVE
-   localStorage.ai_schedule = JSON.stringify(ai_schedule)  
-}
-const padQuickClick = ()=>{ 
-   debugger;
-   let selected=null, quarterID,transObj;
-   let items = document.getElementsByClassName('cap_checkmark');
-   for(let i=0; i<items.length;i++){
-      if(items[i].checked){
-         selected = items[i]
-         selected.checked = false;
-         break;
-      }
-   }
-   if(!selected){ showErrorMSG(' Nothing selected 😵'); return; }            
-   show_Quick_details_view = true; //SHOW DETAILS
-   quarterSet = selected.ymdt.toUpperCase().split('_');
-   quarterTick = quarterSet.pop()
-   quarterID = quarterSet.join('_')
-   if(!ai_BANK[quarterID]){ //INIT
-      ai_BANK[quarterID] = {id:quarterID}
-      ai_BANK[quarterID].trxns = {pads:[],trims:[]}
-   } 
-   transObj = {}
-   transObj.tick = ''
-   transObj.type = ''
-   transObj.amt = ''
-   transObj.at = ''
-   transObj.ymd = ''
-   //FIND UI DATA
-   quarterSets = Object.keys(ai_schedule.quarters);
-   for(var x = 0; x<quarterSets.length;x++){ //UI QUARTER DATA LOOKUP.
-      quarter= ai_schedule.quarters[quarterSets[x]];  
-      if(quarter.qID===quarterID){
-         for(var y=0; y<quarter.caps.length;y++){ // LOOK UP CAPS
-            if(quarter.caps[y].tkr.toUpperCase()===quarterTick){
-               transObj.tick = quarterTick;
-               transObj.type = 'pad';
-               transObj.amt =  quarter.caps[y].trim_at || '';
-               transObj.ymd = formatYMD();
-               break;             
-            }
-         }
-         ai_schedule.quarters[quarterID].monthData.push(transObj)
-         break
-      }
-   }
-   if(!transObj && transObj.tick){return}
-   ai_BANK[quarterID].trxns.pads.push(transObj)
-   show_Quick_details_view = true; //SHOW DETAILS
-   totalsBtn2.style.display='block'
-   detailsBtn2.style.display='none'
-   generateQuickClick();
-   //UPDATE LOCALSTORAGE with ai_schedule. SAVE
-   localStorage.ai_schedule = JSON.stringify(ai_schedule)  
-}
+// const trimQuickClick = ()=>{ 
+//    debugger;
+//    //selection trim ai_bank{"tick":{balance}}  //increment trim_count.
+//    let selected=null, quarterID,transObj;
+//    let items = document.getElementsByClassName('Quick_checkmark');
+//    for(let i=0; i<items.length;i++){
+//       if(items[i].checked){
+//          selected = items[i]
+//          selected.checked = false;
+//          break;
+//       }
+//    }
+//    if(!selected){ showErrorMSG(' Nothing selected 😵'); return; }            
+//    qrtrSet = selected.ymdt.toUpperCase().split('_');
+//    quarterTick = qrtrSet.pop()
+//    quarterID = qrtrSet.join('_')
+//    if(!ai_BANK[quarterID]){ //INIT
+//       ai_BANK[quarterID] = {id:quarterID}
+//       ai_BANK[quarterID].trxns = {pads:[],trims:[]}
+//    } 
+//    transObj = {}
+//    transObj.tick = ''
+//    transObj.type = ''
+//    transObj.amt = ''
+//    transObj.at = ''
+//    transObj.ymd = ''
+//    //FIND UI DATA
+
+//    qrtrSetz = Object.keys(ai_schedule.quarters);
+
+
+//    for(var x = 0; x<qrtrSetz.length;x++){ //UI QUARTER DATA LOOKUP.
+//       quarter= ai_schedule.quarters[qrtrSetz[x]];            
+//       if(quarter.qID===quarterID){
+//          for(var y=0; y<quarter.caps.length;y++){ // LOOK UP CAPS
+//             if(quarter.caps[y].tkr.toUpperCase()===quarterTick){
+//                transObj.tick = quarterTick;
+//                transObj.type = 'trim';
+//                transObj.amt =  quarter.caps[y].trim_at || '';
+//                transObj.ymd = formatYMD();
+//                break;             
+//             }
+//          }
+//          ai_schedule.quarters[quarterID].monthData.push(transObj)
+//          break
+//       }
+//    }
+//    if(!transObj || !transObj.tick){return}
+//    ai_BANK[quarterID].trxns.trims.push(transObj)
+//    // show_Quick_details_view = true; //SHOW DETAILS
+//    totalsBtn2.style.display='block'
+//    detailsBtn2.style.display='none'  
+//    generateQuickClick();       
+//    //UPDATE LOCALSTORAGE with ai_schedule. SAVE
+//    localStorage.ai_schedule = JSON.stringify(ai_schedule)  
+// }
+// const padQuickClick = ()=>{ 
+//    debugger;
+//    let selected=null, quarterID,transObj;
+//    let items = document.getElementsByClassName('cap_checkmark');
+//    for(let i=0; i<items.length;i++){
+//       if(items[i].checked){
+//          selected = items[i]
+//          selected.checked = false;
+//          break;
+//       }
+//    }
+//    if(!selected){ showErrorMSG(' Nothing selected 😵'); return; }            
+//    // show_Quick_details_view = true; //SHOW DETAILS
+//    qrtrSet = selected.ymdt.toUpperCase().split('_');
+//    quarterTick = qrtrSet.pop()
+//    quarterID = qrtrSet.join('_')
+//    if(!ai_BANK[quarterID]){ //INIT
+//       ai_BANK[quarterID] = {id:quarterID}
+//       ai_BANK[quarterID].trxns = {pads:[],trims:[]}
+//    } 
+//    transObj = {}
+//    transObj.tick = ''
+//    transObj.type = ''
+//    transObj.amt = ''
+//    transObj.at = ''
+//    transObj.ymd = ''
+//    //FIND UI DATA
+//    qrtrSetz = Object.keys(ai_schedule.quarters);
+//    for(var x = 0; x<qrtrSetz.length;x++){ //UI QUARTER DATA LOOKUP.
+//       quarter= ai_schedule.quarters[qrtrSetz[x]];  
+//       if(quarter.qID===quarterID){
+//          for(var y=0; y<quarter.caps.length;y++){ // LOOK UP CAPS
+//             if(quarter.caps[y].tkr.toUpperCase()===quarterTick){
+//                transObj.tick = quarterTick;
+//                transObj.type = 'pad';
+//                transObj.amt =  quarter.caps[y].trim_at || '';
+//                transObj.ymd = formatYMD();
+//                break;             
+//             }
+//          }
+//          ai_schedule.quarters[quarterID].monthData.push(transObj)
+//          break
+//       }
+//    }
+//    if(!transObj && transObj.tick){return}
+//    ai_BANK[quarterID].trxns.pads.push(transObj)
+//    // show_Quick_details_view = true; //SHOW DETAILS
+//    totalsBtn2.style.display='block'
+//    detailsBtn2.style.display='none'
+//    generateQuickClick();
+//    //UPDATE LOCALSTORAGE with ai_schedule. SAVE
+//    localStorage.ai_schedule = JSON.stringify(ai_schedule)  
+// }
 const addQuickSectionClick = ()=>{ 
    debugger;
    let QuickRow1,date1,tick1,amountData1;
@@ -3919,10 +4579,10 @@ const saveQuickClick = ()=>{ // GENERATE PROFIT AND LOSS DISPLAY
    debugger;
 saveQuickBtn1.style.display = 'none'; 
    let quarterBoxes = generatedQuickBOX.children,row,kids,kid;
-   let tkr,cap,trim_at,pad_at,padlvl,crashlvl;
-   let date3,type3,amt3,role3;
-   let capData,trimDetail, expand1;
-   let qtrTXT,dataBox1,dataBox2,qtrBOX, CAPMonth;
+   // let tkr,cap,trim_at,pad_at,padlvl,crashlvl;
+   // let date3,type3,amt3,role3;
+   // let capData,trimDetail, expand1;
+   // let qtrTXT,dataBox1,dataBox2,qtrBOX, CAPMonth;
    let save_Quick = {quarters:{}};
 try{     
       for(var i=0; i<quarterBoxes.length;i++){ //LOOP QUARTER BOX
@@ -3936,43 +4596,43 @@ try{
                save_Quick.quarters[qtrTXT] = {qID:qtrTXT}
                expand1 = (kid.children[2].innerHTML==='v')? true : false;
                save_Quick.quarters[qtrTXT].expanded = expand1;
-               CAPMonth = save_Quick.quarters[qtrTXT]
-               CAPMonth.caps = [];
-               CAPMonth.monthData = []
+               QuickMonth = save_Quick.quarters[qtrTXT]
+               QuickMonth.caps = [];
+               QuickMonth.monthData = []
             }
-            if(kid.classList.contains('monthBOX')){
-               if(kid.children.length===0){ // NO MONTHBOX data, COLLAPSED.
+            if(kid.classList.contains('tickerRowBOX')){
+               if(kid.children.length===0){ // NO tickerRowBOX data, COLLAPSED.
                   save_schedule.quarters[qtrTXT] = ai_schedule.quarters[qtrTXT]
                   continue; //DO NOT SAVE, use saved data, since it is collapsed.
                } 
                for(var k=0; k<kid.children.length;k++){ //POPULATE DATA from VIEW.
                   row = kid.children[k]
                   if(row.classList.contains('capROW')){ 
-                     capData = {};//, trimData = {};
+                     QuickData = {};//, trimData = {};
                      for(var mm = 0; mm<row.children.length;mm++){
                         dataBox1 = row.children[mm]
                         if(dataBox1.classList.contains('trimTick')){
                            dataBox1.value = dataBox1.value.toUpperCase();                     
-                           capData.tkr = dataBox1.value;
-                           tkr = capData.tkr;
+                           QuickData.tkr = dataBox1.value;
+                           tkr = QuickData.tkr;
                         }
                         else if(dataBox1.classList.contains('inputDATABOX1')){
-                           capData.cap = dataBox1.children[0].value
+                           QuickData.cap = dataBox1.children[0].value
                         }
                         else if(dataBox1.classList.contains('inputDATABOX2')){
-                           capData.trim_at = dataBox1.children[0].value
+                           // QuickData.trim_at = dataBox1.children[0].value
                         }
                         else if(dataBox1.classList.contains('inputDATABOX3')){
-                           capData.pad_at = dataBox1.children[0].value
+                           // QuickData.pad_at = dataBox1.children[0].value
                         }
                         else if(dataBox1.classList.contains('inputDATABOX4')){
-                           capData.padlvl = dataBox1.children[0].value
+                           // QuickData.padlvl = dataBox1.children[0].value
                         }
-                        else if(dataBox1.classList.contains('inputDATABOX5')){
-                           capData.crashlvl = dataBox1.children[0].value
-                        }
+                        // else if(dataBox1.classList.contains('inputDATABOX5')){
+                        //    QuickData.crashlvl = dataBox1.children[0].value
+                        // }
                      }
-                  } //end cap row
+                  } //end Quick row
             
                   else if(row.classList.contains('detailRow2')){  
                      trimData = {}; 
@@ -3995,29 +4655,29 @@ try{
                   } // end details row
       
                   // if(capData.tkr && CAPMonth && CAPMonth.caps){
-                  if(capData.tkr){
-                     CAPMonth.caps.push(capData);
-                     capData = {}
+                  if(QuickData.tkr){
+                     QuickMonth.caps.push(QuickData);
+                     QuickData = {}
                   }
                   // if (trimData.type && CAPMonth && CAPMonth.monthData){
                   // if(!show_Quick_details_view){   //could move out of loop, below.
-                  //    CAPMonth.monthData = ai_schedule.quarters[qtrTXT].monthData
-                  // }                            
+                  if(true){ //todo
+                     CAPMonth.monthData = ai_schedule.quarters[qtrTXT].monthData
+                  }                            
                   else if (trimData.type){
-                     CAPMonth.monthData.push(trimData)
+                     QuickMonth.monthData.push(trimData)
                      trimData = {}
                   }
 
-               } //END CAPS ROW.
-            } //END EXPANDED MONTHBOX
+               } //END QuickS ROW.
+            } //END EXPANDED tickerRowBOX
          } //MONTH LOOP
-         if(!show_Quick_details_view){   //could move out of loop, below.
-                     CAPMonth.monthData = ai_schedule.quarters[qtrTXT].monthData
-                  }  
+         // if(!show_Quick_details_view){   //could move out of loop, below.
+         //             QuickMonth.monthData = ai_schedule.quarters[qtrTXT].monthData
+         //          }  
          } // IF QUARTER 
       } //END QUARTER BOX LOOP
-   } //end TRY
-   catch(e){
+   } catch(e){
       console.log('err in save')
       showErrorMSG('⚔️ ERR ⚔️'); 
       return;
@@ -4040,25 +4700,41 @@ const ExpandCollapseQuickClick = ()=>{
 }
 
 const expandQuickTickerClick = (qID)=>{ //expand or collapse section
-   let qtr = ai_schedule.quarters[qID];
-   qtr.expanded = !qtr.expanded;
+   // let qtr = ai_schedule.quarters[qID];
+   ai_main.qrtrz[qID].expanded = !ai_main.qrtrz[qID].expanded;
       //SAVE to LOCAL STORAGE
    localStorage.ai_schedule = JSON.stringify(ai_schedule) 
    generateQuickClick(); //RELOAD VIEW.  
    showErrorMSG('⚔️ SAVED ⚔️');   
 }
-const expandQuickTicksClick = (qID)=>{ //expand or collapse section
-   debugger;
-   let qtr = ai_schedule.quarters[qID];
-   qtr.expanded = !qtr.expanded;
-      //SAVE to LOCAL STORAGE
+const expandQuickTicksClick = (qID,tkr)=>{ //expand or collapse section
+   // let qtr = ai_schedule.quarters[qID];
+   let qtr = ai_main.qrtrz[qID];
+   for(let i=0; i< qtr.tickrz.length;i++){
+      if(qtr.tickrz[i].tkr===tkr){
+         qtr.tickrz[i].expanded = !qtr.tickrz[i].expanded
+         break;
+      }
+   }
+   //SAVE to LOCAL STORAGE
    localStorage.ai_schedule = JSON.stringify(ai_schedule) 
    generateQuickClick(); //RELOAD VIEW.  
    showErrorMSG('⚔️ SAVED ⚔️');   
 }
-
-
-
+const expandQuickNotezClick = (qID,tkr)=>{ //expand or collapse section
+   // let qtr = ai_schedule.quarters[qID];
+   let qtr = ai_main.qrtrz[qID];
+   for(let i=0; i< qtr.tickrz.length;i++){
+      if(qtr.tickrz[i].tkr===tkr){
+         qtr.tickrz[i].notez_expanded = !qtr.tickrz[i].notez_expanded
+         break;
+      }
+   }
+   //SAVE to LOCAL STORAGE
+   localStorage.ai_main = JSON.stringify(ai_main) 
+   generateQuickClick(); //RELOAD VIEW.  
+   showErrorMSG('⚔️ SAVED ⚔️');   
+}
 
 /***************************************
  * END: QUICKFUNCTIONS

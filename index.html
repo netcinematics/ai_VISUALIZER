@@ -3838,53 +3838,9 @@ const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
 \************************************************/
 let ai_main=null;
 const ai_main_LOAD_MOCK_DATA=()=>{ //READ
-   // ai_main = {"qrtrz":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":true,"tickrz":[
-   //    {"tkr":"NVDA","cap":"1000","expanded":true,
-   //    "trimz":[
-   //       {"ymd":"2023_11_21","amt":"50","role":"HIrHI"},
-   //       {"ymd":"2023_11_22","amt":"101","role":"HIrHI"},
-   //       {"ymd":"2023_11_23","amt":"102","role":"HIrHI"},
-   //       {"ymd":"2023_11_24","amt":"103","role":"HIrHI"},
-   //       {"ymd":"2023_11_24","amt":"103","role":"HIrHI"},
-   //       {"ymd":"2023_11_24","amt":"103","role":"HIrHI"},
-   //       {"ymd":"2023_11_24","amt":"103","role":"HIrHI"},
-   //       {"ymd":"2023_11_24","amt":"103","role":"HIrHI"},
-   //       {"ymd":"2023_11_24","amt":"103","role":"HIrHI"},
-   //       {"ymd":"2023_11_25","amt":"104","role":"HIrHI"}],
-   //    "padz":[
-   //       {"ymd":"2023_11_27","amt":"50","role":"LOrLO"}
-   //       ,{"ymd":"2023_13_24","amt":"101","role":"LOrLO"}
-   //       ,{"ymd":"2023_13_24","amt":"102","role":"LOrLO"}
-   //       ,{"ymd":"2023_13_24","amt":"102","role":"LOrLO"}
-   //       ,{"ymd":"2023_13_24","amt":"102","role":"LOrLO"}
-   //       ,{"ymd":"2023_13_24","amt":"102","role":"LOrLO"}
-   //       ,{"ymd":"2023_13_24","amt":"102","role":"LOrLO"}
-   //       ,{"ymd":"2023_13_24","amt":"102","role":"LOrLO"}
-   //    ],"netAMT":"20","notez":"2","notez_expanded":false,"trimTOT":300,"padTOT":60},{"tkr":"MDB","cap":"1000","trimz":[],"padz":[],"netAMT":"20","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"COST","cap":"1000","trimz":[],"padz":[],"netAMT":"20","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":"20","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"QQQ","cap":"500","trims":[],"padz":[],"netAMT":"20","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"BTC","cap":"1000","trimz":[],"padz":[],"netAMT":"20","notez":"2","trimTOT":300,"padTOT":60}]},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":"1","notez":"1"},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":"2","notez":"3"},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netAMT":"1","notez":"2"}]},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":true,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":"20%","notez":"1","trimTOT":300,"padTOT":60},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":"20%","notez":"3","trimTOT":300,"padTOT":60},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"BTC","cap":"2000","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"TSLA","cap":"100","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60}]},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","expanded":false,"tickrz":[]}}}
-   // ai_main = {"qrtrz":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":true,"tickrz":[
-   //    {"tkr":"NVDA","cap":"1000","expanded":true,
-   //    "trimz":[
-   //       {"ymd":"2023_11_21","amt":"50","role":"HIrHI"},
-   //       {"ymd":"2023_11_22","amt":"101","role":"HIrHI"},
-   //       {"ymd":"2023_11_23","amt":"102","role":"HIrHI"},
-   //       {"ymd":"2023_11_24","amt":"103","role":"HIrHI"},
-   //       {"ymd":"2023_11_24","amt":"103","role":"HIrHI"},
-   //       {"ymd":"2023_11_24","amt":"103","role":"HIrHI"},
-   //       {"ymd":"2023_11_24","amt":"103","role":"HIrHI"},
-   //       {"ymd":"2023_11_24","amt":"103","role":"HIrHI"},
-   //       {"ymd":"2023_11_24","amt":"103","role":"HIrHI"},
-   //       {"ymd":"2023_11_25","amt":"104","role":"HIrHI"}],
-   //    "padz":[
-   //       {"ymd":"2023_11_27","amt":"50","role":"LOrLO"}
-   //       ,{"ymd":"2023_13_24","amt":"101","role":"LOrLO"}
-   //       ,{"ymd":"2023_13_24","amt":"102","role":"LOrLO"}
-   //       ,{"ymd":"2023_13_24","amt":"102","role":"LOrLO"}
-   //       ,{"ymd":"2023_13_24","amt":"102","role":"LOrLO"}
-   //       ,{"ymd":"2023_13_24","amt":"102","role":"LOrLO"}
-   //       ,{"ymd":"2023_13_24","amt":"102","role":"LOrLO"}
-   //       ,{"ymd":"2023_13_24","amt":"102","role":"LOrLO"}
-   //    ],"netAMT":"20","notez":"2","notez_expanded":false,"trimTOT":300,"padTOT":60},{"tkr":"MDB","cap":"1000","trimz":[],"padz":[],"netAMT":"20","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"COST","cap":"1000","trimz":[],"padz":[],"netAMT":"20","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":"20","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":"20","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"BTC","cap":"1000","trimz":[],"padz":[],"netAMT":"20","notez":"2","trimTOT":300,"padTOT":60}]},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":"1","notez":"1"},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":"2","notez":"3"},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netAMT":"1","notez":"2"}]},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":true,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":"20%","notez":"1","trimTOT":300,"padTOT":60},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":"20%","notez":"3","trimTOT":300,"padTOT":60},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"BTC","cap":"2000","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"TSLA","cap":"100","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60}]},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","expanded":false,"tickrz":[]}}}
-   ai_main = {"qrtrz":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":true,"tickrz":[{"tkr":"NVDA","cap":"1000","expanded":false,"trimz":[{"ymd":"2023_11_21","amt":"50","role":"HIrHI"},{"ymd":"2023_11_22","amt":"101","role":"HIrHI"},{"ymd":"2023_11_23","amt":"102","role":"HIrHI"},{"ymd":"2023_11_24","amt":"103","role":"HIrHI"},{"ymd":"2023_11_24","amt":"103","role":"HIrHI"},{"ymd":"2023_11_24","amt":"103","role":"HIrHI"},{"ymd":"2023_11_24","amt":"103","role":"HIrHI"},{"ymd":"2023_11_24","amt":"103","role":"HIrHI"},{"ymd":"2023_11_24","amt":"103","role":"HIrHI"},{"ymd":"2023_11_25","amt":"104","role":"HIrHI"}],"padz":[{"ymd":"2023_11_27","amt":"50","role":"LOrLO"},{"ymd":"2023_13_24","amt":"101","role":"LOrLO"},{"ymd":"2023_13_24","amt":"102","role":"LOrLO"},{"ymd":"2023_13_24","amt":"102","role":"LOrLO"},{"ymd":"2023_13_24","amt":"102","role":"LOrLO"},{"ymd":"2023_13_24","amt":"102","role":"LOrLO"},{"ymd":"2023_13_24","amt":"102","role":"LOrLO"},{"ymd":"2023_13_24","amt":"102","role":"LOrLO"}],"netAMT":"+212","notez":"2","notez_expanded":false,"trimTOT":975,"padTOT":763},{"tkr":"MDB","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"BTC","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0,"expanded":true}]},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":0,"notez":"3","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0}]},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":0,"notez":"3","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"TSLA","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0}]},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","expanded":false,"tickrz":[]}}}
+   // ai_main = {"qrtrz":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"1000","expanded":true,"trimz":[],"padz":[{"ymd":"2023_10_10","amt":"300","rate":"460"},{"ymd":"2023_10_20","amt":"200","rate":"413"}],"netAMT":-500,"notez":"2","notez_expanded":false,"trimTOT":0,"padTOT":500},{"tkr":"MDB","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"BTC","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0,"expanded":true}]},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[{"ymd":"2023_11_17","amt":"200","rate":"495"},{"ymd":"2023_11_22","amt":"100","rate":"486"}],"netAMT":-300,"notez":"2","trimTOT":0,"padTOT":300,"expanded":true},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":0,"notez":"3","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0}]},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2023_12_15","amt":"30","rate":"492"},{"ymd":"2023_12_18","amt":"50","rate":"503"},{"ymd":"2023_12_18","amt":"50","rate":"497"},{"ymd":"2023_12_26","amt":"60","rate":"493"},{"ymd":"2023_12_28","amt":"100","rate":"497"},{"ymd":"2023_12_29","amt":"100","rate":"498"}],"padz":[{"ymd":"2023_12_18","amt":"0","rate":"497"},{"ymd":"2023_12_18","amt":"0","rate":"503"}],"netAMT":"+390","notez":"2","trimTOT":390,"padTOT":0,"expanded":true},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":0,"notez":"3","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"TSLA","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0}]},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2024_01_08","amt":"300","rate":"514"},{"ymd":"2024_01_08","amt":"80","rate":"518"},{"ymd":"2024_01_08","amt":"30","rate":"519"},{"ymd":"2024_01_08","amt":"20","rate":"520"},{"ymd":"2024_01_08","amt":"20","rate":"521"},{"ymd":"2024_01_08","amt":"20","rate":"523"},{"ymd":"2024_01_08","amt":"30","rate":"526"},{"ymd":"2024_01_09","amt":"100","rate":"534"},{"ymd":"2024_01_09","amt":"80","rate":"538"},{"ymd":"2024_01_09","amt":"50","rate":"542"},{"ymd":"2024_01_10","amt":"30","rate":"545"},{"ymd":"2024_01_11","amt":"60","rate":"549"},{"ymd":"2024_01_11","amt":"30","rate":"551"}],"padz":[],"netAMT":"+850","notez":"2","trimTOT":850,"padTOT":0,"expanded":true},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":0,"notez":"3","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"TSLA","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0}],"expanded":true}}}
+   ai_main = {"qrtrz":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"1000","expanded":true,"trimz":[],"padz":[{"ymd":"2023_10_10","amt":"300","rate":"460"},{"ymd":"2023_10_20","amt":"200","rate":"413"}],"netAMT":-500,"notez":"2","notez_expanded":false,"trimTOT":0,"padTOT":500},{"tkr":"MDB","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"BTC","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0,"expanded":true}]},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[{"ymd":"2023_11_17","amt":"200","rate":"495"},{"ymd":"2023_11_22","amt":"100","rate":"486"}],"netAMT":-300,"notez":"2","trimTOT":0,"padTOT":300,"expanded":true},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":0,"notez":"3","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0}]},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2023_12_15","amt":"30","rate":"492"},{"ymd":"2023_12_18","amt":"50","rate":"503"},{"ymd":"2023_12_18","amt":"50","rate":"497"},{"ymd":"2023_12_26","amt":"60","rate":"493"},{"ymd":"2023_12_28","amt":"100","rate":"497"},{"ymd":"2023_12_29","amt":"100","rate":"498"}],"padz":[{"ymd":"2023_12_18","amt":"0","rate":"497"},{"ymd":"2023_12_18","amt":"0","rate":"503"}],"netAMT":"+390","notez":"2","trimTOT":390,"padTOT":0,"expanded":true},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":0,"notez":"3","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"TSLA","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0}]},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2024_01_08","amt":"300","rate":"514"},{"ymd":"2024_01_08","amt":"80","rate":"518"},{"ymd":"2024_01_08","amt":"30","rate":"519"},{"ymd":"2024_01_08","amt":"20","rate":"520"},{"ymd":"2024_01_08","amt":"20","rate":"521"},{"ymd":"2024_01_08","amt":"20","rate":"523"},{"ymd":"2024_01_08","amt":"30","rate":"526"},{"ymd":"2024_01_09","amt":"100","rate":"534"},{"ymd":"2024_01_09","amt":"80","rate":"538"},{"ymd":"2024_01_09","amt":"50","rate":"542"},{"ymd":"2024_01_10","amt":"30","rate":"545"},{"ymd":"2024_01_11","amt":"60","rate":"549"},{"ymd":"2024_01_11","amt":"30","rate":"551"}],"padz":[],"netAMT":"+850","notez":"JAN 8th 2024 - 1st $500 day!\nExcellent Margins, form prior OCT 27, 2024 lows.","trimTOT":850,"padTOT":0,"expanded":true,"notez_expanded":true},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":0,"notez":"3","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"TSLA","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0}],"expanded":true}}}
+
 }
 
 const ai_main_init=()=>{ //READ from LOCAL STORAGE
@@ -3896,24 +3852,6 @@ const ai_main_init=()=>{ //READ from LOCAL STORAGE
    }
 }; ai_main_init();
 
-//    // "monthData":[
-//    //    {"ymd":"2023_11_27","tick":"NVDA","type":"pad","amt":"100","role":"LOrLO"},{"ymd":"2023_11_27","tick":"MDB","type":"trim","amt":"100","role":"LOrLO"},{"ymd":"2023_11_27","tick":"MDB","type":"pad","amt":"100","role":"EXIT"},{"ymd":"2023_11_27","tick":"COST","type":"pad","amt":"100","role":"LONG"},{"ymd":"2023_11_27","tick":"MSFT","type":"trim","amt":"100","role":"LONG"},{"ymd":"2023_11_27","tick":"QQQ","type":"trim","amt":"50","role":"WATCH"}
-//    // ]
-// },
-// "Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":"1","notez":"1"},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":"2","notez":"3"},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netAMT":"1","notez":"2"}]
-// // ,"monthData":[
-// //    {"ymd":"2023_11_30","tick":"COIN","type":"trim","amt":"100","role":"LOrLO"},{"ymd":"2023_11_30","tick":"META","type":"pad","amt":"100","role":"SAFE"},{"ymd":"2023_11_30","tick":"ETH","type":"trim","amt":"100","role":"LOrLO"},{"ymd":"2023_11_30","tick":"ETH","type":"pad","amt":"100","role":"HIGHrHIGH"}
-// // ]
-// },
-// "Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":true,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":"1","notez":"1"},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":"2","notez":"3"},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"BTC","cap":"2000","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"TSLA","cap":"100","trimz":[],"padz":[],"netAMT":"2","notez":"2"}]
-// // ,"monthData":[
-// //    {"ymd":"2023_12_01","tick":"BTC","type":"trim","amt":"25","role":"RISKOFF"},{"tick":"AAA","type":"pad","amt":"100","at":"","ymd":"2023_12_02"}
-// // ]
-// },
-// "Q1_2024_JAN":{"qID":"Q1_2024_JAN","expanded":false,"tickrz":[]
-// // ,"monthData":[]
-// }
-// }}
 
 const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
    generatedQuickBOX.innerHTML = "" //clear view
@@ -4165,7 +4103,7 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                      editTitle.classList.add('detailDate1')
                      btnzROW.appendChild(editTitle)
                      quickTrimBtn0 = document.createElement('button')
-                     quickTrimBtn0.innerHTML = 'trim🐇'
+                     quickTrimBtn0.innerHTML = 'sell🐇'
                      quickTrimBtn0.classList.add('editBtn01')
                      quickTrimBtn0.addEventListener("click",(e)=>{
                         //show save row and set edit type
@@ -4178,7 +4116,7 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                      });
                      btnzROW.appendChild(quickTrimBtn0)
                      quickPadBtn0 = document.createElement('button')
-                     quickPadBtn0.innerHTML = 'pad🐒'
+                     quickPadBtn0.innerHTML = 'buy🐒'
                      quickPadBtn0.classList.add('editBtn02')
                      quickPadBtn0.addEventListener("click",(e)=>{
                         let saveROW = e.target.parentElement.nextSibling;
@@ -4326,7 +4264,7 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         let tkr0 = e.target.getAttribute('data-arg7'); 
                         let ymd = e.target.parentElement.previousSibling.value;
                         let val = e.target.parentElement.previousSibling.previousSibling.children[0].value;
-                        let rate = e.target.parentElement.previousSibling.previousSibling.children[1].value;
+                        let rate = e.target.parentElement.previousSibling.previousSibling.children[2].value
                         let qtr = ai_main.qrtrz[qID0];
                         for(let x=0; i< qtr.tickrz.length;x++){
                            if(qtr.tickrz[x].tkr===tkr0){
@@ -4399,7 +4337,7 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         dateTrim.setAttribute('saveRate',trimRATE)
                         dateTrim.setAttribute('saveData',`${QRTR.qID}|${tickrData.tkr}|${k}|trim`)
                         dateTrim.addEventListener("focus", function (e) {
-                           if('-'===e.target.getAttribute('saveRate')){return}
+                           // if('-'===e.target.getAttribute('saveRate')){return}
                            fifoTooltip.value = '@_'+e.target.getAttribute('saveRate');
                            setTimeout(()=>{fifoTooltip.style.display = "block"},100);
                            let inputRect = event.target.getBoundingClientRect();
@@ -4471,7 +4409,6 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         datePad.setAttribute('saveData',`${QRTR.qID}|${tickrData.tkr}|${k}|pad`)
                         datePad.addEventListener("focus", function (e) {
                            fifoTooltip.value = '@_'+e.target.getAttribute('saveRate');
-                           // fifoTooltip.style.display = "block";
                            setTimeout(()=>{fifoTooltip.style.display = "block"},100);
                            let inputRect = event.target.getBoundingClientRect();
                            let fifoTooltipTop = inputRect.bottom + window.scrollY + 10; 
@@ -4499,7 +4436,7 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                   tickrNOTEZROW = document.createElement('section')
                   tickrNOTEZROW.classList.add('tickrNOTEZROW')
                      notezTitle = document.createElement('input')
-                     notezTitle.value = 'NOTES';
+                     notezTitle.value = 'TOTALS';
                      notezTitle.readOnly = true;
                      notezTitle.classList.add('detailDate1')
                      // notezTitle.addEventListener("keyup",(e)=>{ 
@@ -4518,8 +4455,28 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                      });
                      tickrNOTEZROW.appendChild(expandBtn02)
                      if(tickrData.notez_expanded){ //expand Notes VIEW 
-                        expandBtn02.innerHTML = '💨'    
-                        //STORY_TXT AREA
+                        expandBtn02.innerHTML = '💨' 
+
+                        //START: TOTALS VIEWS
+                        totalzROW = document.createElement('article')
+                        totalzROW.id = 'totalzROW'
+                        totalzROW.classList.add('totalzROW')
+                        totalzROW.value = tickrData.notez || '';
+                        totalzBOX1 = document.createElement('section')
+                        totalzLBL1 = document.createElement('span')
+                        totalzLBL1.innerHTML = 'BANK:'
+                        totalzBANK1 = document.createElement('input')
+                        totalzBANK1.value = '$4087';
+                        totalzBANK1.addEventListener("keyup",(e)=>{ 
+                           e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
+                        }); 
+                        totalzBOX1.appendChild(totalzLBL1)
+                        totalzBOX1.appendChild(totalzBANK1)
+                        totalzROW.appendChild(totalzBOX1)
+                        tickrNOTEZROW.appendChild(totalzROW) 
+                        //END: TOTALZ VIEWS
+
+                        //START: STORY_TXT AREA
                         tickrNOTEZTXT = document.createElement('textarea')
                         tickrNOTEZTXT.id = 'notezTXTArea'
                         tickrNOTEZTXT.classList.add('scrollBarV')
@@ -4529,9 +4486,10 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         tickrNOTEZTXT.addEventListener("keyup",(e)=>{ 
                            e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
                         }); 
-                        
                         tickrNOTEZROW.appendChild(tickrNOTEZTXT)
+                        //END: STORY_TXXT AREA
                      }
+                     
                   tickerRowBOX.appendChild(tickrNOTEZROW) 
                   //END tickrNOTEZ ROW *******************************
                }  //END DETAILS VIEW
@@ -5853,6 +5811,9 @@ const update_History_matrix = ( tickr ) => {//data updated: to not lose, push du
 /*************************************\
  * UTILITIES
 \*************************************/
+scrollFrame.addEventListener('scroll',(e)=>{
+   fifoTooltip.style.display = "none";
+})
 fifoTooltip.addEventListener('click',(e)=>{
    fifoTooltip.style.display = "block";
 })

@@ -654,13 +654,37 @@ border-radius: 8px;
     color: #1e8385;
     padding-left: 0.444em;
     display: flex;
-    max-height: 24px;
+    max-height: 35px;
     align-items: center;
     text-align: right;
     align-self: center;
     padding-right: 1em;
     font-family: arial;   
     margin-right: 1.444em; 
+    width: 0;
+    min-width: 14%;
+    justify-content: space-around;
+    align-items: center;
+}
+.inputDATABOX_AMT{
+border-radius: 8px;
+    font-size: 0.777em;
+    background: #1a0033;
+    color: #1e8385;
+    padding-left: 0.444em;
+    display: flex;
+    max-height: 35px;
+    align-items: center;
+    text-align: right;
+    align-self: center;
+    padding-right: 1em;
+    font-family: arial;   
+    margin-right: 1.444em; 
+    width: 0;
+    min-width: 14%;
+    justify-content: space-around;
+    align-items: center;
+    margin-left:1em;
 }
 .inputDATA0{    border-radius: 8px;
     font-size: 0.777em;
@@ -830,6 +854,18 @@ border-radius: 8px;
    display:flex;
    flex-wrap: wrap;
 }
+#fifoTooltip {
+   position: absolute;
+   background-color: #13162a;
+   padding: 5px;
+   border: 1px solid steelblue;
+   border-radius: 4px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   display: none; 
+   font-size: small;
+   color: cyan;
+   font-family: monospace;
+}
 .btnzROW {
    display: flex;
     justify-content: space-between;
@@ -942,6 +978,14 @@ border-radius: 8px;
     border: none;
     max-width: 6em;
     margin-top: 6px;
+}
+.detailDate3 {
+    background: none;
+    color: #4b53b9;
+    font-size: 0.555em;
+    border: none;
+    max-width: 6em;
+    margin-left: 2em;
 }
 .capROW{
    display: flex;
@@ -1369,7 +1413,7 @@ border-radius:13px;
 flex-direction: column; max-width: 777px;
 align-items: center;">
 
-
+      <input id="fifoTooltip"></input>
       <section id="QuickBOX"
         style="width:80.888%; flex:1;    background: #001512;
         border-radius: 13px;
@@ -2056,6 +2100,8 @@ align-items: center;">
    let expandCollapseBtn5 = document.getElementById('expandCollapseBtn5');
    let expandCollapseBtn6 = document.getElementById('expandCollapseBtn6');
    let expandCollapseBtn7 = document.getElementById('expandCollapseBtn7');
+
+   let fifoTooltip = document.getElementById("fifoTooltip");  
 
    //FINANCIAL - ANALYTICS - CALCULATIONS
    let target_SYMBOL = 'NVDA';
@@ -3815,29 +3861,30 @@ const ai_main_LOAD_MOCK_DATA=()=>{ //READ
    //       ,{"ymd":"2023_13_24","amt":"102","role":"LOrLO"}
    //       ,{"ymd":"2023_13_24","amt":"102","role":"LOrLO"}
    //    ],"netAMT":"20","notez":"2","notez_expanded":false,"trimTOT":300,"padTOT":60},{"tkr":"MDB","cap":"1000","trimz":[],"padz":[],"netAMT":"20","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"COST","cap":"1000","trimz":[],"padz":[],"netAMT":"20","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":"20","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"QQQ","cap":"500","trims":[],"padz":[],"netAMT":"20","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"BTC","cap":"1000","trimz":[],"padz":[],"netAMT":"20","notez":"2","trimTOT":300,"padTOT":60}]},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":"1","notez":"1"},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":"2","notez":"3"},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netAMT":"1","notez":"2"}]},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":true,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":"20%","notez":"1","trimTOT":300,"padTOT":60},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":"20%","notez":"3","trimTOT":300,"padTOT":60},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"BTC","cap":"2000","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"TSLA","cap":"100","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60}]},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","expanded":false,"tickrz":[]}}}
-   ai_main = {"qrtrz":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":true,"tickrz":[
-      {"tkr":"NVDA","cap":"1000","expanded":true,
-      "trimz":[
-         {"ymd":"2023_11_21","amt":"50","role":"HIrHI"},
-         {"ymd":"2023_11_22","amt":"101","role":"HIrHI"},
-         {"ymd":"2023_11_23","amt":"102","role":"HIrHI"},
-         {"ymd":"2023_11_24","amt":"103","role":"HIrHI"},
-         {"ymd":"2023_11_24","amt":"103","role":"HIrHI"},
-         {"ymd":"2023_11_24","amt":"103","role":"HIrHI"},
-         {"ymd":"2023_11_24","amt":"103","role":"HIrHI"},
-         {"ymd":"2023_11_24","amt":"103","role":"HIrHI"},
-         {"ymd":"2023_11_24","amt":"103","role":"HIrHI"},
-         {"ymd":"2023_11_25","amt":"104","role":"HIrHI"}],
-      "padz":[
-         {"ymd":"2023_11_27","amt":"50","role":"LOrLO"}
-         ,{"ymd":"2023_13_24","amt":"101","role":"LOrLO"}
-         ,{"ymd":"2023_13_24","amt":"102","role":"LOrLO"}
-         ,{"ymd":"2023_13_24","amt":"102","role":"LOrLO"}
-         ,{"ymd":"2023_13_24","amt":"102","role":"LOrLO"}
-         ,{"ymd":"2023_13_24","amt":"102","role":"LOrLO"}
-         ,{"ymd":"2023_13_24","amt":"102","role":"LOrLO"}
-         ,{"ymd":"2023_13_24","amt":"102","role":"LOrLO"}
-      ],"netAMT":"20","notez":"2","notez_expanded":false,"trimTOT":300,"padTOT":60},{"tkr":"MDB","cap":"1000","trimz":[],"padz":[],"netAMT":"20","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"COST","cap":"1000","trimz":[],"padz":[],"netAMT":"20","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":"20","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"QQQ","cap":"500","trims":[],"padz":[],"netAMT":"20","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"BTC","cap":"1000","trimz":[],"padz":[],"netAMT":"20","notez":"2","trimTOT":300,"padTOT":60}]},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":"1","notez":"1"},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":"2","notez":"3"},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netAMT":"1","notez":"2"}]},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":true,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":"20%","notez":"1","trimTOT":300,"padTOT":60},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":"20%","notez":"3","trimTOT":300,"padTOT":60},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"BTC","cap":"2000","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"TSLA","cap":"100","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60}]},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","expanded":false,"tickrz":[]}}}
+   // ai_main = {"qrtrz":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":true,"tickrz":[
+   //    {"tkr":"NVDA","cap":"1000","expanded":true,
+   //    "trimz":[
+   //       {"ymd":"2023_11_21","amt":"50","role":"HIrHI"},
+   //       {"ymd":"2023_11_22","amt":"101","role":"HIrHI"},
+   //       {"ymd":"2023_11_23","amt":"102","role":"HIrHI"},
+   //       {"ymd":"2023_11_24","amt":"103","role":"HIrHI"},
+   //       {"ymd":"2023_11_24","amt":"103","role":"HIrHI"},
+   //       {"ymd":"2023_11_24","amt":"103","role":"HIrHI"},
+   //       {"ymd":"2023_11_24","amt":"103","role":"HIrHI"},
+   //       {"ymd":"2023_11_24","amt":"103","role":"HIrHI"},
+   //       {"ymd":"2023_11_24","amt":"103","role":"HIrHI"},
+   //       {"ymd":"2023_11_25","amt":"104","role":"HIrHI"}],
+   //    "padz":[
+   //       {"ymd":"2023_11_27","amt":"50","role":"LOrLO"}
+   //       ,{"ymd":"2023_13_24","amt":"101","role":"LOrLO"}
+   //       ,{"ymd":"2023_13_24","amt":"102","role":"LOrLO"}
+   //       ,{"ymd":"2023_13_24","amt":"102","role":"LOrLO"}
+   //       ,{"ymd":"2023_13_24","amt":"102","role":"LOrLO"}
+   //       ,{"ymd":"2023_13_24","amt":"102","role":"LOrLO"}
+   //       ,{"ymd":"2023_13_24","amt":"102","role":"LOrLO"}
+   //       ,{"ymd":"2023_13_24","amt":"102","role":"LOrLO"}
+   //    ],"netAMT":"20","notez":"2","notez_expanded":false,"trimTOT":300,"padTOT":60},{"tkr":"MDB","cap":"1000","trimz":[],"padz":[],"netAMT":"20","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"COST","cap":"1000","trimz":[],"padz":[],"netAMT":"20","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":"20","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":"20","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"BTC","cap":"1000","trimz":[],"padz":[],"netAMT":"20","notez":"2","trimTOT":300,"padTOT":60}]},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":"1","notez":"1"},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":"2","notez":"3"},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":"1","notez":"2"},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netAMT":"1","notez":"2"}]},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":true,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":"20%","notez":"1","trimTOT":300,"padTOT":60},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":"20%","notez":"3","trimTOT":300,"padTOT":60},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"BTC","cap":"2000","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60},{"tkr":"TSLA","cap":"100","trimz":[],"padz":[],"netAMT":"20%","notez":"2","trimTOT":300,"padTOT":60}]},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","expanded":false,"tickrz":[]}}}
+   ai_main = {"qrtrz":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":true,"tickrz":[{"tkr":"NVDA","cap":"1000","expanded":false,"trimz":[{"ymd":"2023_11_21","amt":"50","role":"HIrHI"},{"ymd":"2023_11_22","amt":"101","role":"HIrHI"},{"ymd":"2023_11_23","amt":"102","role":"HIrHI"},{"ymd":"2023_11_24","amt":"103","role":"HIrHI"},{"ymd":"2023_11_24","amt":"103","role":"HIrHI"},{"ymd":"2023_11_24","amt":"103","role":"HIrHI"},{"ymd":"2023_11_24","amt":"103","role":"HIrHI"},{"ymd":"2023_11_24","amt":"103","role":"HIrHI"},{"ymd":"2023_11_24","amt":"103","role":"HIrHI"},{"ymd":"2023_11_25","amt":"104","role":"HIrHI"}],"padz":[{"ymd":"2023_11_27","amt":"50","role":"LOrLO"},{"ymd":"2023_13_24","amt":"101","role":"LOrLO"},{"ymd":"2023_13_24","amt":"102","role":"LOrLO"},{"ymd":"2023_13_24","amt":"102","role":"LOrLO"},{"ymd":"2023_13_24","amt":"102","role":"LOrLO"},{"ymd":"2023_13_24","amt":"102","role":"LOrLO"},{"ymd":"2023_13_24","amt":"102","role":"LOrLO"},{"ymd":"2023_13_24","amt":"102","role":"LOrLO"}],"netAMT":"+212","notez":"2","notez_expanded":false,"trimTOT":975,"padTOT":763},{"tkr":"MDB","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"BTC","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0,"expanded":true}]},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":0,"notez":"3","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0}]},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":0,"notez":"3","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"TSLA","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0}]},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","expanded":false,"tickrz":[]}}}
 }
 
 const ai_main_init=()=>{ //READ from LOCAL STORAGE
@@ -3938,6 +3985,7 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                tickrData.trimTOT = 0
                tickrData.padTOT  = 0
                tickrData.netAMT = 0     
+               // if(tickrData.tkr==='BTC'){debugger;}
                if(!tickrData.trimz){tickrData.trimz=[]}          
                if(!tickrData.padz){tickrData.padz=[]}          
                for(var a=0; a<tickrData.trimz.length;a++){
@@ -4125,7 +4173,8 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         saveROW.editType = 'trim' 
                         saveROW.style.display = 'flex';
                         e.target.style.border = '3px solid lime'     
-                        e.target.nextSibling.style.border = 'none'     
+                        e.target.nextSibling.style.border = 'none'  
+                        e.target.parentElement.nextSibling.children[0].value = saveROW.editType.toUpperCase()  
                      });
                      btnzROW.appendChild(quickTrimBtn0)
                      quickPadBtn0 = document.createElement('button')
@@ -4137,6 +4186,7 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         saveROW.style.display = 'flex';
                         e.target.style.border = '3px solid crimson' 
                         e.target.previousSibling.style.border = 'none'
+                        e.target.parentElement.nextSibling.children[0].value = saveROW.editType.toUpperCase()
                      });
                      btnzROW.appendChild(quickPadBtn0)
                      saveBOX1 = document.createElement('aside')
@@ -4157,8 +4207,33 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         let titleROW = e.target.parentElement.parentElement.previousSibling
                         let tkr2 = titleROW.children[1].value;
                         let cap2 = titleROW.children[2].children[0].value;
+                        let fifo_grid_itemz = e.target.parentElement.parentElement.nextSibling.nextSibling.children[1].children[0].children;
+                        //START fifo GRID SAVE
+                        let fifo_TGT = {}
+                        for(let d=0; d < ai_main.qrtrz[qID1].tickrz.length;d++){ //GET RECORD
+                              if(ai_main.qrtrz[qID1].tickrz[d].tkr===tkr1){
+                                 fifo_TGT = ai_main.qrtrz[qID1].tickrz[d];
+                                 break;
+                              }
+                           }
+                        let fifo_pair = {}, fifo_update = {trimz:[],padz:[]}
+                        for(let c=0; c < fifo_grid_itemz.length;c++){
+                           fifo_pair = fifo_grid_itemz[c];
+                           if(fifo_pair.children[0].value !='-'){
+                              fifo_TGT.trimz[c].ymd = fifo_pair.children[0].value 
+                           }
+                           if(fifo_pair.children[1].value !='-'){
+                              fifo_TGT.trimz[c].amt = fifo_pair.children[1].value
+                           }
+                           if(fifo_pair.children[2].value !='-'){
+                              fifo_TGT.padz[c].amt = fifo_pair.children[2].value
+                           }
+                           if(fifo_pair.children[3].value !='-'){
+                              fifo_TGT.padz[c].ymd = fifo_pair.children[3].value
+                           }
+                        }     
+                        //END fifo GRID SAVE
                         let notez2 = e.target.parentElement.parentElement.nextSibling.nextSibling.nextSibling.children[2]
-                        // let qtr = ai_main.qrtrz[qID1];
                         for(let x=0; i< qtr.tickrz.length;x++){
                            if(qtr.tickrz[x].tkr===tkr1){
                               qtr.tickrz[x].tkr = tkr2.toUpperCase();
@@ -4194,20 +4269,34 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
 
                      tradeAMTBOX1 = document.createElement('aside')
                      tradeAMTBOX1.innerHTML="AMT&nbsp";
-                     tradeAMTBOX1.classList.add('inputDATABOX0')
+                     tradeAMTBOX1.classList.add('inputDATABOX_AMT')
                      tradeAMTData1 = document.createElement('input')
                      tradeAMTData1.classList.add('inputDATA0')
                      tradeAMTData1.placeholder = "0";
                      // tradeAMTData1.value = tickrData.AMT || '';          
                      tradeAMTData1.addEventListener("keyup",(e)=>{ 
-                        saveBtn03.style.display = 'flex'; 
+                        e.target.parentElement.nextSibling.nextSibling.children[0].style.display = 'flex'
                      });  
+                     // tradeAMTBOX1.appendChild(tradeAMTData1)
+                     // tradeAMTBOX1 = document.createElement('aside')
+                     tradeText1 = document.createElement('aside')
+                     tradeText1.innerHTML="&nbsp;@&nbsp;";
+                     // tradeAMTBOX1.classList.add('inputDATABOX0')
+                     tradeRateData1 = document.createElement('input')
+                     tradeRateData1.classList.add('inputDATA0')
+                     tradeRateData1.placeholder = "0";
+                     // tradeAMTData1.value = tickrData.AMT || '';          
+                     tradeRateData1.addEventListener("keyup",(e)=>{ 
+                        e.target.parentElement.nextSibling.nextSibling.children[0].style.display = 'flex'
+                     });  
+                     tradeAMTBOX1.appendChild(tradeRateData1)
+                     tradeAMTBOX1.appendChild(tradeText1);
                      tradeAMTBOX1.appendChild(tradeAMTData1)
                      inputSAVEROW.appendChild(tradeAMTBOX1)
                      
                      date01 = document.createElement('input')
                      date01.value = current_ymd.split('YMD_')[1] 
-                     date01.classList.add('detailDate1')
+                     date01.classList.add('detailDate3')
                      date01.addEventListener("keyup",(e)=>{ 
                         saveBtn03.style.display = 'flex'; 
                      });  
@@ -4235,18 +4324,19 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         //SAVE LOGIC
                         let qID0 = e.target.getAttribute('data-arg6');
                         let tkr0 = e.target.getAttribute('data-arg7'); 
-                        let val = e.target.parentElement.previousSibling.previousSibling.children[0].value;
                         let ymd = e.target.parentElement.previousSibling.value;
+                        let val = e.target.parentElement.previousSibling.previousSibling.children[0].value;
+                        let rate = e.target.parentElement.previousSibling.previousSibling.children[1].value;
                         let qtr = ai_main.qrtrz[qID0];
                         for(let x=0; i< qtr.tickrz.length;x++){
                            if(qtr.tickrz[x].tkr===tkr0){
                               if(saveROW.editType==='trim'){
                                  qtr.tickrz[x].trimz.push(
-                                    {"ymd":ymd,"amt":val,"role":""}
+                                    {"ymd":ymd,"amt":val,"rate":rate}
                                  )
                               } else if(saveROW.editType==='pad'){
                                  qtr.tickrz[x].padz.push(
-                                    {"ymd":ymd,"amt":val,"role":""}
+                                    {"ymd":ymd,"amt":val,"rate":rate}
                                  )
                               }                              
                               break;
@@ -4267,10 +4357,12 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                   fifoGRIDROW.classList.add('fifoGRIDROW')
                      gridTitle = document.createElement('input')
                      gridTitle.value = 'fifo trim/pad grid';
+                     gridTitle.readOnly = true;
                      gridTitle.classList.add('fifoTITLE1')
-                     gridTitle.addEventListener("keyup",(e)=>{ 
-                        saveBtn0.style.display = 'flex';
-                     });  
+                     // gridTitle.addEventListener("keyup",(e)=>{ 
+                     //    debugger;
+                     //    e.target.parentElement.parentElement.parentElement.parentElement.previousSibling.previousSibling.children[3].children[0].style.display = 'flex'
+                     // });  
                      fifoGRIDROW.appendChild(gridTitle)
                      
                      fifoGRIDBOX = document.createElement('section')
@@ -4278,46 +4370,120 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
 
                      fifoROW = document.createElement('section')
                      fifoROW.classList.add('fifoBOX')
-                     let longLength = 0,trimNUM=0,padNUM=0,trimYMD=0,padYMD=0;
+                     let longLength = 0,trimNUM=0,padNUM=0,trimYMD=0,padYMD=0,trimRATE=0,padRATE=0;
                      longLength=(tickrData.trimz.length>=tickrData.padz.length)
                         ? tickrData.trimz.length : tickrData.padz.length
                      for(var k=0; k<longLength;k++ ){
                         if(k<tickrData.trimz.length){
                            trimNUM = tickrData.trimz[k].amt || 0;
                            trimYMD = tickrData.trimz[k].ymd || 0;
-                        }else{ trimNUM='-'; trimYMD='-' }
+                           trimRATE = tickrData.trimz[k].rate || 0;
+                           // console.log("x",tickrData.trimz[k].rate)
+                        }else{ trimNUM='-'; trimYMD='-'; trimRATE='0' }
                         if(k<tickrData.padz.length){
                            padNUM = tickrData.padz[k].amt || 0;
                            padYMD = tickrData.padz[k].ymd || 0;
-
-                        }else{ padNUM='-'; padYMD='-' }
+                           padRATE = tickrData.padz[k].rate || 0;
+                        } else { padNUM='-'; padYMD='-'; padRATE='0' }
                         
                         fifoBOX = document.createElement('section')
                         fifoBOX.classList.add('fifoData')
+                      
                         dateTrim = document.createElement('input')
                         dateTrim.value = trimYMD;
                         dateTrim.classList.add('fifoTrimYMD')
                         dateTrim.addEventListener("keyup",(e)=>{ 
-                           saveBtn0.style.display = 'flex';
-                        });  
+                           e.target.parentElement.parentElement.parentElement.parentElement.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
+                           fifoTooltip.style.display = "none";
+                        });
+                        dateTrim.setAttribute('saveRate',trimRATE)
+                        dateTrim.setAttribute('saveData',`${QRTR.qID}|${tickrData.tkr}|${k}|trim`)
+                        dateTrim.addEventListener("focus", function (e) {
+                           if('-'===e.target.getAttribute('saveRate')){return}
+                           fifoTooltip.value = '@_'+e.target.getAttribute('saveRate');
+                           setTimeout(()=>{fifoTooltip.style.display = "block"},100);
+                           let inputRect = event.target.getBoundingClientRect();
+                           let fifoTooltipTop = inputRect.bottom + window.scrollY + 10; 
+                           let fifoTooltipLeft = inputRect.left + window.scrollX + 40;
+                           fifoTooltip.style.top = fifoTooltipTop + "px";
+                           fifoTooltip.style.left = fifoTooltipLeft + "px";
+                           fifoTooltip.style.width = fifoTooltip.value.split('').length + "em";                           
+                           fifoTooltip.setAttribute('saveData',e.target.getAttribute('saveData'))
+                        }); 
+                        dateTrim.addEventListener("blur", function () {
+                           setTimeout( ()=>{if(document.activeElement != fifoTooltip){fifoTooltip.style.display = "none";}},100)
+                        });                           
+
                         trimAMT = document.createElement('input')
                         trimAMT.value = trimNUM;
                         trimAMT.classList.add('fifoTrimNUM')
                         trimAMT.addEventListener("keyup",(e)=>{ 
-                           saveBtn0.style.display = 'flex';
-                        });  
+                           e.target.parentElement.parentElement.parentElement.parentElement.previousSibling.previousSibling.children[3].children[0].style.display = 'flex'
+                           fifoTooltip.style.display = "none";
+                        }); 
+                        trimAMT.setAttribute('saveRate',trimRATE)
+                        trimAMT.setAttribute('saveData',`${QRTR.qID}|${tickrData.tkr}|${k}|trim`)
+                        trimAMT.addEventListener("focus", function (e) {
+                           fifoTooltip.value = '@_'+e.target.getAttribute('saveRate');
+                           setTimeout(()=>{fifoTooltip.style.display = "block"},100);
+                           let inputRect = event.target.getBoundingClientRect();
+                           let fifoTooltipTop = inputRect.bottom + window.scrollY + 10; 
+                           let fifoTooltipLeft = inputRect.left + window.scrollX + 40;
+                           fifoTooltip.style.top = fifoTooltipTop + "px";
+                           fifoTooltip.style.left = fifoTooltipLeft + "px";
+                           fifoTooltip.style.width = fifoTooltip.value.split('').length + "em";                           
+                           fifoTooltip.setAttribute('saveData',e.target.getAttribute('saveData'))
+                        }); 
+                        trimAMT.addEventListener("blur", function () {
+                           setTimeout( ()=>{if(document.activeElement != fifoTooltip){fifoTooltip.style.display = "none";}},100)
+                        });                           
                         padAMT = document.createElement('input')
                         padAMT.value = padNUM;
                         padAMT.classList.add('fifoPadNUM')
                         padAMT.addEventListener("keyup",(e)=>{ 
-                           saveBtn0.style.display = 'flex';
-                        });  
+                           e.target.parentElement.parentElement.parentElement.parentElement.previousSibling.previousSibling.children[3].children[0].style.display = 'flex'
+                           fifoTooltip.style.display = "none";
+                        }); 
+                        padAMT.setAttribute('saveRate',padRATE)
+                        padAMT.setAttribute('saveData',`${QRTR.qID}|${tickrData.tkr}|${k}|pad`)
+                        padAMT.addEventListener("focus", function (e) {
+                           fifoTooltip.value = '@_'+e.target.getAttribute('saveRate');
+                           setTimeout(()=>{fifoTooltip.style.display = "block"},100);
+                           let inputRect = event.target.getBoundingClientRect();
+                           let fifoTooltipTop = inputRect.bottom + window.scrollY + 10; 
+                           let fifoTooltipLeft = inputRect.left + window.scrollX + 40;
+                           fifoTooltip.style.top = fifoTooltipTop + "px";
+                           fifoTooltip.style.left = fifoTooltipLeft + "px";
+                           fifoTooltip.style.width = fifoTooltip.value.split('').length + "em";                           
+                           fifoTooltip.setAttribute('saveData',e.target.getAttribute('saveData'))
+                        }); 
+                        padAMT.addEventListener("blur", function () {
+                           setTimeout( ()=>{if(document.activeElement != fifoTooltip){fifoTooltip.style.display = "none";}},100)
+                        });                        
                         datePad = document.createElement('input')
                         datePad.value = padYMD;
                         datePad.classList.add('fifoPadYMD')
                         datePad.addEventListener("keyup",(e)=>{ 
-                           saveBtn0.style.display = 'flex';
+                           e.target.parentElement.parentElement.parentElement.parentElement.previousSibling.previousSibling.children[3].children[0].style.display = 'flex'
+                           fifoTooltip.style.display = "none";
                         });  
+                        datePad.setAttribute('saveRate',padRATE)
+                        datePad.setAttribute('saveData',`${QRTR.qID}|${tickrData.tkr}|${k}|pad`)
+                        datePad.addEventListener("focus", function (e) {
+                           fifoTooltip.value = '@_'+e.target.getAttribute('saveRate');
+                           // fifoTooltip.style.display = "block";
+                           setTimeout(()=>{fifoTooltip.style.display = "block"},100);
+                           let inputRect = event.target.getBoundingClientRect();
+                           let fifoTooltipTop = inputRect.bottom + window.scrollY + 10; 
+                           let fifoTooltipLeft = inputRect.left + window.scrollX + 40;
+                           fifoTooltip.style.top = fifoTooltipTop + "px";
+                           fifoTooltip.style.left = fifoTooltipLeft + "px";
+                           fifoTooltip.style.width = fifoTooltip.value.split('').length + "em";                           
+                           fifoTooltip.setAttribute('saveData',e.target.getAttribute('saveData'))
+                        }); 
+                        datePad.addEventListener("blur", function () {
+                           setTimeout( ()=>{if(document.activeElement != fifoTooltip){fifoTooltip.style.display = "none";}},100)
+                        });                         
                         fifoBOX.appendChild(dateTrim)
                         fifoBOX.appendChild(trimAMT)
                         fifoBOX.appendChild(padAMT)
@@ -4361,8 +4527,7 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         tickrNOTEZTXT.spellcheck = false;
                         tickrNOTEZTXT.value = tickrData.notez || '';
                         tickrNOTEZTXT.addEventListener("keyup",(e)=>{ 
-                           saveBtn0.style.display = 'flex';
-                           // e.target.parentElement.children[4].classList.remove('hiddenBtn1')
+                           e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
                         }); 
                         
                         tickrNOTEZROW.appendChild(tickrNOTEZTXT)
@@ -5688,6 +5853,38 @@ const update_History_matrix = ( tickr ) => {//data updated: to not lose, push du
 /*************************************\
  * UTILITIES
 \*************************************/
+fifoTooltip.addEventListener('click',(e)=>{
+   fifoTooltip.style.display = "block";
+})
+fifoTooltip.addEventListener('blur',(e)=>{
+   let saveData = e.target.getAttribute('saveData').split('|')
+   let newRate = e.target.value.split('_')[1];
+   let qID = saveData[0];
+   let tkr = saveData[1];
+   let pairNUM = saveData[2]
+   let type = saveData[3]
+   let qtr = ai_main.qrtrz[qID]
+   let TGT = null, set = []
+   for(var i=0; i<qtr.tickrz.length;i++){
+      if(qtr.tickrz[i].tkr===tkr){
+         TGT = qtr.tickrz[i];
+         if(type === "trim"){
+            set = TGT.trimz
+         }else{
+            set = TGT.padz
+         }
+         if(set.length){
+            set[pairNUM].rate = newRate
+         }
+      }
+   }
+   fifoTooltip.style.display = "none";
+   //SAVE to LOCAL STORAGE
+   localStorage.ai_main = JSON.stringify(ai_main) 
+   generateQuickClick(); //RELOAD VIEW.  
+   showErrorMSG('⚔️ SAVED ⚔️');     
+})
+
 const formatYMD = () => {
    const currentDate = new Date();
    const year = currentDate.getFullYear();

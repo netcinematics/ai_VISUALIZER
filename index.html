@@ -517,6 +517,10 @@ border-radius: 22px;
     justify-content: space-evenly;
     margin-bottom: 2%;  
 }
+.totalzBOX1{
+   display: flex;
+    flex-wrap: wrap;
+}
 .totalzBankVAL{
    border-radius: 13px;
     text-align: center;
@@ -1699,6 +1703,14 @@ align-items: center;">
 
 
        <hr>  RULES:<hr>
+
+        #INVERSE_CAPS_SCHEDULE (for MAX_CASH profits): 
+        a) up to YEAR_TOP: HOLD_CAPS, TRIM_MAX. MAX_PAD_CASH.
+        b) as market rounds TOP 10%: DECREASE_CAPS_B4_CRASH, CAP_MIN.
+        c) as market corrects 10% to 20%: INCREASE_CAPS, into YEAR_LOW.
+        d) at YEAR_LOW: MAX_CAPS, MIN_RESERVE.
+        e) at LOW to 10%, HOLD_CAPS, TRIM_MAX. MAX_RESERVE.
+
          DETERMINE MARKET MID, HI, LO.
          Important change of behaviors for HI or LO.
          HI_MARKET = LOWER_CAPS. TRIM_TOP. SMALLER PADS. Avoid hidry greed fomo.
@@ -4541,48 +4553,73 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                      tickrNOTEZROW.appendChild(expandBtn02)
                      if(tickrData.notez_expanded){ //expand Notes VIEW 
                         expandBtn02.innerHTML = '💨' 
-
-                        let BANK_VAL = 0;
-                        BANK_VAL = 4068;
+                        //META_DATA_CALCULATION: --------------------------
+                        // debugger;
+                        calculateBankVAL(QRTR.qID);
+                        // calculateBookVAL(QRTR.qID, tickrData);
+                        // calcualteEvenVAL(QRTR.qID, tickrData);
+                        // debugger;
+                        //META_DATA_CALCULATION: --------------------------
+                        
                         //START: TOTALS VIEWS
                         totalzROW = document.createElement('article')
                         // totalzROW.id = 'totalzROW'
                         totalzROW.classList.add('totalzROW')
                         totalzROW.value = tickrData.notez || '';
+
                         totalzBOX1 = document.createElement('section')
+                        totalzBOX1.classList.add('totalzBOX1')
+                        
+                        bankBOX1 = document.createElement('article')
+                        bankBOX1.classList.add('bankBOX1')
                         totalzLBL1 = document.createElement('span')
                         totalzLBL1.innerHTML = 'BANK:'
                         totalzBANK1 = document.createElement('input')
                         totalzBANK1.classList.add('totalzBankVAL')
-                        totalzBANK1.value = `$${BANK_VAL}`;
-                        totalzBANK1.style.width = (BANK_VAL.toString().length + 1) + 'em';
+                        totalzBANK1.value = `$${tickrData.bankVAL || 0}`;
+                        totalzBANK1.style.width = (tickrData.bankVAL)?(tickrData.bankVAL.toString().length + 1) + 'em':'3em';
                         totalzBANK1.addEventListener("keyup",(e)=>{ 
                            e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
                         }); 
+                        bankBOX1.appendChild(totalzLBL1);
+                        bankBOX1.appendChild(totalzBANK1);
+
+                        bookBOX1 = document.createElement('article')
+                        bookBOX1.classList.add('bookBOX1')                        
                         totalzLBL2 = document.createElement('span')
                         totalzLBL2.innerHTML = 'BOOK:'                        
                         totalzBOOK1 = document.createElement('input')
                         totalzBOOK1.classList.add('totalzBookVAL')
-                        totalzBOOK1.value = `$${BANK_VAL}`;
-                        totalzBOOK1.style.width = (BANK_VAL.toString().length + 1) + 'em';
+                        totalzBOOK1.value = `$${tickrData.bookVAL || 111}`;
+                        totalzBOOK1.style.width = ((tickrData.bookVAL)?tickrData.bookVAL.toString().length + 1:3) + 'em';
                         totalzBOOK1.addEventListener("keyup",(e)=>{ 
                            e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
                         }); 
+                        bookBOX1.appendChild(totalzLBL2);
+                        bookBOX1.appendChild(totalzBOOK1);
+
+                        evenBOX1 = document.createElement('article')
+                        evenBOX1.classList.add('evenBOX1')
                         totalzLBL3 = document.createElement('span')
                         totalzLBL3.innerHTML = 'EVEN:'                        
                         totalzEVEN1 = document.createElement('input')
                         totalzEVEN1.classList.add('totalzEvenVAL')
-                        totalzEVEN1.value = `$${BANK_VAL}`;
-                        totalzEVEN1.style.width = (BANK_VAL.toString().length + 1) + 'em';
+                        totalzEVEN1.value = `$${tickrData.evenVAL || 222}`;
+                        totalzEVEN1.style.width = '3em';// 444(tickrData.evenVAL.toString().length + 1) + 'em';
                         totalzEVEN1.addEventListener("keyup",(e)=>{ 
                            e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
                         }); 
-                        totalzBOX1.appendChild(totalzLBL1)
-                        totalzBOX1.appendChild(totalzBANK1)
-                        totalzBOX1.appendChild(totalzLBL2)
-                        totalzBOX1.appendChild(totalzBOOK1)
-                        totalzBOX1.appendChild(totalzLBL3)
-                        totalzBOX1.appendChild(totalzEVEN1)
+                        evenBOX1.appendChild(totalzLBL3);
+                        evenBOX1.appendChild(totalzEVEN1);
+
+
+                        totalzBOX1.appendChild(bankBOX1)
+                        totalzBOX1.appendChild(bookBOX1)
+                        totalzBOX1.appendChild(evenBOX1)
+                        // totalzBOX1.appendChild(totalzLBL2)
+                        // totalzBOX1.appendChild(totalzBOOK1)
+                        // totalzBOX1.appendChild(totalzLBL3)
+                        // totalzBOX1.appendChild(totalzEVEN1)
                         totalzROW.appendChild(totalzBOX1)
                         tickrNOTEZROW.appendChild(totalzROW) 
                         //END: TOTALZ VIEWS
@@ -4842,7 +4879,7 @@ function saveQuickTrackEdits(e){
 }
 
 const saveQuickClick = ()=>{ // GENERATE PROFIT AND LOSS DISPLAY
-   debugger;
+   debugger; //todo depricated?
 saveQuickBtn1.style.display = 'none'; 
    let quarterBoxes = generatedQuickBOX.children,row,kids,kid;
    // let tkr,cap,trim_at,pad_at,padlvl,crashlvl;
@@ -5026,6 +5063,64 @@ const deleteSelectedQuick = (e)=>{
    localStorage.ai_main = JSON.stringify(ai_main) //SAVE to LOCAL STORAGE
    generateQuickClick(); //RELOAD VIEW. 
 }
+
+function calculateBankVAL(qID_TGT){
+   let BANK_VAL = 0, idx,tickrData,netAMT=0; //add up NETs until TGT_QTR
+   let qtr = ai_main.qrtrz[qID_TGT];//TGT_QTR
+   let keyzArr = Object.keys(ai_main.qrtrz);
+   for(let x=0;x<keyzArr.length;x++){ //All nets add up to TGT.
+      idx = ai_main.qrtrz[keyzArr[x]];
+      // console.log('ADD',idx.qID,'to',qID_TGT)
+      for(let y=0;y<idx.tickrz.length;y++){
+         tickrData = idx.tickrz[y];
+         if(idx.tickrz[y].tkr===tickrData.tkr){
+            if(!tickrData.bankVAL){tickrData.bankVAL=0}
+            // console.log('math...',keyzArr[x],BANK_VAL,tickrData.netAMT)
+            // if(tickrData.netAMT==="+390"){debugger;}
+            // netAMT = parseInt(tickrData.netAMT.replace('+',''));
+            netAMT = parseInt(tickrData.netAMT);
+            BANK_VAL += netAMT;
+            // BANK_VAL += tickrData.netAMT;
+            if(keyzArr[x]===qID_TGT){
+               tickrData.bankVAL = BANK_VAL;
+               // console.log('DONE...',keyzArr[x],BANK_VAL)            
+            }
+            // else{ console.log('adding...',keyzArr[x],tickrData.netAMT)}
+            break; //found tgt tkr , eject.
+         }
+      }
+      if(keyzArr[x]===qID_TGT){
+         // console.log('QID end',qID_TGT)
+         break; //Found TGT QTR, eject.
+      }
+   }
+}
+function calculateBookVAL(qID, tickrData){
+   let BOOK_VAL = 0;
+   let qtr = ai_main.qrtrz[qID]
+   let keyzArr = Object.keys(ai_main.qrtrz);
+   for(let x=0;x<keyzArr.length;x++){ //All nets from before added up.
+      for(let y=0;y<ai_main.qrtrz[keyzArr[x]].tickrz.length;y++){
+         if(ai_main.qrtrz[keyzArr[x]].tickrz[y].tkr===tickrData.tkr){
+            if(!tickrData.bookVAL){tickrData.bookVAL=0}
+
+            // BOOK_VAL = [{amt:1},{amt:2},{amt:3},{amt:4}].reduce( (a,b)=>{ console.log(a.amt,b.amt); return {amt: a.amt + b.amt};}).amt
+            BOOK_VAL = ai_main.qrtrz[keyzArr[x]].tickrz[y].padz.reduce( (a,b)=>{ return {amt: parseInt(a.amt) + parseInt(b.amt)};}).amt
+            tickrData.bookVAL += BOOK_VAL;
+            break;
+         }
+      }
+      if(keyzArr[x]===qID){break}
+   }
+}
+function calcualteEvenVAL(qID, tickrData){
+   // debugger;
+   let EVEN_VAL = 0;
+
+   return EVEN_VAL;
+}
+
+
 /***************************************
  * END: QUICKFUNCTIONS
  * **************************************/

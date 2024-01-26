@@ -97,9 +97,58 @@ hr{border-top: solid 1px cadetblue;
     font-size: 0.666em;
     height: 1.444em;
     /* padding: 1% 1%; */
-    display: none;
+    /* display: none; */
+    display: inline-flex;
     align-items: center;
 }
+
+/***************************- BEGIN: STANDARD_BUTTONS *****************/
+
+.closeBook_BOX{ /* default BTN BOX */
+   border-radius: 8px;
+   /* display: none; */
+   display: flex;
+   min-width: 4em;
+   align-items: center;
+}
+
+.closeBook_BTN{ /*default_BTN*/
+   min-width: 5em;
+   justify-content: center;
+   border-radius: 13px;
+   background: #d1d67b;
+   cursor: pointer;
+   font-size: 0.666em;
+   height: 1.444em;
+   /* display: none; */
+   display: inline-flex;
+   align-items: center;
+   min-height: 3em
+}
+
+.saveBOX_fifo{ /* standard_BTN_BOX */
+   border-radius: 8px;
+   display: none;
+   /* display: flex; */
+   min-width: 4em;
+   align-items: center;
+}
+
+.saveBTN_fifo{ /*standard_BTN*/
+   min-width: 5em;
+   justify-content: center;
+   border-radius: 13px;
+   background: #d1d67b;
+   cursor: pointer;
+   font-size: 0.666em;
+   height: 1.444em;
+   /* display: none; */
+   display: inline-flex;
+   align-items: center;
+   min-height: 2em
+}
+/***************************- END: STANDARD_BUTTONS *****************/
+
 .saveBtn03{
    border-radius: 13px;
     background: #d1d67b;
@@ -516,6 +565,7 @@ border-radius: 22px;
     font-family: monospace; 
     justify-content: space-evenly;
     margin-bottom: 2%;  
+    flex-wrap: wrap;
 }
 .totalzBOX1{
    display: flex;
@@ -673,11 +723,11 @@ flex-direction: column;
    min-width: 4em;
     width: 0;
 }
-.inputDATABOX4,.inputDATABOX5{
+.inputDATABOX4,.inputDATABOX5,.inputDATABOX6{
    display : none;
 }
 
-.inputDATABOX1, .inputDATABOX2,.inputDATABOX3,.inputDATABOX4,.inputDATABOX5{
+.inputDATABOX1, .inputDATABOX2,.inputDATABOX3,.inputDATABOX4,.inputDATABOX5,.inputDATABOX6{
    border-radius: 8px;
     font-size: 0.777em;
     background: #1a0033;
@@ -755,7 +805,26 @@ border-radius: 8px;
     margin-bottom: -1px;
     border: 1px solid steelblue;}
 
-.saveBOX1{
+.saveBOX1{ /* default BTN BOX */
+   border-radius: 8px;
+   display: none;
+   /* display: flex; */
+   min-width: 4em;
+   align-items: center;
+}
+
+.saveBOXTTL{
+   min-width: 5em;
+    justify-content: center;
+   border-radius: 13px;
+    /* background: #d1d67b; */
+    cursor: pointer;
+    font-size: 0.666em;
+    height: 1.444em;
+    display: none;
+    align-items: center;
+}
+.saveBtnTTL{
    border-radius: 8px;
    display: flex;
    min-width: 4em;
@@ -772,6 +841,20 @@ border-radius: 8px;
     align-items: center;
     text-align: right;
     align-self: center;
+}
+.inputDATABOX6{border-radius: 8px;
+    /* font-size: 0.777em; */
+    background: #1a0033;
+    color: #b19f50;
+    padding-left: 0.444em;
+    margin: 0.222em 1em;
+    display: flex;
+    max-height: 24px;
+    align-items: center;
+    text-align: right;
+    align-self: center;
+    font-size: large;
+    font-family: monospace;    
 }
 .inputDATA2{    border-radius: 8px;
     font-size: 0.777em;
@@ -1346,8 +1429,10 @@ border-radius:13px;
 }
 
 
-.redTXT{color:#a43d3d!important;}
-.greenTXT{color:#3db63f !important;}
+/* .redTXT{color:#a43d3d!important;}
+.greenTXT{color:#3db63f !important;} */
+.redTXT{color:red!important;}
+.greenTXT{color:lime !important;}
 
       @media only screen and (max-width: 800px) { /* TABLET */
          body{  background-color: #000f1b;}
@@ -1393,13 +1478,23 @@ border-radius:13px;
         background-image: linear-gradient(grey, steelblue, black);
         box-shadow:0 0 14px 0px steelblue;border-radius:13px; margin:0 auto;
         width:93%;">
-         <button class="mainBtn" onclick="transcribeTXT()" style="border-radius:8px;
+         <!-- <button class="mainBtn" onclick="transcribeTXT()" style="border-radius:8px;
             background:grey; 
             cursor:pointer;box-shadow: inset 0px 0px 10px 0px limegreen;">
             <span style="border-radius:100%;background:limegreen;
               border:1px solid grey;">
             🏰</span><span class="btnTXT hoverTXT">Network</span>
-         </button>
+         </button> -->
+
+         <section id="keyBOX" style="display:flex;border: solid 1px steelblue;
+         border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
+         margin:2px;">
+               API:<input id="keyINPUT"  type="password" placeholder="api_key" 
+               style="margin-left: 1em; background:#233453;
+               border-radius: 10px 0px 0px 10px;"></input>
+               <button style="margin-right: 1em; background:#03cbcb;cursor:pointer;
+               border-radius: 0px 10px 10px 0px; font-size:0.777em;padding: 4px;" onclick="setAPIKEY();">SET</button>
+         </section>         
 
          <section id="notConnectedBox" class="mainBtn" style="border-radius:8px;
          background:#61f361;padding: 6px;">
@@ -1428,19 +1523,21 @@ border-radius:13px;
             ">⚠️ error...</section>
 
 
-         <button class= "mainBtn " onclick="stopTXT()" style="border-radius:8px;
+<button id="latestBtn1" class="genBtn1" style="float:right" onclick="getLatestTickerClick()">latest🔄</button>
+
+         <!-- <button class= "mainBtn " onclick="stopTXT()" style="border-radius:8px;
             background:grey;box-shadow: inset 0px 0px 10px 0px crimson;
             cursor:pointer;"><span style="border-radius:100%;background:firebrick;
               border:1px solid grey;">
             💡</span><span class="btnTX hoverTXT">Market</span>
-         </button>
+         </button> -->
         </header>
       <header id="messageBOX" style="display:flex;flex: 0 0 auto;
       margin: 0.222em;">
          <section id="leftBOX" style="display:flex; justify-content: center;
          border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
          "><span class="smICON">✴&nbsp;&nbsp;</span> ai viewz, of ledger metadata <span class="smICON">&nbsp;✳</span></section>            
-         <section id="keyBOX" style="display:flex;border: solid 1px steelblue;
+         <!-- <section id="keyBOX" style="display:flex;border: solid 1px steelblue;
          border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
          margin:2px;">
                API:<input id="keyINPUT"  type="password" placeholder="api_key" 
@@ -1448,7 +1545,7 @@ border-radius:13px;
                border-radius: 10px 0px 0px 10px;"></input>
                <button style="margin-right: 1em; background:#03cbcb;cursor:pointer;
                border-radius: 0px 10px 10px 0px; font-size:0.777em;padding: 4px;" onclick="setAPIKEY();">SET</button>
-         </section>
+         </section> -->
          <section id="rightBOX" style="display:flex;  justify-content: center;
          border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
          "><span class="smICON">&nbsp;&nbsp;✧&nbsp;</span>
@@ -1646,12 +1743,12 @@ align-items: center;">
         <hr>   
         Generate KEY METRICS:
         <hr>
-        - BANK VALUE: <br/>net cash inflow for month, qtr, yr, alltime,
+        - BANK AMT: <br/>means CASH_FLOW in or out of BANK_MONEY.
         less pad amounts.
         <br/>
-        - BOOK VALUE: <br/>pct change of profit loss of invested equity on the books.
+        - BOOK AMT: <br/>means total CASH invested in an asset.
         <br/>
-        - EVEN VALUE: <br/>is BREAK_EVEN calculation of RATE of equity fall or rise,
+        - EVEN AMT: <br/>is BREAK_EVEN calculation of RATE of equity fall or rise,
           will break even with investments. To allow knowledge of whether, to
           allocate flexibly or rigidly.
           <br/>
@@ -2930,6 +3027,7 @@ const generateProfitLossClick = ()=>{ // GENERATE PROFIT AND LOSS DISPLAY
       for(let idx=0; idx<keyz.length;idx++){
          itm=ai_MetaData_TickMap[keyz[idx]];
          bookValue += itm.total_val;
+         debugger;
          bankValue += 3; //TODO sum SOLD PROFITS.
 
          if(itm.margin){ //CALCULATE TOTAL MARGIN
@@ -2958,6 +3056,23 @@ const generateProfitLossClick = ()=>{ // GENERATE PROFIT AND LOSS DISPLAY
       totalsRow1.appendChild(totMarginBOX)         
       totalsRow1.appendChild(totBankValue1)         
       generatedProfitsBOX.appendChild(totalsRow1) 
+
+      //BEGIN LOCAL_SAVE_BTN --------------------------------------
+      closeBook_BOX = document.createElement('aside') /* standard_btn */
+      closeBook_BOX.innerHTML="&nbsp";
+      closeBook_BTN = document.createElement('button')
+      closeBook_BTN.innerHTML = '🚪Close Books📗📘📙'
+      closeBook_BOX.classList.add('closeBook_BOX'); //saveBOX1
+      closeBook_BTN.classList.add('closeBook_BTN');//saveBtn0
+      // closeBook_BTN.setAttribute('data-arg6',QRTR.qID)
+      // closeBook_BTN.setAttribute('data-arg7',tickrData.tkr.toUpperCase())
+      closeBook_BTN.addEventListener("click",(e)=>{ //ADDED BACK
+         closeBook_BTN.style.display = 'none'; 
+         debugger;    
+      });
+      closeBook_BOX.appendChild(closeBook_BTN) 
+      //END LOCAL_SAVE_BTN --------------------------------------
+      generatedProfitsBOX.appendChild(closeBook_BOX) 
    }//end if collapsed
 } 
 
@@ -3941,12 +4056,8 @@ const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
 \************************************************/
 let ai_main=null;
 const ai_main_LOAD_MOCK_DATA=()=>{ //READ
-   // ai_main = {"qrtrz":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"1000","expanded":true,"trimz":[],"padz":[{"ymd":"2023_10_10","amt":"300","rate":"460"},{"ymd":"2023_10_20","amt":"200","rate":"413"}],"netAMT":-500,"notez":"2","notez_expanded":false,"trimTOT":0,"padTOT":500},{"tkr":"MDB","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"BTC","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0,"expanded":true}]},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[{"ymd":"2023_11_17","amt":"200","rate":"495"},{"ymd":"2023_11_22","amt":"100","rate":"486"}],"netAMT":-300,"notez":"2","trimTOT":0,"padTOT":300,"expanded":true},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":0,"notez":"3","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0}]},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2023_12_15","amt":"30","rate":"492"},{"ymd":"2023_12_18","amt":"50","rate":"503"},{"ymd":"2023_12_18","amt":"50","rate":"497"},{"ymd":"2023_12_26","amt":"60","rate":"493"},{"ymd":"2023_12_28","amt":"100","rate":"497"},{"ymd":"2023_12_29","amt":"100","rate":"498"}],"padz":[{"ymd":"2023_12_18","amt":"0","rate":"497"},{"ymd":"2023_12_18","amt":"0","rate":"503"}],"netAMT":"+390","notez":"2","trimTOT":390,"padTOT":0,"expanded":true},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":0,"notez":"3","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"TSLA","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0}]},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2024_01_08","amt":"300","rate":"514"},{"ymd":"2024_01_08","amt":"80","rate":"518"},{"ymd":"2024_01_08","amt":"30","rate":"519"},{"ymd":"2024_01_08","amt":"20","rate":"520"},{"ymd":"2024_01_08","amt":"20","rate":"521"},{"ymd":"2024_01_08","amt":"20","rate":"523"},{"ymd":"2024_01_08","amt":"30","rate":"526"},{"ymd":"2024_01_09","amt":"100","rate":"534"},{"ymd":"2024_01_09","amt":"80","rate":"538"},{"ymd":"2024_01_09","amt":"50","rate":"542"},{"ymd":"2024_01_10","amt":"30","rate":"545"},{"ymd":"2024_01_11","amt":"60","rate":"549"},{"ymd":"2024_01_11","amt":"30","rate":"551"}],"padz":[],"netAMT":"+850","notez":"2","trimTOT":850,"padTOT":0,"expanded":true},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":0,"notez":"3","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"TSLA","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0}],"expanded":true}}}
-   // ai_main = {"qrtrz":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"1000","expanded":true,"trimz":[],"padz":[{"ymd":"2023_10_10","amt":"300","rate":"460"},{"ymd":"2023_10_20","amt":"200","rate":"413"}],"netAMT":-500,"notez":"2","notez_expanded":false,"trimTOT":0,"padTOT":500},{"tkr":"MDB","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"BTC","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0,"expanded":true}]},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[{"ymd":"2023_11_17","amt":"200","rate":"495"},{"ymd":"2023_11_22","amt":"100","rate":"486"}],"netAMT":-300,"notez":"2","trimTOT":0,"padTOT":300,"expanded":true},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":0,"notez":"3","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0}]},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2023_12_15","amt":"30","rate":"492"},{"ymd":"2023_12_18","amt":"50","rate":"503"},{"ymd":"2023_12_18","amt":"50","rate":"497"},{"ymd":"2023_12_26","amt":"60","rate":"493"},{"ymd":"2023_12_28","amt":"100","rate":"497"},{"ymd":"2023_12_29","amt":"100","rate":"498"}],"padz":[{"ymd":"2023_12_18","amt":"0","rate":"497"},{"ymd":"2023_12_18","amt":"0","rate":"503"}],"netAMT":"+390","notez":"2","trimTOT":390,"padTOT":0,"expanded":true},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":0,"notez":"3","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"TSLA","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0}]},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2024_01_08","amt":"300","rate":"514"},{"ymd":"2024_01_08","amt":"80","rate":"518"},{"ymd":"2024_01_08","amt":"30","rate":"519"},{"ymd":"2024_01_08","amt":"20","rate":"520"},{"ymd":"2024_01_08","amt":"20","rate":"521"},{"ymd":"2024_01_08","amt":"20","rate":"523"},{"ymd":"2024_01_08","amt":"30","rate":"526"},{"ymd":"2024_01_09","amt":"100","rate":"534"},{"ymd":"2024_01_09","amt":"80","rate":"538"},{"ymd":"2024_01_09","amt":"50","rate":"542"},{"ymd":"2024_01_10","amt":"30","rate":"545"},{"ymd":"2024_01_11","amt":"60","rate":"549"},{"ymd":"2024_01_11","amt":"30","rate":"551"}],"padz":[],"netAMT":"+850","notez":"JAN 8th 2024 - 1st $500 day!\nExcellent Margins, form prior OCT 27, 2024 lows.","trimTOT":850,"padTOT":0,"expanded":true,"notez_expanded":true},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":0,"notez":"3","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"TSLA","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0}],"expanded":true}}}
-   // ai_main = {"qrtrz":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"1000","expanded":true,"trimz":[],"padz":[{"ymd":"2023_10_10","amt":"300","rate":"460"},{"ymd":"2023_10_20","amt":"200","rate":"413"}],"netAMT":-500,"notez":"2","notez_expanded":false,"trimTOT":0,"padTOT":500},{"tkr":"MDB","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"BTC","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0,"expanded":false}]},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[{"ymd":"2023_11_17","amt":"200","rate":"495"},{"ymd":"2023_11_22","amt":"100","rate":"486"}],"netAMT":-300,"notez":"2","trimTOT":0,"padTOT":300,"expanded":false},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":0,"notez":"3","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_11_01","amt":"100","rate":"35435"},{"ymd":"2023_11_10","amt":"200","rate":"36818"},{"ymd":"2023_11_15","amt":"100","rate":"37390"},{"ymd":"2023_11_22","amt":"100","rate":"37694"}],"padz":[],"netAMT":"+500","notez":"2","trimTOT":500,"padTOT":0,"expanded":false}]},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":true,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2023_12_15","amt":"30","rate":"492"},{"ymd":"2023_12_18","amt":"50","rate":"503"},{"ymd":"2023_12_18","amt":"50","rate":"497"},{"ymd":"2023_12_26","amt":"60","rate":"493"},{"ymd":"2023_12_28","amt":"100","rate":"497"},{"ymd":"2023_12_29","amt":"100","rate":"498"}],"padz":[{"ymd":"2023_12_18","amt":"0","rate":"497"},{"ymd":"2023_12_18","amt":"0","rate":"503"}],"netAMT":"+390","notez":"2","trimTOT":390,"padTOT":0,"expanded":false},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":0,"notez":"3","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"38626"},{"ymd":"2023_12_02","amt":"50","rate":"39417"},{"ymd":"2023_12_03","amt":"25","rate":"39848"},{"ymd":"2023_12_03","amt":"50","rate":"4819"},{"ymd":"2023_12_04","amt":"20","rate":"41700"},{"ymd":"2023_12_04","amt":"30","rate":"41684"},{"ymd":"2023_12_05","amt":"50","rate":"42718"},{"ymd":"2023_12_05","amt":"50","rate":"44008"},{"ymd":"2023_12_13","amt":"20","rate":"41940"},{"ymd":"2023_12_13","amt":"30","rate":"42648"},{"ymd":"2023_12_13","amt":"20","rate":"43042"},{"ymd":"2023_12_18","amt":"30","rate":"41509"}],"padz":[{"ymd":"2023_12_12","amt":"100","rate":"40928"},{"ymd":"2023_12_17","amt":"200","rate":"41077"},{"ymd":"2023_12_18","amt":"100","rate":"43074"},{"ymd":"2023_12_19","amt":"200","rate":"42663"},{"ymd":"2023_12_22","amt":"1500","rate":"43637"},{"ymd":"2023_12_25","amt":"100","rate":"42844"},{"ymd":"2023_12_29","amt":"50","rate":"42152"},{"ymd":"2023_12_29","amt":"500","rate":"42048"},{"ymd":"2023_12_30","amt":"5000","rate":"42303"}],"netAMT":-7350,"notez":"2","trimTOT":400,"padTOT":7750,"expanded":true},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"TSLA","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0}]},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2024_01_08","amt":"300","rate":"514"},{"ymd":"2024_01_08","amt":"80","rate":"518"},{"ymd":"2024_01_08","amt":"30","rate":"519"},{"ymd":"2024_01_08","amt":"20","rate":"520"},{"ymd":"2024_01_08","amt":"20","rate":"521"},{"ymd":"2024_01_08","amt":"20","rate":"523"},{"ymd":"2024_01_08","amt":"30","rate":"526"},{"ymd":"2024_01_09","amt":"100","rate":"534"},{"ymd":"2024_01_09","amt":"80","rate":"538"},{"ymd":"2024_01_09","amt":"50","rate":"542"},{"ymd":"2024_01_10","amt":"30","rate":"545"},{"ymd":"2024_01_11","amt":"60","rate":"549"},{"ymd":"2024_01_11","amt":"30","rate":"551"}],"padz":[],"netAMT":"+850","notez":"JAN 8th 2024 - 1st $500 day!\nExcellent Margins, form prior OCT 27, 2024 lows.","trimTOT":850,"padTOT":0,"expanded":true,"notez_expanded":true},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":0,"notez":"3","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"TSLA","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0}],"expanded":true}}}
-   //ai_main = {"qrtrz":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"1000","expanded":true,"trimz":[],"padz":[{"ymd":"2023_10_10","amt":"300","rate":"460"},{"ymd":"2023_10_20","amt":"200","rate":"413"}],"netAMT":-500,"notez":"2","notez_expanded":false,"trimTOT":0,"padTOT":500},{"tkr":"MDB","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"BTC","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0,"expanded":false}]},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[{"ymd":"2023_11_17","amt":"200","rate":"495"},{"ymd":"2023_11_22","amt":"100","rate":"486"}],"netAMT":-300,"notez":"2","trimTOT":0,"padTOT":300,"expanded":false},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":0,"notez":"3","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_11_01","amt":"100","rate":"35435"},{"ymd":"2023_11_10","amt":"200","rate":"36818"},{"ymd":"2023_11_15","amt":"100","rate":"37390"},{"ymd":"2023_11_22","amt":"100","rate":"37694"}],"padz":[],"netAMT":"+500","notez":"2","trimTOT":500,"padTOT":0,"expanded":false}]},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":true,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2023_12_15","amt":"30","rate":"492"},{"ymd":"2023_12_18","amt":"50","rate":"503"},{"ymd":"2023_12_18","amt":"50","rate":"497"},{"ymd":"2023_12_26","amt":"60","rate":"493"},{"ymd":"2023_12_28","amt":"100","rate":"497"},{"ymd":"2023_12_29","amt":"100","rate":"498"}],"padz":[{"ymd":"2023_12_18","amt":"0","rate":"497"},{"ymd":"2023_12_18","amt":"0","rate":"503"}],"netAMT":"+390","notez":"2","trimTOT":390,"padTOT":0,"expanded":false},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":0,"notez":"3","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"38626"},{"ymd":"2023_12_02","amt":"50","rate":"39417"},{"ymd":"2023_12_03","amt":"25","rate":"39848"},{"ymd":"2023_12_03","amt":"50","rate":"4819"},{"ymd":"2023_12_04","amt":"20","rate":"41700"},{"ymd":"2023_12_04","amt":"30","rate":"41684"},{"ymd":"2023_12_05","amt":"50","rate":"42718"},{"ymd":"2023_12_05","amt":"50","rate":"44008"},{"ymd":"2023_12_13","amt":"20","rate":"41940"},{"ymd":"2023_12_13","amt":"30","rate":"42648"},{"ymd":"2023_12_13","amt":"20","rate":"43042"},{"ymd":"2023_12_18","amt":"30","rate":"41509"},{"ymd":"2023_12_30","amt":"9464","rate":"42060"}],"padz":[{"ymd":"2023_12_12","amt":"100","rate":"40928"},{"ymd":"2023_12_17","amt":"200","rate":"41077"},{"ymd":"2023_12_18","amt":"100","rate":"43074"},{"ymd":"2023_12_19","amt":"200","rate":"42663"},{"ymd":"2023_12_22","amt":"1500","rate":"43637"},{"ymd":"2023_12_25","amt":"100","rate":"42844"},{"ymd":"2023_12_29","amt":"50","rate":"42152"},{"ymd":"2023_12_29","amt":"500","rate":"42048"},{"ymd":"2023_12_30","amt":"5000","rate":"42303"},{"ymd":"2023_12_30","amt":"9000","rate":"42417"}],"netAMT":-6886,"notez":"2","trimTOT":9864,"padTOT":16750,"expanded":true},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"TSLA","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0}]},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2024_01_08","amt":"300","rate":"514"},{"ymd":"2024_01_08","amt":"80","rate":"518"},{"ymd":"2024_01_08","amt":"30","rate":"519"},{"ymd":"2024_01_08","amt":"20","rate":"520"},{"ymd":"2024_01_08","amt":"20","rate":"521"},{"ymd":"2024_01_08","amt":"20","rate":"523"},{"ymd":"2024_01_08","amt":"30","rate":"526"},{"ymd":"2024_01_09","amt":"100","rate":"534"},{"ymd":"2024_01_09","amt":"80","rate":"538"},{"ymd":"2024_01_09","amt":"50","rate":"542"},{"ymd":"2024_01_10","amt":"30","rate":"545"},{"ymd":"2024_01_11","amt":"60","rate":"549"},{"ymd":"2024_01_11","amt":"30","rate":"551"}],"padz":[],"netAMT":"+850","notez":"JAN 8th 2024 - 1st $500 day!\nExcellent Margins, form prior OCT 27, 2024 lows.","trimTOT":850,"padTOT":0,"expanded":true,"notez_expanded":true},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":0,"notez":"3","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"ETH","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"TSLA","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0}],"expanded":true}}}
-   // ai_main = {"qrtrz":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"1000","expanded":true,"trimz":[],"padz":[{"ymd":"2023_10_10","amt":"300","rate":"460"},{"ymd":"2023_10_20","amt":"200","rate":"413"}],"netAMT":-500,"notez":"2","notez_expanded":false,"trimTOT":0,"padTOT":500},{"tkr":"MDB","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"BTC","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0,"expanded":false}]},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[{"ymd":"2023_11_17","amt":"200","rate":"495"},{"ymd":"2023_11_22","amt":"100","rate":"486"}],"netAMT":-300,"notez":"2","trimTOT":0,"padTOT":300,"expanded":false},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":0,"notez":"3","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_11_01","amt":"100","rate":"35435"},{"ymd":"2023_11_10","amt":"200","rate":"36818"},{"ymd":"2023_11_15","amt":"100","rate":"37390"},{"ymd":"2023_11_22","amt":"100","rate":"37694"}],"padz":[],"netAMT":"+500","notez":"2","trimTOT":500,"padTOT":0,"expanded":false}]},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":true,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2023_12_15","amt":"30","rate":"492"},{"ymd":"2023_12_18","amt":"50","rate":"503"},{"ymd":"2023_12_18","amt":"50","rate":"497"},{"ymd":"2023_12_26","amt":"60","rate":"493"},{"ymd":"2023_12_28","amt":"100","rate":"497"},{"ymd":"2023_12_29","amt":"100","rate":"498"}],"padz":[{"ymd":"2023_12_18","amt":"0","rate":"497"},{"ymd":"2023_12_18","amt":"0","rate":"503"}],"netAMT":"+390","notez":"2","trimTOT":390,"padTOT":0,"expanded":false},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":0,"notez":"3","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"38626"},{"ymd":"2023_12_02","amt":"50","rate":"39417"},{"ymd":"2023_12_03","amt":"25","rate":"39848"},{"ymd":"2023_12_03","amt":"50","rate":"4819"},{"ymd":"2023_12_04","amt":"20","rate":"41700"},{"ymd":"2023_12_04","amt":"30","rate":"41684"},{"ymd":"2023_12_05","amt":"50","rate":"42718"},{"ymd":"2023_12_05","amt":"50","rate":"44008"},{"ymd":"2023_12_13","amt":"20","rate":"41940"},{"ymd":"2023_12_13","amt":"30","rate":"42648"},{"ymd":"2023_12_13","amt":"20","rate":"43042"},{"ymd":"2023_12_18","amt":"30","rate":"41509"},{"ymd":"2023_12_30","amt":"9464","rate":"42060"}],"padz":[{"ymd":"2023_12_12","amt":"100","rate":"40928"},{"ymd":"2023_12_17","amt":"200","rate":"41077"},{"ymd":"2023_12_18","amt":"100","rate":"43074"},{"ymd":"2023_12_19","amt":"200","rate":"42663"},{"ymd":"2023_12_22","amt":"1500","rate":"43637"},{"ymd":"2023_12_25","amt":"100","rate":"42844"},{"ymd":"2023_12_29","amt":"50","rate":"42152"},{"ymd":"2023_12_29","amt":"500","rate":"42048"},{"ymd":"2023_12_30","amt":"5000","rate":"42303"},{"ymd":"2023_12_30","amt":"9000","rate":"42417"}],"netAMT":-6886,"notez":"2","trimTOT":9864,"padTOT":16750,"expanded":true},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"TSLA","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0}]},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2024_01_08","amt":"300","rate":"514"},{"ymd":"2024_01_08","amt":"80","rate":"518"},{"ymd":"2024_01_08","amt":"30","rate":"519"},{"ymd":"2024_01_08","amt":"20","rate":"520"},{"ymd":"2024_01_08","amt":"20","rate":"521"},{"ymd":"2024_01_08","amt":"20","rate":"523"},{"ymd":"2024_01_08","amt":"30","rate":"526"},{"ymd":"2024_01_09","amt":"100","rate":"534"},{"ymd":"2024_01_09","amt":"80","rate":"538"},{"ymd":"2024_01_09","amt":"50","rate":"542"},{"ymd":"2024_01_10","amt":"30","rate":"545"},{"ymd":"2024_01_11","amt":"60","rate":"549"},{"ymd":"2024_01_11","amt":"30","rate":"551"}],"padz":[],"netAMT":"+850","notez":"JAN 8th 2024 - 1st $500 day!\nExcellent Margins, form prior OCT 27, 2024 lows.","trimTOT":850,"padTOT":0,"expanded":true,"notez_expanded":true},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":0,"notez":"3","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2024_01_01","amt":"500","rate":"44519"},{"ymd":"2024_01_01","amt":"150","rate":"45282"},{"ymd":"2024_01_08","amt":"200","rate":"45870"},{"ymd":"2024_01_08","amt":"200","rate":"46466"},{"ymd":"2024_01_08","amt":"150","rate":"46891"},{"ymd":"2024_01_08","amt":"50","rate":"47156"},{"ymd":"2024_01_08","amt":"30","rate":"47028"},{"ymd":"2024_01_08","amt":"20","rate":"47021"},{"ymd":"2024_01_10","amt":"50","rate":"46229"},{"ymd":"2024_01_10","amt":"20","rate":"46354"},{"ymd":"2024_01_10","amt":"90","rate":"46768"},{"ymd":"2024_01_10","amt":"80","rate":"47024"},{"ymd":"2024_01_11","amt":"40","rate":"46908"},{"ymd":"2024_01_11","amt":"30","rate":"47000"},{"ymd":"2024_01_11","amt":"20","rate":"46336"},{"ymd":"2024_01_11","amt":"40","rate":"46480"},{"ymd":"2024_01_12","amt":"500","rate":"42459"}],"padz":[{"ymd":"2024_01_06","amt":"250","rate":"43888"},{"ymd":"2024_01_10","amt":"250","rate":"45955"},{"ymd":"2024_01_10","amt":"100","rate":"46023"},{"ymd":"2024_01_11","amt":"100","rate":"45866"},{"ymd":"2024_01_11","amt":"50","rate":"46439"},{"ymd":"2024_01_11","amt":"80","rate":"46083"},{"ymd":"2024_01_12","amt":"100","rate":"43551"},{"ymd":"2024_01_12","amt":"100","rate":"43677"},{"ymd":"2024_01_12","amt":"100","rate":"42402"}],"netAMT":"+1040","notez":"2","trimTOT":2170,"padTOT":1130,"expanded":true},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"TSLA","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0}],"expanded":true}}}
-   ai_main = {"qrtrz":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"1000","expanded":true,"trimz":[],"padz":[{"ymd":"2023_10_10","amt":"300","rate":"460"},{"ymd":"2023_10_20","amt":"200","rate":"413"}],"netAMT":-500,"notez":"2","notez_expanded":false,"trimTOT":0,"padTOT":500},{"tkr":"MDB","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"BTC","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0,"expanded":false}]},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[{"ymd":"2023_11_17","amt":"200","rate":"495"},{"ymd":"2023_11_22","amt":"100","rate":"486"}],"netAMT":-300,"notez":"2","trimTOT":0,"padTOT":300,"expanded":false},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":0,"notez":"3","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_11_01","amt":"100","rate":"35435"},{"ymd":"2023_11_10","amt":"200","rate":"36818"},{"ymd":"2023_11_15","amt":"100","rate":"37390"},{"ymd":"2023_11_22","amt":"100","rate":"37694"}],"padz":[],"netAMT":"+500","notez":"2","trimTOT":500,"padTOT":0,"expanded":false}]},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":true,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2023_12_15","amt":"30","rate":"492"},{"ymd":"2023_12_18","amt":"50","rate":"503"},{"ymd":"2023_12_18","amt":"50","rate":"497"},{"ymd":"2023_12_26","amt":"60","rate":"493"},{"ymd":"2023_12_28","amt":"100","rate":"497"},{"ymd":"2023_12_29","amt":"100","rate":"498"}],"padz":[{"ymd":"2023_12_18","amt":"0","rate":"497"},{"ymd":"2023_12_18","amt":"0","rate":"503"}],"netAMT":"+390","notez":"2","trimTOT":390,"padTOT":0,"expanded":false},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":0,"notez":"3","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"38626"},{"ymd":"2023_12_02","amt":"50","rate":"39417"},{"ymd":"2023_12_03","amt":"25","rate":"39848"},{"ymd":"2023_12_03","amt":"50","rate":"4819"},{"ymd":"2023_12_04","amt":"20","rate":"41700"},{"ymd":"2023_12_04","amt":"30","rate":"41684"},{"ymd":"2023_12_05","amt":"50","rate":"42718"},{"ymd":"2023_12_05","amt":"50","rate":"44008"},{"ymd":"2023_12_13","amt":"20","rate":"41940"},{"ymd":"2023_12_13","amt":"30","rate":"42648"},{"ymd":"2023_12_13","amt":"20","rate":"43042"},{"ymd":"2023_12_18","amt":"30","rate":"41509"},{"ymd":"2023_12_30","amt":"9464","rate":"42060"}],"padz":[{"ymd":"2023_12_12","amt":"100","rate":"40928"},{"ymd":"2023_12_17","amt":"200","rate":"41077"},{"ymd":"2023_12_18","amt":"100","rate":"43074"},{"ymd":"2023_12_19","amt":"200","rate":"42663"},{"ymd":"2023_12_22","amt":"1500","rate":"43637"},{"ymd":"2023_12_25","amt":"100","rate":"42844"},{"ymd":"2023_12_29","amt":"50","rate":"42152"},{"ymd":"2023_12_29","amt":"500","rate":"42048"},{"ymd":"2023_12_30","amt":"5000","rate":"42303"},{"ymd":"2023_12_30","amt":"9000","rate":"42417"}],"netAMT":-6886,"notez":"Just Starting out. 1st month trading BTC since \"historic\" ETF approval on Jan 10, 2024. Profitable!!!","trimTOT":9864,"padTOT":16750,"expanded":true,"notez_expanded":true},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"TSLA","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0}]},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2024_01_08","amt":"300","rate":"514"},{"ymd":"2024_01_08","amt":"80","rate":"518"},{"ymd":"2024_01_08","amt":"30","rate":"519"},{"ymd":"2024_01_08","amt":"20","rate":"520"},{"ymd":"2024_01_08","amt":"20","rate":"521"},{"ymd":"2024_01_08","amt":"20","rate":"523"},{"ymd":"2024_01_08","amt":"30","rate":"526"},{"ymd":"2024_01_09","amt":"100","rate":"534"},{"ymd":"2024_01_09","amt":"80","rate":"538"},{"ymd":"2024_01_09","amt":"50","rate":"542"},{"ymd":"2024_01_10","amt":"30","rate":"545"},{"ymd":"2024_01_11","amt":"60","rate":"549"},{"ymd":"2024_01_11","amt":"30","rate":"551"}],"padz":[],"netAMT":"+850","notez":"JAN 8th 2024 - 1st $500 day!\nExcellent Margins, form prior OCT 27, 2024 lows.","trimTOT":850,"padTOT":0,"expanded":false,"notez_expanded":true},{"tkr":"MDB","cap":"1500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[],"padz":[],"netAMT":0,"notez":"3","trimTOT":0,"padTOT":0},{"tkr":"MSFT","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"QQQ","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"XLK","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"AMD","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"V","cap":"500","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"COIN","cap":"200","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2024_01_01","amt":"500","rate":"44519"},{"ymd":"2024_01_01","amt":"150","rate":"45282"},{"ymd":"2024_01_08","amt":"200","rate":"45870"},{"ymd":"2024_01_08","amt":"200","rate":"46466"},{"ymd":"2024_01_08","amt":"150","rate":"46891"},{"ymd":"2024_01_08","amt":"50","rate":"47156"},{"ymd":"2024_01_08","amt":"30","rate":"47028"},{"ymd":"2024_01_08","amt":"20","rate":"47021"},{"ymd":"2024_01_10","amt":"50","rate":"46229"},{"ymd":"2024_01_10","amt":"20","rate":"46354"},{"ymd":"2024_01_10","amt":"90","rate":"46768"},{"ymd":"2024_01_10","amt":"80","rate":"47024"},{"ymd":"2024_01_11","amt":"40","rate":"46908"},{"ymd":"2024_01_11","amt":"30","rate":"47000"},{"ymd":"2024_01_11","amt":"20","rate":"46336"},{"ymd":"2024_01_11","amt":"40","rate":"46480"},{"ymd":"2024_01_12","amt":"500","rate":"42459"}],"padz":[{"ymd":"2024_01_06","amt":"250","rate":"43888"},{"ymd":"2024_01_10","amt":"250","rate":"45955"},{"ymd":"2024_01_10","amt":"100","rate":"46023"},{"ymd":"2024_01_11","amt":"100","rate":"45866"},{"ymd":"2024_01_11","amt":"50","rate":"46439"},{"ymd":"2024_01_11","amt":"80","rate":"46083"},{"ymd":"2024_01_12","amt":"100","rate":"43551"},{"ymd":"2024_01_12","amt":"100","rate":"43677"},{"ymd":"2024_01_12","amt":"100","rate":"42402"}],"netAMT":"+1040","notez":"2","trimTOT":2170,"padTOT":1130,"expanded":true,"notez_expanded":true},{"tkr":"META","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0},{"tkr":"TSLA","cap":"100","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0}],"expanded":true}}}
+   // ai_main = {"qrtrz":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"1000","expanded":false,"trimz":[],"padz":[{"ymd":"2023_10_10","amt":"300","rate":"460"},{"ymd":"2023_10_20","amt":"200","rate":"413"}],"netAMT":-500,"notez":"2","notez_expanded":true,"trimTOT":0,"padTOT":500,"bankVAL":-500,"bookVAL":500},{"tkr":"MDB","cap":"1000","trimz":[],"padz":[{"ymd":"2021_05_04","amt":"570","rate":"285"},{"ymd":"2023_09_21","amt":"200","rate":"334"},{"ymd":"2023_10_12","amt":"300","rate":"371"},{"ymd":"2023_10_25","amt":"200","rate":"329"}],"netAMT":-1270,"notez":"2","trimTOT":0,"padTOT":1270,"expanded":false},{"tkr":"COST","cap":"1000","trimz":[],"padz":[{"ymd":"2023_10_06","amt":"300","rate":"555"},{"ymd":"2023_10_10","amt":"300","rate":"562"},{"ymd":"2023_10_12","amt":"200","rate":"568"},{"ymd":"2023_10_20","amt":"200","rate":"555"},{"ymd":"2023_10_20","amt":"200","rate":"552"},{"ymd":"2023_10_25","amt":"200","rate":"550"},{"ymd":"2023_10_26","amt":"200","rate":"548"},{"ymd":"2023_10_27","amt":"35","rate":"543"}],"netAMT":-1635,"notez":"2","trimTOT":0,"padTOT":1635,"expanded":false,"notez_expanded":false,"bankVAL":-500,"bookVAL":500},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2020_04_20","amt":"176","rate":"176"}],"padz":[{"ymd":"2020_04_17","amt":"180","rate":"180"},{"ymd":"2021_06_22","amt":"531","rate":"266"},{"ymd":"2023_09_30","amt":"200","rate":"316"},{"ymd":"2023_10_25","amt":"100","rate":"340"},{"ymd":"2023_10_26","amt":"100","rate":"330"}],"netAMT":-935,"notez":"2","trimTOT":176,"padTOT":1111,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_24","amt":"200","rate":"232"}],"trimTOT":0,"padTOT":200,"netAMT":-200},{"tkr":"AMD","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_01","amt":"524","rate":"102"}],"trimTOT":0,"padTOT":524,"netAMT":-524},{"tkr":"GOOG","cap":"5000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_10","amt":"4963","rate":"125"}],"trimTOT":0,"padTOT":4963,"netAMT":-4963},{"tkr":"XLK","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2021_07_01","amt":"297","rate":"149"},{"ymd":"2023_09_15","amt":"305","rate":"168"},{"ymd":"2020_01_01","amt":"500","rate":"157"}],"trimTOT":0,"padTOT":1102,"netAMT":-1102}]},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[{"ymd":"2023_11_17","amt":"200","rate":"495"},{"ymd":"2023_11_22","amt":"100","rate":"486"}],"netAMT":-300,"notez":"2","trimTOT":0,"padTOT":300,"expanded":false,"bankVAL":-800,"notez_expanded":true,"bookVAL":800},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2023_11_10","amt":"200","rate":"376"}],"padz":[],"netAMT":"+200","notez":"2","trimTOT":200,"padTOT":0,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[{"ymd":"2023_11_10","amt":"200","rate":"133"},{"ymd":"2023_11_14","amt":"100","rate":"136"},{"ymd":"2023_11_16","amt":"100","rate":"139"},{"ymd":"2023_11_20","amt":"100","rate":"138"},{"ymd":"2023_11_20","amt":"40","rate":"139"}],"padz":[],"netAMT":"+540","notez":"3","trimTOT":540,"padTOT":0,"expanded":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2023_11_10","amt":"100","rate":"368"},{"ymd":"2023_11_20","amt":"100","rate":"378"},{"ymd":"2023_11_28","amt":"30","rate":"384"}],"padz":[],"netAMT":"+230","notez":"2","trimTOT":230,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"500","trimz":[{"ymd":"2023_11_14","amt":"100","rate":"182"},{"ymd":"2023_11_20","amt":"100","rate":"185"}],"padz":[],"netAMT":"+200","notez":"2","trimTOT":200,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2022_11_10","amt":"100","rate":"119"},{"ymd":"2023_11_16","amt":"100","rate":"120"},{"ymd":"2023_11_29","amt":"30","rate":"125"}],"padz":[],"netAMT":"+230","notez":"2","trimTOT":230,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2023_11_24","amt":"30","rate":"254"}],"padz":[{"ymd":"2023_11_10","amt":"300","rate":"245"}],"netAMT":-270,"notez":"2","trimTOT":30,"padTOT":300,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_11_01","amt":"100","rate":"35435"},{"ymd":"2023_11_10","amt":"200","rate":"36818"},{"ymd":"2023_11_15","amt":"100","rate":"37390"},{"ymd":"2023_11_22","amt":"100","rate":"37694"}],"padz":[],"netAMT":"+500","notez":"2","trimTOT":500,"padTOT":0,"expanded":false}]},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2023_12_15","amt":"30","rate":"492"},{"ymd":"2023_12_18","amt":"50","rate":"503"},{"ymd":"2023_12_18","amt":"50","rate":"497"},{"ymd":"2023_12_26","amt":"60","rate":"493"},{"ymd":"2023_12_28","amt":"100","rate":"497"},{"ymd":"2023_12_29","amt":"100","rate":"498"}],"padz":[{"ymd":"2023_12_18","amt":"0","rate":"497"},{"ymd":"2023_12_18","amt":"0","rate":"503"}],"netAMT":"+390","notez":"2","trimTOT":390,"padTOT":0,"expanded":false,"bankVAL":-410,"bookVAL":800,"notez_expanded":true},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"432"},{"ymd":"2023_12_14","amt":"20","rate":"413"},{"ymd":"2023_12_14","amt":"20","rate":"420"},{"ymd":"2023_12_15","amt":"10","rate":"420"},{"ymd":"2023_12_16","amt":"195","rate":"409"},{"ymd":"2023_12_26","amt":"200","rate":"416"},{"ymd":"2023_12_28","amt":"50","rate":"417"}],"padz":[{"ymd":"2023_12_09","amt":"100","rate":"388"}],"netAMT":"+420","notez":"2","trimTOT":520,"padTOT":100,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[{"ymd":"2023_12_11","amt":"100","rate":"624"},{"ymd":"2023_12_13","amt":"100","rate":"636"},{"ymd":"2023_12_15","amt":"250","rate":"656"},{"ymd":"2023_12_15","amt":"30","rate":"660"},{"ymd":"2023_12_18","amt":"60","rate":"674"},{"ymd":"2023_12_18","amt":"30","rate":"679"}],"padz":[{"ymd":"2023_12_27","amt":"40","rate":"667"},{"ymd":"2023_12_28","amt":"20","rate":"662"}],"netAMT":"+510","notez":"1","trimTOT":570,"padTOT":60,"expanded":false},{"tkr":"GOOG","cap":"4000","trimz":[{"ymd":"2023_12_07","amt":"25","rate":"140"},{"ymd":"2023_12_11","amt":"496","rate":"133"},{"ymd":"2023_12_11","amt":"298","rate":"133"},{"ymd":"2023_12_13","amt":"10","rate":"134"},{"ymd":"2023_12_18","amt":"70","rate":"137"},{"ymd":"2023_12_18","amt":"20","rate":"137"},{"ymd":"2023_12_19","amt":"25","rate":"138"},{"ymd":"2023_12_20","amt":"120","rate":"142"},{"ymd":"2023_12_22","amt":"20","rate":"143"}],"padz":[],"netAMT":"+1084","notez":"3","trimTOT":1084,"padTOT":0,"expanded":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2023_12_31","amt":"398","rate":"374"}],"padz":[],"netAMT":"+398","notez":"2","trimTOT":398,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"1000","trimz":[{"ymd":"2023_12_11","amt":"10","rate":"187"},{"ymd":"2023_12_13","amt":"10","rate":"191"},{"ymd":"2023_12_22","amt":"270","rate":"192"}],"padz":[],"netAMT":"+290","notez":"2","trimTOT":290,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2023_12_08","amt":"20","rate":"129"},{"ymd":"2023_12_11","amt":"20","rate":"134"},{"ymd":"2023_11_12","amt":"20","rate":"139"},{"ymd":"2023_12_26","amt":"15","rate":"143"},{"ymd":"2023_12_27","amt":"10","rate":"246"},{"ymd":"2023_12_28","amt":"10","rate":"149"}],"padz":[],"netAMT":"+95","notez":"2","trimTOT":95,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2023_12_12","amt":"10","rate":"259"}],"padz":[],"netAMT":"+10","notez":"2","trimTOT":10,"padTOT":0,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"38626"},{"ymd":"2023_12_02","amt":"50","rate":"39417"},{"ymd":"2023_12_03","amt":"25","rate":"39848"},{"ymd":"2023_12_03","amt":"50","rate":"4819"},{"ymd":"2023_12_04","amt":"20","rate":"41700"},{"ymd":"2023_12_04","amt":"30","rate":"41684"},{"ymd":"2023_12_05","amt":"50","rate":"42718"},{"ymd":"2023_12_05","amt":"50","rate":"44008"},{"ymd":"2023_12_13","amt":"20","rate":"41940"},{"ymd":"2023_12_13","amt":"30","rate":"42648"},{"ymd":"2023_12_13","amt":"20","rate":"43042"},{"ymd":"2023_12_18","amt":"30","rate":"41509"},{"ymd":"2023_12_30","amt":"9464","rate":"42060"}],"padz":[{"ymd":"2023_12_12","amt":"100","rate":"40928"},{"ymd":"2023_12_17","amt":"200","rate":"41077"},{"ymd":"2023_12_18","amt":"100","rate":"43074"},{"ymd":"2023_12_19","amt":"200","rate":"42663"},{"ymd":"2023_12_22","amt":"1500","rate":"43637"},{"ymd":"2023_12_25","amt":"100","rate":"42844"},{"ymd":"2023_12_29","amt":"50","rate":"42152"},{"ymd":"2023_12_29","amt":"500","rate":"42048"},{"ymd":"2023_12_30","amt":"5000","rate":"42303"},{"ymd":"2023_12_30","amt":"9000","rate":"42417"}],"netAMT":-6886,"notez":"Just Starting out. 1st month trading BTC since \"historic\" ETF approval on Jan 10, 2024. Profitable!!!","trimTOT":9864,"padTOT":16750,"expanded":false,"notez_expanded":true,"bookVAL":800},{"tkr":"AMZN","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2022_12_04","amt":"100","rate":"144"}],"trimTOT":0,"padTOT":100,"netAMT":-100}]},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2024_01_08","amt":"300","rate":"514"},{"ymd":"2024_01_08","amt":"80","rate":"518"},{"ymd":"2024_01_08","amt":"30","rate":"519"},{"ymd":"2024_01_08","amt":"20","rate":"520"},{"ymd":"2024_01_08","amt":"20","rate":"521"},{"ymd":"2024_01_08","amt":"20","rate":"523"},{"ymd":"2024_01_08","amt":"30","rate":"526"},{"ymd":"2024_01_09","amt":"100","rate":"534"},{"ymd":"2024_01_09","amt":"80","rate":"538"},{"ymd":"2024_01_09","amt":"50","rate":"542"},{"ymd":"2024_01_10","amt":"30","rate":"545"},{"ymd":"2024_01_11","amt":"60","rate":"549"},{"ymd":"2024_01_11","amt":"30","rate":"551"}],"padz":[],"netAMT":"+850","notez":"JAN 8th 2024 - 1st $500 day!\nExcellent Margins, form prior OCT 27, 2024 lows.","trimTOT":850,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2024_01_19","amt":"10","rate":"401"}],"padz":[{"ymd":"2024_01_11","amt":"15","rate":"393"}],"netAMT":-5,"notez":"2","trimTOT":10,"padTOT":15,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[{"ymd":"2024_01_10","amt":"30","rate":"673"},{"ymd":"2024_01_12","amt":"30","rate":"679"},{"ymd":"2024_01_12","amt":"10","rate":"682"},{"ymd":"2024_01_18","amt":"20","rate":"687"},{"ymd":"2024_01_19","amt":"20","rate":"691"},{"ymd":"2024_01_19","amt":"50","rate":"694"}],"padz":[],"netAMT":"+160","notez":"1","trimTOT":160,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"GOOG","cap":"4000","trimz":[{"ymd":"2024_01_10","amt":"20","rate":"144"},{"ymd":"2024_01_11","amt":"20","rate":"144"},{"ymd":"2024_01_18","amt":"20","rate":"145"},{"ymd":"2024_01_19","amt":"40","rate":"147"},{"ymd":"2024_01_19","amt":"20","rate":"147"},{"ymd":"2024_01_19","amt":"10","rate":"148"}],"padz":[],"netAMT":"+130","notez":"3","trimTOT":130,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2024_01_08","amt":"50","rate":"372"},{"ymd":"2024_01_09","amt":"30","rate":"376"},{"ymd":"2024_01_10","amt":"210","rate":"381"}],"padz":[],"netAMT":"+290","notez":"2","trimTOT":290,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"500","trimz":[{"ymd":"2023_01_19","amt":"20","rate":"197"},{"ymd":"2024_01_19","amt":"20","rate":"200"}],"padz":[],"netAMT":"+40","notez":"2","trimTOT":40,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2024_01_16","amt":"20","rate":"157"},{"ymd":"2024_01_18","amt":"30","rate":"166"},{"ymd":"2024_01_19","amt":"25","rate":"173"}],"padz":[],"netAMT":"+75","notez":"2","trimTOT":75,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2024_01_12","amt":"10","rate":"265"},{"ymd":"2024_01_19","amt":"15","rate":"271"}],"padz":[{"ymd":"2024_01_19","amt":"500","rate":"269"}],"netAMT":-475,"notez":"2","trimTOT":25,"padTOT":500,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2024_01_01","amt":"500","rate":"44519"},{"ymd":"2024_01_01","amt":"150","rate":"45282"},{"ymd":"2024_01_08","amt":"200","rate":"45870"},{"ymd":"2024_01_08","amt":"200","rate":"46466"},{"ymd":"2024_01_08","amt":"150","rate":"46891"},{"ymd":"2024_01_08","amt":"50","rate":"47156"},{"ymd":"2024_01_08","amt":"30","rate":"47028"},{"ymd":"2024_01_08","amt":"20","rate":"47021"},{"ymd":"2024_01_10","amt":"50","rate":"46229"},{"ymd":"2024_01_10","amt":"20","rate":"46354"},{"ymd":"2024_01_10","amt":"90","rate":"46768"},{"ymd":"2024_01_10","amt":"80","rate":"47024"},{"ymd":"2024_01_11","amt":"40","rate":"46908"},{"ymd":"2024_01_11","amt":"30","rate":"47000"},{"ymd":"2024_01_11","amt":"20","rate":"46336"},{"ymd":"2024_01_11","amt":"40","rate":"46480"},{"ymd":"2024_01_12","amt":"500","rate":"42459"}],"padz":[{"ymd":"2024_01_06","amt":"250","rate":"43888"},{"ymd":"2024_01_10","amt":"250","rate":"45955"},{"ymd":"2024_01_10","amt":"100","rate":"46023"},{"ymd":"2024_01_11","amt":"100","rate":"45866"},{"ymd":"2024_01_11","amt":"50","rate":"46439"},{"ymd":"2024_01_11","amt":"80","rate":"46083"},{"ymd":"2024_01_12","amt":"100","rate":"43551"},{"ymd":"2024_01_12","amt":"100","rate":"43677"},{"ymd":"2024_01_12","amt":"100","rate":"42402"}],"netAMT":"+1040","notez":"2","trimTOT":2170,"padTOT":1130,"expanded":false,"notez_expanded":true,"bookVAL":800,"bankVAL":440},{"tkr":"AMZN","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2024_01_04","amt":"145","rate":"145"},{"ymd":"2024_01_04","amt":"146","rate":"146"},{"ymd":"2024_01_12","amt":"70","rate":"154"},{"ymd":"2024_01_19","amt":"300","rate":"153"},{"ymd":"2024_01_19","amt":"200","rate":"153"}],"trimTOT":0,"padTOT":861,"netAMT":-861}],"expanded":false}}}
+   ai_main = {"qrtrz":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"1000","expanded":false,"trimz":[],"padz":[{"ymd":"2023_10_10","amt":"300","rate":"460"},{"ymd":"2023_10_20","amt":"200","rate":"413"}],"netAMT":-500,"notez":"2","notez_expanded":true,"trimTOT":0,"padTOT":500,"bankVAL":-500,"bookVAL":500},{"tkr":"MDB","cap":"1000","trimz":[],"padz":[{"ymd":"2021_05_04","amt":"570","rate":"285"},{"ymd":"2023_09_21","amt":"200","rate":"334"},{"ymd":"2023_10_12","amt":"300","rate":"371"},{"ymd":"2023_10_25","amt":"200","rate":"329"}],"netAMT":-1270,"notez":"2","trimTOT":0,"padTOT":1270,"expanded":false},{"tkr":"COST","cap":"1000","trimz":[],"padz":[{"ymd":"2023_10_06","amt":"300","rate":"555"},{"ymd":"2023_10_10","amt":"300","rate":"562"},{"ymd":"2023_10_12","amt":"200","rate":"568"},{"ymd":"2023_10_20","amt":"200","rate":"555"},{"ymd":"2023_10_20","amt":"200","rate":"552"},{"ymd":"2023_10_25","amt":"200","rate":"550"},{"ymd":"2023_10_26","amt":"200","rate":"548"},{"ymd":"2023_10_27","amt":"35","rate":"543"}],"netAMT":-1635,"notez":"2","trimTOT":0,"padTOT":1635,"expanded":false,"notez_expanded":false,"bankVAL":-500,"bookVAL":500},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2020_04_20","amt":"176","rate":"176"}],"padz":[{"ymd":"2020_04_17","amt":"180","rate":"180"},{"ymd":"2021_06_22","amt":"531","rate":"266"},{"ymd":"2023_09_30","amt":"200","rate":"316"},{"ymd":"2023_10_25","amt":"100","rate":"340"},{"ymd":"2023_10_26","amt":"100","rate":"330"}],"netAMT":-935,"notez":"2","trimTOT":176,"padTOT":1111,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_24","amt":"200","rate":"232"}],"trimTOT":0,"padTOT":200,"netAMT":-200},{"tkr":"AMD","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_01","amt":"524","rate":"102"}],"trimTOT":0,"padTOT":524,"netAMT":-524},{"tkr":"GOOG","cap":"5000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_10","amt":"4963","rate":"125"}],"trimTOT":0,"padTOT":4963,"netAMT":-4963},{"tkr":"XLK","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2021_07_01","amt":"297","rate":"149"},{"ymd":"2023_09_15","amt":"305","rate":"168"},{"ymd":"2020_01_01","amt":"500","rate":"157"}],"trimTOT":0,"padTOT":1102,"netAMT":-1102}]},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[{"ymd":"2023_11_17","amt":"200","rate":"495"},{"ymd":"2023_11_22","amt":"100","rate":"486"}],"netAMT":-300,"notez":"2","trimTOT":0,"padTOT":300,"expanded":false,"bankVAL":-800,"notez_expanded":true,"bookVAL":800},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2023_11_10","amt":"200","rate":"376"}],"padz":[],"netAMT":"+200","notez":"2","trimTOT":200,"padTOT":0,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[{"ymd":"2023_11_10","amt":"200","rate":"133"},{"ymd":"2023_11_14","amt":"100","rate":"136"},{"ymd":"2023_11_16","amt":"100","rate":"139"},{"ymd":"2023_11_20","amt":"100","rate":"138"},{"ymd":"2023_11_20","amt":"40","rate":"139"}],"padz":[],"netAMT":"+540","notez":"3","trimTOT":540,"padTOT":0,"expanded":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2023_11_10","amt":"100","rate":"368"},{"ymd":"2023_11_20","amt":"100","rate":"378"},{"ymd":"2023_11_28","amt":"30","rate":"384"}],"padz":[],"netAMT":"+230","notez":"2","trimTOT":230,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"500","trimz":[{"ymd":"2023_11_14","amt":"100","rate":"182"},{"ymd":"2023_11_20","amt":"100","rate":"185"}],"padz":[],"netAMT":"+200","notez":"2","trimTOT":200,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2022_11_10","amt":"100","rate":"119"},{"ymd":"2023_11_16","amt":"100","rate":"120"},{"ymd":"2023_11_29","amt":"30","rate":"125"}],"padz":[],"netAMT":"+230","notez":"2","trimTOT":230,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2023_11_24","amt":"30","rate":"254"}],"padz":[{"ymd":"2023_11_10","amt":"300","rate":"245"}],"netAMT":-270,"notez":"2","trimTOT":30,"padTOT":300,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_11_01","amt":"100","rate":"35435"},{"ymd":"2023_11_10","amt":"200","rate":"36818"},{"ymd":"2023_11_15","amt":"100","rate":"37390"},{"ymd":"2023_11_22","amt":"100","rate":"37694"}],"padz":[],"netAMT":"+500","notez":"2","trimTOT":500,"padTOT":0,"expanded":false}]},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2023_12_15","amt":"30","rate":"492"},{"ymd":"2023_12_18","amt":"50","rate":"503"},{"ymd":"2023_12_18","amt":"50","rate":"497"},{"ymd":"2023_12_26","amt":"60","rate":"493"},{"ymd":"2023_12_28","amt":"100","rate":"497"},{"ymd":"2023_12_29","amt":"100","rate":"498"}],"padz":[{"ymd":"2023_12_18","amt":"0","rate":"497"},{"ymd":"2023_12_18","amt":"0","rate":"503"}],"netAMT":"+390","notez":"2","trimTOT":390,"padTOT":0,"expanded":false,"bankVAL":-410,"bookVAL":800,"notez_expanded":true},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"432"},{"ymd":"2023_12_14","amt":"20","rate":"413"},{"ymd":"2023_12_14","amt":"20","rate":"420"},{"ymd":"2023_12_15","amt":"10","rate":"420"},{"ymd":"2023_12_16","amt":"195","rate":"409"},{"ymd":"2023_12_26","amt":"200","rate":"416"},{"ymd":"2023_12_28","amt":"50","rate":"417"}],"padz":[{"ymd":"2023_12_09","amt":"100","rate":"388"}],"netAMT":"+420","notez":"2","trimTOT":520,"padTOT":100,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[{"ymd":"2023_12_11","amt":"100","rate":"624"},{"ymd":"2023_12_13","amt":"100","rate":"636"},{"ymd":"2023_12_15","amt":"250","rate":"656"},{"ymd":"2023_12_15","amt":"30","rate":"660"},{"ymd":"2023_12_18","amt":"60","rate":"674"},{"ymd":"2023_12_18","amt":"30","rate":"679"}],"padz":[{"ymd":"2023_12_27","amt":"40","rate":"667"},{"ymd":"2023_12_28","amt":"20","rate":"662"}],"netAMT":"+510","notez":"1","trimTOT":570,"padTOT":60,"expanded":false},{"tkr":"GOOG","cap":"4000","trimz":[{"ymd":"2023_12_07","amt":"25","rate":"140"},{"ymd":"2023_12_11","amt":"496","rate":"133"},{"ymd":"2023_12_11","amt":"298","rate":"133"},{"ymd":"2023_12_13","amt":"10","rate":"134"},{"ymd":"2023_12_18","amt":"70","rate":"137"},{"ymd":"2023_12_18","amt":"20","rate":"137"},{"ymd":"2023_12_19","amt":"25","rate":"138"},{"ymd":"2023_12_20","amt":"120","rate":"142"},{"ymd":"2023_12_22","amt":"20","rate":"143"}],"padz":[],"netAMT":"+1084","notez":"3","trimTOT":1084,"padTOT":0,"expanded":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2023_12_31","amt":"398","rate":"374"}],"padz":[],"netAMT":"+398","notez":"2","trimTOT":398,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"1000","trimz":[{"ymd":"2023_12_11","amt":"10","rate":"187"},{"ymd":"2023_12_13","amt":"10","rate":"191"},{"ymd":"2023_12_22","amt":"270","rate":"192"}],"padz":[],"netAMT":"+290","notez":"2","trimTOT":290,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2023_12_08","amt":"20","rate":"129"},{"ymd":"2023_12_11","amt":"20","rate":"134"},{"ymd":"2023_11_12","amt":"20","rate":"139"},{"ymd":"2023_12_26","amt":"15","rate":"143"},{"ymd":"2023_12_27","amt":"10","rate":"246"},{"ymd":"2023_12_28","amt":"10","rate":"149"}],"padz":[],"netAMT":"+95","notez":"2","trimTOT":95,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2023_12_12","amt":"10","rate":"259"}],"padz":[],"netAMT":"+10","notez":"2","trimTOT":10,"padTOT":0,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"38626"},{"ymd":"2023_12_02","amt":"50","rate":"39417"},{"ymd":"2023_12_03","amt":"25","rate":"39848"},{"ymd":"2023_12_03","amt":"50","rate":"4819"},{"ymd":"2023_12_04","amt":"20","rate":"41700"},{"ymd":"2023_12_04","amt":"30","rate":"41684"},{"ymd":"2023_12_05","amt":"50","rate":"42718"},{"ymd":"2023_12_05","amt":"50","rate":"44008"},{"ymd":"2023_12_13","amt":"20","rate":"41940"},{"ymd":"2023_12_13","amt":"30","rate":"42648"},{"ymd":"2023_12_13","amt":"20","rate":"43042"},{"ymd":"2023_12_18","amt":"30","rate":"41509"},{"ymd":"2023_12_30","amt":"9464","rate":"42060"}],"padz":[{"ymd":"2023_12_12","amt":"100","rate":"40928"},{"ymd":"2023_12_17","amt":"200","rate":"41077"},{"ymd":"2023_12_18","amt":"100","rate":"43074"},{"ymd":"2023_12_19","amt":"200","rate":"42663"},{"ymd":"2023_12_22","amt":"1500","rate":"43637"},{"ymd":"2023_12_25","amt":"100","rate":"42844"},{"ymd":"2023_12_29","amt":"50","rate":"42152"},{"ymd":"2023_12_29","amt":"500","rate":"42048"},{"ymd":"2023_12_30","amt":"5000","rate":"42303"},{"ymd":"2023_12_30","amt":"9000","rate":"42417"}],"netAMT":-6886,"notez":"Just Starting out. 1st month trading BTC since \"historic\" ETF approval on Jan 10, 2024. Profitable!!!","trimTOT":9864,"padTOT":16750,"expanded":false,"notez_expanded":true,"bookVAL":800},{"tkr":"AMZN","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2022_12_04","amt":"100","rate":"144"}],"trimTOT":0,"padTOT":100,"netAMT":-100}]},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2024_01_08","amt":"300","rate":"514"},{"ymd":"2024_01_08","amt":"80","rate":"518"},{"ymd":"2024_01_08","amt":"30","rate":"519"},{"ymd":"2024_01_08","amt":"20","rate":"520"},{"ymd":"2024_01_08","amt":"20","rate":"521"},{"ymd":"2024_01_08","amt":"20","rate":"523"},{"ymd":"2024_01_08","amt":"30","rate":"526"},{"ymd":"2024_01_09","amt":"100","rate":"534"},{"ymd":"2024_01_09","amt":"80","rate":"538"},{"ymd":"2024_01_09","amt":"50","rate":"542"},{"ymd":"2024_01_10","amt":"30","rate":"545"},{"ymd":"2024_01_11","amt":"60","rate":"549"},{"ymd":"2024_01_11","amt":"30","rate":"551"}],"padz":[],"netAMT":"+850","notez":"JAN 8th 2024 - 1st $500 day!\nExcellent Margins, form prior OCT 27, 2024 lows.","trimTOT":850,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2024_01_19","amt":"10","rate":"401"}],"padz":[{"ymd":"2024_01_11","amt":"15","rate":"393"}],"netAMT":-5,"notez":"2","trimTOT":10,"padTOT":15,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[{"ymd":"2024_01_10","amt":"30","rate":"673"},{"ymd":"2024_01_12","amt":"30","rate":"679"},{"ymd":"2024_01_12","amt":"10","rate":"682"},{"ymd":"2024_01_18","amt":"20","rate":"687"},{"ymd":"2024_01_19","amt":"20","rate":"691"},{"ymd":"2024_01_19","amt":"50","rate":"694"}],"padz":[],"netAMT":"+160","notez":"1","trimTOT":160,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"GOOG","cap":"4000","trimz":[{"ymd":"2024_01_10","amt":"20","rate":"144"},{"ymd":"2024_01_11","amt":"20","rate":"144"},{"ymd":"2024_01_18","amt":"20","rate":"145"},{"ymd":"2024_01_19","amt":"40","rate":"147"},{"ymd":"2024_01_19","amt":"20","rate":"147"},{"ymd":"2024_01_19","amt":"10","rate":"148"}],"padz":[],"netAMT":"+130","notez":"3","trimTOT":130,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2024_01_08","amt":"50","rate":"372"},{"ymd":"2024_01_09","amt":"30","rate":"376"},{"ymd":"2024_01_10","amt":"210","rate":"381"}],"padz":[],"netAMT":"+290","notez":"2","trimTOT":290,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"500","trimz":[{"ymd":"2023_01_19","amt":"20","rate":"197"},{"ymd":"2024_01_19","amt":"20","rate":"200"}],"padz":[],"netAMT":"+40","notez":"2","trimTOT":40,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2024_01_16","amt":"20","rate":"157"},{"ymd":"2024_01_18","amt":"30","rate":"166"},{"ymd":"2024_01_19","amt":"25","rate":"173"}],"padz":[],"netAMT":"+75","notez":"2","trimTOT":75,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2024_01_12","amt":"10","rate":"265"},{"ymd":"2024_01_19","amt":"15","rate":"271"}],"padz":[{"ymd":"2024_01_19","amt":"500","rate":"269"}],"netAMT":-475,"notez":"2","trimTOT":25,"padTOT":500,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2024_01_01","amt":"500","rate":"44519"},{"ymd":"2024_01_01","amt":"150","rate":"45282"},{"ymd":"2024_01_08","amt":"200","rate":"45870"},{"ymd":"2024_01_08","amt":"200","rate":"46466"},{"ymd":"2024_01_08","amt":"150","rate":"46891"},{"ymd":"2024_01_08","amt":"50","rate":"47156"},{"ymd":"2024_01_08","amt":"30","rate":"47028"},{"ymd":"2024_01_08","amt":"20","rate":"47021"},{"ymd":"2024_01_10","amt":"50","rate":"46229"},{"ymd":"2024_01_10","amt":"20","rate":"46354"},{"ymd":"2024_01_10","amt":"90","rate":"46768"},{"ymd":"2024_01_10","amt":"80","rate":"47024"},{"ymd":"2024_01_11","amt":"40","rate":"46908"},{"ymd":"2024_01_11","amt":"30","rate":"47000"},{"ymd":"2024_01_11","amt":"20","rate":"46336"},{"ymd":"2024_01_11","amt":"40","rate":"46480"},{"ymd":"2024_01_12","amt":"500","rate":"42459"},{"ymd":"2024_01_21","amt":"3000","rate":"41248"}],"padz":[{"ymd":"2024_01_06","amt":"250","rate":"43888"},{"ymd":"2024_01_10","amt":"250","rate":"45955"},{"ymd":"2024_01_10","amt":"100","rate":"46023"},{"ymd":"2024_01_11","amt":"100","rate":"45866"},{"ymd":"2024_01_11","amt":"50","rate":"46439"},{"ymd":"2024_01_11","amt":"80","rate":"46083"},{"ymd":"2024_01_12","amt":"100","rate":"43551"},{"ymd":"2024_01_12","amt":"100","rate":"43677"},{"ymd":"2024_01_12","amt":"100","rate":"42402"},{"ymd":"2024_01_18","amt":"200","rate":"41536"},{"ymd":"2024_01_18","amt":"200","rate":"40888"},{"ymd":"2024_01_21","amt":"200","rate":"417575"},{"ymd":"2024_01_21","amt":"100","rate":"40888"},{"ymd":"2024_01_21","amt":"100","rate":"40666"},{"ymd":"2024_01_21","amt":"100","rate":"40444"},{"ymd":"2024_01_21","amt":"100","rate":"39888"},{"ymd":"2024_01_21","amt":"200","rate":"39655"}],"netAMT":"+2840","notez":"This was a ROUGH ONE. Correction at exact the time of CERTAINTY. Destroyed by institutions. How did I manage the boat in the unexpected correction? \nWe will See. Have yet to RUN the NUMBERS!\nCrossing fingers. How to CALCULATE?","trimTOT":5170,"padTOT":2330,"expanded":true,"notez_expanded":true,"bookVAL":800,"bankVAL":440},{"tkr":"AMZN","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2024_01_04","amt":"145","rate":"145"},{"ymd":"2024_01_04","amt":"146","rate":"146"},{"ymd":"2024_01_12","amt":"70","rate":"154"},{"ymd":"2024_01_19","amt":"300","rate":"153"},{"ymd":"2024_01_19","amt":"200","rate":"153"}],"trimTOT":0,"padTOT":861,"netAMT":-861}],"expanded":true}}}
 }
 
 const ai_main_init=()=>{ //READ from LOCAL STORAGE
@@ -3991,13 +4102,51 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
          QuicksNUMBOX0.appendChild(QuicksCHECKBOX0)
          quarterHeader.appendChild(QuicksNUMBOX0)
          // end ************************************** selector         
+         //START TITLE
          quarterTITLE = document.createElement('input')
          quarterTITLE.classList.add('quarterTitle')
          quarterTITLE.value = QRTR.qID;
          // quarterTITLE.value = quarter.qID;
+        
+         // quarterTITLE.onblur = function() {
+         //    debugger;
+
+         saveBOXTTL = document.createElement('aside')
+         saveBOXTTL.innerHTML="&nbsp";
+         saveBOXTTL.classList.add('saveBOXTTL')
+         saveBtnTTL = document.createElement('button')
+         saveBtnTTL.id = 'saveBtn0'
+         saveBtnTTL.innerHTML = 'save🌟'
+         saveBtnTTL.classList.add('saveBtnTTL')
+         saveBtnTTL.setAttribute('data-arg6',QRTR.qID)
+         // saveBtnTTL.setAttribute('data-arg7',tickrData.tkr.toUpperCase())
+         // saveBtn0.addEventListener("click", (e)=>{ saveQuickTrackEdits(e)});
+         saveBtnTTL.addEventListener("click",(e)=>{ //ADDED BACK
+            saveBOXTTL.style.display = 'none'; 
+            let qID2 = e.target.getAttribute('data-arg6');
+            let saveTTL = quarterTITLE.value
+            // //SAVE to LOCAL STORAGE
+            ai_main.qrtrz[saveTTL] = {}; //NEW
+            ai_main.qrtrz[saveTTL] = ai_main.qrtrz[qID2]; //MOVE
+            ai_main.qrtrz[saveTTL].qID = saveTTL;
+            delete ai_main.qrtrz[qID2]; //DELETE OLD.
+            localStorage.ai_main = JSON.stringify(ai_main) 
+            generateQuickClick(); //RELOAD VIEW.  
+            showErrorMSG('⚔️ SAVED ⚔️');   
+         })
+
+         // saveBOX1.appendChild(saveBtn0)
+         //             btnzROW.appendChild(saveBOX1)
+
+         
          quarterTITLE.addEventListener("keyup",(e)=>{ 
-               saveBtn0.style.display = 'flex'; 
-            }); 
+            // let localSaveQtrTTL = e.target.parentElement.nextSibling.children[3].children[0]
+            // localSaveQtrTTL.style.display = 'flex';
+            saveBOXTTL.style.display = 'inline-flex'; 
+         });    
+
+
+         // START: EXPAND
          expandBtn0 = document.createElement('button')
          expandBtn0.innerHTML = '🕸️'
          expandBtn0.classList.add('addBtn5')
@@ -4014,6 +4163,9 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                addQuickTickerClick(e.target.getAttribute('data-arg2')) 
             });
          quarterHeader.appendChild(quarterTITLE)
+         saveBOXTTL.appendChild(saveBtnTTL)
+         quarterHeader.appendChild(saveBOXTTL)
+         // quarterHeader.appendChild(saveBtnTTL)
          quarterHeader.appendChild(expandBtn0)
          quarterHeader.appendChild(addBtn4)
          quarterBOX.appendChild(quarterHeader)
@@ -4105,9 +4257,83 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
  
                });
                trimTick.addEventListener("keyup",(e)=>{ 
-                  let localSaveBtn = e.target.parentElement.nextSibling.children[3].children[0]
+                  // let localSaveBtn = e.target.nextSibling.children[0]
+                  let localSaveBtn = e.target.nextSibling
                   localSaveBtn.style.display = 'flex';
                });             
+
+               //BEGIN SAVE BTN on new TKR
+               saveBOX1 = document.createElement('aside')
+               saveBOX1.innerHTML="&nbsp";
+               saveBOX1.classList.add('saveBOX1')
+               saveBtn0 = document.createElement('button')
+               // saveBtn0.id = 'saveBtn0' //FIX
+               saveBtn0.innerHTML = 'save🌟'
+               saveBtn0.classList.add('saveBtn0')
+               saveBtn0.setAttribute('data-arg6',QRTR.qID)
+               saveBtn0.setAttribute('data-arg7',tickrData.tkr.toUpperCase())
+               // saveBtn0.addEventListener("click", (e)=>{ saveQuickTrackEdits(e)});
+               saveBtn0.addEventListener("click",(e)=>{ //ADDED BACK
+                  saveBtn0.style.display = 'none'; 
+                  //SAVE LOGIC
+                  let qID1 = e.target.getAttribute('data-arg6');
+                  let tkr1 = e.target.getAttribute('data-arg7'); 
+                  let qtr = ai_main.qrtrz[qID1];
+                  // debugger;
+                  // let titleROW = e.target.parentElement.parentElement.previousSibling
+                  let titleROW = e.target.parentElement.parentElement;
+                  let tkr2 = titleROW.children[1].value;
+                  let cap2 = titleROW.children[3].children[0].value;
+                  // let fifo_grid_itemz = e.target.parentElement.parentElement.nextSibling.nextSibling.children[1].children[0].children;
+                  let fifo_grid_itemz =  e.target.parentElement.parentElement.nextSibling.nextSibling.nextSibling.children[1].children[0].children;
+                  //START fifo GRID SAVE
+                  let fifo_TGT = {}
+                  for(let d=0; d < ai_main.qrtrz[qID1].tickrz.length;d++){ //GET RECORD
+                        if(ai_main.qrtrz[qID1].tickrz[d].tkr===tkr1){
+                           fifo_TGT = ai_main.qrtrz[qID1].tickrz[d];
+                           break;
+                        }
+                     }
+                  let fifo_pair = {}, fifo_update = {trimz:[],padz:[]}
+                  for(let c=0; c < fifo_grid_itemz.length;c++){
+                     fifo_pair = fifo_grid_itemz[c];
+                     if(fifo_pair.children[0].value !='-'){
+                        fifo_TGT.trimz[c].ymd = fifo_pair.children[0].value 
+                     }
+                     if(fifo_pair.children[1].value !='-'){
+                        fifo_TGT.trimz[c].amt = fifo_pair.children[1].value
+                     }
+                     if(fifo_pair.children[2].value !='-'){
+                        fifo_TGT.padz[c].amt = fifo_pair.children[2].value
+                     }
+                     if(fifo_pair.children[3].value !='-'){
+                        fifo_TGT.padz[c].ymd = fifo_pair.children[3].value
+                     }
+                  }     
+                  //END fifo GRID SAVE
+                  //START NOTEZ SAVE
+                  let notez2 = e.target.parentElement.parentElement.nextSibling.nextSibling.nextSibling.nextSibling.children[3]
+                  // debugger;
+                  // let notez2 = e.target.parentElement.parentElement.nextSibling.nextSibling.nextSibling.children[3]
+                  for(let x=0; i< qtr.tickrz.length;x++){
+                     if(qtr.tickrz[x].tkr===tkr1){
+                        qtr.tickrz[x].tkr = tkr2.toUpperCase();
+                        qtr.tickrz[x].cap = cap2;
+                        if(notez2){ //collapsed / expanded
+                           qtr.tickrz[x].notez = notez2.value;
+                        }
+                        break;
+                     }
+                  } //END NOTEZ SAVE
+                  // //SAVE to LOCAL STORAGE
+                  localStorage.ai_main = JSON.stringify(ai_main) 
+                  generateQuickClick(); //RELOAD VIEW.  
+                  showErrorMSG('⚔️ SAVED ⚔️');   
+               });
+               saveBOX1.appendChild(saveBtn0)
+               //END SAVE BTN on new TKR.
+
+
                capBOX1 = document.createElement('aside')
                capBOX1.innerHTML="CAP&nbsp";
                capBOX1.classList.add('inputDATABOX1')
@@ -4137,7 +4363,10 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                });
 
                capData1.addEventListener("keyup",(e)=>{ 
-                  let localSaveBtn = e.target.parentElement.parentElement.nextSibling.children[3].children[0]
+                  // let localSaveBtn = e.target.parentElement.parentElement.nextSibling.children[3].children[0]
+                  // debugger;
+                  // let localSaveBtn =  e.target.parentElement.previousSibling.children[0];
+                  let localSaveBtn =  e.target.parentElement.previousSibling;
                   localSaveBtn.style.display = 'flex';                 
                });  
 
@@ -4147,31 +4376,35 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                //       e.target.getAttribute('data-arg7'))                
                capBOX1.appendChild(capData1)
                
-               trimTOTBOX1 = document.createElement('aside')
-               trimTOTBOX1.innerHTML="trims&nbsp";
-               trimTOTBOX1.classList.add('inputDATABOX2')
-               trimTOTBOX1.classList.add('greenTXT')
-               trimTOTData1 = document.createElement('input')
-               trimTOTData1.classList.add('inputDATA0')
-               trimTOTData1.placeholder = "$0";
-               trimTOTData1.readOnly = true;
-               trimTOTData1.value = tickrData.trimTOT || '';          
-               trimTOTBOX1.appendChild(trimTOTData1)
-               padTOTBOX1 = document.createElement('aside')
-               padTOTBOX1.innerHTML="pads&nbsp";
-               padTOTBOX1.classList.add('inputDATABOX3')
-               padTOTBOX1.classList.add('redTXT')
-               padTOTData1 = document.createElement('input')
-               padTOTData1.classList.add('inputDATA0')
-               padTOTData1.placeholder = "$0";
-               padTOTData1.readOnly = true;
-               padTOTData1.value = tickrData.padTOT || '';          
-               padTOTBOX1.appendChild(padTOTData1)
+               // trimTOTBOX1 = document.createElement('aside')
+               // trimTOTBOX1.innerHTML="trims&nbsp";
+               // trimTOTBOX1.classList.add('inputDATABOX2')
+               // trimTOTBOX1.classList.add('greenTXT')
+               // trimTOTData1 = document.createElement('input')
+               // trimTOTData1.classList.add('inputDATA0')
+               // trimTOTData1.placeholder = "$0";
+               // trimTOTData1.readOnly = true;
+               // trimTOTData1.value = tickrData.trimTOT || '';          
+               // trimTOTBOX1.appendChild(trimTOTData1)
+               // padTOTBOX1 = document.createElement('aside')
+               // padTOTBOX1.innerHTML="pads&nbsp";
+               // padTOTBOX1.classList.add('inputDATABOX3')
+               // padTOTBOX1.classList.add('redTXT')
+               // padTOTData1 = document.createElement('input')
+               // padTOTData1.classList.add('inputDATA0')
+               // padTOTData1.placeholder = "$0";
+               // padTOTData1.readOnly = true;
+               // padTOTData1.value = tickrData.padTOT || '';          
+               // padTOTBOX1.appendChild(padTOTData1)
                netAMTBOX1 = document.createElement('aside')
                netAMTBOX1.innerHTML="NET&nbsp";
                netAMTBOX1.classList.add('inputDATABOX4')
                netAMTData1 = document.createElement('input')
                netAMTData1.classList.add('inputDATA0')
+               // netAMTData1.classList.add( 'greenTXT' )
+               // netAMTData1.classList.add( 'redTXT' )
+               netAMTData1.classList.add( 
+                  (tickrData.netAMT<0)?'redTXT':'greenTXT' )
                netAMTData1.placeholder = "0";
                netAMTData1.readOnly = true;
                netAMTData1.value = tickrData.netAMT || '';          
@@ -4189,9 +4422,10 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                   });
 
                QuickROW.appendChild(trimTick)         
+               QuickROW.appendChild(saveBOX1)         
                QuickROW.appendChild(capBOX1)         
-               QuickROW.appendChild(trimTOTBOX1)         
-               QuickROW.appendChild(padTOTBOX1)         
+               // QuickROW.appendChild(trimTOTBOX1)         
+               // QuickROW.appendChild(padTOTBOX1)         
                QuickROW.appendChild(netAMTBOX1)         
                QuickROW.appendChild(expandBtn1)
                tickerRowBOX.appendChild(QuickROW)
@@ -4231,17 +4465,18 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         e.target.parentElement.nextSibling.children[0].value = saveROW.editType.toUpperCase()
                      });
                      btnzROW.appendChild(quickPadBtn0)
-                     saveBOX1 = document.createElement('aside')
-                     saveBOX1.innerHTML="&nbsp";
-                     saveBOX1.classList.add('saveBOX1')
-                     saveBtn0 = document.createElement('button')
-                     saveBtn0.id = 'saveBtn0'
-                     saveBtn0.innerHTML = 'save🌟'
-                     saveBtn0.classList.add('saveBtn0')
-                     saveBtn0.setAttribute('data-arg6',QRTR.qID)
-                     saveBtn0.setAttribute('data-arg7',tickrData.tkr.toUpperCase())
-                     saveBtn0.addEventListener("click", (e)=>{ saveQuickTrackEdits(e)});
-                     // saveBtn0.addEventListener("click",(e)=>{
+                     // saveBOX1 = document.createElement('aside')
+                     // saveBOX1.innerHTML="&nbsp";
+                     // saveBOX1.classList.add('saveBOX1')
+                     // saveBtn0 = document.createElement('button')
+                     // // saveBtn0.id = 'saveBtn0' //FIX
+                     // saveBtn0.innerHTML = 'save🌟'
+                     // saveBtn0.classList.add('saveBtn0')
+                     // saveBtn0.setAttribute('data-arg6',QRTR.qID)
+                     // saveBtn0.setAttribute('data-arg7',tickrData.tkr.toUpperCase())
+                     // // saveBtn0.addEventListener("click", (e)=>{ saveQuickTrackEdits(e)});
+                     // saveBtn0.addEventListener("click",(e)=>{ //ADDED BACK
+                     //    debugger;
                      //    saveBtn0.style.display = 'none'; 
                      //    //SAVE LOGIC
                      //    let qID1 = e.target.getAttribute('data-arg6');
@@ -4293,8 +4528,8 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                      //    generateQuickClick(); //RELOAD VIEW.  
                      //    showErrorMSG('⚔️ SAVED ⚔️');   
                      // });
-                     saveBOX1.appendChild(saveBtn0)
-                     btnzROW.appendChild(saveBOX1)
+                     // saveBOX1.appendChild(saveBtn0)
+                     // btnzROW.appendChild(saveBOX1)
 
                      
                   tickerRowBOX.appendChild(btnzROW) 
@@ -4408,6 +4643,20 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                      fifoGRIDBOX = document.createElement('section')
                      fifoGRIDBOX.classList.add('fifoGRIDBOX')
 
+                     //BEGIN LOCAL_SAVE_BTN ------------------------------FIFO
+                     saveBOX_fifo = document.createElement('aside') /* standard_btn */
+                     saveBOX_fifo.innerHTML="&nbsp";
+                     saveBTN_fifo = document.createElement('button')
+                     saveBTN_fifo.innerHTML = 'save🌟'
+                     saveBOX_fifo.classList.add('saveBOX_fifo')
+                     saveBTN_fifo.classList.add('saveBTN_fifo')
+                     // saveBTN_fifo.setAttribute('data-arg6',QRTR.qID)
+                     saveBTN_fifo.addEventListener("click",(e)=>{ 
+                        e.target.parentElement.style.display = 'none' 
+                     });
+                     saveBOX_fifo.appendChild(saveBTN_fifo) 
+                     //END LOCAL_SAVE_BTN --------------------------------------
+
                      fifoROW = document.createElement('section')
                      fifoROW.classList.add('fifoBOX')
                      let longLength = 0,trimNUM=0,padNUM=0,trimYMD=0,padYMD=0,trimRATE=0,padRATE=0;
@@ -4432,7 +4681,7 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         dateTrim.value = trimYMD;
                         dateTrim.classList.add('fifoTrimYMD')
                         dateTrim.addEventListener("keyup",(e)=>{ 
-                           e.target.parentElement.parentElement.parentElement.parentElement.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
+                           e.target.parentElement.parentElement.parentElement.nextSibling.style.display = 'inline-flex'
                            fifoTooltip.style.display = "none";
                         });
                         dateTrim.setAttribute('saveRate',trimRATE)
@@ -4456,7 +4705,7 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         trimAMT.value = trimNUM;
                         trimAMT.classList.add('fifoTrimNUM')
                         trimAMT.addEventListener("keyup",(e)=>{ 
-                           e.target.parentElement.parentElement.parentElement.parentElement.previousSibling.previousSibling.children[3].children[0].style.display = 'flex'
+                           e.target.parentElement.parentElement.parentElement.nextSibling.style.display = 'inline-flex'
                            fifoTooltip.style.display = "none";
                         }); 
                         trimAMT.setAttribute('saveRate',trimRATE)
@@ -4479,7 +4728,7 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         padAMT.value = padNUM;
                         padAMT.classList.add('fifoPadNUM')
                         padAMT.addEventListener("keyup",(e)=>{ 
-                           e.target.parentElement.parentElement.parentElement.parentElement.previousSibling.previousSibling.children[3].children[0].style.display = 'flex'
+                           e.target.parentElement.parentElement.parentElement.nextSibling.style.display = 'inline-flex'                           
                            fifoTooltip.style.display = "none";
                         }); 
                         padAMT.setAttribute('saveRate',padRATE)
@@ -4502,7 +4751,7 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         datePad.value = padYMD;
                         datePad.classList.add('fifoPadYMD')
                         datePad.addEventListener("keyup",(e)=>{ 
-                           e.target.parentElement.parentElement.parentElement.parentElement.previousSibling.previousSibling.children[3].children[0].style.display = 'flex'
+                           e.target.parentElement.parentElement.parentElement.nextSibling.style.display = 'inline-flex';
                            fifoTooltip.style.display = "none";
                         });  
                         datePad.setAttribute('saveRate',padRATE)
@@ -4530,6 +4779,8 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                      fifoGRIDBOX.appendChild(fifoROW)
                      fifoGRIDROW.appendChild(fifoGRIDBOX)
 
+                     fifoGRIDROW.appendChild(saveBOX_fifo) 
+
                   tickerRowBOX.appendChild(fifoGRIDROW) 
                   //END FIFO GRID ROW ************************                  
                   //BEGIN tickrNOTEZ ROW ***********************
@@ -4555,9 +4806,9 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         expandBtn02.innerHTML = '💨' 
                         //META_DATA_CALCULATION: --------------------------
                         // debugger;
-                        calculateBankVAL(QRTR.qID);
-                        // calculateBookVAL(QRTR.qID, tickrData);
-                        // calcualteEvenVAL(QRTR.qID, tickrData);
+                        calculateBankVAL(QRTR.qID, tickrData);
+                        calculateBookVAL(QRTR.qID, tickrData);
+                        calcualteEvenVAL(QRTR.qID, tickrData);
                         // debugger;
                         //META_DATA_CALCULATION: --------------------------
                         
@@ -4566,6 +4817,44 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         // totalzROW.id = 'totalzROW'
                         totalzROW.classList.add('totalzROW')
                         totalzROW.value = tickrData.notez || '';
+
+                        //TRIMZ and PADZ
+                        trimTOTBOX1 = document.createElement('aside')
+                        trimTOTBOX1.innerHTML="trims&nbsp";
+                        trimTOTBOX1.classList.add('inputDATABOX2')
+                        trimTOTBOX1.classList.add('greenTXT')
+                        trimTOTData1 = document.createElement('input')
+                        trimTOTData1.classList.add('inputDATA0')
+                        trimTOTData1.placeholder = "$0";
+                        trimTOTData1.readOnly = true;
+                        trimTOTData1.value = tickrData.trimTOT || '';          
+                        trimTOTBOX1.appendChild(trimTOTData1)
+                        totalzROW.appendChild(trimTOTBOX1)
+                        padTOTBOX1 = document.createElement('aside')
+                        padTOTBOX1.innerHTML="pads&nbsp";
+                        padTOTBOX1.classList.add('inputDATABOX6')
+                        padTOTBOX1.classList.add('redTXT')
+                        padTOTData1 = document.createElement('input')
+                        padTOTData1.classList.add('inputDATA0')
+                        padTOTData1.placeholder = "$0";
+                        padTOTData1.readOnly = true;
+                        padTOTData1.value = tickrData.padTOT || '';          
+                        padTOTBOX1.appendChild(padTOTData1)
+                        totalzROW.appendChild(padTOTBOX1)
+
+                        //GROSS
+                        grossMnthBOX1 = document.createElement('aside')
+                        grossMnthBOX1.innerHTML="GROSS&nbsp";
+                        grossMnthBOX1.classList.add('inputDATABOX5')
+                        // grossMnthBOX1.classList.add('redTXT')
+                        grossMnthData1 = document.createElement('input')
+                        grossMnthData1.classList.add('inputDATA0')
+                        grossMnthData1.placeholder = "$0";
+                        grossMnthData1.readOnly = true;
+                        grossMnthData1.value = tickrData.padTOT || '';          
+                        grossMnthBOX1.appendChild(grossMnthData1)
+                        totalzROW.appendChild(grossMnthBOX1)
+
 
                         totalzBOX1 = document.createElement('section')
                         totalzBOX1.classList.add('totalzBOX1')
@@ -4579,6 +4868,8 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         totalzBANK1.value = `$${tickrData.bankVAL || 0}`;
                         totalzBANK1.style.width = (tickrData.bankVAL)?(tickrData.bankVAL.toString().length + 1) + 'em':'3em';
                         totalzBANK1.addEventListener("keyup",(e)=>{ 
+                           debugger;
+                           // saveBTN_fifo.style.display = 'flex'
                            e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
                         }); 
                         bankBOX1.appendChild(totalzLBL1);
@@ -4590,9 +4881,10 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         totalzLBL2.innerHTML = 'BOOK:'                        
                         totalzBOOK1 = document.createElement('input')
                         totalzBOOK1.classList.add('totalzBookVAL')
-                        totalzBOOK1.value = `$${tickrData.bookVAL || 111}`;
+                        totalzBOOK1.value = `$${tickrData.bookVAL || 0}`;
                         totalzBOOK1.style.width = ((tickrData.bookVAL)?tickrData.bookVAL.toString().length + 1:3) + 'em';
                         totalzBOOK1.addEventListener("keyup",(e)=>{ 
+                           debugger;
                            e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
                         }); 
                         bookBOX1.appendChild(totalzLBL2);
@@ -4604,14 +4896,14 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         totalzLBL3.innerHTML = 'EVEN:'                        
                         totalzEVEN1 = document.createElement('input')
                         totalzEVEN1.classList.add('totalzEvenVAL')
-                        totalzEVEN1.value = `$${tickrData.evenVAL || 222}`;
+                        totalzEVEN1.value = `$${tickrData.evenVAL || 0}`;
                         totalzEVEN1.style.width = '3em';// 444(tickrData.evenVAL.toString().length + 1) + 'em';
                         totalzEVEN1.addEventListener("keyup",(e)=>{ 
+                           debugger;
                            e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
                         }); 
                         evenBOX1.appendChild(totalzLBL3);
                         evenBOX1.appendChild(totalzEVEN1);
-
 
                         totalzBOX1.appendChild(bankBOX1)
                         totalzBOX1.appendChild(bookBOX1)
@@ -4632,8 +4924,10 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         tickrNOTEZTXT.spellcheck = false;
                         tickrNOTEZTXT.value = tickrData.notez || '';
                         tickrNOTEZTXT.addEventListener("keyup",(e)=>{ 
-                           e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
-                           e.target.nextSibling.children[0].style.display = 'flex'
+                           // debugger;
+                           // e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
+                           // e.target.nextSibling.children[0].style.display = 'flex'
+                           e.target.nextSibling.style.display = 'flex'
                         }); 
                         tickrNOTEZROW.appendChild(tickrNOTEZTXT)
                         //END: STORY_TXXT AREA
@@ -4643,7 +4937,7 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         saveBtn04 = document.createElement('button')
                         saveBtn04.id = 'saveBtn04'
                         saveBtn04.innerHTML = 'save🌟'
-                        saveBtn04.classList.add('saveBtn04')
+                        saveBtn04.classList.add('saveBtn0')
                         saveBtn04.setAttribute('data-arg6',QRTR.qID)
                         saveBtn04.setAttribute('data-arg7',tickrData.tkr.toUpperCase())
                         saveBtn04.setAttribute('txtSaveBtn',true)
@@ -4668,7 +4962,7 @@ generateQuickClick();
 
 const copyQuickQrtrClick = ()=>{ 
    let last_qtr = '',temp_ticks=[];
-   let ai_name = 'Q' + qtrNUM + '_' + yearNUM + '_' + monthSHORT;
+   let ai_name = 'NEW';//'Q' + qtrNUM + '_' + yearNUM + '_' + monthSHORT;
    //GET input value
    if(!ai_name){ showErrorMSG('🎀No data🎀'); return; }
    ai_name = ai_name.toUpperCase();
@@ -4678,11 +4972,48 @@ const copyQuickQrtrClick = ()=>{
 
    last_qtr = Object.keys(ai_main.qrtrz).reverse()[0]
    temp_ticks = ai_main.qrtrz[last_qtr].tickrz;
-
    ai_main.qrtrz[ai_name] = {}
    ai_main.qrtrz[ai_name].qID = ai_name;
-   ai_main.qrtrz[ai_name].tickrz = temp_ticks;
+   ai_main.qrtrz[ai_name].tickrz = []; //new Array(...temp_ticks);
    ai_main.qrtrz[ai_name].expanded = false;
+
+   //BLANK padz and trimz
+   let editTKRSymb = null;
+   for(let blankOut=0; blankOut<ai_main.qrtrz[last_qtr].tickrz.length;blankOut++){
+      // editTKRSymb = new Object(ai_main.qrtrz[ai_name].tickrz[blankOut]);
+      editTKRSymb = {}
+      // ai_main.qrtrz[ai_name].tickrz[blankOut] = new Object(ai_main.qrtrz[ai_name].tickrz[blankOut]);
+      // ai_main.qrtrz[ai_name].tickrz[blankOut].tkr = ai_main.qrtrz[last_qtr].tickrz[blankOut].tkr;
+      // ai_main.qrtrz[ai_name].tickrz[blankOut].cap = ai_main.qrtrz[last_qtr].tickrz[blankOut].cap;
+      // ai_main.qrtrz[ai_name].tickrz[blankOut].trimz = []
+      editTKRSymb.tkr = ai_main.qrtrz[last_qtr].tickrz[blankOut].tkr;
+      editTKRSymb.cap = ai_main.qrtrz[last_qtr].tickrz[blankOut].cap;
+      editTKRSymb.trimz = [];
+      editTKRSymb.padz = [];
+      // ai_main.qrtrz[ai_name].tickrz[blankOut].padz = []
+      editTKRSymb.netAMT = 0;
+      // ai_main.qrtrz[ai_name].tickrz[blankOut].netAMT = 0
+      editTKRSymb.bankVAL = 0;
+      // ai_main.qrtrz[ai_name].tickrz[blankOut].bankBAL = 0;
+      editTKRSymb.bookVAL = 0;
+      // ai_main.qrtrz[ai_name].tickrz[blankOut].bookBAL = 0;
+      // editTKRSymb.cap = 0;
+      // ai_main.qrtrz[ai_name].tickrz[blankOut].cap = 0;
+      editTKRSymb.expanded = false; 
+      // ai_main.qrtrz[ai_name].tickrz[blankOut].expanded = false;
+      editTKRSymb.notez = "...";
+      // ai_main.qrtrz[ai_name].tickrz[blankOut].notez = '...'
+      editTKRSymb.notez_expanded = false;
+      // ai_main.qrtrz[ai_name].tickrz[blankOut].notez_expanded = false;
+      editTKRSymb.padTOT = 0;
+      // ai_main.qrtrz[ai_name].tickrz[blankOut].padTOT = 0;
+      editTKRSymb.trimTOT = 0;
+      // ai_main.qrtrz[ai_name].tickrz[blankOut].trimTOT = 0;
+      //TODO GROSS!
+
+      ai_main.qrtrz[ai_name].tickrz.push(editTKRSymb);
+   }
+   
 
    //SAVE to LOCAL STORAGE
    localStorage.ai_main = JSON.stringify(ai_main) 
@@ -4808,9 +5139,13 @@ const saveQuickQtrClick = (e)=>{
 }
 
 function saveQuickTrackEdits(e){
-   saveBtn0.style.display = 'none'; 
-   saveBtn04.style.display = 'none'; 
-   
+   if(saveBtn0 && saveBtn0.style){
+      saveBtn0.style.display = 'none'; 
+   }
+   if(saveBtn04 && saveBtn04.style){
+      saveBtn04.style.display = 'none'; 
+   }
+   // debugger;
    //SAVE LOGIC
    let qID1 = e.target.getAttribute('data-arg6');
    let tkr1 = e.target.getAttribute('data-arg7'); 
@@ -5063,10 +5398,10 @@ const deleteSelectedQuick = (e)=>{
    localStorage.ai_main = JSON.stringify(ai_main) //SAVE to LOCAL STORAGE
    generateQuickClick(); //RELOAD VIEW. 
 }
-
-function calculateBankVAL(qID_TGT){
+//BANK: means CASH_FLOW in or out of BANK MONEY.
+function calculateBankVAL(qID_TGT, tkrTGT){
    let BANK_VAL = 0, idx,tickrData,netAMT=0; //add up NETs until TGT_QTR
-   let qtr = ai_main.qrtrz[qID_TGT];//TGT_QTR
+   // let qtr = ai_main.qrtrz[qID_TGT];//TGT_QTR
    let keyzArr = Object.keys(ai_main.qrtrz);
    for(let x=0;x<keyzArr.length;x++){ //All nets add up to TGT.
       idx = ai_main.qrtrz[keyzArr[x]];
@@ -5076,13 +5411,12 @@ function calculateBankVAL(qID_TGT){
          if(idx.tickrz[y].tkr===tickrData.tkr){
             if(!tickrData.bankVAL){tickrData.bankVAL=0}
             // console.log('math...',keyzArr[x],BANK_VAL,tickrData.netAMT)
-            // if(tickrData.netAMT==="+390"){debugger;}
-            // netAMT = parseInt(tickrData.netAMT.replace('+',''));
             netAMT = parseInt(tickrData.netAMT);
             BANK_VAL += netAMT;
             // BANK_VAL += tickrData.netAMT;
             if(keyzArr[x]===qID_TGT){
-               tickrData.bankVAL = BANK_VAL;
+               tkrTGT.bankVAL = BANK_VAL;
+               // tickrData.bankVAL = BANK_VAL;
                // console.log('DONE...',keyzArr[x],BANK_VAL)            
             }
             // else{ console.log('adding...',keyzArr[x],tickrData.netAMT)}
@@ -5094,23 +5428,36 @@ function calculateBankVAL(qID_TGT){
          break; //Found TGT QTR, eject.
       }
    }
-}
-function calculateBookVAL(qID, tickrData){
-   let BOOK_VAL = 0;
-   let qtr = ai_main.qrtrz[qID]
+} 
+//BOOK: means total CASH invested in an asset.
+function calculateBookVAL(qID_TGT, tkrTGT){
+   let BOOK_VAL = 0,tickrData,idx, localBOOK = 0;
    let keyzArr = Object.keys(ai_main.qrtrz);
    for(let x=0;x<keyzArr.length;x++){ //All nets from before added up.
-      for(let y=0;y<ai_main.qrtrz[keyzArr[x]].tickrz.length;y++){
-         if(ai_main.qrtrz[keyzArr[x]].tickrz[y].tkr===tickrData.tkr){
+      idx = ai_main.qrtrz[keyzArr[x]];
+      // console.log('ADD',idx.qID,'up to',qID_TGT)
+      for(let y=0;y<idx.tickrz.length;y++){
+         tickrData = idx.tickrz[y];
+         if(idx.tickrz[y].tkr===tickrData.tkr){
+            // console.log('found entrys',tickrData.padz.length, 'for',tickrData.tkr)
             if(!tickrData.bookVAL){tickrData.bookVAL=0}
-
             // BOOK_VAL = [{amt:1},{amt:2},{amt:3},{amt:4}].reduce( (a,b)=>{ console.log(a.amt,b.amt); return {amt: a.amt + b.amt};}).amt
-            BOOK_VAL = ai_main.qrtrz[keyzArr[x]].tickrz[y].padz.reduce( (a,b)=>{ return {amt: parseInt(a.amt) + parseInt(b.amt)};}).amt
-            tickrData.bookVAL += BOOK_VAL;
-            break;
+            if(!tickrData.padz || tickrData.padz.length===0){ tickrData.padz=[]; localBOOK = 0; } 
+            else {
+               localBOOK = tickrData.padz.reduce( (a,b)=>{ return {amt: parseInt(a.amt) + parseInt(b.amt)};}).amt
+               // console.log('reduce AMT',BOOK_VAL)
+            }
          }
+         // console.log('math...b4',tickrData.bookVAL)
+         BOOK_VAL += localBOOK;
+         // console.log('math...after',tickrData.bookVAL)
+         break;
       }
-      if(keyzArr[x]===qID){break}
+      if(keyzArr[x]===qID_TGT){
+         tkrTGT.bookVAL = BOOK_VAL;
+         // console.log('DONE...',keyzArr[x],BOOK_VAL)    
+         break;
+      }
    }
 }
 function calcualteEvenVAL(qID, tickrData){
@@ -6077,7 +6424,8 @@ const ai_history_LOAD_MOCK_DATA=()=>{ //READ from OBJ
    // ai_history_matrix = {"NVDA":{"ymd_price":{"2023_11_01":"428","2023_11_08":"464","2023_11_09":"464","2023_11_11":"483","2023_11_16":"488","2023_11_20":"493","2023_11_24":"477","2023_11_27":"477"}},"V":{"ymd_price":{"2023_11_11":"245","2023_11_16":"248","2023_11_20":"249","2023_11_24":"254","2023_11_27":"254"}},"MSFT":{"ymd_price":{"2023_11_11":"369","2023_11_16":"371","2023_11_20":"366","2023_11_24":"377","2023_11_27":"377"}},"MDB":{"ymd_price":{"2023_11_11":"375","2023_11_16":"391","2023_11_20":"392","2023_11_24":"407","2023_11_27":"407"}},"XLK":{"ymd_price":{"2023_11_11":"179","2023_11_16":"182","2023_11_20":"182","2023_11_24":"184","2023_11_27":"184"}},"NDAQ":{"ymd_price":{"2023_11_11":"52","2023_11_16":"52","2023_11_20":"53","2023_11_24":"55","2023_11_27":"55"}},"AMD":{"ymd_price":{"2023_11_11":"118","2023_11_16":"117","2023_11_20":"120","2023_11_24":"122","2023_11_27":"122"}},"COST":{"ymd_price":{"2023_11_11":"576","2023_11_16":"596","2023_11_20":"576","2023_11_24":"592","2023_11_27":"592"}},"COIN":{"ymd_price":{"2023_11_11":"93","2023_11_16":"99","2023_11_20":"98","2023_11_24":"115","2023_11_27":"115"}},"QQQ":{"ymd_price":{"2023_11_11":"377","2023_11_16":"385","2023_11_20":"385","2023_11_24":"389","2023_11_27":"389"}},"GOOGL":{"ymd_price":{"2023_11_11":"132","2023_11_16":"135","2023_11_20":"135","2023_11_24":"136","2023_11_27":"136"}}}
    // ai_history_matrix = {"NVDA":{"ymd_price":{"2023_11_01":"428","2023_11_08":"464","2023_11_09":"464","2023_11_11":"483","2023_11_16":"488","2023_11_20":"493","2023_11_24":"477","2023_11_27":"477","2023_11_28":"477","2023_11_30":"481","2023_12_01":"467"}},"V":{"ymd_price":{"2023_11_11":"245","2023_11_16":"248","2023_11_20":"249","2023_11_24":"254","2023_11_27":"254","2023_11_28":"253","2023_11_30":"254","2023_12_01":"256"}},"MSFT":{"ymd_price":{"2023_11_11":"369","2023_11_16":"371","2023_11_20":"366","2023_11_24":"377","2023_11_27":"377","2023_11_28":"382","2023_11_30":"379","2023_12_01":"374"}},"MDB":{"ymd_price":{"2023_11_11":"375","2023_11_16":"391","2023_11_20":"392","2023_11_24":"407","2023_11_27":"407","2023_11_28":"408","2023_11_30":"432","2023_12_01":"438"}},"XLK":{"ymd_price":{"2023_11_11":"179","2023_11_16":"182","2023_11_20":"182","2023_11_24":"184","2023_11_27":"184","2023_11_28":"184","2023_11_30":"184","2023_12_01":"185"}},"NDAQ":{"ymd_price":{"2023_11_11":"52","2023_11_16":"52","2023_11_20":"53","2023_11_24":"55","2023_11_27":"55","2023_11_28":"55","2023_11_30":"55"}},"AMD":{"ymd_price":{"2023_11_11":"118","2023_11_16":"117","2023_11_20":"120","2023_11_24":"122","2023_11_27":"122","2023_11_28":"122","2023_11_30":"124","2023_12_01":"121"}},"COST":{"ymd_price":{"2023_11_11":"576","2023_11_16":"596","2023_11_20":"576","2023_11_24":"592","2023_11_27":"592","2023_11_28":"594","2023_11_30":"587","2023_12_01":"596"}},"COIN":{"ymd_price":{"2023_11_11":"93","2023_11_16":"99","2023_11_20":"98","2023_11_24":"115","2023_11_27":"115","2023_11_28":"127","2023_11_30":"127","2023_12_01":"134"}},"QQQ":{"ymd_price":{"2023_11_11":"377","2023_11_16":"385","2023_11_20":"385","2023_11_24":"389","2023_11_27":"389","2023_11_28":"390","2023_11_30":"390","2023_12_01":"390"}},"GOOGL":{"ymd_price":{"2023_11_11":"132","2023_11_16":"135","2023_11_20":"135","2023_11_24":"136","2023_11_27":"136","2023_11_28":"137","2023_11_30":"135","2023_12_01":"131"}},"TSLA":{"ymd_price":{"2023_11_30":"245","2023_12_01":"238"}},"META":{"ymd_price":{"2023_11_30":"332","2023_12_01":"324"}}}
    // ai_history_matrix = {"NVDA":{"ymd_price":{"2023_11_01":"428","2023_11_08":"464","2023_11_09":"464","2023_11_11":"483","2023_11_16":"488","2023_11_20":"493","2023_11_24":"477","2023_11_27":"477","2023_11_28":"477","2023_11_30":"481","2023_12_01":"467","2023_12_07":"453","2023_12_08":"466","2023_12_11":"474","2023_12_14":"484","2023_12_15":"481","2023_12_20":"495","2023_12_21":"483"}},"V":{"ymd_price":{"2023_11_11":"245","2023_11_16":"248","2023_11_20":"249","2023_11_24":"254","2023_11_27":"254","2023_11_28":"253","2023_11_30":"254","2023_12_01":"256","2023_12_07":"254","2023_12_08":"255","2023_12_11":"255","2023_12_14":"262","2023_12_15":"259","2023_12_20":"259","2023_12_21":"257"}},"MSFT":{"ymd_price":{"2023_11_11":"369","2023_11_16":"371","2023_11_20":"366","2023_11_24":"377","2023_11_27":"377","2023_11_28":"382","2023_11_30":"379","2023_12_01":"374","2023_12_07":"368","2023_12_08":"370","2023_12_11":"373","2023_12_14":"375","2023_12_15":"366","2023_12_20":"373","2023_12_21":"371"}},"MDB":{"ymd_price":{"2023_11_11":"375","2023_11_16":"391","2023_11_20":"392","2023_11_24":"407","2023_11_27":"407","2023_11_28":"408","2023_11_30":"432","2023_12_01":"438","2023_12_07":"384","2023_12_08":"384","2023_12_11":"381","2023_12_14":"411","2023_12_15":"419","2023_12_20":"410","2023_12_21":"403"}},"XLK":{"ymd_price":{"2023_11_11":"179","2023_11_16":"182","2023_11_20":"182","2023_11_24":"184","2023_11_27":"184","2023_11_28":"184","2023_11_30":"184","2023_12_01":"185","2023_12_07":"182","2023_12_08":"185","2023_12_11":"186","2023_12_14":"191","2023_12_15":"190","2023_12_20":"192","2023_12_21":"189"}},"NDAQ":{"ymd_price":{"2023_11_11":"52","2023_11_16":"52","2023_11_20":"53","2023_11_24":"55","2023_11_27":"55","2023_11_28":"55","2023_11_30":"55"}},"AMD":{"ymd_price":{"2023_11_11":"118","2023_11_16":"117","2023_11_20":"120","2023_11_24":"122","2023_11_27":"122","2023_11_28":"122","2023_11_30":"124","2023_12_01":"121","2023_12_07":"118","2023_12_08":"128","2023_12_11":"129","2023_12_14":"138","2023_12_15":"137","2023_12_20":"139","2023_12_21":"135"}},"COST":{"ymd_price":{"2023_11_11":"576","2023_11_16":"596","2023_11_20":"576","2023_11_24":"592","2023_11_27":"592","2023_11_28":"594","2023_11_30":"587","2023_12_01":"596","2023_12_07":"603","2023_12_08":"610","2023_12_11":"611","2023_12_14":"642","2023_12_15":"639","2023_12_20":"677","2023_12_21":"662"}},"COIN":{"ymd_price":{"2023_11_11":"93","2023_11_16":"99","2023_11_20":"98","2023_11_24":"115","2023_11_27":"115","2023_11_28":"127","2023_11_30":"127","2023_12_01":"134","2023_12_07":"133","2023_12_08":"135","2023_12_11":"147","2023_12_14":"152","2023_12_15":"152","2023_12_20":"159","2023_12_21":"161"}},"QQQ":{"ymd_price":{"2023_11_11":"377","2023_11_16":"385","2023_11_20":"385","2023_11_24":"389","2023_11_27":"389","2023_11_28":"390","2023_11_30":"390","2023_12_01":"390","2023_12_07":"385","2023_12_08":"390","2023_12_11":"392","2023_12_14":"405","2023_12_15":"403","2023_12_20":"409","2023_12_21":"403"}},"GOOGL":{"ymd_price":{"2023_11_11":"132","2023_11_16":"135","2023_11_20":"135","2023_11_24":"136","2023_11_27":"136","2023_11_28":"137","2023_11_30":"135","2023_12_01":"131","2023_12_07":"131","2023_12_08":"137","2023_12_11":"134","2023_12_14":"133","2023_12_15":"131","2023_12_20":"136","2023_12_21":"138"}},"TSLA":{"ymd_price":{"2023_11_30":"245","2023_12_01":"238","2023_12_07":"240","2023_12_08":"242","2023_12_11":"243","2023_12_14":"239","2023_12_15":"250","2023_12_20":"257","2023_12_21":"248"}},"META":{"ymd_price":{"2023_11_30":"332","2023_12_01":"324","2023_12_07":"317","2023_12_08":"326","2023_12_11":"333","2023_12_14":"335","2023_12_15":"333","2023_12_20":"350","2023_12_21":"349"}},"PINS":{"ymd_price":{"2023_12_07":"33","2023_12_08":"34","2023_12_11":"34","2023_12_14":"36","2023_12_15":"36","2023_12_20":"38","2023_12_21":"37"}},"FVRR":{"ymd_price":{"2023_12_07":"26","2023_12_08":"26","2023_12_11":"26","2023_12_14":"27","2023_12_15":"28","2023_12_20":"28","2023_12_21":"27"}}}
-   ai_history_matrix = {"NVDA":{"ymd_price":{"2023_11_01":"428","2023_11_08":"464","2023_11_09":"464","2023_11_11":"483","2023_11_16":"488","2023_11_20":"493","2023_11_24":"477","2023_11_27":"477","2023_11_28":"477","2023_11_30":"481","2023_12_01":"467","2023_12_07":"453","2023_12_08":"466","2023_12_11":"474","2023_12_14":"484","2023_12_15":"481","2023_12_20":"495","2023_12_21":"483","2023_12_22":"489","2023_12_27":"493","2024_01_06":"491"}},"V":{"ymd_price":{"2023_11_11":"245","2023_11_16":"248","2023_11_20":"249","2023_11_24":"254","2023_11_27":"254","2023_11_28":"253","2023_11_30":"254","2023_12_01":"256","2023_12_07":"254","2023_12_08":"255","2023_12_11":"255","2023_12_14":"262","2023_12_15":"259","2023_12_20":"259","2023_12_21":"257","2023_12_22":"259","2023_12_27":"259","2024_01_06":"259"}},"MSFT":{"ymd_price":{"2023_11_11":"369","2023_11_16":"371","2023_11_20":"366","2023_11_24":"377","2023_11_27":"377","2023_11_28":"382","2023_11_30":"379","2023_12_01":"374","2023_12_07":"368","2023_12_08":"370","2023_12_11":"373","2023_12_14":"375","2023_12_15":"366","2023_12_20":"373","2023_12_21":"371","2023_12_22":"373","2023_12_27":"374","2024_01_06":"367"}},"MDB":{"ymd_price":{"2023_11_11":"375","2023_11_16":"391","2023_11_20":"392","2023_11_24":"407","2023_11_27":"407","2023_11_28":"408","2023_11_30":"432","2023_12_01":"438","2023_12_07":"384","2023_12_08":"384","2023_12_11":"381","2023_12_14":"411","2023_12_15":"419","2023_12_20":"410","2023_12_21":"403","2023_12_22":"408","2023_12_27":"417","2024_01_06":"367"}},"XLK":{"ymd_price":{"2023_11_11":"179","2023_11_16":"182","2023_11_20":"182","2023_11_24":"184","2023_11_27":"184","2023_11_28":"184","2023_11_30":"184","2023_12_01":"185","2023_12_07":"182","2023_12_08":"185","2023_12_11":"186","2023_12_14":"191","2023_12_15":"190","2023_12_20":"192","2023_12_21":"189","2023_12_22":"191","2023_12_27":"192","2024_01_06":"184"}},"NDAQ":{"ymd_price":{"2023_11_11":"52","2023_11_16":"52","2023_11_20":"53","2023_11_24":"55","2023_11_27":"55","2023_11_28":"55","2023_11_30":"55"}},"AMD":{"ymd_price":{"2023_11_11":"118","2023_11_16":"117","2023_11_20":"120","2023_11_24":"122","2023_11_27":"122","2023_11_28":"122","2023_11_30":"124","2023_12_01":"121","2023_12_07":"118","2023_12_08":"128","2023_12_11":"129","2023_12_14":"138","2023_12_15":"137","2023_12_20":"139","2023_12_21":"135","2023_12_22":"139","2023_12_27":"143","2024_01_06":"138"}},"COST":{"ymd_price":{"2023_11_11":"576","2023_11_16":"596","2023_11_20":"576","2023_11_24":"592","2023_11_27":"592","2023_11_28":"594","2023_11_30":"587","2023_12_01":"596","2023_12_07":"603","2023_12_08":"610","2023_12_11":"611","2023_12_14":"642","2023_12_15":"639","2023_12_20":"677","2023_12_21":"662","2023_12_22":"664","2023_12_27":"675","2024_01_06":"656"}},"COIN":{"ymd_price":{"2023_11_11":"93","2023_11_16":"99","2023_11_20":"98","2023_11_24":"115","2023_11_27":"115","2023_11_28":"127","2023_11_30":"127","2023_12_01":"134","2023_12_07":"133","2023_12_08":"135","2023_12_11":"147","2023_12_14":"152","2023_12_15":"152","2023_12_20":"159","2023_12_21":"161","2023_12_22":"170","2023_12_27":"173","2024_01_06":"154"}},"QQQ":{"ymd_price":{"2023_11_11":"377","2023_11_16":"385","2023_11_20":"385","2023_11_24":"389","2023_11_27":"389","2023_11_28":"390","2023_11_30":"390","2023_12_01":"390","2023_12_07":"385","2023_12_08":"390","2023_12_11":"392","2023_12_14":"405","2023_12_15":"403","2023_12_20":"409","2023_12_21":"403","2023_12_22":"407","2023_12_27":"410","2024_01_06":"396"}},"GOOGL":{"ymd_price":{"2023_11_11":"132","2023_11_16":"135","2023_11_20":"135","2023_11_24":"136","2023_11_27":"136","2023_11_28":"137","2023_11_30":"135","2023_12_01":"131","2023_12_07":"131","2023_12_08":"137","2023_12_11":"134","2023_12_14":"133","2023_12_15":"131","2023_12_20":"136","2023_12_21":"138","2023_12_22":"140","2023_12_27":"141","2024_01_06":"135"}},"TSLA":{"ymd_price":{"2023_11_30":"245","2023_12_01":"238","2023_12_07":"240","2023_12_08":"242","2023_12_11":"243","2023_12_14":"239","2023_12_15":"250","2023_12_20":"257","2023_12_21":"248","2023_12_22":"255","2023_12_27":"256","2024_01_06":"237"}},"META":{"ymd_price":{"2023_11_30":"332","2023_12_01":"324","2023_12_07":"317","2023_12_08":"326","2023_12_11":"333","2023_12_14":"335","2023_12_15":"333","2023_12_20":"350","2023_12_21":"349","2023_12_22":"353","2023_12_27":"354","2024_01_06":"352"}},"PINS":{"ymd_price":{"2023_12_07":"33","2023_12_08":"34","2023_12_11":"34","2023_12_14":"36","2023_12_15":"36","2023_12_20":"38","2023_12_21":"37","2023_12_22":"37","2023_12_27":"37","2024_01_06":"36"}},"FVRR":{"ymd_price":{"2023_12_07":"26","2023_12_08":"26","2023_12_11":"26","2023_12_14":"27","2023_12_15":"28","2023_12_20":"28","2023_12_21":"27","2023_12_22":"28","2023_12_27":"28","2024_01_06":"26"}}}
+   // ai_history_matrix = {"NVDA":{"ymd_price":{"2023_11_01":"428","2023_11_08":"464","2023_11_09":"464","2023_11_11":"483","2023_11_16":"488","2023_11_20":"493","2023_11_24":"477","2023_11_27":"477","2023_11_28":"477","2023_11_30":"481","2023_12_01":"467","2023_12_07":"453","2023_12_08":"466","2023_12_11":"474","2023_12_14":"484","2023_12_15":"481","2023_12_20":"495","2023_12_21":"483","2023_12_22":"489","2023_12_27":"493","2024_01_06":"491"}},"V":{"ymd_price":{"2023_11_11":"245","2023_11_16":"248","2023_11_20":"249","2023_11_24":"254","2023_11_27":"254","2023_11_28":"253","2023_11_30":"254","2023_12_01":"256","2023_12_07":"254","2023_12_08":"255","2023_12_11":"255","2023_12_14":"262","2023_12_15":"259","2023_12_20":"259","2023_12_21":"257","2023_12_22":"259","2023_12_27":"259","2024_01_06":"259"}},"MSFT":{"ymd_price":{"2023_11_11":"369","2023_11_16":"371","2023_11_20":"366","2023_11_24":"377","2023_11_27":"377","2023_11_28":"382","2023_11_30":"379","2023_12_01":"374","2023_12_07":"368","2023_12_08":"370","2023_12_11":"373","2023_12_14":"375","2023_12_15":"366","2023_12_20":"373","2023_12_21":"371","2023_12_22":"373","2023_12_27":"374","2024_01_06":"367"}},"MDB":{"ymd_price":{"2023_11_11":"375","2023_11_16":"391","2023_11_20":"392","2023_11_24":"407","2023_11_27":"407","2023_11_28":"408","2023_11_30":"432","2023_12_01":"438","2023_12_07":"384","2023_12_08":"384","2023_12_11":"381","2023_12_14":"411","2023_12_15":"419","2023_12_20":"410","2023_12_21":"403","2023_12_22":"408","2023_12_27":"417","2024_01_06":"367"}},"XLK":{"ymd_price":{"2023_11_11":"179","2023_11_16":"182","2023_11_20":"182","2023_11_24":"184","2023_11_27":"184","2023_11_28":"184","2023_11_30":"184","2023_12_01":"185","2023_12_07":"182","2023_12_08":"185","2023_12_11":"186","2023_12_14":"191","2023_12_15":"190","2023_12_20":"192","2023_12_21":"189","2023_12_22":"191","2023_12_27":"192","2024_01_06":"184"}},"NDAQ":{"ymd_price":{"2023_11_11":"52","2023_11_16":"52","2023_11_20":"53","2023_11_24":"55","2023_11_27":"55","2023_11_28":"55","2023_11_30":"55"}},"AMD":{"ymd_price":{"2023_11_11":"118","2023_11_16":"117","2023_11_20":"120","2023_11_24":"122","2023_11_27":"122","2023_11_28":"122","2023_11_30":"124","2023_12_01":"121","2023_12_07":"118","2023_12_08":"128","2023_12_11":"129","2023_12_14":"138","2023_12_15":"137","2023_12_20":"139","2023_12_21":"135","2023_12_22":"139","2023_12_27":"143","2024_01_06":"138"}},"COST":{"ymd_price":{"2023_11_11":"576","2023_11_16":"596","2023_11_20":"576","2023_11_24":"592","2023_11_27":"592","2023_11_28":"594","2023_11_30":"587","2023_12_01":"596","2023_12_07":"603","2023_12_08":"610","2023_12_11":"611","2023_12_14":"642","2023_12_15":"639","2023_12_20":"677","2023_12_21":"662","2023_12_22":"664","2023_12_27":"675","2024_01_06":"656"}},"COIN":{"ymd_price":{"2023_11_11":"93","2023_11_16":"99","2023_11_20":"98","2023_11_24":"115","2023_11_27":"115","2023_11_28":"127","2023_11_30":"127","2023_12_01":"134","2023_12_07":"133","2023_12_08":"135","2023_12_11":"147","2023_12_14":"152","2023_12_15":"152","2023_12_20":"159","2023_12_21":"161","2023_12_22":"170","2023_12_27":"173","2024_01_06":"154"}},"QQQ":{"ymd_price":{"2023_11_11":"377","2023_11_16":"385","2023_11_20":"385","2023_11_24":"389","2023_11_27":"389","2023_11_28":"390","2023_11_30":"390","2023_12_01":"390","2023_12_07":"385","2023_12_08":"390","2023_12_11":"392","2023_12_14":"405","2023_12_15":"403","2023_12_20":"409","2023_12_21":"403","2023_12_22":"407","2023_12_27":"410","2024_01_06":"396"}},"GOOGL":{"ymd_price":{"2023_11_11":"132","2023_11_16":"135","2023_11_20":"135","2023_11_24":"136","2023_11_27":"136","2023_11_28":"137","2023_11_30":"135","2023_12_01":"131","2023_12_07":"131","2023_12_08":"137","2023_12_11":"134","2023_12_14":"133","2023_12_15":"131","2023_12_20":"136","2023_12_21":"138","2023_12_22":"140","2023_12_27":"141","2024_01_06":"135"}},"TSLA":{"ymd_price":{"2023_11_30":"245","2023_12_01":"238","2023_12_07":"240","2023_12_08":"242","2023_12_11":"243","2023_12_14":"239","2023_12_15":"250","2023_12_20":"257","2023_12_21":"248","2023_12_22":"255","2023_12_27":"256","2024_01_06":"237"}},"META":{"ymd_price":{"2023_11_30":"332","2023_12_01":"324","2023_12_07":"317","2023_12_08":"326","2023_12_11":"333","2023_12_14":"335","2023_12_15":"333","2023_12_20":"350","2023_12_21":"349","2023_12_22":"353","2023_12_27":"354","2024_01_06":"352"}},"PINS":{"ymd_price":{"2023_12_07":"33","2023_12_08":"34","2023_12_11":"34","2023_12_14":"36","2023_12_15":"36","2023_12_20":"38","2023_12_21":"37","2023_12_22":"37","2023_12_27":"37","2024_01_06":"36"}},"FVRR":{"ymd_price":{"2023_12_07":"26","2023_12_08":"26","2023_12_11":"26","2023_12_14":"27","2023_12_15":"28","2023_12_20":"28","2023_12_21":"27","2023_12_22":"28","2023_12_27":"28","2024_01_06":"26"}}}
+   ai_history = {"NVDA":{"ymd_price":{"2023_11_01":"428","2023_11_08":"464","2023_11_09":"464","2023_11_11":"483","2023_11_16":"488","2023_11_20":"493","2023_11_24":"477","2023_11_27":"477","2023_11_28":"477","2023_11_30":"481","2023_12_01":"467","2023_12_07":"453","2023_12_08":"466","2023_12_11":"474","2023_12_14":"484","2023_12_15":"481","2023_12_20":"495","2023_12_21":"483","2023_12_22":"489","2023_12_27":"493","2024_01_06":"491","2024_01_13":"547","2024_01_17":"565"}},"V":{"ymd_price":{"2023_11_11":"245","2023_11_16":"248","2023_11_20":"249","2023_11_24":"254","2023_11_27":"254","2023_11_28":"253","2023_11_30":"254","2023_12_01":"256","2023_12_07":"254","2023_12_08":"255","2023_12_11":"255","2023_12_14":"262","2023_12_15":"259","2023_12_20":"259","2023_12_21":"257","2023_12_22":"259","2023_12_27":"259","2024_01_06":"259","2024_01_13":"264","2024_01_17":"262"}},"MSFT":{"ymd_price":{"2023_11_11":"369","2023_11_16":"371","2023_11_20":"366","2023_11_24":"377","2023_11_27":"377","2023_11_28":"382","2023_11_30":"379","2023_12_01":"374","2023_12_07":"368","2023_12_08":"370","2023_12_11":"373","2023_12_14":"375","2023_12_15":"366","2023_12_20":"373","2023_12_21":"371","2023_12_22":"373","2023_12_27":"374","2024_01_06":"367","2024_01_13":"388","2024_01_17":"390"}},"MDB":{"ymd_price":{"2023_11_11":"375","2023_11_16":"391","2023_11_20":"392","2023_11_24":"407","2023_11_27":"407","2023_11_28":"408","2023_11_30":"432","2023_12_01":"438","2023_12_07":"384","2023_12_08":"384","2023_12_11":"381","2023_12_14":"411","2023_12_15":"419","2023_12_20":"410","2023_12_21":"403","2023_12_22":"408","2023_12_27":"417","2024_01_06":"367","2024_01_13":"390","2024_01_17":"405"}},"XLK":{"ymd_price":{"2023_11_11":"179","2023_11_16":"182","2023_11_20":"182","2023_11_24":"184","2023_11_27":"184","2023_11_28":"184","2023_11_30":"184","2023_12_01":"185","2023_12_07":"182","2023_12_08":"185","2023_12_11":"186","2023_12_14":"191","2023_12_15":"190","2023_12_20":"192","2023_12_21":"189","2023_12_22":"191","2023_12_27":"192","2024_01_06":"184","2024_01_13":"192","2024_01_17":"192"}},"NDAQ":{"ymd_price":{"2023_11_11":"52","2023_11_16":"52","2023_11_20":"53","2023_11_24":"55","2023_11_27":"55","2023_11_28":"55","2023_11_30":"55"}},"AMD":{"ymd_price":{"2023_11_11":"118","2023_11_16":"117","2023_11_20":"120","2023_11_24":"122","2023_11_27":"122","2023_11_28":"122","2023_11_30":"124","2023_12_01":"121","2023_12_07":"118","2023_12_08":"128","2023_12_11":"129","2023_12_14":"138","2023_12_15":"137","2023_12_20":"139","2023_12_21":"135","2023_12_22":"139","2023_12_27":"143","2024_01_06":"138","2024_01_13":"146","2024_01_17":"159"}},"COST":{"ymd_price":{"2023_11_11":"576","2023_11_16":"596","2023_11_20":"576","2023_11_24":"592","2023_11_27":"592","2023_11_28":"594","2023_11_30":"587","2023_12_01":"596","2023_12_07":"603","2023_12_08":"610","2023_12_11":"611","2023_12_14":"642","2023_12_15":"639","2023_12_20":"677","2023_12_21":"662","2023_12_22":"664","2023_12_27":"675","2024_01_06":"656","2024_01_13":"682","2024_01_17":"681"}},"COIN":{"ymd_price":{"2023_11_11":"93","2023_11_16":"99","2023_11_20":"98","2023_11_24":"115","2023_11_27":"115","2023_11_28":"127","2023_11_30":"127","2023_12_01":"134","2023_12_07":"133","2023_12_08":"135","2023_12_11":"147","2023_12_14":"152","2023_12_15":"152","2023_12_20":"159","2023_12_21":"161","2023_12_22":"170","2023_12_27":"173","2024_01_06":"154","2024_01_13":"129","2024_01_17":"134"}},"QQQ":{"ymd_price":{"2023_11_11":"377","2023_11_16":"385","2023_11_20":"385","2023_11_24":"389","2023_11_27":"389","2023_11_28":"390","2023_11_30":"390","2023_12_01":"390","2023_12_07":"385","2023_12_08":"390","2023_12_11":"392","2023_12_14":"405","2023_12_15":"403","2023_12_20":"409","2023_12_21":"403","2023_12_22":"407","2023_12_27":"410","2024_01_06":"396","2024_01_13":"408","2024_01_17":"409"}},"GOOGL":{"ymd_price":{"2023_11_11":"132","2023_11_16":"135","2023_11_20":"135","2023_11_24":"136","2023_11_27":"136","2023_11_28":"137","2023_11_30":"135","2023_12_01":"131","2023_12_07":"131","2023_12_08":"137","2023_12_11":"134","2023_12_14":"133","2023_12_15":"131","2023_12_20":"136","2023_12_21":"138","2023_12_22":"140","2023_12_27":"141","2024_01_06":"135","2024_01_13":"142","2024_01_17":"142"}},"TSLA":{"ymd_price":{"2023_11_30":"245","2023_12_01":"238","2023_12_07":"240","2023_12_08":"242","2023_12_11":"243","2023_12_14":"239","2023_12_15":"250","2023_12_20":"257","2023_12_21":"248","2023_12_22":"255","2023_12_27":"256","2024_01_06":"237","2024_01_13":"218","2024_01_17":"220"}},"META":{"ymd_price":{"2023_11_30":"332","2023_12_01":"324","2023_12_07":"317","2023_12_08":"326","2023_12_11":"333","2023_12_14":"335","2023_12_15":"333","2023_12_20":"350","2023_12_21":"349","2023_12_22":"353","2023_12_27":"354","2024_01_06":"352","2024_01_13":"374","2024_01_17":"367"}},"PINS":{"ymd_price":{"2023_12_07":"33","2023_12_08":"34","2023_12_11":"34","2023_12_14":"36","2023_12_15":"36","2023_12_20":"38","2023_12_21":"37","2023_12_22":"37","2023_12_27":"37","2024_01_06":"36","2024_01_13":"37","2024_01_17":"36"}},"FVRR":{"ymd_price":{"2023_12_07":"26","2023_12_08":"26","2023_12_11":"26","2023_12_14":"27","2023_12_15":"28","2023_12_20":"28","2023_12_21":"27","2023_12_22":"28","2023_12_27":"28","2024_01_06":"26","2024_01_13":"25","2024_01_17":"25"}}}
 }
 
 const ai_history_init=()=>{ //READ from LOCAL STORAGE

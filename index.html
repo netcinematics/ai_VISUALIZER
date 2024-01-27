@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <title>genai_trade_tracker</title>
+   <title>ai_bankbook</title>
 </head>
    <body style="display:flex;flex-direction: column;">
 <style>/* PC */
@@ -21,7 +21,7 @@ hr{border-top: solid 1px cadetblue;
    .docTopicBtn {border-radius: 13px;margin-top: 10px;background: slategrey;
       color: skyblue; font-size: 0.666em; padding: 6px;}
    .docTopicBtn:hover{border:2px solid steelblue}
-   .mainBtn{margin:1em; color:darkblue;} 
+   .mainBtn{margin:1%; color:darkblue;} 
    .subMenuBtn { color:#75bdb7; border-radius: 13px;  background-image: linear-gradient(grey, steelblue, black);
                margin:0.666em;cursor:pointer;font-size:0.888em;padding: 2px 6px 4px 6px; }
    .boxTitle{font-size:1.222em; color:#6868dc;}
@@ -62,6 +62,16 @@ hr{border-top: solid 1px cadetblue;
 .genBtn1{font-size:0.777em; border-radius:22px; cursor:pointer;
    background:#5fa9a9; border-radius: 10px;color:#060252;
    margin: 1em;
+}
+.latestBtn1{font-size:0.444em; border-radius:22px; cursor:pointer;
+   background:#5fa9a9; border-radius: 10px;
+   margin: 1%;color: #090475;
+    margin: 1%;
+    min-width: 8em;
+    font-family: sans-serif;
+    max-height: 2.222em;
+    display: flex;
+    align-self: center;
 }
 .editBtn01{
    border-radius: 13px;
@@ -669,7 +679,11 @@ color: darkcyan;
 font-size:0.666em;     
 margin-right: 2%;     
 }
-#rightBOX,#leftBOX,#keyBOX{margin:2px;border: solid 1px steelblue;width: 100%;font-size: 0.777em;}
+#rightBOX,#leftBOX,#keyBOX{
+   margin:1%;
+   border: solid 1px steelblue;
+   /* width: 100%; */
+   font-size: 0.777em;}
 
 #encodeBOX, #decodeBOX, #instructionBOX, #scheduleBOX, #padSequenceBOX, 
 #historyBOX, #allMarginsBOX, #reviewPreviewBOX {
@@ -1174,7 +1188,17 @@ border-radius: 8px;
     flex-wrap: wrap;    margin: 0 10px;
 }
 .proTick1{
-   width: 44px; /*align item column*/
+   width: 55px;
+    color: #47c26c;
+}
+.proTotalAmt1{
+   color: #44a3a3;
+}
+.curPrice1{
+   color: #44a3a3;
+}
+.proPCT1{
+   color: #44a3a3;
 }
       .smICON{font-size:0.555em;}
       #instructionText{display:none;margin:4%;}
@@ -1424,8 +1448,8 @@ border-radius:13px;
 }
 
 .btmBtns1{
-   margin:1em 1%;
-   font-size:0.777em;
+   /* margin:1em 1%; */
+   font-size: 0.555em;
 }
 
 
@@ -1437,7 +1461,7 @@ border-radius:13px;
       @media only screen and (max-width: 800px) { /* TABLET */
          body{  background-color: #000f1b;}
          .btnTXT{font-size:0.999em;}
-         .mainBtn{margin:0.888em;}
+         /* .mainBtn{margin:0.888em;} */
          .subMenuBtn{font-size:0.777em;}
          #rightBOX{margin-right:6%; border:0px} 
          #leftBOX{margin-left:8%; border:0px }
@@ -1446,7 +1470,7 @@ border-radius:13px;
       @media only screen and (max-width: 500px) { /* PHONE */
          body{ background-color: #08011e;}
          .btnTXT{font-size:0.999em;}
-         .mainBtn{margin:0.666em;}
+         /* .mainBtn{margin:0.666em;} */
          .subMenuBtn{font-size:0.777em;}
          #messageBOX{flex-direction: column;}
          #encodeBOX, #decodeBOX, #instructionBOX, #scheduleBOX, #historyBOX,
@@ -1466,7 +1490,7 @@ border-radius:13px;
       border:2px solid grey;">🎪</span><span class="txt1">home</span>
       </aside>
       <aside style="font-size: 1em;color: steelblue;margin: -13px 0 14px 0;text-shadow: 0px -1px 5px #66aef3;">
-        genai_trade_tracker</aside>
+        ai_bankbook</aside>
       <aside style="font-size: 0.777em;color: steelblue;margin: -10px 0 4px 0;">
       </aside>
       <aside class="topRightBtn2">
@@ -1477,7 +1501,7 @@ border-radius:13px;
       <header style="display:flex;justify-content:space-evenly; flex: 0 0 auto;
         background-image: linear-gradient(grey, steelblue, black);
         box-shadow:0 0 14px 0px steelblue;border-radius:13px; margin:0 auto;
-        width:93%;">
+        width:93%;    flex-wrap: wrap;">
          <!-- <button class="mainBtn" onclick="transcribeTXT()" style="border-radius:8px;
             background:grey; 
             cursor:pointer;box-shadow: inset 0px 0px 10px 0px limegreen;">
@@ -1488,7 +1512,7 @@ border-radius:13px;
 
          <section id="keyBOX" style="display:flex;border: solid 1px steelblue;
          border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
-         margin:2px;">
+         margin:1%;">
                API:<input id="keyINPUT"  type="password" placeholder="api_key" 
                style="margin-left: 1em; background:#233453;
                border-radius: 10px 0px 0px 10px;"></input>
@@ -1497,14 +1521,14 @@ border-radius:13px;
          </section>         
 
          <section id="notConnectedBox" class="mainBtn" style="border-radius:8px;
-         background:#61f361;padding: 6px;">
-            <span>🔴</span> Not Connected 
+         background:#61f361;padding: 3px;">
+            <span>🔴</span> not connected 
         </section>
 
          <section id="ConnectedBox" class="mainBtn" style="border-radius:8px;
          background:#6283be;padding: 6px;border: 1px solid darkslateblue;
          display:none;"><span style="border-radius:33%;background:skyblue;
-              border:1px solid grey;">⚡</span>Connected
+              border:1px solid grey;">⚡</span>connected
         </section>
 
          <section id="savedBox" class="mainBtn" style="border-radius:20px;
@@ -1522,9 +1546,16 @@ border-radius:13px;
             border: 1px solid rgb(221, 118, 2);color:rgb(221, 118, 2);
             ">⚠️ error...</section>
 
+         <section style="display:flex">
+               <button id="latestBtn1" class="latestBtn1" style="float:right" 
+               onclick="getLastPriceClick()">last price🔄</button>
 
-<button id="latestBtn1" class="genBtn1" style="float:right" onclick="getLatestTickerClick()">latest🔄</button>
+               <button id="latestYRHI1" class="latestBtn1" style="float:right" 
+               onclick="getLastATHClick()">last ATH🔢</button>
 
+               <button id="latestCrypto1" class="latestBtn1" style="float:right" 
+               onclick="getLastCryptoClick()">last Crypto🔣</button>
+         </section>
          <!-- <button class= "mainBtn " onclick="stopTXT()" style="border-radius:8px;
             background:grey;box-shadow: inset 0px 0px 10px 0px crimson;
             cursor:pointer;"><span style="border-radius:100%;background:firebrick;
@@ -1536,20 +1567,18 @@ border-radius:13px;
       margin: 0.222em;">
          <section id="leftBOX" style="display:flex; justify-content: center;
          border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
-         "><span class="smICON">✴&nbsp;&nbsp;</span> ai viewz, of ledger metadata <span class="smICON">&nbsp;✳</span></section>            
-         <!-- <section id="keyBOX" style="display:flex;border: solid 1px steelblue;
-         border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
-         margin:2px;">
-               API:<input id="keyINPUT"  type="password" placeholder="api_key" 
-               style="margin-left: 1em; background:#233453;
-               border-radius: 10px 0px 0px 10px;"></input>
-               <button style="margin-right: 1em; background:#03cbcb;cursor:pointer;
-               border-radius: 0px 10px 10px 0px; font-size:0.777em;padding: 4px;" onclick="setAPIKEY();">SET</button>
-         </section> -->
+         "><span class="smICON">✴&nbsp;&nbsp;</span> ai_bankbook, synthesizes metadata, <span class="smICON">&nbsp;✳</span></section>            
+
+         <section id="midBOX" style="display:flex;  justify-content: center; font-size:0.777em;
+            border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
+            "><span class="smICON">&nbsp;&nbsp;✧&nbsp;</span>
+            with transformers, encode/decode, & financial llm,<span class="smICON">&nbsp;❇</span>
+         </section>
          <section id="rightBOX" style="display:flex;  justify-content: center;
-         border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
-         "><span class="smICON">&nbsp;&nbsp;✧&nbsp;</span>
-         generated margins, schedules, trade idea trax and charts.<span class="smICON">&nbsp;❇</span></section>
+            border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
+            "><span class="smICON">&nbsp;&nbsp;✧&nbsp;</span>
+            for generated analytic algos.<span class="smICON">&nbsp;❇</span>
+         </section>
       
       </header>         
 
@@ -1588,7 +1617,7 @@ align-items: center;">
       <section id="encodeBOX"
         style="width:80.888%; flex:1;border-radius: 13px; border: solid 1px steelblue; 
         box-shadow: inset 1px 1px 11px 0px cyan; padding:2%;padding-top: 3%;padding-left:4%; color: cyan; line-height: 2.444em;">
-        <button id="latestBtn1" class="genBtn1" style="display:none;float:right" onclick="getLatestTickerClick()">latest🔄</button>
+        <button id="latestBtn1" class="genBtn1" style="display:none;float:right" onclick="getLastPriceClick()">latest🔄</button>
         <span class="boxTitle">🎯 <span style="font-size:0.777em; color:cyan">1</span>
          <span style="font-size:0.555em">Encode</span>
          <span style="font-size: 1.222em;color:cyan;font-family: monospace;">Assets</span> 
@@ -1621,10 +1650,9 @@ align-items: center;">
       <section id="allMarginsBOX"
          style="width:80.888%; flex:1;background:#071936;border-radius: 13px; border: solid 1px #4ba1a9; 
          box-shadow: inset 0px 1px 20px 0px #023e16;padding: 2%;padding-left:4%;padding-top: 3%;
-          color: #47c270; line-height: 2.444em;" 
+          color: cyan; line-height: 2.444em;" 
          ">
          <button id=expandCollapseBtn3 class="expandCollapseBtn1" onclick="marginsExpandCollapseClick()">🕸️</button>
-         <!-- <button id="generateMarginsBtn" class="genReportBtn1" onclick="initMarginsClick()">gener8🎰</button> -->
          <span class="boxTitle">🐤 <span style="font-size:0.777em; color:cyan">3</span> 
          <span style="font-size:0.555em">Generate</span>
          <span style="font-size: 1.222em;color:cyan;font-family: monospace;">MARGINS</span>
@@ -1708,7 +1736,6 @@ align-items: center;">
       <section id="historyBOX"
         style="width:80%;flex:1; background: #010301; border-radius: 13px; border: solid 1px darkgreen; box-shadow: 0px 7px 20px 0px #029e4a;
         padding: 2%; padding-left:4%; padding-top: 3%; color: cyan; line-height: 2.444em;">
-        <!-- <button id="generateProfitBtn" class="genReportBtn1" onclick="generateProfitLossClick()">gener8🏰</button> -->
         <button id=expandCollapseBtn7 class="expandCollapseBtn1" onclick="totalzExpandCollapseClick()">🕸️</button>
         <span class="boxTitle">🌊 
          <span style="font-size:0.777em; color:cyan">7</span> 
@@ -1719,15 +1746,9 @@ align-items: center;">
          </span></span><br>
         <article style="font-size:0.777em;">
          <hr>   
-         Profit & Loss:
          <section id="generatedProfitsBOX"></section>
          <hr>   
-         Tax Calculations:<br>
-         Tax_Max: <i>everything 25%</i> - tax-loss-harvesting (later)
-         <hr>     
-         Analytics:<br>
-         <i>ai charts (later)</i>
-         <hr>     
+        
        </article> 
       </section>
       <section id="instructionBOX"
@@ -3016,65 +3037,6 @@ const deleteSelectedSchedule = (event)=>{ //remove ledger item, save, refresh
    if(!capSelected.length && !detSelected.length){showErrorMSG(' Nothing selected 😵'); return;}
 } //end delete CAP fn
 
-const generateProfitLossClick = ()=>{ // GENERATE PROFIT AND LOSS DISPLAY
-   //PROFIT and LOSS View
-   let keyz = Object.keys(ai_MetaData_TickMap);
-   let bookValue = 0, bankValue=0,itm;
-   let totMargin=0,totMarginPct,totMarginSum,totMarginBOX,totMarginPctBOX;
-   generatedProfitsBOX.innerHTML=""
-   if(ai_ledger.totalz_expanded){
-      expandCollapseBtn7.innerHTML = '💨'      
-      for(let idx=0; idx<keyz.length;idx++){
-         itm=ai_MetaData_TickMap[keyz[idx]];
-         bookValue += itm.total_val;
-         debugger;
-         bankValue += 3; //TODO sum SOLD PROFITS.
-
-         if(itm.margin){ //CALCULATE TOTAL MARGIN
-            totMargin += itm.margin;
-         }
-         totMarginSum += itm.margin_pct;
-      }
-      totMarginPct = totMarginSum/keyz.length;
-      let totalsRow1,totBookValue1,totBankValue1;
-      totBookValue1 = document.createElement('aside')
-      totBookValue1.classList.add('totBookValue1')
-      totBookValue1.innerHTML = 'book_value: '+bookValue;
-      totMarginBOX = document.createElement('aside')
-      totMarginBOX.classList.add('totMarginBOX')
-      totMarginBOX.innerHTML = 'total margin: '+totMargin;
-      totMarginPctBOX = document.createElement('aside')
-      totMarginPctBOX.classList.add('totMarginPctBOX')
-      totMarginPctBOX.innerHTML = 'total pct: '+totMarginPct;
-      totBankValue1 = document.createElement('aside')
-      totBankValue1.classList.add('totBankValue1')
-      totBankValue1.innerHTML = 'bank_value: '+bankValue;//+ai_MetaData_TickMap[ticker.tick].sum_spot_amt || 0;                        
-      totalsRow1 = document.createElement('footer')
-      totalsRow1.innerHTML = "Totals:"         
-      totalsRow1.classList.add('totalsRow1') 
-      totalsRow1.appendChild(totBookValue1)         
-      totalsRow1.appendChild(totMarginBOX)         
-      totalsRow1.appendChild(totBankValue1)         
-      generatedProfitsBOX.appendChild(totalsRow1) 
-
-      //BEGIN LOCAL_SAVE_BTN --------------------------------------
-      closeBook_BOX = document.createElement('aside') /* standard_btn */
-      closeBook_BOX.innerHTML="&nbsp";
-      closeBook_BTN = document.createElement('button')
-      closeBook_BTN.innerHTML = '🚪Close Books📗📘📙'
-      closeBook_BOX.classList.add('closeBook_BOX'); //saveBOX1
-      closeBook_BTN.classList.add('closeBook_BTN');//saveBtn0
-      // closeBook_BTN.setAttribute('data-arg6',QRTR.qID)
-      // closeBook_BTN.setAttribute('data-arg7',tickrData.tkr.toUpperCase())
-      closeBook_BTN.addEventListener("click",(e)=>{ //ADDED BACK
-         closeBook_BTN.style.display = 'none'; 
-         debugger;    
-      });
-      closeBook_BOX.appendChild(closeBook_BTN) 
-      //END LOCAL_SAVE_BTN --------------------------------------
-      generatedProfitsBOX.appendChild(closeBook_BOX) 
-   }//end if collapsed
-} 
 
       /*****************************************\
        * - end UI fns
@@ -4068,6 +4030,26 @@ const ai_main_init=()=>{ //READ from LOCAL STORAGE
       ai_main_LOAD_MOCK_DATA();
    }
 }; ai_main_init();
+//END MAIN_MATRIX-METHODS**********************************************
+/************************************************\
+ * - AI_BANK_BOOK_MATRIX
+ *  - ability to save totalz in localstorage
+\************************************************/
+let ai_bankbook=null;
+const ai_bankbook_LOAD_MOCK_DATA=()=>{ //READ
+   // ai_bankbook = {"qrtrz":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"1000","expanded":false,"trimz":[],"padz":[{"ymd":"2023_10_10","amt":"300","rate":"460"},{"ymd":"2023_10_20","amt":"200","rate":"413"}],"netAMT":-500,"notez":"2","notez_expanded":true,"trimTOT":0,"padTOT":500,"bankVAL":-500,"bookVAL":500},{"tkr":"MDB","cap":"1000","trimz":[],"padz":[{"ymd":"2021_05_04","amt":"570","rate":"285"},{"ymd":"2023_09_21","amt":"200","rate":"334"},{"ymd":"2023_10_12","amt":"300","rate":"371"},{"ymd":"2023_10_25","amt":"200","rate":"329"}],"netAMT":-1270,"notez":"2","trimTOT":0,"padTOT":1270,"expanded":false},{"tkr":"COST","cap":"1000","trimz":[],"padz":[{"ymd":"2023_10_06","amt":"300","rate":"555"},{"ymd":"2023_10_10","amt":"300","rate":"562"},{"ymd":"2023_10_12","amt":"200","rate":"568"},{"ymd":"2023_10_20","amt":"200","rate":"555"},{"ymd":"2023_10_20","amt":"200","rate":"552"},{"ymd":"2023_10_25","amt":"200","rate":"550"},{"ymd":"2023_10_26","amt":"200","rate":"548"},{"ymd":"2023_10_27","amt":"35","rate":"543"}],"netAMT":-1635,"notez":"2","trimTOT":0,"padTOT":1635,"expanded":false,"notez_expanded":false,"bankVAL":-500,"bookVAL":500},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2020_04_20","amt":"176","rate":"176"}],"padz":[{"ymd":"2020_04_17","amt":"180","rate":"180"},{"ymd":"2021_06_22","amt":"531","rate":"266"},{"ymd":"2023_09_30","amt":"200","rate":"316"},{"ymd":"2023_10_25","amt":"100","rate":"340"},{"ymd":"2023_10_26","amt":"100","rate":"330"}],"netAMT":-935,"notez":"2","trimTOT":176,"padTOT":1111,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_24","amt":"200","rate":"232"}],"trimTOT":0,"padTOT":200,"netAMT":-200},{"tkr":"AMD","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_01","amt":"524","rate":"102"}],"trimTOT":0,"padTOT":524,"netAMT":-524},{"tkr":"GOOG","cap":"5000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_10","amt":"4963","rate":"125"}],"trimTOT":0,"padTOT":4963,"netAMT":-4963},{"tkr":"XLK","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2021_07_01","amt":"297","rate":"149"},{"ymd":"2023_09_15","amt":"305","rate":"168"},{"ymd":"2020_01_01","amt":"500","rate":"157"}],"trimTOT":0,"padTOT":1102,"netAMT":-1102}]},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[{"ymd":"2023_11_17","amt":"200","rate":"495"},{"ymd":"2023_11_22","amt":"100","rate":"486"}],"netAMT":-300,"notez":"2","trimTOT":0,"padTOT":300,"expanded":false,"bankVAL":-800,"notez_expanded":true,"bookVAL":800},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2023_11_10","amt":"200","rate":"376"}],"padz":[],"netAMT":"+200","notez":"2","trimTOT":200,"padTOT":0,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[{"ymd":"2023_11_10","amt":"200","rate":"133"},{"ymd":"2023_11_14","amt":"100","rate":"136"},{"ymd":"2023_11_16","amt":"100","rate":"139"},{"ymd":"2023_11_20","amt":"100","rate":"138"},{"ymd":"2023_11_20","amt":"40","rate":"139"}],"padz":[],"netAMT":"+540","notez":"3","trimTOT":540,"padTOT":0,"expanded":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2023_11_10","amt":"100","rate":"368"},{"ymd":"2023_11_20","amt":"100","rate":"378"},{"ymd":"2023_11_28","amt":"30","rate":"384"}],"padz":[],"netAMT":"+230","notez":"2","trimTOT":230,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"500","trimz":[{"ymd":"2023_11_14","amt":"100","rate":"182"},{"ymd":"2023_11_20","amt":"100","rate":"185"}],"padz":[],"netAMT":"+200","notez":"2","trimTOT":200,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2022_11_10","amt":"100","rate":"119"},{"ymd":"2023_11_16","amt":"100","rate":"120"},{"ymd":"2023_11_29","amt":"30","rate":"125"}],"padz":[],"netAMT":"+230","notez":"2","trimTOT":230,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2023_11_24","amt":"30","rate":"254"}],"padz":[{"ymd":"2023_11_10","amt":"300","rate":"245"}],"netAMT":-270,"notez":"2","trimTOT":30,"padTOT":300,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_11_01","amt":"100","rate":"35435"},{"ymd":"2023_11_10","amt":"200","rate":"36818"},{"ymd":"2023_11_15","amt":"100","rate":"37390"},{"ymd":"2023_11_22","amt":"100","rate":"37694"}],"padz":[],"netAMT":"+500","notez":"2","trimTOT":500,"padTOT":0,"expanded":false}]},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2023_12_15","amt":"30","rate":"492"},{"ymd":"2023_12_18","amt":"50","rate":"503"},{"ymd":"2023_12_18","amt":"50","rate":"497"},{"ymd":"2023_12_26","amt":"60","rate":"493"},{"ymd":"2023_12_28","amt":"100","rate":"497"},{"ymd":"2023_12_29","amt":"100","rate":"498"}],"padz":[{"ymd":"2023_12_18","amt":"0","rate":"497"},{"ymd":"2023_12_18","amt":"0","rate":"503"}],"netAMT":"+390","notez":"2","trimTOT":390,"padTOT":0,"expanded":false,"bankVAL":-410,"bookVAL":800,"notez_expanded":true},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"432"},{"ymd":"2023_12_14","amt":"20","rate":"413"},{"ymd":"2023_12_14","amt":"20","rate":"420"},{"ymd":"2023_12_15","amt":"10","rate":"420"},{"ymd":"2023_12_16","amt":"195","rate":"409"},{"ymd":"2023_12_26","amt":"200","rate":"416"},{"ymd":"2023_12_28","amt":"50","rate":"417"}],"padz":[{"ymd":"2023_12_09","amt":"100","rate":"388"}],"netAMT":"+420","notez":"2","trimTOT":520,"padTOT":100,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[{"ymd":"2023_12_11","amt":"100","rate":"624"},{"ymd":"2023_12_13","amt":"100","rate":"636"},{"ymd":"2023_12_15","amt":"250","rate":"656"},{"ymd":"2023_12_15","amt":"30","rate":"660"},{"ymd":"2023_12_18","amt":"60","rate":"674"},{"ymd":"2023_12_18","amt":"30","rate":"679"}],"padz":[{"ymd":"2023_12_27","amt":"40","rate":"667"},{"ymd":"2023_12_28","amt":"20","rate":"662"}],"netAMT":"+510","notez":"1","trimTOT":570,"padTOT":60,"expanded":false},{"tkr":"GOOG","cap":"4000","trimz":[{"ymd":"2023_12_07","amt":"25","rate":"140"},{"ymd":"2023_12_11","amt":"496","rate":"133"},{"ymd":"2023_12_11","amt":"298","rate":"133"},{"ymd":"2023_12_13","amt":"10","rate":"134"},{"ymd":"2023_12_18","amt":"70","rate":"137"},{"ymd":"2023_12_18","amt":"20","rate":"137"},{"ymd":"2023_12_19","amt":"25","rate":"138"},{"ymd":"2023_12_20","amt":"120","rate":"142"},{"ymd":"2023_12_22","amt":"20","rate":"143"}],"padz":[],"netAMT":"+1084","notez":"3","trimTOT":1084,"padTOT":0,"expanded":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2023_12_31","amt":"398","rate":"374"}],"padz":[],"netAMT":"+398","notez":"2","trimTOT":398,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"1000","trimz":[{"ymd":"2023_12_11","amt":"10","rate":"187"},{"ymd":"2023_12_13","amt":"10","rate":"191"},{"ymd":"2023_12_22","amt":"270","rate":"192"}],"padz":[],"netAMT":"+290","notez":"2","trimTOT":290,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2023_12_08","amt":"20","rate":"129"},{"ymd":"2023_12_11","amt":"20","rate":"134"},{"ymd":"2023_11_12","amt":"20","rate":"139"},{"ymd":"2023_12_26","amt":"15","rate":"143"},{"ymd":"2023_12_27","amt":"10","rate":"246"},{"ymd":"2023_12_28","amt":"10","rate":"149"}],"padz":[],"netAMT":"+95","notez":"2","trimTOT":95,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2023_12_12","amt":"10","rate":"259"}],"padz":[],"netAMT":"+10","notez":"2","trimTOT":10,"padTOT":0,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"38626"},{"ymd":"2023_12_02","amt":"50","rate":"39417"},{"ymd":"2023_12_03","amt":"25","rate":"39848"},{"ymd":"2023_12_03","amt":"50","rate":"4819"},{"ymd":"2023_12_04","amt":"20","rate":"41700"},{"ymd":"2023_12_04","amt":"30","rate":"41684"},{"ymd":"2023_12_05","amt":"50","rate":"42718"},{"ymd":"2023_12_05","amt":"50","rate":"44008"},{"ymd":"2023_12_13","amt":"20","rate":"41940"},{"ymd":"2023_12_13","amt":"30","rate":"42648"},{"ymd":"2023_12_13","amt":"20","rate":"43042"},{"ymd":"2023_12_18","amt":"30","rate":"41509"},{"ymd":"2023_12_30","amt":"9464","rate":"42060"}],"padz":[{"ymd":"2023_12_12","amt":"100","rate":"40928"},{"ymd":"2023_12_17","amt":"200","rate":"41077"},{"ymd":"2023_12_18","amt":"100","rate":"43074"},{"ymd":"2023_12_19","amt":"200","rate":"42663"},{"ymd":"2023_12_22","amt":"1500","rate":"43637"},{"ymd":"2023_12_25","amt":"100","rate":"42844"},{"ymd":"2023_12_29","amt":"50","rate":"42152"},{"ymd":"2023_12_29","amt":"500","rate":"42048"},{"ymd":"2023_12_30","amt":"5000","rate":"42303"},{"ymd":"2023_12_30","amt":"9000","rate":"42417"}],"netAMT":-6886,"notez":"Just Starting out. 1st month trading BTC since \"historic\" ETF approval on Jan 10, 2024. Profitable!!!","trimTOT":9864,"padTOT":16750,"expanded":false,"notez_expanded":true,"bookVAL":800},{"tkr":"AMZN","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2022_12_04","amt":"100","rate":"144"}],"trimTOT":0,"padTOT":100,"netAMT":-100}]},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2024_01_08","amt":"300","rate":"514"},{"ymd":"2024_01_08","amt":"80","rate":"518"},{"ymd":"2024_01_08","amt":"30","rate":"519"},{"ymd":"2024_01_08","amt":"20","rate":"520"},{"ymd":"2024_01_08","amt":"20","rate":"521"},{"ymd":"2024_01_08","amt":"20","rate":"523"},{"ymd":"2024_01_08","amt":"30","rate":"526"},{"ymd":"2024_01_09","amt":"100","rate":"534"},{"ymd":"2024_01_09","amt":"80","rate":"538"},{"ymd":"2024_01_09","amt":"50","rate":"542"},{"ymd":"2024_01_10","amt":"30","rate":"545"},{"ymd":"2024_01_11","amt":"60","rate":"549"},{"ymd":"2024_01_11","amt":"30","rate":"551"}],"padz":[],"netAMT":"+850","notez":"JAN 8th 2024 - 1st $500 day!\nExcellent Margins, form prior OCT 27, 2024 lows.","trimTOT":850,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2024_01_19","amt":"10","rate":"401"}],"padz":[{"ymd":"2024_01_11","amt":"15","rate":"393"}],"netAMT":-5,"notez":"2","trimTOT":10,"padTOT":15,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[{"ymd":"2024_01_10","amt":"30","rate":"673"},{"ymd":"2024_01_12","amt":"30","rate":"679"},{"ymd":"2024_01_12","amt":"10","rate":"682"},{"ymd":"2024_01_18","amt":"20","rate":"687"},{"ymd":"2024_01_19","amt":"20","rate":"691"},{"ymd":"2024_01_19","amt":"50","rate":"694"}],"padz":[],"netAMT":"+160","notez":"1","trimTOT":160,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"GOOG","cap":"4000","trimz":[{"ymd":"2024_01_10","amt":"20","rate":"144"},{"ymd":"2024_01_11","amt":"20","rate":"144"},{"ymd":"2024_01_18","amt":"20","rate":"145"},{"ymd":"2024_01_19","amt":"40","rate":"147"},{"ymd":"2024_01_19","amt":"20","rate":"147"},{"ymd":"2024_01_19","amt":"10","rate":"148"}],"padz":[],"netAMT":"+130","notez":"3","trimTOT":130,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2024_01_08","amt":"50","rate":"372"},{"ymd":"2024_01_09","amt":"30","rate":"376"},{"ymd":"2024_01_10","amt":"210","rate":"381"}],"padz":[],"netAMT":"+290","notez":"2","trimTOT":290,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"500","trimz":[{"ymd":"2023_01_19","amt":"20","rate":"197"},{"ymd":"2024_01_19","amt":"20","rate":"200"}],"padz":[],"netAMT":"+40","notez":"2","trimTOT":40,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2024_01_16","amt":"20","rate":"157"},{"ymd":"2024_01_18","amt":"30","rate":"166"},{"ymd":"2024_01_19","amt":"25","rate":"173"}],"padz":[],"netAMT":"+75","notez":"2","trimTOT":75,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2024_01_12","amt":"10","rate":"265"},{"ymd":"2024_01_19","amt":"15","rate":"271"}],"padz":[{"ymd":"2024_01_19","amt":"500","rate":"269"}],"netAMT":-475,"notez":"2","trimTOT":25,"padTOT":500,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2024_01_01","amt":"500","rate":"44519"},{"ymd":"2024_01_01","amt":"150","rate":"45282"},{"ymd":"2024_01_08","amt":"200","rate":"45870"},{"ymd":"2024_01_08","amt":"200","rate":"46466"},{"ymd":"2024_01_08","amt":"150","rate":"46891"},{"ymd":"2024_01_08","amt":"50","rate":"47156"},{"ymd":"2024_01_08","amt":"30","rate":"47028"},{"ymd":"2024_01_08","amt":"20","rate":"47021"},{"ymd":"2024_01_10","amt":"50","rate":"46229"},{"ymd":"2024_01_10","amt":"20","rate":"46354"},{"ymd":"2024_01_10","amt":"90","rate":"46768"},{"ymd":"2024_01_10","amt":"80","rate":"47024"},{"ymd":"2024_01_11","amt":"40","rate":"46908"},{"ymd":"2024_01_11","amt":"30","rate":"47000"},{"ymd":"2024_01_11","amt":"20","rate":"46336"},{"ymd":"2024_01_11","amt":"40","rate":"46480"},{"ymd":"2024_01_12","amt":"500","rate":"42459"}],"padz":[{"ymd":"2024_01_06","amt":"250","rate":"43888"},{"ymd":"2024_01_10","amt":"250","rate":"45955"},{"ymd":"2024_01_10","amt":"100","rate":"46023"},{"ymd":"2024_01_11","amt":"100","rate":"45866"},{"ymd":"2024_01_11","amt":"50","rate":"46439"},{"ymd":"2024_01_11","amt":"80","rate":"46083"},{"ymd":"2024_01_12","amt":"100","rate":"43551"},{"ymd":"2024_01_12","amt":"100","rate":"43677"},{"ymd":"2024_01_12","amt":"100","rate":"42402"}],"netAMT":"+1040","notez":"2","trimTOT":2170,"padTOT":1130,"expanded":false,"notez_expanded":true,"bookVAL":800,"bankVAL":440},{"tkr":"AMZN","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2024_01_04","amt":"145","rate":"145"},{"ymd":"2024_01_04","amt":"146","rate":"146"},{"ymd":"2024_01_12","amt":"70","rate":"154"},{"ymd":"2024_01_19","amt":"300","rate":"153"},{"ymd":"2024_01_19","amt":"200","rate":"153"}],"trimTOT":0,"padTOT":861,"netAMT":-861}],"expanded":false}}}
+   // ai_bankbook = {"qrtrz":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"1000","expanded":false,"trimz":[],"padz":[{"ymd":"2023_10_10","amt":"300","rate":"460"},{"ymd":"2023_10_20","amt":"200","rate":"413"}],"netAMT":-500,"notez":"2","notez_expanded":true,"trimTOT":0,"padTOT":500,"bankVAL":-500,"bookVAL":500},{"tkr":"MDB","cap":"1000","trimz":[],"padz":[{"ymd":"2021_05_04","amt":"570","rate":"285"},{"ymd":"2023_09_21","amt":"200","rate":"334"},{"ymd":"2023_10_12","amt":"300","rate":"371"},{"ymd":"2023_10_25","amt":"200","rate":"329"}],"netAMT":-1270,"notez":"2","trimTOT":0,"padTOT":1270,"expanded":false},{"tkr":"COST","cap":"1000","trimz":[],"padz":[{"ymd":"2023_10_06","amt":"300","rate":"555"},{"ymd":"2023_10_10","amt":"300","rate":"562"},{"ymd":"2023_10_12","amt":"200","rate":"568"},{"ymd":"2023_10_20","amt":"200","rate":"555"},{"ymd":"2023_10_20","amt":"200","rate":"552"},{"ymd":"2023_10_25","amt":"200","rate":"550"},{"ymd":"2023_10_26","amt":"200","rate":"548"},{"ymd":"2023_10_27","amt":"35","rate":"543"}],"netAMT":-1635,"notez":"2","trimTOT":0,"padTOT":1635,"expanded":false,"notez_expanded":false,"bankVAL":-500,"bookVAL":500},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2020_04_20","amt":"176","rate":"176"}],"padz":[{"ymd":"2020_04_17","amt":"180","rate":"180"},{"ymd":"2021_06_22","amt":"531","rate":"266"},{"ymd":"2023_09_30","amt":"200","rate":"316"},{"ymd":"2023_10_25","amt":"100","rate":"340"},{"ymd":"2023_10_26","amt":"100","rate":"330"}],"netAMT":-935,"notez":"2","trimTOT":176,"padTOT":1111,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_24","amt":"200","rate":"232"}],"trimTOT":0,"padTOT":200,"netAMT":-200},{"tkr":"AMD","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_01","amt":"524","rate":"102"}],"trimTOT":0,"padTOT":524,"netAMT":-524},{"tkr":"GOOG","cap":"5000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_10","amt":"4963","rate":"125"}],"trimTOT":0,"padTOT":4963,"netAMT":-4963},{"tkr":"XLK","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2021_07_01","amt":"297","rate":"149"},{"ymd":"2023_09_15","amt":"305","rate":"168"},{"ymd":"2020_01_01","amt":"500","rate":"157"}],"trimTOT":0,"padTOT":1102,"netAMT":-1102}]},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[{"ymd":"2023_11_17","amt":"200","rate":"495"},{"ymd":"2023_11_22","amt":"100","rate":"486"}],"netAMT":-300,"notez":"2","trimTOT":0,"padTOT":300,"expanded":false,"bankVAL":-800,"notez_expanded":true,"bookVAL":800},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2023_11_10","amt":"200","rate":"376"}],"padz":[],"netAMT":"+200","notez":"2","trimTOT":200,"padTOT":0,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[{"ymd":"2023_11_10","amt":"200","rate":"133"},{"ymd":"2023_11_14","amt":"100","rate":"136"},{"ymd":"2023_11_16","amt":"100","rate":"139"},{"ymd":"2023_11_20","amt":"100","rate":"138"},{"ymd":"2023_11_20","amt":"40","rate":"139"}],"padz":[],"netAMT":"+540","notez":"3","trimTOT":540,"padTOT":0,"expanded":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2023_11_10","amt":"100","rate":"368"},{"ymd":"2023_11_20","amt":"100","rate":"378"},{"ymd":"2023_11_28","amt":"30","rate":"384"}],"padz":[],"netAMT":"+230","notez":"2","trimTOT":230,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"500","trimz":[{"ymd":"2023_11_14","amt":"100","rate":"182"},{"ymd":"2023_11_20","amt":"100","rate":"185"}],"padz":[],"netAMT":"+200","notez":"2","trimTOT":200,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2022_11_10","amt":"100","rate":"119"},{"ymd":"2023_11_16","amt":"100","rate":"120"},{"ymd":"2023_11_29","amt":"30","rate":"125"}],"padz":[],"netAMT":"+230","notez":"2","trimTOT":230,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2023_11_24","amt":"30","rate":"254"}],"padz":[{"ymd":"2023_11_10","amt":"300","rate":"245"}],"netAMT":-270,"notez":"2","trimTOT":30,"padTOT":300,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_11_01","amt":"100","rate":"35435"},{"ymd":"2023_11_10","amt":"200","rate":"36818"},{"ymd":"2023_11_15","amt":"100","rate":"37390"},{"ymd":"2023_11_22","amt":"100","rate":"37694"}],"padz":[],"netAMT":"+500","notez":"2","trimTOT":500,"padTOT":0,"expanded":false}]},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2023_12_15","amt":"30","rate":"492"},{"ymd":"2023_12_18","amt":"50","rate":"503"},{"ymd":"2023_12_18","amt":"50","rate":"497"},{"ymd":"2023_12_26","amt":"60","rate":"493"},{"ymd":"2023_12_28","amt":"100","rate":"497"},{"ymd":"2023_12_29","amt":"100","rate":"498"}],"padz":[{"ymd":"2023_12_18","amt":"0","rate":"497"},{"ymd":"2023_12_18","amt":"0","rate":"503"}],"netAMT":"+390","notez":"2","trimTOT":390,"padTOT":0,"expanded":false,"bankVAL":-410,"bookVAL":800,"notez_expanded":true},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"432"},{"ymd":"2023_12_14","amt":"20","rate":"413"},{"ymd":"2023_12_14","amt":"20","rate":"420"},{"ymd":"2023_12_15","amt":"10","rate":"420"},{"ymd":"2023_12_16","amt":"195","rate":"409"},{"ymd":"2023_12_26","amt":"200","rate":"416"},{"ymd":"2023_12_28","amt":"50","rate":"417"}],"padz":[{"ymd":"2023_12_09","amt":"100","rate":"388"}],"netAMT":"+420","notez":"2","trimTOT":520,"padTOT":100,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[{"ymd":"2023_12_11","amt":"100","rate":"624"},{"ymd":"2023_12_13","amt":"100","rate":"636"},{"ymd":"2023_12_15","amt":"250","rate":"656"},{"ymd":"2023_12_15","amt":"30","rate":"660"},{"ymd":"2023_12_18","amt":"60","rate":"674"},{"ymd":"2023_12_18","amt":"30","rate":"679"}],"padz":[{"ymd":"2023_12_27","amt":"40","rate":"667"},{"ymd":"2023_12_28","amt":"20","rate":"662"}],"netAMT":"+510","notez":"1","trimTOT":570,"padTOT":60,"expanded":false},{"tkr":"GOOG","cap":"4000","trimz":[{"ymd":"2023_12_07","amt":"25","rate":"140"},{"ymd":"2023_12_11","amt":"496","rate":"133"},{"ymd":"2023_12_11","amt":"298","rate":"133"},{"ymd":"2023_12_13","amt":"10","rate":"134"},{"ymd":"2023_12_18","amt":"70","rate":"137"},{"ymd":"2023_12_18","amt":"20","rate":"137"},{"ymd":"2023_12_19","amt":"25","rate":"138"},{"ymd":"2023_12_20","amt":"120","rate":"142"},{"ymd":"2023_12_22","amt":"20","rate":"143"}],"padz":[],"netAMT":"+1084","notez":"3","trimTOT":1084,"padTOT":0,"expanded":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2023_12_31","amt":"398","rate":"374"}],"padz":[],"netAMT":"+398","notez":"2","trimTOT":398,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"1000","trimz":[{"ymd":"2023_12_11","amt":"10","rate":"187"},{"ymd":"2023_12_13","amt":"10","rate":"191"},{"ymd":"2023_12_22","amt":"270","rate":"192"}],"padz":[],"netAMT":"+290","notez":"2","trimTOT":290,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2023_12_08","amt":"20","rate":"129"},{"ymd":"2023_12_11","amt":"20","rate":"134"},{"ymd":"2023_11_12","amt":"20","rate":"139"},{"ymd":"2023_12_26","amt":"15","rate":"143"},{"ymd":"2023_12_27","amt":"10","rate":"246"},{"ymd":"2023_12_28","amt":"10","rate":"149"}],"padz":[],"netAMT":"+95","notez":"2","trimTOT":95,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2023_12_12","amt":"10","rate":"259"}],"padz":[],"netAMT":"+10","notez":"2","trimTOT":10,"padTOT":0,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"38626"},{"ymd":"2023_12_02","amt":"50","rate":"39417"},{"ymd":"2023_12_03","amt":"25","rate":"39848"},{"ymd":"2023_12_03","amt":"50","rate":"4819"},{"ymd":"2023_12_04","amt":"20","rate":"41700"},{"ymd":"2023_12_04","amt":"30","rate":"41684"},{"ymd":"2023_12_05","amt":"50","rate":"42718"},{"ymd":"2023_12_05","amt":"50","rate":"44008"},{"ymd":"2023_12_13","amt":"20","rate":"41940"},{"ymd":"2023_12_13","amt":"30","rate":"42648"},{"ymd":"2023_12_13","amt":"20","rate":"43042"},{"ymd":"2023_12_18","amt":"30","rate":"41509"},{"ymd":"2023_12_30","amt":"9464","rate":"42060"}],"padz":[{"ymd":"2023_12_12","amt":"100","rate":"40928"},{"ymd":"2023_12_17","amt":"200","rate":"41077"},{"ymd":"2023_12_18","amt":"100","rate":"43074"},{"ymd":"2023_12_19","amt":"200","rate":"42663"},{"ymd":"2023_12_22","amt":"1500","rate":"43637"},{"ymd":"2023_12_25","amt":"100","rate":"42844"},{"ymd":"2023_12_29","amt":"50","rate":"42152"},{"ymd":"2023_12_29","amt":"500","rate":"42048"},{"ymd":"2023_12_30","amt":"5000","rate":"42303"},{"ymd":"2023_12_30","amt":"9000","rate":"42417"}],"netAMT":-6886,"notez":"Just Starting out. 1st month trading BTC since \"historic\" ETF approval on Jan 10, 2024. Profitable!!!","trimTOT":9864,"padTOT":16750,"expanded":false,"notez_expanded":true,"bookVAL":800},{"tkr":"AMZN","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2022_12_04","amt":"100","rate":"144"}],"trimTOT":0,"padTOT":100,"netAMT":-100}]},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2024_01_08","amt":"300","rate":"514"},{"ymd":"2024_01_08","amt":"80","rate":"518"},{"ymd":"2024_01_08","amt":"30","rate":"519"},{"ymd":"2024_01_08","amt":"20","rate":"520"},{"ymd":"2024_01_08","amt":"20","rate":"521"},{"ymd":"2024_01_08","amt":"20","rate":"523"},{"ymd":"2024_01_08","amt":"30","rate":"526"},{"ymd":"2024_01_09","amt":"100","rate":"534"},{"ymd":"2024_01_09","amt":"80","rate":"538"},{"ymd":"2024_01_09","amt":"50","rate":"542"},{"ymd":"2024_01_10","amt":"30","rate":"545"},{"ymd":"2024_01_11","amt":"60","rate":"549"},{"ymd":"2024_01_11","amt":"30","rate":"551"}],"padz":[],"netAMT":"+850","notez":"JAN 8th 2024 - 1st $500 day!\nExcellent Margins, form prior OCT 27, 2024 lows.","trimTOT":850,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2024_01_19","amt":"10","rate":"401"}],"padz":[{"ymd":"2024_01_11","amt":"15","rate":"393"}],"netAMT":-5,"notez":"2","trimTOT":10,"padTOT":15,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[{"ymd":"2024_01_10","amt":"30","rate":"673"},{"ymd":"2024_01_12","amt":"30","rate":"679"},{"ymd":"2024_01_12","amt":"10","rate":"682"},{"ymd":"2024_01_18","amt":"20","rate":"687"},{"ymd":"2024_01_19","amt":"20","rate":"691"},{"ymd":"2024_01_19","amt":"50","rate":"694"}],"padz":[],"netAMT":"+160","notez":"1","trimTOT":160,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"GOOG","cap":"4000","trimz":[{"ymd":"2024_01_10","amt":"20","rate":"144"},{"ymd":"2024_01_11","amt":"20","rate":"144"},{"ymd":"2024_01_18","amt":"20","rate":"145"},{"ymd":"2024_01_19","amt":"40","rate":"147"},{"ymd":"2024_01_19","amt":"20","rate":"147"},{"ymd":"2024_01_19","amt":"10","rate":"148"}],"padz":[],"netAMT":"+130","notez":"3","trimTOT":130,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2024_01_08","amt":"50","rate":"372"},{"ymd":"2024_01_09","amt":"30","rate":"376"},{"ymd":"2024_01_10","amt":"210","rate":"381"}],"padz":[],"netAMT":"+290","notez":"2","trimTOT":290,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"500","trimz":[{"ymd":"2023_01_19","amt":"20","rate":"197"},{"ymd":"2024_01_19","amt":"20","rate":"200"}],"padz":[],"netAMT":"+40","notez":"2","trimTOT":40,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2024_01_16","amt":"20","rate":"157"},{"ymd":"2024_01_18","amt":"30","rate":"166"},{"ymd":"2024_01_19","amt":"25","rate":"173"}],"padz":[],"netAMT":"+75","notez":"2","trimTOT":75,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2024_01_12","amt":"10","rate":"265"},{"ymd":"2024_01_19","amt":"15","rate":"271"}],"padz":[{"ymd":"2024_01_19","amt":"500","rate":"269"}],"netAMT":-475,"notez":"2","trimTOT":25,"padTOT":500,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2024_01_01","amt":"500","rate":"44519"},{"ymd":"2024_01_01","amt":"150","rate":"45282"},{"ymd":"2024_01_08","amt":"200","rate":"45870"},{"ymd":"2024_01_08","amt":"200","rate":"46466"},{"ymd":"2024_01_08","amt":"150","rate":"46891"},{"ymd":"2024_01_08","amt":"50","rate":"47156"},{"ymd":"2024_01_08","amt":"30","rate":"47028"},{"ymd":"2024_01_08","amt":"20","rate":"47021"},{"ymd":"2024_01_10","amt":"50","rate":"46229"},{"ymd":"2024_01_10","amt":"20","rate":"46354"},{"ymd":"2024_01_10","amt":"90","rate":"46768"},{"ymd":"2024_01_10","amt":"80","rate":"47024"},{"ymd":"2024_01_11","amt":"40","rate":"46908"},{"ymd":"2024_01_11","amt":"30","rate":"47000"},{"ymd":"2024_01_11","amt":"20","rate":"46336"},{"ymd":"2024_01_11","amt":"40","rate":"46480"},{"ymd":"2024_01_12","amt":"500","rate":"42459"},{"ymd":"2024_01_21","amt":"3000","rate":"41248"}],"padz":[{"ymd":"2024_01_06","amt":"250","rate":"43888"},{"ymd":"2024_01_10","amt":"250","rate":"45955"},{"ymd":"2024_01_10","amt":"100","rate":"46023"},{"ymd":"2024_01_11","amt":"100","rate":"45866"},{"ymd":"2024_01_11","amt":"50","rate":"46439"},{"ymd":"2024_01_11","amt":"80","rate":"46083"},{"ymd":"2024_01_12","amt":"100","rate":"43551"},{"ymd":"2024_01_12","amt":"100","rate":"43677"},{"ymd":"2024_01_12","amt":"100","rate":"42402"},{"ymd":"2024_01_18","amt":"200","rate":"41536"},{"ymd":"2024_01_18","amt":"200","rate":"40888"},{"ymd":"2024_01_21","amt":"200","rate":"417575"},{"ymd":"2024_01_21","amt":"100","rate":"40888"},{"ymd":"2024_01_21","amt":"100","rate":"40666"},{"ymd":"2024_01_21","amt":"100","rate":"40444"},{"ymd":"2024_01_21","amt":"100","rate":"39888"},{"ymd":"2024_01_21","amt":"200","rate":"39655"}],"netAMT":"+2840","notez":"This was a ROUGH ONE. Correction at exact the time of CERTAINTY. Destroyed by institutions. How did I manage the boat in the unexpected correction? \nWe will See. Have yet to RUN the NUMBERS!\nCrossing fingers. How to CALCULATE?","trimTOT":5170,"padTOT":2330,"expanded":true,"notez_expanded":true,"bookVAL":800,"bankVAL":440},{"tkr":"AMZN","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2024_01_04","amt":"145","rate":"145"},{"ymd":"2024_01_04","amt":"146","rate":"146"},{"ymd":"2024_01_12","amt":"70","rate":"154"},{"ymd":"2024_01_19","amt":"300","rate":"153"},{"ymd":"2024_01_19","amt":"200","rate":"153"}],"trimTOT":0,"padTOT":861,"netAMT":-861}],"expanded":true}}}
+   ai_bankbook = {"totalz":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":false}}}
+}
+
+const ai_bankbook_init=()=>{ //READ from LOCAL STORAGE
+   ai_bankbook = (localStorage.ai_bankbook)?
+      JSON.parse( localStorage.ai_bankbook ):null;
+   ai_bankbook = null; //test mock data
+   if(!ai_bankbook){
+      ai_bankbook_LOAD_MOCK_DATA();
+   }
+}; ai_bankbook_init();
 
 
 const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
@@ -4119,8 +4101,6 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
          saveBtnTTL.innerHTML = 'save🌟'
          saveBtnTTL.classList.add('saveBtnTTL')
          saveBtnTTL.setAttribute('data-arg6',QRTR.qID)
-         // saveBtnTTL.setAttribute('data-arg7',tickrData.tkr.toUpperCase())
-         // saveBtn0.addEventListener("click", (e)=>{ saveQuickTrackEdits(e)});
          saveBtnTTL.addEventListener("click",(e)=>{ //ADDED BACK
             saveBOXTTL.style.display = 'none'; 
             let qID2 = e.target.getAttribute('data-arg6');
@@ -4272,7 +4252,6 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                saveBtn0.classList.add('saveBtn0')
                saveBtn0.setAttribute('data-arg6',QRTR.qID)
                saveBtn0.setAttribute('data-arg7',tickrData.tkr.toUpperCase())
-               // saveBtn0.addEventListener("click", (e)=>{ saveQuickTrackEdits(e)});
                saveBtn0.addEventListener("click",(e)=>{ //ADDED BACK
                   saveBtn0.style.display = 'none'; 
                   //SAVE LOGIC
@@ -4474,7 +4453,6 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                      // saveBtn0.classList.add('saveBtn0')
                      // saveBtn0.setAttribute('data-arg6',QRTR.qID)
                      // saveBtn0.setAttribute('data-arg7',tickrData.tkr.toUpperCase())
-                     // // saveBtn0.addEventListener("click", (e)=>{ saveQuickTrackEdits(e)});
                      // saveBtn0.addEventListener("click",(e)=>{ //ADDED BACK
                      //    debugger;
                      //    saveBtn0.style.display = 'none'; 
@@ -4554,7 +4532,8 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                      tradeAMTData1.placeholder = "0";
                      // tradeAMTData1.value = tickrData.AMT || '';          
                      tradeAMTData1.addEventListener("keyup",(e)=>{ 
-                        e.target.parentElement.nextSibling.nextSibling.children[0].style.display = 'flex'
+                        e.target.parentElement.parentElement.children[3].style.display = 'inline-flex';
+                        // saveBtn03.style.display = 'flex'; 
                      });  
                      // tradeAMTBOX1.appendChild(tradeAMTData1)
                      // tradeAMTBOX1 = document.createElement('aside')
@@ -4566,7 +4545,8 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                      tradeRateData1.placeholder = "0";
                      // tradeAMTData1.value = tickrData.AMT || '';          
                      tradeRateData1.addEventListener("keyup",(e)=>{ 
-                        e.target.parentElement.nextSibling.nextSibling.children[0].style.display = 'flex'
+                        e.target.parentElement.parentElement.children[3].style.display = 'inline-flex';
+                        // saveBtn03.style.display = 'flex'; 
                      });  
                      tradeAMTBOX1.appendChild(tradeRateData1)
                      tradeAMTBOX1.appendChild(tradeText1);
@@ -4577,7 +4557,8 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                      date01.value = current_ymd.split('YMD_')[1] 
                      date01.classList.add('detailDate3')
                      date01.addEventListener("keyup",(e)=>{ 
-                        saveBtn03.style.display = 'flex'; 
+                        // saveBtn03.style.display = 'flex'; 
+                        e.target.parentElement.parentElement.children[3].style.display = 'inline-flex';
                      });  
                      inputSAVEROW.appendChild(date01)
 
@@ -4650,9 +4631,83 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                      saveBTN_fifo.innerHTML = 'save🌟'
                      saveBOX_fifo.classList.add('saveBOX_fifo')
                      saveBTN_fifo.classList.add('saveBTN_fifo')
-                     // saveBTN_fifo.setAttribute('data-arg6',QRTR.qID)
+                     saveBTN_fifo.setAttribute('data-qID',QRTR.qID)
+                     saveBTN_fifo.setAttribute('data-tkr',tickrData.tkr)
                      saveBTN_fifo.addEventListener("click",(e)=>{ 
-                        e.target.parentElement.style.display = 'none' 
+                        e.target.parentElement.style.display = 'none';
+                        // if(saveBtn0 && saveBtn0.style){
+                        //    saveBtn0.style.display = 'none'; 
+                        // }
+                        // if(saveBtn04 && saveBtn04.style){
+                        //    saveBtn04.style.display = 'none'; 
+                        // }
+                        //SAVE LOGIC
+                        let qID_fifo = e.target.getAttribute('data-qID');
+                        let tkr_fifo = e.target.getAttribute('data-tkr'); 
+                        let txtSaveBtn = (e.target.getAttribute('txtSaveBtn'))?true:false;
+                        let qtr = ai_main.qrtrz[qID_fifo];
+                        let titleROW =  e.target.parentElement.parentElement.parentElement.children[0];
+                        // if(txtSaveBtn){
+                        //    titleROW = e.target.parentElement.parentElement.previousSibling.previousSibling.previousSibling.previousSibling
+                        // }else{
+                        //    titleROW = e.target.parentElement.parentElement.previousSibling;
+                        // }
+                        let tkr2 = titleROW.children[1].value;
+                        let cap2 = titleROW.children[2].children[0].value;
+                        // let fifo_grid_itemz = e.target.parentElement.parentElement.children[1].children[0]; 
+                        let fifo_grid_itemz = e.target.parentElement.parentElement.children[1].children[0].children;
+                        // if(txtSaveBtn){
+                        //    fifo_grid_itemz = e.target.parentElement.parentElement.previousSibling
+                        // }else{
+                        //    fifo_grid_itemz = e.target.parentElement.parentElement.nextSibling.nextSibling.children[1].children[0].children;
+                        // }
+                        //START fifo GRID SAVE
+                        let fifo_TGT = {}
+                        for(let d=0; d < ai_main.qrtrz[qID_fifo].tickrz.length;d++){ //GET RECORD
+                              if(ai_main.qrtrz[qID_fifo].tickrz[d].tkr===tkr_fifo){
+                                 fifo_TGT = ai_main.qrtrz[qID_fifo].tickrz[d];
+                                 break;
+                              }
+                           }
+                        let fifo_pair = {}, fifo_update = {trimz:[],padz:[]}
+                        for(let c=0; c < fifo_grid_itemz.length;c++){
+                           fifo_pair = fifo_grid_itemz[c];
+                           if(fifo_pair.children[0].value !='-'){
+                              fifo_TGT.trimz[c].ymd = fifo_pair.children[0].value 
+                           }
+                           if(fifo_pair.children[1].value !='-'){
+                              fifo_TGT.trimz[c].amt = fifo_pair.children[1].value
+                           }
+                           if(fifo_pair.children[2].value !='-'){
+                              fifo_TGT.padz[c].amt = fifo_pair.children[2].value
+                           }
+                           if(fifo_pair.children[3].value !='-'){
+                              fifo_TGT.padz[c].ymd = fifo_pair.children[3].value
+                           }
+                        }     
+                        //END fifo GRID SAVE
+                        //START NOTEZ SAVE
+                        // let notez2 = null;
+                        // if(txtSaveBtn){
+                        //    notez2 = e.target.parentElement.parentElement.children[3]
+                        // }else{
+                        //    notez2 = e.target.parentElement.parentElement.nextSibling.nextSibling.nextSibling.children[3]
+                        // }
+                        // for(let x=0; x< qtr.tickrz.length;x++){
+                        //    if(qtr.tickrz[x].tkr===tkr_fifo){
+                        //       qtr.tickrz[x].tkr = tkr2.toUpperCase();
+                        //       qtr.tickrz[x].cap = cap2;
+                        //       if(notez2){ //collapsed / expanded
+                        //          qtr.tickrz[x].notez = notez2.value;
+                        //       }
+                        //       break;
+                        //    }
+                        // } //END NOTEZ SAVE
+                        // //SAVE to LOCAL STORAGE
+                        localStorage.ai_main = JSON.stringify(ai_main) 
+                        generateQuickClick(); //RELOAD VIEW.  
+                        showErrorMSG('⚔️ SAVED ⚔️');                          
+                         
                      });
                      saveBOX_fifo.appendChild(saveBTN_fifo) 
                      //END LOCAL_SAVE_BTN --------------------------------------
@@ -5138,7 +5193,7 @@ const saveQuickQtrClick = (e)=>{
    showErrorMSG('⚔️ ADDED ⚔️');          
 }
 
-function saveQuickTrackEdits(e){
+function saveQuickTrackEdits(e){ //TODO, this button may be unnecessary
    if(saveBtn0 && saveBtn0.style){
       saveBtn0.style.display = 'none'; 
    }
@@ -5496,7 +5551,8 @@ const setMarginDetailsClick = (e)=>{
 //    generateMarginsClick();
 // }
 
-let ai_MetaData_TickMap={}; //todo rename ai_MetaData_TickMap also separate generation into marginGeneration.
+let ai_MetaData_TickMap={}; //todo rename ai_MetaData_TickMap to...
+// todo ai_bankbook,
 const generateMarginsClick = ()=>{ // GENERATE Margin DISPLAY
    let ticker,spot_ticker,tickerBOX1,tickerSet=[],spotSet=[],numSPOTS=0;
    let numSPOT1, marginsRow1, profitRow1,curPrice1;
@@ -5655,6 +5711,7 @@ const generateMarginsClick = ()=>{ // GENERATE Margin DISPLAY
       }//END DISPLAY LOOP
    }//END if collapsed
 } //END generate margins click
+generateMarginsClick();
 
 const assetsExpandCollapseClick = ()=>{
    ai_ledger.asset_expanded = !ai_ledger.asset_expanded;
@@ -5702,7 +5759,7 @@ const totalzExpandCollapseClick = ()=>{
    ai_ledger.totalz_expanded = !ai_ledger.totalz_expanded;
    //SAVE to LOCAL STORAGE
    localStorage.ai_ledger = JSON.stringify(ai_ledger)  
-   generateProfitLossClick(); //RELOAD VIEW. 
+   generateTotalzClick(); //RELOAD VIEW. 
    showErrorMSG('⚔️ SAVED ⚔️');     
 }
 
@@ -6300,8 +6357,79 @@ const generateStoryClick = () =>{
       }//END storyz loop
    }//END if collapsed view
 }//END generate Preview of STORYz click
+generateStoryClick();
 
-const getLatestTickerClick = ()=>{ //loop all for last close.
+// ------------------------------------------------END STORYZ
+
+const generateTotalzClick = ()=>{ // GENERATE ----------TOTALZ
+   //PROFIT and LOSS View
+   // let keyz = Object.keys(ai_MetaData_TickMap);
+   let keyz = Object.keys(ai_bankbook);
+   let bookValue = 0, bankValue=0,itm;
+   let totMargin=0,totMarginPct,totMarginSum,totMarginBOX,totMarginPctBOX;
+   generatedProfitsBOX.innerHTML=""
+   if(ai_ledger.totalz_expanded){
+      expandCollapseBtn7.innerHTML = '💨' 
+
+            //BEGIN LOCAL_SAVE_BTN --------------------------------------
+            closeBook_BOX = document.createElement('aside') /* standard_btn */
+      closeBook_BOX.innerHTML="&nbsp";
+      closeBook_BTN = document.createElement('button')
+      closeBook_BTN.innerHTML = '🚪Close Books📗📘📙'
+      closeBook_BOX.classList.add('closeBook_BOX'); //saveBOX1
+      closeBook_BTN.classList.add('closeBook_BTN');//saveBtn0
+      // closeBook_BTN.setAttribute('data-arg6',QRTR.qID)
+      // closeBook_BTN.setAttribute('data-arg7',tickrData.tkr.toUpperCase())
+      closeBook_BTN.addEventListener("click",(e)=>{ //ADDED BACK
+         closeBook_BTN.style.display = 'none'; 
+         debugger;    
+      });
+      closeBook_BOX.appendChild(closeBook_BTN) 
+      //END LOCAL_SAVE_BTN --------------------------------------
+      generatedProfitsBOX.appendChild(closeBook_BOX) 
+
+      for(let idx=0; idx<keyz.length;idx++){
+         // itm=ai_MetaData_TickMap[keyz[idx]];
+         itm=ai_bankbook[keyz[idx]];
+         bookValue += itm.total_val;
+         bankValue += 3; //TODO sum SOLD PROFITS.
+
+         if(itm.margin){ //CALCULATE TOTAL MARGIN
+            totMargin += itm.margin;
+         }
+         totMarginSum += itm.margin_pct;
+      }
+      totMarginPct = totMarginSum/keyz.length;
+      let totalsRow1,totBookValue1,totBankValue1;
+      totBookValue1 = document.createElement('aside')
+      totBookValue1.classList.add('totBookValue1')
+      totBookValue1.innerHTML = 'book_value: '+bookValue;
+      totMarginBOX = document.createElement('aside')
+      totMarginBOX.classList.add('totMarginBOX')
+      totMarginBOX.innerHTML = 'total margin: '+totMargin;
+      totMarginPctBOX = document.createElement('aside')
+      totMarginPctBOX.classList.add('totMarginPctBOX')
+      totMarginPctBOX.innerHTML = 'total pct: '+totMarginPct;
+      totBankValue1 = document.createElement('aside')
+      totBankValue1.classList.add('totBankValue1')
+      totBankValue1.innerHTML = 'bank_value: '+bankValue;//+ai_MetaData_TickMap[ticker.tick].sum_spot_amt || 0;                        
+      totalsRow1 = document.createElement('footer')
+      totalsRow1.innerHTML = "Totals:"         
+      totalsRow1.classList.add('totalsRow1') 
+      totalsRow1.appendChild(totBookValue1)         
+      totalsRow1.appendChild(totMarginBOX)         
+      totalsRow1.appendChild(totBankValue1)         
+      generatedProfitsBOX.appendChild(totalsRow1) 
+
+
+   }//end if collapsed
+}
+generateTotalzClick();
+
+// ------------------------------------------------END TOTALZ
+
+
+const getLastPriceClick = ()=>{ //loop all for last close.
    let item,urls=[];
    for(let i=0;i<ai_ledger.ticks.length;i++){
       // if(i>=1){continue;}//DEV_limiter stay below 20
@@ -6309,10 +6437,42 @@ const getLatestTickerClick = ()=>{ //loop all for last close.
       // item.tick = 'NVDA';//DEV_specifier 
       urls.push(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${item.tick}&interval=5min&apikey=${stock_api_key}`)
    }
-   getData_Quotes(urls)
-   showErrorMSG('🌼DATA UPDATED🌼') //todo error. need show message not error.
-
+   if(stock_api_key && urls.length){
+      getData_Quotes(urls)
+      showErrorMSG('🌼DATA UPDATED🌼') //todo error. need show message not error.
+   } else {
+      showErrorMSG('🛠️ connect api key'); 
+   }
 }
+const getLastATHClick = ()=>{ //loop all for last close.
+   debugger;
+   // let item,urls=[];
+   // for(let i=0;i<ai_ledger.ticks.length;i++){
+   //    // if(i>=1){continue;}//DEV_limiter stay below 20
+   //    item = ai_ledger.ticks[i];
+   //    // item.tick = 'NVDA';//DEV_specifier 
+   //    urls.push(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${item.tick}&interval=5min&apikey=${stock_api_key}`)
+   // }
+   // getData_Quotes(urls)
+   // showErrorMSG('🌼DATA UPDATED🌼') //todo error. need show message not error.
+}
+const getLastCryptoClick = ()=>{ //loop all for last close.
+   debugger;
+   // let item,urls=[];
+   // for(let i=0;i<ai_ledger.ticks.length;i++){
+   //    // if(i>=1){continue;}//DEV_limiter stay below 20
+   //    item = ai_ledger.ticks[i];
+   //    // item.tick = 'NVDA';//DEV_specifier 
+   //    urls.push(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${item.tick}&interval=5min&apikey=${stock_api_key}`)
+   // }
+   // getData_Quotes(urls)
+   // showErrorMSG('🌼DATA UPDATED🌼') //todo error. need show message not error.
+}
+
+ 
+
+
+
 
 /**************************************************************\
  * MSGS : interface

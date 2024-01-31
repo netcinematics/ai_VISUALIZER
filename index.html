@@ -939,7 +939,7 @@ border-radius: 8px;
 }
 .fifoTITLE1{
    font-size: 0.444em;
-    color: #4b53b9;
+    color: yellow;
     padding: 2%;
     background: transparent;
     border: none;
@@ -1130,6 +1130,13 @@ border-radius: 8px;
     border: none;
     max-width: 6em;
     margin-left: 2em;
+}
+.detailDate4{
+   background: none;
+    color: #4b53b9;
+    font-size: 0.555em;
+    border: none;
+    max-width: 10em;
 }
 .capROW{
    display: flex;
@@ -1511,7 +1518,7 @@ border-radius:13px;
          </button> -->
 
          <section id="keyBOX" style="display:flex;border: solid 1px steelblue;
-         border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
+         border-radius: 13px;padding: 2px 6px;color: #022e64;align-items: center;
          margin:1%;">
                API:<input id="keyINPUT"  type="password" placeholder="api_key" 
                style="margin-left: 1em; background:#233453;
@@ -1548,13 +1555,13 @@ border-radius:13px;
 
          <section style="display:flex">
                <button id="latestBtn1" class="latestBtn1" style="float:right" 
-               onclick="getLastPriceClick()">last price🔄</button>
+               onclick="getLastPriceClick()">lastPrice🔄</button>
 
                <button id="latestYRHI1" class="latestBtn1" style="float:right" 
-               onclick="getLastATHClick()">last ATH🔢</button>
+               onclick="getLastATHClick()">monthHiLo🔢</button>
 
                <button id="latestCrypto1" class="latestBtn1" style="float:right" 
-               onclick="getLastCryptoClick()">last Crypto🔣</button>
+               onclick="getLastCryptoClick()">getCrypto🔣</button>
          </section>
          <!-- <button class= "mainBtn " onclick="stopTXT()" style="border-radius:8px;
             background:grey;box-shadow: inset 0px 0px 10px 0px crimson;
@@ -1617,7 +1624,7 @@ align-items: center;">
       <section id="encodeBOX"
         style="width:80.888%; flex:1;border-radius: 13px; border: solid 1px steelblue; 
         box-shadow: inset 1px 1px 11px 0px cyan; padding:2%;padding-top: 3%;padding-left:4%; color: cyan; line-height: 2.444em;">
-        <button id="latestBtn1" class="genBtn1" style="display:none;float:right" onclick="getLastPriceClick()">latest🔄</button>
+        <!-- <button id="latestBtn1" class="genBtn1" style="display:none;float:right" onclick="getLastPriceClick()">latest🔄</button> -->
         <span class="boxTitle">🎯 <span style="font-size:0.777em; color:cyan">1</span>
          <span style="font-size:0.555em">Encode</span>
          <span style="font-size: 1.222em;color:cyan;font-family: monospace;">Assets</span> 
@@ -1666,11 +1673,10 @@ align-items: center;">
             <button id="detailsBtn1" class="genReportBtn1" style="display:none;" onclick="setMarginDetailsClick(event)">details💎</button> 
             <button id="totalsBtn1" class="genReportBtn1" style="display:none;" onclick="setMarginDetailsClick(event)">totals⚙️</button> 
       </section>
-      <section id="scheduleBOX"
+      <!-- <section id="scheduleBOX"
         style="width:80.888%; flex:1;background:#0e0015;border-radius:13px; 
         border:#f46f05;box-shadow:inset 0px 0px 7px 0px #f0ae02;padding: 2%;padding-top: 3%;
         padding-left:4%; color: #b19f50; line-height: 2.444em;">
-        <!-- <button id="generateScheduleBtn" class="genReportBtn1" onclick="generateScheduleClick()">gener8📉</button> -->
         <button id=expandCollapseBtn4 class="expandCollapseBtn1" onclick="capsExpandCollapseClick()">🕸️</button>        
         <span class="boxTitle">🔔 
          <span style="font-size:0.777em; color:cyan">4</span>
@@ -1692,7 +1698,7 @@ align-items: center;">
             add qrtr👻</button>
            <button id="saveScheduleBtn1" class="yellowBtn1" onclick="saveScheduleClick()">save⚓</button>
          </article>
-      </section>
+      </section> -->
       <section id="padSequenceBOX"
          style="width:80.888%; flex:1;background:#100601;border-radius: 13px; border: solid 1px #a9754b;
          box-shadow: 1px 2px 11px 0px #f09f02;padding: 2%; padding-left:4%;padding-top: 3%;
@@ -1745,8 +1751,13 @@ align-items: center;">
          <span style="font-size:0.555em">🚦(reports)🚨</span>
          </span></span><br>
         <article style="font-size:0.777em;">
+         <hr>
+         <h1 style="font-family: monospace;">🚪Close Books📗📘📙</h1>
          <hr>   
-         <section id="generatedProfitsBOX"></section>
+         <section id="generatedMonthTotalsGRID"></section>
+         <!-- <section id="generatedProfitsBOX"></section> -->
+         <hr>   
+         <section id="generatedMonthTotals">Totals go here</section>
          <hr>   
         
        </article> 
@@ -2252,9 +2263,13 @@ align-items: center;">
             🎡</span> <span class="btnTXT hoverTXT">RESTART</span>
        </button>
       </footer>
-      <legal style="color:darkslategray;font-size: 0.666em;">copyright 2020-2023 netcinematics llc, all rights reserved.
-        this is a personal ledger system, not financial advice. 
-        Not for day trading use, but quarterly review. Technical Research, of ai experiment to generate actual_intelligence from artificial-intelligence.
+      <legal style="color:darkslategray;font-size: 0.666em;"><div style="margin-top:0;font-size: xx-small;
+         margin-bottom: 1em;
+     ">2020 - <script>document.write( new Date().getFullYear() );</script> © NetCinematics llc. All rights reserved.
+         NOTE: this is a personal ledger system, not financial advice. 
+        Not for day trading. USE: for quarterly/monthly ai_dashboard financial ledger, 
+        metric and analytic visualization analysis. Technical Research: generate actual_financial_intelligence, from artificial-intelligence.
+      </div>
       </legal>
 <script>
    const currentDate = new Date();
@@ -2284,7 +2299,7 @@ align-items: center;">
    let encodeDATA = document.getElementById('encodeDATA');
    let decodeBOX = document.getElementById('decodeBOX');
    let decodeSPOTZ = document.getElementById('decodeSPOTZ');
-   let scheduleBOX = document.getElementById('scheduleBOX')
+   // let scheduleBOX = document.getElementById('scheduleBOX')
    let QuickBOX = document.getElementById('QuickBOX')
    let allMarginsBOX = document.getElementById('allMarginsBOX')
    let reviewPreviewBOX = document.getElementById('reviewPreviewBOX')
@@ -2298,9 +2313,10 @@ align-items: center;">
    let saveScheduleBtn1 = document.getElementById('saveScheduleBtn1');
    let evtzSaveBtn5 = document.getElementById('evtzSaveBtn5');
 
-   let generatedScheduleBOX = document.getElementById('generatedScheduleBOX');         
+   // let generatedScheduleBOX = document.getElementById('generatedScheduleBOX');         
    let generatedQuickBOX = document.getElementById('generatedQuickBOX');         
-   let generatedProfitsBOX = document.getElementById('generatedProfitsBOX');
+   // let generatedProfitsBOX = document.getElementById('generatedProfitsBOX');
+   let generatedMonthTotalsGRID = document.getElementById('generatedMonthTotalsGRID');
    let generatedMarginsBOX = document.getElementById('generatedMarginsBOX');
    let generatedPreviewBOX = document.getElementById('generatedPreviewBOX');         
    let eventzFRAME = document.getElementById('eventzFRAME');         
@@ -2311,6 +2327,7 @@ align-items: center;">
    let totalsBtn1 = document.getElementById('totalsBtn1');
    let totalsBtn2 = document.getElementById('totalsBtn2');
    let openBtn1 = document.getElementById('openBtn1');
+   let latestBtn1 = document.getElementById('latestBtn1');
    
    //EXPANDCOLLAPSE
    let expandCollapseBtn0 = document.getElementById('expandCollapseBtn0');
@@ -3399,617 +3416,617 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
     * SCHEDULE_MATRIX functions
    \*************************************/
 
-const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
-   let trimBOX1,quarter,quarterSets=[];
-   let quarterBOX,monthBOX,quarterTXT,capROW;//trimBtnROW;
-   let capsData, trimTick,trimCap,trim_at,pad_at,pad_limit,lvl_limit;
-   let trimBtn1,padBtn1,lvlUpBtn1,expandBtn1;
-   let capBOX1, capData1, trim_atBOX1,trim_atData1,pad_atBOX1,pad_atData1;
-   let padlvlBOX1,padlvlData1,crashlvlBOX1,crashlvlData1;
-   let monthData1=[], addBtn4, quarterHeader;
-   let capsNUMBOX1, capsCHECKBOX1, capsSelect1, capsCheckMark1; 
-   let capsNUMBOX2, capsCHECKBOX2, capsSelect2, capsCheckMark2;
-   generatedScheduleBOX.innerHTML = ""
-   quarterSets = Object.keys(ai_schedule.quarters);//ai_ledger.ticks;
-   if(!quarterSets){ console.log('no data'); return}
-   if(ai_ledger.caps_expanded){
-      expandCollapseBtn4.innerHTML = '💨'   
-      for(let i=0;i<quarterSets.length;i++){  //BEGIN QUARTERLY LOOP
-         quarter= ai_schedule.quarters[quarterSets[i]];
-         quarterBOX = document.createElement('section')
-         quarterBOX.classList.add('quarterBOX')
+// const generateScheduleClick = ()=>{ //GENERATE SCHEDULE DISPLAY
+//    let trimBOX1,quarter,quarterSets=[];
+//    let quarterBOX,monthBOX,quarterTXT,capROW;//trimBtnROW;
+//    let capsData, trimTick,trimCap,trim_at,pad_at,pad_limit,lvl_limit;
+//    let trimBtn1,padBtn1,lvlUpBtn1,expandBtn1;
+//    let capBOX1, capData1, trim_atBOX1,trim_atData1,pad_atBOX1,pad_atData1;
+//    let padlvlBOX1,padlvlData1,crashlvlBOX1,crashlvlData1;
+//    let monthData1=[], addBtn4, quarterHeader;
+//    let capsNUMBOX1, capsCHECKBOX1, capsSelect1, capsCheckMark1; 
+//    let capsNUMBOX2, capsCHECKBOX2, capsSelect2, capsCheckMark2;
+//    generatedScheduleBOX.innerHTML = ""
+//    quarterSets = Object.keys(ai_schedule.quarters);//ai_ledger.ticks;
+//    if(!quarterSets){ console.log('no data'); return}
+//    if(ai_ledger.caps_expanded){
+//       expandCollapseBtn4.innerHTML = '💨'   
+//       for(let i=0;i<quarterSets.length;i++){  //BEGIN QUARTERLY LOOP
+//          quarter= ai_schedule.quarters[quarterSets[i]];
+//          quarterBOX = document.createElement('section')
+//          quarterBOX.classList.add('quarterBOX')
 
-         quarterHeader = document.createElement('aside')
-         quarterHeader.classList.add('quarterHeader')
+//          quarterHeader = document.createElement('aside')
+//          quarterHeader.classList.add('quarterHeader')
 
-         quarterTXT = document.createElement('input')
-         quarterTXT.classList.add('quarterTXT')
-         quarterTXT.value = quarter.qID;//.quarterID.toUpperCase();
-         quarterTXT.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
-            }); 
+//          quarterTXT = document.createElement('input')
+//          quarterTXT.classList.add('quarterTXT')
+//          quarterTXT.value = quarter.qID;//.quarterID.toUpperCase();
+//          quarterTXT.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+//             }); 
 
-         expandBtn1 = document.createElement('button')
-         expandBtn1.innerHTML = '🕸️'
-         expandBtn1.classList.add('addBtn4')
-         expandBtn1.setAttribute('data-arg3',quarter.qID)
-         expandBtn1.addEventListener("click",(e)=>{
-               expandCAPClick(e.target.getAttribute('data-arg3')) });
-         addBtn4 = document.createElement('button')
-         addBtn4.innerHTML = 'addCAP🗺️'
-         addBtn4.classList.add('addBtn4')
-         addBtn4.setAttribute('data-arg2',quarter.qID)
-         addBtn4.addEventListener("click",(e)=>{
-               addCapClick(e.target.getAttribute('data-arg2')) });
+//          expandBtn1 = document.createElement('button')
+//          expandBtn1.innerHTML = '🕸️'
+//          expandBtn1.classList.add('addBtn4')
+//          expandBtn1.setAttribute('data-arg3',quarter.qID)
+//          expandBtn1.addEventListener("click",(e)=>{
+//                expandCAPClick(e.target.getAttribute('data-arg3')) });
+//          addBtn4 = document.createElement('button')
+//          addBtn4.innerHTML = 'addCAP🗺️'
+//          addBtn4.classList.add('addBtn4')
+//          addBtn4.setAttribute('data-arg2',quarter.qID)
+//          addBtn4.addEventListener("click",(e)=>{
+//                addCapClick(e.target.getAttribute('data-arg2')) });
 
-         quarterHeader.appendChild(quarterTXT)
-         quarterHeader.appendChild(expandBtn1)
-         quarterHeader.appendChild(addBtn4)
-         // quarterBOX.appendChild(addBtn4)
-         quarterBOX.appendChild(quarterHeader)
+//          quarterHeader.appendChild(quarterTXT)
+//          quarterHeader.appendChild(expandBtn1)
+//          quarterHeader.appendChild(addBtn4)
+//          // quarterBOX.appendChild(addBtn4)
+//          quarterBOX.appendChild(quarterHeader)
 
-         monthBOX = document.createElement('article')
-         monthBOX.classList.add('monthBOX')
+//          monthBOX = document.createElement('article')
+//          monthBOX.classList.add('monthBOX')
 
-         if(quarter.expanded){
-            expandBtn1.innerHTML = '💨'
-            for(let j=0;j<quarter.caps.length;j++){  //MONTHLY CAP LOOP .
-               capsData = quarter.caps[j];
-               capROW = document.createElement('aside')
-               capROW.classList.add('capROW')
-               //**********************************************selector
-               capsNUMBOX1 = document.createElement('aside')
-               capsNUMBOX1.classList.add('capsNUMBOX1')//encodeNUMBOX1
-               capsCHECKBOX1 = document.createElement('label')
-               capsCHECKBOX1.classList.add('checkboxFrame') 
-               capsNUMBOX1.innerHTML=j+1;            
-               capsSelect1 = document.createElement('input');
-               capsSelect1.ymdt = quarter.qID+'_'+capsData.tkr.toUpperCase() || '';
-               capsSelect1.type = "radio";
-               capsSelect1.name = "scheduleCapsRadio";
-               capsSelect1.classList.add('cap_checkmark')
-               capsCHECKBOX1.appendChild(capsSelect1)
-               capsCheckMark1 = document.createElement('span')
-               capsCheckMark1.classList.add('checkmark')
-               capsCHECKBOX1.appendChild(capsCheckMark1)
-               capsNUMBOX1.appendChild(capsCHECKBOX1)
-               capROW.appendChild(capsNUMBOX1)
-               // end ************************************** selector
-               trimTick = document.createElement('input')
-               trimTick.classList.add('trimTick')
-               trimTick.value = capsData.tkr.toUpperCase() || 0;
-               trimTick.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
-               });             
-               capBOX1 = document.createElement('aside')
-               capBOX1.innerHTML="CAP&nbsp";
-               capBOX1.classList.add('inputDATABOX1')
-               capData1 = document.createElement('input')
-               capData1.classList.add('inputDATA1')
-               capData1.placeholder = "$0";
-               capData1.value = capsData.cap || '';          
-               capData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
-               });  
-               capBOX1.appendChild(capData1)
+//          if(quarter.expanded){
+//             expandBtn1.innerHTML = '💨'
+//             for(let j=0;j<quarter.caps.length;j++){  //MONTHLY CAP LOOP .
+//                capsData = quarter.caps[j];
+//                capROW = document.createElement('aside')
+//                capROW.classList.add('capROW')
+//                //**********************************************selector
+//                capsNUMBOX1 = document.createElement('aside')
+//                capsNUMBOX1.classList.add('capsNUMBOX1')//encodeNUMBOX1
+//                capsCHECKBOX1 = document.createElement('label')
+//                capsCHECKBOX1.classList.add('checkboxFrame') 
+//                capsNUMBOX1.innerHTML=j+1;            
+//                capsSelect1 = document.createElement('input');
+//                capsSelect1.ymdt = quarter.qID+'_'+capsData.tkr.toUpperCase() || '';
+//                capsSelect1.type = "radio";
+//                capsSelect1.name = "scheduleCapsRadio";
+//                capsSelect1.classList.add('cap_checkmark')
+//                capsCHECKBOX1.appendChild(capsSelect1)
+//                capsCheckMark1 = document.createElement('span')
+//                capsCheckMark1.classList.add('checkmark')
+//                capsCHECKBOX1.appendChild(capsCheckMark1)
+//                capsNUMBOX1.appendChild(capsCHECKBOX1)
+//                capROW.appendChild(capsNUMBOX1)
+//                // end ************************************** selector
+//                trimTick = document.createElement('input')
+//                trimTick.classList.add('trimTick')
+//                trimTick.value = capsData.tkr.toUpperCase() || 0;
+//                trimTick.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+//                });             
+//                capBOX1 = document.createElement('aside')
+//                capBOX1.innerHTML="CAP&nbsp";
+//                capBOX1.classList.add('inputDATABOX1')
+//                capData1 = document.createElement('input')
+//                capData1.classList.add('inputDATA1')
+//                capData1.placeholder = "$0";
+//                capData1.value = capsData.cap || '';          
+//                capData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+//                });  
+//                capBOX1.appendChild(capData1)
 
-               trim_atBOX1 = document.createElement('aside')
-               trim_atBOX1.innerHTML="trim&nbsp";
-               trim_atBOX1.classList.add('inputDATABOX2')
-               trim_atData1 = document.createElement('input')
-               trim_atData1.classList.add('inputDATA2')
-               trim_atData1.placeholder = "$0";
-               trim_atData1.value = capsData.trim_at || '';          
-               trim_atData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block';  
-               });  
-               trim_atBOX1.appendChild(trim_atData1)
+//                trim_atBOX1 = document.createElement('aside')
+//                trim_atBOX1.innerHTML="trim&nbsp";
+//                trim_atBOX1.classList.add('inputDATABOX2')
+//                trim_atData1 = document.createElement('input')
+//                trim_atData1.classList.add('inputDATA2')
+//                trim_atData1.placeholder = "$0";
+//                trim_atData1.value = capsData.trim_at || '';          
+//                trim_atData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block';  
+//                });  
+//                trim_atBOX1.appendChild(trim_atData1)
 
-               pad_atBOX1 = document.createElement('aside')
-               pad_atBOX1.innerHTML="pad&nbsp";
-               pad_atBOX1.classList.add('inputDATABOX3')
-               pad_atData1 = document.createElement('input')
-               pad_atData1.classList.add('inputDATA2')
-               pad_atData1.placeholder = "$0";
-               pad_atData1.value = capsData.pad_at || '';          
-               pad_atData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
-               });  
-               pad_atBOX1.appendChild(pad_atData1)
+//                pad_atBOX1 = document.createElement('aside')
+//                pad_atBOX1.innerHTML="pad&nbsp";
+//                pad_atBOX1.classList.add('inputDATABOX3')
+//                pad_atData1 = document.createElement('input')
+//                pad_atData1.classList.add('inputDATA2')
+//                pad_atData1.placeholder = "$0";
+//                pad_atData1.value = capsData.pad_at || '';          
+//                pad_atData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+//                });  
+//                pad_atBOX1.appendChild(pad_atData1)
 
-               padlvlBOX1 = document.createElement('aside')
-               padlvlBOX1.innerHTML="padlvl&nbsp";
-               padlvlBOX1.classList.add('inputDATABOX4')
-               padlvlData1 = document.createElement('input')
-               padlvlData1.classList.add('inputDATA3')
-               padlvlData1.placeholder = "0";
-               padlvlData1.value = capsData.padlvl || '';          
-               padlvlData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
-               });  
-               padlvlBOX1.appendChild(padlvlData1)
+//                padlvlBOX1 = document.createElement('aside')
+//                padlvlBOX1.innerHTML="padlvl&nbsp";
+//                padlvlBOX1.classList.add('inputDATABOX4')
+//                padlvlData1 = document.createElement('input')
+//                padlvlData1.classList.add('inputDATA3')
+//                padlvlData1.placeholder = "0";
+//                padlvlData1.value = capsData.padlvl || '';          
+//                padlvlData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+//                });  
+//                padlvlBOX1.appendChild(padlvlData1)
 
-               crashlvlBOX1 = document.createElement('aside')
-               crashlvlBOX1.innerHTML="crashPOS&nbsp";
-               crashlvlBOX1.classList.add('inputDATABOX5')
-               crashlvlData1 = document.createElement('input')
-               crashlvlData1.classList.add('inputDATA3')
-               crashlvlData1.placeholder = "0";
-               crashlvlData1.value = capsData.crashlvl || 0;          
-               crashlvlData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
-               });  
-               crashlvlBOX1.appendChild(crashlvlData1)
+//                crashlvlBOX1 = document.createElement('aside')
+//                crashlvlBOX1.innerHTML="crashPOS&nbsp";
+//                crashlvlBOX1.classList.add('inputDATABOX5')
+//                crashlvlData1 = document.createElement('input')
+//                crashlvlData1.classList.add('inputDATA3')
+//                crashlvlData1.placeholder = "0";
+//                crashlvlData1.value = capsData.crashlvl || 0;          
+//                crashlvlData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+//                });  
+//                crashlvlBOX1.appendChild(crashlvlData1)
 
-               capROW.appendChild(trimTick)         
-               capROW.appendChild(capBOX1)         
-               capROW.appendChild(trim_atBOX1)         
-               capROW.appendChild(pad_atBOX1)         
-               capROW.appendChild(padlvlBOX1)         
-               capROW.appendChild(crashlvlBOX1)
-               monthBOX.appendChild(capROW)
+//                capROW.appendChild(trimTick)         
+//                capROW.appendChild(capBOX1)         
+//                capROW.appendChild(trim_atBOX1)         
+//                capROW.appendChild(pad_atBOX1)         
+//                capROW.appendChild(padlvlBOX1)         
+//                capROW.appendChild(crashlvlBOX1)
+//                monthBOX.appendChild(capROW)
 
-               if(show_schedule_details_view){   //BEGIN DETAILS VIEW
-                  let detailRow2,date1,detAmt,detType,detRole,detNote;
-                  let monthData = null;
-                  let role1,role2,role3,role4,role5,role6,role7,role8,role9,role10,role11;
-                  let type1,type2,type3,type4;
-                  let roleBOX,roleData;
-                  let typeBOX,typeData,atBOX1;
-                  let atData1,amtData1;
-                  for(let k=0;k<quarter.monthData.length;k++){  //CAP DETAILS LOOP.
-                     monthData = quarter.monthData[k];
-                     if(monthData.tick.toUpperCase()!=capsData.tkr.toUpperCase()){continue;}
-                     detailRow2 = document.createElement('section')
-                     detailRow2.classList.add('detailRow2')
-                     //DETAILS ROW
-               //**********************************************selector
-               capsNUMBOX2 = document.createElement('aside')
-               capsNUMBOX2.classList.add('capsNUMBOX2')//encodeNUMBOX1
-               capsCHECKBOX2 = document.createElement('label')
-               capsCHECKBOX2.classList.add('checkboxFrame') 
-               capsNUMBOX2.innerHTML=k+1;            
-               capsSelect2 = document.createElement('input');
-               capsSelect2.ymdtn = quarter.qID+'_'+capsData.tkr.toUpperCase()+'_'+k || '';
-               // capsSelect2.ymdt = quarter.qID+'_'+capsData.tkr.toUpperCase() || '';
-               capsSelect2.type = "radio";
-               capsSelect2.name = "scheduleDetailsRadio";
-               capsSelect2.classList.add('cap_checkmark')
-               capsCHECKBOX2.appendChild(capsSelect2)
-               capsCheckMark2 = document.createElement('span')
-               capsCheckMark2.classList.add('checkmark')
-               capsCHECKBOX2.appendChild(capsCheckMark2)
-               capsNUMBOX2.appendChild(capsCHECKBOX2)
-               detailRow2.appendChild(capsNUMBOX2)
-               // end ************************************** selector
-                        date1 = document.createElement('input')
-                        date1.value = ''+monthData.ymd;
-                        date1.classList.add('detailDate1')
-                        date1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
-                        });  
-                        amtBOX1 = document.createElement('aside')
-                        amtBOX1.innerHTML="amt&nbsp;"
-                        roleBOX = document.createElement('aside')
-                        roleBOX.innerHTML="role&nbsp;"
-                        typeBOX = document.createElement('aside')
-                        typeBOX.innerHTML="type&nbsp;"
-                        roleData = document.createElement('select')
-                        typeData = document.createElement('input')
-                        role1 = document.createElement('option')
-                        role2 = document.createElement('option')
-                        role3 = document.createElement('option')
-                        role4 = document.createElement('option')
-                        role5 = document.createElement('option')
-                        role6 = document.createElement('option')
-                        role7 = document.createElement('option')
-                        role8 = document.createElement('option')
-                        role9 = document.createElement('option')
-                        role10 = document.createElement('option')
-                        role11 = document.createElement('option')
-                        role1.value = "...";
-                        role2.value = "HOLD";
-                        role3.value = "WATCH";
-                        role4.value = "RISKOFF";
-                        role5.value = "LONG";
-                        role6.value = "TRIM";
-                        role7.value = "SAFE";
-                        role8.value = "RISKON";
-                        role9.value = "EXIT";
-                        role10.value = "LOrLO";
-                        role11.value = "HIGHrHIGH";
-                        role1.innerHTML = "...";
-                        role2.innerHTML = "HOLD";
-                        role3.innerHTML = "WATCH";
-                        role4.innerHTML = "RISKOFF";
-                        role5.innerHTML = "LONG";
-                        role6.innerHTML = "TRIM";
-                        role7.innerHTML = "SAFE";
-                        role8.innerHTML = "RISKON";
-                        role9.innerHTML = "EXIT";
-                        role10.innerHTML = "LOrLO";
-                        role11.innerHTML = "HIrHI";
-                        roleData.appendChild(role1);
-                        roleData.appendChild(role2);
-                        roleData.appendChild(role3);
-                        roleData.appendChild(role4);
-                        roleData.appendChild(role5);
-                        roleData.appendChild(role6);
-                        roleData.appendChild(role7);
-                        roleData.appendChild(role8);
-                        roleData.appendChild(role9);
-                        roleData.appendChild(role10);
-                        roleData.appendChild(role11);
-                        roleData.value = monthData.role || '';
-                        roleBOX.appendChild(roleData)
+//                if(show_schedule_details_view){   //BEGIN DETAILS VIEW
+//                   let detailRow2,date1,detAmt,detType,detRole,detNote;
+//                   let monthData = null;
+//                   let role1,role2,role3,role4,role5,role6,role7,role8,role9,role10,role11;
+//                   let type1,type2,type3,type4;
+//                   let roleBOX,roleData;
+//                   let typeBOX,typeData,atBOX1;
+//                   let atData1,amtData1;
+//                   for(let k=0;k<quarter.monthData.length;k++){  //CAP DETAILS LOOP.
+//                      monthData = quarter.monthData[k];
+//                      if(monthData.tick.toUpperCase()!=capsData.tkr.toUpperCase()){continue;}
+//                      detailRow2 = document.createElement('section')
+//                      detailRow2.classList.add('detailRow2')
+//                      //DETAILS ROW
+//                //**********************************************selector
+//                capsNUMBOX2 = document.createElement('aside')
+//                capsNUMBOX2.classList.add('capsNUMBOX2')//encodeNUMBOX1
+//                capsCHECKBOX2 = document.createElement('label')
+//                capsCHECKBOX2.classList.add('checkboxFrame') 
+//                capsNUMBOX2.innerHTML=k+1;            
+//                capsSelect2 = document.createElement('input');
+//                capsSelect2.ymdtn = quarter.qID+'_'+capsData.tkr.toUpperCase()+'_'+k || '';
+//                // capsSelect2.ymdt = quarter.qID+'_'+capsData.tkr.toUpperCase() || '';
+//                capsSelect2.type = "radio";
+//                capsSelect2.name = "scheduleDetailsRadio";
+//                capsSelect2.classList.add('cap_checkmark')
+//                capsCHECKBOX2.appendChild(capsSelect2)
+//                capsCheckMark2 = document.createElement('span')
+//                capsCheckMark2.classList.add('checkmark')
+//                capsCHECKBOX2.appendChild(capsCheckMark2)
+//                capsNUMBOX2.appendChild(capsCHECKBOX2)
+//                detailRow2.appendChild(capsNUMBOX2)
+//                // end ************************************** selector
+//                         date1 = document.createElement('input')
+//                         date1.value = ''+monthData.ymd;
+//                         date1.classList.add('detailDate1')
+//                         date1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+//                         });  
+//                         amtBOX1 = document.createElement('aside')
+//                         amtBOX1.innerHTML="amt&nbsp;"
+//                         roleBOX = document.createElement('aside')
+//                         roleBOX.innerHTML="role&nbsp;"
+//                         typeBOX = document.createElement('aside')
+//                         typeBOX.innerHTML="type&nbsp;"
+//                         roleData = document.createElement('select')
+//                         typeData = document.createElement('input')
+//                         role1 = document.createElement('option')
+//                         role2 = document.createElement('option')
+//                         role3 = document.createElement('option')
+//                         role4 = document.createElement('option')
+//                         role5 = document.createElement('option')
+//                         role6 = document.createElement('option')
+//                         role7 = document.createElement('option')
+//                         role8 = document.createElement('option')
+//                         role9 = document.createElement('option')
+//                         role10 = document.createElement('option')
+//                         role11 = document.createElement('option')
+//                         role1.value = "...";
+//                         role2.value = "HOLD";
+//                         role3.value = "WATCH";
+//                         role4.value = "RISKOFF";
+//                         role5.value = "LONG";
+//                         role6.value = "TRIM";
+//                         role7.value = "SAFE";
+//                         role8.value = "RISKON";
+//                         role9.value = "EXIT";
+//                         role10.value = "LOrLO";
+//                         role11.value = "HIGHrHIGH";
+//                         role1.innerHTML = "...";
+//                         role2.innerHTML = "HOLD";
+//                         role3.innerHTML = "WATCH";
+//                         role4.innerHTML = "RISKOFF";
+//                         role5.innerHTML = "LONG";
+//                         role6.innerHTML = "TRIM";
+//                         role7.innerHTML = "SAFE";
+//                         role8.innerHTML = "RISKON";
+//                         role9.innerHTML = "EXIT";
+//                         role10.innerHTML = "LOrLO";
+//                         role11.innerHTML = "HIrHI";
+//                         roleData.appendChild(role1);
+//                         roleData.appendChild(role2);
+//                         roleData.appendChild(role3);
+//                         roleData.appendChild(role4);
+//                         roleData.appendChild(role5);
+//                         roleData.appendChild(role6);
+//                         roleData.appendChild(role7);
+//                         roleData.appendChild(role8);
+//                         roleData.appendChild(role9);
+//                         roleData.appendChild(role10);
+//                         roleData.appendChild(role11);
+//                         roleData.value = monthData.role || '';
+//                         roleBOX.appendChild(roleData)
                         
-                        roleData.addEventListener("change",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
-                        });  
-                        typeData.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
-                        });  
+//                         roleData.addEventListener("change",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+//                         });  
+//                         typeData.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+//                         });  
 
-                        typeData.value= monthData.type || '';
-                        roleBOX.classList.add('roleBOX1')
+//                         typeData.value= monthData.type || '';
+//                         roleBOX.classList.add('roleBOX1')
                         
-                        typeBOX.appendChild(typeData)
-                        typeBOX.classList.add('typeBOX1')
+//                         typeBOX.appendChild(typeData)
+//                         typeBOX.classList.add('typeBOX1')
                         
-                        if(monthData.type==='trim'){
-                           typeData.classList.add('typeTRIMColor')
-                        } else if (monthData.type==='pad'){
-                           typeData.classList.add('typePADColor')
-                        }
+//                         if(monthData.type==='trim'){
+//                            typeData.classList.add('typeTRIMColor')
+//                         } else if (monthData.type==='pad'){
+//                            typeData.classList.add('typePADColor')
+//                         }
 
-                        roleData.classList.add('roleData1')
-                        typeData.classList.add('typeData1')
-                        amtData1 = document.createElement('input')
-                        amtData1.placeholder = "$0";
-                        amtData1.value = monthData.amt;
-                        amtData1.classList.add('spotAtData1')
+//                         roleData.classList.add('roleData1')
+//                         typeData.classList.add('typeData1')
+//                         amtData1 = document.createElement('input')
+//                         amtData1.placeholder = "$0";
+//                         amtData1.value = monthData.amt;
+//                         amtData1.classList.add('spotAtData1')
 
-                        amtData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
-                        });  
+//                         amtData1.addEventListener("keyup",(e)=>{ saveScheduleBtn1.style.display = 'block'; 
+//                         });  
 
-                        amtBOX1.classList.add('amtBOX1')
-                        amtBOX1.appendChild(amtData1)            
-                        detailRow2.appendChild(date1)
-                        detailRow2.appendChild(typeBOX)
-                        detailRow2.appendChild(amtBOX1)
-                        detailRow2.appendChild(roleBOX)
+//                         amtBOX1.classList.add('amtBOX1')
+//                         amtBOX1.appendChild(amtData1)            
+//                         detailRow2.appendChild(date1)
+//                         detailRow2.appendChild(typeBOX)
+//                         detailRow2.appendChild(amtBOX1)
+//                         detailRow2.appendChild(roleBOX)
 
-                     //END DETAILS ROW
-                     monthBOX.appendChild(detailRow2) 
+//                      //END DETAILS ROW
+//                      monthBOX.appendChild(detailRow2) 
 
-                  } //END DETAILS LOOP
-               }  //END DETAILS VIEW
-            } //END MONTHLY LOOP
-         } else {quarter.expanded = false;}//END EXPANDED
-         quarterBOX.appendChild(monthBOX)
-         generatedScheduleBOX.appendChild(quarterBOX)
-      } //END QUARTERLY LOOP
-   }//END if collapsed view
-} //end generate schedule 2
+//                   } //END DETAILS LOOP
+//                }  //END DETAILS VIEW
+//             } //END MONTHLY LOOP
+//          } else {quarter.expanded = false;}//END EXPANDED
+//          quarterBOX.appendChild(monthBOX)
+//          generatedScheduleBOX.appendChild(quarterBOX)
+//       } //END QUARTERLY LOOP
+//    }//END if collapsed view
+// } //end generate schedule 2
 
 
-   let show_schedule_details_view = null;
-      const setScheduleDetailsClick = (e)=>{ 
-         if(e.target.id==='detailsBtn2'){
-            totalsBtn2.style.display='block'
-            detailsBtn2.style.display='none'
-            show_schedule_details_view = true;
-         }else{
-            totalsBtn2.style.display='none'               
-            detailsBtn2.style.display='block'               
-            show_schedule_details_view = false;
-         }
-         // scheduleBOX.scrollIntoView({
-         //    behavior: 'smooth',
-         //    block: 'start'
-         // })
-         generateScheduleClick();
-      }
+//    let show_schedule_details_view = null;
+//       const setScheduleDetailsClick = (e)=>{ 
+//          if(e.target.id==='detailsBtn2'){
+//             totalsBtn2.style.display='block'
+//             detailsBtn2.style.display='none'
+//             show_schedule_details_view = true;
+//          }else{
+//             totalsBtn2.style.display='none'               
+//             detailsBtn2.style.display='block'               
+//             show_schedule_details_view = false;
+//          }
+//          // scheduleBOX.scrollIntoView({
+//          //    behavior: 'smooth',
+//          //    block: 'start'
+//          // })
+//          generateScheduleClick();
+//       }
 
-      /*****************************************\
-       * - SCHEDULE functions
-      \****************************************/
-      const trimScheduleClick = ()=>{ 
-         //selection trim ai_bank{"tick":{balance}}  //increment trim_count.
-         let selected=null, quarterID,transObj;
-         let items = document.getElementsByClassName('cap_checkmark');
-         for(let i=0; i<items.length;i++){
-            if(items[i].checked){
-               selected = items[i]
-               selected.checked = false;
-               break;
-            }
-         }
-         if(!selected){ showErrorMSG(' Nothing selected 😵'); return; }            
-         quarterSet = selected.ymdt.toUpperCase().split('_');
-         quarterTick = quarterSet.pop()
-         quarterID = quarterSet.join('_')
-         if(!ai_BANK[quarterID]){ //INIT
-            ai_BANK[quarterID] = {id:quarterID}
-            ai_BANK[quarterID].trxns = {pads:[],trims:[]}
-         } 
-         transObj = {}
-         transObj.tick = ''
-         transObj.type = ''
-         transObj.amt = ''
-         transObj.at = ''
-         transObj.ymd = ''
-         //FIND UI DATA
-         quarterSets = Object.keys(ai_schedule.quarters);
-         for(var x = 0; x<quarterSets.length;x++){ //UI QUARTER DATA LOOKUP.
-            quarter= ai_schedule.quarters[quarterSets[x]];            
-            if(quarter.qID===quarterID){
-               for(var y=0; y<quarter.caps.length;y++){ // LOOK UP CAPS
-                  if(quarter.caps[y].tkr.toUpperCase()===quarterTick){
-                     transObj.tick = quarterTick;
-                     transObj.type = 'trim';
-                     transObj.amt =  quarter.caps[y].trim_at || '';
-                     transObj.ymd = formatYMD();
-                     break;             
-                  }
-               }
-               ai_schedule.quarters[quarterID].monthData.push(transObj)
-               break
-            }
-         }
-         if(!transObj || !transObj.tick){return}
-         ai_BANK[quarterID].trxns.trims.push(transObj)
-         show_schedule_details_view = true; //SHOW DETAILS
-         totalsBtn2.style.display='block'
-         detailsBtn2.style.display='none'  
-         generateScheduleClick();       
-         //UPDATE LOCALSTORAGE with ai_schedule. SAVE
-         localStorage.ai_schedule = JSON.stringify(ai_schedule)  
-      }
-      const padScheduleClick = ()=>{ 
-         let selected=null, quarterID,transObj;
-         let items = document.getElementsByClassName('cap_checkmark');
-         for(let i=0; i<items.length;i++){
-            if(items[i].checked){
-               selected = items[i]
-               selected.checked = false;
-               break;
-            }
-         }
-         if(!selected){ showErrorMSG(' Nothing selected 😵'); return; }            
-         show_schedule_details_view = true; //SHOW DETAILS
-         quarterSet = selected.ymdt.toUpperCase().split('_');
-         quarterTick = quarterSet.pop()
-         quarterID = quarterSet.join('_')
-         if(!ai_BANK[quarterID]){ //INIT
-            ai_BANK[quarterID] = {id:quarterID}
-            ai_BANK[quarterID].trxns = {pads:[],trims:[]}
-         } 
-         transObj = {}
-         transObj.tick = ''
-         transObj.type = ''
-         transObj.amt = ''
-         transObj.at = ''
-         transObj.ymd = ''
-         //FIND UI DATA
-         quarterSets = Object.keys(ai_schedule.quarters);
-         for(var x = 0; x<quarterSets.length;x++){ //UI QUARTER DATA LOOKUP.
-            quarter= ai_schedule.quarters[quarterSets[x]];  
-            if(quarter.qID===quarterID){
-               for(var y=0; y<quarter.caps.length;y++){ // LOOK UP CAPS
-                  if(quarter.caps[y].tkr.toUpperCase()===quarterTick){
-                     transObj.tick = quarterTick;
-                     transObj.type = 'pad';
-                     transObj.amt =  quarter.caps[y].trim_at || '';
-                     transObj.ymd = formatYMD();
-                     break;             
-                  }
-               }
-               ai_schedule.quarters[quarterID].monthData.push(transObj)
-               break
-            }
-         }
-         if(!transObj && transObj.tick){return}
-         ai_BANK[quarterID].trxns.pads.push(transObj)
-         show_schedule_details_view = true; //SHOW DETAILS
-         totalsBtn2.style.display='block'
-         detailsBtn2.style.display='none'
-         generateScheduleClick();
-         //UPDATE LOCALSTORAGE with ai_schedule. SAVE
-         localStorage.ai_schedule = JSON.stringify(ai_schedule)  
-      }
-      const addScheduleClick = ()=>{ 
-         let scheduleRow1,date1,tick1,amountData1;
-         let role1,role2,role3,role4,role5,role6,role7,role8,role9,role10,role11;
-         let saveBtn3,roleBOX,roleData,atBOX1,atData1;
-         scheduleRow1 = document.createElement('article')
-         scheduleRow1.classList.add('scheduleRow1')
-         saveBtn3 = document.createElement('button')
-         tick1 = document.createElement('input')
-         tick1.value = "";
-         tick1.placeholder="Q#_YYYY_JAN"
-         tick1.classList.add('quarterTXT')
-         saveBtn3.innerHTML = 'save🌟'
-         saveBtn3.classList.add('saveBtn2')
-         saveBtn3.addEventListener("click",(e)=>{
-            saveQuarterClick(e) 
-         });
+//       /*****************************************\
+//        * - SCHEDULE functions
+//       \****************************************/
+//       const trimScheduleClick = ()=>{ 
+//          //selection trim ai_bank{"tick":{balance}}  //increment trim_count.
+//          let selected=null, quarterID,transObj;
+//          let items = document.getElementsByClassName('cap_checkmark');
+//          for(let i=0; i<items.length;i++){
+//             if(items[i].checked){
+//                selected = items[i]
+//                selected.checked = false;
+//                break;
+//             }
+//          }
+//          if(!selected){ showErrorMSG(' Nothing selected 😵'); return; }            
+//          quarterSet = selected.ymdt.toUpperCase().split('_');
+//          quarterTick = quarterSet.pop()
+//          quarterID = quarterSet.join('_')
+//          if(!ai_BANK[quarterID]){ //INIT
+//             ai_BANK[quarterID] = {id:quarterID}
+//             ai_BANK[quarterID].trxns = {pads:[],trims:[]}
+//          } 
+//          transObj = {}
+//          transObj.tick = ''
+//          transObj.type = ''
+//          transObj.amt = ''
+//          transObj.at = ''
+//          transObj.ymd = ''
+//          //FIND UI DATA
+//          quarterSets = Object.keys(ai_schedule.quarters);
+//          for(var x = 0; x<quarterSets.length;x++){ //UI QUARTER DATA LOOKUP.
+//             quarter= ai_schedule.quarters[quarterSets[x]];            
+//             if(quarter.qID===quarterID){
+//                for(var y=0; y<quarter.caps.length;y++){ // LOOK UP CAPS
+//                   if(quarter.caps[y].tkr.toUpperCase()===quarterTick){
+//                      transObj.tick = quarterTick;
+//                      transObj.type = 'trim';
+//                      transObj.amt =  quarter.caps[y].trim_at || '';
+//                      transObj.ymd = formatYMD();
+//                      break;             
+//                   }
+//                }
+//                ai_schedule.quarters[quarterID].monthData.push(transObj)
+//                break
+//             }
+//          }
+//          if(!transObj || !transObj.tick){return}
+//          ai_BANK[quarterID].trxns.trims.push(transObj)
+//          show_schedule_details_view = true; //SHOW DETAILS
+//          totalsBtn2.style.display='block'
+//          detailsBtn2.style.display='none'  
+//          generateScheduleClick();       
+//          //UPDATE LOCALSTORAGE with ai_schedule. SAVE
+//          localStorage.ai_schedule = JSON.stringify(ai_schedule)  
+//       }
+//       const padScheduleClick = ()=>{ 
+//          let selected=null, quarterID,transObj;
+//          let items = document.getElementsByClassName('cap_checkmark');
+//          for(let i=0; i<items.length;i++){
+//             if(items[i].checked){
+//                selected = items[i]
+//                selected.checked = false;
+//                break;
+//             }
+//          }
+//          if(!selected){ showErrorMSG(' Nothing selected 😵'); return; }            
+//          show_schedule_details_view = true; //SHOW DETAILS
+//          quarterSet = selected.ymdt.toUpperCase().split('_');
+//          quarterTick = quarterSet.pop()
+//          quarterID = quarterSet.join('_')
+//          if(!ai_BANK[quarterID]){ //INIT
+//             ai_BANK[quarterID] = {id:quarterID}
+//             ai_BANK[quarterID].trxns = {pads:[],trims:[]}
+//          } 
+//          transObj = {}
+//          transObj.tick = ''
+//          transObj.type = ''
+//          transObj.amt = ''
+//          transObj.at = ''
+//          transObj.ymd = ''
+//          //FIND UI DATA
+//          quarterSets = Object.keys(ai_schedule.quarters);
+//          for(var x = 0; x<quarterSets.length;x++){ //UI QUARTER DATA LOOKUP.
+//             quarter= ai_schedule.quarters[quarterSets[x]];  
+//             if(quarter.qID===quarterID){
+//                for(var y=0; y<quarter.caps.length;y++){ // LOOK UP CAPS
+//                   if(quarter.caps[y].tkr.toUpperCase()===quarterTick){
+//                      transObj.tick = quarterTick;
+//                      transObj.type = 'pad';
+//                      transObj.amt =  quarter.caps[y].trim_at || '';
+//                      transObj.ymd = formatYMD();
+//                      break;             
+//                   }
+//                }
+//                ai_schedule.quarters[quarterID].monthData.push(transObj)
+//                break
+//             }
+//          }
+//          if(!transObj && transObj.tick){return}
+//          ai_BANK[quarterID].trxns.pads.push(transObj)
+//          show_schedule_details_view = true; //SHOW DETAILS
+//          totalsBtn2.style.display='block'
+//          detailsBtn2.style.display='none'
+//          generateScheduleClick();
+//          //UPDATE LOCALSTORAGE with ai_schedule. SAVE
+//          localStorage.ai_schedule = JSON.stringify(ai_schedule)  
+//       }
+//       const addScheduleClick = ()=>{ 
+//          let scheduleRow1,date1,tick1,amountData1;
+//          let role1,role2,role3,role4,role5,role6,role7,role8,role9,role10,role11;
+//          let saveBtn3,roleBOX,roleData,atBOX1,atData1;
+//          scheduleRow1 = document.createElement('article')
+//          scheduleRow1.classList.add('scheduleRow1')
+//          saveBtn3 = document.createElement('button')
+//          tick1 = document.createElement('input')
+//          tick1.value = "";
+//          tick1.placeholder="Q#_YYYY_JAN"
+//          tick1.classList.add('quarterTXT')
+//          saveBtn3.innerHTML = 'save🌟'
+//          saveBtn3.classList.add('saveBtn2')
+//          saveBtn3.addEventListener("click",(e)=>{
+//             saveQuarterClick(e) 
+//          });
 
-         scheduleRow1.appendChild(tick1)
-         scheduleRow1.appendChild(saveBtn3)
-         generatedScheduleBOX.appendChild(scheduleRow1)
+//          scheduleRow1.appendChild(tick1)
+//          scheduleRow1.appendChild(saveBtn3)
+//          generatedScheduleBOX.appendChild(scheduleRow1)
    
-      } //end add schedule click
+//       } //end add schedule click
 
-      const addCapClick = (quarterID) =>{
-         saveScheduleClick();//FIX: save first for bug on double create row, keeps first row tickr.
-         //go to parent quarter and add a unique row
-         let newCap = {}
-         let qtr = ai_schedule.quarters[quarterID]; //lookup
-         if(!qtr){return}
-            qtr.expanded = true;
-            newCap.cap = "1000";
-            newCap.crashlvl = "2";
-            newCap.pad_at = "100";
-            newCap.padlvl = "1";
-            newCap.tkr = "NEW";
-            newCap.trim_at = "100";
-         qtr.caps.push(newCap)
-           //SAVE to LOCAL STORAGE
-           localStorage.ai_schedule = JSON.stringify(ai_schedule) 
-           generateScheduleClick(); //RELOAD VIEW.  
-           showErrorMSG('⚔️ SAVED ⚔️');    
-      }
+//       const addCapClick = (quarterID) =>{
+//          saveScheduleClick();//FIX: save first for bug on double create row, keeps first row tickr.
+//          //go to parent quarter and add a unique row
+//          let newCap = {}
+//          let qtr = ai_schedule.quarters[quarterID]; //lookup
+//          if(!qtr){return}
+//             qtr.expanded = true;
+//             newCap.cap = "1000";
+//             newCap.crashlvl = "2";
+//             newCap.pad_at = "100";
+//             newCap.padlvl = "1";
+//             newCap.tkr = "NEW";
+//             newCap.trim_at = "100";
+//          qtr.caps.push(newCap)
+//            //SAVE to LOCAL STORAGE
+//            localStorage.ai_schedule = JSON.stringify(ai_schedule) 
+//            generateScheduleClick(); //RELOAD VIEW.  
+//            showErrorMSG('⚔️ SAVED ⚔️');    
+//       }
 
-     /************************************************
-      * Add Quarters 
-     /************************************************/
-     const capzAddQtrClick = (quarterID) =>{
-         //go to parent quarter and add a unique row
-         // let newCap = {}
-         // let qtr = ai_schedule.quarters[quarterID]; //lookup
-         // if(!qtr){return}
-         //    qtr.expanded = true;
-         //    newCap.cap = "1000";
-         //    newCap.crashlvl = "2";
-         //    newCap.pad_at = "100";
-         //    newCap.padlvl = "1";
-         //    newCap.tkr = "NEW";
-         //    newCap.trim_at = "100";
-         // qtr.caps.push(newCap)
-         //   //SAVE to LOCAL STORAGE
-         //   localStorage.ai_schedule = JSON.stringify(ai_schedule) 
-         //   generateScheduleClick(); //RELOAD VIEW.  
-           showErrorMSG('⚔️ SAVED ⚔️');    
-      }
+//      /************************************************
+//       * Add Quarters 
+//      /************************************************/
+//      const capzAddQtrClick = (quarterID) =>{
+//          //go to parent quarter and add a unique row
+//          // let newCap = {}
+//          // let qtr = ai_schedule.quarters[quarterID]; //lookup
+//          // if(!qtr){return}
+//          //    qtr.expanded = true;
+//          //    newCap.cap = "1000";
+//          //    newCap.crashlvl = "2";
+//          //    newCap.pad_at = "100";
+//          //    newCap.padlvl = "1";
+//          //    newCap.tkr = "NEW";
+//          //    newCap.trim_at = "100";
+//          // qtr.caps.push(newCap)
+//          //   //SAVE to LOCAL STORAGE
+//          //   localStorage.ai_schedule = JSON.stringify(ai_schedule) 
+//          //   generateScheduleClick(); //RELOAD VIEW.  
+//            showErrorMSG('⚔️ SAVED ⚔️');    
+//       }
 
-     /************************************************
-      * END Add Quarters 
-     /************************************************/
+//      /************************************************
+//       * END Add Quarters 
+//      /************************************************/
 
-      const saveQuarterClick = (e)=>{ 
-         //GET input value
-         let keyInput = e.target.parentElement.children[0].value;
-         if(!keyInput){ showErrorMSG('🎀No data🎀'); return; }
-         keyInput = keyInput.toUpperCase();
-         if(ai_schedule[keyInput]){ showErrorMSG('🖖duplicate🤙'); return; }
+//       const saveQuarterClick = (e)=>{ 
+//          //GET input value
+//          let keyInput = e.target.parentElement.children[0].value;
+//          if(!keyInput){ showErrorMSG('🎀No data🎀'); return; }
+//          keyInput = keyInput.toUpperCase();
+//          if(ai_schedule[keyInput]){ showErrorMSG('🖖duplicate🤙'); return; }
          
-         ai_schedule.quarters[keyInput] = {}
-         ai_schedule.quarters[keyInput].qID = keyInput;
-         ai_schedule.quarters[keyInput].caps = [];
-         ai_schedule.quarters[keyInput].monthData = [];
+//          ai_schedule.quarters[keyInput] = {}
+//          ai_schedule.quarters[keyInput].qID = keyInput;
+//          ai_schedule.quarters[keyInput].caps = [];
+//          ai_schedule.quarters[keyInput].monthData = [];
 
-         //SAVE to LOCAL STORAGE
-         localStorage.ai_schedule = JSON.stringify(ai_schedule) 
-         generateScheduleClick(); //RELOAD VIEW.  
+//          //SAVE to LOCAL STORAGE
+//          localStorage.ai_schedule = JSON.stringify(ai_schedule) 
+//          generateScheduleClick(); //RELOAD VIEW.  
 
-         showErrorMSG('⚔️ ADDED ⚔️');          
-      }
+//          showErrorMSG('⚔️ ADDED ⚔️');          
+//       }
 
-   const saveScheduleClick = ()=>{ // GENERATE PROFIT AND LOSS DISPLAY
-      saveScheduleBtn1.style.display = 'none'; 
-         let quarterBoxes = generatedScheduleBOX.children,row,kids,kid;
-         let tkr,cap,trim_at,pad_at,padlvl,crashlvl;
-         let date3,type3,amt3,role3;
-         let capData,trimDetail, expand1;
-         let qtrTXT,dataBox1,dataBox2,qtrBOX, CAPMonth;
-         let save_schedule = {quarters:{}};
-      try{     
-           for(var i=0; i<quarterBoxes.length;i++){ //LOOP QUARTER BOX
-            qtrBOX = quarterBoxes[i];
-            if(qtrBOX.classList.contains('quarterBOX')){
-               kids = qtrBOX.children;
-               for(var j=0;j<kids.length;j++){ //MONTH LOOP
-                  kid = kids[j];
-                  if(kid.classList.contains('quarterHeader')){ 
-                     qtrTXT = kid.children[0].value;
-                     save_schedule.quarters[qtrTXT] = {qID:qtrTXT}
-                     expand1 = (kid.children[2].innerHTML==='v')? true : false;
-                     save_schedule.quarters[qtrTXT].expanded = expand1;
-                     CAPMonth = save_schedule.quarters[qtrTXT]
-                     CAPMonth.caps = [];
-                     CAPMonth.monthData = []
-                  }
-                  if(kid.classList.contains('monthBOX')){
-                     if(kid.children.length===0){ // NO MONTHBOX data, COLLAPSED.
-                        save_schedule.quarters[qtrTXT] = ai_schedule.quarters[qtrTXT]
-                        continue; //DO NOT SAVE, use saved data, since it is collapsed.
-                     } 
-                     for(var k=0; k<kid.children.length;k++){ //POPULATE DATA from VIEW.
-                       row = kid.children[k]
-                       if(row.classList.contains('capROW')){ 
-                           capData = {};//, trimData = {};
-                           for(var mm = 0; mm<row.children.length;mm++){
-                              dataBox1 = row.children[mm]
-                              if(dataBox1.classList.contains('trimTick')){
-                                 dataBox1.value = dataBox1.value.toUpperCase();                     
-                                 capData.tkr = dataBox1.value;
-                                 tkr = capData.tkr;
-                              }
-                              else if(dataBox1.classList.contains('inputDATABOX1')){
-                                 capData.cap = dataBox1.children[0].value
-                              }
-                              else if(dataBox1.classList.contains('inputDATABOX2')){
-                                 capData.trim_at = dataBox1.children[0].value
-                              }
-                              else if(dataBox1.classList.contains('inputDATABOX3')){
-                                 capData.pad_at = dataBox1.children[0].value
-                              }
-                              else if(dataBox1.classList.contains('inputDATABOX4')){
-                                 capData.padlvl = dataBox1.children[0].value
-                              }
-                              else if(dataBox1.classList.contains('inputDATABOX5')){
-                                 capData.crashlvl = dataBox1.children[0].value
-                              }
-                           }
-                        } //end cap row
+//    const saveScheduleClick = ()=>{ // GENERATE PROFIT AND LOSS DISPLAY
+//       saveScheduleBtn1.style.display = 'none'; 
+//          let quarterBoxes = generatedScheduleBOX.children,row,kids,kid;
+//          let tkr,cap,trim_at,pad_at,padlvl,crashlvl;
+//          let date3,type3,amt3,role3;
+//          let capData,trimDetail, expand1;
+//          let qtrTXT,dataBox1,dataBox2,qtrBOX, CAPMonth;
+//          let save_schedule = {quarters:{}};
+//       try{     
+//            for(var i=0; i<quarterBoxes.length;i++){ //LOOP QUARTER BOX
+//             qtrBOX = quarterBoxes[i];
+//             if(qtrBOX.classList.contains('quarterBOX')){
+//                kids = qtrBOX.children;
+//                for(var j=0;j<kids.length;j++){ //MONTH LOOP
+//                   kid = kids[j];
+//                   if(kid.classList.contains('quarterHeader')){ 
+//                      qtrTXT = kid.children[0].value;
+//                      save_schedule.quarters[qtrTXT] = {qID:qtrTXT}
+//                      expand1 = (kid.children[2].innerHTML==='v')? true : false;
+//                      save_schedule.quarters[qtrTXT].expanded = expand1;
+//                      CAPMonth = save_schedule.quarters[qtrTXT]
+//                      CAPMonth.caps = [];
+//                      CAPMonth.monthData = []
+//                   }
+//                   if(kid.classList.contains('monthBOX')){
+//                      if(kid.children.length===0){ // NO MONTHBOX data, COLLAPSED.
+//                         save_schedule.quarters[qtrTXT] = ai_schedule.quarters[qtrTXT]
+//                         continue; //DO NOT SAVE, use saved data, since it is collapsed.
+//                      } 
+//                      for(var k=0; k<kid.children.length;k++){ //POPULATE DATA from VIEW.
+//                        row = kid.children[k]
+//                        if(row.classList.contains('capROW')){ 
+//                            capData = {};//, trimData = {};
+//                            for(var mm = 0; mm<row.children.length;mm++){
+//                               dataBox1 = row.children[mm]
+//                               if(dataBox1.classList.contains('trimTick')){
+//                                  dataBox1.value = dataBox1.value.toUpperCase();                     
+//                                  capData.tkr = dataBox1.value;
+//                                  tkr = capData.tkr;
+//                               }
+//                               else if(dataBox1.classList.contains('inputDATABOX1')){
+//                                  capData.cap = dataBox1.children[0].value
+//                               }
+//                               else if(dataBox1.classList.contains('inputDATABOX2')){
+//                                  capData.trim_at = dataBox1.children[0].value
+//                               }
+//                               else if(dataBox1.classList.contains('inputDATABOX3')){
+//                                  capData.pad_at = dataBox1.children[0].value
+//                               }
+//                               else if(dataBox1.classList.contains('inputDATABOX4')){
+//                                  capData.padlvl = dataBox1.children[0].value
+//                               }
+//                               else if(dataBox1.classList.contains('inputDATABOX5')){
+//                                  capData.crashlvl = dataBox1.children[0].value
+//                               }
+//                            }
+//                         } //end cap row
                   
-                        else if(row.classList.contains('detailRow2')){  
-                           trimData = {}; 
-                           for(var mm = 0; mm<row.children.length;mm++){
-                              dataBox2 = row.children[mm];
-                              if(dataBox2.classList.contains('detailDate1')){
-                                 trimData.ymd = dataBox2.value
-                                 trimData.tick = tkr //important load.
-                              }
-                              if(dataBox2.classList.contains('typeBOX1')){
-                                 trimData.type = dataBox2.children[0].value.toLowerCase()
-                              }
-                              if(dataBox2.classList.contains('amtBOX1')){
-                                 trimData.amt = dataBox2.children[0].value
-                              }
-                              if(dataBox2.classList.contains('roleBOX1')){
-                                 trimData.role = dataBox2.children[0].value
-                              }
-                           }
-                        } // end details row
+//                         else if(row.classList.contains('detailRow2')){  
+//                            trimData = {}; 
+//                            for(var mm = 0; mm<row.children.length;mm++){
+//                               dataBox2 = row.children[mm];
+//                               if(dataBox2.classList.contains('detailDate1')){
+//                                  trimData.ymd = dataBox2.value
+//                                  trimData.tick = tkr //important load.
+//                               }
+//                               if(dataBox2.classList.contains('typeBOX1')){
+//                                  trimData.type = dataBox2.children[0].value.toLowerCase()
+//                               }
+//                               if(dataBox2.classList.contains('amtBOX1')){
+//                                  trimData.amt = dataBox2.children[0].value
+//                               }
+//                               if(dataBox2.classList.contains('roleBOX1')){
+//                                  trimData.role = dataBox2.children[0].value
+//                               }
+//                            }
+//                         } // end details row
            
-                        // if(capData.tkr && CAPMonth && CAPMonth.caps){
-                        if(capData.tkr){
-                           CAPMonth.caps.push(capData);
-                           capData = {}
-                        }
-                        // if (trimData.type && CAPMonth && CAPMonth.monthData){
-                        // if(!show_schedule_details_view){   //could move out of loop, below.
-                        //    CAPMonth.monthData = ai_schedule.quarters[qtrTXT].monthData
-                        // }                            
-                        else if (trimData.type){
-                           CAPMonth.monthData.push(trimData)
-                           trimData = {}
-                        }
+//                         // if(capData.tkr && CAPMonth && CAPMonth.caps){
+//                         if(capData.tkr){
+//                            CAPMonth.caps.push(capData);
+//                            capData = {}
+//                         }
+//                         // if (trimData.type && CAPMonth && CAPMonth.monthData){
+//                         // if(!show_schedule_details_view){   //could move out of loop, below.
+//                         //    CAPMonth.monthData = ai_schedule.quarters[qtrTXT].monthData
+//                         // }                            
+//                         else if (trimData.type){
+//                            CAPMonth.monthData.push(trimData)
+//                            trimData = {}
+//                         }
 
-                     } //END CAPS ROW.
-                  } //END EXPANDED MONTHBOX
-               } //MONTH LOOP
-               if(!show_schedule_details_view){   //could move out of loop, below.
-                           CAPMonth.monthData = ai_schedule.quarters[qtrTXT].monthData
-                        }  
-             } // IF QUARTER 
-           } //END QUARTER BOX LOOP
-         } //end TRY
-         catch(e){
-            console.log('err in save')
-            showErrorMSG('⚔️ ERR ⚔️'); 
-            return;
-         }
-         if(save_schedule){
-           //SAVE to LOCAL STORAGE
-           ai_schedule = save_schedule;
-           localStorage.ai_schedule = JSON.stringify(ai_schedule) 
-           generateScheduleClick(); //RELOAD VIEW.  
-           showErrorMSG('⚔️ SAVED ⚔️');
-         }
-      }     //end save schedule click        
+//                      } //END CAPS ROW.
+//                   } //END EXPANDED MONTHBOX
+//                } //MONTH LOOP
+//                if(!show_schedule_details_view){   //could move out of loop, below.
+//                            CAPMonth.monthData = ai_schedule.quarters[qtrTXT].monthData
+//                         }  
+//              } // IF QUARTER 
+//            } //END QUARTER BOX LOOP
+//          } //end TRY
+//          catch(e){
+//             console.log('err in save')
+//             showErrorMSG('⚔️ ERR ⚔️'); 
+//             return;
+//          }
+//          if(save_schedule){
+//            //SAVE to LOCAL STORAGE
+//            ai_schedule = save_schedule;
+//            localStorage.ai_schedule = JSON.stringify(ai_schedule) 
+//            generateScheduleClick(); //RELOAD VIEW.  
+//            showErrorMSG('⚔️ SAVED ⚔️');
+//          }
+//       }     //end save schedule click        
         
 //END SCHEDULE_MATRIX-METHODS**********************************************
 /************************************************\
@@ -4314,7 +4331,7 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
 
 
                capBOX1 = document.createElement('aside')
-               capBOX1.innerHTML="CAP&nbsp";
+               capBOX1.innerHTML="CAPAMT&nbsp";
                capBOX1.classList.add('inputDATABOX1')
                capData1 = document.createElement('input')
                capData1.classList.add('inputDATA0')
@@ -4342,41 +4359,13 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                });
 
                capData1.addEventListener("keyup",(e)=>{ 
-                  // let localSaveBtn = e.target.parentElement.parentElement.nextSibling.children[3].children[0]
-                  // debugger;
-                  // let localSaveBtn =  e.target.parentElement.previousSibling.children[0];
                   let localSaveBtn =  e.target.parentElement.previousSibling;
                   localSaveBtn.style.display = 'flex';                 
-               });  
-
-               // expandBtn1.addEventListener("click",(e)=>{
-               //    expandQuickTicksClick( //EXPAND TICK SUB DETAILS.
-               //       e.target.getAttribute('data-arg6'),
-               //       e.target.getAttribute('data-arg7'))                
+               });              
                capBOX1.appendChild(capData1)
-               
-               // trimTOTBOX1 = document.createElement('aside')
-               // trimTOTBOX1.innerHTML="trims&nbsp";
-               // trimTOTBOX1.classList.add('inputDATABOX2')
-               // trimTOTBOX1.classList.add('greenTXT')
-               // trimTOTData1 = document.createElement('input')
-               // trimTOTData1.classList.add('inputDATA0')
-               // trimTOTData1.placeholder = "$0";
-               // trimTOTData1.readOnly = true;
-               // trimTOTData1.value = tickrData.trimTOT || '';          
-               // trimTOTBOX1.appendChild(trimTOTData1)
-               // padTOTBOX1 = document.createElement('aside')
-               // padTOTBOX1.innerHTML="pads&nbsp";
-               // padTOTBOX1.classList.add('inputDATABOX3')
-               // padTOTBOX1.classList.add('redTXT')
-               // padTOTData1 = document.createElement('input')
-               // padTOTData1.classList.add('inputDATA0')
-               // padTOTData1.placeholder = "$0";
-               // padTOTData1.readOnly = true;
-               // padTOTData1.value = tickrData.padTOT || '';          
-               // padTOTBOX1.appendChild(padTOTData1)
+
                netAMTBOX1 = document.createElement('aside')
-               netAMTBOX1.innerHTML="NET&nbsp";
+               netAMTBOX1.innerHTML="NETFLOWS&nbsp";
                netAMTBOX1.classList.add('inputDATABOX4')
                netAMTData1 = document.createElement('input')
                netAMTData1.classList.add('inputDATA0')
@@ -4842,9 +4831,9 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                   tickrNOTEZROW = document.createElement('section')
                   tickrNOTEZROW.classList.add('tickrNOTEZROW')
                      notezTitle = document.createElement('input')
-                     notezTitle.value = 'TOTALS';
+                     notezTitle.value = 'MONTH TOTALS';
                      notezTitle.readOnly = true;
-                     notezTitle.classList.add('detailDate1')
+                     notezTitle.classList.add('detailDate4')
                      tickrNOTEZROW.appendChild(notezTitle)
                      expandBtn02 = document.createElement('button')
                      expandBtn02.innerHTML = '🕸️'
@@ -4897,19 +4886,6 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         padTOTBOX1.appendChild(padTOTData1)
                         totalzROW.appendChild(padTOTBOX1)
 
-                        //GROSS
-                        grossMnthBOX1 = document.createElement('aside')
-                        grossMnthBOX1.innerHTML="GROSS&nbsp";
-                        grossMnthBOX1.classList.add('inputDATABOX5')
-                        // grossMnthBOX1.classList.add('redTXT')
-                        grossMnthData1 = document.createElement('input')
-                        grossMnthData1.classList.add('inputDATA0')
-                        grossMnthData1.placeholder = "$0";
-                        grossMnthData1.readOnly = true;
-                        grossMnthData1.value = tickrData.padTOT || '';          
-                        grossMnthBOX1.appendChild(grossMnthData1)
-                        totalzROW.appendChild(grossMnthBOX1)
-
 
                         totalzBOX1 = document.createElement('section')
                         totalzBOX1.classList.add('totalzBOX1')
@@ -4917,7 +4893,7 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         bankBOX1 = document.createElement('article')
                         bankBOX1.classList.add('bankBOX1')
                         totalzLBL1 = document.createElement('span')
-                        totalzLBL1.innerHTML = 'BANK:'
+                        totalzLBL1.innerHTML = 'BANKGAIN:'
                         totalzBANK1 = document.createElement('input')
                         totalzBANK1.classList.add('totalzBankVAL')
                         totalzBANK1.value = `$${tickrData.bankVAL || 0}`;
@@ -4933,7 +4909,7 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         bookBOX1 = document.createElement('article')
                         bookBOX1.classList.add('bookBOX1')                        
                         totalzLBL2 = document.createElement('span')
-                        totalzLBL2.innerHTML = 'BOOK:'                        
+                        totalzLBL2.innerHTML = 'BOOKVALUE:'                        
                         totalzBOOK1 = document.createElement('input')
                         totalzBOOK1.classList.add('totalzBookVAL')
                         totalzBOOK1.value = `$${tickrData.bookVAL || 0}`;
@@ -4948,7 +4924,7 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         evenBOX1 = document.createElement('article')
                         evenBOX1.classList.add('evenBOX1')
                         totalzLBL3 = document.createElement('span')
-                        totalzLBL3.innerHTML = 'EVEN:'                        
+                        totalzLBL3.innerHTML = 'EVENRATE:'                        
                         totalzEVEN1 = document.createElement('input')
                         totalzEVEN1.classList.add('totalzEvenVAL')
                         totalzEVEN1.value = `$${tickrData.evenVAL || 0}`;
@@ -4960,9 +4936,74 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         evenBOX1.appendChild(totalzLBL3);
                         evenBOX1.appendChild(totalzEVEN1);
 
+                        avgBOX1 = document.createElement('article')
+                        avgBOX1.classList.add('evenBOX1')
+                        evenLBL3 = document.createElement('span')
+                        evenLBL3.innerHTML = 'AVGRATE:'                        
+                        evenavg1 = document.createElement('input')
+                        evenavg1.classList.add('totalzavgVAL')
+                        evenavg1.value = `$${tickrData.evenVAL || 0}`;
+                        evenavg1.style.width = '3em';// 444(tickrData.avgVAL.toString().length + 1) + 'em';
+                        evenavg1.addEventListener("keyup",(e)=>{ 
+                           debugger;
+                           e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
+                        }); 
+                        avgBOX1.appendChild(evenLBL3);
+                        avgBOX1.appendChild(evenavg1);
+
+
+                        
+
+                        // evenBOX1 = document.createElement('article')
+                        // evenBOX1.classList.add('evenBOX1')
+                        // evenLBL3 = document.createElement('span')
+                        // evenLBL3.innerHTML = 'EVENRATE:'                        
+                        // evenEVEN1 = document.createElement('input')
+                        // evenEVEN1.classList.add('evenEvenVAL')
+                        // evenEVEN1.value = `$${tickrData.evenVAL || 0}`;
+                        // evenEVEN1.style.width = '3em';// 444(tickrData.evenVAL.toString().length + 1) + 'em';
+                        // evenEVEN1.addEventListener("keyup",(e)=>{ 
+                        //    debugger;
+                        //    e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
+                        // }); 
+                        // evenBOX1.appendChild(evenLBL3);
+                        // evenBOX1.appendChild(evenEVEN1);
+
                         totalzBOX1.appendChild(bankBOX1)
                         totalzBOX1.appendChild(bookBOX1)
                         totalzBOX1.appendChild(evenBOX1)
+                        totalzBOX1.appendChild(avgBOX1)
+
+
+
+                        //---------------------------------------------GROSS AMT / PCT
+                        grossMnthBOX1 = document.createElement('aside')
+                        grossMnthBOX1.innerHTML="GROSS:AMT/PCT&nbsp";
+                        grossMnthBOX1.classList.add('inputDATABOX5')
+                        // grossMnthBOX1.classList.add('redTXT')
+                        grossMnthData1 = document.createElement('input')
+                        grossMnthData1.classList.add('inputDATA0')
+                        grossMnthData1.placeholder = "$0"; 
+                        grossMnthData1.readOnly = true;
+                        grossMnthData1.value = tickrData.padTOT || '';          
+                        grossMnthBOX1.appendChild(grossMnthData1)
+                        totalzROW.appendChild(grossMnthBOX1)
+                        //---------------------------------------------GROSS AMT / PCT END
+                        //---------------------------------------------HiLo AMT / PCT
+                        HiLoMnthBOX1 = document.createElement('aside')
+                        HiLoMnthBOX1.innerHTML="HiLo:AMT/Date&nbsp";
+                        HiLoMnthBOX1.classList.add('inputDATABOX5')
+                        // HiLoMnthBOX1.classList.add('redTXT')
+                        HiLoMnthData1 = document.createElement('input')
+                        HiLoMnthData1.classList.add('inputDATA0')
+                        HiLoMnthData1.placeholder = "$0"; 
+                        HiLoMnthData1.readOnly = true;
+                        HiLoMnthData1.value = tickrData.padTOT || '';          
+                        HiLoMnthBOX1.appendChild(HiLoMnthData1)
+                        totalzROW.appendChild(HiLoMnthBOX1)
+                        //---------------------------------------------HiLo AMT / PCT END
+
+
                         // totalzBOX1.appendChild(totalzLBL2)
                         // totalzBOX1.appendChild(totalzBOOK1)
                         // totalzBOX1.appendChild(totalzLBL3)
@@ -5557,7 +5598,7 @@ const generateMarginsClick = ()=>{ // GENERATE Margin DISPLAY
    let ticker,spot_ticker,tickerBOX1,tickerSet=[],spotSet=[],numSPOTS=0;
    let numSPOT1, marginsRow1, profitRow1,curPrice1;
    generatedMarginsBOX.innerHTML = ""; //reset view
-   generatedProfitsBOX.innerHTML = ""; //reset view //todo refactor
+   // generatedProfitsBOX.innerHTML = ""; //reset view //todo refactor
    if(show_margin_details_view){
       detailsBtn1.style.display = 'none'; //hide details
    }else{
@@ -6362,31 +6403,236 @@ generateStoryClick();
 // ------------------------------------------------END STORYZ
 
 const generateTotalzClick = ()=>{ // GENERATE ----------TOTALZ
-   //PROFIT and LOSS View
+   // debugger;
    // let keyz = Object.keys(ai_MetaData_TickMap);
    let keyz = Object.keys(ai_bankbook);
    let bookValue = 0, bankValue=0,itm;
    let totMargin=0,totMarginPct,totMarginSum,totMarginBOX,totMarginPctBOX;
-   generatedProfitsBOX.innerHTML=""
+   // generatedProfitsBOX.innerHTML=""
+   generatedMonthTotalsGRID.innerHTML=""; //clear out data
+
+
+   let qrtrSetz = Object.keys(ai_main.qrtrz);//ai_ledger.ticks;
+   let MONTHData = null;
+   if(!qrtrSetz){ console.log('no data'); return}
+
    if(ai_ledger.totalz_expanded){
       expandCollapseBtn7.innerHTML = '💨' 
+      debugger;
+      // TOTALZ expand
+      //LOOP ai_main, ROWS of MONTH TOTALS. (expand)
+        //- ROWS of assetTOTALS. (expand)
+        //- asset details. (expand)
+        //- chartz (expand)
+      //   generatedQuickBOX.innerHTML = "" //clear view
+
+   // if(ai_ledger.quick_expanded){
+      // expandCollapseBtn0.innerHTML = '💨'   
+      for(let i=0;i<qrtrSetz.length;i++){  //BEGIN MONTHLY LOOP
+         MONTHData = ai_main.qrtrz[qrtrSetz[i]];
+         monthBOX = document.createElement('section')
+         monthBOX.classList.add('QuickQuarterBOX')
+         monthHeader = document.createElement('aside')
+         monthHeader.classList.add('quarterHeader')
+         //**********************************************selector
+         totalzsNUMBOX0 = document.createElement('span')
+         totalzsNUMBOX0.classList.add('quickNUMBOX0')
+         totalzsCHECKBOX0 = document.createElement('label')
+         totalzsCHECKBOX0.classList.add('checkboxFrame2') 
+         // totalzsNUMBOX0.innerHTML=i+1;            
+         totalzsSelect0 = document.createElement('input');
+         // totalzsSelect0.TKR = tickrData.tkr.toUpperCase() || '';
+         totalzsSelect0.qID = MONTHData.qID || '';
+         totalzsSelect0.type = "radio";
+         totalzsSelect0.name = "totalzCapsRadio";
+         totalzsSelect0.classList.add('totalz_checkmark')
+         totalzsCHECKBOX0.appendChild(totalzsSelect0)
+         totalzsCheckMark0 = document.createElement('span')
+         totalzsCheckMark0.classList.add('checkmark')
+         totalzsCHECKBOX0.appendChild(totalzsCheckMark0)
+         totalzsNUMBOX0.appendChild(totalzsCHECKBOX0)
+         monthHeader.appendChild(totalzsNUMBOX0)
+         // end ************************************** selector         
+         //START TITLE
+         monthTITLE = document.createElement('input')
+         monthTITLE.classList.add('quarterTitle')
+         monthTITLE.value = MONTHData.qID;
+         // monthTITLE.value = month.qID;
+        
+         // monthTITLE.onblur = function() {
+         //    debugger;
+
+         // saveBOXTTL = document.createElement('aside')
+         // saveBOXTTL.innerHTML="&nbsp";
+         // saveBOXTTL.classList.add('saveBOXTTL')
+         // saveBtnTTL = document.createElement('button')
+         // saveBtnTTL.id = 'saveBtn0'
+         // saveBtnTTL.innerHTML = 'save🌟'
+         // saveBtnTTL.classList.add('saveBtnTTL')
+         // saveBtnTTL.setAttribute('data-arg6',MONTHData.qID)
+         // saveBtnTTL.addEventListener("click",(e)=>{ //ADDED BACK
+         //    saveBOXTTL.style.display = 'none'; 
+         //    let qID2 = e.target.getAttribute('data-arg6');
+         //    let saveTTL = monthTITLE.value
+         //    // //SAVE to LOCAL STORAGE
+         //    ai_main.qrtrz[saveTTL] = {}; //NEW
+         //    ai_main.qrtrz[saveTTL] = ai_main.qrtrz[qID2]; //MOVE
+         //    ai_main.qrtrz[saveTTL].qID = saveTTL;
+         //    delete ai_main.qrtrz[qID2]; //DELETE OLD.
+         //    localStorage.ai_main = JSON.stringify(ai_main) 
+         //    generateTotalzClick(); //RELOAD VIEW.  
+         //    showErrorMSG('⚔️ SAVED ⚔️');   
+         // })
+
+         // // saveBOX1.appendChild(saveBtn0)
+         // //             btnzROW.appendChild(saveBOX1)
+
+         
+         monthTITLE.addEventListener("keyup",(e)=>{ 
+            // let localSaveQtrTTL = e.target.parentElement.nextSibling.children[3].children[0]
+            // localSaveQtrTTL.style.display = 'flex';
+            saveBOXTTL.style.display = 'inline-flex'; 
+         });    
+
+
+         // START: EXPAND
+         expandBtn0 = document.createElement('button')
+         expandBtn0.innerHTML = '🕸️'
+         expandBtn0.classList.add('addBtn5')
+         // expandBtn0.setAttribute('data-arg3',month.qID)
+         expandBtn0.setAttribute('data-arg3',MONTHData.qID)
+         expandBtn0.addEventListener("click",(e)=>{ //EXPAND TICK MAIN.
+            debugger;
+               // expandQuickTickerClick(e.target.getAttribute('data-arg3')) 
+            });
+         addBtn4 = document.createElement('button')
+         addBtn4.innerHTML = 'add Ticker🧭'
+         addBtn4.classList.add('addBtn5')
+         addBtn4.setAttribute('data-arg2',MONTHData.qID)
+         addBtn4.addEventListener("click",(e)=>{
+            debugger;
+               // addQuickTickerClick(e.target.getAttribute('data-arg2')) 
+            });
+         monthHeader.appendChild(monthTITLE)
+         saveBOXTTL.appendChild(saveBtnTTL)
+         monthHeader.appendChild(saveBOXTTL)
+         monthHeader.appendChild(expandBtn0)
+         monthHeader.appendChild(addBtn4)
+         monthBOX.appendChild(monthHeader)
+         generatedMonthTotalsGRID.appendChild(monthBOX)
+
+         // tickerRowBOX = document.createElement('article')
+         // tickerRowBOX.classList.add('monthBOX')
+         // if(QRTR.expanded){
+         // if(MONTHData.expanded){
+         //    expandBtn0.innerHTML = '💨'
+         //    if(!MONTHData.tickrz){MONTHData.tickrz = []}
+         //    for(let j=0;j<MONTHData.tickrz.length;j++){  //MONTHLY CAP LOOP .
+         //       tickrData = MONTHData.tickrz[j];
+         //       // if(!tickrData){debugger;}
+         //       //CALCULATE TRIM PAD TOTALS (overwrite) **************
+         //       tickrData.trimTOT = 0
+         //       tickrData.padTOT  = 0
+         //       tickrData.netAMT = 0     
+         //       // if(tickrData.tkr==='BTC'){debugger;}
+         //       if(!tickrData.trimz){tickrData.trimz=[]}          
+         //       if(!tickrData.padz){tickrData.padz=[]}          
+         //       for(var a=0; a<tickrData.trimz.length;a++){
+         //          tickrData.trimTOT += parseFloat(tickrData.trimz[a].amt);
+         //       }
+         //       for(var b=0; b<tickrData.padz.length;b++){
+         //          tickrData.padTOT += parseFloat(tickrData.padz[b].amt);
+         //       }
+         //       tickrData.netAMT = tickrData.trimTOT - tickrData.padTOT;
+         //       if(tickrData.netAMT > 0){
+         //          tickrData.netAMT = '+' + tickrData.netAMT;
+         //       } else {
+         //          tickrData.netAMT = tickrData.netAMT;
+         //       }
+         //       // if(tickrData.trimTOT && tickrData.padTOT){
+         //       //    if(tickrData.trimTOT > tickrData.padTOT){
+         //       //       tickrData.netAMT = tickrData.trimTOT/tickrData.padTOT;
+         //       //       tickrData.netAMT = tickrData.netAMT * 100;
+         //       //       tickrData.netAMT = '+' + Math.round(tickrData.netAMT) + '%';
+         //       //    } else {
+         //       //       tickrData.netAMT = tickrData.padTOT/tickrData.trimTOT;
+         //       //       tickrData.netAMT = tickrData.netAMT * 100;
+         //       //       tickrData.netAMT = '-' + Math.round(tickrData.netAMT) + '%';
+         //       //    }
+         //       // }
+
+         //       //END CALCULATE TRIM PAD TOTALS **************
+
+         //       totalzROW = document.createElement('aside')
+         //       totalzROW.classList.add('QuickROW')
+         //       //**********************************************selector
+         //       totalzsNUMBOX1 = document.createElement('aside')
+         //       totalzsNUMBOX1.classList.add('quickNUMBOX1')//encodeNUMBOX1
+         //       totalzsCHECKBOX1 = document.createElement('label')
+         //       totalzsCHECKBOX1.classList.add('checkboxFrame') 
+         //       totalzsNUMBOX1.innerHTML=j+1;            
+         //       totalzsSelect1 = document.createElement('input');
+         //       // totalzsSelect1.ymdt = MONTHData.qID+'_'+tickrData.tkr.toUpperCase() || '';
+         //       totalzsSelect1.type = "radio";
+         //       totalzsSelect1.name = "totalzCapsRadio";
+         //       totalzsSelect1.TKR = tickrData.tkr.toUpperCase() || '';
+         //       totalzsSelect1.qID = MONTHData.qID || '';
+         //       totalzsSelect1.classList.add('totalz_checkmark')
+         //       totalzsCHECKBOX1.appendChild(totalzsSelect1)
+         //       totalzsCheckMark1 = document.createElement('span')
+         //       totalzsCheckMark1.classList.add('checkmark')
+         //       totalzsCHECKBOX1.appendChild(totalzsCheckMark1)
+         //       totalzsNUMBOX1.appendChild(totalzsCHECKBOX1)
+         //       totalzROW.appendChild(totalzsNUMBOX1)
+         //       // end ************************************** selector
+         //       trimTick = document.createElement('input')
+         //       trimTick.classList.add('trimTick')
+         //       trimTick.value = tickrData.tkr.toUpperCase() || 0;
+         //       trimTick.setAttribute('data-arg6',MONTHData.qID)
+         //       trimTick.setAttribute('data-arg7',tickrData.tkr.toUpperCase()) 
+         //       trimTick.addEventListener("focus",(e)=>{ 
+         //          // if not expanded expand, reload.
+         //          let qID2 = e.target.getAttribute('data-arg6');
+         //          let tkr2 = e.target.getAttribute('data-arg7');
+         //          let qtr = ai_main.qrtrz[qID2];
+         //          for(let i=0; i< qtr.tickrz.length;i++){
+         //             if(qtr.tickrz[i].tkr===tkr2){
+         //                if(!qtr.tickrz[i].expanded){
+         //                   qtr.tickrz[i].expanded = true;
+         //                   //SAVE to LOCAL STORAGE
+         //                   localStorage.ai_main = JSON.stringify(ai_main) 
+         //                   generateTotalzClick(); //RELOAD VIEW.  
+         //                   showErrorMSG('⚔️ SAVED ⚔️');                             
+         //                }
+         //                break;
+         //             }
+         //          }
+ 
+         //       });
+         //       trimTick.addEventListener("keyup",(e)=>{ 
+         //          // let localSaveBtn = e.target.nextSibling.children[0]
+         //          let localSaveBtn = e.target.nextSibling
+         //          localSaveBtn.style.display = 'flex';
+         //       });  
+
+         } //-------------------------------------------END MONTHLY LOOP
+
+
 
             //BEGIN LOCAL_SAVE_BTN --------------------------------------
-            closeBook_BOX = document.createElement('aside') /* standard_btn */
-      closeBook_BOX.innerHTML="&nbsp";
-      closeBook_BTN = document.createElement('button')
-      closeBook_BTN.innerHTML = '🚪Close Books📗📘📙'
-      closeBook_BOX.classList.add('closeBook_BOX'); //saveBOX1
-      closeBook_BTN.classList.add('closeBook_BTN');//saveBtn0
-      // closeBook_BTN.setAttribute('data-arg6',QRTR.qID)
-      // closeBook_BTN.setAttribute('data-arg7',tickrData.tkr.toUpperCase())
-      closeBook_BTN.addEventListener("click",(e)=>{ //ADDED BACK
-         closeBook_BTN.style.display = 'none'; 
-         debugger;    
-      });
-      closeBook_BOX.appendChild(closeBook_BTN) 
+      //       closeBook_BOX = document.createElement('aside') /* standard_btn */
+      // closeBook_BOX.innerHTML="&nbsp";
+      // closeBook_BTN = document.createElement('button')
+      // closeBook_BTN.innerHTML = '🚪Close Books📗📘📙'
+      // closeBook_BOX.classList.add('closeBook_BOX'); //saveBOX1
+      // closeBook_BTN.classList.add('closeBook_BTN');//saveBtn0
+      // closeBook_BTN.addEventListener("click",(e)=>{ //ADDED BACK
+      //    closeBook_BTN.style.display = 'none'; 
+      //    debugger;    
+      // });
+      // closeBook_BOX.appendChild(closeBook_BTN) 
+      // generatedProfitsBOX.appendChild(closeBook_BOX) 
       //END LOCAL_SAVE_BTN --------------------------------------
-      generatedProfitsBOX.appendChild(closeBook_BOX) 
 
       for(let idx=0; idx<keyz.length;idx++){
          // itm=ai_MetaData_TickMap[keyz[idx]];
@@ -6419,7 +6665,7 @@ const generateTotalzClick = ()=>{ // GENERATE ----------TOTALZ
       totalsRow1.appendChild(totBookValue1)         
       totalsRow1.appendChild(totMarginBOX)         
       totalsRow1.appendChild(totBankValue1)         
-      generatedProfitsBOX.appendChild(totalsRow1) 
+      generatedMonthTotalsGRID.appendChild(totalsRow1) 
 
 
    }//end if collapsed
@@ -6446,15 +6692,21 @@ const getLastPriceClick = ()=>{ //loop all for last close.
 }
 const getLastATHClick = ()=>{ //loop all for last close.
    debugger;
-   // let item,urls=[];
-   // for(let i=0;i<ai_ledger.ticks.length;i++){
-   //    // if(i>=1){continue;}//DEV_limiter stay below 20
-   //    item = ai_ledger.ticks[i];
-   //    // item.tick = 'NVDA';//DEV_specifier 
-   //    urls.push(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${item.tick}&interval=5min&apikey=${stock_api_key}`)
-   // }
-   // getData_Quotes(urls)
-   // showErrorMSG('🌼DATA UPDATED🌼') //todo error. need show message not error.
+   let item,urls=[];
+   for(let i=0;i<ai_ledger.ticks.length;i++){
+      // if(i>=1){continue;}//DEV_limiter stay below 20
+      item = ai_ledger.ticks[i];
+      // item.tick = 'NVDA';//DEV_specifier 
+      // urls.push(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${item.tick}&interval=5min&apikey=${stock_api_key}`)
+      // https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=IBM&apikey=demo
+      urls.push(` https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=${item.tick}&&apikey=${stock_api_key}`)
+   }
+   if(stock_api_key && urls.length){
+      getLast_ATH_Month(urls)
+      showErrorMSG('🌼DATA UPDATED🌼') //todo error. need show message not error.
+   } else {
+      showErrorMSG('🛠️ connect api key'); 
+   }
 }
 const getLastCryptoClick = ()=>{ //loop all for last close.
    debugger;
@@ -6485,6 +6737,44 @@ const getLastCryptoClick = ()=>{ //loop all for last close.
 /**************************************************************\
  * API : interface
  * \***********************************************************/
+const getLast_ATH_Month = async (quotes)=>{
+   if(!stock_api_key){ showErrorMSG('🛠️ connect api'); return;}
+   if(!quotes.length){return;}
+   try{
+      for(let i=0; i<quotes.length;i++){
+         fetch(quotes[i]).then((data)=>{
+            if(data.ok){
+               return data.json();
+            }
+         }).then((tickData)=>{
+            // debugger;
+            let responseTick = tickData["Meta Data"]["2. Symbol"];
+            if(!responseTick){return;}
+            let lastRefresh = tickData["Meta Data"]["3. Last Refreshed"];
+            if(!lastRefresh){return;}
+            let monthAdjusted = tickData["Monthly Adjusted Time Series"]
+            if(!monthAdjusted){return;}
+            // let latestClose = tickData["Time Series (5min)"][Object.keys(tickData["Time Series (5min)"])[0]]["4. close"];
+            // if(!latestClose){return;}
+            console.log(responseTick,"last close",latestClose)
+            // updateLatestTickPrice(responseTick,latestClose);
+            // //SHOW CONNNECTED and CAP, hide disconnected and key input
+            // stateConnectedBox.style.display = "inline";
+            // stateNotConnectedBox.style.display = "none";   
+            // keyBOX.style.display = "none"; 
+            // latestBtn1.style.display = "none"; //do not call twice. because of limit
+            // localStorage.ai_ledger = JSON.stringify(ai_ledger) //SAVE to LOCAL STORAGE
+            // initEncode(); //RELOAD VIEW. 
+
+         }).catch((error)=>{
+            showErrorMSG('🛠️ api daily limit')
+            console.log(error)
+         })
+      }
+   } catch(error) {
+         showErrorMSG('🛠️ api down')
+   }     
+}
 const getData_Quotes = async (quotes)=>{
    if(!stock_api_key){ showErrorMSG('🛠️ connect api'); return;}
    if(!quotes.length){return;}
@@ -6585,7 +6875,8 @@ const ai_history_LOAD_MOCK_DATA=()=>{ //READ from OBJ
    // ai_history_matrix = {"NVDA":{"ymd_price":{"2023_11_01":"428","2023_11_08":"464","2023_11_09":"464","2023_11_11":"483","2023_11_16":"488","2023_11_20":"493","2023_11_24":"477","2023_11_27":"477","2023_11_28":"477","2023_11_30":"481","2023_12_01":"467"}},"V":{"ymd_price":{"2023_11_11":"245","2023_11_16":"248","2023_11_20":"249","2023_11_24":"254","2023_11_27":"254","2023_11_28":"253","2023_11_30":"254","2023_12_01":"256"}},"MSFT":{"ymd_price":{"2023_11_11":"369","2023_11_16":"371","2023_11_20":"366","2023_11_24":"377","2023_11_27":"377","2023_11_28":"382","2023_11_30":"379","2023_12_01":"374"}},"MDB":{"ymd_price":{"2023_11_11":"375","2023_11_16":"391","2023_11_20":"392","2023_11_24":"407","2023_11_27":"407","2023_11_28":"408","2023_11_30":"432","2023_12_01":"438"}},"XLK":{"ymd_price":{"2023_11_11":"179","2023_11_16":"182","2023_11_20":"182","2023_11_24":"184","2023_11_27":"184","2023_11_28":"184","2023_11_30":"184","2023_12_01":"185"}},"NDAQ":{"ymd_price":{"2023_11_11":"52","2023_11_16":"52","2023_11_20":"53","2023_11_24":"55","2023_11_27":"55","2023_11_28":"55","2023_11_30":"55"}},"AMD":{"ymd_price":{"2023_11_11":"118","2023_11_16":"117","2023_11_20":"120","2023_11_24":"122","2023_11_27":"122","2023_11_28":"122","2023_11_30":"124","2023_12_01":"121"}},"COST":{"ymd_price":{"2023_11_11":"576","2023_11_16":"596","2023_11_20":"576","2023_11_24":"592","2023_11_27":"592","2023_11_28":"594","2023_11_30":"587","2023_12_01":"596"}},"COIN":{"ymd_price":{"2023_11_11":"93","2023_11_16":"99","2023_11_20":"98","2023_11_24":"115","2023_11_27":"115","2023_11_28":"127","2023_11_30":"127","2023_12_01":"134"}},"QQQ":{"ymd_price":{"2023_11_11":"377","2023_11_16":"385","2023_11_20":"385","2023_11_24":"389","2023_11_27":"389","2023_11_28":"390","2023_11_30":"390","2023_12_01":"390"}},"GOOGL":{"ymd_price":{"2023_11_11":"132","2023_11_16":"135","2023_11_20":"135","2023_11_24":"136","2023_11_27":"136","2023_11_28":"137","2023_11_30":"135","2023_12_01":"131"}},"TSLA":{"ymd_price":{"2023_11_30":"245","2023_12_01":"238"}},"META":{"ymd_price":{"2023_11_30":"332","2023_12_01":"324"}}}
    // ai_history_matrix = {"NVDA":{"ymd_price":{"2023_11_01":"428","2023_11_08":"464","2023_11_09":"464","2023_11_11":"483","2023_11_16":"488","2023_11_20":"493","2023_11_24":"477","2023_11_27":"477","2023_11_28":"477","2023_11_30":"481","2023_12_01":"467","2023_12_07":"453","2023_12_08":"466","2023_12_11":"474","2023_12_14":"484","2023_12_15":"481","2023_12_20":"495","2023_12_21":"483"}},"V":{"ymd_price":{"2023_11_11":"245","2023_11_16":"248","2023_11_20":"249","2023_11_24":"254","2023_11_27":"254","2023_11_28":"253","2023_11_30":"254","2023_12_01":"256","2023_12_07":"254","2023_12_08":"255","2023_12_11":"255","2023_12_14":"262","2023_12_15":"259","2023_12_20":"259","2023_12_21":"257"}},"MSFT":{"ymd_price":{"2023_11_11":"369","2023_11_16":"371","2023_11_20":"366","2023_11_24":"377","2023_11_27":"377","2023_11_28":"382","2023_11_30":"379","2023_12_01":"374","2023_12_07":"368","2023_12_08":"370","2023_12_11":"373","2023_12_14":"375","2023_12_15":"366","2023_12_20":"373","2023_12_21":"371"}},"MDB":{"ymd_price":{"2023_11_11":"375","2023_11_16":"391","2023_11_20":"392","2023_11_24":"407","2023_11_27":"407","2023_11_28":"408","2023_11_30":"432","2023_12_01":"438","2023_12_07":"384","2023_12_08":"384","2023_12_11":"381","2023_12_14":"411","2023_12_15":"419","2023_12_20":"410","2023_12_21":"403"}},"XLK":{"ymd_price":{"2023_11_11":"179","2023_11_16":"182","2023_11_20":"182","2023_11_24":"184","2023_11_27":"184","2023_11_28":"184","2023_11_30":"184","2023_12_01":"185","2023_12_07":"182","2023_12_08":"185","2023_12_11":"186","2023_12_14":"191","2023_12_15":"190","2023_12_20":"192","2023_12_21":"189"}},"NDAQ":{"ymd_price":{"2023_11_11":"52","2023_11_16":"52","2023_11_20":"53","2023_11_24":"55","2023_11_27":"55","2023_11_28":"55","2023_11_30":"55"}},"AMD":{"ymd_price":{"2023_11_11":"118","2023_11_16":"117","2023_11_20":"120","2023_11_24":"122","2023_11_27":"122","2023_11_28":"122","2023_11_30":"124","2023_12_01":"121","2023_12_07":"118","2023_12_08":"128","2023_12_11":"129","2023_12_14":"138","2023_12_15":"137","2023_12_20":"139","2023_12_21":"135"}},"COST":{"ymd_price":{"2023_11_11":"576","2023_11_16":"596","2023_11_20":"576","2023_11_24":"592","2023_11_27":"592","2023_11_28":"594","2023_11_30":"587","2023_12_01":"596","2023_12_07":"603","2023_12_08":"610","2023_12_11":"611","2023_12_14":"642","2023_12_15":"639","2023_12_20":"677","2023_12_21":"662"}},"COIN":{"ymd_price":{"2023_11_11":"93","2023_11_16":"99","2023_11_20":"98","2023_11_24":"115","2023_11_27":"115","2023_11_28":"127","2023_11_30":"127","2023_12_01":"134","2023_12_07":"133","2023_12_08":"135","2023_12_11":"147","2023_12_14":"152","2023_12_15":"152","2023_12_20":"159","2023_12_21":"161"}},"QQQ":{"ymd_price":{"2023_11_11":"377","2023_11_16":"385","2023_11_20":"385","2023_11_24":"389","2023_11_27":"389","2023_11_28":"390","2023_11_30":"390","2023_12_01":"390","2023_12_07":"385","2023_12_08":"390","2023_12_11":"392","2023_12_14":"405","2023_12_15":"403","2023_12_20":"409","2023_12_21":"403"}},"GOOGL":{"ymd_price":{"2023_11_11":"132","2023_11_16":"135","2023_11_20":"135","2023_11_24":"136","2023_11_27":"136","2023_11_28":"137","2023_11_30":"135","2023_12_01":"131","2023_12_07":"131","2023_12_08":"137","2023_12_11":"134","2023_12_14":"133","2023_12_15":"131","2023_12_20":"136","2023_12_21":"138"}},"TSLA":{"ymd_price":{"2023_11_30":"245","2023_12_01":"238","2023_12_07":"240","2023_12_08":"242","2023_12_11":"243","2023_12_14":"239","2023_12_15":"250","2023_12_20":"257","2023_12_21":"248"}},"META":{"ymd_price":{"2023_11_30":"332","2023_12_01":"324","2023_12_07":"317","2023_12_08":"326","2023_12_11":"333","2023_12_14":"335","2023_12_15":"333","2023_12_20":"350","2023_12_21":"349"}},"PINS":{"ymd_price":{"2023_12_07":"33","2023_12_08":"34","2023_12_11":"34","2023_12_14":"36","2023_12_15":"36","2023_12_20":"38","2023_12_21":"37"}},"FVRR":{"ymd_price":{"2023_12_07":"26","2023_12_08":"26","2023_12_11":"26","2023_12_14":"27","2023_12_15":"28","2023_12_20":"28","2023_12_21":"27"}}}
    // ai_history_matrix = {"NVDA":{"ymd_price":{"2023_11_01":"428","2023_11_08":"464","2023_11_09":"464","2023_11_11":"483","2023_11_16":"488","2023_11_20":"493","2023_11_24":"477","2023_11_27":"477","2023_11_28":"477","2023_11_30":"481","2023_12_01":"467","2023_12_07":"453","2023_12_08":"466","2023_12_11":"474","2023_12_14":"484","2023_12_15":"481","2023_12_20":"495","2023_12_21":"483","2023_12_22":"489","2023_12_27":"493","2024_01_06":"491"}},"V":{"ymd_price":{"2023_11_11":"245","2023_11_16":"248","2023_11_20":"249","2023_11_24":"254","2023_11_27":"254","2023_11_28":"253","2023_11_30":"254","2023_12_01":"256","2023_12_07":"254","2023_12_08":"255","2023_12_11":"255","2023_12_14":"262","2023_12_15":"259","2023_12_20":"259","2023_12_21":"257","2023_12_22":"259","2023_12_27":"259","2024_01_06":"259"}},"MSFT":{"ymd_price":{"2023_11_11":"369","2023_11_16":"371","2023_11_20":"366","2023_11_24":"377","2023_11_27":"377","2023_11_28":"382","2023_11_30":"379","2023_12_01":"374","2023_12_07":"368","2023_12_08":"370","2023_12_11":"373","2023_12_14":"375","2023_12_15":"366","2023_12_20":"373","2023_12_21":"371","2023_12_22":"373","2023_12_27":"374","2024_01_06":"367"}},"MDB":{"ymd_price":{"2023_11_11":"375","2023_11_16":"391","2023_11_20":"392","2023_11_24":"407","2023_11_27":"407","2023_11_28":"408","2023_11_30":"432","2023_12_01":"438","2023_12_07":"384","2023_12_08":"384","2023_12_11":"381","2023_12_14":"411","2023_12_15":"419","2023_12_20":"410","2023_12_21":"403","2023_12_22":"408","2023_12_27":"417","2024_01_06":"367"}},"XLK":{"ymd_price":{"2023_11_11":"179","2023_11_16":"182","2023_11_20":"182","2023_11_24":"184","2023_11_27":"184","2023_11_28":"184","2023_11_30":"184","2023_12_01":"185","2023_12_07":"182","2023_12_08":"185","2023_12_11":"186","2023_12_14":"191","2023_12_15":"190","2023_12_20":"192","2023_12_21":"189","2023_12_22":"191","2023_12_27":"192","2024_01_06":"184"}},"NDAQ":{"ymd_price":{"2023_11_11":"52","2023_11_16":"52","2023_11_20":"53","2023_11_24":"55","2023_11_27":"55","2023_11_28":"55","2023_11_30":"55"}},"AMD":{"ymd_price":{"2023_11_11":"118","2023_11_16":"117","2023_11_20":"120","2023_11_24":"122","2023_11_27":"122","2023_11_28":"122","2023_11_30":"124","2023_12_01":"121","2023_12_07":"118","2023_12_08":"128","2023_12_11":"129","2023_12_14":"138","2023_12_15":"137","2023_12_20":"139","2023_12_21":"135","2023_12_22":"139","2023_12_27":"143","2024_01_06":"138"}},"COST":{"ymd_price":{"2023_11_11":"576","2023_11_16":"596","2023_11_20":"576","2023_11_24":"592","2023_11_27":"592","2023_11_28":"594","2023_11_30":"587","2023_12_01":"596","2023_12_07":"603","2023_12_08":"610","2023_12_11":"611","2023_12_14":"642","2023_12_15":"639","2023_12_20":"677","2023_12_21":"662","2023_12_22":"664","2023_12_27":"675","2024_01_06":"656"}},"COIN":{"ymd_price":{"2023_11_11":"93","2023_11_16":"99","2023_11_20":"98","2023_11_24":"115","2023_11_27":"115","2023_11_28":"127","2023_11_30":"127","2023_12_01":"134","2023_12_07":"133","2023_12_08":"135","2023_12_11":"147","2023_12_14":"152","2023_12_15":"152","2023_12_20":"159","2023_12_21":"161","2023_12_22":"170","2023_12_27":"173","2024_01_06":"154"}},"QQQ":{"ymd_price":{"2023_11_11":"377","2023_11_16":"385","2023_11_20":"385","2023_11_24":"389","2023_11_27":"389","2023_11_28":"390","2023_11_30":"390","2023_12_01":"390","2023_12_07":"385","2023_12_08":"390","2023_12_11":"392","2023_12_14":"405","2023_12_15":"403","2023_12_20":"409","2023_12_21":"403","2023_12_22":"407","2023_12_27":"410","2024_01_06":"396"}},"GOOGL":{"ymd_price":{"2023_11_11":"132","2023_11_16":"135","2023_11_20":"135","2023_11_24":"136","2023_11_27":"136","2023_11_28":"137","2023_11_30":"135","2023_12_01":"131","2023_12_07":"131","2023_12_08":"137","2023_12_11":"134","2023_12_14":"133","2023_12_15":"131","2023_12_20":"136","2023_12_21":"138","2023_12_22":"140","2023_12_27":"141","2024_01_06":"135"}},"TSLA":{"ymd_price":{"2023_11_30":"245","2023_12_01":"238","2023_12_07":"240","2023_12_08":"242","2023_12_11":"243","2023_12_14":"239","2023_12_15":"250","2023_12_20":"257","2023_12_21":"248","2023_12_22":"255","2023_12_27":"256","2024_01_06":"237"}},"META":{"ymd_price":{"2023_11_30":"332","2023_12_01":"324","2023_12_07":"317","2023_12_08":"326","2023_12_11":"333","2023_12_14":"335","2023_12_15":"333","2023_12_20":"350","2023_12_21":"349","2023_12_22":"353","2023_12_27":"354","2024_01_06":"352"}},"PINS":{"ymd_price":{"2023_12_07":"33","2023_12_08":"34","2023_12_11":"34","2023_12_14":"36","2023_12_15":"36","2023_12_20":"38","2023_12_21":"37","2023_12_22":"37","2023_12_27":"37","2024_01_06":"36"}},"FVRR":{"ymd_price":{"2023_12_07":"26","2023_12_08":"26","2023_12_11":"26","2023_12_14":"27","2023_12_15":"28","2023_12_20":"28","2023_12_21":"27","2023_12_22":"28","2023_12_27":"28","2024_01_06":"26"}}}
-   ai_history = {"NVDA":{"ymd_price":{"2023_11_01":"428","2023_11_08":"464","2023_11_09":"464","2023_11_11":"483","2023_11_16":"488","2023_11_20":"493","2023_11_24":"477","2023_11_27":"477","2023_11_28":"477","2023_11_30":"481","2023_12_01":"467","2023_12_07":"453","2023_12_08":"466","2023_12_11":"474","2023_12_14":"484","2023_12_15":"481","2023_12_20":"495","2023_12_21":"483","2023_12_22":"489","2023_12_27":"493","2024_01_06":"491","2024_01_13":"547","2024_01_17":"565"}},"V":{"ymd_price":{"2023_11_11":"245","2023_11_16":"248","2023_11_20":"249","2023_11_24":"254","2023_11_27":"254","2023_11_28":"253","2023_11_30":"254","2023_12_01":"256","2023_12_07":"254","2023_12_08":"255","2023_12_11":"255","2023_12_14":"262","2023_12_15":"259","2023_12_20":"259","2023_12_21":"257","2023_12_22":"259","2023_12_27":"259","2024_01_06":"259","2024_01_13":"264","2024_01_17":"262"}},"MSFT":{"ymd_price":{"2023_11_11":"369","2023_11_16":"371","2023_11_20":"366","2023_11_24":"377","2023_11_27":"377","2023_11_28":"382","2023_11_30":"379","2023_12_01":"374","2023_12_07":"368","2023_12_08":"370","2023_12_11":"373","2023_12_14":"375","2023_12_15":"366","2023_12_20":"373","2023_12_21":"371","2023_12_22":"373","2023_12_27":"374","2024_01_06":"367","2024_01_13":"388","2024_01_17":"390"}},"MDB":{"ymd_price":{"2023_11_11":"375","2023_11_16":"391","2023_11_20":"392","2023_11_24":"407","2023_11_27":"407","2023_11_28":"408","2023_11_30":"432","2023_12_01":"438","2023_12_07":"384","2023_12_08":"384","2023_12_11":"381","2023_12_14":"411","2023_12_15":"419","2023_12_20":"410","2023_12_21":"403","2023_12_22":"408","2023_12_27":"417","2024_01_06":"367","2024_01_13":"390","2024_01_17":"405"}},"XLK":{"ymd_price":{"2023_11_11":"179","2023_11_16":"182","2023_11_20":"182","2023_11_24":"184","2023_11_27":"184","2023_11_28":"184","2023_11_30":"184","2023_12_01":"185","2023_12_07":"182","2023_12_08":"185","2023_12_11":"186","2023_12_14":"191","2023_12_15":"190","2023_12_20":"192","2023_12_21":"189","2023_12_22":"191","2023_12_27":"192","2024_01_06":"184","2024_01_13":"192","2024_01_17":"192"}},"NDAQ":{"ymd_price":{"2023_11_11":"52","2023_11_16":"52","2023_11_20":"53","2023_11_24":"55","2023_11_27":"55","2023_11_28":"55","2023_11_30":"55"}},"AMD":{"ymd_price":{"2023_11_11":"118","2023_11_16":"117","2023_11_20":"120","2023_11_24":"122","2023_11_27":"122","2023_11_28":"122","2023_11_30":"124","2023_12_01":"121","2023_12_07":"118","2023_12_08":"128","2023_12_11":"129","2023_12_14":"138","2023_12_15":"137","2023_12_20":"139","2023_12_21":"135","2023_12_22":"139","2023_12_27":"143","2024_01_06":"138","2024_01_13":"146","2024_01_17":"159"}},"COST":{"ymd_price":{"2023_11_11":"576","2023_11_16":"596","2023_11_20":"576","2023_11_24":"592","2023_11_27":"592","2023_11_28":"594","2023_11_30":"587","2023_12_01":"596","2023_12_07":"603","2023_12_08":"610","2023_12_11":"611","2023_12_14":"642","2023_12_15":"639","2023_12_20":"677","2023_12_21":"662","2023_12_22":"664","2023_12_27":"675","2024_01_06":"656","2024_01_13":"682","2024_01_17":"681"}},"COIN":{"ymd_price":{"2023_11_11":"93","2023_11_16":"99","2023_11_20":"98","2023_11_24":"115","2023_11_27":"115","2023_11_28":"127","2023_11_30":"127","2023_12_01":"134","2023_12_07":"133","2023_12_08":"135","2023_12_11":"147","2023_12_14":"152","2023_12_15":"152","2023_12_20":"159","2023_12_21":"161","2023_12_22":"170","2023_12_27":"173","2024_01_06":"154","2024_01_13":"129","2024_01_17":"134"}},"QQQ":{"ymd_price":{"2023_11_11":"377","2023_11_16":"385","2023_11_20":"385","2023_11_24":"389","2023_11_27":"389","2023_11_28":"390","2023_11_30":"390","2023_12_01":"390","2023_12_07":"385","2023_12_08":"390","2023_12_11":"392","2023_12_14":"405","2023_12_15":"403","2023_12_20":"409","2023_12_21":"403","2023_12_22":"407","2023_12_27":"410","2024_01_06":"396","2024_01_13":"408","2024_01_17":"409"}},"GOOGL":{"ymd_price":{"2023_11_11":"132","2023_11_16":"135","2023_11_20":"135","2023_11_24":"136","2023_11_27":"136","2023_11_28":"137","2023_11_30":"135","2023_12_01":"131","2023_12_07":"131","2023_12_08":"137","2023_12_11":"134","2023_12_14":"133","2023_12_15":"131","2023_12_20":"136","2023_12_21":"138","2023_12_22":"140","2023_12_27":"141","2024_01_06":"135","2024_01_13":"142","2024_01_17":"142"}},"TSLA":{"ymd_price":{"2023_11_30":"245","2023_12_01":"238","2023_12_07":"240","2023_12_08":"242","2023_12_11":"243","2023_12_14":"239","2023_12_15":"250","2023_12_20":"257","2023_12_21":"248","2023_12_22":"255","2023_12_27":"256","2024_01_06":"237","2024_01_13":"218","2024_01_17":"220"}},"META":{"ymd_price":{"2023_11_30":"332","2023_12_01":"324","2023_12_07":"317","2023_12_08":"326","2023_12_11":"333","2023_12_14":"335","2023_12_15":"333","2023_12_20":"350","2023_12_21":"349","2023_12_22":"353","2023_12_27":"354","2024_01_06":"352","2024_01_13":"374","2024_01_17":"367"}},"PINS":{"ymd_price":{"2023_12_07":"33","2023_12_08":"34","2023_12_11":"34","2023_12_14":"36","2023_12_15":"36","2023_12_20":"38","2023_12_21":"37","2023_12_22":"37","2023_12_27":"37","2024_01_06":"36","2024_01_13":"37","2024_01_17":"36"}},"FVRR":{"ymd_price":{"2023_12_07":"26","2023_12_08":"26","2023_12_11":"26","2023_12_14":"27","2023_12_15":"28","2023_12_20":"28","2023_12_21":"27","2023_12_22":"28","2023_12_27":"28","2024_01_06":"26","2024_01_13":"25","2024_01_17":"25"}}}
+   // ai_history = {"NVDA":{"ymd_price":{"2023_11_01":"428","2023_11_08":"464","2023_11_09":"464","2023_11_11":"483","2023_11_16":"488","2023_11_20":"493","2023_11_24":"477","2023_11_27":"477","2023_11_28":"477","2023_11_30":"481","2023_12_01":"467","2023_12_07":"453","2023_12_08":"466","2023_12_11":"474","2023_12_14":"484","2023_12_15":"481","2023_12_20":"495","2023_12_21":"483","2023_12_22":"489","2023_12_27":"493","2024_01_06":"491","2024_01_13":"547","2024_01_17":"565"}},"V":{"ymd_price":{"2023_11_11":"245","2023_11_16":"248","2023_11_20":"249","2023_11_24":"254","2023_11_27":"254","2023_11_28":"253","2023_11_30":"254","2023_12_01":"256","2023_12_07":"254","2023_12_08":"255","2023_12_11":"255","2023_12_14":"262","2023_12_15":"259","2023_12_20":"259","2023_12_21":"257","2023_12_22":"259","2023_12_27":"259","2024_01_06":"259","2024_01_13":"264","2024_01_17":"262"}},"MSFT":{"ymd_price":{"2023_11_11":"369","2023_11_16":"371","2023_11_20":"366","2023_11_24":"377","2023_11_27":"377","2023_11_28":"382","2023_11_30":"379","2023_12_01":"374","2023_12_07":"368","2023_12_08":"370","2023_12_11":"373","2023_12_14":"375","2023_12_15":"366","2023_12_20":"373","2023_12_21":"371","2023_12_22":"373","2023_12_27":"374","2024_01_06":"367","2024_01_13":"388","2024_01_17":"390"}},"MDB":{"ymd_price":{"2023_11_11":"375","2023_11_16":"391","2023_11_20":"392","2023_11_24":"407","2023_11_27":"407","2023_11_28":"408","2023_11_30":"432","2023_12_01":"438","2023_12_07":"384","2023_12_08":"384","2023_12_11":"381","2023_12_14":"411","2023_12_15":"419","2023_12_20":"410","2023_12_21":"403","2023_12_22":"408","2023_12_27":"417","2024_01_06":"367","2024_01_13":"390","2024_01_17":"405"}},"XLK":{"ymd_price":{"2023_11_11":"179","2023_11_16":"182","2023_11_20":"182","2023_11_24":"184","2023_11_27":"184","2023_11_28":"184","2023_11_30":"184","2023_12_01":"185","2023_12_07":"182","2023_12_08":"185","2023_12_11":"186","2023_12_14":"191","2023_12_15":"190","2023_12_20":"192","2023_12_21":"189","2023_12_22":"191","2023_12_27":"192","2024_01_06":"184","2024_01_13":"192","2024_01_17":"192"}},"NDAQ":{"ymd_price":{"2023_11_11":"52","2023_11_16":"52","2023_11_20":"53","2023_11_24":"55","2023_11_27":"55","2023_11_28":"55","2023_11_30":"55"}},"AMD":{"ymd_price":{"2023_11_11":"118","2023_11_16":"117","2023_11_20":"120","2023_11_24":"122","2023_11_27":"122","2023_11_28":"122","2023_11_30":"124","2023_12_01":"121","2023_12_07":"118","2023_12_08":"128","2023_12_11":"129","2023_12_14":"138","2023_12_15":"137","2023_12_20":"139","2023_12_21":"135","2023_12_22":"139","2023_12_27":"143","2024_01_06":"138","2024_01_13":"146","2024_01_17":"159"}},"COST":{"ymd_price":{"2023_11_11":"576","2023_11_16":"596","2023_11_20":"576","2023_11_24":"592","2023_11_27":"592","2023_11_28":"594","2023_11_30":"587","2023_12_01":"596","2023_12_07":"603","2023_12_08":"610","2023_12_11":"611","2023_12_14":"642","2023_12_15":"639","2023_12_20":"677","2023_12_21":"662","2023_12_22":"664","2023_12_27":"675","2024_01_06":"656","2024_01_13":"682","2024_01_17":"681"}},"COIN":{"ymd_price":{"2023_11_11":"93","2023_11_16":"99","2023_11_20":"98","2023_11_24":"115","2023_11_27":"115","2023_11_28":"127","2023_11_30":"127","2023_12_01":"134","2023_12_07":"133","2023_12_08":"135","2023_12_11":"147","2023_12_14":"152","2023_12_15":"152","2023_12_20":"159","2023_12_21":"161","2023_12_22":"170","2023_12_27":"173","2024_01_06":"154","2024_01_13":"129","2024_01_17":"134"}},"QQQ":{"ymd_price":{"2023_11_11":"377","2023_11_16":"385","2023_11_20":"385","2023_11_24":"389","2023_11_27":"389","2023_11_28":"390","2023_11_30":"390","2023_12_01":"390","2023_12_07":"385","2023_12_08":"390","2023_12_11":"392","2023_12_14":"405","2023_12_15":"403","2023_12_20":"409","2023_12_21":"403","2023_12_22":"407","2023_12_27":"410","2024_01_06":"396","2024_01_13":"408","2024_01_17":"409"}},"GOOGL":{"ymd_price":{"2023_11_11":"132","2023_11_16":"135","2023_11_20":"135","2023_11_24":"136","2023_11_27":"136","2023_11_28":"137","2023_11_30":"135","2023_12_01":"131","2023_12_07":"131","2023_12_08":"137","2023_12_11":"134","2023_12_14":"133","2023_12_15":"131","2023_12_20":"136","2023_12_21":"138","2023_12_22":"140","2023_12_27":"141","2024_01_06":"135","2024_01_13":"142","2024_01_17":"142"}},"TSLA":{"ymd_price":{"2023_11_30":"245","2023_12_01":"238","2023_12_07":"240","2023_12_08":"242","2023_12_11":"243","2023_12_14":"239","2023_12_15":"250","2023_12_20":"257","2023_12_21":"248","2023_12_22":"255","2023_12_27":"256","2024_01_06":"237","2024_01_13":"218","2024_01_17":"220"}},"META":{"ymd_price":{"2023_11_30":"332","2023_12_01":"324","2023_12_07":"317","2023_12_08":"326","2023_12_11":"333","2023_12_14":"335","2023_12_15":"333","2023_12_20":"350","2023_12_21":"349","2023_12_22":"353","2023_12_27":"354","2024_01_06":"352","2024_01_13":"374","2024_01_17":"367"}},"PINS":{"ymd_price":{"2023_12_07":"33","2023_12_08":"34","2023_12_11":"34","2023_12_14":"36","2023_12_15":"36","2023_12_20":"38","2023_12_21":"37","2023_12_22":"37","2023_12_27":"37","2024_01_06":"36","2024_01_13":"37","2024_01_17":"36"}},"FVRR":{"ymd_price":{"2023_12_07":"26","2023_12_08":"26","2023_12_11":"26","2023_12_14":"27","2023_12_15":"28","2023_12_20":"28","2023_12_21":"27","2023_12_22":"28","2023_12_27":"28","2024_01_06":"26","2024_01_13":"25","2024_01_17":"25"}}}
+   ai_history = {"NVDA":{"ymd_price":{"2023_11_01":"428","2023_11_08":"464","2023_11_09":"464","2023_11_11":"483","2023_11_16":"488","2023_11_20":"493","2023_11_24":"477","2023_11_27":"477","2023_11_28":"477","2023_11_30":"481","2023_12_01":"467","2023_12_07":"453","2023_12_08":"466","2023_12_11":"474","2023_12_14":"484","2023_12_15":"481","2023_12_20":"495","2023_12_21":"483","2023_12_22":"489","2023_12_27":"493","2024_01_06":"491","2024_01_13":"547","2024_01_17":"565","2024_01_18":"559","2024_01_20":"594","2024_01_23":"601","2024_01_25":"606","2024_01_27":"610","2024_01_29":"632","2024_01_30":"632"}},"V":{"ymd_price":{"2023_11_11":"245","2023_11_16":"248","2023_11_20":"249","2023_11_24":"254","2023_11_27":"254","2023_11_28":"253","2023_11_30":"254","2023_12_01":"256","2023_12_07":"254","2023_12_08":"255","2023_12_11":"255","2023_12_14":"262","2023_12_15":"259","2023_12_20":"259","2023_12_21":"257","2023_12_22":"259","2023_12_27":"259","2024_01_06":"259","2024_01_13":"264","2024_01_17":"262","2024_01_18":"266","2024_01_20":"271","2024_01_23":"271","2024_01_25":"265","2024_01_27":"267","2024_01_29":"272","2024_01_30":"272"}},"MSFT":{"ymd_price":{"2023_11_11":"369","2023_11_16":"371","2023_11_20":"366","2023_11_24":"377","2023_11_27":"377","2023_11_28":"382","2023_11_30":"379","2023_12_01":"374","2023_12_07":"368","2023_12_08":"370","2023_12_11":"373","2023_12_14":"375","2023_12_15":"366","2023_12_20":"373","2023_12_21":"371","2023_12_22":"373","2023_12_27":"374","2024_01_06":"367","2024_01_13":"388","2024_01_17":"390","2024_01_18":"389","2024_01_20":"397","2024_01_23":"400","2024_01_25":"402","2024_01_27":"404","2024_01_29":"412","2024_01_30":"412"}},"MDB":{"ymd_price":{"2023_11_11":"375","2023_11_16":"391","2023_11_20":"392","2023_11_24":"407","2023_11_27":"407","2023_11_28":"408","2023_11_30":"432","2023_12_01":"438","2023_12_07":"384","2023_12_08":"384","2023_12_11":"381","2023_12_14":"411","2023_12_15":"419","2023_12_20":"410","2023_12_21":"403","2023_12_22":"408","2023_12_27":"417","2024_01_06":"367","2024_01_13":"390","2024_01_17":"405","2024_01_18":"399","2024_01_20":"401","2024_01_23":"413","2024_01_25":"397","2024_01_27":"395","2024_01_29":"420","2024_01_30":"420"}},"XLK":{"ymd_price":{"2023_11_11":"179","2023_11_16":"182","2023_11_20":"182","2023_11_24":"184","2023_11_27":"184","2023_11_28":"184","2023_11_30":"184","2023_12_01":"185","2023_12_07":"182","2023_12_08":"185","2023_12_11":"186","2023_12_14":"191","2023_12_15":"190","2023_12_20":"192","2023_12_21":"189","2023_12_22":"191","2023_12_27":"192","2024_01_06":"184","2024_01_13":"192","2024_01_17":"192","2024_01_18":"191","2024_01_20":"200","2024_01_23":"202","2024_01_25":"204","2024_01_27":"201","2024_01_29":"203","2024_01_30":"203"}},"NDAQ":{"ymd_price":{"2023_11_11":"52","2023_11_16":"52","2023_11_20":"53","2023_11_24":"55","2023_11_27":"55","2023_11_28":"55","2023_11_30":"55"}},"AMD":{"ymd_price":{"2023_11_11":"118","2023_11_16":"117","2023_11_20":"120","2023_11_24":"122","2023_11_27":"122","2023_11_28":"122","2023_11_30":"124","2023_12_01":"121","2023_12_07":"118","2023_12_08":"128","2023_12_11":"129","2023_12_14":"138","2023_12_15":"137","2023_12_20":"139","2023_12_21":"135","2023_12_22":"139","2023_12_27":"143","2024_01_06":"138","2024_01_13":"146","2024_01_17":"159","2024_01_18":"160","2024_01_20":"175","2024_01_23":"170","2024_01_25":"174","2024_01_27":"177","2024_01_29":"179","2024_01_30":"179"}},"COST":{"ymd_price":{"2023_11_11":"576","2023_11_16":"596","2023_11_20":"576","2023_11_24":"592","2023_11_27":"592","2023_11_28":"594","2023_11_30":"587","2023_12_01":"596","2023_12_07":"603","2023_12_08":"610","2023_12_11":"611","2023_12_14":"642","2023_12_15":"639","2023_12_20":"677","2023_12_21":"662","2023_12_22":"664","2023_12_27":"675","2024_01_06":"656","2024_01_13":"682","2024_01_17":"681","2024_01_18":"684","2024_01_20":"695","2024_01_23":"688","2024_01_25":"678","2024_01_27":"686","2024_01_29":"693","2024_01_30":"693"}},"COIN":{"ymd_price":{"2023_11_11":"93","2023_11_16":"99","2023_11_20":"98","2023_11_24":"115","2023_11_27":"115","2023_11_28":"127","2023_11_30":"127","2023_12_01":"134","2023_12_07":"133","2023_12_08":"135","2023_12_11":"147","2023_12_14":"152","2023_12_15":"152","2023_12_20":"159","2023_12_21":"161","2023_12_22":"170","2023_12_27":"173","2024_01_06":"154","2024_01_13":"129","2024_01_17":"134","2024_01_18":"132","2024_01_20":"124","2024_01_23":"126","2024_01_25":"120","2024_01_27":"125","2024_01_29":"134","2024_01_30":"134"}},"QQQ":{"ymd_price":{"2023_11_11":"377","2023_11_16":"385","2023_11_20":"385","2023_11_24":"389","2023_11_27":"389","2023_11_28":"390","2023_11_30":"390","2023_12_01":"390","2023_12_07":"385","2023_12_08":"390","2023_12_11":"392","2023_12_14":"405","2023_12_15":"403","2023_12_20":"409","2023_12_21":"403","2023_12_22":"407","2023_12_27":"410","2024_01_06":"396","2024_01_13":"408","2024_01_17":"409","2024_01_18":"407","2024_01_20":"421","2024_01_23":"424","2024_01_25":"423","2024_01_27":"423","2024_01_29":"428","2024_01_30":"428"}},"GOOGL":{"ymd_price":{"2023_11_11":"132","2023_11_16":"135","2023_11_20":"135","2023_11_24":"136","2023_11_27":"136","2023_11_28":"137","2023_11_30":"135","2023_12_01":"131","2023_12_07":"131","2023_12_08":"137","2023_12_11":"134","2023_12_14":"133","2023_12_15":"131","2023_12_20":"136","2023_12_21":"138","2023_12_22":"140","2023_12_27":"141","2024_01_06":"135","2024_01_13":"142","2024_01_17":"142","2024_01_18":"141","2024_01_20":"146","2024_01_23":"147","2024_01_25":"151","2024_01_27":"152","2024_01_29":"153","2024_01_30":"153"}},"TSLA":{"ymd_price":{"2023_11_30":"245","2023_12_01":"238","2023_12_07":"240","2023_12_08":"242","2023_12_11":"243","2023_12_14":"239","2023_12_15":"250","2023_12_20":"257","2023_12_21":"248","2023_12_22":"255","2023_12_27":"256","2024_01_06":"237","2024_01_13":"218","2024_01_17":"220","2024_01_18":"213","2024_01_20":"212","2024_01_23":"210","2024_01_25":"181","2024_01_27":"184","2024_01_29":"192","2024_01_30":"192"}},"META":{"ymd_price":{"2023_11_30":"332","2023_12_01":"324","2023_12_07":"317","2023_12_08":"326","2023_12_11":"333","2023_12_14":"335","2023_12_15":"333","2023_12_20":"350","2023_12_21":"349","2023_12_22":"353","2023_12_27":"354","2024_01_06":"352","2024_01_13":"374","2024_01_17":"367","2024_01_18":"368","2024_01_20":"384","2024_01_23":"387","2024_01_25":"391","2024_01_27":"393","2024_01_29":"404","2024_01_30":"404"}},"PINS":{"ymd_price":{"2023_12_07":"33","2023_12_08":"34","2023_12_11":"34","2023_12_14":"36","2023_12_15":"36","2023_12_20":"38","2023_12_21":"37","2023_12_22":"37","2023_12_27":"37","2024_01_06":"36","2024_01_13":"37","2024_01_17":"36","2024_01_18":"36","2024_01_20":"37","2024_01_23":"37","2024_01_25":"37","2024_01_27":"37","2024_01_29":"39","2024_01_30":"39"}},"FVRR":{"ymd_price":{"2023_12_07":"26","2023_12_08":"26","2023_12_11":"26","2023_12_14":"27","2023_12_15":"28","2023_12_20":"28","2023_12_21":"27","2023_12_22":"28","2023_12_27":"28","2024_01_06":"26","2024_01_13":"25","2024_01_17":"25","2024_01_18":"24","2024_01_20":"26","2024_01_23":"28","2024_01_25":"26","2024_01_27":"26","2024_01_29":"28","2024_01_30":"28"}}}
 }
 
 const ai_history_init=()=>{ //READ from LOCAL STORAGE

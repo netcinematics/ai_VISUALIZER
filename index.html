@@ -246,6 +246,27 @@ hr{border-top: solid 1px cadetblue;
     font-size: 0.6em;
     padding-bottom: 20px;    
 }
+.addBtn8{
+   cursor:pointer; 
+   font-size: 0.777em;
+   border-radius: 13px;
+   max-width: 9em;
+   float:right;
+   margin-right: 2%;
+   margin-left: 1%;
+   margin-top: 2%;   
+   background: black;
+    margin-top: 1.222em;  
+}
+.expBtn9{
+   cursor:pointer; 
+   font-size: 0.777em;
+   border-radius: 13px;
+   max-width: 9em;
+   float:right;
+   background: rgb(3, 0, 35);
+   margin: auto 0;
+}
 .expandCollapseBtn0{
    border-radius:13px;background:#d1d67b;
    cursor:pointer; margin:1em 0 1em 0;
@@ -694,6 +715,18 @@ margin-right: 2%;
 #eventzFRAME, #storyzFRAME, #generatedReviewPreviewBOX{
    margin:2%;
 }
+#allMarginsBOX{
+   width: 80.888%;
+    flex: 1;
+    border-radius: 13px;
+    border: solid 1px steelblue;
+    box-shadow: inset 1px 1px 11px 0px cyan;
+    padding: 2%;
+    padding-top: 3%;
+    padding-left: 4%;
+    color: cyan;
+    line-height: 2.444em;   
+}
 .quarterBOX{
    display: flex;
 flex-direction: column;
@@ -892,7 +925,7 @@ border-radius: 8px;
     border: 1px solid steelblue;
 }
 
-.profitRow1, .marginsRow1, .detailRow1 {
+.profitRow1, .marginsRow1, .totzRow1, .deetzRow1, .detailRow1 {
    display: flex;
     justify-content: space-between;
     margin-right: 2%;
@@ -1080,6 +1113,21 @@ border-radius: 8px;
    display: flex;
     align-items: center;
 }
+.totzRow1 aside{
+   display: flex;
+    align-items: center;
+    border-radius: 22px;
+    background: #040b1f;
+}
+.deetzRow1 aside{
+   display: flex;
+    align-items: center;
+    border-radius: 13px;
+    background: #010714;
+    padding: 1% 3%;
+    margin: 0.5% 1%;    
+    width: 100%;
+}
 .detailRow1 aside{
    font-size :0.777em;
     align-items: center;
@@ -1150,7 +1198,8 @@ border-radius: 8px;
     margin: 0 10px; 
     border-radius: 30%;
     background: #060615;
-    padding-left: 2%;    
+    padding-left: 2%;   
+    font-size: 0.777em; 
     
 }
 .quarterTitle{
@@ -1207,12 +1256,22 @@ border-radius: 8px;
 .proPCT1{
    color: #44a3a3;
 }
+.moTOTZTick1{
+   width: 55px;
+    color: #47c26c;
+    background:none;
+    border: none;
+    margin-left: 4.444%;
+    margin-top:1%;
+    margin-bottom:0.555%;
+    font-size: 0.666em;    
+}
       .smICON{font-size:0.555em;}
       #instructionText{display:none;margin:4%;}
-
+      
       #keyINPUT:-webkit-autofill { -webkit-box-shadow: 0 0 0px 1000px #233453 inset;}
-
-
+      
+      
       #scrollFrame{width: 88%; padding-top:2.666%}  
       /*  custom scroll bar */
       .scrollBarV {height:97%; overflow-x:scroll; background:#010111; border: 1px steelblue solid; border-radius:13px;}
@@ -1221,15 +1280,15 @@ border-radius: 8px;
       .scrollBarV::-webkit-scrollbar-thumb { background-color: #04223c; border-radius: 13px;
       background-image: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 0.6) 26%, transparent 26%, transparent 51%, rgba(255, 255, 255, -0.4) 51%, rgba(255, 255, 255, 0.6) 74%, transparent 74%, transparent);
       }
-
+      
       .typeTRIMColor{
          color:lime;
       }
       .typePADColor{
          color:red;
       }
-
-/*******EVENTZ******/
+      
+      /*******EVENTZ******/
 .eventzNUM1{
    padding-top: 0.6em;
     margin-right: 0.555em;
@@ -1626,7 +1685,7 @@ align-items: center;">
         box-shadow: inset 1px 1px 11px 0px cyan; padding:2%;padding-top: 3%;padding-left:4%; color: cyan; line-height: 2.444em;">
         <!-- <button id="latestBtn1" class="genBtn1" style="display:none;float:right" onclick="getLastPriceClick()">latest🔄</button> -->
         <span class="boxTitle">🎯 <span style="font-size:0.777em; color:cyan">1</span>
-         <span style="font-size:0.555em">Encode</span>
+         <span style="font-size:0.555em">List of &nbsp;</span>
          <span style="font-size: 1.222em;color:cyan;font-family: monospace;">Assets</span> 
          <span style="font-size:0.555em">(metadata) 🎪</span></span>
          <button id=expandCollapseBtn1 class="expandCollapseBtn1" onclick="assetsExpandCollapseClick()">🕸️</button>
@@ -1642,7 +1701,7 @@ align-items: center;">
         padding: 2%;padding-left:4%;padding-top: 3%; color: cyan; line-height: 2.444em;">
         
         <span class="boxTitle">🎲 <span style="font-size:0.777em; color:cyan">2</span>
-         <span style="font-size:0.555em">Decode</span>
+         <span style="font-size:0.555em">Monthly &nbsp;</span>
          <span style="font-size: 1.222em;color:cyan;font-family: monospace;">Spots</span>
          <span style="font-size:0.555em">(time spot) 🎱</span></span>
          <button id=expandCollapseBtn2 class="expandCollapseBtn1" onclick="spotsExpandCollapseClick()">🕸️</button>
@@ -1654,11 +1713,7 @@ align-items: center;">
         <button id="saveSpotBtn1" onclick="saveSpotClick()">save⚓</button>
       </section>
 
-      <section id="allMarginsBOX"
-         style="width:80.888%; flex:1;background:#071936;border-radius: 13px; border: solid 1px #4ba1a9; 
-         box-shadow: inset 0px 1px 20px 0px #023e16;padding: 2%;padding-left:4%;padding-top: 3%;
-          color: cyan; line-height: 2.444em;" 
-         ">
+      <section id="allMarginsBOX">
          <button id=expandCollapseBtn3 class="expandCollapseBtn1" onclick="marginsExpandCollapseClick()">🕸️</button>
          <span class="boxTitle">🐤 <span style="font-size:0.777em; color:cyan">3</span> 
          <span style="font-size:0.555em">Generate</span>
@@ -1700,9 +1755,17 @@ align-items: center;">
          </article>
       </section> -->
       <section id="padSequenceBOX"
-         style="width:80.888%; flex:1;background:#100601;border-radius: 13px; border: solid 1px #a9754b;
-         box-shadow: 1px 2px 11px 0px #f09f02;padding: 2%; padding-left:4%;padding-top: 3%;
-         color:#b5997d; line-height: 2.444em;">
+         style="width: 80.888%;
+         flex: 1;
+         background: #0a0014;
+         border-radius: 13px;
+         border: solid 1px steelblue;
+         box-shadow: 0px 7px 20px 6px #39029e;
+         padding: 2%;
+         padding-left: 4%;
+         padding-top: 3%;
+         color: cyan;
+         line-height: 2.444em;">
          <!-- <button id="generatePadSequencesBtn" class="genReportBtn1" onclick="generateEVTZClick()">gener8🎈</button> -->
          <button id=expandCollapseBtn5 class="expandCollapseBtn1" onclick="eventzExpandCollapseClick()">🕸️</button>
          <span class="boxTitle">💡 
@@ -1757,8 +1820,8 @@ align-items: center;">
          <section id="generatedMonthTotalsGRID"></section>
          <!-- <section id="generatedProfitsBOX"></section> -->
          <hr>   
-         <section id="generatedMonthTotals">Totals go here</section>
-         <hr>   
+         <!-- <section id="generatedMonthTotals">Totals go here</section>
+         <hr>    -->
         
        </article> 
       </section>
@@ -4036,7 +4099,10 @@ const setEVTZSaveClick = ()=>{ // SAVE EVENTZ
 let ai_main=null;
 const ai_main_LOAD_MOCK_DATA=()=>{ //READ
    // ai_main = {"qrtrz":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"1000","expanded":false,"trimz":[],"padz":[{"ymd":"2023_10_10","amt":"300","rate":"460"},{"ymd":"2023_10_20","amt":"200","rate":"413"}],"netAMT":-500,"notez":"2","notez_expanded":true,"trimTOT":0,"padTOT":500,"bankVAL":-500,"bookVAL":500},{"tkr":"MDB","cap":"1000","trimz":[],"padz":[{"ymd":"2021_05_04","amt":"570","rate":"285"},{"ymd":"2023_09_21","amt":"200","rate":"334"},{"ymd":"2023_10_12","amt":"300","rate":"371"},{"ymd":"2023_10_25","amt":"200","rate":"329"}],"netAMT":-1270,"notez":"2","trimTOT":0,"padTOT":1270,"expanded":false},{"tkr":"COST","cap":"1000","trimz":[],"padz":[{"ymd":"2023_10_06","amt":"300","rate":"555"},{"ymd":"2023_10_10","amt":"300","rate":"562"},{"ymd":"2023_10_12","amt":"200","rate":"568"},{"ymd":"2023_10_20","amt":"200","rate":"555"},{"ymd":"2023_10_20","amt":"200","rate":"552"},{"ymd":"2023_10_25","amt":"200","rate":"550"},{"ymd":"2023_10_26","amt":"200","rate":"548"},{"ymd":"2023_10_27","amt":"35","rate":"543"}],"netAMT":-1635,"notez":"2","trimTOT":0,"padTOT":1635,"expanded":false,"notez_expanded":false,"bankVAL":-500,"bookVAL":500},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2020_04_20","amt":"176","rate":"176"}],"padz":[{"ymd":"2020_04_17","amt":"180","rate":"180"},{"ymd":"2021_06_22","amt":"531","rate":"266"},{"ymd":"2023_09_30","amt":"200","rate":"316"},{"ymd":"2023_10_25","amt":"100","rate":"340"},{"ymd":"2023_10_26","amt":"100","rate":"330"}],"netAMT":-935,"notez":"2","trimTOT":176,"padTOT":1111,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_24","amt":"200","rate":"232"}],"trimTOT":0,"padTOT":200,"netAMT":-200},{"tkr":"AMD","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_01","amt":"524","rate":"102"}],"trimTOT":0,"padTOT":524,"netAMT":-524},{"tkr":"GOOG","cap":"5000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_10","amt":"4963","rate":"125"}],"trimTOT":0,"padTOT":4963,"netAMT":-4963},{"tkr":"XLK","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2021_07_01","amt":"297","rate":"149"},{"ymd":"2023_09_15","amt":"305","rate":"168"},{"ymd":"2020_01_01","amt":"500","rate":"157"}],"trimTOT":0,"padTOT":1102,"netAMT":-1102}]},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[{"ymd":"2023_11_17","amt":"200","rate":"495"},{"ymd":"2023_11_22","amt":"100","rate":"486"}],"netAMT":-300,"notez":"2","trimTOT":0,"padTOT":300,"expanded":false,"bankVAL":-800,"notez_expanded":true,"bookVAL":800},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2023_11_10","amt":"200","rate":"376"}],"padz":[],"netAMT":"+200","notez":"2","trimTOT":200,"padTOT":0,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[{"ymd":"2023_11_10","amt":"200","rate":"133"},{"ymd":"2023_11_14","amt":"100","rate":"136"},{"ymd":"2023_11_16","amt":"100","rate":"139"},{"ymd":"2023_11_20","amt":"100","rate":"138"},{"ymd":"2023_11_20","amt":"40","rate":"139"}],"padz":[],"netAMT":"+540","notez":"3","trimTOT":540,"padTOT":0,"expanded":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2023_11_10","amt":"100","rate":"368"},{"ymd":"2023_11_20","amt":"100","rate":"378"},{"ymd":"2023_11_28","amt":"30","rate":"384"}],"padz":[],"netAMT":"+230","notez":"2","trimTOT":230,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"500","trimz":[{"ymd":"2023_11_14","amt":"100","rate":"182"},{"ymd":"2023_11_20","amt":"100","rate":"185"}],"padz":[],"netAMT":"+200","notez":"2","trimTOT":200,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2022_11_10","amt":"100","rate":"119"},{"ymd":"2023_11_16","amt":"100","rate":"120"},{"ymd":"2023_11_29","amt":"30","rate":"125"}],"padz":[],"netAMT":"+230","notez":"2","trimTOT":230,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2023_11_24","amt":"30","rate":"254"}],"padz":[{"ymd":"2023_11_10","amt":"300","rate":"245"}],"netAMT":-270,"notez":"2","trimTOT":30,"padTOT":300,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_11_01","amt":"100","rate":"35435"},{"ymd":"2023_11_10","amt":"200","rate":"36818"},{"ymd":"2023_11_15","amt":"100","rate":"37390"},{"ymd":"2023_11_22","amt":"100","rate":"37694"}],"padz":[],"netAMT":"+500","notez":"2","trimTOT":500,"padTOT":0,"expanded":false}]},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2023_12_15","amt":"30","rate":"492"},{"ymd":"2023_12_18","amt":"50","rate":"503"},{"ymd":"2023_12_18","amt":"50","rate":"497"},{"ymd":"2023_12_26","amt":"60","rate":"493"},{"ymd":"2023_12_28","amt":"100","rate":"497"},{"ymd":"2023_12_29","amt":"100","rate":"498"}],"padz":[{"ymd":"2023_12_18","amt":"0","rate":"497"},{"ymd":"2023_12_18","amt":"0","rate":"503"}],"netAMT":"+390","notez":"2","trimTOT":390,"padTOT":0,"expanded":false,"bankVAL":-410,"bookVAL":800,"notez_expanded":true},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"432"},{"ymd":"2023_12_14","amt":"20","rate":"413"},{"ymd":"2023_12_14","amt":"20","rate":"420"},{"ymd":"2023_12_15","amt":"10","rate":"420"},{"ymd":"2023_12_16","amt":"195","rate":"409"},{"ymd":"2023_12_26","amt":"200","rate":"416"},{"ymd":"2023_12_28","amt":"50","rate":"417"}],"padz":[{"ymd":"2023_12_09","amt":"100","rate":"388"}],"netAMT":"+420","notez":"2","trimTOT":520,"padTOT":100,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[{"ymd":"2023_12_11","amt":"100","rate":"624"},{"ymd":"2023_12_13","amt":"100","rate":"636"},{"ymd":"2023_12_15","amt":"250","rate":"656"},{"ymd":"2023_12_15","amt":"30","rate":"660"},{"ymd":"2023_12_18","amt":"60","rate":"674"},{"ymd":"2023_12_18","amt":"30","rate":"679"}],"padz":[{"ymd":"2023_12_27","amt":"40","rate":"667"},{"ymd":"2023_12_28","amt":"20","rate":"662"}],"netAMT":"+510","notez":"1","trimTOT":570,"padTOT":60,"expanded":false},{"tkr":"GOOG","cap":"4000","trimz":[{"ymd":"2023_12_07","amt":"25","rate":"140"},{"ymd":"2023_12_11","amt":"496","rate":"133"},{"ymd":"2023_12_11","amt":"298","rate":"133"},{"ymd":"2023_12_13","amt":"10","rate":"134"},{"ymd":"2023_12_18","amt":"70","rate":"137"},{"ymd":"2023_12_18","amt":"20","rate":"137"},{"ymd":"2023_12_19","amt":"25","rate":"138"},{"ymd":"2023_12_20","amt":"120","rate":"142"},{"ymd":"2023_12_22","amt":"20","rate":"143"}],"padz":[],"netAMT":"+1084","notez":"3","trimTOT":1084,"padTOT":0,"expanded":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2023_12_31","amt":"398","rate":"374"}],"padz":[],"netAMT":"+398","notez":"2","trimTOT":398,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"1000","trimz":[{"ymd":"2023_12_11","amt":"10","rate":"187"},{"ymd":"2023_12_13","amt":"10","rate":"191"},{"ymd":"2023_12_22","amt":"270","rate":"192"}],"padz":[],"netAMT":"+290","notez":"2","trimTOT":290,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2023_12_08","amt":"20","rate":"129"},{"ymd":"2023_12_11","amt":"20","rate":"134"},{"ymd":"2023_11_12","amt":"20","rate":"139"},{"ymd":"2023_12_26","amt":"15","rate":"143"},{"ymd":"2023_12_27","amt":"10","rate":"246"},{"ymd":"2023_12_28","amt":"10","rate":"149"}],"padz":[],"netAMT":"+95","notez":"2","trimTOT":95,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2023_12_12","amt":"10","rate":"259"}],"padz":[],"netAMT":"+10","notez":"2","trimTOT":10,"padTOT":0,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"38626"},{"ymd":"2023_12_02","amt":"50","rate":"39417"},{"ymd":"2023_12_03","amt":"25","rate":"39848"},{"ymd":"2023_12_03","amt":"50","rate":"4819"},{"ymd":"2023_12_04","amt":"20","rate":"41700"},{"ymd":"2023_12_04","amt":"30","rate":"41684"},{"ymd":"2023_12_05","amt":"50","rate":"42718"},{"ymd":"2023_12_05","amt":"50","rate":"44008"},{"ymd":"2023_12_13","amt":"20","rate":"41940"},{"ymd":"2023_12_13","amt":"30","rate":"42648"},{"ymd":"2023_12_13","amt":"20","rate":"43042"},{"ymd":"2023_12_18","amt":"30","rate":"41509"},{"ymd":"2023_12_30","amt":"9464","rate":"42060"}],"padz":[{"ymd":"2023_12_12","amt":"100","rate":"40928"},{"ymd":"2023_12_17","amt":"200","rate":"41077"},{"ymd":"2023_12_18","amt":"100","rate":"43074"},{"ymd":"2023_12_19","amt":"200","rate":"42663"},{"ymd":"2023_12_22","amt":"1500","rate":"43637"},{"ymd":"2023_12_25","amt":"100","rate":"42844"},{"ymd":"2023_12_29","amt":"50","rate":"42152"},{"ymd":"2023_12_29","amt":"500","rate":"42048"},{"ymd":"2023_12_30","amt":"5000","rate":"42303"},{"ymd":"2023_12_30","amt":"9000","rate":"42417"}],"netAMT":-6886,"notez":"Just Starting out. 1st month trading BTC since \"historic\" ETF approval on Jan 10, 2024. Profitable!!!","trimTOT":9864,"padTOT":16750,"expanded":false,"notez_expanded":true,"bookVAL":800},{"tkr":"AMZN","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2022_12_04","amt":"100","rate":"144"}],"trimTOT":0,"padTOT":100,"netAMT":-100}]},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2024_01_08","amt":"300","rate":"514"},{"ymd":"2024_01_08","amt":"80","rate":"518"},{"ymd":"2024_01_08","amt":"30","rate":"519"},{"ymd":"2024_01_08","amt":"20","rate":"520"},{"ymd":"2024_01_08","amt":"20","rate":"521"},{"ymd":"2024_01_08","amt":"20","rate":"523"},{"ymd":"2024_01_08","amt":"30","rate":"526"},{"ymd":"2024_01_09","amt":"100","rate":"534"},{"ymd":"2024_01_09","amt":"80","rate":"538"},{"ymd":"2024_01_09","amt":"50","rate":"542"},{"ymd":"2024_01_10","amt":"30","rate":"545"},{"ymd":"2024_01_11","amt":"60","rate":"549"},{"ymd":"2024_01_11","amt":"30","rate":"551"}],"padz":[],"netAMT":"+850","notez":"JAN 8th 2024 - 1st $500 day!\nExcellent Margins, form prior OCT 27, 2024 lows.","trimTOT":850,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2024_01_19","amt":"10","rate":"401"}],"padz":[{"ymd":"2024_01_11","amt":"15","rate":"393"}],"netAMT":-5,"notez":"2","trimTOT":10,"padTOT":15,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[{"ymd":"2024_01_10","amt":"30","rate":"673"},{"ymd":"2024_01_12","amt":"30","rate":"679"},{"ymd":"2024_01_12","amt":"10","rate":"682"},{"ymd":"2024_01_18","amt":"20","rate":"687"},{"ymd":"2024_01_19","amt":"20","rate":"691"},{"ymd":"2024_01_19","amt":"50","rate":"694"}],"padz":[],"netAMT":"+160","notez":"1","trimTOT":160,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"GOOG","cap":"4000","trimz":[{"ymd":"2024_01_10","amt":"20","rate":"144"},{"ymd":"2024_01_11","amt":"20","rate":"144"},{"ymd":"2024_01_18","amt":"20","rate":"145"},{"ymd":"2024_01_19","amt":"40","rate":"147"},{"ymd":"2024_01_19","amt":"20","rate":"147"},{"ymd":"2024_01_19","amt":"10","rate":"148"}],"padz":[],"netAMT":"+130","notez":"3","trimTOT":130,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2024_01_08","amt":"50","rate":"372"},{"ymd":"2024_01_09","amt":"30","rate":"376"},{"ymd":"2024_01_10","amt":"210","rate":"381"}],"padz":[],"netAMT":"+290","notez":"2","trimTOT":290,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"500","trimz":[{"ymd":"2023_01_19","amt":"20","rate":"197"},{"ymd":"2024_01_19","amt":"20","rate":"200"}],"padz":[],"netAMT":"+40","notez":"2","trimTOT":40,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2024_01_16","amt":"20","rate":"157"},{"ymd":"2024_01_18","amt":"30","rate":"166"},{"ymd":"2024_01_19","amt":"25","rate":"173"}],"padz":[],"netAMT":"+75","notez":"2","trimTOT":75,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2024_01_12","amt":"10","rate":"265"},{"ymd":"2024_01_19","amt":"15","rate":"271"}],"padz":[{"ymd":"2024_01_19","amt":"500","rate":"269"}],"netAMT":-475,"notez":"2","trimTOT":25,"padTOT":500,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2024_01_01","amt":"500","rate":"44519"},{"ymd":"2024_01_01","amt":"150","rate":"45282"},{"ymd":"2024_01_08","amt":"200","rate":"45870"},{"ymd":"2024_01_08","amt":"200","rate":"46466"},{"ymd":"2024_01_08","amt":"150","rate":"46891"},{"ymd":"2024_01_08","amt":"50","rate":"47156"},{"ymd":"2024_01_08","amt":"30","rate":"47028"},{"ymd":"2024_01_08","amt":"20","rate":"47021"},{"ymd":"2024_01_10","amt":"50","rate":"46229"},{"ymd":"2024_01_10","amt":"20","rate":"46354"},{"ymd":"2024_01_10","amt":"90","rate":"46768"},{"ymd":"2024_01_10","amt":"80","rate":"47024"},{"ymd":"2024_01_11","amt":"40","rate":"46908"},{"ymd":"2024_01_11","amt":"30","rate":"47000"},{"ymd":"2024_01_11","amt":"20","rate":"46336"},{"ymd":"2024_01_11","amt":"40","rate":"46480"},{"ymd":"2024_01_12","amt":"500","rate":"42459"}],"padz":[{"ymd":"2024_01_06","amt":"250","rate":"43888"},{"ymd":"2024_01_10","amt":"250","rate":"45955"},{"ymd":"2024_01_10","amt":"100","rate":"46023"},{"ymd":"2024_01_11","amt":"100","rate":"45866"},{"ymd":"2024_01_11","amt":"50","rate":"46439"},{"ymd":"2024_01_11","amt":"80","rate":"46083"},{"ymd":"2024_01_12","amt":"100","rate":"43551"},{"ymd":"2024_01_12","amt":"100","rate":"43677"},{"ymd":"2024_01_12","amt":"100","rate":"42402"}],"netAMT":"+1040","notez":"2","trimTOT":2170,"padTOT":1130,"expanded":false,"notez_expanded":true,"bookVAL":800,"bankVAL":440},{"tkr":"AMZN","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2024_01_04","amt":"145","rate":"145"},{"ymd":"2024_01_04","amt":"146","rate":"146"},{"ymd":"2024_01_12","amt":"70","rate":"154"},{"ymd":"2024_01_19","amt":"300","rate":"153"},{"ymd":"2024_01_19","amt":"200","rate":"153"}],"trimTOT":0,"padTOT":861,"netAMT":-861}],"expanded":false}}}
-   ai_main = {"qrtrz":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"1000","expanded":false,"trimz":[],"padz":[{"ymd":"2023_10_10","amt":"300","rate":"460"},{"ymd":"2023_10_20","amt":"200","rate":"413"}],"netAMT":-500,"notez":"2","notez_expanded":true,"trimTOT":0,"padTOT":500,"bankVAL":-500,"bookVAL":500},{"tkr":"MDB","cap":"1000","trimz":[],"padz":[{"ymd":"2021_05_04","amt":"570","rate":"285"},{"ymd":"2023_09_21","amt":"200","rate":"334"},{"ymd":"2023_10_12","amt":"300","rate":"371"},{"ymd":"2023_10_25","amt":"200","rate":"329"}],"netAMT":-1270,"notez":"2","trimTOT":0,"padTOT":1270,"expanded":false},{"tkr":"COST","cap":"1000","trimz":[],"padz":[{"ymd":"2023_10_06","amt":"300","rate":"555"},{"ymd":"2023_10_10","amt":"300","rate":"562"},{"ymd":"2023_10_12","amt":"200","rate":"568"},{"ymd":"2023_10_20","amt":"200","rate":"555"},{"ymd":"2023_10_20","amt":"200","rate":"552"},{"ymd":"2023_10_25","amt":"200","rate":"550"},{"ymd":"2023_10_26","amt":"200","rate":"548"},{"ymd":"2023_10_27","amt":"35","rate":"543"}],"netAMT":-1635,"notez":"2","trimTOT":0,"padTOT":1635,"expanded":false,"notez_expanded":false,"bankVAL":-500,"bookVAL":500},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2020_04_20","amt":"176","rate":"176"}],"padz":[{"ymd":"2020_04_17","amt":"180","rate":"180"},{"ymd":"2021_06_22","amt":"531","rate":"266"},{"ymd":"2023_09_30","amt":"200","rate":"316"},{"ymd":"2023_10_25","amt":"100","rate":"340"},{"ymd":"2023_10_26","amt":"100","rate":"330"}],"netAMT":-935,"notez":"2","trimTOT":176,"padTOT":1111,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_24","amt":"200","rate":"232"}],"trimTOT":0,"padTOT":200,"netAMT":-200},{"tkr":"AMD","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_01","amt":"524","rate":"102"}],"trimTOT":0,"padTOT":524,"netAMT":-524},{"tkr":"GOOG","cap":"5000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_10","amt":"4963","rate":"125"}],"trimTOT":0,"padTOT":4963,"netAMT":-4963},{"tkr":"XLK","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2021_07_01","amt":"297","rate":"149"},{"ymd":"2023_09_15","amt":"305","rate":"168"},{"ymd":"2020_01_01","amt":"500","rate":"157"}],"trimTOT":0,"padTOT":1102,"netAMT":-1102}]},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[{"ymd":"2023_11_17","amt":"200","rate":"495"},{"ymd":"2023_11_22","amt":"100","rate":"486"}],"netAMT":-300,"notez":"2","trimTOT":0,"padTOT":300,"expanded":false,"bankVAL":-800,"notez_expanded":true,"bookVAL":800},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2023_11_10","amt":"200","rate":"376"}],"padz":[],"netAMT":"+200","notez":"2","trimTOT":200,"padTOT":0,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[{"ymd":"2023_11_10","amt":"200","rate":"133"},{"ymd":"2023_11_14","amt":"100","rate":"136"},{"ymd":"2023_11_16","amt":"100","rate":"139"},{"ymd":"2023_11_20","amt":"100","rate":"138"},{"ymd":"2023_11_20","amt":"40","rate":"139"}],"padz":[],"netAMT":"+540","notez":"3","trimTOT":540,"padTOT":0,"expanded":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2023_11_10","amt":"100","rate":"368"},{"ymd":"2023_11_20","amt":"100","rate":"378"},{"ymd":"2023_11_28","amt":"30","rate":"384"}],"padz":[],"netAMT":"+230","notez":"2","trimTOT":230,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"500","trimz":[{"ymd":"2023_11_14","amt":"100","rate":"182"},{"ymd":"2023_11_20","amt":"100","rate":"185"}],"padz":[],"netAMT":"+200","notez":"2","trimTOT":200,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2022_11_10","amt":"100","rate":"119"},{"ymd":"2023_11_16","amt":"100","rate":"120"},{"ymd":"2023_11_29","amt":"30","rate":"125"}],"padz":[],"netAMT":"+230","notez":"2","trimTOT":230,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2023_11_24","amt":"30","rate":"254"}],"padz":[{"ymd":"2023_11_10","amt":"300","rate":"245"}],"netAMT":-270,"notez":"2","trimTOT":30,"padTOT":300,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_11_01","amt":"100","rate":"35435"},{"ymd":"2023_11_10","amt":"200","rate":"36818"},{"ymd":"2023_11_15","amt":"100","rate":"37390"},{"ymd":"2023_11_22","amt":"100","rate":"37694"}],"padz":[],"netAMT":"+500","notez":"2","trimTOT":500,"padTOT":0,"expanded":false}]},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2023_12_15","amt":"30","rate":"492"},{"ymd":"2023_12_18","amt":"50","rate":"503"},{"ymd":"2023_12_18","amt":"50","rate":"497"},{"ymd":"2023_12_26","amt":"60","rate":"493"},{"ymd":"2023_12_28","amt":"100","rate":"497"},{"ymd":"2023_12_29","amt":"100","rate":"498"}],"padz":[{"ymd":"2023_12_18","amt":"0","rate":"497"},{"ymd":"2023_12_18","amt":"0","rate":"503"}],"netAMT":"+390","notez":"2","trimTOT":390,"padTOT":0,"expanded":false,"bankVAL":-410,"bookVAL":800,"notez_expanded":true},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"432"},{"ymd":"2023_12_14","amt":"20","rate":"413"},{"ymd":"2023_12_14","amt":"20","rate":"420"},{"ymd":"2023_12_15","amt":"10","rate":"420"},{"ymd":"2023_12_16","amt":"195","rate":"409"},{"ymd":"2023_12_26","amt":"200","rate":"416"},{"ymd":"2023_12_28","amt":"50","rate":"417"}],"padz":[{"ymd":"2023_12_09","amt":"100","rate":"388"}],"netAMT":"+420","notez":"2","trimTOT":520,"padTOT":100,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[{"ymd":"2023_12_11","amt":"100","rate":"624"},{"ymd":"2023_12_13","amt":"100","rate":"636"},{"ymd":"2023_12_15","amt":"250","rate":"656"},{"ymd":"2023_12_15","amt":"30","rate":"660"},{"ymd":"2023_12_18","amt":"60","rate":"674"},{"ymd":"2023_12_18","amt":"30","rate":"679"}],"padz":[{"ymd":"2023_12_27","amt":"40","rate":"667"},{"ymd":"2023_12_28","amt":"20","rate":"662"}],"netAMT":"+510","notez":"1","trimTOT":570,"padTOT":60,"expanded":false},{"tkr":"GOOG","cap":"4000","trimz":[{"ymd":"2023_12_07","amt":"25","rate":"140"},{"ymd":"2023_12_11","amt":"496","rate":"133"},{"ymd":"2023_12_11","amt":"298","rate":"133"},{"ymd":"2023_12_13","amt":"10","rate":"134"},{"ymd":"2023_12_18","amt":"70","rate":"137"},{"ymd":"2023_12_18","amt":"20","rate":"137"},{"ymd":"2023_12_19","amt":"25","rate":"138"},{"ymd":"2023_12_20","amt":"120","rate":"142"},{"ymd":"2023_12_22","amt":"20","rate":"143"}],"padz":[],"netAMT":"+1084","notez":"3","trimTOT":1084,"padTOT":0,"expanded":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2023_12_31","amt":"398","rate":"374"}],"padz":[],"netAMT":"+398","notez":"2","trimTOT":398,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"1000","trimz":[{"ymd":"2023_12_11","amt":"10","rate":"187"},{"ymd":"2023_12_13","amt":"10","rate":"191"},{"ymd":"2023_12_22","amt":"270","rate":"192"}],"padz":[],"netAMT":"+290","notez":"2","trimTOT":290,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2023_12_08","amt":"20","rate":"129"},{"ymd":"2023_12_11","amt":"20","rate":"134"},{"ymd":"2023_11_12","amt":"20","rate":"139"},{"ymd":"2023_12_26","amt":"15","rate":"143"},{"ymd":"2023_12_27","amt":"10","rate":"246"},{"ymd":"2023_12_28","amt":"10","rate":"149"}],"padz":[],"netAMT":"+95","notez":"2","trimTOT":95,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2023_12_12","amt":"10","rate":"259"}],"padz":[],"netAMT":"+10","notez":"2","trimTOT":10,"padTOT":0,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"38626"},{"ymd":"2023_12_02","amt":"50","rate":"39417"},{"ymd":"2023_12_03","amt":"25","rate":"39848"},{"ymd":"2023_12_03","amt":"50","rate":"4819"},{"ymd":"2023_12_04","amt":"20","rate":"41700"},{"ymd":"2023_12_04","amt":"30","rate":"41684"},{"ymd":"2023_12_05","amt":"50","rate":"42718"},{"ymd":"2023_12_05","amt":"50","rate":"44008"},{"ymd":"2023_12_13","amt":"20","rate":"41940"},{"ymd":"2023_12_13","amt":"30","rate":"42648"},{"ymd":"2023_12_13","amt":"20","rate":"43042"},{"ymd":"2023_12_18","amt":"30","rate":"41509"},{"ymd":"2023_12_30","amt":"9464","rate":"42060"}],"padz":[{"ymd":"2023_12_12","amt":"100","rate":"40928"},{"ymd":"2023_12_17","amt":"200","rate":"41077"},{"ymd":"2023_12_18","amt":"100","rate":"43074"},{"ymd":"2023_12_19","amt":"200","rate":"42663"},{"ymd":"2023_12_22","amt":"1500","rate":"43637"},{"ymd":"2023_12_25","amt":"100","rate":"42844"},{"ymd":"2023_12_29","amt":"50","rate":"42152"},{"ymd":"2023_12_29","amt":"500","rate":"42048"},{"ymd":"2023_12_30","amt":"5000","rate":"42303"},{"ymd":"2023_12_30","amt":"9000","rate":"42417"}],"netAMT":-6886,"notez":"Just Starting out. 1st month trading BTC since \"historic\" ETF approval on Jan 10, 2024. Profitable!!!","trimTOT":9864,"padTOT":16750,"expanded":false,"notez_expanded":true,"bookVAL":800},{"tkr":"AMZN","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2022_12_04","amt":"100","rate":"144"}],"trimTOT":0,"padTOT":100,"netAMT":-100}]},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2024_01_08","amt":"300","rate":"514"},{"ymd":"2024_01_08","amt":"80","rate":"518"},{"ymd":"2024_01_08","amt":"30","rate":"519"},{"ymd":"2024_01_08","amt":"20","rate":"520"},{"ymd":"2024_01_08","amt":"20","rate":"521"},{"ymd":"2024_01_08","amt":"20","rate":"523"},{"ymd":"2024_01_08","amt":"30","rate":"526"},{"ymd":"2024_01_09","amt":"100","rate":"534"},{"ymd":"2024_01_09","amt":"80","rate":"538"},{"ymd":"2024_01_09","amt":"50","rate":"542"},{"ymd":"2024_01_10","amt":"30","rate":"545"},{"ymd":"2024_01_11","amt":"60","rate":"549"},{"ymd":"2024_01_11","amt":"30","rate":"551"}],"padz":[],"netAMT":"+850","notez":"JAN 8th 2024 - 1st $500 day!\nExcellent Margins, form prior OCT 27, 2024 lows.","trimTOT":850,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2024_01_19","amt":"10","rate":"401"}],"padz":[{"ymd":"2024_01_11","amt":"15","rate":"393"}],"netAMT":-5,"notez":"2","trimTOT":10,"padTOT":15,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[{"ymd":"2024_01_10","amt":"30","rate":"673"},{"ymd":"2024_01_12","amt":"30","rate":"679"},{"ymd":"2024_01_12","amt":"10","rate":"682"},{"ymd":"2024_01_18","amt":"20","rate":"687"},{"ymd":"2024_01_19","amt":"20","rate":"691"},{"ymd":"2024_01_19","amt":"50","rate":"694"}],"padz":[],"netAMT":"+160","notez":"1","trimTOT":160,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"GOOG","cap":"4000","trimz":[{"ymd":"2024_01_10","amt":"20","rate":"144"},{"ymd":"2024_01_11","amt":"20","rate":"144"},{"ymd":"2024_01_18","amt":"20","rate":"145"},{"ymd":"2024_01_19","amt":"40","rate":"147"},{"ymd":"2024_01_19","amt":"20","rate":"147"},{"ymd":"2024_01_19","amt":"10","rate":"148"}],"padz":[],"netAMT":"+130","notez":"3","trimTOT":130,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2024_01_08","amt":"50","rate":"372"},{"ymd":"2024_01_09","amt":"30","rate":"376"},{"ymd":"2024_01_10","amt":"210","rate":"381"}],"padz":[],"netAMT":"+290","notez":"2","trimTOT":290,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"500","trimz":[{"ymd":"2023_01_19","amt":"20","rate":"197"},{"ymd":"2024_01_19","amt":"20","rate":"200"}],"padz":[],"netAMT":"+40","notez":"2","trimTOT":40,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2024_01_16","amt":"20","rate":"157"},{"ymd":"2024_01_18","amt":"30","rate":"166"},{"ymd":"2024_01_19","amt":"25","rate":"173"}],"padz":[],"netAMT":"+75","notez":"2","trimTOT":75,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2024_01_12","amt":"10","rate":"265"},{"ymd":"2024_01_19","amt":"15","rate":"271"}],"padz":[{"ymd":"2024_01_19","amt":"500","rate":"269"}],"netAMT":-475,"notez":"2","trimTOT":25,"padTOT":500,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2024_01_01","amt":"500","rate":"44519"},{"ymd":"2024_01_01","amt":"150","rate":"45282"},{"ymd":"2024_01_08","amt":"200","rate":"45870"},{"ymd":"2024_01_08","amt":"200","rate":"46466"},{"ymd":"2024_01_08","amt":"150","rate":"46891"},{"ymd":"2024_01_08","amt":"50","rate":"47156"},{"ymd":"2024_01_08","amt":"30","rate":"47028"},{"ymd":"2024_01_08","amt":"20","rate":"47021"},{"ymd":"2024_01_10","amt":"50","rate":"46229"},{"ymd":"2024_01_10","amt":"20","rate":"46354"},{"ymd":"2024_01_10","amt":"90","rate":"46768"},{"ymd":"2024_01_10","amt":"80","rate":"47024"},{"ymd":"2024_01_11","amt":"40","rate":"46908"},{"ymd":"2024_01_11","amt":"30","rate":"47000"},{"ymd":"2024_01_11","amt":"20","rate":"46336"},{"ymd":"2024_01_11","amt":"40","rate":"46480"},{"ymd":"2024_01_12","amt":"500","rate":"42459"},{"ymd":"2024_01_21","amt":"3000","rate":"41248"}],"padz":[{"ymd":"2024_01_06","amt":"250","rate":"43888"},{"ymd":"2024_01_10","amt":"250","rate":"45955"},{"ymd":"2024_01_10","amt":"100","rate":"46023"},{"ymd":"2024_01_11","amt":"100","rate":"45866"},{"ymd":"2024_01_11","amt":"50","rate":"46439"},{"ymd":"2024_01_11","amt":"80","rate":"46083"},{"ymd":"2024_01_12","amt":"100","rate":"43551"},{"ymd":"2024_01_12","amt":"100","rate":"43677"},{"ymd":"2024_01_12","amt":"100","rate":"42402"},{"ymd":"2024_01_18","amt":"200","rate":"41536"},{"ymd":"2024_01_18","amt":"200","rate":"40888"},{"ymd":"2024_01_21","amt":"200","rate":"417575"},{"ymd":"2024_01_21","amt":"100","rate":"40888"},{"ymd":"2024_01_21","amt":"100","rate":"40666"},{"ymd":"2024_01_21","amt":"100","rate":"40444"},{"ymd":"2024_01_21","amt":"100","rate":"39888"},{"ymd":"2024_01_21","amt":"200","rate":"39655"}],"netAMT":"+2840","notez":"This was a ROUGH ONE. Correction at exact the time of CERTAINTY. Destroyed by institutions. How did I manage the boat in the unexpected correction? \nWe will See. Have yet to RUN the NUMBERS!\nCrossing fingers. How to CALCULATE?","trimTOT":5170,"padTOT":2330,"expanded":true,"notez_expanded":true,"bookVAL":800,"bankVAL":440},{"tkr":"AMZN","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2024_01_04","amt":"145","rate":"145"},{"ymd":"2024_01_04","amt":"146","rate":"146"},{"ymd":"2024_01_12","amt":"70","rate":"154"},{"ymd":"2024_01_19","amt":"300","rate":"153"},{"ymd":"2024_01_19","amt":"200","rate":"153"}],"trimTOT":0,"padTOT":861,"netAMT":-861}],"expanded":true}}}
+   // ai_main = {"qrtrz":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"1000","expanded":false,"trimz":[],"padz":[{"ymd":"2023_10_10","amt":"300","rate":"460"},{"ymd":"2023_10_20","amt":"200","rate":"413"}],"netAMT":-500,"notez":"2","notez_expanded":true,"trimTOT":0,"padTOT":500,"bankVAL":-500,"bookVAL":500},{"tkr":"MDB","cap":"1000","trimz":[],"padz":[{"ymd":"2021_05_04","amt":"570","rate":"285"},{"ymd":"2023_09_21","amt":"200","rate":"334"},{"ymd":"2023_10_12","amt":"300","rate":"371"},{"ymd":"2023_10_25","amt":"200","rate":"329"}],"netAMT":-1270,"notez":"2","trimTOT":0,"padTOT":1270,"expanded":false},{"tkr":"COST","cap":"1000","trimz":[],"padz":[{"ymd":"2023_10_06","amt":"300","rate":"555"},{"ymd":"2023_10_10","amt":"300","rate":"562"},{"ymd":"2023_10_12","amt":"200","rate":"568"},{"ymd":"2023_10_20","amt":"200","rate":"555"},{"ymd":"2023_10_20","amt":"200","rate":"552"},{"ymd":"2023_10_25","amt":"200","rate":"550"},{"ymd":"2023_10_26","amt":"200","rate":"548"},{"ymd":"2023_10_27","amt":"35","rate":"543"}],"netAMT":-1635,"notez":"2","trimTOT":0,"padTOT":1635,"expanded":false,"notez_expanded":false,"bankVAL":-500,"bookVAL":500},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2020_04_20","amt":"176","rate":"176"}],"padz":[{"ymd":"2020_04_17","amt":"180","rate":"180"},{"ymd":"2021_06_22","amt":"531","rate":"266"},{"ymd":"2023_09_30","amt":"200","rate":"316"},{"ymd":"2023_10_25","amt":"100","rate":"340"},{"ymd":"2023_10_26","amt":"100","rate":"330"}],"netAMT":-935,"notez":"2","trimTOT":176,"padTOT":1111,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_24","amt":"200","rate":"232"}],"trimTOT":0,"padTOT":200,"netAMT":-200},{"tkr":"AMD","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_01","amt":"524","rate":"102"}],"trimTOT":0,"padTOT":524,"netAMT":-524},{"tkr":"GOOG","cap":"5000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_10","amt":"4963","rate":"125"}],"trimTOT":0,"padTOT":4963,"netAMT":-4963},{"tkr":"XLK","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2021_07_01","amt":"297","rate":"149"},{"ymd":"2023_09_15","amt":"305","rate":"168"},{"ymd":"2020_01_01","amt":"500","rate":"157"}],"trimTOT":0,"padTOT":1102,"netAMT":-1102}]},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[{"ymd":"2023_11_17","amt":"200","rate":"495"},{"ymd":"2023_11_22","amt":"100","rate":"486"}],"netAMT":-300,"notez":"2","trimTOT":0,"padTOT":300,"expanded":false,"bankVAL":-800,"notez_expanded":true,"bookVAL":800},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2023_11_10","amt":"200","rate":"376"}],"padz":[],"netAMT":"+200","notez":"2","trimTOT":200,"padTOT":0,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[{"ymd":"2023_11_10","amt":"200","rate":"133"},{"ymd":"2023_11_14","amt":"100","rate":"136"},{"ymd":"2023_11_16","amt":"100","rate":"139"},{"ymd":"2023_11_20","amt":"100","rate":"138"},{"ymd":"2023_11_20","amt":"40","rate":"139"}],"padz":[],"netAMT":"+540","notez":"3","trimTOT":540,"padTOT":0,"expanded":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2023_11_10","amt":"100","rate":"368"},{"ymd":"2023_11_20","amt":"100","rate":"378"},{"ymd":"2023_11_28","amt":"30","rate":"384"}],"padz":[],"netAMT":"+230","notez":"2","trimTOT":230,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"500","trimz":[{"ymd":"2023_11_14","amt":"100","rate":"182"},{"ymd":"2023_11_20","amt":"100","rate":"185"}],"padz":[],"netAMT":"+200","notez":"2","trimTOT":200,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2022_11_10","amt":"100","rate":"119"},{"ymd":"2023_11_16","amt":"100","rate":"120"},{"ymd":"2023_11_29","amt":"30","rate":"125"}],"padz":[],"netAMT":"+230","notez":"2","trimTOT":230,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2023_11_24","amt":"30","rate":"254"}],"padz":[{"ymd":"2023_11_10","amt":"300","rate":"245"}],"netAMT":-270,"notez":"2","trimTOT":30,"padTOT":300,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_11_01","amt":"100","rate":"35435"},{"ymd":"2023_11_10","amt":"200","rate":"36818"},{"ymd":"2023_11_15","amt":"100","rate":"37390"},{"ymd":"2023_11_22","amt":"100","rate":"37694"}],"padz":[],"netAMT":"+500","notez":"2","trimTOT":500,"padTOT":0,"expanded":false}]},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2023_12_15","amt":"30","rate":"492"},{"ymd":"2023_12_18","amt":"50","rate":"503"},{"ymd":"2023_12_18","amt":"50","rate":"497"},{"ymd":"2023_12_26","amt":"60","rate":"493"},{"ymd":"2023_12_28","amt":"100","rate":"497"},{"ymd":"2023_12_29","amt":"100","rate":"498"}],"padz":[{"ymd":"2023_12_18","amt":"0","rate":"497"},{"ymd":"2023_12_18","amt":"0","rate":"503"}],"netAMT":"+390","notez":"2","trimTOT":390,"padTOT":0,"expanded":false,"bankVAL":-410,"bookVAL":800,"notez_expanded":true},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"432"},{"ymd":"2023_12_14","amt":"20","rate":"413"},{"ymd":"2023_12_14","amt":"20","rate":"420"},{"ymd":"2023_12_15","amt":"10","rate":"420"},{"ymd":"2023_12_16","amt":"195","rate":"409"},{"ymd":"2023_12_26","amt":"200","rate":"416"},{"ymd":"2023_12_28","amt":"50","rate":"417"}],"padz":[{"ymd":"2023_12_09","amt":"100","rate":"388"}],"netAMT":"+420","notez":"2","trimTOT":520,"padTOT":100,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[{"ymd":"2023_12_11","amt":"100","rate":"624"},{"ymd":"2023_12_13","amt":"100","rate":"636"},{"ymd":"2023_12_15","amt":"250","rate":"656"},{"ymd":"2023_12_15","amt":"30","rate":"660"},{"ymd":"2023_12_18","amt":"60","rate":"674"},{"ymd":"2023_12_18","amt":"30","rate":"679"}],"padz":[{"ymd":"2023_12_27","amt":"40","rate":"667"},{"ymd":"2023_12_28","amt":"20","rate":"662"}],"netAMT":"+510","notez":"1","trimTOT":570,"padTOT":60,"expanded":false},{"tkr":"GOOG","cap":"4000","trimz":[{"ymd":"2023_12_07","amt":"25","rate":"140"},{"ymd":"2023_12_11","amt":"496","rate":"133"},{"ymd":"2023_12_11","amt":"298","rate":"133"},{"ymd":"2023_12_13","amt":"10","rate":"134"},{"ymd":"2023_12_18","amt":"70","rate":"137"},{"ymd":"2023_12_18","amt":"20","rate":"137"},{"ymd":"2023_12_19","amt":"25","rate":"138"},{"ymd":"2023_12_20","amt":"120","rate":"142"},{"ymd":"2023_12_22","amt":"20","rate":"143"}],"padz":[],"netAMT":"+1084","notez":"3","trimTOT":1084,"padTOT":0,"expanded":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2023_12_31","amt":"398","rate":"374"}],"padz":[],"netAMT":"+398","notez":"2","trimTOT":398,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"1000","trimz":[{"ymd":"2023_12_11","amt":"10","rate":"187"},{"ymd":"2023_12_13","amt":"10","rate":"191"},{"ymd":"2023_12_22","amt":"270","rate":"192"}],"padz":[],"netAMT":"+290","notez":"2","trimTOT":290,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2023_12_08","amt":"20","rate":"129"},{"ymd":"2023_12_11","amt":"20","rate":"134"},{"ymd":"2023_11_12","amt":"20","rate":"139"},{"ymd":"2023_12_26","amt":"15","rate":"143"},{"ymd":"2023_12_27","amt":"10","rate":"246"},{"ymd":"2023_12_28","amt":"10","rate":"149"}],"padz":[],"netAMT":"+95","notez":"2","trimTOT":95,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2023_12_12","amt":"10","rate":"259"}],"padz":[],"netAMT":"+10","notez":"2","trimTOT":10,"padTOT":0,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"38626"},{"ymd":"2023_12_02","amt":"50","rate":"39417"},{"ymd":"2023_12_03","amt":"25","rate":"39848"},{"ymd":"2023_12_03","amt":"50","rate":"4819"},{"ymd":"2023_12_04","amt":"20","rate":"41700"},{"ymd":"2023_12_04","amt":"30","rate":"41684"},{"ymd":"2023_12_05","amt":"50","rate":"42718"},{"ymd":"2023_12_05","amt":"50","rate":"44008"},{"ymd":"2023_12_13","amt":"20","rate":"41940"},{"ymd":"2023_12_13","amt":"30","rate":"42648"},{"ymd":"2023_12_13","amt":"20","rate":"43042"},{"ymd":"2023_12_18","amt":"30","rate":"41509"},{"ymd":"2023_12_30","amt":"9464","rate":"42060"}],"padz":[{"ymd":"2023_12_12","amt":"100","rate":"40928"},{"ymd":"2023_12_17","amt":"200","rate":"41077"},{"ymd":"2023_12_18","amt":"100","rate":"43074"},{"ymd":"2023_12_19","amt":"200","rate":"42663"},{"ymd":"2023_12_22","amt":"1500","rate":"43637"},{"ymd":"2023_12_25","amt":"100","rate":"42844"},{"ymd":"2023_12_29","amt":"50","rate":"42152"},{"ymd":"2023_12_29","amt":"500","rate":"42048"},{"ymd":"2023_12_30","amt":"5000","rate":"42303"},{"ymd":"2023_12_30","amt":"9000","rate":"42417"}],"netAMT":-6886,"notez":"Just Starting out. 1st month trading BTC since \"historic\" ETF approval on Jan 10, 2024. Profitable!!!","trimTOT":9864,"padTOT":16750,"expanded":false,"notez_expanded":true,"bookVAL":800},{"tkr":"AMZN","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2022_12_04","amt":"100","rate":"144"}],"trimTOT":0,"padTOT":100,"netAMT":-100}]},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2024_01_08","amt":"300","rate":"514"},{"ymd":"2024_01_08","amt":"80","rate":"518"},{"ymd":"2024_01_08","amt":"30","rate":"519"},{"ymd":"2024_01_08","amt":"20","rate":"520"},{"ymd":"2024_01_08","amt":"20","rate":"521"},{"ymd":"2024_01_08","amt":"20","rate":"523"},{"ymd":"2024_01_08","amt":"30","rate":"526"},{"ymd":"2024_01_09","amt":"100","rate":"534"},{"ymd":"2024_01_09","amt":"80","rate":"538"},{"ymd":"2024_01_09","amt":"50","rate":"542"},{"ymd":"2024_01_10","amt":"30","rate":"545"},{"ymd":"2024_01_11","amt":"60","rate":"549"},{"ymd":"2024_01_11","amt":"30","rate":"551"}],"padz":[],"netAMT":"+850","notez":"JAN 8th 2024 - 1st $500 day!\nExcellent Margins, form prior OCT 27, 2024 lows.","trimTOT":850,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2024_01_19","amt":"10","rate":"401"}],"padz":[{"ymd":"2024_01_11","amt":"15","rate":"393"}],"netAMT":-5,"notez":"2","trimTOT":10,"padTOT":15,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[{"ymd":"2024_01_10","amt":"30","rate":"673"},{"ymd":"2024_01_12","amt":"30","rate":"679"},{"ymd":"2024_01_12","amt":"10","rate":"682"},{"ymd":"2024_01_18","amt":"20","rate":"687"},{"ymd":"2024_01_19","amt":"20","rate":"691"},{"ymd":"2024_01_19","amt":"50","rate":"694"}],"padz":[],"netAMT":"+160","notez":"1","trimTOT":160,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"GOOG","cap":"4000","trimz":[{"ymd":"2024_01_10","amt":"20","rate":"144"},{"ymd":"2024_01_11","amt":"20","rate":"144"},{"ymd":"2024_01_18","amt":"20","rate":"145"},{"ymd":"2024_01_19","amt":"40","rate":"147"},{"ymd":"2024_01_19","amt":"20","rate":"147"},{"ymd":"2024_01_19","amt":"10","rate":"148"}],"padz":[],"netAMT":"+130","notez":"3","trimTOT":130,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2024_01_08","amt":"50","rate":"372"},{"ymd":"2024_01_09","amt":"30","rate":"376"},{"ymd":"2024_01_10","amt":"210","rate":"381"}],"padz":[],"netAMT":"+290","notez":"2","trimTOT":290,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"500","trimz":[{"ymd":"2023_01_19","amt":"20","rate":"197"},{"ymd":"2024_01_19","amt":"20","rate":"200"}],"padz":[],"netAMT":"+40","notez":"2","trimTOT":40,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2024_01_16","amt":"20","rate":"157"},{"ymd":"2024_01_18","amt":"30","rate":"166"},{"ymd":"2024_01_19","amt":"25","rate":"173"}],"padz":[],"netAMT":"+75","notez":"2","trimTOT":75,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2024_01_12","amt":"10","rate":"265"},{"ymd":"2024_01_19","amt":"15","rate":"271"}],"padz":[{"ymd":"2024_01_19","amt":"500","rate":"269"}],"netAMT":-475,"notez":"2","trimTOT":25,"padTOT":500,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2024_01_01","amt":"500","rate":"44519"},{"ymd":"2024_01_01","amt":"150","rate":"45282"},{"ymd":"2024_01_08","amt":"200","rate":"45870"},{"ymd":"2024_01_08","amt":"200","rate":"46466"},{"ymd":"2024_01_08","amt":"150","rate":"46891"},{"ymd":"2024_01_08","amt":"50","rate":"47156"},{"ymd":"2024_01_08","amt":"30","rate":"47028"},{"ymd":"2024_01_08","amt":"20","rate":"47021"},{"ymd":"2024_01_10","amt":"50","rate":"46229"},{"ymd":"2024_01_10","amt":"20","rate":"46354"},{"ymd":"2024_01_10","amt":"90","rate":"46768"},{"ymd":"2024_01_10","amt":"80","rate":"47024"},{"ymd":"2024_01_11","amt":"40","rate":"46908"},{"ymd":"2024_01_11","amt":"30","rate":"47000"},{"ymd":"2024_01_11","amt":"20","rate":"46336"},{"ymd":"2024_01_11","amt":"40","rate":"46480"},{"ymd":"2024_01_12","amt":"500","rate":"42459"},{"ymd":"2024_01_21","amt":"3000","rate":"41248"}],"padz":[{"ymd":"2024_01_06","amt":"250","rate":"43888"},{"ymd":"2024_01_10","amt":"250","rate":"45955"},{"ymd":"2024_01_10","amt":"100","rate":"46023"},{"ymd":"2024_01_11","amt":"100","rate":"45866"},{"ymd":"2024_01_11","amt":"50","rate":"46439"},{"ymd":"2024_01_11","amt":"80","rate":"46083"},{"ymd":"2024_01_12","amt":"100","rate":"43551"},{"ymd":"2024_01_12","amt":"100","rate":"43677"},{"ymd":"2024_01_12","amt":"100","rate":"42402"},{"ymd":"2024_01_18","amt":"200","rate":"41536"},{"ymd":"2024_01_18","amt":"200","rate":"40888"},{"ymd":"2024_01_21","amt":"200","rate":"417575"},{"ymd":"2024_01_21","amt":"100","rate":"40888"},{"ymd":"2024_01_21","amt":"100","rate":"40666"},{"ymd":"2024_01_21","amt":"100","rate":"40444"},{"ymd":"2024_01_21","amt":"100","rate":"39888"},{"ymd":"2024_01_21","amt":"200","rate":"39655"}],"netAMT":"+2840","notez":"This was a ROUGH ONE. Correction at exact the time of CERTAINTY. Destroyed by institutions. How did I manage the boat in the unexpected correction? \nWe will See. Have yet to RUN the NUMBERS!\nCrossing fingers. How to CALCULATE?","trimTOT":5170,"padTOT":2330,"expanded":true,"notez_expanded":true,"bookVAL":800,"bankVAL":440},{"tkr":"AMZN","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2024_01_04","amt":"145","rate":"145"},{"ymd":"2024_01_04","amt":"146","rate":"146"},{"ymd":"2024_01_12","amt":"70","rate":"154"},{"ymd":"2024_01_19","amt":"300","rate":"153"},{"ymd":"2024_01_19","amt":"200","rate":"153"}],"trimTOT":0,"padTOT":861,"netAMT":-861}],"expanded":true}}}
+//   ai_main = {"qrtrz":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"1000","expanded":false,"trimz":[],"padz":[{"ymd":"2023_10_10","amt":"300","rate":"460"},{"ymd":"2023_10_20","amt":"200","rate":"413"}],"netAMT":-500,"notez":"2","notez_expanded":true,"trimTOT":0,"padTOT":500,"bankVAL":-500,"bookVAL":500},{"tkr":"MDB","cap":"1000","trimz":[],"padz":[{"ymd":"2021_05_04","amt":"570","rate":"285"},{"ymd":"2023_09_21","amt":"200","rate":"334"},{"ymd":"2023_10_12","amt":"300","rate":"371"},{"ymd":"2023_10_25","amt":"200","rate":"329"}],"netAMT":-1270,"notez":"2","trimTOT":0,"padTOT":1270,"expanded":false},{"tkr":"COST","cap":"1000","trimz":[],"padz":[{"ymd":"2023_10_06","amt":"300","rate":"555"},{"ymd":"2023_10_10","amt":"300","rate":"562"},{"ymd":"2023_10_12","amt":"200","rate":"568"},{"ymd":"2023_10_20","amt":"200","rate":"555"},{"ymd":"2023_10_20","amt":"200","rate":"552"},{"ymd":"2023_10_25","amt":"200","rate":"550"},{"ymd":"2023_10_26","amt":"200","rate":"548"},{"ymd":"2023_10_27","amt":"35","rate":"543"}],"netAMT":-1635,"notez":"2","trimTOT":0,"padTOT":1635,"expanded":false,"notez_expanded":false,"bankVAL":-500,"bookVAL":500},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2020_04_20","amt":"176","rate":"176"}],"padz":[{"ymd":"2020_04_17","amt":"180","rate":"180"},{"ymd":"2021_06_22","amt":"531","rate":"266"},{"ymd":"2023_09_30","amt":"200","rate":"316"},{"ymd":"2023_10_25","amt":"100","rate":"340"},{"ymd":"2023_10_26","amt":"100","rate":"330"}],"netAMT":-935,"notez":"2","trimTOT":176,"padTOT":1111,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_24","amt":"200","rate":"232"}],"trimTOT":0,"padTOT":200,"netAMT":-200},{"tkr":"AMD","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_01","amt":"524","rate":"102"}],"trimTOT":0,"padTOT":524,"netAMT":-524},{"tkr":"GOOG","cap":"5000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_10","amt":"4963","rate":"125"}],"trimTOT":0,"padTOT":4963,"netAMT":-4963},{"tkr":"XLK","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2021_07_01","amt":"297","rate":"149"},{"ymd":"2023_09_15","amt":"305","rate":"168"},{"ymd":"2020_01_01","amt":"500","rate":"157"}],"trimTOT":0,"padTOT":1102,"netAMT":-1102}]},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[{"ymd":"2023_11_17","amt":"200","rate":"495"},{"ymd":"2023_11_22","amt":"100","rate":"486"}],"netAMT":-300,"notez":"2","trimTOT":0,"padTOT":300,"expanded":false,"bankVAL":-800,"notez_expanded":true,"bookVAL":800},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2023_11_10","amt":"200","rate":"376"}],"padz":[],"netAMT":"+200","notez":"2","trimTOT":200,"padTOT":0,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[{"ymd":"2023_11_10","amt":"200","rate":"133"},{"ymd":"2023_11_14","amt":"100","rate":"136"},{"ymd":"2023_11_16","amt":"100","rate":"139"},{"ymd":"2023_11_20","amt":"100","rate":"138"},{"ymd":"2023_11_20","amt":"40","rate":"139"}],"padz":[],"netAMT":"+540","notez":"3","trimTOT":540,"padTOT":0,"expanded":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2023_11_10","amt":"100","rate":"368"},{"ymd":"2023_11_20","amt":"100","rate":"378"},{"ymd":"2023_11_28","amt":"30","rate":"384"}],"padz":[],"netAMT":"+230","notez":"2","trimTOT":230,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"500","trimz":[{"ymd":"2023_11_14","amt":"100","rate":"182"},{"ymd":"2023_11_20","amt":"100","rate":"185"}],"padz":[],"netAMT":"+200","notez":"2","trimTOT":200,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2022_11_10","amt":"100","rate":"119"},{"ymd":"2023_11_16","amt":"100","rate":"120"},{"ymd":"2023_11_29","amt":"30","rate":"125"}],"padz":[],"netAMT":"+230","notez":"2","trimTOT":230,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2023_11_24","amt":"30","rate":"254"}],"padz":[{"ymd":"2023_11_10","amt":"300","rate":"245"}],"netAMT":-270,"notez":"2","trimTOT":30,"padTOT":300,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_11_01","amt":"100","rate":"35435"},{"ymd":"2023_11_10","amt":"200","rate":"36818"},{"ymd":"2023_11_15","amt":"100","rate":"37390"},{"ymd":"2023_11_22","amt":"100","rate":"37694"}],"padz":[],"netAMT":"+500","notez":"2","trimTOT":500,"padTOT":0,"expanded":false}]},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2023_12_15","amt":"30","rate":"492"},{"ymd":"2023_12_18","amt":"50","rate":"503"},{"ymd":"2023_12_18","amt":"50","rate":"497"},{"ymd":"2023_12_26","amt":"60","rate":"493"},{"ymd":"2023_12_28","amt":"100","rate":"497"},{"ymd":"2023_12_29","amt":"100","rate":"498"}],"padz":[{"ymd":"2023_12_18","amt":"0","rate":"497"},{"ymd":"2023_12_18","amt":"0","rate":"503"}],"netAMT":"+390","notez":"2","trimTOT":390,"padTOT":0,"expanded":false,"bankVAL":-410,"bookVAL":800,"notez_expanded":true},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"432"},{"ymd":"2023_12_14","amt":"20","rate":"413"},{"ymd":"2023_12_14","amt":"20","rate":"420"},{"ymd":"2023_12_15","amt":"10","rate":"420"},{"ymd":"2023_12_16","amt":"195","rate":"409"},{"ymd":"2023_12_26","amt":"200","rate":"416"},{"ymd":"2023_12_28","amt":"50","rate":"417"}],"padz":[{"ymd":"2023_12_09","amt":"100","rate":"388"}],"netAMT":"+420","notez":"2","trimTOT":520,"padTOT":100,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[{"ymd":"2023_12_11","amt":"100","rate":"624"},{"ymd":"2023_12_13","amt":"100","rate":"636"},{"ymd":"2023_12_15","amt":"250","rate":"656"},{"ymd":"2023_12_15","amt":"30","rate":"660"},{"ymd":"2023_12_18","amt":"60","rate":"674"},{"ymd":"2023_12_18","amt":"30","rate":"679"}],"padz":[{"ymd":"2023_12_27","amt":"40","rate":"667"},{"ymd":"2023_12_28","amt":"20","rate":"662"}],"netAMT":"+510","notez":"1","trimTOT":570,"padTOT":60,"expanded":false},{"tkr":"GOOG","cap":"4000","trimz":[{"ymd":"2023_12_07","amt":"25","rate":"140"},{"ymd":"2023_12_11","amt":"496","rate":"133"},{"ymd":"2023_12_11","amt":"298","rate":"133"},{"ymd":"2023_12_13","amt":"10","rate":"134"},{"ymd":"2023_12_18","amt":"70","rate":"137"},{"ymd":"2023_12_18","amt":"20","rate":"137"},{"ymd":"2023_12_19","amt":"25","rate":"138"},{"ymd":"2023_12_20","amt":"120","rate":"142"},{"ymd":"2023_12_22","amt":"20","rate":"143"}],"padz":[],"netAMT":"+1084","notez":"3","trimTOT":1084,"padTOT":0,"expanded":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2023_12_31","amt":"398","rate":"374"}],"padz":[],"netAMT":"+398","notez":"2","trimTOT":398,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"1000","trimz":[{"ymd":"2023_12_11","amt":"10","rate":"187"},{"ymd":"2023_12_13","amt":"10","rate":"191"},{"ymd":"2023_12_22","amt":"270","rate":"192"}],"padz":[],"netAMT":"+290","notez":"2","trimTOT":290,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2023_12_08","amt":"20","rate":"129"},{"ymd":"2023_12_11","amt":"20","rate":"134"},{"ymd":"2023_11_12","amt":"20","rate":"139"},{"ymd":"2023_12_26","amt":"15","rate":"143"},{"ymd":"2023_12_27","amt":"10","rate":"246"},{"ymd":"2023_12_28","amt":"10","rate":"149"}],"padz":[],"netAMT":"+95","notez":"2","trimTOT":95,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2023_12_12","amt":"10","rate":"259"}],"padz":[],"netAMT":"+10","notez":"2","trimTOT":10,"padTOT":0,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"38626"},{"ymd":"2023_12_02","amt":"50","rate":"39417"},{"ymd":"2023_12_03","amt":"25","rate":"39848"},{"ymd":"2023_12_03","amt":"50","rate":"4819"},{"ymd":"2023_12_04","amt":"20","rate":"41700"},{"ymd":"2023_12_04","amt":"30","rate":"41684"},{"ymd":"2023_12_05","amt":"50","rate":"42718"},{"ymd":"2023_12_05","amt":"50","rate":"44008"},{"ymd":"2023_12_13","amt":"20","rate":"41940"},{"ymd":"2023_12_13","amt":"30","rate":"42648"},{"ymd":"2023_12_13","amt":"20","rate":"43042"},{"ymd":"2023_12_18","amt":"30","rate":"41509"},{"ymd":"2023_12_30","amt":"9464","rate":"42060"}],"padz":[{"ymd":"2023_12_12","amt":"100","rate":"40928"},{"ymd":"2023_12_17","amt":"200","rate":"41077"},{"ymd":"2023_12_18","amt":"100","rate":"43074"},{"ymd":"2023_12_19","amt":"200","rate":"42663"},{"ymd":"2023_12_22","amt":"1500","rate":"43637"},{"ymd":"2023_12_25","amt":"100","rate":"42844"},{"ymd":"2023_12_29","amt":"50","rate":"42152"},{"ymd":"2023_12_29","amt":"500","rate":"42048"},{"ymd":"2023_12_30","amt":"5000","rate":"42303"},{"ymd":"2023_12_30","amt":"9000","rate":"42417"}],"netAMT":-6886,"notez":"Just Starting out. 1st month trading BTC since \"historic\" ETF approval on Jan 10, 2024. Profitable!!!","trimTOT":9864,"padTOT":16750,"expanded":false,"notez_expanded":true,"bookVAL":800},{"tkr":"AMZN","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2022_12_04","amt":"100","rate":"144"}],"trimTOT":0,"padTOT":100,"netAMT":-100}]},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2024_01_08","amt":"300","rate":"514"},{"ymd":"2024_01_08","amt":"80","rate":"518"},{"ymd":"2024_01_08","amt":"30","rate":"519"},{"ymd":"2024_01_08","amt":"20","rate":"520"},{"ymd":"2024_01_08","amt":"20","rate":"521"},{"ymd":"2024_01_08","amt":"20","rate":"523"},{"ymd":"2024_01_08","amt":"30","rate":"526"},{"ymd":"2024_01_09","amt":"100","rate":"534"},{"ymd":"2024_01_09","amt":"80","rate":"538"},{"ymd":"2024_01_09","amt":"50","rate":"542"},{"ymd":"2024_01_10","amt":"30","rate":"545"},{"ymd":"2024_01_11","amt":"60","rate":"549"},{"ymd":"2024_01_11","amt":"30","rate":"551"}],"padz":[],"netAMT":"+850","notez":"JAN 8th 2024 - 1st $500 day!\nExcellent Margins, form prior OCT 27, 2024 lows.","trimTOT":850,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2024_01_19","amt":"10","rate":"401"}],"padz":[{"ymd":"2024_01_11","amt":"15","rate":"393"}],"netAMT":-5,"notez":"2","trimTOT":10,"padTOT":15,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[{"ymd":"2024_01_10","amt":"30","rate":"673"},{"ymd":"2024_01_12","amt":"30","rate":"679"},{"ymd":"2024_01_12","amt":"10","rate":"682"},{"ymd":"2024_01_18","amt":"20","rate":"687"},{"ymd":"2024_01_19","amt":"20","rate":"691"},{"ymd":"2024_01_19","amt":"50","rate":"694"}],"padz":[],"netAMT":"+160","notez":"1","trimTOT":160,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"GOOG","cap":"4000","trimz":[{"ymd":"2024_01_10","amt":"20","rate":"144"},{"ymd":"2024_01_11","amt":"20","rate":"144"},{"ymd":"2024_01_18","amt":"20","rate":"145"},{"ymd":"2024_01_19","amt":"40","rate":"147"},{"ymd":"2024_01_19","amt":"20","rate":"147"},{"ymd":"2024_01_19","amt":"10","rate":"148"}],"padz":[],"netAMT":"+130","notez":"3","trimTOT":130,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2024_01_08","amt":"50","rate":"372"},{"ymd":"2024_01_09","amt":"30","rate":"376"},{"ymd":"2024_01_10","amt":"210","rate":"381"}],"padz":[],"netAMT":"+290","notez":"2","trimTOT":290,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"500","trimz":[{"ymd":"2023_01_19","amt":"20","rate":"197"},{"ymd":"2024_01_19","amt":"20","rate":"200"}],"padz":[],"netAMT":"+40","notez":"2","trimTOT":40,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2024_01_16","amt":"20","rate":"157"},{"ymd":"2024_01_18","amt":"30","rate":"166"},{"ymd":"2024_01_19","amt":"25","rate":"173"}],"padz":[],"netAMT":"+75","notez":"2","trimTOT":75,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2024_01_12","amt":"10","rate":"265"},{"ymd":"2024_01_19","amt":"15","rate":"271"}],"padz":[{"ymd":"2024_01_19","amt":"500","rate":"269"}],"netAMT":-475,"notez":"2","trimTOT":25,"padTOT":500,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2024_01_01","amt":"500","rate":"44519"},{"ymd":"2024_01_01","amt":"150","rate":"45282"},{"ymd":"2024_01_08","amt":"200","rate":"45870"},{"ymd":"2024_01_08","amt":"200","rate":"46466"},{"ymd":"2024_01_08","amt":"150","rate":"46891"},{"ymd":"2024_01_08","amt":"50","rate":"47156"},{"ymd":"2024_01_08","amt":"30","rate":"47028"},{"ymd":"2024_01_08","amt":"20","rate":"47021"},{"ymd":"2024_01_10","amt":"50","rate":"46229"},{"ymd":"2024_01_10","amt":"20","rate":"46354"},{"ymd":"2024_01_10","amt":"90","rate":"46768"},{"ymd":"2024_01_10","amt":"80","rate":"47024"},{"ymd":"2024_01_11","amt":"40","rate":"46908"},{"ymd":"2024_01_11","amt":"30","rate":"47000"},{"ymd":"2024_01_11","amt":"20","rate":"46336"},{"ymd":"2024_01_11","amt":"40","rate":"46480"},{"ymd":"2024_01_12","amt":"500","rate":"42459"},{"ymd":"2024_01_21","amt":"3000","rate":"41248"}],"padz":[{"ymd":"2024_01_06","amt":"250","rate":"43888"},{"ymd":"2024_01_10","amt":"250","rate":"45955"},{"ymd":"2024_01_10","amt":"100","rate":"46023"},{"ymd":"2024_01_11","amt":"100","rate":"45866"},{"ymd":"2024_01_11","amt":"50","rate":"46439"},{"ymd":"2024_01_11","amt":"80","rate":"46083"},{"ymd":"2024_01_12","amt":"100","rate":"43551"},{"ymd":"2024_01_12","amt":"100","rate":"43677"},{"ymd":"2024_01_12","amt":"100","rate":"42402"},{"ymd":"2024_01_18","amt":"200","rate":"41536"},{"ymd":"2024_01_18","amt":"200","rate":"40888"},{"ymd":"2024_01_21","amt":"200","rate":"417575"},{"ymd":"2024_01_21","amt":"100","rate":"40888"},{"ymd":"2024_01_21","amt":"100","rate":"40666"},{"ymd":"2024_01_21","amt":"100","rate":"40444"},{"ymd":"2024_01_21","amt":"100","rate":"39888"},{"ymd":"2024_01_21","amt":"200","rate":"39655"}],"netAMT":"+2840","notez":"This was a ROUGH ONE. Correction at exact the time of CERTAINTY. Destroyed by institutions. How did I manage the boat in the unexpected correction? \nWe will See. Have yet to RUN the NUMBERS!\nCrossing fingers. How to CALCULATE?","trimTOT":5170,"padTOT":2330,"expanded":true,"notez_expanded":true,"bookVAL":800,"bankVAL":440},{"tkr":"AMZN","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2024_01_04","amt":"145","rate":"145"},{"ymd":"2024_01_04","amt":"146","rate":"146"},{"ymd":"2024_01_12","amt":"70","rate":"154"},{"ymd":"2024_01_19","amt":"300","rate":"153"},{"ymd":"2024_01_19","amt":"200","rate":"153"}],"trimTOT":0,"padTOT":861,"netAMT":-861}],"expanded":true}}}
+//ai_main = {"qrtrz":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":true,"tickrz":[{"tkr":"NVDA","cap":"1000","expanded":false,"trimz":[],"padz":[{"ymd":"2023_10_10","amt":"300","rate":"460"},{"ymd":"2023_10_20","amt":"200","rate":"413"}],"netAMT":-500,"notez":"2","notez_expanded":true,"trimTOT":0,"padTOT":500,"bankVAL":-500,"bookVAL":500,"expandedTOTZDeetz":true},{"tkr":"MDB","cap":"1000","trimz":[],"padz":[{"ymd":"2021_05_04","amt":"570","rate":"285"},{"ymd":"2023_09_21","amt":"200","rate":"334"},{"ymd":"2023_10_12","amt":"300","rate":"371"},{"ymd":"2023_10_25","amt":"200","rate":"329"}],"netAMT":-1270,"notez":"2","trimTOT":0,"padTOT":1270,"expanded":false,"expandedTOTZDeetz":false},{"tkr":"COST","cap":"1000","trimz":[],"padz":[{"ymd":"2023_10_06","amt":"300","rate":"555"},{"ymd":"2023_10_10","amt":"300","rate":"562"},{"ymd":"2023_10_12","amt":"200","rate":"568"},{"ymd":"2023_10_20","amt":"200","rate":"555"},{"ymd":"2023_10_20","amt":"200","rate":"552"},{"ymd":"2023_10_25","amt":"200","rate":"550"},{"ymd":"2023_10_26","amt":"200","rate":"548"},{"ymd":"2023_10_27","amt":"35","rate":"543"}],"netAMT":-1635,"notez":"2","trimTOT":0,"padTOT":1635,"expanded":false,"notez_expanded":false,"bankVAL":-500,"bookVAL":500,"expandedTOTZDeetz":true},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2020_04_20","amt":"176","rate":"176"}],"padz":[{"ymd":"2020_04_17","amt":"180","rate":"180"},{"ymd":"2021_06_22","amt":"531","rate":"266"},{"ymd":"2023_09_30","amt":"200","rate":"316"},{"ymd":"2023_10_25","amt":"100","rate":"340"},{"ymd":"2023_10_26","amt":"100","rate":"330"}],"netAMT":-935,"notez":"2","trimTOT":176,"padTOT":1111,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_24","amt":"200","rate":"232"}],"trimTOT":0,"padTOT":200,"netAMT":-200},{"tkr":"AMD","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_01","amt":"524","rate":"102"}],"trimTOT":0,"padTOT":524,"netAMT":-524},{"tkr":"GOOG","cap":"5000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_10","amt":"4963","rate":"125"}],"trimTOT":0,"padTOT":4963,"netAMT":-4963},{"tkr":"XLK","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2021_07_01","amt":"297","rate":"149"},{"ymd":"2023_09_15","amt":"305","rate":"168"},{"ymd":"2020_01_01","amt":"500","rate":"157"}],"trimTOT":0,"padTOT":1102,"netAMT":-1102,"expandedTOTZDeetz":true}],"expandedTOTZ":false,"expandedTOTZDeetz":true,"tot_flowz":-11129},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[{"ymd":"2023_11_17","amt":"200","rate":"495"},{"ymd":"2023_11_22","amt":"100","rate":"486"}],"netAMT":-300,"notez":"2","trimTOT":0,"padTOT":300,"expanded":false,"bankVAL":-800,"notez_expanded":true,"bookVAL":800},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2023_11_10","amt":"200","rate":"376"}],"padz":[],"netAMT":200,"notez":"2","trimTOT":200,"padTOT":0,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[{"ymd":"2023_11_10","amt":"200","rate":"133"},{"ymd":"2023_11_14","amt":"100","rate":"136"},{"ymd":"2023_11_16","amt":"100","rate":"139"},{"ymd":"2023_11_20","amt":"100","rate":"138"},{"ymd":"2023_11_20","amt":"40","rate":"139"}],"padz":[],"netAMT":540,"notez":"3","trimTOT":540,"padTOT":0,"expanded":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2023_11_10","amt":"100","rate":"368"},{"ymd":"2023_11_20","amt":"100","rate":"378"},{"ymd":"2023_11_28","amt":"30","rate":"384"}],"padz":[],"netAMT":230,"notez":"2","trimTOT":230,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"500","trimz":[{"ymd":"2023_11_14","amt":"100","rate":"182"},{"ymd":"2023_11_20","amt":"100","rate":"185"}],"padz":[],"netAMT":200,"notez":"2","trimTOT":200,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2022_11_10","amt":"100","rate":"119"},{"ymd":"2023_11_16","amt":"100","rate":"120"},{"ymd":"2023_11_29","amt":"30","rate":"125"}],"padz":[],"netAMT":230,"notez":"2","trimTOT":230,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2023_11_24","amt":"30","rate":"254"}],"padz":[{"ymd":"2023_11_10","amt":"300","rate":"245"}],"netAMT":-270,"notez":"2","trimTOT":30,"padTOT":300,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_11_01","amt":"100","rate":"35435"},{"ymd":"2023_11_10","amt":"200","rate":"36818"},{"ymd":"2023_11_15","amt":"100","rate":"37390"},{"ymd":"2023_11_22","amt":"100","rate":"37694"}],"padz":[],"netAMT":500,"notez":"2","trimTOT":500,"padTOT":0,"expanded":false}],"tot_flowz":1330},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2023_12_15","amt":"30","rate":"492"},{"ymd":"2023_12_18","amt":"50","rate":"503"},{"ymd":"2023_12_18","amt":"50","rate":"497"},{"ymd":"2023_12_26","amt":"60","rate":"493"},{"ymd":"2023_12_28","amt":"100","rate":"497"},{"ymd":"2023_12_29","amt":"100","rate":"498"}],"padz":[{"ymd":"2023_12_18","amt":"0","rate":"497"},{"ymd":"2023_12_18","amt":"0","rate":"503"}],"netAMT":390,"notez":"2","trimTOT":390,"padTOT":0,"expanded":false,"bankVAL":-410,"bookVAL":800,"notez_expanded":true},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"432"},{"ymd":"2023_12_14","amt":"20","rate":"413"},{"ymd":"2023_12_14","amt":"20","rate":"420"},{"ymd":"2023_12_15","amt":"10","rate":"420"},{"ymd":"2023_12_16","amt":"195","rate":"409"},{"ymd":"2023_12_26","amt":"200","rate":"416"},{"ymd":"2023_12_28","amt":"50","rate":"417"}],"padz":[{"ymd":"2023_12_09","amt":"100","rate":"388"}],"netAMT":420,"notez":"2","trimTOT":520,"padTOT":100,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[{"ymd":"2023_12_11","amt":"100","rate":"624"},{"ymd":"2023_12_13","amt":"100","rate":"636"},{"ymd":"2023_12_15","amt":"250","rate":"656"},{"ymd":"2023_12_15","amt":"30","rate":"660"},{"ymd":"2023_12_18","amt":"60","rate":"674"},{"ymd":"2023_12_18","amt":"30","rate":"679"}],"padz":[{"ymd":"2023_12_27","amt":"40","rate":"667"},{"ymd":"2023_12_28","amt":"20","rate":"662"}],"netAMT":510,"notez":"1","trimTOT":570,"padTOT":60,"expanded":false},{"tkr":"GOOG","cap":"4000","trimz":[{"ymd":"2023_12_07","amt":"25","rate":"140"},{"ymd":"2023_12_11","amt":"496","rate":"133"},{"ymd":"2023_12_11","amt":"298","rate":"133"},{"ymd":"2023_12_13","amt":"10","rate":"134"},{"ymd":"2023_12_18","amt":"70","rate":"137"},{"ymd":"2023_12_18","amt":"20","rate":"137"},{"ymd":"2023_12_19","amt":"25","rate":"138"},{"ymd":"2023_12_20","amt":"120","rate":"142"},{"ymd":"2023_12_22","amt":"20","rate":"143"}],"padz":[],"netAMT":1084,"notez":"3","trimTOT":1084,"padTOT":0,"expanded":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2023_12_31","amt":"398","rate":"374"}],"padz":[],"netAMT":398,"notez":"2","trimTOT":398,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"1000","trimz":[{"ymd":"2023_12_11","amt":"10","rate":"187"},{"ymd":"2023_12_13","amt":"10","rate":"191"},{"ymd":"2023_12_22","amt":"270","rate":"192"}],"padz":[],"netAMT":290,"notez":"2","trimTOT":290,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2023_12_08","amt":"20","rate":"129"},{"ymd":"2023_12_11","amt":"20","rate":"134"},{"ymd":"2023_11_12","amt":"20","rate":"139"},{"ymd":"2023_12_26","amt":"15","rate":"143"},{"ymd":"2023_12_27","amt":"10","rate":"246"},{"ymd":"2023_12_28","amt":"10","rate":"149"}],"padz":[],"netAMT":95,"notez":"2","trimTOT":95,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2023_12_12","amt":"10","rate":"259"}],"padz":[],"netAMT":10,"notez":"2","trimTOT":10,"padTOT":0,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"38626"},{"ymd":"2023_12_02","amt":"50","rate":"39417"},{"ymd":"2023_12_03","amt":"25","rate":"39848"},{"ymd":"2023_12_03","amt":"50","rate":"4819"},{"ymd":"2023_12_04","amt":"20","rate":"41700"},{"ymd":"2023_12_04","amt":"30","rate":"41684"},{"ymd":"2023_12_05","amt":"50","rate":"42718"},{"ymd":"2023_12_05","amt":"50","rate":"44008"},{"ymd":"2023_12_13","amt":"20","rate":"41940"},{"ymd":"2023_12_13","amt":"30","rate":"42648"},{"ymd":"2023_12_13","amt":"20","rate":"43042"},{"ymd":"2023_12_18","amt":"30","rate":"41509"},{"ymd":"2023_12_30","amt":"9464","rate":"42060"}],"padz":[{"ymd":"2023_12_12","amt":"100","rate":"40928"},{"ymd":"2023_12_17","amt":"200","rate":"41077"},{"ymd":"2023_12_18","amt":"100","rate":"43074"},{"ymd":"2023_12_19","amt":"200","rate":"42663"},{"ymd":"2023_12_22","amt":"1500","rate":"43637"},{"ymd":"2023_12_25","amt":"100","rate":"42844"},{"ymd":"2023_12_29","amt":"50","rate":"42152"},{"ymd":"2023_12_29","amt":"500","rate":"42048"},{"ymd":"2023_12_30","amt":"5000","rate":"42303"},{"ymd":"2023_12_30","amt":"9000","rate":"42417"}],"netAMT":-6886,"notez":"Just Starting out. 1st month trading BTC since \"historic\" ETF approval on Jan 10, 2024. Profitable!!!","trimTOT":9864,"padTOT":16750,"expanded":false,"notez_expanded":true,"bookVAL":800},{"tkr":"AMZN","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2022_12_04","amt":"100","rate":"144"}],"trimTOT":0,"padTOT":100,"netAMT":-100}],"tot_flowz":-3789},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2024_01_08","amt":"300","rate":"514"},{"ymd":"2024_01_08","amt":"80","rate":"518"},{"ymd":"2024_01_08","amt":"30","rate":"519"},{"ymd":"2024_01_08","amt":"20","rate":"520"},{"ymd":"2024_01_08","amt":"20","rate":"521"},{"ymd":"2024_01_08","amt":"20","rate":"523"},{"ymd":"2024_01_08","amt":"30","rate":"526"},{"ymd":"2024_01_09","amt":"100","rate":"534"},{"ymd":"2024_01_09","amt":"80","rate":"538"},{"ymd":"2024_01_09","amt":"50","rate":"542"},{"ymd":"2024_01_10","amt":"30","rate":"545"},{"ymd":"2024_01_11","amt":"60","rate":"549"},{"ymd":"2024_01_11","amt":"30","rate":"551"}],"padz":[],"netAMT":850,"notez":"JAN 8th 2024 - 1st $500 day!\nExcellent Margins, form prior OCT 27, 2024 lows.","trimTOT":850,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2024_01_19","amt":"10","rate":"401"}],"padz":[{"ymd":"2024_01_11","amt":"15","rate":"393"}],"netAMT":-5,"notez":"2","trimTOT":10,"padTOT":15,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[{"ymd":"2024_01_10","amt":"30","rate":"673"},{"ymd":"2024_01_12","amt":"30","rate":"679"},{"ymd":"2024_01_12","amt":"10","rate":"682"},{"ymd":"2024_01_18","amt":"20","rate":"687"},{"ymd":"2024_01_19","amt":"20","rate":"691"},{"ymd":"2024_01_19","amt":"50","rate":"694"}],"padz":[],"netAMT":160,"notez":"1","trimTOT":160,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"GOOG","cap":"4000","trimz":[{"ymd":"2024_01_10","amt":"20","rate":"144"},{"ymd":"2024_01_11","amt":"20","rate":"144"},{"ymd":"2024_01_18","amt":"20","rate":"145"},{"ymd":"2024_01_19","amt":"40","rate":"147"},{"ymd":"2024_01_19","amt":"20","rate":"147"},{"ymd":"2024_01_19","amt":"10","rate":"148"}],"padz":[],"netAMT":130,"notez":"3","trimTOT":130,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2024_01_08","amt":"50","rate":"372"},{"ymd":"2024_01_09","amt":"30","rate":"376"},{"ymd":"2024_01_10","amt":"210","rate":"381"}],"padz":[],"netAMT":290,"notez":"2","trimTOT":290,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"500","trimz":[{"ymd":"2023_01_19","amt":"20","rate":"197"},{"ymd":"2024_01_19","amt":"20","rate":"200"}],"padz":[],"netAMT":40,"notez":"2","trimTOT":40,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2024_01_16","amt":"20","rate":"157"},{"ymd":"2024_01_18","amt":"30","rate":"166"},{"ymd":"2024_01_19","amt":"25","rate":"173"}],"padz":[],"netAMT":75,"notez":"2","trimTOT":75,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2024_01_12","amt":"10","rate":"265"},{"ymd":"2024_01_19","amt":"15","rate":"271"}],"padz":[{"ymd":"2024_01_19","amt":"500","rate":"269"}],"netAMT":-475,"notez":"2","trimTOT":25,"padTOT":500,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2024_01_01","amt":"500","rate":"44519"},{"ymd":"2024_01_01","amt":"150","rate":"45282"},{"ymd":"2024_01_08","amt":"200","rate":"45870"},{"ymd":"2024_01_08","amt":"200","rate":"46466"},{"ymd":"2024_01_08","amt":"150","rate":"46891"},{"ymd":"2024_01_08","amt":"50","rate":"47156"},{"ymd":"2024_01_08","amt":"30","rate":"47028"},{"ymd":"2024_01_08","amt":"20","rate":"47021"},{"ymd":"2024_01_10","amt":"50","rate":"46229"},{"ymd":"2024_01_10","amt":"20","rate":"46354"},{"ymd":"2024_01_10","amt":"90","rate":"46768"},{"ymd":"2024_01_10","amt":"80","rate":"47024"},{"ymd":"2024_01_11","amt":"40","rate":"46908"},{"ymd":"2024_01_11","amt":"30","rate":"47000"},{"ymd":"2024_01_11","amt":"20","rate":"46336"},{"ymd":"2024_01_11","amt":"40","rate":"46480"},{"ymd":"2024_01_12","amt":"500","rate":"42459"},{"ymd":"2024_01_21","amt":"3000","rate":"41248"}],"padz":[{"ymd":"2024_01_06","amt":"250","rate":"43888"},{"ymd":"2024_01_10","amt":"250","rate":"45955"},{"ymd":"2024_01_10","amt":"100","rate":"46023"},{"ymd":"2024_01_11","amt":"100","rate":"45866"},{"ymd":"2024_01_11","amt":"50","rate":"46439"},{"ymd":"2024_01_11","amt":"80","rate":"46083"},{"ymd":"2024_01_12","amt":"100","rate":"43551"},{"ymd":"2024_01_12","amt":"100","rate":"43677"},{"ymd":"2024_01_12","amt":"100","rate":"42402"},{"ymd":"2024_01_18","amt":"200","rate":"41536"},{"ymd":"2024_01_18","amt":"200","rate":"40888"},{"ymd":"2024_01_21","amt":"200","rate":"417575"},{"ymd":"2024_01_21","amt":"100","rate":"40888"},{"ymd":"2024_01_21","amt":"100","rate":"40666"},{"ymd":"2024_01_21","amt":"100","rate":"40444"},{"ymd":"2024_01_21","amt":"100","rate":"39888"},{"ymd":"2024_01_21","amt":"200","rate":"39655"}],"netAMT":2840,"notez":"This was a ROUGH ONE. Correction at exact the time of CERTAINTY. Destroyed by institutions. How did I manage the boat in the unexpected correction? \nWe will See. Have yet to RUN the NUMBERS!\nCrossing fingers. How to CALCULATE?","trimTOT":5170,"padTOT":2330,"expanded":false,"notez_expanded":true,"bookVAL":800,"bankVAL":440},{"tkr":"AMZN","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2024_01_04","amt":"145","rate":"145"},{"ymd":"2024_01_04","amt":"146","rate":"146"},{"ymd":"2024_01_12","amt":"70","rate":"154"},{"ymd":"2024_01_19","amt":"300","rate":"153"},{"ymd":"2024_01_19","amt":"200","rate":"153"}],"trimTOT":0,"padTOT":861,"netAMT":-861}],"expanded":false,"tot_flowz":3044}}};
+    ai_main = {"qrtrz":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":true,"tickrz":[{"tkr":"NVDA","cap":"1000","expanded":false,"trimz":[],"padz":[{"ymd":"2023_10_10","amt":"300","rate":"460"},{"ymd":"2023_10_20","amt":"200","rate":"413"}],"netAMT":-500,"notez":"2","notez_expanded":true,"trimTOT":0,"padTOT":500,"bankVAL":-500,"bookVAL":500,"expandedTOTZDeetz":true},{"tkr":"MDB","cap":"1000","trimz":[],"padz":[{"ymd":"2021_05_04","amt":"570","rate":"285"},{"ymd":"2023_09_21","amt":"200","rate":"334"},{"ymd":"2023_10_12","amt":"300","rate":"371"},{"ymd":"2023_10_25","amt":"200","rate":"329"}],"netAMT":-1270,"notez":"2","trimTOT":0,"padTOT":1270,"expanded":false,"expandedTOTZDeetz":false},{"tkr":"COST","cap":"1000","trimz":[],"padz":[{"ymd":"2023_10_06","amt":"300","rate":"555"},{"ymd":"2023_10_10","amt":"300","rate":"562"},{"ymd":"2023_10_12","amt":"200","rate":"568"},{"ymd":"2023_10_20","amt":"200","rate":"555"},{"ymd":"2023_10_20","amt":"200","rate":"552"},{"ymd":"2023_10_25","amt":"200","rate":"550"},{"ymd":"2023_10_26","amt":"200","rate":"548"},{"ymd":"2023_10_27","amt":"35","rate":"543"}],"netAMT":-1635,"notez":"2","trimTOT":0,"padTOT":1635,"expanded":false,"notez_expanded":false,"bankVAL":-500,"bookVAL":500,"expandedTOTZDeetz":true},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2020_04_20","amt":"176","rate":"176"}],"padz":[{"ymd":"2020_04_17","amt":"180","rate":"180"},{"ymd":"2021_06_22","amt":"531","rate":"266"},{"ymd":"2023_09_30","amt":"200","rate":"316"},{"ymd":"2023_10_25","amt":"100","rate":"340"},{"ymd":"2023_10_26","amt":"100","rate":"330"}],"netAMT":-935,"notez":"2","trimTOT":176,"padTOT":1111,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_24","amt":"200","rate":"232"}],"trimTOT":0,"padTOT":200,"netAMT":-200},{"tkr":"AMD","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_01","amt":"524","rate":"102"}],"trimTOT":0,"padTOT":524,"netAMT":-524},{"tkr":"GOOG","cap":"5000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_10","amt":"4963","rate":"125"}],"trimTOT":0,"padTOT":4963,"netAMT":-4963},{"tkr":"XLK","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2021_07_01","amt":"297","rate":"149"},{"ymd":"2023_09_15","amt":"305","rate":"168"},{"ymd":"2020_01_01","amt":"500","rate":"157"}],"trimTOT":0,"padTOT":1102,"netAMT":-1102,"expandedTOTZDeetz":true}],"expandedTOTZ":false,"expandedTOTZDeetz":true,"tot_flowz":-11129},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":true,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[{"ymd":"2023_11_17","amt":"200","rate":"495"},{"ymd":"2023_11_22","amt":"100","rate":"486"}],"netAMT":-300,"notez":"2","trimTOT":0,"padTOT":300,"expanded":false,"bankVAL":-800,"notez_expanded":true,"bookVAL":800},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2023_11_10","amt":"200","rate":"376"}],"padz":[],"netAMT":200,"notez":"2","trimTOT":200,"padTOT":0,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[{"ymd":"2023_11_10","amt":"200","rate":"133"},{"ymd":"2023_11_14","amt":"100","rate":"136"},{"ymd":"2023_11_16","amt":"100","rate":"139"},{"ymd":"2023_11_20","amt":"100","rate":"138"},{"ymd":"2023_11_20","amt":"40","rate":"139"}],"padz":[],"netAMT":540,"notez":"3","trimTOT":540,"padTOT":0,"expanded":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2023_11_10","amt":"100","rate":"368"},{"ymd":"2023_11_20","amt":"100","rate":"378"},{"ymd":"2023_11_28","amt":"30","rate":"384"}],"padz":[],"netAMT":230,"notez":"2","trimTOT":230,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"500","trimz":[{"ymd":"2023_11_14","amt":"100","rate":"182"},{"ymd":"2023_11_20","amt":"100","rate":"185"}],"padz":[],"netAMT":200,"notez":"2","trimTOT":200,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2022_11_10","amt":"100","rate":"119"},{"ymd":"2023_11_16","amt":"100","rate":"120"},{"ymd":"2023_11_29","amt":"30","rate":"125"}],"padz":[],"netAMT":230,"notez":"2","trimTOT":230,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2023_11_24","amt":"30","rate":"254"}],"padz":[{"ymd":"2023_11_10","amt":"300","rate":"245"}],"netAMT":-270,"notez":"2","trimTOT":30,"padTOT":300,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_11_01","amt":"100","rate":"35435"},{"ymd":"2023_11_10","amt":"200","rate":"36818"},{"ymd":"2023_11_15","amt":"100","rate":"37390"},{"ymd":"2023_11_22","amt":"100","rate":"37694"}],"padz":[],"netAMT":500,"notez":"2","trimTOT":500,"padTOT":0,"expanded":false}],"tot_flowz":1330},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":true,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2023_12_15","amt":"30","rate":"492"},{"ymd":"2023_12_18","amt":"50","rate":"503"},{"ymd":"2023_12_18","amt":"50","rate":"497"},{"ymd":"2023_12_26","amt":"60","rate":"493"},{"ymd":"2023_12_28","amt":"100","rate":"497"},{"ymd":"2023_12_29","amt":"100","rate":"498"}],"padz":[{"ymd":"2023_12_18","amt":"0","rate":"497"},{"ymd":"2023_12_18","amt":"0","rate":"503"}],"netAMT":390,"notez":"2","trimTOT":390,"padTOT":0,"expanded":false,"bankVAL":-410,"bookVAL":800,"notez_expanded":true},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"432"},{"ymd":"2023_12_14","amt":"20","rate":"413"},{"ymd":"2023_12_14","amt":"20","rate":"420"},{"ymd":"2023_12_15","amt":"10","rate":"420"},{"ymd":"2023_12_16","amt":"195","rate":"409"},{"ymd":"2023_12_26","amt":"200","rate":"416"},{"ymd":"2023_12_28","amt":"50","rate":"417"}],"padz":[{"ymd":"2023_12_09","amt":"100","rate":"388"}],"netAMT":420,"notez":"2","trimTOT":520,"padTOT":100,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[{"ymd":"2023_12_11","amt":"100","rate":"624"},{"ymd":"2023_12_13","amt":"100","rate":"636"},{"ymd":"2023_12_15","amt":"250","rate":"656"},{"ymd":"2023_12_15","amt":"30","rate":"660"},{"ymd":"2023_12_18","amt":"60","rate":"674"},{"ymd":"2023_12_18","amt":"30","rate":"679"}],"padz":[{"ymd":"2023_12_27","amt":"40","rate":"667"},{"ymd":"2023_12_28","amt":"20","rate":"662"}],"netAMT":510,"notez":"1","trimTOT":570,"padTOT":60,"expanded":false},{"tkr":"GOOG","cap":"4000","trimz":[{"ymd":"2023_12_07","amt":"25","rate":"140"},{"ymd":"2023_12_11","amt":"496","rate":"133"},{"ymd":"2023_12_11","amt":"298","rate":"133"},{"ymd":"2023_12_13","amt":"10","rate":"134"},{"ymd":"2023_12_18","amt":"70","rate":"137"},{"ymd":"2023_12_18","amt":"20","rate":"137"},{"ymd":"2023_12_19","amt":"25","rate":"138"},{"ymd":"2023_12_20","amt":"120","rate":"142"},{"ymd":"2023_12_22","amt":"20","rate":"143"}],"padz":[],"netAMT":1084,"notez":"3","trimTOT":1084,"padTOT":0,"expanded":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2023_12_31","amt":"398","rate":"374"}],"padz":[],"netAMT":398,"notez":"2","trimTOT":398,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"1000","trimz":[{"ymd":"2023_12_11","amt":"10","rate":"187"},{"ymd":"2023_12_13","amt":"10","rate":"191"},{"ymd":"2023_12_22","amt":"270","rate":"192"}],"padz":[],"netAMT":290,"notez":"2","trimTOT":290,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2023_12_08","amt":"20","rate":"129"},{"ymd":"2023_12_11","amt":"20","rate":"134"},{"ymd":"2023_11_12","amt":"20","rate":"139"},{"ymd":"2023_12_26","amt":"15","rate":"143"},{"ymd":"2023_12_27","amt":"10","rate":"246"},{"ymd":"2023_12_28","amt":"10","rate":"149"}],"padz":[],"netAMT":95,"notez":"2","trimTOT":95,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2023_12_12","amt":"10","rate":"259"}],"padz":[],"netAMT":10,"notez":"2","trimTOT":10,"padTOT":0,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"38626"},{"ymd":"2023_12_02","amt":"50","rate":"39417"},{"ymd":"2023_12_03","amt":"25","rate":"39848"},{"ymd":"2023_12_03","amt":"50","rate":"4819"},{"ymd":"2023_12_04","amt":"20","rate":"41700"},{"ymd":"2023_12_04","amt":"30","rate":"41684"},{"ymd":"2023_12_05","amt":"50","rate":"42718"},{"ymd":"2023_12_05","amt":"50","rate":"44008"},{"ymd":"2023_12_13","amt":"20","rate":"41940"},{"ymd":"2023_12_13","amt":"30","rate":"42648"},{"ymd":"2023_12_13","amt":"20","rate":"43042"},{"ymd":"2023_12_18","amt":"30","rate":"41509"},{"ymd":"2023_12_30","amt":"2364","rate":"42060"}],"padz":[{"ymd":"2023_12_12","amt":"100","rate":"40928"},{"ymd":"2023_12_17","amt":"200","rate":"41077"},{"ymd":"2023_12_18","amt":"100","rate":"43074"},{"ymd":"2023_12_19","amt":"200","rate":"42663"},{"ymd":"2023_12_22","amt":"1500","rate":"43637"},{"ymd":"2023_12_25","amt":"100","rate":"42844"},{"ymd":"2023_12_29","amt":"50","rate":"42152"},{"ymd":"2023_12_29","amt":"500","rate":"42048"},{"ymd":"2023_12_30","amt":"14","rate":"42303"},{"ymd":"2023_12_30","amt":"0","rate":"42417"}],"netAMT":0,"notez":"Just Starting out. 1st month trading BTC since \"historic\" ETF approval on Jan 10, 2024. Profitable!!!","trimTOT":2764,"padTOT":2764,"expanded":true,"notez_expanded":true,"bookVAL":800,"bankVAL":-410},{"tkr":"AMZN","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2022_12_04","amt":"100","rate":"144"}],"trimTOT":0,"padTOT":100,"netAMT":-100}],"tot_flowz":3097},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2024_01_08","amt":"300","rate":"514"},{"ymd":"2024_01_08","amt":"80","rate":"518"},{"ymd":"2024_01_08","amt":"30","rate":"519"},{"ymd":"2024_01_08","amt":"20","rate":"520"},{"ymd":"2024_01_08","amt":"20","rate":"521"},{"ymd":"2024_01_08","amt":"20","rate":"523"},{"ymd":"2024_01_08","amt":"30","rate":"526"},{"ymd":"2024_01_09","amt":"100","rate":"534"},{"ymd":"2024_01_09","amt":"80","rate":"538"},{"ymd":"2024_01_09","amt":"50","rate":"542"},{"ymd":"2024_01_10","amt":"30","rate":"545"},{"ymd":"2024_01_11","amt":"60","rate":"549"},{"ymd":"2024_01_11","amt":"30","rate":"551"}],"padz":[],"netAMT":850,"notez":"JAN 8th 2024 - 1st $500 day!\nExcellent Margins, form prior OCT 27, 2024 lows.","trimTOT":850,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2024_01_19","amt":"10","rate":"401"}],"padz":[{"ymd":"2024_01_11","amt":"15","rate":"393"}],"netAMT":-5,"notez":"2","trimTOT":10,"padTOT":15,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[{"ymd":"2024_01_10","amt":"30","rate":"673"},{"ymd":"2024_01_12","amt":"30","rate":"679"},{"ymd":"2024_01_12","amt":"10","rate":"682"},{"ymd":"2024_01_18","amt":"20","rate":"687"},{"ymd":"2024_01_19","amt":"20","rate":"691"},{"ymd":"2024_01_19","amt":"50","rate":"694"}],"padz":[],"netAMT":160,"notez":"1","trimTOT":160,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"GOOG","cap":"4000","trimz":[{"ymd":"2024_01_10","amt":"20","rate":"144"},{"ymd":"2024_01_11","amt":"20","rate":"144"},{"ymd":"2024_01_18","amt":"20","rate":"145"},{"ymd":"2024_01_19","amt":"40","rate":"147"},{"ymd":"2024_01_19","amt":"20","rate":"147"},{"ymd":"2024_01_19","amt":"10","rate":"148"}],"padz":[],"netAMT":130,"notez":"3","trimTOT":130,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2024_01_08","amt":"50","rate":"372"},{"ymd":"2024_01_09","amt":"30","rate":"376"},{"ymd":"2024_01_10","amt":"210","rate":"381"}],"padz":[],"netAMT":290,"notez":"2","trimTOT":290,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"500","trimz":[{"ymd":"2023_01_19","amt":"20","rate":"197"},{"ymd":"2024_01_19","amt":"20","rate":"200"}],"padz":[],"netAMT":40,"notez":"2","trimTOT":40,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2024_01_16","amt":"20","rate":"157"},{"ymd":"2024_01_18","amt":"30","rate":"166"},{"ymd":"2024_01_19","amt":"25","rate":"173"}],"padz":[],"netAMT":75,"notez":"2","trimTOT":75,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2024_01_12","amt":"10","rate":"265"},{"ymd":"2024_01_19","amt":"15","rate":"271"}],"padz":[{"ymd":"2024_01_19","amt":"500","rate":"269"}],"netAMT":-475,"notez":"2","trimTOT":25,"padTOT":500,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2024_01_01","amt":"500","rate":"44519"},{"ymd":"2024_01_01","amt":"150","rate":"45282"},{"ymd":"2024_01_08","amt":"200","rate":"45870"},{"ymd":"2024_01_08","amt":"200","rate":"46466"},{"ymd":"2024_01_08","amt":"150","rate":"46891"},{"ymd":"2024_01_08","amt":"50","rate":"47156"},{"ymd":"2024_01_08","amt":"30","rate":"47028"},{"ymd":"2024_01_08","amt":"20","rate":"47021"},{"ymd":"2024_01_10","amt":"50","rate":"46229"},{"ymd":"2024_01_10","amt":"20","rate":"46354"},{"ymd":"2024_01_10","amt":"90","rate":"46768"},{"ymd":"2024_01_10","amt":"80","rate":"47024"},{"ymd":"2024_01_11","amt":"40","rate":"46908"},{"ymd":"2024_01_11","amt":"30","rate":"47000"},{"ymd":"2024_01_11","amt":"20","rate":"46336"},{"ymd":"2024_01_11","amt":"40","rate":"46480"},{"ymd":"2024_01_12","amt":"500","rate":"42459"},{"ymd":"2024_01_21","amt":"3000","rate":"41248"}],"padz":[{"ymd":"2024_01_06","amt":"250","rate":"43888"},{"ymd":"2024_01_10","amt":"250","rate":"45955"},{"ymd":"2024_01_10","amt":"100","rate":"46023"},{"ymd":"2024_01_11","amt":"100","rate":"45866"},{"ymd":"2024_01_11","amt":"50","rate":"46439"},{"ymd":"2024_01_11","amt":"80","rate":"46083"},{"ymd":"2024_01_12","amt":"100","rate":"43551"},{"ymd":"2024_01_12","amt":"100","rate":"43677"},{"ymd":"2024_01_12","amt":"100","rate":"42402"},{"ymd":"2024_01_18","amt":"200","rate":"41536"},{"ymd":"2024_01_18","amt":"200","rate":"40888"},{"ymd":"2024_01_21","amt":"200","rate":"417575"},{"ymd":"2024_01_21","amt":"100","rate":"40888"},{"ymd":"2024_01_21","amt":"100","rate":"40666"},{"ymd":"2024_01_21","amt":"100","rate":"40444"},{"ymd":"2024_01_21","amt":"100","rate":"39888"},{"ymd":"2024_01_21","amt":"200","rate":"39655"}],"netAMT":2840,"notez":"This was a ROUGH ONE. Correction at exact the time of CERTAINTY. Destroyed by institutions. How did I manage the boat in the unexpected correction? \nWe will See. Have yet to RUN the NUMBERS!\nCrossing fingers. How to CALCULATE?","trimTOT":5170,"padTOT":2330,"expanded":false,"notez_expanded":true,"bookVAL":800,"bankVAL":440},{"tkr":"AMZN","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2024_01_04","amt":"145","rate":"145"},{"ymd":"2024_01_04","amt":"146","rate":"146"},{"ymd":"2024_01_12","amt":"70","rate":"154"},{"ymd":"2024_01_19","amt":"300","rate":"153"},{"ymd":"2024_01_19","amt":"200","rate":"153"}],"trimTOT":0,"padTOT":861,"netAMT":-861}],"expanded":false,"tot_flowz":3044}}};
 }
 
 const ai_main_init=()=>{ //READ from LOCAL STORAGE
@@ -4369,8 +4435,6 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                netAMTBOX1.classList.add('inputDATABOX4')
                netAMTData1 = document.createElement('input')
                netAMTData1.classList.add('inputDATA0')
-               // netAMTData1.classList.add( 'greenTXT' )
-               // netAMTData1.classList.add( 'redTXT' )
                netAMTData1.classList.add( 
                   (tickrData.netAMT<0)?'redTXT':'greenTXT' )
                netAMTData1.placeholder = "0";
@@ -4892,6 +4956,7 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         
                         bankBOX1 = document.createElement('article')
                         bankBOX1.classList.add('bankBOX1')
+
                         totalzLBL1 = document.createElement('span')
                         totalzLBL1.innerHTML = 'BANKGAIN:'
                         totalzBANK1 = document.createElement('input')
@@ -6418,18 +6483,9 @@ const generateTotalzClick = ()=>{ // GENERATE ----------TOTALZ
 
    if(ai_ledger.totalz_expanded){
       expandCollapseBtn7.innerHTML = '💨' 
-      debugger;
-      // TOTALZ expand
-      //LOOP ai_main, ROWS of MONTH TOTALS. (expand)
-        //- ROWS of assetTOTALS. (expand)
-        //- asset details. (expand)
-        //- chartz (expand)
-      //   generatedQuickBOX.innerHTML = "" //clear view
-
-   // if(ai_ledger.quick_expanded){
-      // expandCollapseBtn0.innerHTML = '💨'   
       for(let i=0;i<qrtrSetz.length;i++){  //BEGIN MONTHLY LOOP
          MONTHData = ai_main.qrtrz[qrtrSetz[i]];
+
          monthBOX = document.createElement('section')
          monthBOX.classList.add('QuickQuarterBOX')
          monthHeader = document.createElement('aside')
@@ -6457,7 +6513,7 @@ const generateTotalzClick = ()=>{ // GENERATE ----------TOTALZ
          monthTITLE = document.createElement('input')
          monthTITLE.classList.add('quarterTitle')
          monthTITLE.value = MONTHData.qID;
-         // monthTITLE.value = month.qID;
+         monthTITLE.readOnly = true;
         
          // monthTITLE.onblur = function() {
          //    debugger;
@@ -6488,38 +6544,232 @@ const generateTotalzClick = ()=>{ // GENERATE ----------TOTALZ
          // //             btnzROW.appendChild(saveBOX1)
 
          
-         monthTITLE.addEventListener("keyup",(e)=>{ 
-            // let localSaveQtrTTL = e.target.parentElement.nextSibling.children[3].children[0]
-            // localSaveQtrTTL.style.display = 'flex';
-            saveBOXTTL.style.display = 'inline-flex'; 
-         });    
+         // monthTITLE.addEventListener("keyup",(e)=>{ 
+         //    // let localSaveQtrTTL = e.target.parentElement.nextSibling.children[3].children[0]
+         //    // localSaveQtrTTL.style.display = 'flex';
+         //    saveBOXTTL.style.display = 'inline-flex'; 
+         // });    
+
+         function calculate_MONTH_NET(month_data){ //LOOP MNTH FLOWS to find TOTAL MONTH data.
+            let totalMonthFlow = 0; 
+            for(var tickridx=0; tickridx<month_data.tickrz.length;tickridx++){
+               month_data.tickrz[tickridx].netAMT = parseInt(month_data.tickrz[tickridx].netAMT); //toNumber
+               totalMonthFlow += month_data.tickrz[tickridx].netAMT;
+            }
+            month_data.tot_flowz = totalMonthFlow; //TOTAL FLOWS and PCT.
+            //percentage gain
+            //AbsoluteGain = SellingPrice - BuyingPrice* 
+            //MO_PCTGAIN = ( AbsoluteGain / BuyingPrice ) x 100
+            
 
 
-         // START: EXPAND
-         expandBtn0 = document.createElement('button')
-         expandBtn0.innerHTML = '🕸️'
-         expandBtn0.classList.add('addBtn5')
+         }; calculate_MONTH_NET(MONTHData)
+
+
+         monthNETBOX1 = document.createElement('aside')
+         monthNETBOX1.innerHTML = "MONTH_NET&nbsp;"
+         monthNETData1 = document.createElement('input')
+         monthNETData1.placeholder = "$0";
+         monthNETData1.readOnly = true;
+         monthNETData1.value = MONTHData.tot_flowz || 0;
+         monthNETData1.classList.add('tkrATHData1') 
+         monthNETData1.classList.add( 
+                  (MONTHData.tot_flowz<0)?'redTXT':'greenTXT' );
+         monthNETPCT2 = document.createElement('input')
+         monthNETPCT2.placeholder = "$0";
+         monthNETPCT2.readOnly = true;
+         monthNETPCT2.value = "2%";//ai_ledger.ticks[i].monthNET || '';
+         monthNETPCT2.classList.add('tkrATHData1') 
+         monthNETBOX1.classList.add('tkrATHBOX1')
+         monthNETBOX1.appendChild(monthNETData1)
+         monthNETBOX1.appendChild(monthNETPCT2)
+         monthNETBOX1.style.display = 'inline-flex'
+         // monthHeader.appendChild(monthNETBOX1)
+
+
+
+
+
+         // START: EXPAND MONTH DATA
+         expandBtnMonthTotz = document.createElement('button')
+         expandBtnMonthTotz.innerHTML = '🕸️'
+         expandBtnMonthTotz.classList.add('addBtn8')
          // expandBtn0.setAttribute('data-arg3',month.qID)
-         expandBtn0.setAttribute('data-arg3',MONTHData.qID)
-         expandBtn0.addEventListener("click",(e)=>{ //EXPAND TICK MAIN.
-            debugger;
-               // expandQuickTickerClick(e.target.getAttribute('data-arg3')) 
+         expandBtnMonthTotz.setAttribute('qID',MONTHData.qID)
+         expandBtnMonthTotz.addEventListener("click",(e)=>{ //EXPAND TOP MONTH.
+               let qID = e.target.getAttribute('qID')
+               ai_main.qrtrz[qID].expandedTOTZ = !ai_main.qrtrz[qID].expandedTOTZ;
+                  //SAVE to LOCAL STORAGE
+               localStorage.ai_main = JSON.stringify(ai_main) 
+               generateTotalzClick(); //RELOAD VIEW.  
+               showErrorMSG('⚔️ SAVED ⚔️');                 
             });
-         addBtn4 = document.createElement('button')
-         addBtn4.innerHTML = 'add Ticker🧭'
-         addBtn4.classList.add('addBtn5')
-         addBtn4.setAttribute('data-arg2',MONTHData.qID)
-         addBtn4.addEventListener("click",(e)=>{
-            debugger;
-               // addQuickTickerClick(e.target.getAttribute('data-arg2')) 
-            });
+         // addBtn4 = document.createElement('button')
+         // addBtn4.innerHTML = 'add Ticker🧭'
+         // addBtn4.classList.add('addBtn5')
+         // addBtn4.setAttribute('data-arg2',MONTHData.qID)
+         // addBtn4.addEventListener("click",(e)=>{
+         //    debugger;
+         //       // addQuickTickerClick(e.target.getAttribute('data-arg2')) 
+         //    });
+
          monthHeader.appendChild(monthTITLE)
-         saveBOXTTL.appendChild(saveBtnTTL)
-         monthHeader.appendChild(saveBOXTTL)
-         monthHeader.appendChild(expandBtn0)
-         monthHeader.appendChild(addBtn4)
+         // saveBOXTTL.appendChild(saveBtnTTL)
+         // monthHeader.appendChild(saveBOXTTL)
+         monthHeader.appendChild(monthNETBOX1)
+         monthHeader.appendChild(expandBtnMonthTotz)
+         // monthHeader.appendChild(addBtn4)
          monthBOX.appendChild(monthHeader)
-         generatedMonthTotalsGRID.appendChild(monthBOX)
+         generatedMonthTotalsGRID.appendChild(monthBOX)         
+
+
+         if(MONTHData && MONTHData.expandedTOTZ){
+            expandBtnMonthTotz.innerHTML = '💨'
+
+            if(!MONTHData.tickrz){MONTHData.tickrz = []}
+            for(let j=0;j<MONTHData.tickrz.length;j++){  //MONTHLY CAP LOOP .
+               tickrData = MONTHData.tickrz[j];
+
+               tickerRowBOX = document.createElement('article')
+               tickerRowBOX.classList.add('totzRow1')
+
+               monthTick = document.createElement('input')
+               monthTick.classList.add('moTOTZTick1')
+               monthTick.value = tickrData.tkr.toUpperCase() || 0;
+               tickerRowBOX.appendChild(monthTick)  
+               
+               
+              //TODO: tickrData here!!!! *********************************
+
+
+
+               stockNETBOX1 = document.createElement('aside')
+               stockNETBOX1.innerHTML = "NET_FLOW&nbsp;"
+               stockNETData1 = document.createElement('input')
+               stockNETData1.placeholder = "$0";
+               stockNETData1.readOnly = true;
+               stockNETData1.value = tickrData.netAMT || '';
+               stockNETData1.classList.add('tkrATHData1') 
+               stockNETData1.classList.add( 
+                  (tickrData.netAMT<0)?'redTXT':'greenTXT' );               
+               stockNETPCT2 = document.createElement('input')
+               stockNETPCT2.placeholder = "$0";
+               stockNETPCT2.readOnly = true;
+               stockNETPCT2.value = "2%";//ai_ledger.ticks[i].stockNET || '';
+               stockNETPCT2.classList.add('tkrATHData1') 
+               stockNETBOX1.classList.add('tkrATHBOX1')
+               stockNETBOX1.appendChild(stockNETData1)
+               stockNETBOX1.appendChild(stockNETPCT2)
+               stockNETBOX1.style.display = 'inline-flex'
+               tickerRowBOX.appendChild(stockNETBOX1)  
+
+
+               // START: EXPAND TICKR DATA
+               expandBtnTkrDeetz = document.createElement('button')
+               expandBtnTkrDeetz.innerHTML = '🕸️'
+               expandBtnTkrDeetz.classList.add('expBtn9')
+               expandBtnTkrDeetz.setAttribute('qID',MONTHData.qID)
+               expandBtnTkrDeetz.setAttribute('tkr',tickrData.tkr.toUpperCase())
+               expandBtnTkrDeetz.addEventListener("click",(e)=>{ //EXPAND TOP MONTH.
+                  let qID = e.target.getAttribute('qID')
+                  let tkr = e.target.getAttribute('tkr')
+                  let tgtTKR = '';
+                  for(var exp=0; exp<ai_main.qrtrz[qID].tickrz.length;exp++){
+                     tgtTKR = ai_main.qrtrz[qID].tickrz[exp]
+                     if(tgtTKR.tkr===tkr){
+                        tgtTKR.expandedTOTZDeetz = ! tgtTKR.expandedTOTZDeetz;
+                        break;
+                     }
+                  }
+                     //SAVE to LOCAL STORAGE
+                  localStorage.ai_main = JSON.stringify(ai_main) 
+                  generateTotalzClick(); //RELOAD VIEW.  
+                  showErrorMSG('⚔️ SAVED ⚔️');                 
+               });
+               tickerRowBOX.appendChild(expandBtnTkrDeetz)  
+
+               monthBOX.appendChild(tickerRowBOX) 
+               //END TICKER DATA HEADERS - 
+               //START TICKER DETAILS.
+               if(tickrData && tickrData.expandedTOTZDeetz){
+                  expandBtnTkrDeetz.innerHTML = '💨';
+
+                  deetzRowBOX = document.createElement('article')
+                  deetzRowBOX.classList.add('deetzRow1')
+        
+                  // MATH LAYOUT DESIGN
+                  // console.log("deetz","StartBAL EndBAL, HiLoz, BookShares, BankGains/PCT, TOTNET/PCT,  ")
+                  // console.log("trades","cap, trimz, padz, avg, last, invmntz, BrEv  ")
+                  // console.log("extra","BookBAL, CashBAL, Tax EST EBTA , shares ")
+                  // console.log("quick data","HiLoz, avg price, lastprice ")
+                  // console.log("balance books","real_net vs NETFLOWS vs bankgains  ")
+
+
+                  detailNETBOX1 = document.createElement('aside')
+                  detailNETBOX1.innerHTML = "detail_NET&nbsp;"
+                  detailNETData1 = document.createElement('input')
+                  detailNETData1.placeholder = "$0";
+                  detailNETData1.readOnly = true;
+                  detailNETData1.value = "111";//ai_ledger.ticks[i].detailNET || '';
+                  detailNETData1.classList.add('tkrATHData1') 
+                  detailNETPCT2 = document.createElement('input')
+                  detailNETPCT2.placeholder = "$0";
+                  detailNETPCT2.readOnly = true;
+                  detailNETPCT2.value = "2%";//ai_ledger.ticks[i].detailNET || '';
+                  detailNETPCT2.classList.add('tkrATHData1') 
+                  detailNETBOX1.classList.add('tkrATHBOX1')
+                  detailNETBOX1.appendChild(detailNETData1)
+                  detailNETBOX1.appendChild(detailNETPCT2)
+                  detailNETBOX1.style.display = 'inline-flex'
+                  deetzRowBOX.appendChild(detailNETBOX1)                   
+
+
+                  monthBOX.appendChild(deetzRowBOX) 
+
+               }
+               
+
+
+            } //END TICKR DATA - display.
+
+         //       // if(!tickrData){debugger;}
+         //       //CALCULATE TRIM PAD TOTALS (overwrite) **************
+         //       tickrData.trimTOT = 0
+         //       tickrData.padTOT  = 0
+         //       tickrData.netAMT = 0     
+         //       // if(tickrData.tkr==='BTC'){debugger;}
+         //       if(!tickrData.trimz){tickrData.trimz=[]}          
+         //       if(!tickrData.padz){tickrData.padz=[]}          
+         //       for(var a=0; a<tickrData.trimz.length;a++){
+         //          tickrData.trimTOT += parseFloat(tickrData.trimz[a].amt);
+         //       }
+         //       for(var b=0; b<tickrData.padz.length;b++){
+         //          tickrData.padTOT += parseFloat(tickrData.padz[b].amt);
+         //       }
+         //       tickrData.netAMT = tickrData.trimTOT - tickrData.padTOT;
+         //       if(tickrData.netAMT > 0){
+         //          tickrData.netAMT = '+' + tickrData.netAMT;
+         //       } else {
+         //          tickrData.netAMT = tickrData.netAMT;
+         //       }
+         //       // if(tickrData.trimTOT && tickrData.padTOT){
+         //       //    if(tickrData.trimTOT > tickrData.padTOT){
+         //       //       tickrData.netAMT = tickrData.trimTOT/tickrData.padTOT;
+         //       //       tickrData.netAMT = tickrData.netAMT * 100;
+         //       //       tickrData.netAMT = '+' + Math.round(tickrData.netAMT) + '%';
+         //       //    } else {
+         //       //       tickrData.netAMT = tickrData.padTOT/tickrData.trimTOT;
+         //       //       tickrData.netAMT = tickrData.netAMT * 100;
+         //       //       tickrData.netAMT = '-' + Math.round(tickrData.netAMT) + '%';
+         //       //    }
+         //       // }
+
+         // tickerRowBOX = document.createElement('article')
+         // tickerRowBOX.classList.add('monthBOX')
+
+         } //END EXPANDED TICKER DATA
+
+
 
          // tickerRowBOX = document.createElement('article')
          // tickerRowBOX.classList.add('monthBOX')
@@ -6634,6 +6884,31 @@ const generateTotalzClick = ()=>{ // GENERATE ----------TOTALZ
       // generatedProfitsBOX.appendChild(closeBook_BOX) 
       //END LOCAL_SAVE_BTN --------------------------------------
 
+// debugger;
+      function calculate_TOT_NET(){ //LOOP MNTH FLOWS to find TOTAL MONTH data.
+         // debugger;
+         // let qrtrSetz = Object.keys(ai_main.qrtrz);//ai_ledger.ticks;
+         let month_data = null;
+         let totalMonthlyFlow = 0;
+         if(!qrtrSetz){ console.log('no data'); return}
+
+         for(let i=0;i<qrtrSetz.length;i++){  //BEGIN MONTHLY LOOP
+            month_data = ai_main.qrtrz[qrtrSetz[i]];
+            totalMonthlyFlow += month_data.tot_flowz;
+         }
+
+         if(!ai_main.totz){ ai_main.totz = {} }
+         ai_main.totz.total_net_amt = totalMonthlyFlow;
+         // let totalMonthlyFlow = 0;
+         // for(var tickridx=0; tickridx<month_data.tickrz.length;tickridx++){
+         //    month_data.tickrz[tickridx].netAMT = parseInt(month_data.tickrz[tickridx].netAMT); //toNumber
+         //    totalMonthlyFlow += month_data.tickrz[tickridx].netAMT;
+         // }
+         // month_data.tot_flowz = totalMonthFlow;
+      
+      }; calculate_TOT_NET()
+
+      //TODO REDO
       for(let idx=0; idx<keyz.length;idx++){
          // itm=ai_MetaData_TickMap[keyz[idx]];
          itm=ai_bankbook[keyz[idx]];
@@ -6660,7 +6935,7 @@ const generateTotalzClick = ()=>{ // GENERATE ----------TOTALZ
       totBankValue1.classList.add('totBankValue1')
       totBankValue1.innerHTML = 'bank_value: '+bankValue;//+ai_MetaData_TickMap[ticker.tick].sum_spot_amt || 0;                        
       totalsRow1 = document.createElement('footer')
-      totalsRow1.innerHTML = "Totals:"         
+      totalsRow1.innerHTML = "TOTAL_NET:"         
       totalsRow1.classList.add('totalsRow1') 
       totalsRow1.appendChild(totBookValue1)         
       totalsRow1.appendChild(totMarginBOX)         
@@ -6671,6 +6946,121 @@ const generateTotalzClick = ()=>{ // GENERATE ----------TOTALZ
    }//end if collapsed
 }
 generateTotalzClick();
+
+function calc_netAMT_TEST(){
+
+}
+
+function calculate_TOTNET_TEST(){ //LOOP MNTH FLOWS to find TOTAL MONTH data.
+
+   let month_data = {tkrz:[
+      {tkr:'AMZN',
+         txnz:[
+            {type:'BUY',amt:100,price:144,shares:0.694,date:'1/1/2024'},
+            {type:'BUY',amt:145,price:145,shares:1,date:'1/2/2024'},
+            {type:'BUY',amt:146,price:146,shares:1,date:'1/3/2024'},
+            {type:'BUY',amt:70,price:154,shares:0.453,date:'1/4/2024'},
+            {type:'BUY',amt:300,price:152,shares:1.961,date:'1/5/2024'},
+            {type:'BUY',amt:200,price:153,shares:1.305,date:'1/6/2024'},
+            {type:'SELL',amt:10,price:158,shares:0.063,date:'1/7/2024'},
+            {type:'SELL',amt:15,price:160,shares:0.094,date:'1/8/2024'},
+            {type:'BUY',amt:30,price:155,shares:0.193,date:'1/9/2024'},
+            {type:'SELL',amt:10,price:157,shares:0.063,date:'1/10/2024'},
+            {type:'SELL',amt:70,price:168,shares:0.416,date:'1/11/2024'},
+            {type:'SELL',amt:20,price:170,shares:0.117,date:'1/12/2024'},
+         ],
+         totBUYZ:0, totSELLZ:0, avgBUYZ:0, avgSELLZ:0,
+         avgNETBUYZSELLZ:0, //amt difference between average sell and average buy.
+         netFLOW:0, // monthly cash in / out +-
+         BOOKVAL:0, // value of stock @ price
+         BANKBAL:0, // balance of cash in/out +-
+         bookNET:0, // how much stock up/dwn +-
+         bookPCT:0, // how much stock gain %
+         netGAIN:0,  // how much book increase + SELLZ
+         HiVAL:0,   // hi price
+         LoVAL:0,    // lo price
+         TOTNET:0, //total net for asset all time.
+         /********************************EQUATION*****************\
+          * 1_ NEWCAP $100 @ $10 = shareBAL, 
+          *       bookVAL = 100, bankBAL = -100
+          * 2_ BUY $10 @ $11 = shares + shareBAL, 
+          *       bookVAL = (#sh@price), bankBAL = -110
+          * 3_ SELL $100 @ $12 = shares - shareBAL,
+          *       bookVAL()=10 , bankBAL = -10
+          * ------------------------------------------
+          * SHARES = amt/price //OR BOOKVAL / LAST_PRICE
+          * ------------------------------------------
+          * TOTVALUE = BOOKVAL +- BANKBAL +- NETFLOW
+          * -----------------------------------------
+          * BOOKVAL = (totalshares@price) //OR MONTH_END_BAL @ LAST_PRICE?
+          * ------------------------------------------------
+          * BANKBAL += Monthly_NetFlow (oct,nov,dec) 
+          *          OR MONTH_START_BAL OR NEWCAP?
+          * 
+         \*********************************************************/
+
+      }]}
+
+   let bookVAL = 0;
+   let bankBAL = 0;
+   let trxNUM = 0;
+   let trxTYPE = '';
+   let sharesNUM = 0;
+   let sharesAMT = 0;
+   let sharesTOT = 0;
+   let monthlyNET = 0;
+   let breakEVEN = 0;
+         
+   let tkr,txn = null;
+
+   // debugger;
+   /****************************************************\
+    * CALCULATE TRANSACTION METRICS   
+    * - tkr (ticker) and tkrz (tickers) or STOCK unit.
+    * - txn (transaction), txnz (transactions) (type) buyz/sellz.
+    * shares (sh)
+   \****************************************************/
+            console.log("...ai_ledger...........",currentDate,'-',current_ymd)
+   for(var tkrIDX=0; tkrIDX<month_data.tkrz.length;tkrIDX++){
+      tkr = month_data.tkrz[tkrIDX];
+            console.log("...ticker_totals.......",tkr.tkr);
+      for(var txnIDX=0; txnIDX < tkr.txnz.length;txnIDX++){
+         trxNUM = txnIDX+1;
+         txn = tkr.txnz[txnIDX];
+         sharesAMT = parseFloat(( txn.amt / txn.price ).toFixed(3));
+         bankBAL += (txn.type==='SELL')?txn.amt:txn.amt*-1;
+         sharesTOT += (txn.type==='BUY')?sharesAMT:sharesAMT*-1;
+         sharesTOT = parseFloat(sharesTOT.toFixed(3));
+         bookVAL = Math.round(sharesTOT * txn.price);
+         monthlyNET = bookVAL + bankBAL;
+            console.log(trxNUM,txn.type,`${txn.amt}@${txn.price}`,'shares',sharesAMT);
+            console.log('sharesTOT',sharesTOT,'MoNet',monthlyNET)
+            console.log('bankBAL',bankBAL,'bookVAL',bookVAL);
+      }
+            console.log("MoNet",monthlyNET)
+            console.log("...end_ticker.......",tkr.tkr);
+      // month_data.tkrz[tkrIDX].shares = //(shares = amt/price)
+      //    (month_data.tkrz[tkrIDX].amt / month_data.tkrz[tkrIDX].price).toFixed(3);
+      // month_data.tkrz[tkrIDX].netAMT = calc_netAMT_TEST();
+      // totalMonthFlow += month_data.tkrz[tkrIDX].netAMT;
+   }
+   // month_data.tot_flowz = totalMonthFlow; //TOTAL FLOWS and PCT.
+   //percentage gain
+   //AbsoluteGain = SellingPrice - BuyingPrice* 
+   //MO_PCTGAIN = ( AbsoluteGain / BuyingPrice ) x 100
+
+}; calculate_TOTNET_TEST()
+
+// const expandMONTotalzClick = (qID)=>{ //expand or collapse section
+//    debugger;
+//    ai_main.qrtrz[qID].expandedTOTZ = !ai_main.qrtrz[qID].expandedTOTZ;
+//    // ai_main.qrtrz[qID].expanded = !ai_main.qrtrz[qID].expanded;
+//    // ai_main.totz[qID].expanded = !ai_main.totz[qID].expanded;
+//    //    //SAVE to LOCAL STORAGE
+//    // localStorage.ai_main = JSON.stringify(ai_main) 
+//    generateTotalzClick(); //RELOAD VIEW.  
+//    showErrorMSG('⚔️ SAVED ⚔️');     
+// }
 
 // ------------------------------------------------END TOTALZ
 
@@ -6747,7 +7137,10 @@ const getLast_ATH_Month = async (quotes)=>{
                return data.json();
             }
          }).then((tickData)=>{
-            // debugger;
+            debugger;
+            let responseHigh = tickData["Monthly Adjusted Time Series"]['2024-01-31']['2. high'];
+
+
             let responseTick = tickData["Meta Data"]["2. Symbol"];
             if(!responseTick){return;}
             let lastRefresh = tickData["Meta Data"]["3. Last Refreshed"];

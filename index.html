@@ -7048,8 +7048,10 @@ const getLastPrice = (tickr)=>{ //REQUIRED for TOTNET calculations (bookVAL).
 
 
 
-function calculate_TOTNET_TEST(){ //LOOP MNTH FLOWS to find TOTAL MONTH data.
-
+function calculate_TOTNET_TEST(selectTKR){ //LOOP MNTH FLOWS to find TOTAL MONTH data.
+   if(!selectTKR){selectTKR = 'ALL'}
+   // selectTKR = 'COIN_RISK_REWARD'; //TEST MECHANISM
+   selectTKR = 'NVDA_No_Sell_Value'; //TEST MECHANISM
    let month_data = {tkrz:[
       {
          tkr:'AAA',
@@ -7142,11 +7144,36 @@ function calculate_TOTNET_TEST(){ //LOOP MNTH FLOWS to find TOTAL MONTH data.
             {type:'SELL',amt:50,price:150,date:'1/4/2024'},
       ]},      
       {
-         tkr:'NVDA_No_Sell Value',
+         tkr:'NVDA_No_Sell_Value',
          txnz:[
-            {type:'BUY',amt:100,price:200,date:'1/1/2024'},
-            {type:'SELL',amt:50,price:150,date:'1/4/2024'},
-      ]},      
+            {type:'BUY',amt:555,price:555,date:'4/13/2021'},
+            {type:'BUY',amt:500,price:438,date:'9/15/2023'},
+            {type:'BUY',amt:500,price:421,date:'9/20/2023'},
+            {type:'BUY',amt:200,price:410,date:'9/21/2023'},
+            {type:'BUY',amt:200,price:440,date:'9/30/2023'},
+            {type:'BUY',amt:300,price:459,date:'10/10/2023'},
+            {type:'BUY',amt:200,price:412,date:'10/20/2023'},
+            {type:'BUY',amt:200,price:494,date:'11/17/2023'},
+            {type:'BUY',amt:100,price:485,date:'11/22/2023'},
+            {type:'QUOTE',price:725,date:'2/14/2024'},
+      ]},  
+      {
+         tkr:'COIN_RISK_REWARD',
+         txnz:[
+            {type:'BUY',amt:584,price:292,date:'5/4/2021'},
+            {type:'SELL',amt:30,price:112,date:'1/3/2024'},
+            {type:'SELL',amt:20,price:127,date:'1/4/2024'},
+            {type:'SELL',amt:25,price:142,date:'1/4/2024'},
+            {type:'SELL',amt:10,price:151,date:'1/4/2024'},
+            {type:'BUY',amt:154,price:154,date:'12/19/2023'},
+            {type:'BUY',amt:156,price:156,date:'12/19/2023'},
+            {type:'BUY',amt:170,price:170,date:'12/19/2023'},
+            {type:'BUY',amt:100,price:175,date:'12/19/2023'},
+            {type:'BUY',amt:100,price:173,date:'12/19/2023'},
+            {type:'BUY',amt:100,price:166,date:'12/19/2023'},
+            {type:'BUY',amt:20,price:143,date:'12/19/2023'},
+            {type:'QUOTE',price:142,date:'2/14/2024'},
+      ]},            
    ]}
 
    
@@ -7179,8 +7206,9 @@ function calculate_TOTNET_TEST(){ //LOOP MNTH FLOWS to find TOTAL MONTH data.
       let MoUpDwn = 0;  //Monthly gain loss (all assets combined)
       // let AllUpDwn = 0; //combined gain loss (all months combined)
       tkr = month_data.tkrz[tkrIDX];
+      if(tkr.tkr != selectTKR && selectTKR != 'ALL'){continue;}
       lastPRICE = getLastPrice(tkr); //get LAST PRICE for ticker
-            console.log(`|${tkr.tkr}|`,"details:*********",'last','@',lastPRICE);
+      console.log(`|${tkr.tkr}|`,"details:*********",'last','@',lastPRICE);
       for(var txnIDX=0; txnIDX < tkr.txnz.length;txnIDX++){
          trxNUM = txnIDX+1;
          txn = tkr.txnz[txnIDX];

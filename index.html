@@ -682,8 +682,8 @@ border-radius: 22px;
    padding: 8px 10px;
    width: 100%;
    padding-left: 8%;
-color: darkcyan;  
-font-size:0.888em;          
+   color: darkcyan;  
+   font-size:0.888em;          
 }
 .textareaBOX2 {
    background:darkslateblue;
@@ -696,9 +696,9 @@ font-size:0.888em;
    padding: 2% 3%;
    width: 100%;
    padding-left: 8%;
-color: darkcyan;  
-font-size:0.666em;     
-margin-right: 2%;     
+   color: darkcyan;  
+   font-size:0.666em;     
+   margin-right: 2%;     
 }
 .logzTXTArea{
     margin: 1% 2%;
@@ -1143,6 +1143,7 @@ border-radius: 8px;
     padding: 1% 3%;
     margin: 0.5% 1%;    
     width: 100%;
+    font-family: monospace;
 }
 .txnzRow1{
    background: #111d45;
@@ -1287,6 +1288,57 @@ border-radius: 8px;
     margin-bottom:0.555%;
     font-size: 0.666em;    
 }
+
+
+
+
+
+.detailzData1{    border-radius: 8px;
+   font-size: 0.999em;
+   background: #02184b;
+   color: cyan;
+   padding: 0 0.444em;
+   text-align: center;
+   max-width: 50px;
+   height: 16px;
+   margin-bottom: -1px;
+   border: 1px solid steelblue;}
+
+.detailzBOX1 {
+   background: #171746;
+    border-radius: 22px;
+    margin: 1% 2%;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 2% 0 1% 5%;
+    font-size: x-small;
+    font-family: monospace;
+    line-height: 1.666em;
+}
+.detailzBOX2 {
+   background: #2c2c62;
+    border-radius: 10px;
+    margin: 1% 0;
+    display: flex;
+    justify-content: space-around;
+    width: 92%;
+    flex-wrap: wrap;
+    padding-left: 4%;
+    font-size: x-small;
+    font-family: monospace;
+    line-height: 3em;
+    flex-direction: column;
+
+}
+.detailzDATAROW1{
+   display: flex;
+    justify-content: space-around;
+}
+
+
       .smICON{font-size:0.555em;}
       #instructionText{display:none;margin:4%;}
       
@@ -1654,17 +1706,21 @@ border-radius:13px;
       margin: 0.222em;">
          <section id="leftBOX" style="display:flex; justify-content: center;
          border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
-         "><span class="smICON">✴&nbsp;&nbsp;</span> ai_BANKBOOKZ, generative finance analytics, <span class="smICON">&nbsp;✳</span></section>            
+         "><span class="smICON">✴&nbsp;&nbsp;</span>
+         <span style="text-align: center;"> ai_BANKBOOKZ, finance system</span> 
+            <span class="smICON">&nbsp;✳</span></section>            
 
          <section id="midBOX" style="display:flex;  justify-content: center; font-size:0.777em;
             border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
             "><span class="smICON">&nbsp;&nbsp;✧&nbsp;</span>
-            for metadata transformer state visualization<span class="smICON">&nbsp;❇</span>
+            <span style="text-align: center;">for advanced data visualization</span>
+            <span class="smICON">&nbsp;❇</span>
          </section>
          <section id="rightBOX" style="display:flex;  justify-content: center;
             border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
             "><span class="smICON">&nbsp;&nbsp;✧&nbsp;</span>
-            and intelligent_ledger systems.<span class="smICON">&nbsp;❇</span>
+            <span style="text-align: center;">and generative metadata transformation.</span>
+            <span class="smICON">&nbsp;❇</span>
          </section>
       
       </header>         
@@ -6697,26 +6753,48 @@ const generateTotalzClick = ()=>{ // GENERATE ----------TOTALZ
               //TODO: tickrData here!!!! *********************************
               console.log('TOTALZ0:',2, 'tickrData:',tickrData.tkr.toUpperCase(),"UpDwn rows. ")
 // debugger;
-
-               stockNETBOX1 = document.createElement('aside')
-               stockNETBOX1.innerHTML = "UpDwn&nbsp;"
-               stockNETData1 = document.createElement('input')
-               stockNETData1.placeholder = "$0";
-               stockNETData1.readOnly = true;
-               stockNETData1.value = tickrData.netAMT || '';
-               stockNETData1.classList.add('tkrATHData1') 
-               stockNETData1.classList.add( 
+               //UpDwn
+               tkrUpDwn1 = document.createElement('aside')
+               tkrUpDwn1.innerHTML = "UpDwn&nbsp;"
+               tkrUpDwnData1 = document.createElement('input')
+               tkrUpDwnData1.placeholder = "$0";
+               tkrUpDwnData1.readOnly = true;
+               tkrUpDwnData1.value = tickrData.netAMT || '';
+               tkrUpDwnData1.classList.add('tkrATHData1') 
+               tkrUpDwnData1.classList.add( 
                   (tickrData.netAMT<0)?'redTXT':'greenTXT' );               
-               stockNETPCT2 = document.createElement('input')
-               stockNETPCT2.placeholder = "$0";
-               stockNETPCT2.readOnly = true;
-               stockNETPCT2.value = "2%";//ai_ledger.ticks[i].stockNET || '';
-               stockNETPCT2.classList.add('tkrATHData1') 
-               stockNETBOX1.classList.add('tkrATHBOX1')
-               stockNETBOX1.appendChild(stockNETData1)
-               stockNETBOX1.appendChild(stockNETPCT2)
-               stockNETBOX1.style.display = 'inline-flex'
-               tickerRowBOX.appendChild(stockNETBOX1)  
+               tkrUpDwnPCT1b = document.createElement('input')
+               tkrUpDwnPCT1b.placeholder = "$0";
+               tkrUpDwnPCT1b.readOnly = true;
+               tkrUpDwnPCT1b.value = "2%";//ai_ledger.ticks[i].stockNET || '';
+               tkrUpDwnPCT1b.classList.add('tkrATHData1') 
+               tkrUpDwn1.classList.add('tkrATHBOX1')
+               tkrUpDwn1.appendChild(tkrUpDwnData1)
+               tkrUpDwn1.appendChild(tkrUpDwnPCT1b)
+               tkrUpDwn1.style.display = 'inline-flex'
+               tickerRowBOX.appendChild(tkrUpDwn1)  
+
+               //InOut
+               bankInOut1 = document.createElement('aside')
+               bankInOut1.innerHTML = "InOut&nbsp;"
+               bankInOutData1 = document.createElement('input')
+               bankInOutData1.placeholder = "$0";
+               bankInOutData1.readOnly = true;
+               bankInOutData1.value = tickrData.netAMT || '';
+               bankInOutData1.classList.add('tkrATHData1') 
+               bankInOutData1.classList.add( 
+                  (tickrData.netAMT<0)?'redTXT':'greenTXT' );               
+               bankInOutPCT1b = document.createElement('input')
+               bankInOutPCT1b.placeholder = "$0";
+               bankInOutPCT1b.readOnly = true;
+               bankInOutPCT1b.value = "2%";//ai_ledger.ticks[i].stockNET || '';
+               bankInOutPCT1b.classList.add('tkrATHData1') 
+               bankInOut1.classList.add('tkrATHBOX1')
+               bankInOut1.appendChild(bankInOutData1)
+               bankInOut1.appendChild(bankInOutPCT1b)
+               bankInOut1.style.display = 'inline-flex'
+               tickerRowBOX.appendChild(bankInOut1)  
+
 
 
                // START: EXPAND TICKR DATA
@@ -7057,24 +7135,167 @@ calculate_TOTNET_UI_Details(MONTHData.qID,tickrData.tkr.toUpperCase())
 // -------------------------END UI_TOTALZ-------------------------
 
 
-                  detailNETBOX1 = document.createElement('aside')
-                  detailNETBOX1.innerHTML = "detail_NET&nbsp;"
-                  detailNETData1 = document.createElement('input')
-                  detailNETData1.placeholder = "$0";
-                  detailNETData1.readOnly = true;
-                  detailNETData1.value = "111";//ai_ledger.ticks[i].detailNET || '';
-                  detailNETData1.classList.add('tkrATHData1') 
-                  detailNETPCT2 = document.createElement('input')
-                  detailNETPCT2.placeholder = "$0";
-                  detailNETPCT2.readOnly = true;
-                  detailNETPCT2.value = "2%";//ai_ledger.ticks[i].detailNET || '';
-                  detailNETPCT2.classList.add('tkrATHData1') 
-                  detailNETBOX1.classList.add('tkrATHBOX1')
-                  detailNETBOX1.appendChild(detailNETData1)
-                  detailNETBOX1.appendChild(detailNETPCT2)
-                  detailNETBOX1.style.display = 'inline-flex'
+              
+                  // POPULATE MONTHLY DETAIL METADATA.**********************
+                  //QTR UpDwn, InOut
+                  //TKR UpDwn, InOut
+                  //--------------------
+                  //MonthDetail
+                  //BreakEven lastPrice
+                  //%offBE    
+                  //---------------
+                  //Trades
+                  //Longz Padz Trimz
+                  //----------------
+                  //AVGz
+                  //avgBUYPrice avgSELLPrice
+                  //BuySellSPREAD
+                  //-----------------
+                  //HiLoz
+                  //DaysOffHi DaysOffLo
+                  //TOP $ and date %off
+                  //BTM $ and date %off
+                  //HIrHI $ and date
+                  //LOrLO $ and date
 
-                  //LOGZ Collapse BTN
+                  //**************************************************
+                  detailzBOX1 = document.createElement('section')
+                  detailzBOX1.classList.add('detailzBOX1')
+                  detailzTitle1 = document.createElement('span')
+                  detailzTitle1.style.width = '100%';
+                  detailzTitle1.innerHTML = "MonthTotalz:&nbsp;"
+                  //*************************************************
+                  detailzDATABOX1 = document.createElement('section')
+                  detailzDATABOX1.classList.add('detailzDATABOX1')
+                  detailzLBL1 = document.createElement('span')
+                  detailzLBL1.innerHTML = "BreakEven&nbsp;"
+                  detailzData1 = document.createElement('input')
+                  detailzData1.placeholder = "$0";
+                  detailzData1.readOnly = true;
+                  detailzData1.value = "111";
+                  detailzData1.classList.add('detailzData1') 
+                  detailzData1b = document.createElement('input')
+                  detailzData1b.placeholder = "$0";
+                  detailzData1b.readOnly = true;
+                  detailzData1b.value = "2%";
+                  detailzData1b.classList.add('detailzData1') 
+                  detailzDATABOX1.appendChild(detailzLBL1)
+                  detailzDATABOX1.appendChild(detailzData1)
+                  detailzDATABOX1.appendChild(detailzData1b)
+                  //*************************************************
+                  //*************************************************
+                  detailzDATABOX2 = document.createElement('section')
+                  detailzDATABOX2.classList.add('detailzDATABOX1')
+                  detailzLBL2 = document.createElement('span')
+                  detailzLBL2.innerHTML = "&nbsp;lastPrice:"
+                  detailzData2 = document.createElement('input')
+                  detailzData2.placeholder = "$0";
+                  detailzData2.readOnly = true;
+                  detailzData2.value = "222";
+                  detailzData2.classList.add('detailzData1') 
+                  detailzDATABOX2.appendChild(detailzLBL2)
+                  detailzDATABOX2.appendChild(detailzData2)
+                  //*************************************************
+                  detailzDATAROW1 = document.createElement('section')
+                  detailzDATAROW1.classList.add('detailzDATAROW1')
+                  detailzDATAROW1.appendChild(detailzDATABOX1)
+                  detailzDATAROW1.appendChild(detailzDATABOX2)  
+                  //*************************************************
+
+                                    //MonthDetail
+                  //BreakEven lastPrice
+                  //%offBE    
+                  //---------------
+                  //Trades
+                  //Longz Padz Trimz
+                  //----------------
+                  //AVGz
+                  //avgBUYPrice avgSELLPrice
+                  //BuySellSPREAD
+                  //-----------------
+                  //HiLoz
+                  //DaysOffHi DaysOffLo
+                  //TOP $ and date %off
+                  //BTM $ and date %off
+                  //HIrHI $ and date
+                  //LOrLO $ and date
+                  //*************************************************
+                  detailzDATABOX3 = document.createElement('section')
+                  detailzDATABOX3.classList.add('detailzDATABOX1')
+                  detailzLBL3 = document.createElement('span')
+                  detailzLBL3.innerHTML = "&nbsp;LONGz:"
+                  detailzData3 = document.createElement('input')
+                  detailzData3.placeholder = "$0";
+                  detailzData3.readOnly = true;
+                  detailzData3.value = "333";
+                  detailzData3.classList.add('detailzData1') 
+                  detailzDATABOX3.appendChild(detailzLBL3)
+                  detailzDATABOX3.appendChild(detailzData3)
+                  //*************************************************
+                  //*************************************************
+                  detailzDATABOX4 = document.createElement('section')
+                  detailzDATABOX4.classList.add('detailzDATABOX1')
+                  detailzLBL4 = document.createElement('span')
+                  detailzLBL4.innerHTML = "&nbsp;PADz:"
+                  detailzData4 = document.createElement('input')
+                  detailzData4.placeholder = "$0";
+                  detailzData4.readOnly = true;
+                  detailzData4.value = "444";
+                  detailzData4.classList.add('detailzData1') 
+                  detailzDATABOX4.appendChild(detailzLBL4)
+                  detailzDATABOX4.appendChild(detailzData4)
+                  //*************************************************
+                  //*************************************************
+                  detailzDATABOX5 = document.createElement('section')
+                  detailzDATABOX5.classList.add('detailzDATABOX1')
+                  detailzLBL5 = document.createElement('span')
+                  detailzLBL5.innerHTML = "&nbsp;TRIMz:"
+                  detailzData5 = document.createElement('input')
+                  detailzData5.placeholder = "$0";
+                  detailzData5.readOnly = true;
+                  detailzData5.value = "555";
+                  detailzData5.classList.add('detailzData1') 
+                  detailzDATABOX5.appendChild(detailzLBL5)
+                  detailzDATABOX5.appendChild(detailzData5)
+                  //*************************************************
+                  detailzDATAROW2 = document.createElement('section')
+                  detailzDATAROW2.classList.add('detailzDATAROW1')                  
+                  detailzDATAROW2.appendChild(detailzDATABOX3)
+                  detailzDATAROW2.appendChild(detailzDATABOX4)
+                  detailzDATAROW2.appendChild(detailzDATABOX5)                     
+                  //*************************************************                  
+                  monthTOTALZBOX1 = document.createElement('section')
+                  monthTOTALZBOX1.classList.add('detailzBOX2') 
+                  monthTOTALZBOX1.appendChild(detailzDATAROW1)
+                  monthTOTALZBOX1.appendChild(detailzDATAROW2)
+                  // monthTOTALZBOX1.appendChild(detailzDATABOX1)
+                  // monthTOTALZBOX1.appendChild(detailzDATABOX2)
+                  // monthTOTALZBOX1.appendChild(detailzDATABOX3)
+                  // monthTOTALZBOX1.appendChild(detailzDATABOX4)
+                  // monthTOTALZBOX1.appendChild(detailzDATABOX5)
+                  //**************************************************
+                  // detailzLBL2 = document.createElement('span')
+                  // detailzLBL2.innerHTML = "detail_NET&nbsp;"
+                  // detailzData2 = document.createElement('input')
+                  // detailzData2.placeholder = "$0";
+                  // detailzData2.readOnly = true;
+                  // detailzData2.value = "222";
+                  // detailzData2.classList.add('detailzData1') 
+                  // detailzData2b = document.createElement('input')
+                  // detailzData2b.placeholder = "$0";
+                  // detailzData2b.readOnly = true;
+                  // detailzData2b.value = "2%";
+                  // detailzData2b.classList.add('detailzData1') 
+                  //*************************************************
+                  detailzBOX1.appendChild(detailzTitle1)
+                  detailzBOX1.appendChild(monthTOTALZBOX1)
+                  // detailzBOX1.appendChild(<br/>)
+                  // detailzBOX1.appendChild(detailzLBL2)
+                  // detailzBOX1.appendChild(detailzData2)
+                  // detailzBOX1.appendChild(detailzData2b)                  
+                  // END MONTHLY DETAIL METADATA.**********************
+
+                  //LOGZ Collapse BTN ***********************************
                   expandBtnTkrLogz = document.createElement('button')
                   expandBtnTkrLogz.innerHTML = '🕸️'
                   expandBtnTkrLogz.classList.add('expBtn9')
@@ -7096,19 +7317,18 @@ calculate_TOTNET_UI_Details(MONTHData.qID,tickrData.tkr.toUpperCase())
                      generateTotalzClick(); //RELOAD VIEW.  
                      showErrorMSG('⚔️ SAVED ⚔️');                 
                   });
-                  deetzRowBOX.appendChild(detailNETBOX1)  
+                  deetzRowBOX.appendChild(detailzBOX1)  
                   monthBOX.appendChild(deetzRowBOX) 
 
                   //START TICKER TRANSACTION LOGS.
-                  detailNETBOX2 = document.createElement('aside')
-                     detailNETBOX2.innerHTML = "TxnLOGZ:&nbsp;"                  
-                     detailNETBOX2.classList.add('tkrATHBOX1')
-                     detailNETBOX2.appendChild(expandBtnTkrLogz)
-                     detailNETBOX2.style.display = 'inline-flex'                  
+                  detailzTxnBOX3 = document.createElement('aside')
+                  detailzTxnBOX3.innerHTML = "TxnLOGZ:&nbsp;"                  
+                  detailzTxnBOX3.classList.add('tkrATHBOX1')
+                  detailzTxnBOX3.appendChild(expandBtnTkrLogz)
+                  detailzTxnBOX3.style.display = 'inline-flex'                  
                      
-                     txnzRowBOX.appendChild(detailNETBOX2)                     
+                     txnzRowBOX.appendChild(detailzTxnBOX3)                     
                   if(tickrData && tickrData.expandedTOTZLogz){
-                  // if(true){
                      expandBtnTkrLogz.innerHTML = '💨';
                      
                      //TEXT AREA
@@ -7117,10 +7337,7 @@ calculate_TOTNET_UI_Details(MONTHData.qID,tickrData.tkr.toUpperCase())
                      txnLOGZTXT1.classList.add('textareaBOX')
                      txnLOGZTXT1.classList.add('logzTXTArea')
                      txnLOGZTXT1.spellcheck = false;
-                     // txnLOGZTXT1.value = "logz";                                    
                      txnLOGZTXT1.value = txtLOGZ.join('\n') || 'none';                                    
-
-
                      txnzRowBOX.appendChild(txnLOGZTXT1)                  
                   }
                   monthBOX.appendChild(txnzRowBOX) 

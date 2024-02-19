@@ -440,6 +440,20 @@ hr{border-top: solid 1px cadetblue;
    text-align: right;
    width:fit-content;
 }
+   .detailzNUMBOX1{
+   border-radius: 8px;
+   font-size: 0.666em;
+   background: #1a0033;
+   color: cyan;
+   padding-left: 0.555em;
+   margin: 0.444em 1em;
+   display: flex;
+   max-height: 24px;
+   align-items: center;
+   text-align: right;
+   width:fit-content;
+   font-family:verdana;
+}
 .tkrATHData1{    border-radius: 8px;
    font-size: 0.999em;
    background: #02184b;
@@ -1320,7 +1334,7 @@ border-radius: 8px;
 }
 .detailzBOX2 {
    background: #2c2c62;
-    border-radius: 10px;
+    border-radius: 6px;
     margin: 1% 0;
     display: flex;
     justify-content: space-around;
@@ -1336,6 +1350,9 @@ border-radius: 8px;
 .detailzDATAROW1{
    display: flex;
     justify-content: space-around;
+    border-bottom:1px solid steelblue;
+    border-radius: 15%;
+    margin: 2% 0 1% 0;
 }
 
 
@@ -6637,14 +6654,10 @@ generateStoryClick();
 // ------------------------------------------------END STORYZ
 
 const generateTotalzClick = ()=>{ // GENERATE ----------TOTALZ
-   // debugger;
-   // let keyz = Object.keys(ai_MetaData_TickMap);
    let keyz = Object.keys(ai_bankbook);
    let bookValue = 0, bankValue=0,itm;
    let totMargin=0,totMarginPct,totMarginSum,totMarginBOX,totMarginPctBOX;
-   // generatedProfitsBOX.innerHTML=""
    generatedMonthTotalsGRID.innerHTML=""; //clear out data
-
 
    let qrtrKeyz = Object.keys(ai_main.qrtrz);//ai_ledger.ticks;
    let MONTHData = null;
@@ -6654,7 +6667,6 @@ const generateTotalzClick = ()=>{ // GENERATE ----------TOTALZ
       expandCollapseBtn7.innerHTML = '💨' 
       for(let i=0;i<qrtrKeyz.length;i++){  //BEGIN MONTHLY LOOP
          MONTHData = ai_main.qrtrz[qrtrKeyz[i]];
-
          monthBOX = document.createElement('section')
          monthBOX.classList.add('QuickQuarterBOX')
          monthHeader = document.createElement('aside')
@@ -6664,11 +6676,10 @@ const generateTotalzClick = ()=>{ // GENERATE ----------TOTALZ
          totalzsNUMBOX0.classList.add('quickNUMBOX0')
          totalzsCHECKBOX0 = document.createElement('label')
          totalzsCHECKBOX0.classList.add('checkboxFrame2') 
-         // totalzsNUMBOX0.innerHTML=i+1;            
          totalzsSelect0 = document.createElement('input');
-         // totalzsSelect0.TKR = tickrData.tkr.toUpperCase() || '';
          totalzsSelect0.qID = MONTHData.qID || '';
-         totalzsSelect0.type = "radio";
+         totalzsSelect0.type = "checkbox";
+         // totalzsSelect0.type = "radio";
          totalzsSelect0.name = "totalzCapsRadio";
          totalzsSelect0.classList.add('totalz_checkmark')
          totalzsCHECKBOX0.appendChild(totalzsSelect0)
@@ -6696,7 +6707,6 @@ const generateTotalzClick = ()=>{ // GENERATE ----------TOTALZ
 
          }; calculate_MONTH_NET(MONTHData)
 
-
          monthNETBOX1 = document.createElement('aside')
          monthNETBOX1.innerHTML = "Month_UpDwn&nbsp;"
          monthNETData1 = document.createElement('input')
@@ -6711,7 +6721,7 @@ const generateTotalzClick = ()=>{ // GENERATE ----------TOTALZ
          monthNETPCT2.readOnly = true;
          monthNETPCT2.value = "2%";//ai_ledger.ticks[i].monthNET || '';
          monthNETPCT2.classList.add('tkrATHData1') 
-         monthNETBOX1.classList.add('tkrATHBOX1')
+         monthNETBOX1.classList.add('detailzNUMBOX1')
          monthNETBOX1.appendChild(monthNETData1)
          monthNETBOX1.appendChild(monthNETPCT2)
          monthNETBOX1.style.display = 'inline-flex'
@@ -6740,19 +6750,13 @@ const generateTotalzClick = ()=>{ // GENERATE ----------TOTALZ
             if(!MONTHData.tickrz){MONTHData.tickrz = []}
             for(let j=0;j<MONTHData.tickrz.length;j++){  //MONTHLY CAP LOOP .
                tickrData = MONTHData.tickrz[j];
-
                tickerRowBOX = document.createElement('article')
                tickerRowBOX.classList.add('totzRow1')
-
                monthTick = document.createElement('input')
                monthTick.classList.add('moTOTZTick1')
                monthTick.value = tickrData.tkr.toUpperCase() || 0;
                tickerRowBOX.appendChild(monthTick)  
-               
-               
-              //TODO: tickrData here!!!! *********************************
               console.log('TOTALZ0:',2, 'tickrData:',tickrData.tkr.toUpperCase(),"UpDwn rows. ")
-// debugger;
                //UpDwn
                tkrUpDwn1 = document.createElement('aside')
                tkrUpDwn1.innerHTML = "UpDwn&nbsp;"
@@ -6768,7 +6772,7 @@ const generateTotalzClick = ()=>{ // GENERATE ----------TOTALZ
                tkrUpDwnPCT1b.readOnly = true;
                tkrUpDwnPCT1b.value = "2%";//ai_ledger.ticks[i].stockNET || '';
                tkrUpDwnPCT1b.classList.add('tkrATHData1') 
-               tkrUpDwn1.classList.add('tkrATHBOX1')
+               tkrUpDwn1.classList.add('detailzNUMBOX1')
                tkrUpDwn1.appendChild(tkrUpDwnData1)
                tkrUpDwn1.appendChild(tkrUpDwnPCT1b)
                tkrUpDwn1.style.display = 'inline-flex'
@@ -6789,13 +6793,11 @@ const generateTotalzClick = ()=>{ // GENERATE ----------TOTALZ
                bankInOutPCT1b.readOnly = true;
                bankInOutPCT1b.value = "2%";//ai_ledger.ticks[i].stockNET || '';
                bankInOutPCT1b.classList.add('tkrATHData1') 
-               bankInOut1.classList.add('tkrATHBOX1')
+               bankInOut1.classList.add('detailzNUMBOX1')
                bankInOut1.appendChild(bankInOutData1)
                bankInOut1.appendChild(bankInOutPCT1b)
                bankInOut1.style.display = 'inline-flex'
                tickerRowBOX.appendChild(bankInOut1)  
-
-
 
                // START: EXPAND TICKR DATA
                expandBtnTkrDeetz = document.createElement('button')
@@ -6829,36 +6831,20 @@ const generateTotalzClick = ()=>{ // GENERATE ----------TOTALZ
 
                   deetzRowBOX = document.createElement('article')
                   deetzRowBOX.classList.add('deetzRow1')
-
-                  
                   txnzRowBOX = document.createElement('article')
                   txnzRowBOX.classList.add('txnzRow1')
                   let txtLOGZ = [];
-                  // debugger;
-                  // console.log('TOTAL:',3, 'DEETZ data',tickrData.tkr.toUpperCase())
-                  // MATH LAYOUT DESIGN - *************************
-                  // console.log("deetz","StartBAL EndBAL, HiLoz, BookShares, BankGains/PCT, TOTNET/PCT,  ")
-                  // console.log("trades","cap, trimz, padz, avg, last, invmntz, BrEv  ")
-                  // console.log("extra","BookBAL, CashBAL, Tax EST EBTA , shares ")
-                  // console.log("quick data","HiLoz, avg price, lastprice ")
-                  // console.log("balance books","real_net vs NETFLOWS vs bankgains  ")
-
+                  let tkrMETASTATE = null;
 
 //**********BEGIN: UI_TOTALZ*********************************
 // - code SEED for BOTH: UI display, and new ESTIMATE MODULE!
 function calculate_TOTNET_UI_Details(selectQTR,selectTKR){ //LOOP MNTH FLOWS to find TOTAL MONTH data.
- 
    if(!selectTKR){selectTKR = 'AAA'}
    // selectTKR = 'COIN_RISK_REWARD'; //TEST MECHANISM
    // selectTKR = 'NVDA_No_Sell_Value'; //TEST MECHANISM
    // selectTKR = 'AAA';
    console.log('TOTALZ0:',3, 'DEETZ data',selectQTR.toUpperCase(),selectTKR.toUpperCase())
-   // console.log('TOTAL:0',selectTKR, 'selected')
-   let tkrObj = null;
    let txnObj = null;
-
- 
-
    let month_data = {tkrz:[ //TEST_MONTH_DATA
       {
          tkr:'AAA',
@@ -7013,129 +6999,89 @@ function calculate_TOTNET_UI_Details(selectQTR,selectTKR){ //LOOP MNTH FLOWS to 
       }
       // month_data = {tkrz:[]}
       // month_data = ai_main.TOTALZ_MATRIX[zqID][zTKR]
-      tkrObj = ai_main.TOTALZ_MATRIX[zqID][zTKR]
+      tkrMETASTATE = ai_main.TOTALZ_MATRIX[zqID][zTKR]
    }tranzform_to_ai_mainTOTALZ(selectQTR.toUpperCase(),selectTKR.toUpperCase());
-
-   // debugger;
-   // tkrObj;
-   // // month_data;
-   // tickrData;
-   // MONTHData;
-
-   console.log('TOTALZ0:',4, 'calculate_DETAILS',tickrData.tkr.toUpperCase())
    /****************************************************\
     * CALCULATE TRANSACTION METRICS   
     * - tkr (ticker) and tkrz (tickers) or STOCK unit.
     * - txn (transaction), txnz (transactions) (type) buyz/sellz.
     * shares (sh)
     \****************************************************/
-   // let tkrObj = month_data; //todo
-   // let txnObj = null;
    // let TOTNET = 0, TOT_TAX_EST = 0, GROSS_VALUE = 0;
    console.log(`********| MONTH_TRXNz | ${tickrData.tkr.toUpperCase()} : ${MONTHData.qID} |*********`);
    // console.log(currentDate,'|',current_ymd)
-   // for(var tkrIDX=0; tkrIDX<month_data.tkrz.length;tkrIDX++){ //LOOP MONTH DATA
-      let bookVAL = 0;
-      let bankBAL = 0;
-      let trxNUM = 0;
-      let trxTYPE = '';
-      let sharesNUM = 0;
-      let sharesAMT = 0;
-      let sharesTOT = 0;
-      let monthlyNET = 0;
-      let bookValTOT = 0; 
-      let lastPRICE = 0; 
-      let brEVENPRICE = 0;
-      let MoNetPCT = 0;
-      let MoNetTOT = 0;  
-      let MoUpDwn = 0;  //Monthly gain loss (all assets combined)
+   let bookVAL = 0;
+   let bankBAL = 0;
+   let trxNUM = 0;
+   let trxTYPE = '';
+   let sharesNUM = 0;
+   let sharesAMT = 0;
+   let sharesTOT = 0;
+   let monthlyNET = 0;
+   let bookValTOT = 0; 
+   let lastPRICE = 0; 
+   let brEVENPRICE = 0;
+   let MoNetPCT = 0;
+   let MoNetTOT = 0;  
+   let MoUpDwn = 0;  //Monthly gain loss (all assets combined)
+   
+   // let AllUpDwn = 0; //combined gain loss (all months combined)
+   lastPRICE = getLastPrice(tkrMETASTATE); //get LAST PRICE for ticker
+   console.log(`|${tkrMETASTATE.tkr}|`,"details:*********",'last','@',lastPRICE);
+   txtLOGZ.push(`|${tkrMETASTATE.tkr}|details:*********last@${lastPRICE}`)
+   for(var txnIDX=0; txnIDX < tkrMETASTATE.txnz.length;txnIDX++){
+      trxNUM = txnIDX+1;
+      txn = tkrMETASTATE.txnz[txnIDX];
+      // if(txn.type != 'QUOTE'){
+      sharesAMT = parseFloat(( txn.amt / txn.price ).toFixed(3));
+      bankBAL += (txn.type==='SELL')?txn.amt:txn.amt*-1;
+      sharesTOT += (txn.type==='BUY')?sharesAMT:sharesAMT*-1;
+      sharesTOT = parseFloat(sharesTOT.toFixed(3));
+      bookVAL = Math.round(sharesTOT * txn.price);
+      monthlyNET = bookVAL + bankBAL;
+      console.log(trxNUM,txn.type,`${txn.amt}@${txn.price}`); 
+      txtLOGZ.push(`|${trxNUM} ${txn.type} ${txn.amt}@${txn.price}`)
+      console.log('bankBAL',bankBAL,'bookVAL',bookVAL);
+      txtLOGZ.push(`|bankBAL ${bankBAL}, bookVAL ${bookVAL}`)
       
-   //    // let AllUpDwn = 0; //combined gain loss (all months combined)
-   //    tkr = month_data.tkrz[tkrIDX];
-         // tkrObj = selectTKR.toUpperCase(); 
-   //    if(tkr.tkr != selectTKR && selectTKR != 'ALL'){continue;}
-      lastPRICE = getLastPrice(tkrObj); //get LAST PRICE for ticker
-      console.log(`|${tkrObj.tkr}|`,"details:*********",'last','@',lastPRICE);
-      txtLOGZ.push(`|${tkrObj.tkr}|details:*********last@${lastPRICE}`)
-      for(var txnIDX=0; txnIDX < tkrObj.txnz.length;txnIDX++){
-         trxNUM = txnIDX+1;
-         txn = tkrObj.txnz[txnIDX];
-         // if(txn.type != 'QUOTE'){
-         sharesAMT = parseFloat(( txn.amt / txn.price ).toFixed(3));
-         bankBAL += (txn.type==='SELL')?txn.amt:txn.amt*-1;
-         sharesTOT += (txn.type==='BUY')?sharesAMT:sharesAMT*-1;
-         sharesTOT = parseFloat(sharesTOT.toFixed(3));
-         bookVAL = Math.round(sharesTOT * txn.price);
-         monthlyNET = bookVAL + bankBAL;
-         console.log(trxNUM,txn.type,`${txn.amt}@${txn.price}`); 
-         txtLOGZ.push(`|${trxNUM} ${txn.type} ${txn.amt}@${txn.price}`)
-         console.log('bankBAL',bankBAL,'bookVAL',bookVAL);
-         txtLOGZ.push(`|bankBAL ${bankBAL}, bookVAL ${bookVAL}`)
-         
-         //****************************************CALCULATE_BREAK_EVEN
-         bookValTOT = sharesTOT * txn.price;
-         //****************************************CALCULATE_BREAK_EVEN
-         brEVENPRICE = (bookValTOT - monthlyNET)/sharesTOT;
-         brEVENPRICE = brEVENPRICE.toFixed(2);
-         console.log("BrEvPRICE",`$${brEVENPRICE}`,'BookUpDwn $',monthlyNET);  
-         txtLOGZ.push(`BrEvPRICE $${brEVENPRICE} BookUpDwn $${monthlyNET}`)        
-         //***************************** calculate HI_LO_VAL
-         if(!tkrObj.HiVAL){tkrObj.HiVAL = 0;}
-         if(!tkrObj.LoVAL){tkrObj.LoVAL = 0;}
-         if(tkrObj.HiVAL<txn.price){ tkrObj.HiVAL = txn.price;
-            console.log('NEWHi:',tkrObj.HiVAL) 
-            txtLOGZ.push(`NEWHi ${tkrObj.HiVAL}`)  }
-         else if( tkrObj.LoVAL===0 || txn.price<tkrObj.LoVAL){ tkrObj.LoVAL = txn.price;
-            console.log('NEWLo:',tkrObj.LoVAL)
-            txtLOGZ.push(`NEWLo ${tkrObj.LoVAL}`) }
-      } //END LOOP TXNZ
-      /*********************TOTZ_CALCZ*****************/
-      // *****************calculate NET PERCENTAGE
-      MoNetPCT = monthlyNET/Math.abs(bankBAL);
-      MoNetPCT = MoNetPCT.toFixed(2)
-      MoNetPCT = parseFloat(MoNetPCT) * 100 + '%';
-      console.log(`|${tkrObj.tkr}|****MONTH_TOTALZ_****|`)
-      txtLOGZ.push(`|${tkrObj.tkr}|****MONTH_TOTALZ_****|`)
-      console.log('HILOz:',tkrObj.HiVAL,tkrObj.LoVAL)
-      txtLOGZ.push(`|HILOz: ${tkrObj.HiVAL}|${tkrObj.LoVAL}`)
-      console.log("MoUpDwn",monthlyNET,"MoUpDwnPCT",MoNetPCT)
-      txtLOGZ.push(`|MoUpDwn: ${monthlyNET}|MoUpDwnPCT${MoNetPCT}`)
-      bookValTOT = sharesTOT * lastPRICE;
-      console.log("BookValTOT",parseFloat(bookValTOT.toFixed(2)))
-      txtLOGZ.push(`|BookValTOT: ${parseFloat(bookValTOT.toFixed(2))}`)
-      console.log(`|${tkrObj.tkr}|`,"***************end_ticker****");
-      txtLOGZ.push(`|${tkrObj.tkr}|***************end_ticker****`);
-      // TOTNET += monthlyNET; //calculate overall totalz
-   // }// END LOOP MONTHS.
-   //TODO MOVE TO total section.
-   // console.log("|-----------------------------|")
-   // console.log("OVERALL_TOTALz")   
-   // console.log("|-----------------------------|")
-   // console.log(`${month_data.tkrz.length} assets across 1 months`)
-   // console.log("TOTAL NET GAIN/LOSS",TOTNET)
-   // TOT_TAX_EST = TOTNET * 0.22;
-   // console.log("TOTAL TAX EST (22%)",TOT_TAX_EST)
-   // GROSS_VALUE = TOTNET - TOT_TAX_EST;
-   // console.log("TOTAL GROSS", GROSS_VALUE)
-   // console.log("---------")
-   // console.log('Paper_Gains/Loss ~',0);            
-   // console.log('Trade_Gains/Loss ~',0);            
-   // console.log('---------');     
-   // console.log('TradeReserve:',1000, 'invested',0);     
-   // console.log('CorrectionReserve 10% of 50000:',10000, 'invested',0);     
-   // console.log('CrashReserve 10% of 50000:',10000, 'invested',0);  
-   // console.log('---------');     
-   // console.log('QTRHi',0,'QTRLo',0)   
-   // console.log('---------');     
-   // console.log('TOPBTMz:','10PCToffTOP',0,'20PCToffTOP',0);
-   // console.log('DAY_of_TOP',0,'TOP_AMT',0,'DAYZoffTOP',0)
-   // console.log('DAY_of_BTM',0,'BTM_AMT',0,'DAYZoffBTM',0)
+      //****************************************CALCULATE_BREAK_EVEN
+      bookValTOT = sharesTOT * txn.price;
+      //****************************************CALCULATE_BREAK_EVEN
+      brEVENPRICE = (bookValTOT - monthlyNET)/sharesTOT;
+      brEVENPRICE = brEVENPRICE.toFixed(2);
+      console.log("BrEvPRICE",`$${brEVENPRICE}`,'BookUpDwn $',monthlyNET);  
+      txtLOGZ.push(`BrEvPRICE $${brEVENPRICE} BookUpDwn $${monthlyNET}`) 
+      tkrMETASTATE.brEven = brEVENPRICE;       
+      //***************************** calculate HI_LO_VAL
+      if(!tkrMETASTATE.HiVAL){tkrMETASTATE.HiVAL = 0;}
+      if(!tkrMETASTATE.LoVAL){tkrMETASTATE.LoVAL = 0;}
+      if(tkrMETASTATE.HiVAL<txn.price){ tkrMETASTATE.HiVAL = txn.price;
+         console.log('NEWHi:',tkrMETASTATE.HiVAL) 
+         txtLOGZ.push(`NEWHi ${tkrMETASTATE.HiVAL}`)  }
+      else if( tkrMETASTATE.LoVAL===0 || txn.price<tkrMETASTATE.LoVAL){ tkrMETASTATE.LoVAL = txn.price;
+         console.log('NEWLo:',tkrMETASTATE.LoVAL)
+         txtLOGZ.push(`NEWLo ${tkrMETASTATE.LoVAL}`) }
+   } //END LOOP TXNZ
+   /*********************TOTZ_CALCZ*****************/
+   // *****************calculate NET PERCENTAGE
+   MoNetPCT = monthlyNET/Math.abs(bankBAL);
+   MoNetPCT = MoNetPCT.toFixed(2)
+   MoNetPCT = parseFloat(MoNetPCT) * 100 + '%';
+   console.log(`|${tkrMETASTATE.tkr}|****MONTH_TOTALZ_****|`)
+   txtLOGZ.push(`|${tkrMETASTATE.tkr}|****MONTH_TOTALZ_****|`)
+   console.log('HILOz:',tkrMETASTATE.HiVAL,tkrMETASTATE.LoVAL)
+   txtLOGZ.push(`|HILOz: ${tkrMETASTATE.HiVAL}|${tkrMETASTATE.LoVAL}`)
+   console.log("MoUpDwn",monthlyNET,"MoUpDwnPCT",MoNetPCT)
+   txtLOGZ.push(`|MoUpDwn: ${monthlyNET}|MoUpDwnPCT${MoNetPCT}`)
+   bookValTOT = sharesTOT * lastPRICE;
+   console.log("BookValTOT",parseFloat(bookValTOT.toFixed(2)))
+   txtLOGZ.push(`|BookValTOT: ${parseFloat(bookValTOT.toFixed(2))}`)
+   console.log(`|${tkrMETASTATE.tkr}|`,"***************end_ticker****");
+   txtLOGZ.push(`|${tkrMETASTATE.tkr}|***************end_ticker****`);
+   // TOTNET += monthlyNET; //calculate overall totalz TODO
 }; 
 calculate_TOTNET_UI_Details(MONTHData.qID,tickrData.tkr.toUpperCase())
 // -------------------------END UI_TOTALZ-------------------------
-
-
-              
                   // POPULATE MONTHLY DETAIL METADATA.**********************
                   //QTR UpDwn, InOut
                   //TKR UpDwn, InOut
@@ -7145,34 +7091,21 @@ calculate_TOTNET_UI_Details(MONTHData.qID,tickrData.tkr.toUpperCase())
                   //%offBE    
                   //---------------
                   //Trades
-                  //Longz Padz Trimz
-                  //----------------
-                  //AVGz
-                  //avgBUYPrice avgSELLPrice
-                  //BuySellSPREAD
-                  //-----------------
-                  //HiLoz
-                  //DaysOffHi DaysOffLo
-                  //TOP $ and date %off
-                  //BTM $ and date %off
-                  //HIrHI $ and date
-                  //LOrLO $ and date
-
                   //**************************************************
                   detailzBOX1 = document.createElement('section')
                   detailzBOX1.classList.add('detailzBOX1')
                   detailzTitle1 = document.createElement('span')
                   detailzTitle1.style.width = '100%';
-                  detailzTitle1.innerHTML = "MonthTotalz:&nbsp;"
+                  detailzTitle1.innerHTML = `${tkrMETASTATE.tkr || ''} | Totalz:&nbsp;`
                   //*************************************************
                   detailzDATABOX1 = document.createElement('section')
                   detailzDATABOX1.classList.add('detailzDATABOX1')
                   detailzLBL1 = document.createElement('span')
-                  detailzLBL1.innerHTML = "BreakEven&nbsp;"
+                  detailzLBL1.innerHTML = "BreakEven:&nbsp;"
                   detailzData1 = document.createElement('input')
                   detailzData1.placeholder = "$0";
                   detailzData1.readOnly = true;
-                  detailzData1.value = "111";
+                  detailzData1.value = tkrMETASTATE.brEven || 0;
                   detailzData1.classList.add('detailzData1') 
                   detailzData1b = document.createElement('input')
                   detailzData1b.placeholder = "$0";
@@ -7187,7 +7120,7 @@ calculate_TOTNET_UI_Details(MONTHData.qID,tickrData.tkr.toUpperCase())
                   detailzDATABOX2 = document.createElement('section')
                   detailzDATABOX2.classList.add('detailzDATABOX1')
                   detailzLBL2 = document.createElement('span')
-                  detailzLBL2.innerHTML = "&nbsp;lastPrice:"
+                  detailzLBL2.innerHTML = "&nbsp;lastPrice:&nbsp;"
                   detailzData2 = document.createElement('input')
                   detailzData2.placeholder = "$0";
                   detailzData2.readOnly = true;
@@ -7201,29 +7134,14 @@ calculate_TOTNET_UI_Details(MONTHData.qID,tickrData.tkr.toUpperCase())
                   detailzDATAROW1.appendChild(detailzDATABOX1)
                   detailzDATAROW1.appendChild(detailzDATABOX2)  
                   //*************************************************
-
-                                    //MonthDetail
-                  //BreakEven lastPrice
-                  //%offBE    
-                  //---------------
                   //Trades
                   //Longz Padz Trimz
                   //----------------
-                  //AVGz
-                  //avgBUYPrice avgSELLPrice
-                  //BuySellSPREAD
-                  //-----------------
-                  //HiLoz
-                  //DaysOffHi DaysOffLo
-                  //TOP $ and date %off
-                  //BTM $ and date %off
-                  //HIrHI $ and date
-                  //LOrLO $ and date
                   //*************************************************
                   detailzDATABOX3 = document.createElement('section')
                   detailzDATABOX3.classList.add('detailzDATABOX1')
                   detailzLBL3 = document.createElement('span')
-                  detailzLBL3.innerHTML = "&nbsp;LONGz:"
+                  detailzLBL3.innerHTML = "&nbsp;LONGz:&nbsp;"
                   detailzData3 = document.createElement('input')
                   detailzData3.placeholder = "$0";
                   detailzData3.readOnly = true;
@@ -7236,7 +7154,7 @@ calculate_TOTNET_UI_Details(MONTHData.qID,tickrData.tkr.toUpperCase())
                   detailzDATABOX4 = document.createElement('section')
                   detailzDATABOX4.classList.add('detailzDATABOX1')
                   detailzLBL4 = document.createElement('span')
-                  detailzLBL4.innerHTML = "&nbsp;PADz:"
+                  detailzLBL4.innerHTML = "&nbsp;PADz:&nbsp;"
                   detailzData4 = document.createElement('input')
                   detailzData4.placeholder = "$0";
                   detailzData4.readOnly = true;
@@ -7249,7 +7167,7 @@ calculate_TOTNET_UI_Details(MONTHData.qID,tickrData.tkr.toUpperCase())
                   detailzDATABOX5 = document.createElement('section')
                   detailzDATABOX5.classList.add('detailzDATABOX1')
                   detailzLBL5 = document.createElement('span')
-                  detailzLBL5.innerHTML = "&nbsp;TRIMz:"
+                  detailzLBL5.innerHTML = "&nbsp;TRIMz:&nbsp;"
                   detailzData5 = document.createElement('input')
                   detailzData5.placeholder = "$0";
                   detailzData5.readOnly = true;
@@ -7263,38 +7181,73 @@ calculate_TOTNET_UI_Details(MONTHData.qID,tickrData.tkr.toUpperCase())
                   detailzDATAROW2.appendChild(detailzDATABOX3)
                   detailzDATAROW2.appendChild(detailzDATABOX4)
                   detailzDATAROW2.appendChild(detailzDATABOX5)                     
+                  //************************************************* 
+                  //AVGz
+                  //avgBUYPrice avgSELLPrice
+                  //BuySellSPREAD
+                  //-----------------
+                  //HiLoz
+                  //DaysOffHi DaysOffLo
+                  //TOP $ and date %off
+                  //BTM $ and date %off
+                  //HIrHI $ and date
+                  //LOrLO $ and date
+                  //*************************************************
+                  detailzDATABOX6 = document.createElement('section')
+                  detailzDATABOX6.classList.add('detailzDATABOX1')
+                  detailzLBL6 = document.createElement('span')
+                  detailzLBL6.innerHTML = "&nbsp;HiLoz:&nbsp;"
+                  detailzData6 = document.createElement('input')
+                  detailzData6.placeholder = "$0";
+                  detailzData6.readOnly = true;
+                  detailzData6.value = `${tkrMETASTATE.HiVAL || 0}|${tkrMETASTATE.LoVAL || 0}`;
+                  detailzData6.classList.add('detailzData1') 
+                  detailzDATABOX6.appendChild(detailzLBL6)
+                  detailzDATABOX6.appendChild(detailzData6)
+                  //*************************************************
+                  //*************************************************
+                  detailzDATABOX7 = document.createElement('section')
+                  detailzDATABOX7.classList.add('detailzDATABOX1')
+                  detailzLBL7 = document.createElement('span')
+                  detailzLBL7.innerHTML = "&nbsp;AVGz:&nbsp;"
+                  detailzData7 = document.createElement('input')
+                  detailzData7.placeholder = "$0";
+                  detailzData7.readOnly = true;
+                  detailzData7.value = "777";
+                  detailzData7.classList.add('detailzData1') 
+                  detailzDATABOX7.appendChild(detailzLBL7)
+                  detailzDATABOX7.appendChild(detailzData7)
+                  //*************************************************
+                  //*************************************************
+                  detailzDATABOX8 = document.createElement('section')
+                  detailzDATABOX8.classList.add('detailzDATABOX1')
+                  detailzLBL8 = document.createElement('span')
+                  detailzLBL8.innerHTML = "&nbsp;TopBtmz:&nbsp;"
+                  detailzData8 = document.createElement('input')
+                  detailzData8.placeholder = "$0";
+                  detailzData8.readOnly = true;
+                  detailzData8.value = "888";
+                  detailzData8.classList.add('detailzData1') 
+                  detailzDATABOX8.appendChild(detailzLBL8)
+                  detailzDATABOX8.appendChild(detailzData8)
+                  //*************************************************                  
+                  //*************************************************
+                  detailzDATAROW3 = document.createElement('section')
+                  detailzDATAROW3.classList.add('detailzDATAROW1')                  
+                  detailzDATAROW3.appendChild(detailzDATABOX6)
+                  detailzDATAROW3.appendChild(detailzDATABOX7)
+                  detailzDATAROW3.appendChild(detailzDATABOX8)                     
                   //*************************************************                  
                   monthTOTALZBOX1 = document.createElement('section')
                   monthTOTALZBOX1.classList.add('detailzBOX2') 
                   monthTOTALZBOX1.appendChild(detailzDATAROW1)
                   monthTOTALZBOX1.appendChild(detailzDATAROW2)
-                  // monthTOTALZBOX1.appendChild(detailzDATABOX1)
-                  // monthTOTALZBOX1.appendChild(detailzDATABOX2)
-                  // monthTOTALZBOX1.appendChild(detailzDATABOX3)
-                  // monthTOTALZBOX1.appendChild(detailzDATABOX4)
-                  // monthTOTALZBOX1.appendChild(detailzDATABOX5)
-                  //**************************************************
-                  // detailzLBL2 = document.createElement('span')
-                  // detailzLBL2.innerHTML = "detail_NET&nbsp;"
-                  // detailzData2 = document.createElement('input')
-                  // detailzData2.placeholder = "$0";
-                  // detailzData2.readOnly = true;
-                  // detailzData2.value = "222";
-                  // detailzData2.classList.add('detailzData1') 
-                  // detailzData2b = document.createElement('input')
-                  // detailzData2b.placeholder = "$0";
-                  // detailzData2b.readOnly = true;
-                  // detailzData2b.value = "2%";
-                  // detailzData2b.classList.add('detailzData1') 
+                  monthTOTALZBOX1.appendChild(detailzDATAROW3)
                   //*************************************************
                   detailzBOX1.appendChild(detailzTitle1)
                   detailzBOX1.appendChild(monthTOTALZBOX1)
-                  // detailzBOX1.appendChild(<br/>)
-                  // detailzBOX1.appendChild(detailzLBL2)
-                  // detailzBOX1.appendChild(detailzData2)
-                  // detailzBOX1.appendChild(detailzData2b)                  
                   // END MONTHLY DETAIL METADATA.**********************
-
+                  // ************************************************
                   //LOGZ Collapse BTN ***********************************
                   expandBtnTkrLogz = document.createElement('button')
                   expandBtnTkrLogz.innerHTML = '🕸️'
@@ -7323,7 +7276,7 @@ calculate_TOTNET_UI_Details(MONTHData.qID,tickrData.tkr.toUpperCase())
                   //START TICKER TRANSACTION LOGS.
                   detailzTxnBOX3 = document.createElement('aside')
                   detailzTxnBOX3.innerHTML = "TxnLOGZ:&nbsp;"                  
-                  detailzTxnBOX3.classList.add('tkrATHBOX1')
+                  detailzTxnBOX3.classList.add('detailzNUMBOX1')
                   detailzTxnBOX3.appendChild(expandBtnTkrLogz)
                   detailzTxnBOX3.style.display = 'inline-flex'                  
                      
@@ -7362,6 +7315,30 @@ calculate_TOTNET_UI_Details(MONTHData.qID,tickrData.tkr.toUpperCase())
          ai_main.TOTALZ_MATRIX.total_net_amt = totalMonthlyFlow;
       
       }; calculate_TOT_NET()
+
+   //TODO MOVE TO total section.
+   // console.log("|-----------------------------|")
+   // console.log("OVERALL_TOTALz")   
+   // console.log("|-----------------------------|")
+   // console.log(`${month_data.tkrz.length} assets across 1 months`)
+   // console.log("TOTAL NET GAIN/LOSS",TOTNET)
+   // TOT_TAX_EST = TOTNET * 0.22;
+   // console.log("TOTAL TAX EST (22%)",TOT_TAX_EST)
+   // GROSS_VALUE = TOTNET - TOT_TAX_EST;
+   // console.log("TOTAL GROSS", GROSS_VALUE)
+   // console.log("---------")
+   // console.log('Paper_Gains/Loss ~',0);            
+   // console.log('Trade_Gains/Loss ~',0);            
+   // console.log('---------');     
+   // console.log('TradeReserve:',1000, 'invested',0);     
+   // console.log('CorrectionReserve 10% of 50000:',10000, 'invested',0);     
+   // console.log('CrashReserve 10% of 50000:',10000, 'invested',0);  
+   // console.log('---------');     
+   // console.log('QTRHi',0,'QTRLo',0)   
+   // console.log('---------');     
+   // console.log('TOPBTMz:','10PCToffTOP',0,'20PCToffTOP',0);
+   // console.log('DAY_of_TOP',0,'TOP_AMT',0,'DAYZoffTOP',0)
+   // console.log('DAY_of_BTM',0,'BTM_AMT',0,'DAYZoffBTM',0)
 
       //TODO REDO / remove
       for(let idx=0; idx<keyz.length;idx++){

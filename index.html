@@ -6838,7 +6838,7 @@ const generateTotalzClick = ()=>{ // GENERATE ----------TOTALZ
 
 //**********BEGIN: UI_TOTALZ*********************************
 // - code SEED for BOTH: UI display, and new ESTIMATE MODULE!
-function calculate_TOTNET_UI_Details(selectQTR,selectTKR){ //LOOP MNTH FLOWS to find TOTAL MONTH data.
+function calculate_MONTHLY_TOTAL(selectQTR,selectTKR){ //LOOP MNTH FLOWS to find TOTAL MONTH data.
    if(!selectTKR){selectTKR = 'AAA'}
    // selectTKR = 'COIN_RISK_REWARD'; //TEST MECHANISM
    // selectTKR = 'NVDA_No_Sell_Value'; //TEST MECHANISM
@@ -7080,7 +7080,7 @@ function calculate_TOTNET_UI_Details(selectQTR,selectTKR){ //LOOP MNTH FLOWS to 
    txtLOGZ.push(`|${tkrMETASTATE.tkr}|***************end_ticker****`);
    // TOTNET += monthlyNET; //calculate overall totalz TODO
 }; 
-calculate_TOTNET_UI_Details(MONTHData.qID,tickrData.tkr.toUpperCase())
+calculate_MONTHLY_TOTAL(MONTHData.qID,tickrData.tkr.toUpperCase())
 // -------------------------END UI_TOTALZ-------------------------
                   // POPULATE MONTHLY DETAIL METADATA.**********************
                   //QTR UpDwn, InOut
@@ -7295,7 +7295,7 @@ calculate_TOTNET_UI_Details(MONTHData.qID,tickrData.tkr.toUpperCase())
                   }
                   monthBOX.appendChild(txnzRowBOX) 
                   
-               }
+               } //END expanded Details.
             } //END TICKR DATA - display.
          } //END EXPANDED TICKER DATA
       } //-------------------------------------------END MONTHLY LOOP
@@ -7373,6 +7373,465 @@ calculate_TOTNET_UI_Details(MONTHData.qID,tickrData.tkr.toUpperCase())
       totalsRow1.appendChild(totMarginBOX)         
       totalsRow1.appendChild(totBankValue1)         
       generatedMonthTotalsGRID.appendChild(totalsRow1) 
+
+/********************************************************\
+ * MASTERTOTALZ calculation & display
+\********************************************************/
+   // ************************************************
+   //CALCULATE BOOKZ BTN ***********************************
+   calculateBOOKSBtn1 = document.createElement('button')
+   calculateBOOKSBtn1.innerHTML = '🕸️'
+   calculateBOOKSBtn1.classList.add('expBtn9')
+   calculateBOOKSBtn1.setAttribute('qID',MONTHData.qID)
+   calculateBOOKSBtn1.setAttribute('tkr',tickrData.tkr.toUpperCase())
+   calculateBOOKSBtn1.addEventListener("click",(e)=>{ //EXPAND TXNZ.
+      let qID = e.target.getAttribute('qID')
+      let tkr = e.target.getAttribute('tkr')
+      let tgtTKR = '';
+      debugger;
+      // for(var exp=0; exp<ai_main.qrtrz[qID].tickrz.length;exp++){
+      //    tgtTKR = ai_main.qrtrz[qID].tickrz[exp]
+      //    if(tgtTKR.tkr===tkr){
+      //       tgtTKR.expandedTOTZLogz = ! tgtTKR.expandedTOTZLogz;
+      //       break;
+      //    }
+      // }
+      //    //SAVE to LOCAL STORAGE
+      // localStorage.ai_main = JSON.stringify(ai_main) 
+      // generateTotalzClick(); //RELOAD VIEW.  
+      // showErrorMSG('⚔️ SAVED ⚔️');                 
+   });
+   generatedMonthTotalsGRID.appendChild(calculateBOOKSBtn1) 
+
+
+if(true){ //EXPAND MASTER_TOTAL_RESULTS.
+   debugger;
+//    // expandBtnTkrDeetz.innerHTML = '💨';
+   masterTOTzROW = document.createElement('article')
+   masterTOTzROW.classList.add('deetzRow1')
+
+// //**********BEGIN: MASTER_TOTALZ*********************************
+// // - code SEED for BOTH: UI display, and new ESTIMATE MODULE, and TOTALZ!
+// function calculate_MASTER_TOTAL(selectQTR,selectTKR){ //LOOP MNTH FLOWS to find TOTAL MONTH data.
+//    if(!selectTKR){selectTKR = 'AAA'}
+//    // selectTKR = 'COIN_RISK_REWARD'; //TEST MECHANISM
+//    // selectTKR = 'NVDA_No_Sell_Value'; //TEST MECHANISM
+//    // selectTKR = 'AAA';
+//    console.log('TOTALZ0:',3, 'DEETZ data',selectQTR.toUpperCase(),selectTKR.toUpperCase())
+//    let txnObj = null;
+//    let month_data = {tkrz:[ //TEST_MONTH_DATA
+//       {
+//          tkr:'AAA',
+//          txnz:[
+//             {type:'BUY',amt:200,price:100,date:'1/1/2024'},
+//             {type:'QUOTE',price:90,date:'1/2/2024'},
+//             {type:'QUOTE',price:60,date:'1/3/2024'},
+//             {type:'QUOTE',price:110,date:'1/4/2024'},
+//       ]},
+//       {
+//          tkr:'AMZN',
+//          txnz:[
+//             {type:'BUY',amt:100,price:144,date:'1/1/2024'},
+//             {type:'BUY',amt:145,price:145,date:'1/2/2024'},
+//             // {type:'BUY',amt:146,price:146,date:'1/3/2024'},
+//             // {type:'BUY',amt:70,price:154,date:'1/4/2024'},
+//             // {type:'BUY',amt:300,price:152,date:'1/5/2024'},
+//             // {type:'BUY',amt:200,price:153,date:'1/6/2024'},
+//             {type:'SELL',amt:10,price:158,date:'1/7/2024'},
+//             {type:'SELL',amt:15,price:160,date:'1/8/2024'},
+//             {type:'BUY',amt:30,price:155,date:'1/9/2024'},
+//             {type:'SELL',amt:10,price:157,date:'1/10/2024'},
+//             // {type:'SELL',amt:70,price:168,date:'1/11/2024'},
+//             // {type:'SELL',amt:20,price:170,date:'1/12/2024'},
+//          ],
+//          totBUYZ:0, totSELLZ:0, avgBUYZ:0, avgSELLZ:0,
+//          avgNETBUYZSELLZ:0, //amt difference between average sell and average buy.
+//          netFLOW:0, // monthly cash in / out +- //TODO RENAME InOut
+//          BOOKVAL:0, // value of stock @ price   //TODO rename UpDwn
+//          BANKBAL:0, // balance of cash in/out +-
+//          bookNET:0, // how much stock up/dwn +-
+//          bookPCT:0, // how much stock gain %
+//          netGAIN:0,  // how much book increase + SELLZ
+//          HiVAL:0,   // hi price
+//          LoVAL:0,    // lo price
+//          TOTNET:0, //total net for asset all time.
+//          /********************************EQUATION*****************\
+//           * 1_ NEWCAP $100 @ $10 = shareBAL, 
+//           *       bookVAL = 100, bankBAL = -100
+//           * 2_ BUY $10 @ $11 = shares + shareBAL, 
+//           *       bookVAL = (#sh@price), bankBAL = -110
+//           * 3_ SELL $100 @ $12 = shares - shareBAL,
+//           *       bookVAL()=10 , bankBAL = -10
+//           * ------------------------------------------
+//           * SHARES = amt/price //OR BOOKVAL / LAST_PRICE
+//           * ------------------------------------------
+//           * TOTVALUE = BOOKVAL +- BANKBAL +- NETFLOW
+//           * -----------------------------------------
+//           * BOOKVAL = (totalshares@price) //OR MONTH_END_BAL @ LAST_PRICE?
+//           * ------------------------------------------------
+//           * BANKBAL += Monthly_NetFlow (oct,nov,dec) 
+//           *          OR MONTH_START_BAL OR NEWCAP?
+//           * 
+//          \*********************************************************/
+//       },
+//       {
+//          tkr:'TSLA',
+//          txnz:[
+//             {type:'BUY',amt:100,price:236,ymd:'2023_11_30'},
+//             {type:'SELL',amt:10,price:262,ymd:'2023_12_27'},
+//             {type:'BUY',amt:30,price:199,ymd:'2024_01_24'},
+//             {type:'QUOTE',price:193},
+//          ]
+//       },
+//       {
+//          tkr:'AAA_UP',
+//          txnz:[
+//             {type:'BUY',amt:100,price:100,date:'1/1/2024'},
+//             {type:'BUY',amt:20,price:150,date:'1/2/2024'},
+//             {type:'SELL',amt:20,price:200,date:'1/3/2024'},
+//             {type:'BUY',amt:20,price:180,date:'1/3/2024'},
+//             {type:'SELL',amt:20,price:210,date:'1/4/2024'},
+//       ]},
+//       {
+//          tkr:'BBB_SIDEWAY',
+//          txnz:[
+//             {type:'BUY',amt:100,price:100,date:'1/1/2024'},
+//             {type:'SELL',amt:10,price:110,date:'1/2/2024'},
+//             {type:'BUY',amt:10,price:100,date:'1/3/2024'},
+//             {type:'SELL',amt:10,price:110,date:'1/4/2024'},
+//             {type:'BUY',amt:10,price:100,date:'1/4/2024'},
+//       ]},            
+//       {
+//          tkr:'CCC_DWN',
+//          txnz:[
+//             {type:'BUY',amt:100,price:200,date:'1/1/2024'},
+//             {type:'BUY',amt:20,price:180,date:'1/2/2024'},
+//             {type:'SELL',amt:10,price:170,date:'1/3/2024'},
+//             {type:'SELL',amt:50,price:150,date:'1/4/2024'},
+//       ]},      
+//       {
+//          tkr:'NVDA_No_Sell_Value',
+//          txnz:[
+//             {type:'BUY',amt:555,price:555,date:'4/13/2021'},
+//             {type:'BUY',amt:500,price:438,date:'9/15/2023'},
+//             {type:'BUY',amt:500,price:421,date:'9/20/2023'},
+//             {type:'BUY',amt:200,price:410,date:'9/21/2023'},
+//             {type:'BUY',amt:200,price:440,date:'9/30/2023'},
+//             {type:'BUY',amt:300,price:459,date:'10/10/2023'},
+//             {type:'BUY',amt:200,price:412,date:'10/20/2023'},
+//             {type:'BUY',amt:200,price:494,date:'11/17/2023'},
+//             {type:'BUY',amt:100,price:485,date:'11/22/2023'},
+//             {type:'QUOTE',price:725,date:'2/14/2024'},
+//       ]},  
+//       {
+//          tkr:'COIN_RISK_REWARD',
+//          txnz:[
+//             {type:'BUY',amt:584,price:292,date:'5/4/2021'},
+//             {type:'SELL',amt:30,price:112,date:'1/3/2024'},
+//             {type:'SELL',amt:20,price:127,date:'1/4/2024'},
+//             {type:'SELL',amt:25,price:142,date:'1/4/2024'},
+//             {type:'SELL',amt:10,price:151,date:'1/4/2024'},
+//             {type:'BUY',amt:154,price:154,date:'12/19/2023'},
+//             {type:'BUY',amt:156,price:156,date:'12/19/2023'},
+//             {type:'BUY',amt:170,price:170,date:'12/19/2023'},
+//             {type:'BUY',amt:100,price:175,date:'12/19/2023'},
+//             {type:'BUY',amt:100,price:173,date:'12/19/2023'},
+//             {type:'BUY',amt:100,price:166,date:'12/19/2023'},
+//             {type:'BUY',amt:20,price:143,date:'12/19/2023'},
+//             {type:'QUOTE',price:142,date:'2/14/2024'},
+//             {type:'QUOTE',price:182,date:'2/15/2024'}, //pop on earning 17%
+//             {type:'QUOTE',price:189,date:'2/16/2024'}, //pop on earning 17%
+//       ]},            
+//    ]}
+//    //END_TEST_MONTH_DATA
+
+//    //TRANZFORM_DATA ai_main_totalz - accumulator pattern
+//    function tranzform_to_ai_mainTOTALZ(zqID,zTKR){ //TRANZFORM: AI_MAIN DATA (input) to TOTALZ TXNZ (encode)
+//       if(!ai_main.TOTALZ_MATRIX){ ai_main.TOTALZ_MATRIX = {}; }
+//       if(!ai_main.TOTALZ_MATRIX[zqID]){ ai_main.TOTALZ_MATRIX[zqID] = {}; }
+//       console.log('TOTALZ0:',3.1, 'Tranzform data',selectQTR.toUpperCase(),selectTKR.toUpperCase())
+//       ai_main.TOTALZ_MATRIX[zqID][zTKR] 
+//          = { tkr:zTKR, txnz:[] } //METADATA MATH destination - generative.
+//       let tgtTKR = {}, tgtTXN = {};
+//       for(var zIDX = 0; zIDX<MONTHData.tickrz.length; zIDX++){
+//          tgtTKR = MONTHData.tickrz[zIDX]
+//          if(tgtTKR.tkr===zTKR){ //found tgt tkr, now loop txnz
+//             for( var yIDX = 0; yIDX<tgtTKR.trimz.length; yIDX++){ //TRIMZ
+//                tgtTXN = tgtTKR.trimz[yIDX];
+//                ai_main.TOTALZ_MATRIX[zqID][zTKR].txnz.push(
+//                   { type:"SELL",amt:tgtTXN.amt || 0,
+//                      price:tgtTXN.rate,ymd:tgtTXN.ymd } )
+//             }
+//             for( var xIDX = 0; xIDX<tgtTKR.padz.length;xIDX++){ //PADZ
+//                tgtTXN = tgtTKR.padz[xIDX];
+//                ai_main.TOTALZ_MATRIX[zqID][zTKR].txnz.push(
+//                   { type:"BUY",amt:tgtTXN.amt || 0,
+//                      price:tgtTXN.rate,ymd:tgtTXN.ymd } )
+//             }
+//             break;
+//          }
+//       }
+//       // month_data = {tkrz:[]}
+//       // month_data = ai_main.TOTALZ_MATRIX[zqID][zTKR]
+//       tkrMETASTATE = ai_main.TOTALZ_MATRIX[zqID][zTKR]
+//    }tranzform_to_ai_mainTOTALZ(selectQTR.toUpperCase(),selectTKR.toUpperCase());
+//    /****************************************************\
+//     * CALCULATE TRANSACTION METRICS   
+//     * - tkr (ticker) and tkrz (tickers) or STOCK unit.
+//     * - txn (transaction), txnz (transactions) (type) buyz/sellz.
+//     * shares (sh)
+//     \****************************************************/
+//    // let TOTNET = 0, TOT_TAX_EST = 0, GROSS_VALUE = 0;
+//    console.log(`********| MONTH_TRXNz | ${tickrData.tkr.toUpperCase()} : ${MONTHData.qID} |*********`);
+//    // console.log(currentDate,'|',current_ymd)
+//    let bookVAL = 0;
+//    let bankBAL = 0;
+//    let trxNUM = 0;
+//    let trxTYPE = '';
+//    let sharesNUM = 0;
+//    let sharesAMT = 0;
+//    let sharesTOT = 0;
+//    let monthlyNET = 0;
+//    let bookValTOT = 0; 
+//    let lastPRICE = 0; 
+//    let brEVENPRICE = 0;
+//    let MoNetPCT = 0;
+//    let MoNetTOT = 0;  
+//    let MoUpDwn = 0;  //Monthly gain loss (all assets combined)
+   
+//    // let AllUpDwn = 0; //combined gain loss (all months combined)
+//    lastPRICE = getLastPrice(tkrMETASTATE); //get LAST PRICE for ticker
+//    console.log(`|${tkrMETASTATE.tkr}|`,"details:*********",'last','@',lastPRICE);
+//    txtLOGZ.push(`|${tkrMETASTATE.tkr}|details:*********last@${lastPRICE}`)
+//    for(var txnIDX=0; txnIDX < tkrMETASTATE.txnz.length;txnIDX++){
+//       trxNUM = txnIDX+1;
+//       txn = tkrMETASTATE.txnz[txnIDX];
+//       // if(txn.type != 'QUOTE'){
+//       sharesAMT = parseFloat(( txn.amt / txn.price ).toFixed(3));
+//       bankBAL += (txn.type==='SELL')?txn.amt:txn.amt*-1;
+//       sharesTOT += (txn.type==='BUY')?sharesAMT:sharesAMT*-1;
+//       sharesTOT = parseFloat(sharesTOT.toFixed(3));
+//       bookVAL = Math.round(sharesTOT * txn.price);
+//       monthlyNET = bookVAL + bankBAL;
+//       console.log(trxNUM,txn.type,`${txn.amt}@${txn.price}`); 
+//       txtLOGZ.push(`|${trxNUM} ${txn.type} ${txn.amt}@${txn.price}`)
+//       console.log('bankBAL',bankBAL,'bookVAL',bookVAL);
+//       txtLOGZ.push(`|bankBAL ${bankBAL}, bookVAL ${bookVAL}`)
+      
+//       //****************************************CALCULATE_BREAK_EVEN
+//       bookValTOT = sharesTOT * txn.price;
+//       //****************************************CALCULATE_BREAK_EVEN
+//       brEVENPRICE = (bookValTOT - monthlyNET)/sharesTOT;
+//       brEVENPRICE = brEVENPRICE.toFixed(2);
+//       console.log("BrEvPRICE",`$${brEVENPRICE}`,'BookUpDwn $',monthlyNET);  
+//       txtLOGZ.push(`BrEvPRICE $${brEVENPRICE} BookUpDwn $${monthlyNET}`) 
+//       tkrMETASTATE.brEven = brEVENPRICE;       
+//       //***************************** calculate HI_LO_VAL
+//       if(!tkrMETASTATE.HiVAL){tkrMETASTATE.HiVAL = 0;}
+//       if(!tkrMETASTATE.LoVAL){tkrMETASTATE.LoVAL = 0;}
+//       if(tkrMETASTATE.HiVAL<txn.price){ tkrMETASTATE.HiVAL = txn.price;
+//          console.log('NEWHi:',tkrMETASTATE.HiVAL) 
+//          txtLOGZ.push(`NEWHi ${tkrMETASTATE.HiVAL}`)  }
+//       else if( tkrMETASTATE.LoVAL===0 || txn.price<tkrMETASTATE.LoVAL){ tkrMETASTATE.LoVAL = txn.price;
+//          console.log('NEWLo:',tkrMETASTATE.LoVAL)
+//          txtLOGZ.push(`NEWLo ${tkrMETASTATE.LoVAL}`) }
+//    } //END LOOP TXNZ
+//    /*********************TOTZ_CALCZ*****************/
+//    // *****************calculate NET PERCENTAGE
+//    MoNetPCT = monthlyNET/Math.abs(bankBAL);
+//    MoNetPCT = MoNetPCT.toFixed(2)
+//    MoNetPCT = parseFloat(MoNetPCT) * 100 + '%';
+//    console.log(`|${tkrMETASTATE.tkr}|****MONTH_TOTALZ_****|`)
+//    txtLOGZ.push(`|${tkrMETASTATE.tkr}|****MONTH_TOTALZ_****|`)
+//    console.log('HILOz:',tkrMETASTATE.HiVAL,tkrMETASTATE.LoVAL)
+//    txtLOGZ.push(`|HILOz: ${tkrMETASTATE.HiVAL}|${tkrMETASTATE.LoVAL}`)
+//    console.log("MoUpDwn",monthlyNET,"MoUpDwnPCT",MoNetPCT)
+//    txtLOGZ.push(`|MoUpDwn: ${monthlyNET}|MoUpDwnPCT${MoNetPCT}`)
+//    bookValTOT = sharesTOT * lastPRICE;
+//    console.log("BookValTOT",parseFloat(bookValTOT.toFixed(2)))
+//    txtLOGZ.push(`|BookValTOT: ${parseFloat(bookValTOT.toFixed(2))}`)
+//    console.log(`|${tkrMETASTATE.tkr}|`,"***************end_ticker****");
+//    txtLOGZ.push(`|${tkrMETASTATE.tkr}|***************end_ticker****`);
+//    // TOTNET += monthlyNET; //calculate overall totalz TODO
+// }; 
+// //calculate_MASTER_TOTAL(MONTHData.qID,tickrData.tkr.toUpperCase())
+// // -------------------------END UI_TOTALZ-------------------------
+//       // POPULATE MONTHLY DETAIL METADATA.**********************
+//       //QTR UpDwn, InOut
+//       //TKR UpDwn, InOut
+//       //--------------------
+//       //MonthDetail
+//       //BreakEven lastPrice
+//       //%offBE    
+//       //---------------
+//       //Trades
+//       //**************************************************
+      let tkrMETASTATE = {}
+      mstrzBOX1 = document.createElement('section')
+      mstrzBOX1.classList.add('detailzBOX1')
+      mstrzTitle1 = document.createElement('span')
+      mstrzTitle1.style.width = '100%';
+      mstrzTitle1.innerHTML = `${tkrMETASTATE.tkr || ''} | Totalz:&nbsp;`
+      //*************************************************
+      mstrzDATABOX1 = document.createElement('section')
+      mstrzDATABOX1.classList.add('detailzDATABOX1')
+      mstrzLBL1 = document.createElement('span')
+      mstrzLBL1.innerHTML = "BreakEven:&nbsp;"
+      mstrzData1 = document.createElement('input')
+      mstrzData1.placeholder = "$0";
+      mstrzData1.readOnly = true;
+      mstrzData1.value = tkrMETASTATE.brEven || 0;
+      mstrzData1.classList.add('detailzData1') 
+      mstrzData1b = document.createElement('input')
+      mstrzData1b.placeholder = "$0";
+      mstrzData1b.readOnly = true;
+      mstrzData1b.value = "2%";
+      mstrzData1b.classList.add('detailzData1') 
+      mstrzDATABOX1.appendChild(mstrzLBL1)
+      mstrzDATABOX1.appendChild(mstrzData1)
+      mstrzDATABOX1.appendChild(mstrzData1b)
+      //*************************************************
+      //*************************************************
+      mstrzDATABOX2 = document.createElement('section')
+      mstrzDATABOX2.classList.add('detailzDATABOX1')
+      mstrzLBL2 = document.createElement('span')
+      mstrzLBL2.innerHTML = "&nbsp;lastPrice:&nbsp;"
+      mstrzData2 = document.createElement('input')
+      mstrzData2.placeholder = "$0";
+      mstrzData2.readOnly = true;
+      mstrzData2.value = "222";
+      mstrzData2.classList.add('mstrzData1') 
+      mstrzDATABOX2.appendChild(mstrzLBL2)
+      mstrzDATABOX2.appendChild(mstrzData2)
+      //*************************************************
+      mstrzDATAROW1 = document.createElement('section')
+      mstrzDATAROW1.classList.add('detailzDATAROW1')
+      mstrzDATAROW1.appendChild(mstrzDATABOX1)
+      mstrzDATAROW1.appendChild(mstrzDATABOX2)  
+      //*************************************************
+      //Trades
+      //Longz Padz Trimz
+      //----------------
+      //*************************************************
+      mstrzDATABOX3 = document.createElement('section')
+      mstrzDATABOX3.classList.add('detailzDATABOX1')
+      mstrzLBL3 = document.createElement('span')
+      mstrzLBL3.innerHTML = "&nbsp;LONGz:&nbsp;"
+      mstrzData3 = document.createElement('input')
+      mstrzData3.placeholder = "$0";
+      mstrzData3.readOnly = true;
+      mstrzData3.value = "333";
+      mstrzData3.classList.add('mstrzData1') 
+      mstrzDATABOX3.appendChild(mstrzLBL3)
+      mstrzDATABOX3.appendChild(mstrzData3)
+      //*************************************************
+      //*************************************************
+      mstrzDATABOX4 = document.createElement('section')
+      mstrzDATABOX4.classList.add('detailzDATABOX1')
+      mstrzLBL4 = document.createElement('span')
+      mstrzLBL4.innerHTML = "&nbsp;PADz:&nbsp;"
+      mstrzData4 = document.createElement('input')
+      mstrzData4.placeholder = "$0";
+      mstrzData4.readOnly = true;
+      mstrzData4.value = "444";
+      mstrzData4.classList.add('detailzData1') 
+      mstrzDATABOX4.appendChild(mstrzLBL4)
+      mstrzDATABOX4.appendChild(mstrzData4)
+      //*************************************************
+      //*************************************************
+      mstrzDATABOX5 = document.createElement('section')
+      mstrzDATABOX5.classList.add('detailzDATABOX1')
+      mstrzLBL5 = document.createElement('span')
+      mstrzLBL5.innerHTML = "&nbsp;TRIMz:&nbsp;"
+      mstrzData5 = document.createElement('input')
+      mstrzData5.placeholder = "$0";
+      mstrzData5.readOnly = true;
+      mstrzData5.value = "555";
+      mstrzData5.classList.add('detailzData1') 
+      mstrzDATABOX5.appendChild(mstrzLBL5)
+      mstrzDATABOX5.appendChild(mstrzData5)
+      //*************************************************
+      mstrzDATAROW2 = document.createElement('section')
+      mstrzDATAROW2.classList.add('detailzDATAROW1')                  
+      mstrzDATAROW2.appendChild(mstrzDATABOX3)
+      mstrzDATAROW2.appendChild(mstrzDATABOX4)
+      mstrzDATAROW2.appendChild(mstrzDATABOX5)                     
+      //************************************************* 
+      //AVGz
+      //avgBUYPrice avgSELLPrice
+      //BuySellSPREAD
+      //-----------------
+      //HiLoz
+      //DaysOffHi DaysOffLo
+      //TOP $ and date %off
+      //BTM $ and date %off
+      //HIrHI $ and date
+      //LOrLO $ and date
+      //*************************************************
+      mstrzDATABOX6 = document.createElement('section')
+      mstrzDATABOX6.classList.add('detailzDATABOX1')
+      mstrzLBL6 = document.createElement('span')
+      mstrzLBL6.innerHTML = "&nbsp;HiLoz:&nbsp;"
+      mstrzData6 = document.createElement('input')
+      mstrzData6.placeholder = "$0";
+      mstrzData6.readOnly = true;
+      mstrzData6.value = `${tkrMETASTATE.HiVAL || 0}|${tkrMETASTATE.LoVAL || 0}`;
+      mstrzData6.classList.add('mstrzData1') 
+      mstrzDATABOX6.appendChild(mstrzLBL6)
+      mstrzDATABOX6.appendChild(mstrzData6)
+      //*************************************************
+      //*************************************************
+      mstrzDATABOX7 = document.createElement('section')
+      mstrzDATABOX7.classList.add('detailzDATABOX1')
+      mstrzLBL7 = document.createElement('span')
+      mstrzLBL7.innerHTML = "&nbsp;AVGz:&nbsp;"
+      mstrzData7 = document.createElement('input')
+      mstrzData7.placeholder = "$0";
+      mstrzData7.readOnly = true;
+      mstrzData7.value = "777";
+      mstrzData7.classList.add('mstrzData1') 
+      mstrzDATABOX7.appendChild(mstrzLBL7)
+      mstrzDATABOX7.appendChild(mstrzData7)
+      //*************************************************
+      //*************************************************
+      mstrzDATABOX8 = document.createElement('section')
+      mstrzDATABOX8.classList.add('detailzDATABOX1')
+      mstrzLBL8 = document.createElement('span')
+      mstrzLBL8.innerHTML = "&nbsp;TopBtmz:&nbsp;"
+      mstrzData8 = document.createElement('input')
+      mstrzData8.placeholder = "$0";
+      mstrzData8.readOnly = true;
+      mstrzData8.value = "888";
+      mstrzData8.classList.add('mstrzData1') 
+      mstrzDATABOX8.appendChild(mstrzLBL8)
+      mstrzDATABOX8.appendChild(mstrzData8)
+      //*************************************************                  
+      //*************************************************
+      mstrzDATAROW3 = document.createElement('section')
+      mstrzDATAROW3.classList.add('detailzDATAROW1')                  
+      mstrzDATAROW3.appendChild(mstrzDATABOX6)
+      mstrzDATAROW3.appendChild(mstrzDATABOX7)
+      mstrzDATAROW3.appendChild(mstrzDATABOX8)                     
+      //*************************************************                  
+      mstrzTOTALZROW2 = document.createElement('section')
+      mstrzTOTALZROW2.classList.add('detailzBOX2') 
+      mstrzTOTALZROW2.appendChild(mstrzDATAROW1)
+      mstrzTOTALZROW2.appendChild(mstrzDATAROW2)
+      mstrzTOTALZROW2.appendChild(mstrzDATAROW3)
+      //*************************************************
+      mstrzBOX1.appendChild(mstrzTitle1)
+      mstrzBOX1.appendChild(mstrzTOTALZROW2)
+   // END MONTHLY DETAIL METADATA.**********************
+
+      masterTOTzROW.appendChild(mstrzBOX1)  
+      generatedMonthTotalsGRID.appendChild(masterTOTzROW)  
+
+      
+   } //END EXPAND MASTER_TOTAL_RESULTS.    
+/********************************************************\
+ * END MASTER_TOTALZ calculation & display
+\********************************************************/
+
 
 
    }//end if collapsed

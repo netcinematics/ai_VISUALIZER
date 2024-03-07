@@ -620,9 +620,11 @@ border-radius: 22px;
     margin-bottom: 2%;  
     flex-wrap: wrap;
 }
-.totalzBOX1{
+.subTotalzROW2{
    display: flex;
     flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-evenly;    
 }
 .totalzBankVAL{
    border-radius: 13px;
@@ -867,7 +869,7 @@ border-radius: 8px;
     margin-left:1em;
 }
 .inputDATA0{    border-radius: 8px;
-    font-size: 0.777em;
+    font-size: 1em;
     background: #02184b;
     color:    #136567;
     padding: 0 0.444em;
@@ -885,6 +887,17 @@ border-radius: 8px;
     text-align: center;
     max-width: 50px;
     height: 16px;
+    margin-bottom: -1px;
+    border: 1px solid steelblue;}
+.inputDATA2{    border-radius: 8px;
+    font-size: 0.666em;
+    background: #02184b;
+    /* color:    steelblue; */
+    padding: 0 0.444em;
+    text-align: center;
+    min-width: 100%;
+    width: 2em;
+    height: 20px;
     margin-bottom: -1px;
     border: 1px solid steelblue;}
 
@@ -940,12 +953,13 @@ border-radius: 8px;
     font-family: monospace;    
 }
 .inputDATA2{    border-radius: 8px;
-    font-size: 0.777em;
+    font-size: 0.666em;
     background: #02184b;
     color: #b19f50;
     padding: 0 0.444em;
     text-align: center;
     max-width: 22px;
+    width:5em;
     height: 16px;
     margin-bottom: -1px;
     border: 1px solid steelblue;}
@@ -1007,7 +1021,7 @@ border-radius: 8px;
     margin-top: 1%;
 }
 .fifoTITLE1{
-   font-size: 0.444em;
+   font-size: 0.5em;
     color: yellow;
     padding: 2%;
     background: transparent;
@@ -1057,6 +1071,17 @@ border-radius: 8px;
     width: 0;
     border: none;  
 }
+.fifoLONGNUM{
+  font-size:0.666em;
+  color:yellow;
+  display: flex;
+    text-align: center;
+    background: transparent;
+    align-self: center;
+    min-width: 4em;
+    width: 0;
+    border: none;  
+}
 .fifoData{
    display: flex;
     width: 3em;
@@ -1068,6 +1093,18 @@ border-radius: 8px;
    flex-wrap: wrap;
 }
 #fifoTooltip {
+   position: absolute;
+   background-color: #13162a;
+   padding: 5px;
+   border: 1px solid steelblue;
+   border-radius: 4px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   display: none; 
+   font-size: small;
+   color: cyan;
+   font-family: monospace;
+}
+#fifoRoletip {
    position: absolute;
    background-color: #13162a;
    padding: 5px;
@@ -1656,6 +1693,7 @@ border-radius:13px;
 /* .redTXT{color:#a43d3d!important;}
 .greenTXT{color:#3db63f !important;} */
 .redTXT{color:red!important;}
+.yellowTXT{color:yellow!important;}
 .greenTXT{color:lime !important;}
 
       @media only screen and (max-width: 800px) { /* TABLET */
@@ -1791,6 +1829,7 @@ flex-direction: column; max-width: 777px;
 align-items: center;">
 
       <input id="fifoTooltip"></input>
+      <input id="fifoRoletip"></input>
       <section id="QuickBOX"
         style="width:80.888%; flex:1;    background: #001512;
         border-radius: 13px;
@@ -1801,7 +1840,7 @@ align-items: center;">
         <span class="boxTitle">🦁 
          <span style="font-size:0.777em; color:cyan"></span>
          <span style="font-size:0.555em">⏱🗠</span>
-         <span style="font-size: 1.222em;color:cyan;font-family: monospace;">QUICK_TRACK</span>
+         <span style="font-size: 1.222em;color:cyan;font-family: monospace;">QUICK_TRACKZ</span>
          <span style="font-size:0.555em"> 🐇(trim|pad)🐒</span>
         </span><br>
         <article>
@@ -1823,7 +1862,7 @@ align-items: center;">
         box-shadow: inset 1px 1px 11px 0px cyan; padding:2%;padding-top: 3%;padding-left:4%; color: cyan; line-height: 2.444em;">
         <span class="boxTitle">🎯 <span style="font-size:0.777em; color:cyan">1</span>
          <span style="font-size:0.555em">List of &nbsp;</span>
-         <span style="font-size: 1.222em;color:cyan;font-family: monospace;">Assets</span> 
+         <span style="font-size: 1.222em;color:cyan;font-family: monospace;">ASSETZ</span> 
          <span style="font-size:0.555em">(metadata) 🎪</span></span>
          <button id=expandCollapseBtn1 class="expandCollapseBtn1" onclick="assetsExpandCollapseClick()">🕸️</button>
          <hr/>
@@ -1839,7 +1878,7 @@ align-items: center;">
         
         <span class="boxTitle">🎲 <span style="font-size:0.777em; color:cyan">2</span>
          <span style="font-size:0.555em">Monthly &nbsp;</span>
-         <span style="font-size: 1.222em;color:cyan;font-family: monospace;">Spots</span>
+         <span style="font-size: 1.222em;color:cyan;font-family: monospace;">LONGZ</span>
          <span style="font-size:0.555em">(time spot) 🎱</span></span>
          <button id=expandCollapseBtn2 class="expandCollapseBtn1" onclick="spotsExpandCollapseClick()">🕸️</button>
          <hr/>
@@ -1854,7 +1893,7 @@ align-items: center;">
          <button id=expandCollapseBtn3 class="expandCollapseBtn1" onclick="marginsExpandCollapseClick()">🕸️</button>
          <span class="boxTitle">🐤 <span style="font-size:0.777em; color:cyan">3</span> 
          <span style="font-size:0.555em">Generate</span>
-         <span style="font-size: 1.222em;color:cyan;font-family: monospace;">MARGINS</span>
+         <span style="font-size: 1.222em;color:cyan;font-family: monospace;">MARGINZ</span>
          <span style="font-size:0.555em">📏(on spots)💎</span>
          </span><br>
          <article style="font-size:0.777em;font-family: sans-serif;line-height:2.222em;">
@@ -1909,7 +1948,7 @@ align-items: center;">
           <span style="font-size:0.777em; color:cyan">5</span>
           <span style="font-size:0.555em; color:#de9257;">Generate</span>
           <span style="font-size: 1.222em;color:cyan;font-family: monospace;">
-            MILESTONES🐾</span> 
+            MILESTONEZ🐾</span> 
           <span style="font-size:0.555em; color:#de9257;">🎢(eventz)🚀</span>
          </span><br>
          <article style="font-size:0.777em;font-family: sans-serif;line-height:2.222em;">
@@ -1929,7 +1968,7 @@ align-items: center;">
          <span class="boxTitle">🌪️ 
             <span style="font-size:0.777em; color:cyan">6</span>
           <span style="font-size:0.555em">Generate</span>
-          <span style="font-size: 1.222em;color:cyan;font-family: monospace;">Reviews</span>
+          <span style="font-size: 1.222em;color:cyan;font-family: monospace;">REVIEWZ</span>
           <span style="font-size:0.555em">🎬(storyz)🛠️</span>
          </span><br>
          <article style="font-size:0.777em;font-family: sans-serif;line-height:2.222em;">
@@ -2548,6 +2587,7 @@ align-items: center;">
    let expandCollapseBtn7 = document.getElementById('expandCollapseBtn7');
 
    let fifoTooltip = document.getElementById("fifoTooltip");  
+   let fifoRoletip = document.getElementById("fifoRoletip");  
 
    //FINANCIAL - ANALYTICS - CALCULATIONS
    let target_SYMBOL = 'NVDA';
@@ -3859,29 +3899,45 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
          tickerRowBOX.classList.add('monthBOX')
          if(QRTR.expanded){
             expandBtn0.innerHTML = '💨'
+
+            
+            
             if(!QRTR.tickrz){QRTR.tickrz = []}
             for(let j=0;j<QRTR.tickrz.length;j++){  //MONTHLY CAP LOOP .
                tickrData = QRTR.tickrz[j];
                // if(!tickrData){debugger;}
                //CALCULATE TRIM PAD TOTALS (overwrite) **************
+               tickrData.longTOT = 0
                tickrData.trimTOT = 0
                tickrData.padTOT  = 0
                tickrData.netAMT = 0     
-               // if(tickrData.tkr==='BTC'){debugger;}
-               if(!tickrData.trimz){tickrData.trimz=[]}          
-               if(!tickrData.padz){tickrData.padz=[]}          
-               for(var a=0; a<tickrData.trimz.length;a++){
-                  tickrData.trimTOT += parseFloat(tickrData.trimz[a].amt);
-               }
-               for(var b=0; b<tickrData.padz.length;b++){
-                  tickrData.padTOT += parseFloat(tickrData.padz[b].amt);
-               }
-               tickrData.netAMT = tickrData.trimTOT - tickrData.padTOT;
-               if(tickrData.netAMT > 0){
-                  tickrData.netAMT = '+' + tickrData.netAMT;
-               } else {
-                  tickrData.netAMT = tickrData.netAMT;
-               }
+               calculate_MonthlyTradeRoles = function(){
+                  // if(tickrData.tkr==='BTC'){debugger;}
+                  if(!tickrData.trimz){tickrData.trimz=[]}          
+                  if(!tickrData.padz){tickrData.padz=[]}          
+                  if(!tickrData.longz){tickrData.longz=[]}          
+                  for(var a=0; a<tickrData.trimz.length;a++){
+                     tickrData.trimTOT += parseFloat(tickrData.trimz[a].amt);
+                     if(tickrData.trimz[a].role==='LONG'||tickrData.trimz[a].role==='STOPLOSS'||tickrData.trimz[a].role==='UPHEDGE' ||
+                        tickrData.trimz[a].role==='UPCAP'||tickrData.trimz[a].role==='DWNCAP'||tickrData.trimz[a].role==='EXIT'){//LONG
+                        tickrData.longTOT += parseFloat(tickrData.trimz[a].amt);
+                     }
+                  }
+                  for(var b=0; b<tickrData.padz.length;b++){
+                     tickrData.padTOT += parseFloat(tickrData.padz[b].amt);
+                     if(tickrData.padz[b].role==='LONG'||tickrData.padz[b].role==='STOPLOSS'||tickrData.padz[b].role==='UPHEDGE' ||
+                        tickrData.padz[b].role==='UPCAP'||tickrData.padz[b].role==='DWNCAP'||tickrData.padz[b].role==='EXIT'){//LONG
+                        tickrData.longTOT += parseFloat(tickrData.padz[b].amt);
+                     }
+                  }
+
+                  tickrData.netAMT = tickrData.trimTOT - tickrData.padTOT;
+                  if(tickrData.netAMT > 0){
+                     tickrData.netAMT = '+' + tickrData.netAMT;
+                  } else {
+                     tickrData.netAMT = tickrData.netAMT;
+                  }
+               }; calculate_MonthlyTradeRoles();
                // if(tickrData.trimTOT && tickrData.padTOT){
                //    if(tickrData.trimTOT > tickrData.padTOT){
                //       tickrData.netAMT = tickrData.trimTOT/tickrData.padTOT;
@@ -4059,7 +4115,7 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                netAMTData1 = document.createElement('input')
                netAMTData1.classList.add('inputDATA0')
                netAMTData1.classList.add( 
-                  (tickrData.netAMT<0)?'redTXT':'greenTXT' )
+                  (tickrData.netAMT<0)?'redTXT':'greenTXT' ) 
                netAMTData1.placeholder = "0";
                netAMTData1.readOnly = true;
                netAMTData1.value = tickrData.netAMT || '';          
@@ -4079,8 +4135,6 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                QuickROW.appendChild(trimTick)         
                QuickROW.appendChild(saveBOX1)         
                QuickROW.appendChild(capBOX1)         
-               // QuickROW.appendChild(trimTOTBOX1)         
-               // QuickROW.appendChild(padTOTBOX1)         
                QuickROW.appendChild(netAMTBOX1)         
                QuickROW.appendChild(expandBtn1)
                tickerRowBOX.appendChild(QuickROW)
@@ -4136,7 +4190,7 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                      tradeAMTBOX1.innerHTML="AMT&nbsp";
                      tradeAMTBOX1.classList.add('inputDATABOX_AMT')
                      tradeAMTData1 = document.createElement('input')
-                     tradeAMTData1.classList.add('inputDATA0')
+                     tradeAMTData1.classList.add('inputDATA2')
                      tradeAMTData1.placeholder = "0";
                      // tradeAMTData1.value = tickrData.AMT || '';          
                      tradeAMTData1.addEventListener("keyup",(e)=>{ 
@@ -4146,7 +4200,7 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                      tradeText1.innerHTML="&nbsp;@&nbsp;";
                      // tradeAMTBOX1.classList.add('inputDATABOX0')
                      tradeRateData1 = document.createElement('input')
-                     tradeRateData1.classList.add('inputDATA0')
+                     tradeRateData1.classList.add('inputDATA2')
                      tradeRateData1.placeholder = "0";
                      tradeRateData1.addEventListener("keyup",(e)=>{ 
                         e.target.parentElement.parentElement.children[4].style.display = 'inline-flex';
@@ -4194,8 +4248,8 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                      role9.value = "HIGHrHIGH";
                      role10.value = "PAUSE";
                      role11.value = "EXIT";
-                     role12.value = "LoCAP";
-                     role13.value = "UpCAP";
+                     role12.value = "DWNCAP";
+                     role13.value = "UPCAP";
                      role1.innerHTML = "LONG";
                      role2.innerHTML = "PAD";
                      role3.innerHTML = "TRIM";
@@ -4207,8 +4261,8 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                      role9.innerHTML = "HIrHI";
                      role10.innerHTML = "PAUSE";
                      role11.innerHTML = "EXIT";  
-                     role12.innerHTML = "LoCAP";  
-                     role13.innerHTML = "UpCAP";  
+                     role12.innerHTML = "DWNCAP";  
+                     role13.innerHTML = "UPCAP";  
                      roleData.appendChild(role1);
                      roleData.appendChild(role2);
                      roleData.appendChild(role3);
@@ -4286,7 +4340,7 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                   fifoGRIDROW = document.createElement('section')
                   fifoGRIDROW.classList.add('fifoGRIDROW')
                      gridTitle = document.createElement('input')
-                     gridTitle.value = 'fifo trim/pad grid';
+                     gridTitle.value = 'fifo_trim_pad_grid:';
                      gridTitle.readOnly = true;
                      gridTitle.classList.add('fifoTITLE1')
                      fifoGRIDROW.appendChild(gridTitle)
@@ -4410,13 +4464,17 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         dateTrim.addEventListener("keyup",(e)=>{ 
                            e.target.parentElement.parentElement.parentElement.nextSibling.style.display = 'inline-flex'
                            fifoTooltip.style.display = "none";
+                           fifoRoletip.style.display = "none";
                         });
                         dateTrim.setAttribute('saveRate',trimRATE)
+                        dateTrim.setAttribute('saveRole',trimROLE)
                         dateTrim.setAttribute('saveData',`${QRTR.qID}|${tickrData.tkr}|${k}|trim`)
                         dateTrim.addEventListener("focus", function (e) {
                            fifoTooltip.value = '@_'+e.target.getAttribute('saveRate');
-                           fifoTooltip.value += `:${(trimROLE)?trimROLE:padROLE}`;
+                           fifoRoletip.value = `role:${e.target.getAttribute('saveRole')}`;
+                           // fifoRoletip.value = `role:${(trimROLE)?trimROLE:padROLE}`;
                            setTimeout(()=>{fifoTooltip.style.display = "block"},100);
+                           setTimeout(()=>{fifoRoletip.style.display = "block"},100);
                            let inputRect = event.target.getBoundingClientRect();
                            let fifoTooltipTop = inputRect.bottom + window.scrollY + 10; 
                            let fifoTooltipLeft = inputRect.left + window.scrollX + 40;
@@ -4424,26 +4482,40 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                            fifoTooltip.style.left = fifoTooltipLeft + "px";
                            fifoTooltip.style.width = fifoTooltip.value.split('').length + "em";                           
                            fifoTooltip.setAttribute('saveData',e.target.getAttribute('saveData'))
-                           //TODO ADD fifoROLETIP...
+                           let fifoRoletipTop = inputRect.bottom + window.scrollY + 44; 
+                           let fifoRoletipLeft = inputRect.left + window.scrollX + 44;
+                           fifoRoletip.style.top = fifoRoletipTop + "px";
+                           fifoRoletip.style.left = fifoRoletipLeft + "px";
+                           fifoRoletip.style.width = fifoRoletip.value.split('').length + "em";                           
+                           fifoRoletip.setAttribute('saveData',e.target.getAttribute('saveData'))
                         }); 
                         dateTrim.addEventListener("blur", function () {
                            setTimeout( ()=>{if(document.activeElement != fifoTooltip){fifoTooltip.style.display = "none";}},100)
+                           setTimeout( ()=>{if(document.activeElement != fifoRoletip){fifoRoletip.style.display = "none";}},100)
                         });                      
 
                         trimAMT = document.createElement('input')
                         trimAMT.value = trimNUM;
-                        trimAMT.classList.add('fifoTrimNUM')
+                        // trimAMT.classList.add('fifoTrimNUM')
+                        trimAMT.classList.add(
+                           (trimROLE==='LONG'||trimROLE==='STOPLOSS'||trimROLE==='UPHEDGE'
+                              ||trimROLE==='UPCAP'||trimROLE==='DWNCAP'||trimROLE==='EXIT')
+                              ?'fifoLONGNUM':'fifoTrimNUM');                        
 
                         trimAMT.addEventListener("keyup",(e)=>{ 
                            e.target.parentElement.parentElement.parentElement.nextSibling.style.display = 'inline-flex'
                            fifoTooltip.style.display = "none";
+                           fifoRoletip.style.display = "none";
                         }); 
-                        trimAMT.setAttribute('saveRate',trimRATE)
+                        trimAMT.setAttribute('saveRate',trimRATE);
+                        trimAMT.setAttribute('saveRole',trimROLE);
                         trimAMT.setAttribute('saveData',`${QRTR.qID}|${tickrData.tkr}|${k}|trim`)
                         trimAMT.addEventListener("focus", function (e) {
                            fifoTooltip.value = '@_'+e.target.getAttribute('saveRate');
-                           fifoTooltip.value += `:${(trimROLE)?trimROLE:padROLE}`;
+                           fifoRoletip.value = `role:${e.target.getAttribute('saveRole')}`;
+                           // fifoRoletip.value = `role:${(trimROLE)?trimROLE:padROLE}`;
                            setTimeout(()=>{fifoTooltip.style.display = "block"},100);
+                           setTimeout(()=>{fifoRoletip.style.display = "block"},100);
                            let inputRect = event.target.getBoundingClientRect();
                            let fifoTooltipTop = inputRect.bottom + window.scrollY + 10; 
                            let fifoTooltipLeft = inputRect.left + window.scrollX + 40;
@@ -4451,22 +4523,38 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                            fifoTooltip.style.left = fifoTooltipLeft + "px";
                            fifoTooltip.style.width = fifoTooltip.value.split('').length + "em";                           
                            fifoTooltip.setAttribute('saveData',e.target.getAttribute('saveData'))
+                           let fifoRoletipTop = inputRect.bottom + window.scrollY + 44; 
+                           let fifoRoletipLeft = inputRect.left + window.scrollX + 44;
+                           fifoRoletip.style.top = fifoRoletipTop + "px";
+                           fifoRoletip.style.left = fifoRoletipLeft + "px";
+                           fifoRoletip.style.width = fifoRoletip.value.split('').length + "em";                           
+                           fifoRoletip.setAttribute('saveData',e.target.getAttribute('saveData'))
                         }); 
                         trimAMT.addEventListener("blur", function () {
                            setTimeout( ()=>{if(document.activeElement != fifoTooltip){fifoTooltip.style.display = "none";}},100)
+                           setTimeout( ()=>{if(document.activeElement != fifoRoletip){fifoRoletip.style.display = "none";}},100)
                         });                           
                         padAMT = document.createElement('input')
                         padAMT.value = padNUM;
-                        padAMT.classList.add('fifoPadNUM')
+                        padAMT.classList.add(
+                           (padROLE==='LONG'||padROLE==='STOPLOSS'||padROLE==='UPHEDGE'
+                              ||padROLE==='UPCAP'||padROLE==='DWNCAP'||padROLE==='EXIT')
+                              ?'fifoLONGNUM':'fifoPadNUM');
+                        // padAMT.classList.add('fifoPadNUM')
                         padAMT.addEventListener("keyup",(e)=>{ 
                            e.target.parentElement.parentElement.parentElement.nextSibling.style.display = 'inline-flex'                           
                            fifoTooltip.style.display = "none";
+                           fifoRoletip.style.display = "none";
                         }); 
-                        padAMT.setAttribute('saveRate',padRATE)
+                        padAMT.setAttribute('saveRate',padRATE);
+                        padAMT.setAttribute('saveRole',padROLE);
                         padAMT.setAttribute('saveData',`${QRTR.qID}|${tickrData.tkr}|${k}|pad`)
                         padAMT.addEventListener("focus", function (e) {
                            fifoTooltip.value = '@_'+e.target.getAttribute('saveRate');
+                           fifoRoletip.value = `role:${e.target.getAttribute('saveRole')}`;
+                           // fifoRoletip.value = `role:${(trimROLE)?trimROLE:padROLE}`;
                            setTimeout(()=>{fifoTooltip.style.display = "block"},100);
+                           setTimeout(()=>{fifoRoletip.style.display = "block"},100);
                            let inputRect = event.target.getBoundingClientRect();
                            let fifoTooltipTop = inputRect.bottom + window.scrollY + 10; 
                            let fifoTooltipLeft = inputRect.left + window.scrollX + 40;
@@ -4474,9 +4562,16 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                            fifoTooltip.style.left = fifoTooltipLeft + "px";
                            fifoTooltip.style.width = fifoTooltip.value.split('').length + "em";                           
                            fifoTooltip.setAttribute('saveData',e.target.getAttribute('saveData'))
+                           let fifoRoletipTop = inputRect.bottom + window.scrollY + 44; 
+                           let fifoRoletipLeft = inputRect.left + window.scrollX + 44;
+                           fifoRoletip.style.top = fifoRoletipTop + "px";
+                           fifoRoletip.style.left = fifoRoletipLeft + "px";
+                           fifoRoletip.style.width = fifoRoletip.value.split('').length + "em";                           
+                           fifoRoletip.setAttribute('saveData',e.target.getAttribute('saveData'))
                         }); 
                         padAMT.addEventListener("blur", function () {
                            setTimeout( ()=>{if(document.activeElement != fifoTooltip){fifoTooltip.style.display = "none";}},100)
+                           setTimeout( ()=>{if(document.activeElement != fifoRoletip){fifoRoletip.style.display = "none";}},100)
                         });                        
                         datePad = document.createElement('input')
                         datePad.value = padYMD;
@@ -4484,12 +4579,17 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         datePad.addEventListener("keyup",(e)=>{ 
                            e.target.parentElement.parentElement.parentElement.nextSibling.style.display = 'inline-flex';
                            fifoTooltip.style.display = "none";
+                           fifoRoletip.style.display = "none";
                         });  
-                        datePad.setAttribute('saveRate',padRATE)
+                        datePad.setAttribute('saveRate',padRATE);
+                        datePad.setAttribute('saveRole',padROLE);
                         datePad.setAttribute('saveData',`${QRTR.qID}|${tickrData.tkr}|${k}|pad`)
                         datePad.addEventListener("focus", function (e) {
                            fifoTooltip.value = '@_'+e.target.getAttribute('saveRate');
+                           fifoRoletip.value = `role:${e.target.getAttribute('saveRole')}`;
+                           // fifoRoletip.value = `role:${(trimROLE)?trimROLE:padROLE}`;
                            setTimeout(()=>{fifoTooltip.style.display = "block"},100);
+                           setTimeout(()=>{fifoRoletip.style.display = "block"},100);
                            let inputRect = event.target.getBoundingClientRect();
                            let fifoTooltipTop = inputRect.bottom + window.scrollY + 10; 
                            let fifoTooltipLeft = inputRect.left + window.scrollX + 40;
@@ -4497,9 +4597,16 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                            fifoTooltip.style.left = fifoTooltipLeft + "px";
                            fifoTooltip.style.width = fifoTooltip.value.split('').length + "em";                           
                            fifoTooltip.setAttribute('saveData',e.target.getAttribute('saveData'))
+                           let fifoRoletipTop = inputRect.bottom + window.scrollY + 44; 
+                           let fifoRoletipLeft = inputRect.left + window.scrollX + 44;
+                           fifoRoletip.style.top = fifoRoletipTop + "px";
+                           fifoRoletip.style.left = fifoRoletipLeft + "px";
+                           fifoRoletip.style.width = fifoRoletip.value.split('').length + "em";                           
+                           fifoRoletip.setAttribute('saveData',e.target.getAttribute('saveData'))
                         }); 
                         datePad.addEventListener("blur", function () {
                            setTimeout( ()=>{if(document.activeElement != fifoTooltip){fifoTooltip.style.display = "none";}},100)
+                           setTimeout( ()=>{if(document.activeElement != fifoRoletip){fifoRoletip.style.display = "none";}},100)
                         });                         
                         fifoBOX.appendChild(dateTrim)
                         fifoBOX.appendChild(trimAMT)
@@ -4528,7 +4635,7 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                      expandBtn02.setAttribute('data-arg6',QRTR.qID)
                      expandBtn02.setAttribute('data-arg7',tickrData.tkr.toUpperCase())
                      expandBtn02.addEventListener("click",(e)=>{
-                        expandQuickNotezClick(
+                        expandMonthSubTotalz(
                            e.target.getAttribute('data-arg6'),
                            e.target.getAttribute('data-arg7')) 
                      });
@@ -4547,41 +4654,61 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         totalzROW = document.createElement('article')
                         // totalzROW.id = 'totalzROW'
                         totalzROW.classList.add('totalzROW')
-                        totalzROW.value = tickrData.notez || '';
+                        totalzROW.value = tickrData.notez || ''; //move to row?
 
-                        //TRIMZ and PADZ
+                        //LONGZ, TRIMZ and PADZ
+                        subStateROW2 = document.createElement('section')
+                        subStateROW2.classList.add('subTotalzROW2')                        
+                        longTOTBOX1 = document.createElement('aside')
+                        longTOTBOX1.innerHTML="longz&nbsp";
+                        longTOTBOX1.classList.add('inputDATABOX6')
+                        longTOTBOX1.classList.add('yellowTXT')
+                        longTOTData1 = document.createElement('input')
+                        longTOTData1.classList.add('inputDATA2')
+                        longTOTData1.classList.add('yellowTXT')
+                        longTOTData1.placeholder = "$0";
+                        longTOTData1.readOnly = true;
+                        longTOTData1.value = tickrData.longTOT || '';          
+                        longTOTBOX1.appendChild(longTOTData1)
+                        subStateROW2.appendChild(longTOTBOX1)
+                        
                         trimTOTBOX1 = document.createElement('aside')
-                        trimTOTBOX1.innerHTML="trims&nbsp";
-                        trimTOTBOX1.classList.add('inputDATABOX2')
+                        trimTOTBOX1.innerHTML="trimz&nbsp";
+                        trimTOTBOX1.classList.add('inputDATABOX6')
                         trimTOTBOX1.classList.add('greenTXT')
                         trimTOTData1 = document.createElement('input')
-                        trimTOTData1.classList.add('inputDATA0')
+                        trimTOTData1.classList.add('inputDATA2')
+                        trimTOTData1.classList.add('greenTXT')
                         trimTOTData1.placeholder = "$0";
                         trimTOTData1.readOnly = true;
                         trimTOTData1.value = tickrData.trimTOT || '';          
                         trimTOTBOX1.appendChild(trimTOTData1)
-                        totalzROW.appendChild(trimTOTBOX1)
+                        subStateROW2.appendChild(trimTOTBOX1)
+
                         padTOTBOX1 = document.createElement('aside')
-                        padTOTBOX1.innerHTML="pads&nbsp";
+                        padTOTBOX1.innerHTML="padz&nbsp";
                         padTOTBOX1.classList.add('inputDATABOX6')
                         padTOTBOX1.classList.add('redTXT')
                         padTOTData1 = document.createElement('input')
-                        padTOTData1.classList.add('inputDATA0')
+                        padTOTData1.classList.add('inputDATA2')
+                        padTOTData1.classList.add('redTXT')
                         padTOTData1.placeholder = "$0";
                         padTOTData1.readOnly = true;
                         padTOTData1.value = tickrData.padTOT || '';          
                         padTOTBOX1.appendChild(padTOTData1)
-                        totalzROW.appendChild(padTOTBOX1)
+                        subStateROW2.appendChild(padTOTBOX1)
 
 
-                        totalzBOX1 = document.createElement('section')
-                        totalzBOX1.classList.add('totalzBOX1')
+                        subTotalzROW2 = document.createElement('section')
+                        subTotalzROW2.classList.add('subTotalzROW2')
+                        subRateROW2 = document.createElement('section')
+                        subRateROW2.classList.add('subTotalzROW2')
                         
                         bankBOX1 = document.createElement('article')
                         bankBOX1.classList.add('bankBOX1')
 
                         totalzLBL1 = document.createElement('span')
-                        totalzLBL1.innerHTML = 'BANKGAIN:'
+                        totalzLBL1.innerHTML = 'BANKInOut:'
                         totalzBANK1 = document.createElement('input')
                         totalzBANK1.classList.add('totalzBankVAL')
                         totalzBANK1.value = `$${tickrData.bankVAL || 0}`;
@@ -4597,7 +4724,7 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         bookBOX1 = document.createElement('article')
                         bookBOX1.classList.add('bookBOX1')                        
                         totalzLBL2 = document.createElement('span')
-                        totalzLBL2.innerHTML = 'BOOKVALUE:'                        
+                        totalzLBL2.innerHTML = 'BOOKUpDwn:'                        
                         totalzBOOK1 = document.createElement('input')
                         totalzBOOK1.classList.add('totalzBookVAL')
                         totalzBOOK1.value = `$${tickrData.bookVAL || 0}`;
@@ -4629,7 +4756,7 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         evenLBL3 = document.createElement('span')
                         evenLBL3.innerHTML = 'AVGRATE:'                        
                         evenavg1 = document.createElement('input')
-                        evenavg1.classList.add('totalzavgVAL')
+                        evenavg1.classList.add('totalzEvenVAL')
                         evenavg1.value = `$${tickrData.evenVAL || 0}`;
                         evenavg1.style.width = '3em';// 444(tickrData.avgVAL.toString().length + 1) + 'em';
                         evenavg1.addEventListener("keyup",(e)=>{ 
@@ -4639,44 +4766,18 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         avgBOX1.appendChild(evenLBL3);
                         avgBOX1.appendChild(evenavg1);
 
+                        subTotalzROW2.appendChild(bankBOX1)
+                        subTotalzROW2.appendChild(bookBOX1)
+                        subRateROW2.appendChild(evenBOX1)
+                        subRateROW2.appendChild(avgBOX1)
 
-                        
-
-                        // evenBOX1 = document.createElement('article')
-                        // evenBOX1.classList.add('evenBOX1')
-                        // evenLBL3 = document.createElement('span')
-                        // evenLBL3.innerHTML = 'EVENRATE:'                        
-                        // evenEVEN1 = document.createElement('input')
-                        // evenEVEN1.classList.add('evenEvenVAL')
-                        // evenEVEN1.value = `$${tickrData.evenVAL || 0}`;
-                        // evenEVEN1.style.width = '3em';// 444(tickrData.evenVAL.toString().length + 1) + 'em';
-                        // evenEVEN1.addEventListener("keyup",(e)=>{ 
-                        //    debugger;
-                        //    e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
-                        // }); 
-                        // evenBOX1.appendChild(evenLBL3);
-                        // evenBOX1.appendChild(evenEVEN1);
-
-                        totalzBOX1.appendChild(bankBOX1)
-                        totalzBOX1.appendChild(bookBOX1)
-                        totalzBOX1.appendChild(evenBOX1)
-                        totalzBOX1.appendChild(avgBOX1)
-
-
-
-                        //---------------------------------------------GROSS AMT / PCT
-                        grossMnthBOX1 = document.createElement('aside')
-                        grossMnthBOX1.innerHTML="GROSS:AMT/PCT&nbsp";
-                        grossMnthBOX1.classList.add('inputDATABOX5')
-                        // grossMnthBOX1.classList.add('redTXT')
-                        grossMnthData1 = document.createElement('input')
-                        grossMnthData1.classList.add('inputDATA0')
-                        grossMnthData1.placeholder = "$0"; 
-                        grossMnthData1.readOnly = true;
-                        grossMnthData1.value = tickrData.padTOT || '';          
-                        grossMnthBOX1.appendChild(grossMnthData1)
-                        totalzROW.appendChild(grossMnthBOX1)
                         //---------------------------------------------GROSS AMT / PCT END
+                        totalzROW.appendChild(subStateROW2)
+                        totalzROW.appendChild(subTotalzROW2)
+                        totalzROW.appendChild(subRateROW2)
+                        
+                        //END: TOTALZ VIEWS
+
                         //---------------------------------------------HiLo AMT / PCT
                         HiLoMnthBOX1 = document.createElement('aside')
                         HiLoMnthBOX1.innerHTML="HiLo:AMT/Date&nbsp";
@@ -4690,17 +4791,9 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         HiLoMnthBOX1.appendChild(HiLoMnthData1)
                         totalzROW.appendChild(HiLoMnthBOX1)
                         //---------------------------------------------HiLo AMT / PCT END
-
-
-                        // totalzBOX1.appendChild(totalzLBL2)
-                        // totalzBOX1.appendChild(totalzBOOK1)
-                        // totalzBOX1.appendChild(totalzLBL3)
-                        // totalzBOX1.appendChild(totalzEVEN1)
-                        totalzROW.appendChild(totalzBOX1)
                         tickrNOTEZROW.appendChild(totalzROW) 
-                        //END: TOTALZ VIEWS
 
-                        //START: STORY_TXT AREA
+                        //-------------------------------------START: STORY_TXT AREA
                         tickrNOTEZTXT = document.createElement('textarea')
                         tickrNOTEZTXT.id = 'notezTXTArea'
                         tickrNOTEZTXT.classList.add('scrollBarV')
@@ -4714,7 +4807,7 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                            e.target.nextSibling.style.display = 'flex'
                         }); 
                         tickrNOTEZROW.appendChild(tickrNOTEZTXT)
-                        //END: STORY_TXXT AREA
+                        //END: STORY_TXT AREA
                         saveBOX10 = document.createElement('aside')
                         saveBOX10.innerHTML="&nbsp";
                         saveBOX10.classList.add('saveBOX1')
@@ -5141,7 +5234,7 @@ const expandQuickTicksClick = (qID,tkr)=>{ //expand or collapse section
    generateQuickClick(); //RELOAD VIEW.  
    showErrorMSG('⚔️ SAVED ⚔️');   
 }
-const expandQuickNotezClick = (qID,tkr)=>{ //expand or collapse section
+const expandMonthSubTotalz = (qID,tkr)=>{ //expand or collapse section
    let qtr = ai_main.qrtrz[qID];
    for(let i=0; i< qtr.tickrz.length;i++){
       if(qtr.tickrz[i].tkr===tkr){
@@ -6536,6 +6629,38 @@ function calculate_MONTHLY_TOTAL(selectQTR,selectTKR){ //LOOP MNTH FLOWS to find
    console.log(`|${tkrMETASTATE.tkr}|`,"***************end_ticker****");
    txtLOGZ.push(`|${tkrMETASTATE.tkr}|***************end_ticker****`);
 
+
+  //TODO:
+         //Longz Padz Trimz
+      //----------------
+      // let LONGzAMT = 0;
+      // let TRIMzAMT = 0;
+      // let PADzAMT = 0;
+      // let MONTH_TOTALZ_calculateLONGz = function(){
+      //    debugger;
+      //    let txItem = null;
+      //    tkrMETASTATE.LONGzAMT = 0;
+      //    tkrMETASTATE.TRIMzAMT = 0;
+      //    tkrMETASTATE.PADzAMT = 0;
+      //    for(let txIdx=0; txIdx<tkrMETASTATE.txnz.length;txIdx++){
+      //       txItem = tkrMETASTATE.txnz[txIdx]
+      //       if(txItem.role==='LONG'||txItem.role==='STOPLOSS'||txItem.role==='UPHEDGE'
+      //          ||txItem.role==='UPCAP'||txItem.role==='DWNCAP'||txItem.role==='EXIT'){
+      //          LONGzAMT += parseFloat(txItem.amt);
+      //       }else{
+      //          if(txItem.type==='SELL'){
+      //             TRIMzAMT += parseFloat(txItem.amt);
+      //          } else { //BUY
+      //             PADzAMT += parseFloat(txItem.amt);
+      //          }
+      //       }
+      //    }
+      //    tkrMETASTATE.LONGzAMT = LONGzAMT;
+      //    tkrMETASTATE.TRIMzAMT = TRIMzAMT;
+      //    tkrMETASTATE.PADzAMT = PADzAMT;         
+      // }; MONTH_TOTALZ_calculateLONGz();
+
+
 // debugger; ONLY CLICKED.
    // tkrMETASTATE.monthlyNET = "monthlyNET"
    // tkrMETASTATE.TOTNET = "TOTNET"
@@ -7888,9 +8013,13 @@ function updateLatestTickPrice(responseTick,latestClose){ //loop ai_ledger, upda
 \*************************************/
 scrollFrame.addEventListener('scroll',(e)=>{
    fifoTooltip.style.display = "none";
+   fifoRoletip.style.display = "none";
 })
 fifoTooltip.addEventListener('click',(e)=>{
    fifoTooltip.style.display = "block";
+})
+fifoRoletip.addEventListener('click',(e)=>{
+   fifoRoletip.style.display = "block";
 })
 fifoTooltip.addEventListener('blur',(e)=>{
    let saveData = e.target.getAttribute('saveData').split('|')
@@ -7915,6 +8044,34 @@ fifoTooltip.addEventListener('blur',(e)=>{
       }
    }
    fifoTooltip.style.display = "none";
+   //SAVE to LOCAL STORAGE
+   localStorage.ai_main = JSON.stringify(ai_main) 
+   generateQuickClick(); //RELOAD VIEW.  
+   showErrorMSG('⚔️ SAVED ⚔️');     
+})
+fifoRoletip.addEventListener('blur',(e)=>{
+   let saveData = e.target.getAttribute('saveData').split('|')
+   let newRate = e.target.value.split('_')[1];
+   let qID = saveData[0];
+   let tkr = saveData[1];
+   let pairNUM = saveData[2]
+   let type = saveData[3]
+   let qtr = ai_main.qrtrz[qID]
+   let TGT = null, set = []
+   for(var i=0; i<qtr.tickrz.length;i++){
+      if(qtr.tickrz[i].tkr===tkr){
+         TGT = qtr.tickrz[i];
+         if(type === "trim"){
+            set = TGT.trimz
+         }else{
+            set = TGT.padz
+         }
+         if(set.length){
+            set[pairNUM].rate = newRate
+         }
+      }
+   }
+   fifoRoletip.style.display = "none";
    //SAVE to LOCAL STORAGE
    localStorage.ai_main = JSON.stringify(ai_main) 
    generateQuickClick(); //RELOAD VIEW.  

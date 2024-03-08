@@ -1834,7 +1834,7 @@ align-items: center;">
         style="width:80.888%; flex:1;    background: #001512;
         border-radius: 13px;
         border: #35f405;
-        box-shadow: inset 0px 0px 7px 0px #02f048;padding: 2%;padding-top: 3%;
+        box-shadow:0px 0px 7px 0px #02f048;padding: 2%;padding-top: 3%;
         padding-left:4%; color: #b19f50; line-height: 2.111em;">
         <button id=expandCollapseBtn0 class="expandCollapseBtn1" onclick="ExpandCollapseQuickClick()">🕸️</button>        
         <span class="boxTitle">🦁 
@@ -1894,7 +1894,7 @@ align-items: center;">
          <span class="boxTitle">🐤 <span style="font-size:0.777em; color:cyan">3</span> 
          <span style="font-size:0.555em">Generate</span>
          <span style="font-size: 1.222em;color:cyan;font-family: monospace;">MARGINZ</span>
-         <span style="font-size:0.555em">📏(on spots)💎</span>
+         <span style="font-size:0.555em">📏(on longz)💎</span>
          </span><br>
          <article style="font-size:0.777em;font-family: sans-serif;line-height:2.222em;">
             <hr> 
@@ -1929,7 +1929,7 @@ align-items: center;">
             add qrtr👻</button>
            <button id="saveScheduleBtn1" class="yellowBtn1" onclick="saveScheduleClick()">save⚓</button>
          </article>
-      </section> -->
+      </section> TODO REMOVE -->
       <section id="padSequenceBOX"
          style="width: 80.888%;
          flex: 1;
@@ -3766,7 +3766,7 @@ let ai_main=null;
 const ai_main_LOAD_MOCK_DATA=()=>{ //READ
    //ai_main = {"qrtrz":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":true,"tickrz":[{"tkr":"NVDA","cap":"1000","expanded":false,"trimz":[],"padz":[{"ymd":"2023_10_10","amt":"300","rate":"460"},{"ymd":"2023_10_20","amt":"200","rate":"413"}],"netAMT":-500,"notez":"2","notez_expanded":true,"trimTOT":0,"padTOT":500,"bankVAL":-500,"bookVAL":500,"expandedTOTZDeetz":true},{"tkr":"MDB","cap":"1000","trimz":[],"padz":[{"ymd":"2021_05_04","amt":"570","rate":"285"},{"ymd":"2023_09_21","amt":"200","rate":"334"},{"ymd":"2023_10_12","amt":"300","rate":"371"},{"ymd":"2023_10_25","amt":"200","rate":"329"}],"netAMT":-1270,"notez":"2","trimTOT":0,"padTOT":1270,"expanded":false,"expandedTOTZDeetz":false},{"tkr":"COST","cap":"1000","trimz":[],"padz":[{"ymd":"2023_10_06","amt":"300","rate":"555"},{"ymd":"2023_10_10","amt":"300","rate":"562"},{"ymd":"2023_10_12","amt":"200","rate":"568"},{"ymd":"2023_10_20","amt":"200","rate":"555"},{"ymd":"2023_10_20","amt":"200","rate":"552"},{"ymd":"2023_10_25","amt":"200","rate":"550"},{"ymd":"2023_10_26","amt":"200","rate":"548"},{"ymd":"2023_10_27","amt":"35","rate":"543"}],"netAMT":-1635,"notez":"2","trimTOT":0,"padTOT":1635,"expanded":false,"notez_expanded":false,"bankVAL":-500,"bookVAL":500,"expandedTOTZDeetz":true},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2020_04_20","amt":"176","rate":"176"}],"padz":[{"ymd":"2020_04_17","amt":"180","rate":"180"},{"ymd":"2021_06_22","amt":"531","rate":"266"},{"ymd":"2023_09_30","amt":"200","rate":"316"},{"ymd":"2023_10_25","amt":"100","rate":"340"},{"ymd":"2023_10_26","amt":"100","rate":"330"}],"netAMT":-935,"notez":"2","trimTOT":176,"padTOT":1111,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_24","amt":"200","rate":"232"}],"trimTOT":0,"padTOT":200,"netAMT":-200},{"tkr":"AMD","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_01","amt":"524","rate":"102"}],"trimTOT":0,"padTOT":524,"netAMT":-524},{"tkr":"GOOG","cap":"5000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_10","amt":"4963","rate":"125"}],"trimTOT":0,"padTOT":4963,"netAMT":-4963},{"tkr":"XLK","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2021_07_01","amt":"297","rate":"149"},{"ymd":"2023_09_15","amt":"305","rate":"168"},{"ymd":"2020_01_01","amt":"500","rate":"157"}],"trimTOT":0,"padTOT":1102,"netAMT":-1102,"expandedTOTZDeetz":true}],"expandedTOTZ":false,"expandedTOTZDeetz":true,"tot_flowz":-11129},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":true,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[{"ymd":"2023_11_17","amt":"200","rate":"495"},{"ymd":"2023_11_22","amt":"100","rate":"486"}],"netAMT":-300,"notez":"2","trimTOT":0,"padTOT":300,"expanded":false,"bankVAL":-800,"notez_expanded":true,"bookVAL":800},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2023_11_10","amt":"200","rate":"376"}],"padz":[],"netAMT":200,"notez":"2","trimTOT":200,"padTOT":0,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[{"ymd":"2023_11_10","amt":"200","rate":"133"},{"ymd":"2023_11_14","amt":"100","rate":"136"},{"ymd":"2023_11_16","amt":"100","rate":"139"},{"ymd":"2023_11_20","amt":"100","rate":"138"},{"ymd":"2023_11_20","amt":"40","rate":"139"}],"padz":[],"netAMT":540,"notez":"3","trimTOT":540,"padTOT":0,"expanded":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2023_11_10","amt":"100","rate":"368"},{"ymd":"2023_11_20","amt":"100","rate":"378"},{"ymd":"2023_11_28","amt":"30","rate":"384"}],"padz":[],"netAMT":230,"notez":"2","trimTOT":230,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"500","trimz":[{"ymd":"2023_11_14","amt":"100","rate":"182"},{"ymd":"2023_11_20","amt":"100","rate":"185"}],"padz":[],"netAMT":200,"notez":"2","trimTOT":200,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2022_11_10","amt":"100","rate":"119"},{"ymd":"2023_11_16","amt":"100","rate":"120"},{"ymd":"2023_11_29","amt":"30","rate":"125"}],"padz":[],"netAMT":230,"notez":"2","trimTOT":230,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2023_11_24","amt":"30","rate":"254"}],"padz":[{"ymd":"2023_11_10","amt":"300","rate":"245"}],"netAMT":-270,"notez":"2","trimTOT":30,"padTOT":300,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_11_01","amt":"100","rate":"35435"},{"ymd":"2023_11_10","amt":"200","rate":"36818"},{"ymd":"2023_11_15","amt":"100","rate":"37390"},{"ymd":"2023_11_22","amt":"100","rate":"37694"}],"padz":[],"netAMT":500,"notez":"2","trimTOT":500,"padTOT":0,"expanded":false}],"tot_flowz":1330},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":true,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2023_12_15","amt":"30","rate":"492"},{"ymd":"2023_12_18","amt":"50","rate":"503"},{"ymd":"2023_12_18","amt":"50","rate":"497"},{"ymd":"2023_12_26","amt":"60","rate":"493"},{"ymd":"2023_12_28","amt":"100","rate":"497"},{"ymd":"2023_12_29","amt":"100","rate":"498"}],"padz":[{"ymd":"2023_12_18","amt":"0","rate":"497"},{"ymd":"2023_12_18","amt":"0","rate":"503"}],"netAMT":390,"notez":"2","trimTOT":390,"padTOT":0,"expanded":false,"bankVAL":-410,"bookVAL":800,"notez_expanded":true},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"432"},{"ymd":"2023_12_14","amt":"20","rate":"413"},{"ymd":"2023_12_14","amt":"20","rate":"420"},{"ymd":"2023_12_15","amt":"10","rate":"420"},{"ymd":"2023_12_16","amt":"195","rate":"409"},{"ymd":"2023_12_26","amt":"200","rate":"416"},{"ymd":"2023_12_28","amt":"50","rate":"417"}],"padz":[{"ymd":"2023_12_09","amt":"100","rate":"388"}],"netAMT":420,"notez":"2","trimTOT":520,"padTOT":100,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[{"ymd":"2023_12_11","amt":"100","rate":"624"},{"ymd":"2023_12_13","amt":"100","rate":"636"},{"ymd":"2023_12_15","amt":"250","rate":"656"},{"ymd":"2023_12_15","amt":"30","rate":"660"},{"ymd":"2023_12_18","amt":"60","rate":"674"},{"ymd":"2023_12_18","amt":"30","rate":"679"}],"padz":[{"ymd":"2023_12_27","amt":"40","rate":"667"},{"ymd":"2023_12_28","amt":"20","rate":"662"}],"netAMT":510,"notez":"1","trimTOT":570,"padTOT":60,"expanded":false},{"tkr":"GOOG","cap":"4000","trimz":[{"ymd":"2023_12_07","amt":"25","rate":"140"},{"ymd":"2023_12_11","amt":"496","rate":"133"},{"ymd":"2023_12_11","amt":"298","rate":"133"},{"ymd":"2023_12_13","amt":"10","rate":"134"},{"ymd":"2023_12_18","amt":"70","rate":"137"},{"ymd":"2023_12_18","amt":"20","rate":"137"},{"ymd":"2023_12_19","amt":"25","rate":"138"},{"ymd":"2023_12_20","amt":"120","rate":"142"},{"ymd":"2023_12_22","amt":"20","rate":"143"}],"padz":[],"netAMT":1084,"notez":"3","trimTOT":1084,"padTOT":0,"expanded":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2023_12_31","amt":"398","rate":"374"}],"padz":[],"netAMT":398,"notez":"2","trimTOT":398,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"1000","trimz":[{"ymd":"2023_12_11","amt":"10","rate":"187"},{"ymd":"2023_12_13","amt":"10","rate":"191"},{"ymd":"2023_12_22","amt":"270","rate":"192"}],"padz":[],"netAMT":290,"notez":"2","trimTOT":290,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2023_12_08","amt":"20","rate":"129"},{"ymd":"2023_12_11","amt":"20","rate":"134"},{"ymd":"2023_11_12","amt":"20","rate":"139"},{"ymd":"2023_12_26","amt":"15","rate":"143"},{"ymd":"2023_12_27","amt":"10","rate":"246"},{"ymd":"2023_12_28","amt":"10","rate":"149"}],"padz":[],"netAMT":95,"notez":"2","trimTOT":95,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2023_12_12","amt":"10","rate":"259"}],"padz":[],"netAMT":10,"notez":"2","trimTOT":10,"padTOT":0,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"38626"},{"ymd":"2023_12_02","amt":"50","rate":"39417"},{"ymd":"2023_12_03","amt":"25","rate":"39848"},{"ymd":"2023_12_03","amt":"50","rate":"4819"},{"ymd":"2023_12_04","amt":"20","rate":"41700"},{"ymd":"2023_12_04","amt":"30","rate":"41684"},{"ymd":"2023_12_05","amt":"50","rate":"42718"},{"ymd":"2023_12_05","amt":"50","rate":"44008"},{"ymd":"2023_12_13","amt":"20","rate":"41940"},{"ymd":"2023_12_13","amt":"30","rate":"42648"},{"ymd":"2023_12_13","amt":"20","rate":"43042"},{"ymd":"2023_12_18","amt":"30","rate":"41509"},{"ymd":"2023_12_30","amt":"2364","rate":"42060"}],"padz":[{"ymd":"2023_12_12","amt":"100","rate":"40928"},{"ymd":"2023_12_17","amt":"200","rate":"41077"},{"ymd":"2023_12_18","amt":"100","rate":"43074"},{"ymd":"2023_12_19","amt":"200","rate":"42663"},{"ymd":"2023_12_22","amt":"1500","rate":"43637"},{"ymd":"2023_12_25","amt":"100","rate":"42844"},{"ymd":"2023_12_29","amt":"50","rate":"42152"},{"ymd":"2023_12_29","amt":"500","rate":"42048"},{"ymd":"2023_12_30","amt":"14","rate":"42303"},{"ymd":"2023_12_30","amt":"0","rate":"42417"}],"netAMT":0,"notez":"Just Starting out. 1st month trading BTC since \"historic\" ETF approval on Jan 10, 2024. Profitable!!!","trimTOT":2764,"padTOT":2764,"expanded":true,"notez_expanded":true,"bookVAL":800,"bankVAL":-410},{"tkr":"AMZN","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2022_12_04","amt":"100","rate":"144"}],"trimTOT":0,"padTOT":100,"netAMT":-100}],"tot_flowz":3097},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2024_01_08","amt":"300","rate":"514"},{"ymd":"2024_01_08","amt":"80","rate":"518"},{"ymd":"2024_01_08","amt":"30","rate":"519"},{"ymd":"2024_01_08","amt":"20","rate":"520"},{"ymd":"2024_01_08","amt":"20","rate":"521"},{"ymd":"2024_01_08","amt":"20","rate":"523"},{"ymd":"2024_01_08","amt":"30","rate":"526"},{"ymd":"2024_01_09","amt":"100","rate":"534"},{"ymd":"2024_01_09","amt":"80","rate":"538"},{"ymd":"2024_01_09","amt":"50","rate":"542"},{"ymd":"2024_01_10","amt":"30","rate":"545"},{"ymd":"2024_01_11","amt":"60","rate":"549"},{"ymd":"2024_01_11","amt":"30","rate":"551"}],"padz":[],"netAMT":850,"notez":"JAN 8th 2024 - 1st $500 day!\nExcellent Margins, form prior OCT 27, 2024 lows.","trimTOT":850,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2024_01_19","amt":"10","rate":"401"}],"padz":[{"ymd":"2024_01_11","amt":"15","rate":"393"}],"netAMT":-5,"notez":"2","trimTOT":10,"padTOT":15,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[{"ymd":"2024_01_10","amt":"30","rate":"673"},{"ymd":"2024_01_12","amt":"30","rate":"679"},{"ymd":"2024_01_12","amt":"10","rate":"682"},{"ymd":"2024_01_18","amt":"20","rate":"687"},{"ymd":"2024_01_19","amt":"20","rate":"691"},{"ymd":"2024_01_19","amt":"50","rate":"694"}],"padz":[],"netAMT":160,"notez":"1","trimTOT":160,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"GOOG","cap":"4000","trimz":[{"ymd":"2024_01_10","amt":"20","rate":"144"},{"ymd":"2024_01_11","amt":"20","rate":"144"},{"ymd":"2024_01_18","amt":"20","rate":"145"},{"ymd":"2024_01_19","amt":"40","rate":"147"},{"ymd":"2024_01_19","amt":"20","rate":"147"},{"ymd":"2024_01_19","amt":"10","rate":"148"}],"padz":[],"netAMT":130,"notez":"3","trimTOT":130,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2024_01_08","amt":"50","rate":"372"},{"ymd":"2024_01_09","amt":"30","rate":"376"},{"ymd":"2024_01_10","amt":"210","rate":"381"}],"padz":[],"netAMT":290,"notez":"2","trimTOT":290,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"500","trimz":[{"ymd":"2023_01_19","amt":"20","rate":"197"},{"ymd":"2024_01_19","amt":"20","rate":"200"}],"padz":[],"netAMT":40,"notez":"2","trimTOT":40,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2024_01_16","amt":"20","rate":"157"},{"ymd":"2024_01_18","amt":"30","rate":"166"},{"ymd":"2024_01_19","amt":"25","rate":"173"}],"padz":[],"netAMT":75,"notez":"2","trimTOT":75,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2024_01_12","amt":"10","rate":"265"},{"ymd":"2024_01_19","amt":"15","rate":"271"}],"padz":[{"ymd":"2024_01_19","amt":"500","rate":"269"}],"netAMT":-475,"notez":"2","trimTOT":25,"padTOT":500,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2024_01_01","amt":"500","rate":"44519"},{"ymd":"2024_01_01","amt":"150","rate":"45282"},{"ymd":"2024_01_08","amt":"200","rate":"45870"},{"ymd":"2024_01_08","amt":"200","rate":"46466"},{"ymd":"2024_01_08","amt":"150","rate":"46891"},{"ymd":"2024_01_08","amt":"50","rate":"47156"},{"ymd":"2024_01_08","amt":"30","rate":"47028"},{"ymd":"2024_01_08","amt":"20","rate":"47021"},{"ymd":"2024_01_10","amt":"50","rate":"46229"},{"ymd":"2024_01_10","amt":"20","rate":"46354"},{"ymd":"2024_01_10","amt":"90","rate":"46768"},{"ymd":"2024_01_10","amt":"80","rate":"47024"},{"ymd":"2024_01_11","amt":"40","rate":"46908"},{"ymd":"2024_01_11","amt":"30","rate":"47000"},{"ymd":"2024_01_11","amt":"20","rate":"46336"},{"ymd":"2024_01_11","amt":"40","rate":"46480"},{"ymd":"2024_01_12","amt":"500","rate":"42459"},{"ymd":"2024_01_21","amt":"3000","rate":"41248"}],"padz":[{"ymd":"2024_01_06","amt":"250","rate":"43888"},{"ymd":"2024_01_10","amt":"250","rate":"45955"},{"ymd":"2024_01_10","amt":"100","rate":"46023"},{"ymd":"2024_01_11","amt":"100","rate":"45866"},{"ymd":"2024_01_11","amt":"50","rate":"46439"},{"ymd":"2024_01_11","amt":"80","rate":"46083"},{"ymd":"2024_01_12","amt":"100","rate":"43551"},{"ymd":"2024_01_12","amt":"100","rate":"43677"},{"ymd":"2024_01_12","amt":"100","rate":"42402"},{"ymd":"2024_01_18","amt":"200","rate":"41536"},{"ymd":"2024_01_18","amt":"200","rate":"40888"},{"ymd":"2024_01_21","amt":"200","rate":"417575"},{"ymd":"2024_01_21","amt":"100","rate":"40888"},{"ymd":"2024_01_21","amt":"100","rate":"40666"},{"ymd":"2024_01_21","amt":"100","rate":"40444"},{"ymd":"2024_01_21","amt":"100","rate":"39888"},{"ymd":"2024_01_21","amt":"200","rate":"39655"}],"netAMT":2840,"notez":"This was a ROUGH ONE. Correction at exact the time of CERTAINTY. Destroyed by institutions. How did I manage the boat in the unexpected correction? \nWe will See. Have yet to RUN the NUMBERS!\nCrossing fingers. How to CALCULATE?","trimTOT":5170,"padTOT":2330,"expanded":false,"notez_expanded":true,"bookVAL":800,"bankVAL":440},{"tkr":"AMZN","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2024_01_04","amt":"145","rate":"145"},{"ymd":"2024_01_04","amt":"146","rate":"146"},{"ymd":"2024_01_12","amt":"70","rate":"154"},{"ymd":"2024_01_19","amt":"300","rate":"153"},{"ymd":"2024_01_19","amt":"200","rate":"153"}],"trimTOT":0,"padTOT":861,"netAMT":-861}],"expanded":false,"tot_flowz":3044}}};
    // ai_main = {"qrtrz":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"1000","expanded":false,"trimz":[],"padz":[{"ymd":"2023_10_10","amt":"300","rate":"460"},{"ymd":"2023_10_20","amt":"200","rate":"413"}],"netAMT":-500,"notez":"2","notez_expanded":true,"trimTOT":0,"padTOT":500,"bankVAL":-500,"bookVAL":500,"expandedTOTZDeetz":true},{"tkr":"MDB","cap":"1000","trimz":[],"padz":[{"ymd":"2021_05_04","amt":"570","rate":"285"},{"ymd":"2023_09_21","amt":"200","rate":"334"},{"ymd":"2023_10_12","amt":"300","rate":"371"},{"ymd":"2023_10_25","amt":"200","rate":"329"}],"netAMT":-1270,"notez":"2","trimTOT":0,"padTOT":1270,"expanded":false,"expandedTOTZDeetz":false},{"tkr":"COST","cap":"1000","trimz":[],"padz":[{"ymd":"2023_10_06","amt":"300","rate":"555"},{"ymd":"2023_10_10","amt":"300","rate":"562"},{"ymd":"2023_10_12","amt":"200","rate":"568"},{"ymd":"2023_10_20","amt":"200","rate":"555"},{"ymd":"2023_10_20","amt":"200","rate":"552"},{"ymd":"2023_10_25","amt":"200","rate":"550"},{"ymd":"2023_10_26","amt":"200","rate":"548"},{"ymd":"2023_10_27","amt":"35","rate":"543"}],"netAMT":-1635,"notez":"2","trimTOT":0,"padTOT":1635,"expanded":false,"notez_expanded":false,"bankVAL":-500,"bookVAL":500,"expandedTOTZDeetz":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2020_04_20","amt":"176","rate":"176"}],"padz":[{"ymd":"2020_04_17","amt":"180","rate":"180"},{"ymd":"2021_06_22","amt":"531","rate":"266"},{"ymd":"2023_09_30","amt":"200","rate":"316"},{"ymd":"2023_10_25","amt":"100","rate":"340"},{"ymd":"2023_10_26","amt":"100","rate":"330"}],"netAMT":-935,"notez":"2","trimTOT":176,"padTOT":1111,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_24","amt":"200","rate":"232"}],"trimTOT":0,"padTOT":200,"netAMT":-200},{"tkr":"AMD","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_01","amt":"524","rate":"102"}],"trimTOT":0,"padTOT":524,"netAMT":-524},{"tkr":"GOOG","cap":"5000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_10","amt":"4963","rate":"125"}],"trimTOT":0,"padTOT":4963,"netAMT":-4963},{"tkr":"XLK","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2021_07_01","amt":"297","rate":"149"},{"ymd":"2023_09_15","amt":"305","rate":"168"},{"ymd":"2020_01_01","amt":"500","rate":"157"}],"trimTOT":0,"padTOT":1102,"netAMT":-1102,"expandedTOTZDeetz":false}],"expandedTOTZ":true,"expandedTOTZDeetz":true,"tot_flowz":-11129},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[{"ymd":"2023_11_17","amt":"200","rate":"495"},{"ymd":"2023_11_22","amt":"100","rate":"486"}],"netAMT":-300,"notez":"2","trimTOT":0,"padTOT":300,"expanded":false,"bankVAL":-800,"notez_expanded":true,"bookVAL":800},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2023_11_10","amt":"200","rate":"376"}],"padz":[],"netAMT":200,"notez":"2","trimTOT":200,"padTOT":0,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[{"ymd":"2023_11_10","amt":"200","rate":"133"},{"ymd":"2023_11_14","amt":"100","rate":"136"},{"ymd":"2023_11_16","amt":"100","rate":"139"},{"ymd":"2023_11_20","amt":"100","rate":"138"},{"ymd":"2023_11_20","amt":"40","rate":"139"}],"padz":[],"netAMT":540,"notez":"3","trimTOT":540,"padTOT":0,"expanded":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2023_11_10","amt":"100","rate":"368"},{"ymd":"2023_11_20","amt":"100","rate":"378"},{"ymd":"2023_11_28","amt":"30","rate":"384"}],"padz":[],"netAMT":230,"notez":"2","trimTOT":230,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"500","trimz":[{"ymd":"2023_11_14","amt":"100","rate":"182"},{"ymd":"2023_11_20","amt":"100","rate":"185"}],"padz":[],"netAMT":200,"notez":"2","trimTOT":200,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2022_11_10","amt":"100","rate":"119"},{"ymd":"2023_11_16","amt":"100","rate":"120"},{"ymd":"2023_11_29","amt":"30","rate":"125"}],"padz":[],"netAMT":230,"notez":"2","trimTOT":230,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2023_11_24","amt":"30","rate":"254"}],"padz":[{"ymd":"2023_11_10","amt":"300","rate":"245"}],"netAMT":-270,"notez":"2","trimTOT":30,"padTOT":300,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_11_01","amt":"100","rate":"35435"},{"ymd":"2023_11_10","amt":"200","rate":"36818"},{"ymd":"2023_11_15","amt":"100","rate":"37390"},{"ymd":"2023_11_22","amt":"100","rate":"37694"}],"padz":[],"netAMT":500,"notez":"2","trimTOT":500,"padTOT":0,"expanded":false},{"tkr":"TSLA","cap":"100","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_11_30","amt":"100","rate":"236"}],"trimTOT":0,"padTOT":100,"netAMT":-100}],"tot_flowz":1230,"expandedTOTZ":false},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2023_12_15","amt":"30","rate":"492"},{"ymd":"2023_12_18","amt":"50","rate":"503"},{"ymd":"2023_12_18","amt":"50","rate":"497"},{"ymd":"2023_12_26","amt":"60","rate":"493"},{"ymd":"2023_12_28","amt":"100","rate":"497"},{"ymd":"2023_12_29","amt":"100","rate":"498"}],"padz":[{"ymd":"2023_12_18","amt":"0","rate":"497"},{"ymd":"2023_12_18","amt":"0","rate":"503"}],"netAMT":390,"notez":"2","trimTOT":390,"padTOT":0,"expanded":false,"bankVAL":-410,"bookVAL":800,"notez_expanded":true},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"432"},{"ymd":"2023_12_14","amt":"20","rate":"413"},{"ymd":"2023_12_14","amt":"20","rate":"420"},{"ymd":"2023_12_15","amt":"10","rate":"420"},{"ymd":"2023_12_16","amt":"195","rate":"409"},{"ymd":"2023_12_26","amt":"200","rate":"416"},{"ymd":"2023_12_28","amt":"50","rate":"417"}],"padz":[{"ymd":"2023_12_09","amt":"100","rate":"388"}],"netAMT":420,"notez":"2","trimTOT":520,"padTOT":100,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[{"ymd":"2023_12_11","amt":"100","rate":"624"},{"ymd":"2023_12_13","amt":"100","rate":"636"},{"ymd":"2023_12_15","amt":"250","rate":"656"},{"ymd":"2023_12_15","amt":"30","rate":"660"},{"ymd":"2023_12_18","amt":"60","rate":"674"},{"ymd":"2023_12_18","amt":"30","rate":"679"}],"padz":[{"ymd":"2023_12_27","amt":"40","rate":"667"},{"ymd":"2023_12_28","amt":"20","rate":"662"}],"netAMT":510,"notez":"1","trimTOT":570,"padTOT":60,"expanded":false},{"tkr":"GOOG","cap":"4000","trimz":[{"ymd":"2023_12_07","amt":"25","rate":"140"},{"ymd":"2023_12_11","amt":"496","rate":"133"},{"ymd":"2023_12_11","amt":"298","rate":"133"},{"ymd":"2023_12_13","amt":"10","rate":"134"},{"ymd":"2023_12_18","amt":"70","rate":"137"},{"ymd":"2023_12_18","amt":"20","rate":"137"},{"ymd":"2023_12_19","amt":"25","rate":"138"},{"ymd":"2023_12_20","amt":"120","rate":"142"},{"ymd":"2023_12_22","amt":"20","rate":"143"}],"padz":[],"netAMT":1084,"notez":"3","trimTOT":1084,"padTOT":0,"expanded":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2023_12_31","amt":"398","rate":"374"}],"padz":[],"netAMT":398,"notez":"2","trimTOT":398,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"1000","trimz":[{"ymd":"2023_12_11","amt":"10","rate":"187"},{"ymd":"2023_12_13","amt":"10","rate":"191"},{"ymd":"2023_12_22","amt":"270","rate":"192"}],"padz":[],"netAMT":290,"notez":"2","trimTOT":290,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2023_12_08","amt":"20","rate":"129"},{"ymd":"2023_12_11","amt":"20","rate":"134"},{"ymd":"2023_11_12","amt":"20","rate":"139"},{"ymd":"2023_12_26","amt":"15","rate":"143"},{"ymd":"2023_12_27","amt":"10","rate":"246"},{"ymd":"2023_12_28","amt":"10","rate":"149"}],"padz":[],"netAMT":95,"notez":"2","trimTOT":95,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2023_12_12","amt":"10","rate":"259"}],"padz":[],"netAMT":10,"notez":"2","trimTOT":10,"padTOT":0,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"38626"},{"ymd":"2023_12_02","amt":"50","rate":"39417"},{"ymd":"2023_12_03","amt":"25","rate":"39848"},{"ymd":"2023_12_03","amt":"50","rate":"4819"},{"ymd":"2023_12_04","amt":"20","rate":"41700"},{"ymd":"2023_12_04","amt":"30","rate":"41684"},{"ymd":"2023_12_05","amt":"50","rate":"42718"},{"ymd":"2023_12_05","amt":"50","rate":"44008"},{"ymd":"2023_12_13","amt":"20","rate":"41940"},{"ymd":"2023_12_13","amt":"30","rate":"42648"},{"ymd":"2023_12_13","amt":"20","rate":"43042"},{"ymd":"2023_12_18","amt":"30","rate":"41509"},{"ymd":"2023_12_30","amt":"2364","rate":"42060"}],"padz":[{"ymd":"2023_12_12","amt":"100","rate":"40928"},{"ymd":"2023_12_17","amt":"200","rate":"41077"},{"ymd":"2023_12_18","amt":"100","rate":"43074"},{"ymd":"2023_12_19","amt":"200","rate":"42663"},{"ymd":"2023_12_22","amt":"1500","rate":"43637"},{"ymd":"2023_12_25","amt":"100","rate":"42844"},{"ymd":"2023_12_29","amt":"50","rate":"42152"},{"ymd":"2023_12_29","amt":"500","rate":"42048"},{"ymd":"2023_12_30","amt":"14","rate":"42303"},{"ymd":"2023_12_30","amt":"0","rate":"42417"}],"netAMT":0,"notez":"Just Starting out. 1st month trading BTC since \"historic\" ETF approval on Jan 10, 2024. Profitable!!!","trimTOT":2764,"padTOT":2764,"expanded":false,"notez_expanded":true,"bookVAL":800,"bankVAL":-410},{"tkr":"AMZN","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2022_12_04","amt":"100","rate":"144"}],"trimTOT":0,"padTOT":100,"netAMT":-100},{"tkr":"TSLA","cap":"100","expanded":false,"notez":"replace...","trimz":[{"ymd":"2023_12_27","amt":"10","rate":"262"}],"padz":[],"trimTOT":10,"padTOT":0,"netAMT":10}],"tot_flowz":3107},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2024_01_08","amt":"300","rate":"514"},{"ymd":"2024_01_08","amt":"80","rate":"518"},{"ymd":"2024_01_08","amt":"30","rate":"519"},{"ymd":"2024_01_08","amt":"20","rate":"520"},{"ymd":"2024_01_08","amt":"20","rate":"521"},{"ymd":"2024_01_08","amt":"20","rate":"523"},{"ymd":"2024_01_08","amt":"30","rate":"526"},{"ymd":"2024_01_09","amt":"100","rate":"534"},{"ymd":"2024_01_09","amt":"80","rate":"538"},{"ymd":"2024_01_09","amt":"50","rate":"542"},{"ymd":"2024_01_10","amt":"30","rate":"545"},{"ymd":"2024_01_11","amt":"60","rate":"549"},{"ymd":"2024_01_11","amt":"30","rate":"551"}],"padz":[],"netAMT":850,"notez":"JAN 8th 2024 - 1st $500 day!\nExcellent Margins, form prior OCT 27, 2024 lows.","trimTOT":850,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2024_01_19","amt":"10","rate":"401"}],"padz":[{"ymd":"2024_01_11","amt":"15","rate":"393"}],"netAMT":-5,"notez":"2","trimTOT":10,"padTOT":15,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[{"ymd":"2024_01_10","amt":"30","rate":"673"},{"ymd":"2024_01_12","amt":"30","rate":"679"},{"ymd":"2024_01_12","amt":"10","rate":"682"},{"ymd":"2024_01_18","amt":"20","rate":"687"},{"ymd":"2024_01_19","amt":"20","rate":"691"},{"ymd":"2024_01_19","amt":"50","rate":"694"}],"padz":[],"netAMT":160,"notez":"1","trimTOT":160,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"GOOG","cap":"4000","trimz":[{"ymd":"2024_01_10","amt":"20","rate":"144"},{"ymd":"2024_01_11","amt":"20","rate":"144"},{"ymd":"2024_01_18","amt":"20","rate":"145"},{"ymd":"2024_01_19","amt":"40","rate":"147"},{"ymd":"2024_01_19","amt":"20","rate":"147"},{"ymd":"2024_01_19","amt":"10","rate":"148"}],"padz":[],"netAMT":130,"notez":"3","trimTOT":130,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2024_01_08","amt":"50","rate":"372"},{"ymd":"2024_01_09","amt":"30","rate":"376"},{"ymd":"2024_01_10","amt":"210","rate":"381"}],"padz":[],"netAMT":290,"notez":"2","trimTOT":290,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"500","trimz":[{"ymd":"2023_01_19","amt":"20","rate":"197"},{"ymd":"2024_01_19","amt":"20","rate":"200"}],"padz":[],"netAMT":40,"notez":"2","trimTOT":40,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2024_01_16","amt":"20","rate":"157"},{"ymd":"2024_01_18","amt":"30","rate":"166"},{"ymd":"2024_01_19","amt":"25","rate":"173"}],"padz":[],"netAMT":75,"notez":"2","trimTOT":75,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2024_01_12","amt":"10","rate":"265"},{"ymd":"2024_01_19","amt":"15","rate":"271"}],"padz":[{"ymd":"2024_01_19","amt":"500","rate":"269"}],"netAMT":-475,"notez":"2","trimTOT":25,"padTOT":500,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2024_01_01","amt":"500","rate":"44519"},{"ymd":"2024_01_01","amt":"150","rate":"45282"},{"ymd":"2024_01_08","amt":"200","rate":"45870"},{"ymd":"2024_01_08","amt":"200","rate":"46466"},{"ymd":"2024_01_08","amt":"150","rate":"46891"},{"ymd":"2024_01_08","amt":"50","rate":"47156"},{"ymd":"2024_01_08","amt":"30","rate":"47028"},{"ymd":"2024_01_08","amt":"20","rate":"47021"},{"ymd":"2024_01_10","amt":"50","rate":"46229"},{"ymd":"2024_01_10","amt":"20","rate":"46354"},{"ymd":"2024_01_10","amt":"90","rate":"46768"},{"ymd":"2024_01_10","amt":"80","rate":"47024"},{"ymd":"2024_01_11","amt":"40","rate":"46908"},{"ymd":"2024_01_11","amt":"30","rate":"47000"},{"ymd":"2024_01_11","amt":"20","rate":"46336"},{"ymd":"2024_01_11","amt":"40","rate":"46480"},{"ymd":"2024_01_12","amt":"500","rate":"42459"},{"ymd":"2024_01_21","amt":"3000","rate":"41248"}],"padz":[{"ymd":"2024_01_06","amt":"250","rate":"43888"},{"ymd":"2024_01_10","amt":"250","rate":"45955"},{"ymd":"2024_01_10","amt":"100","rate":"46023"},{"ymd":"2024_01_11","amt":"100","rate":"45866"},{"ymd":"2024_01_11","amt":"50","rate":"46439"},{"ymd":"2024_01_11","amt":"80","rate":"46083"},{"ymd":"2024_01_12","amt":"100","rate":"43551"},{"ymd":"2024_01_12","amt":"100","rate":"43677"},{"ymd":"2024_01_12","amt":"100","rate":"42402"},{"ymd":"2024_01_18","amt":"200","rate":"41536"},{"ymd":"2024_01_18","amt":"200","rate":"40888"},{"ymd":"2024_01_21","amt":"200","rate":"417575"},{"ymd":"2024_01_21","amt":"100","rate":"40888"},{"ymd":"2024_01_21","amt":"100","rate":"40666"},{"ymd":"2024_01_21","amt":"100","rate":"40444"},{"ymd":"2024_01_21","amt":"100","rate":"39888"},{"ymd":"2024_01_21","amt":"200","rate":"39655"}],"netAMT":2840,"notez":"This was a ROUGH ONE. Correction at exact the time of CERTAINTY. Destroyed by institutions. How did I manage the boat in the unexpected correction? \nWe will See. Have yet to RUN the NUMBERS!\nCrossing fingers. How to CALCULATE?","trimTOT":5170,"padTOT":2330,"expanded":false,"notez_expanded":true,"bookVAL":800,"bankVAL":440},{"tkr":"AMZN","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2024_01_04","amt":"145","rate":"145"},{"ymd":"2024_01_04","amt":"146","rate":"146"},{"ymd":"2024_01_12","amt":"70","rate":"154"},{"ymd":"2024_01_19","amt":"300","rate":"153"},{"ymd":"2024_01_19","amt":"200","rate":"153"}],"trimTOT":0,"padTOT":861,"netAMT":-861},{"tkr":"TSLA","cap":"100","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2024_01_24","amt":"30","rate":"199"}],"trimTOT":0,"padTOT":30,"netAMT":-30}],"expanded":false,"tot_flowz":3014,"expandedTOTZ":false}},"totz":{"total_net_amt":-3778}}
-   ai_main = {"qrtrz":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"","expanded":true,"trimz":[],"padz":[{"ymd":"2023_10_10","amt":"300","rate":"460"},{"ymd":"2023_10_20","amt":"200","rate":"413"}],"netAMT":-500,"notez":"23","notez_expanded":true,"trimTOT":0,"padTOT":500,"bankVAL":-500,"bookVAL":500,"expandedTOTZDeetz":true,"expandedTOTZLogz":true},{"tkr":"MDB","cap":"1000","trimz":[],"padz":[{"ymd":"2021_05_04","amt":"570","rate":"285"},{"ymd":"2023_09_21","amt":"200","rate":"334"},{"ymd":"2023_10_12","amt":"300","rate":"371"},{"ymd":"2023_10_25","amt":"200","rate":"329"}],"netAMT":-1270,"notez":"2","trimTOT":0,"padTOT":1270,"expanded":false,"expandedTOTZDeetz":false,"expandedTOTZLogz":true},{"tkr":"COST","cap":"1000","trimz":[],"padz":[{"ymd":"2023_10_06","amt":"300","rate":"555"},{"ymd":"2023_10_10","amt":"300","rate":"562"},{"ymd":"2023_10_12","amt":"200","rate":"568"},{"ymd":"2023_10_20","amt":"200","rate":"555"},{"ymd":"2023_10_20","amt":"200","rate":"552"},{"ymd":"2023_10_25","amt":"200","rate":"550"},{"ymd":"2023_10_26","amt":"200","rate":"548"},{"ymd":"2023_10_27","amt":"35","rate":"543"}],"netAMT":-1635,"notez":"2","trimTOT":0,"padTOT":1635,"expanded":false,"notez_expanded":false,"bankVAL":-500,"bookVAL":500,"expandedTOTZDeetz":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2020_04_20","amt":"176","rate":"176"}],"padz":[{"ymd":"2020_04_17","amt":"180","rate":"180"},{"ymd":"2021_06_22","amt":"531","rate":"266"},{"ymd":"2023_09_30","amt":"200","rate":"316"},{"ymd":"2023_10_25","amt":"100","rate":"340"},{"ymd":"2023_10_26","amt":"100","rate":"330"}],"netAMT":-935,"notez":"2","trimTOT":176,"padTOT":1111,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_24","amt":"200","rate":"232"}],"trimTOT":0,"padTOT":200,"netAMT":-200,"expandedTOTZDeetz":false,"expandedTOTZLogz":true},{"tkr":"AMD","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_01","amt":"524","rate":"102"}],"trimTOT":0,"padTOT":524,"netAMT":-524},{"tkr":"GOOG","cap":"5000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_10","amt":"4963","rate":"125"}],"trimTOT":0,"padTOT":4963,"netAMT":-4963},{"tkr":"XLK","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2021_07_01","amt":"297","rate":"149"},{"ymd":"2023_09_15","amt":"305","rate":"168"},{"ymd":"2020_01_01","amt":"500","rate":"157"}],"trimTOT":0,"padTOT":1102,"netAMT":-1102,"expandedTOTZDeetz":false,"expandedTOTZLogz":true}],"expandedTOTZ":false,"expandedTOTZDeetz":true,"tot_flowz":-11129},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[{"ymd":"2023_11_17","amt":"200","rate":"495"},{"ymd":"2023_11_22","amt":"100","rate":"486"}],"netAMT":-300,"notez":"2","trimTOT":0,"padTOT":300,"expanded":true,"bankVAL":-800,"notez_expanded":false,"bookVAL":800,"expandedTOTZDeetz":false,"expandedTOTZLogz":false},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2023_11_10","amt":"200","rate":"376"}],"padz":[],"netAMT":200,"notez":"2","trimTOT":200,"padTOT":0,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[{"ymd":"2023_11_10","amt":"200","rate":"133"},{"ymd":"2023_11_14","amt":"100","rate":"136"},{"ymd":"2023_11_16","amt":"100","rate":"139"},{"ymd":"2023_11_20","amt":"100","rate":"138"},{"ymd":"2023_11_20","amt":"40","rate":"139"}],"padz":[],"netAMT":540,"notez":"3","trimTOT":540,"padTOT":0,"expanded":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2023_11_10","amt":"100","rate":"368"},{"ymd":"2023_11_20","amt":"100","rate":"378"},{"ymd":"2023_11_28","amt":"30","rate":"384"}],"padz":[],"netAMT":230,"notez":"2","trimTOT":230,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"500","trimz":[{"ymd":"2023_11_14","amt":"100","rate":"182"},{"ymd":"2023_11_20","amt":"100","rate":"185"}],"padz":[],"netAMT":200,"notez":"2","trimTOT":200,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2022_11_10","amt":"100","rate":"119"},{"ymd":"2023_11_16","amt":"100","rate":"120"},{"ymd":"2023_11_29","amt":"30","rate":"125"}],"padz":[],"netAMT":230,"notez":"2","trimTOT":230,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2023_11_24","amt":"30","rate":"254"}],"padz":[{"ymd":"2023_11_10","amt":"300","rate":"245"}],"netAMT":-270,"notez":"2","trimTOT":30,"padTOT":300,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_11_01","amt":"100","rate":"35435"},{"ymd":"2023_11_10","amt":"200","rate":"36818"},{"ymd":"2023_11_15","amt":"100","rate":"37390"},{"ymd":"2023_11_22","amt":"100","rate":"37694"}],"padz":[],"netAMT":500,"notez":"2","trimTOT":500,"padTOT":0,"expanded":false},{"tkr":"TSLA","cap":"100","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_11_30","amt":"100","rate":"236"}],"trimTOT":0,"padTOT":100,"netAMT":-100}],"tot_flowz":1230,"expandedTOTZ":false},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":true,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2023_12_15","amt":"30","rate":"492"},{"ymd":"2023_12_18","amt":"50","rate":"503"},{"ymd":"2023_12_18","amt":"50","rate":"497"},{"ymd":"2023_12_26","amt":"60","rate":"493"},{"ymd":"2023_12_28","amt":"100","rate":"497"},{"ymd":"2023_12_29","amt":"100","rate":"498"}],"padz":[],"netAMT":390,"notez":"2","trimTOT":390,"padTOT":0,"expanded":true,"bankVAL":-410,"bookVAL":800,"notez_expanded":true,"expandedTOTZDeetz":true,"expandedTOTZLogz":false},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"432"},{"ymd":"2023_12_14","amt":"20","rate":"413"},{"ymd":"2023_12_14","amt":"20","rate":"420"},{"ymd":"2023_12_15","amt":"10","rate":"420"},{"ymd":"2023_12_16","amt":"195","rate":"409"},{"ymd":"2023_12_26","amt":"200","rate":"416"},{"ymd":"2023_12_28","amt":"50","rate":"417"}],"padz":[{"ymd":"2023_12_09","amt":"100","rate":"388"}],"netAMT":420,"notez":"2","trimTOT":520,"padTOT":100,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[{"ymd":"2023_12_11","amt":"100","rate":"624"},{"ymd":"2023_12_13","amt":"100","rate":"636"},{"ymd":"2023_12_15","amt":"250","rate":"656"},{"ymd":"2023_12_15","amt":"30","rate":"660"},{"ymd":"2023_12_18","amt":"60","rate":"674"},{"ymd":"2023_12_18","amt":"30","rate":"679"}],"padz":[{"ymd":"2023_12_27","amt":"40","rate":"667"},{"ymd":"2023_12_28","amt":"20","rate":"662"}],"netAMT":510,"notez":"1","trimTOT":570,"padTOT":60,"expanded":false},{"tkr":"GOOG","cap":"4000","trimz":[{"ymd":"2023_12_07","amt":"25","rate":"140"},{"ymd":"2023_12_11","amt":"496","rate":"133"},{"ymd":"2023_12_11","amt":"298","rate":"133"},{"ymd":"2023_12_13","amt":"10","rate":"134"},{"ymd":"2023_12_18","amt":"70","rate":"137"},{"ymd":"2023_12_18","amt":"20","rate":"137"},{"ymd":"2023_12_19","amt":"25","rate":"138"},{"ymd":"2023_12_20","amt":"120","rate":"142"},{"ymd":"2023_12_22","amt":"20","rate":"143"}],"padz":[],"netAMT":1084,"notez":"3","trimTOT":1084,"padTOT":0,"expanded":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2023_12_31","amt":"398","rate":"374"}],"padz":[],"netAMT":398,"notez":"2","trimTOT":398,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"1000","trimz":[{"ymd":"2023_12_11","amt":"10","rate":"187"},{"ymd":"2023_12_13","amt":"10","rate":"191"},{"ymd":"2023_12_22","amt":"270","rate":"192"}],"padz":[],"netAMT":290,"notez":"2","trimTOT":290,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2023_12_08","amt":"20","rate":"129"},{"ymd":"2023_12_11","amt":"20","rate":"134"},{"ymd":"2023_11_12","amt":"20","rate":"139"},{"ymd":"2023_12_26","amt":"15","rate":"143"},{"ymd":"2023_12_27","amt":"10","rate":"246"},{"ymd":"2023_12_28","amt":"10","rate":"149"}],"padz":[],"netAMT":95,"notez":"2","trimTOT":95,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2023_12_12","amt":"10","rate":"259"}],"padz":[],"netAMT":10,"notez":"2","trimTOT":10,"padTOT":0,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"38626"},{"ymd":"2023_12_02","amt":"50","rate":"39417"},{"ymd":"2023_12_03","amt":"25","rate":"39848"},{"ymd":"2023_12_03","amt":"50","rate":"4819"},{"ymd":"2023_12_04","amt":"20","rate":"41700"},{"ymd":"2023_12_04","amt":"30","rate":"41684"},{"ymd":"2023_12_05","amt":"50","rate":"42718"},{"ymd":"2023_12_05","amt":"50","rate":"44008"},{"ymd":"2023_12_13","amt":"20","rate":"41940"},{"ymd":"2023_12_13","amt":"30","rate":"42648"},{"ymd":"2023_12_13","amt":"20","rate":"43042"},{"ymd":"2023_12_18","amt":"30","rate":"41509"},{"ymd":"2023_12_30","amt":"2364","rate":"42060"}],"padz":[{"ymd":"2023_12_12","amt":"100","rate":"40928"},{"ymd":"2023_12_17","amt":"200","rate":"41077"},{"ymd":"2023_12_18","amt":"100","rate":"43074"},{"ymd":"2023_12_19","amt":"200","rate":"42663"},{"ymd":"2023_12_22","amt":"1500","rate":"43637"},{"ymd":"2023_12_25","amt":"100","rate":"42844"},{"ymd":"2023_12_29","amt":"50","rate":"42152"},{"ymd":"2023_12_29","amt":"500","rate":"42048"},{"ymd":"2023_12_30","amt":"14","rate":"42303"},{"ymd":"2023_12_30","amt":"0","rate":"42417"}],"netAMT":0,"notez":"Just Starting out. 1st month trading BTC since \"historic\" ETF approval on Jan 10, 2024. Profitable!!!","trimTOT":2764,"padTOT":2764,"expanded":false,"notez_expanded":true,"bookVAL":800,"bankVAL":-410},{"tkr":"AMZN","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2022_12_04","amt":"100","rate":"144"}],"trimTOT":0,"padTOT":100,"netAMT":-100},{"tkr":"TSLA","cap":"100","expanded":false,"notez":"replace...","trimz":[{"ymd":"2023_12_27","amt":"10","rate":"262"}],"padz":[],"trimTOT":10,"padTOT":0,"netAMT":10}],"tot_flowz":3107,"expandedTOTZ":false},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2024_01_08","amt":"300","rate":"514"},{"ymd":"2024_01_08","amt":"80","rate":"518"},{"ymd":"2024_01_08","amt":"30","rate":"519"},{"ymd":"2024_01_08","amt":"20","rate":"520"},{"ymd":"2024_01_08","amt":"20","rate":"521"},{"ymd":"2024_01_08","amt":"20","rate":"523"},{"ymd":"2024_01_08","amt":"30","rate":"526"},{"ymd":"2024_01_09","amt":"100","rate":"534"},{"ymd":"2024_01_09","amt":"80","rate":"538"},{"ymd":"2024_01_09","amt":"50","rate":"542"},{"ymd":"2024_01_10","amt":"30","rate":"545"},{"ymd":"2024_01_11","amt":"60","rate":"549"},{"ymd":"2024_01_11","amt":"30","rate":"551"}],"padz":[],"netAMT":850,"notez":"JAN 8th 2024 - 1st $500 day!\nExcellent Margins, form prior OCT 27, 2024 lows.","trimTOT":850,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2024_01_19","amt":"10","rate":"401"}],"padz":[{"ymd":"2024_01_11","amt":"15","rate":"393"}],"netAMT":-5,"notez":"2","trimTOT":10,"padTOT":15,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[{"ymd":"2024_01_10","amt":"30","rate":"673"},{"ymd":"2024_01_12","amt":"30","rate":"679"},{"ymd":"2024_01_12","amt":"10","rate":"682"},{"ymd":"2024_01_18","amt":"20","rate":"687"},{"ymd":"2024_01_19","amt":"20","rate":"691"},{"ymd":"2024_01_19","amt":"50","rate":"694"}],"padz":[],"netAMT":160,"notez":"1","trimTOT":160,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"GOOG","cap":"4000","trimz":[{"ymd":"2024_01_10","amt":"20","rate":"144"},{"ymd":"2024_01_11","amt":"20","rate":"144"},{"ymd":"2024_01_18","amt":"20","rate":"145"},{"ymd":"2024_01_19","amt":"40","rate":"147"},{"ymd":"2024_01_19","amt":"20","rate":"147"},{"ymd":"2024_01_19","amt":"10","rate":"148"}],"padz":[],"netAMT":130,"notez":"3","trimTOT":130,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2024_01_08","amt":"50","rate":"372"},{"ymd":"2024_01_09","amt":"30","rate":"376"},{"ymd":"2024_01_10","amt":"210","rate":"381"}],"padz":[],"netAMT":290,"notez":"2","trimTOT":290,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"500","trimz":[{"ymd":"2023_01_19","amt":"20","rate":"197"},{"ymd":"2024_01_19","amt":"20","rate":"200"}],"padz":[],"netAMT":40,"notez":"2","trimTOT":40,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2024_01_16","amt":"20","rate":"157"},{"ymd":"2024_01_18","amt":"30","rate":"166"},{"ymd":"2024_01_19","amt":"25","rate":"173"}],"padz":[],"netAMT":75,"notez":"2","trimTOT":75,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2024_01_12","amt":"10","rate":"265"},{"ymd":"2024_01_19","amt":"15","rate":"271"}],"padz":[{"ymd":"2024_01_19","amt":"500","rate":"269"}],"netAMT":-475,"notez":"2","trimTOT":25,"padTOT":500,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2024_01_01","amt":"500","rate":"44519"},{"ymd":"2024_01_01","amt":"150","rate":"45282"},{"ymd":"2024_01_08","amt":"200","rate":"45870"},{"ymd":"2024_01_08","amt":"200","rate":"46466"},{"ymd":"2024_01_08","amt":"150","rate":"46891"},{"ymd":"2024_01_08","amt":"50","rate":"47156"},{"ymd":"2024_01_08","amt":"30","rate":"47028"},{"ymd":"2024_01_08","amt":"20","rate":"47021"},{"ymd":"2024_01_10","amt":"50","rate":"46229"},{"ymd":"2024_01_10","amt":"20","rate":"46354"},{"ymd":"2024_01_10","amt":"90","rate":"46768"},{"ymd":"2024_01_10","amt":"80","rate":"47024"},{"ymd":"2024_01_11","amt":"40","rate":"46908"},{"ymd":"2024_01_11","amt":"30","rate":"47000"},{"ymd":"2024_01_11","amt":"20","rate":"46336"},{"ymd":"2024_01_11","amt":"40","rate":"46480"},{"ymd":"2024_01_12","amt":"500","rate":"42459"},{"ymd":"2024_01_21","amt":"3000","rate":"41248"}],"padz":[{"ymd":"2024_01_06","amt":"250","rate":"43888"},{"ymd":"2024_01_10","amt":"250","rate":"45955"},{"ymd":"2024_01_10","amt":"100","rate":"46023"},{"ymd":"2024_01_11","amt":"100","rate":"45866"},{"ymd":"2024_01_11","amt":"50","rate":"46439"},{"ymd":"2024_01_11","amt":"80","rate":"46083"},{"ymd":"2024_01_12","amt":"100","rate":"43551"},{"ymd":"2024_01_12","amt":"100","rate":"43677"},{"ymd":"2024_01_12","amt":"100","rate":"42402"},{"ymd":"2024_01_18","amt":"200","rate":"41536"},{"ymd":"2024_01_18","amt":"200","rate":"40888"},{"ymd":"2024_01_21","amt":"200","rate":"417575"},{"ymd":"2024_01_21","amt":"100","rate":"40888"},{"ymd":"2024_01_21","amt":"100","rate":"40666"},{"ymd":"2024_01_21","amt":"100","rate":"40444"},{"ymd":"2024_01_21","amt":"100","rate":"39888"},{"ymd":"2024_01_21","amt":"200","rate":"39655"}],"netAMT":2840,"notez":"This was a ROUGH ONE. Correction at exact the time of CERTAINTY. Destroyed by institutions. How did I manage the boat in the unexpected correction? \nWe will See. Have yet to RUN the NUMBERS!\nCrossing fingers. How to CALCULATE?","trimTOT":5170,"padTOT":2330,"expanded":false,"notez_expanded":true,"bookVAL":800,"bankVAL":440},{"tkr":"AMZN","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2024_01_04","amt":"145","rate":"145"},{"ymd":"2024_01_04","amt":"146","rate":"146"},{"ymd":"2024_01_12","amt":"70","rate":"154"},{"ymd":"2024_01_19","amt":"300","rate":"153"},{"ymd":"2024_01_19","amt":"200","rate":"153"}],"trimTOT":0,"padTOT":861,"netAMT":-861},{"tkr":"TSLA","cap":"100","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2024_01_24","amt":"30","rate":"199"}],"trimTOT":0,"padTOT":30,"netAMT":-30}],"expanded":false,"tot_flowz":3014,"expandedTOTZ":false}},"totz":{"total_net_amt":-3778},"TOTALZ_MATRIX":{"Q4_2023_OCT":{"NVDA":{"tkr":"NVDA","txnz":[{"type":"BUY","amt":"300","price":"460","ymd":"2023_10_10"},{"type":"BUY","amt":"200","price":"413","ymd":"2023_10_20"}],"brEven":"440.29","shares":1.136,"HiVAL":"460","LoVAL":"413"},"MDB":{"tkr":"MDB","txnz":[{"type":"BUY","amt":"570","price":"285","ymd":"2021_05_04"},{"type":"BUY","amt":"200","price":"334","ymd":"2023_09_21"},{"type":"BUY","amt":"300","price":"371","ymd":"2023_10_12"},{"type":"BUY","amt":"200","price":"329","ymd":"2023_10_25"}],"brEven":"316.30","HiVAL":"371","LoVAL":"329"},"XLK":{"tkr":"XLK","txnz":[{"type":"BUY","amt":"297","price":"149","ymd":"2021_07_01"},{"type":"BUY","amt":"305","price":"168","ymd":"2023_09_15"},{"type":"BUY","amt":"500","price":"157","ymd":"2020_01_01"}],"brEven":"157.57","HiVAL":"168","LoVAL":"157"},"AAA":{"tkr":"AAA","txnz":[]},"V":{"tkr":"V","txnz":[{"type":"BUY","amt":"200","price":"232","ymd":"2023_10_24"}],"brEven":"232.00","HiVAL":"232","LoVAL":0}},"total_net_amt":-3778,"Q1_2024_JAN":{"AAA":{"tkr":"AAA","txnz":[]}},"Q4_2023_DEC":{"NVDA":{"tkr":"NVDA","txnz":[{"type":"SELL","amt":"30","price":"492","ymd":"2023_12_15"},{"type":"SELL","amt":"50","price":"503","ymd":"2023_12_18"},{"type":"SELL","amt":"50","price":"497","ymd":"2023_12_18"},{"type":"SELL","amt":"60","price":"493","ymd":"2023_12_26"},{"type":"SELL","amt":"100","price":"497","ymd":"2023_12_28"},{"type":"SELL","amt":"100","price":"498","ymd":"2023_12_29"}],"brEven":"-498128031923693888.00","shares":-0.785,"HiVAL":"503","LoVAL":"493"}},"Q4_2023_NOV":{"NVDA":{"tkr":"NVDA","txnz":[{"type":"BUY","amt":"200","price":"495","ymd":"2023_11_17"},{"type":"BUY","amt":"100","price":"486","ymd":"2023_11_22"}],"brEven":"492.56","shares":0.61,"HiVAL":"495","LoVAL":"486"}}},"MASTER_MATRIX":{"Q4_2023_DEC":{"tkrz":[{"tkr":"NVDA","txnz":[{"type":"SELL","amt":"30","price":"492","ymd":"2023_12_15","bookVAL":-30,"monthlyNET":0},{"type":"SELL","amt":"50","price":"503","ymd":"2023_12_18","bookVAL":-80,"monthlyNET":0},{"type":"SELL","amt":"50","price":"497","ymd":"2023_12_18","bookVAL":-130,"monthlyNET":0},{"type":"SELL","amt":"60","price":"493","ymd":"2023_12_26","bookVAL":-189,"monthlyNET":1},{"type":"SELL","amt":"100","price":"497","ymd":"2023_12_28","bookVAL":-290,"monthlyNET":0},{"type":"SELL","amt":"100","price":"498","ymd":"2023_12_29","bookVAL":-391,"monthlyNET":-1},{"type":"BUY","amt":"0","price":"497","ymd":"2023_12_18","bookVAL":-390,"monthlyNET":0},{"type":"BUY","amt":"0","price":"503","ymd":"2023_12_18","bookVAL":-395,"monthlyNET":-5}]},{"tkr":"MDB","txnz":[{"type":"SELL","amt":"25","price":"432","ymd":"2023_12_01"},{"type":"SELL","amt":"20","price":"413","ymd":"2023_12_14"},{"type":"SELL","amt":"20","price":"420","ymd":"2023_12_14"},{"type":"SELL","amt":"10","price":"420","ymd":"2023_12_15"},{"type":"SELL","amt":"195","price":"409","ymd":"2023_12_16"},{"type":"SELL","amt":"200","price":"416","ymd":"2023_12_26"},{"type":"SELL","amt":"50","price":"417","ymd":"2023_12_28"},{"type":"BUY","amt":"100","price":"388","ymd":"2023_12_09"}]},{"tkr":"COST","txnz":[{"type":"SELL","amt":"100","price":"624","ymd":"2023_12_11"},{"type":"SELL","amt":"100","price":"636","ymd":"2023_12_13"},{"type":"SELL","amt":"250","price":"656","ymd":"2023_12_15"},{"type":"SELL","amt":"30","price":"660","ymd":"2023_12_15"},{"type":"SELL","amt":"60","price":"674","ymd":"2023_12_18"},{"type":"SELL","amt":"30","price":"679","ymd":"2023_12_18"},{"type":"BUY","amt":"40","price":"667","ymd":"2023_12_27"},{"type":"BUY","amt":"20","price":"662","ymd":"2023_12_28"}]},{"tkr":"GOOG","txnz":[{"type":"SELL","amt":"25","price":"140","ymd":"2023_12_07"},{"type":"SELL","amt":"496","price":"133","ymd":"2023_12_11"},{"type":"SELL","amt":"298","price":"133","ymd":"2023_12_11"},{"type":"SELL","amt":"10","price":"134","ymd":"2023_12_13"},{"type":"SELL","amt":"70","price":"137","ymd":"2023_12_18"},{"type":"SELL","amt":"20","price":"137","ymd":"2023_12_18"},{"type":"SELL","amt":"25","price":"138","ymd":"2023_12_19"},{"type":"SELL","amt":"120","price":"142","ymd":"2023_12_20"},{"type":"SELL","amt":"20","price":"143","ymd":"2023_12_22"}]},{"tkr":"MSFT","txnz":[{"type":"SELL","amt":"398","price":"374","ymd":"2023_12_31"}]},{"tkr":"XLK","txnz":[{"type":"SELL","amt":"10","price":"187","ymd":"2023_12_11"},{"type":"SELL","amt":"10","price":"191","ymd":"2023_12_13"},{"type":"SELL","amt":"270","price":"192","ymd":"2023_12_22"}]},{"tkr":"AMD","txnz":[{"type":"SELL","amt":"20","price":"129","ymd":"2023_12_08"},{"type":"SELL","amt":"20","price":"134","ymd":"2023_12_11"},{"type":"SELL","amt":"20","price":"139","ymd":"2023_11_12"},{"type":"SELL","amt":"15","price":"143","ymd":"2023_12_26"},{"type":"SELL","amt":"10","price":"246","ymd":"2023_12_27"},{"type":"SELL","amt":"10","price":"149","ymd":"2023_12_28"}]},{"tkr":"V","txnz":[{"type":"SELL","amt":"10","price":"259","ymd":"2023_12_12","bookVAL":-213,"monthlyNET":187}]},{"tkr":"BTC","txnz":[{"type":"SELL","amt":"25","price":"38626","ymd":"2023_12_01"},{"type":"SELL","amt":"50","price":"39417","ymd":"2023_12_02"},{"type":"SELL","amt":"25","price":"39848","ymd":"2023_12_03"},{"type":"SELL","amt":"50","price":"4819","ymd":"2023_12_03"},{"type":"SELL","amt":"20","price":"41700","ymd":"2023_12_04"},{"type":"SELL","amt":"30","price":"41684","ymd":"2023_12_04"},{"type":"SELL","amt":"50","price":"42718","ymd":"2023_12_05"},{"type":"SELL","amt":"50","price":"44008","ymd":"2023_12_05"},{"type":"SELL","amt":"20","price":"41940","ymd":"2023_12_13"},{"type":"SELL","amt":"30","price":"42648","ymd":"2023_12_13"},{"type":"SELL","amt":"20","price":"43042","ymd":"2023_12_13"},{"type":"SELL","amt":"30","price":"41509","ymd":"2023_12_18"},{"type":"SELL","amt":"2364","price":"42060","ymd":"2023_12_30"},{"type":"BUY","amt":"100","price":"40928","ymd":"2023_12_12"},{"type":"BUY","amt":"200","price":"41077","ymd":"2023_12_17"},{"type":"BUY","amt":"100","price":"43074","ymd":"2023_12_18"},{"type":"BUY","amt":"200","price":"42663","ymd":"2023_12_19"},{"type":"BUY","amt":"1500","price":"43637","ymd":"2023_12_22"},{"type":"BUY","amt":"100","price":"42844","ymd":"2023_12_25"},{"type":"BUY","amt":"50","price":"42152","ymd":"2023_12_29"},{"type":"BUY","amt":"500","price":"42048","ymd":"2023_12_29"},{"type":"BUY","amt":"14","price":"42303","ymd":"2023_12_30"},{"type":"BUY","amt":"0","price":"42417","ymd":"2023_12_30"}]},{"tkr":"AMZN","txnz":[{"type":"BUY","amt":"100","price":"144","ymd":"2022_12_04"}]},{"tkr":"TSLA","txnz":[{"type":"SELL","amt":"10","price":"262","ymd":"2023_12_27"}]}]}}}
+   ai_main = {"qrtrz":{"Q4_2023_OCT":{"qID":"Q4_2023_OCT","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"","expanded":true,"trimz":[],"padz":[{"ymd":"2023_10_10","amt":"300","rate":"460"},{"ymd":"2023_10_20","amt":"200","rate":"413"}],"netAMT":-500,"notez":"23","notez_expanded":true,"trimTOT":0,"padTOT":500,"bankVAL":-500,"bookVAL":500,"expandedTOTZDeetz":true,"expandedTOTZLogz":true},{"tkr":"MDB","cap":"1000","trimz":[],"padz":[{"ymd":"2021_05_04","amt":"570","rate":"285"},{"ymd":"2023_09_21","amt":"200","rate":"334"},{"ymd":"2023_10_12","amt":"300","rate":"371"},{"ymd":"2023_10_25","amt":"200","rate":"329"}],"netAMT":-1270,"notez":"2","trimTOT":0,"padTOT":1270,"expanded":false,"expandedTOTZDeetz":false,"expandedTOTZLogz":true},{"tkr":"COST","cap":"1000","trimz":[],"padz":[{"ymd":"2023_10_06","amt":"300","rate":"555"},{"ymd":"2023_10_10","amt":"300","rate":"562"},{"ymd":"2023_10_12","amt":"200","rate":"568"},{"ymd":"2023_10_20","amt":"200","rate":"555"},{"ymd":"2023_10_20","amt":"200","rate":"552"},{"ymd":"2023_10_25","amt":"200","rate":"550"},{"ymd":"2023_10_26","amt":"200","rate":"548"},{"ymd":"2023_10_27","amt":"35","rate":"543"}],"netAMT":-1635,"notez":"2","trimTOT":0,"padTOT":1635,"expanded":false,"notez_expanded":false,"bankVAL":-500,"bookVAL":500,"expandedTOTZDeetz":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2020_04_20","amt":"176","rate":"176"}],"padz":[{"ymd":"2020_04_17","amt":"180","rate":"180"},{"ymd":"2021_06_22","amt":"531","rate":"266"},{"ymd":"2023_09_30","amt":"200","rate":"316"},{"ymd":"2023_10_25","amt":"100","rate":"340"},{"ymd":"2023_10_26","amt":"100","rate":"330"}],"netAMT":-935,"notez":"2","trimTOT":176,"padTOT":1111,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[],"padz":[],"netAMT":0,"notez":"2","trimTOT":0,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_24","amt":"200","rate":"232"}],"trimTOT":0,"padTOT":200,"netAMT":-200,"expandedTOTZDeetz":false,"expandedTOTZLogz":true},{"tkr":"AMD","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_01","amt":"524","rate":"102"}],"trimTOT":0,"padTOT":524,"netAMT":-524},{"tkr":"GOOG","cap":"5000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_10_10","amt":"4963","rate":"125"}],"trimTOT":0,"padTOT":4963,"netAMT":-4963},{"tkr":"XLK","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2021_07_01","amt":"297","rate":"149"},{"ymd":"2023_09_15","amt":"305","rate":"168"},{"ymd":"2020_01_01","amt":"500","rate":"157"}],"trimTOT":0,"padTOT":1102,"netAMT":-1102,"expandedTOTZDeetz":false,"expandedTOTZLogz":true}],"expandedTOTZ":false,"expandedTOTZDeetz":true,"tot_flowz":-11129},"Q4_2023_NOV":{"qID":"Q4_2023_NOV","expanded":false,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[],"padz":[{"ymd":"2023_11_17","amt":"200","rate":"495"},{"ymd":"2023_11_22","amt":"100","rate":"486"}],"netAMT":-300,"notez":"2","trimTOT":0,"padTOT":300,"expanded":true,"bankVAL":-800,"notez_expanded":false,"bookVAL":800,"expandedTOTZDeetz":false,"expandedTOTZLogz":false},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2023_11_10","amt":"200","rate":"376"}],"padz":[],"netAMT":200,"notez":"2","trimTOT":200,"padTOT":0,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[],"padz":[],"netAMT":0,"notez":"1","trimTOT":0,"padTOT":0},{"tkr":"GOOG","cap":"5000","trimz":[{"ymd":"2023_11_10","amt":"200","rate":"133"},{"ymd":"2023_11_14","amt":"100","rate":"136"},{"ymd":"2023_11_16","amt":"100","rate":"139"},{"ymd":"2023_11_20","amt":"100","rate":"138"},{"ymd":"2023_11_20","amt":"40","rate":"139"}],"padz":[],"netAMT":540,"notez":"3","trimTOT":540,"padTOT":0,"expanded":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2023_11_10","amt":"100","rate":"368"},{"ymd":"2023_11_20","amt":"100","rate":"378"},{"ymd":"2023_11_28","amt":"30","rate":"384"}],"padz":[],"netAMT":230,"notez":"2","trimTOT":230,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"500","trimz":[{"ymd":"2023_11_14","amt":"100","rate":"182"},{"ymd":"2023_11_20","amt":"100","rate":"185"}],"padz":[],"netAMT":200,"notez":"2","trimTOT":200,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2022_11_10","amt":"100","rate":"119"},{"ymd":"2023_11_16","amt":"100","rate":"120"},{"ymd":"2023_11_29","amt":"30","rate":"125"}],"padz":[],"netAMT":230,"notez":"2","trimTOT":230,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2023_11_24","amt":"30","rate":"254"}],"padz":[{"ymd":"2023_11_10","amt":"300","rate":"245"}],"netAMT":-270,"notez":"2","trimTOT":30,"padTOT":300,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_11_01","amt":"100","rate":"35435"},{"ymd":"2023_11_10","amt":"200","rate":"36818"},{"ymd":"2023_11_15","amt":"100","rate":"37390"},{"ymd":"2023_11_22","amt":"100","rate":"37694"}],"padz":[],"netAMT":500,"notez":"2","trimTOT":500,"padTOT":0,"expanded":false},{"tkr":"TSLA","cap":"100","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2023_11_30","amt":"100","rate":"236"}],"trimTOT":0,"padTOT":100,"netAMT":-100}],"tot_flowz":1230,"expandedTOTZ":false},"Q4_2023_DEC":{"qID":"Q4_2023_DEC","expanded":true,"tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2023_12_15","amt":"30","rate":"492"},{"ymd":"2023_12_18","amt":"50","rate":"503"},{"ymd":"2023_12_18","amt":"50","rate":"497"},{"ymd":"2023_12_26","amt":"60","rate":"493"},{"ymd":"2023_12_28","amt":"100","rate":"497"},{"ymd":"2023_12_29","amt":"100","rate":"498"}],"padz":[],"netAMT":390,"notez":"2","trimTOT":390,"padTOT":0,"expanded":true,"bankVAL":-410,"bookVAL":800,"notez_expanded":true,"expandedTOTZDeetz":true,"expandedTOTZLogz":false},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"432"},{"ymd":"2023_12_14","amt":"20","rate":"413"},{"ymd":"2023_12_14","amt":"20","rate":"420"},{"ymd":"2023_12_15","amt":"10","rate":"420"},{"ymd":"2023_12_16","amt":"195","rate":"409"},{"ymd":"2023_12_26","amt":"200","rate":"416"},{"ymd":"2023_12_28","amt":"50","rate":"417"}],"padz":[{"ymd":"2023_12_09","amt":"100","rate":"388"}],"netAMT":420,"notez":"2","trimTOT":520,"padTOT":100,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[{"ymd":"2023_12_11","amt":"100","rate":"624"},{"ymd":"2023_12_13","amt":"100","rate":"636"},{"ymd":"2023_12_15","amt":"250","rate":"656"},{"ymd":"2023_12_15","amt":"30","rate":"660"},{"ymd":"2023_12_18","amt":"60","rate":"674"},{"ymd":"2023_12_18","amt":"30","rate":"679"}],"padz":[{"ymd":"2023_12_27","amt":"40","rate":"667"},{"ymd":"2023_12_28","amt":"20","rate":"662"}],"netAMT":510,"notez":"1","trimTOT":570,"padTOT":60,"expanded":false},{"tkr":"GOOG","cap":"4000","trimz":[{"ymd":"2023_12_07","amt":"25","rate":"140"},{"ymd":"2023_12_11","amt":"496","rate":"133"},{"ymd":"2023_12_11","amt":"298","rate":"133"},{"ymd":"2023_12_13","amt":"10","rate":"134"},{"ymd":"2023_12_18","amt":"70","rate":"137"},{"ymd":"2023_12_18","amt":"20","rate":"137"},{"ymd":"2023_12_19","amt":"25","rate":"138"},{"ymd":"2023_12_20","amt":"120","rate":"142"},{"ymd":"2023_12_22","amt":"20","rate":"143"}],"padz":[],"netAMT":1084,"notez":"3","trimTOT":1084,"padTOT":0,"expanded":false},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2023_12_31","amt":"398","rate":"374"}],"padz":[],"netAMT":398,"notez":"2","trimTOT":398,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"1000","trimz":[{"ymd":"2023_12_11","amt":"10","rate":"187"},{"ymd":"2023_12_13","amt":"10","rate":"191"},{"ymd":"2023_12_22","amt":"270","rate":"192"}],"padz":[],"netAMT":290,"notez":"2","trimTOT":290,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2023_12_08","amt":"20","rate":"129"},{"ymd":"2023_12_11","amt":"20","rate":"134"},{"ymd":"2023_11_12","amt":"20","rate":"139"},{"ymd":"2023_12_26","amt":"15","rate":"143"},{"ymd":"2023_12_27","amt":"10","rate":"246"},{"ymd":"2023_12_28","amt":"10","rate":"149"}],"padz":[],"netAMT":95,"notez":"2","trimTOT":95,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2023_12_12","amt":"10","rate":"259"}],"padz":[],"netAMT":10,"notez":"2","trimTOT":10,"padTOT":0,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2023_12_01","amt":"25","rate":"38626"},{"ymd":"2023_12_02","amt":"50","rate":"39417"},{"ymd":"2023_12_03","amt":"25","rate":"39848"},{"ymd":"2023_12_03","amt":"50","rate":"4819"},{"ymd":"2023_12_04","amt":"20","rate":"41700"},{"ymd":"2023_12_04","amt":"30","rate":"41684"},{"ymd":"2023_12_05","amt":"50","rate":"42718"},{"ymd":"2023_12_05","amt":"50","rate":"44008"},{"ymd":"2023_12_13","amt":"20","rate":"41940"},{"ymd":"2023_12_13","amt":"30","rate":"42648"},{"ymd":"2023_12_13","amt":"20","rate":"43042"},{"ymd":"2023_12_18","amt":"30","rate":"41509"},{"ymd":"2023_12_30","amt":"2364","rate":"42060"}],"padz":[{"ymd":"2023_12_12","amt":"100","rate":"40928"},{"ymd":"2023_12_17","amt":"200","rate":"41077"},{"ymd":"2023_12_18","amt":"100","rate":"43074"},{"ymd":"2023_12_19","amt":"200","rate":"42663"},{"ymd":"2023_12_22","amt":"1500","rate":"43637"},{"ymd":"2023_12_25","amt":"100","rate":"42844"},{"ymd":"2023_12_29","amt":"50","rate":"42152"},{"ymd":"2023_12_29","amt":"500","rate":"42048"},{"ymd":"2023_12_30","amt":"14","rate":"42303"},{"ymd":"2023_12_30","amt":"0","rate":"42417"}],"netAMT":0,"notez":"Just Starting out. 1st month trading BTC since \"historic\" ETF approval on Jan 10, 2024. Profitable!!!","trimTOT":2764,"padTOT":2764,"expanded":false,"notez_expanded":true,"bookVAL":800,"bankVAL":-410},{"tkr":"AMZN","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2022_12_04","amt":"100","rate":"144"}],"trimTOT":0,"padTOT":100,"netAMT":-100},{"tkr":"TSLA","cap":"100","expanded":false,"notez":"replace...","trimz":[{"ymd":"2023_12_27","amt":"10","rate":"262"}],"padz":[],"trimTOT":10,"padTOT":0,"netAMT":10}],"tot_flowz":3107,"expandedTOTZ":false},"Q1_2024_JAN":{"qID":"Q1_2024_JAN","tickrz":[{"tkr":"NVDA","cap":"4500","trimz":[{"ymd":"2024_01_08","amt":"300","rate":"514"},{"ymd":"2024_01_08","amt":"80","rate":"518"},{"ymd":"2024_01_08","amt":"30","rate":"519"},{"ymd":"2024_01_08","amt":"20","rate":"520"},{"ymd":"2024_01_08","amt":"20","rate":"521"},{"ymd":"2024_01_08","amt":"20","rate":"523"},{"ymd":"2024_01_08","amt":"30","rate":"526"},{"ymd":"2024_01_09","amt":"100","rate":"534"},{"ymd":"2024_01_09","amt":"80","rate":"538"},{"ymd":"2024_01_09","amt":"50","rate":"542"},{"ymd":"2024_01_10","amt":"30","rate":"545"},{"ymd":"2024_01_11","amt":"60","rate":"549"},{"ymd":"2024_01_11","amt":"30","rate":"551"}],"padz":[],"netAMT":850,"notez":"JAN 8th 2024 - 1st $500 day!\nExcellent Margins, form prior OCT 27, 2024 lows.","trimTOT":850,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"MDB","cap":"1500","trimz":[{"ymd":"2024_01_19","amt":"10","rate":"401"}],"padz":[{"ymd":"2024_01_11","amt":"15","rate":"393"}],"netAMT":-5,"notez":"2","trimTOT":10,"padTOT":15,"expanded":false},{"tkr":"COST","cap":"2000","trimz":[{"ymd":"2024_01_10","amt":"30","rate":"673"},{"ymd":"2024_01_12","amt":"30","rate":"679"},{"ymd":"2024_01_12","amt":"10","rate":"682"},{"ymd":"2024_01_18","amt":"20","rate":"687"},{"ymd":"2024_01_19","amt":"20","rate":"691"},{"ymd":"2024_01_19","amt":"50","rate":"694"}],"padz":[],"netAMT":160,"notez":"1","trimTOT":160,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"GOOG","cap":"4000","trimz":[{"ymd":"2024_01_10","amt":"20","rate":"144"},{"ymd":"2024_01_11","amt":"20","rate":"144"},{"ymd":"2024_01_18","amt":"20","rate":"145"},{"ymd":"2024_01_19","amt":"40","rate":"147"},{"ymd":"2024_01_19","amt":"20","rate":"147"},{"ymd":"2024_01_19","amt":"10","rate":"148"}],"padz":[],"netAMT":130,"notez":"3","trimTOT":130,"padTOT":0,"expanded":false,"notez_expanded":true,"bankVAL":440,"bookVAL":800},{"tkr":"MSFT","cap":"1000","trimz":[{"ymd":"2024_01_08","amt":"50","rate":"372"},{"ymd":"2024_01_09","amt":"30","rate":"376"},{"ymd":"2024_01_10","amt":"210","rate":"381"}],"padz":[],"netAMT":290,"notez":"2","trimTOT":290,"padTOT":0,"expanded":false},{"tkr":"XLK","cap":"500","trimz":[{"ymd":"2023_01_19","amt":"20","rate":"197"},{"ymd":"2024_01_19","amt":"20","rate":"200"}],"padz":[],"netAMT":40,"notez":"2","trimTOT":40,"padTOT":0,"expanded":false},{"tkr":"AMD","cap":"500","trimz":[{"ymd":"2024_01_16","amt":"20","rate":"157"},{"ymd":"2024_01_18","amt":"30","rate":"166"},{"ymd":"2024_01_19","amt":"25","rate":"173"}],"padz":[],"netAMT":75,"notez":"2","trimTOT":75,"padTOT":0,"expanded":false},{"tkr":"V","cap":"500","trimz":[{"ymd":"2024_01_12","amt":"10","rate":"265"},{"ymd":"2024_01_19","amt":"15","rate":"271"}],"padz":[{"ymd":"2024_01_19","amt":"500","rate":"269"}],"netAMT":-475,"notez":"2","trimTOT":25,"padTOT":500,"expanded":false},{"tkr":"BTC","cap":"1000","trimz":[{"ymd":"2024_01_01","amt":"500","rate":"44519"},{"ymd":"2024_01_01","amt":"150","rate":"45282"},{"ymd":"2024_01_08","amt":"200","rate":"45870"},{"ymd":"2024_01_08","amt":"200","rate":"46466"},{"ymd":"2024_01_08","amt":"150","rate":"46891"},{"ymd":"2024_01_08","amt":"50","rate":"47156"},{"ymd":"2024_01_08","amt":"30","rate":"47028"},{"ymd":"2024_01_08","amt":"20","rate":"47021"},{"ymd":"2024_01_10","amt":"50","rate":"46229"},{"ymd":"2024_01_10","amt":"20","rate":"46354"},{"ymd":"2024_01_10","amt":"90","rate":"46768"},{"ymd":"2024_01_10","amt":"80","rate":"47024"},{"ymd":"2024_01_11","amt":"40","rate":"46908"},{"ymd":"2024_01_11","amt":"30","rate":"47000"},{"ymd":"2024_01_11","amt":"20","rate":"46336"},{"ymd":"2024_01_11","amt":"40","rate":"46480"},{"ymd":"2024_01_12","amt":"500","rate":"42459"},{"ymd":"2024_01_21","amt":"3000","rate":"41248"}],"padz":[{"ymd":"2024_01_06","amt":"250","rate":"43888"},{"ymd":"2024_01_10","amt":"250","rate":"45955"},{"ymd":"2024_01_10","amt":"100","rate":"46023"},{"ymd":"2024_01_11","amt":"100","rate":"45866"},{"ymd":"2024_01_11","amt":"50","rate":"46439"},{"ymd":"2024_01_11","amt":"80","rate":"46083"},{"ymd":"2024_01_12","amt":"100","rate":"43551"},{"ymd":"2024_01_12","amt":"100","rate":"43677"},{"ymd":"2024_01_12","amt":"100","rate":"42402"},{"ymd":"2024_01_18","amt":"200","rate":"41536"},{"ymd":"2024_01_18","amt":"200","rate":"40888"},{"ymd":"2024_01_21","amt":"200","rate":"417575"},{"ymd":"2024_01_21","amt":"100","rate":"40888"},{"ymd":"2024_01_21","amt":"100","rate":"40666"},{"ymd":"2024_01_21","amt":"100","rate":"40444"},{"ymd":"2024_01_21","amt":"100","rate":"39888"},{"ymd":"2024_01_21","amt":"200","rate":"39655"}],"netAMT":2840,"notez":"This was a ROUGH ONE. Correction at exact the time of CERTAINTY. Destroyed by institutions. How did I manage the boat in the unexpected correction? \nWe will See. Have yet to RUN the NUMBERS!\nCrossing fingers. How to CALCULATE?","trimTOT":5170,"padTOT":2330,"expanded":false,"notez_expanded":true,"bookVAL":800,"bankVAL":440},{"tkr":"AMZN","cap":"1000","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2024_01_04","amt":"145","rate":"145"},{"ymd":"2024_01_04","amt":"146","rate":"146"},{"ymd":"2024_01_12","amt":"70","rate":"154"},{"ymd":"2024_01_19","amt":"300","rate":"153"},{"ymd":"2024_01_19","amt":"200","rate":"153"}],"trimTOT":0,"padTOT":861,"netAMT":-861},{"tkr":"TSLA","cap":"100","expanded":false,"notez":"replace...","trimz":[],"padz":[{"ymd":"2024_01_24","amt":"30","rate":"199"}],"trimTOT":0,"padTOT":30,"netAMT":-30}],"expanded":false,"tot_flowz":3014,"expandedTOTZ":false}},"totz":{"total_net_amt":-3778},"SUBTOTALZ_MATRIX":{"Q4_2023_OCT":{"NVDA":{"tkr":"NVDA","txnz":[{"type":"BUY","amt":"300","price":"460","ymd":"2023_10_10"},{"type":"BUY","amt":"200","price":"413","ymd":"2023_10_20"}],"brEven":"440.29","shares":1.136,"HiVAL":"460","LoVAL":"413"},"MDB":{"tkr":"MDB","txnz":[{"type":"BUY","amt":"570","price":"285","ymd":"2021_05_04"},{"type":"BUY","amt":"200","price":"334","ymd":"2023_09_21"},{"type":"BUY","amt":"300","price":"371","ymd":"2023_10_12"},{"type":"BUY","amt":"200","price":"329","ymd":"2023_10_25"}],"brEven":"316.30","HiVAL":"371","LoVAL":"329"},"XLK":{"tkr":"XLK","txnz":[{"type":"BUY","amt":"297","price":"149","ymd":"2021_07_01"},{"type":"BUY","amt":"305","price":"168","ymd":"2023_09_15"},{"type":"BUY","amt":"500","price":"157","ymd":"2020_01_01"}],"brEven":"157.57","HiVAL":"168","LoVAL":"157"},"AAA":{"tkr":"AAA","txnz":[]},"V":{"tkr":"V","txnz":[{"type":"BUY","amt":"200","price":"232","ymd":"2023_10_24"}],"brEven":"232.00","HiVAL":"232","LoVAL":0}},"total_net_amt":-3778,"Q1_2024_JAN":{"AAA":{"tkr":"AAA","txnz":[]}},"Q4_2023_DEC":{"NVDA":{"tkr":"NVDA","txnz":[{"type":"SELL","amt":"30","price":"492","ymd":"2023_12_15"},{"type":"SELL","amt":"50","price":"503","ymd":"2023_12_18"},{"type":"SELL","amt":"50","price":"497","ymd":"2023_12_18"},{"type":"SELL","amt":"60","price":"493","ymd":"2023_12_26"},{"type":"SELL","amt":"100","price":"497","ymd":"2023_12_28"},{"type":"SELL","amt":"100","price":"498","ymd":"2023_12_29"}],"brEven":"-498128031923693888.00","shares":-0.785,"HiVAL":"503","LoVAL":"493"}},"Q4_2023_NOV":{"NVDA":{"tkr":"NVDA","txnz":[{"type":"BUY","amt":"200","price":"495","ymd":"2023_11_17"},{"type":"BUY","amt":"100","price":"486","ymd":"2023_11_22"}],"brEven":"492.56","shares":0.61,"HiVAL":"495","LoVAL":"486"}}},"MASTER_MATRIX":{"Q4_2023_DEC":{"tkrz":[{"tkr":"NVDA","txnz":[{"type":"SELL","amt":"30","price":"492","ymd":"2023_12_15","bookVAL":-30,"monthlyNET":0},{"type":"SELL","amt":"50","price":"503","ymd":"2023_12_18","bookVAL":-80,"monthlyNET":0},{"type":"SELL","amt":"50","price":"497","ymd":"2023_12_18","bookVAL":-130,"monthlyNET":0},{"type":"SELL","amt":"60","price":"493","ymd":"2023_12_26","bookVAL":-189,"monthlyNET":1},{"type":"SELL","amt":"100","price":"497","ymd":"2023_12_28","bookVAL":-290,"monthlyNET":0},{"type":"SELL","amt":"100","price":"498","ymd":"2023_12_29","bookVAL":-391,"monthlyNET":-1},{"type":"BUY","amt":"0","price":"497","ymd":"2023_12_18","bookVAL":-390,"monthlyNET":0},{"type":"BUY","amt":"0","price":"503","ymd":"2023_12_18","bookVAL":-395,"monthlyNET":-5}]},{"tkr":"MDB","txnz":[{"type":"SELL","amt":"25","price":"432","ymd":"2023_12_01"},{"type":"SELL","amt":"20","price":"413","ymd":"2023_12_14"},{"type":"SELL","amt":"20","price":"420","ymd":"2023_12_14"},{"type":"SELL","amt":"10","price":"420","ymd":"2023_12_15"},{"type":"SELL","amt":"195","price":"409","ymd":"2023_12_16"},{"type":"SELL","amt":"200","price":"416","ymd":"2023_12_26"},{"type":"SELL","amt":"50","price":"417","ymd":"2023_12_28"},{"type":"BUY","amt":"100","price":"388","ymd":"2023_12_09"}]},{"tkr":"COST","txnz":[{"type":"SELL","amt":"100","price":"624","ymd":"2023_12_11"},{"type":"SELL","amt":"100","price":"636","ymd":"2023_12_13"},{"type":"SELL","amt":"250","price":"656","ymd":"2023_12_15"},{"type":"SELL","amt":"30","price":"660","ymd":"2023_12_15"},{"type":"SELL","amt":"60","price":"674","ymd":"2023_12_18"},{"type":"SELL","amt":"30","price":"679","ymd":"2023_12_18"},{"type":"BUY","amt":"40","price":"667","ymd":"2023_12_27"},{"type":"BUY","amt":"20","price":"662","ymd":"2023_12_28"}]},{"tkr":"GOOG","txnz":[{"type":"SELL","amt":"25","price":"140","ymd":"2023_12_07"},{"type":"SELL","amt":"496","price":"133","ymd":"2023_12_11"},{"type":"SELL","amt":"298","price":"133","ymd":"2023_12_11"},{"type":"SELL","amt":"10","price":"134","ymd":"2023_12_13"},{"type":"SELL","amt":"70","price":"137","ymd":"2023_12_18"},{"type":"SELL","amt":"20","price":"137","ymd":"2023_12_18"},{"type":"SELL","amt":"25","price":"138","ymd":"2023_12_19"},{"type":"SELL","amt":"120","price":"142","ymd":"2023_12_20"},{"type":"SELL","amt":"20","price":"143","ymd":"2023_12_22"}]},{"tkr":"MSFT","txnz":[{"type":"SELL","amt":"398","price":"374","ymd":"2023_12_31"}]},{"tkr":"XLK","txnz":[{"type":"SELL","amt":"10","price":"187","ymd":"2023_12_11"},{"type":"SELL","amt":"10","price":"191","ymd":"2023_12_13"},{"type":"SELL","amt":"270","price":"192","ymd":"2023_12_22"}]},{"tkr":"AMD","txnz":[{"type":"SELL","amt":"20","price":"129","ymd":"2023_12_08"},{"type":"SELL","amt":"20","price":"134","ymd":"2023_12_11"},{"type":"SELL","amt":"20","price":"139","ymd":"2023_11_12"},{"type":"SELL","amt":"15","price":"143","ymd":"2023_12_26"},{"type":"SELL","amt":"10","price":"246","ymd":"2023_12_27"},{"type":"SELL","amt":"10","price":"149","ymd":"2023_12_28"}]},{"tkr":"V","txnz":[{"type":"SELL","amt":"10","price":"259","ymd":"2023_12_12","bookVAL":-213,"monthlyNET":187}]},{"tkr":"BTC","txnz":[{"type":"SELL","amt":"25","price":"38626","ymd":"2023_12_01"},{"type":"SELL","amt":"50","price":"39417","ymd":"2023_12_02"},{"type":"SELL","amt":"25","price":"39848","ymd":"2023_12_03"},{"type":"SELL","amt":"50","price":"4819","ymd":"2023_12_03"},{"type":"SELL","amt":"20","price":"41700","ymd":"2023_12_04"},{"type":"SELL","amt":"30","price":"41684","ymd":"2023_12_04"},{"type":"SELL","amt":"50","price":"42718","ymd":"2023_12_05"},{"type":"SELL","amt":"50","price":"44008","ymd":"2023_12_05"},{"type":"SELL","amt":"20","price":"41940","ymd":"2023_12_13"},{"type":"SELL","amt":"30","price":"42648","ymd":"2023_12_13"},{"type":"SELL","amt":"20","price":"43042","ymd":"2023_12_13"},{"type":"SELL","amt":"30","price":"41509","ymd":"2023_12_18"},{"type":"SELL","amt":"2364","price":"42060","ymd":"2023_12_30"},{"type":"BUY","amt":"100","price":"40928","ymd":"2023_12_12"},{"type":"BUY","amt":"200","price":"41077","ymd":"2023_12_17"},{"type":"BUY","amt":"100","price":"43074","ymd":"2023_12_18"},{"type":"BUY","amt":"200","price":"42663","ymd":"2023_12_19"},{"type":"BUY","amt":"1500","price":"43637","ymd":"2023_12_22"},{"type":"BUY","amt":"100","price":"42844","ymd":"2023_12_25"},{"type":"BUY","amt":"50","price":"42152","ymd":"2023_12_29"},{"type":"BUY","amt":"500","price":"42048","ymd":"2023_12_29"},{"type":"BUY","amt":"14","price":"42303","ymd":"2023_12_30"},{"type":"BUY","amt":"0","price":"42417","ymd":"2023_12_30"}]},{"tkr":"AMZN","txnz":[{"type":"BUY","amt":"100","price":"144","ymd":"2022_12_04"}]},{"tkr":"TSLA","txnz":[{"type":"SELL","amt":"10","price":"262","ymd":"2023_12_27"}]}]}}}
 }
 
 const ai_main_init=()=>{ //READ from LOCAL STORAGE
@@ -3911,7 +3911,7 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                tickrData.trimTOT = 0
                tickrData.padTOT  = 0
                tickrData.netAMT = 0     
-               calculate_MonthlyTradeRoles = function(){
+               calculate_MonthlyTradeRoles = function(){ //generate METADATA
                   // if(tickrData.tkr==='BTC'){debugger;}
                   if(!tickrData.trimz){tickrData.trimz=[]}          
                   if(!tickrData.padz){tickrData.padz=[]}          
@@ -3930,7 +3930,7 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         tickrData.longTOT += parseFloat(tickrData.padz[b].amt);
                      }
                   }
-
+                  //TODO: what? remove? //used for NETFLOWS subtract LONGZ?
                   tickrData.netAMT = tickrData.trimTOT - tickrData.padTOT;
                   if(tickrData.netAMT > 0){
                      tickrData.netAMT = '+' + tickrData.netAMT;
@@ -3938,18 +3938,187 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                      tickrData.netAMT = tickrData.netAMT;
                   }
                }; calculate_MonthlyTradeRoles();
-               // if(tickrData.trimTOT && tickrData.padTOT){
-               //    if(tickrData.trimTOT > tickrData.padTOT){
-               //       tickrData.netAMT = tickrData.trimTOT/tickrData.padTOT;
-               //       tickrData.netAMT = tickrData.netAMT * 100;
-               //       tickrData.netAMT = '+' + Math.round(tickrData.netAMT) + '%';
-               //    } else {
-               //       tickrData.netAMT = tickrData.padTOT/tickrData.trimTOT;
-               //       tickrData.netAMT = tickrData.netAMT * 100;
-               //       tickrData.netAMT = '-' + Math.round(tickrData.netAMT) + '%';
-               //    }
-               // }
+               // BankVAL,BookVAL,EvenRate,RateAVG,MonthlyStockNET,LastPrice
+               tickrData.BankVAL = 0;
+               tickrData.BookVAL = 0;
+               tickrData.EvenRate = 0;
+               tickrData.RateAVG = 0;
+               tickrData.LastPrice = 0;
+               tickrData.MonthlyStockNET = 0;
+debugger;
+   //TRANZFORM_DATA ai_main_totalz - accumulator pattern
+   function tranzform_to_MONTHLYTOTALZ(zqID,zTKR){ //TRANZFORM: AI_MAIN DATA (input) to TOTALZ TXNZ (encode)
+      if(!ai_main.MONTHLY_MATRIX){ ai_main.MONTHLY_MATRIX = {}; }
+      if(!ai_main.MONTHLY_MATRIX[zqID]){ ai_main.MONTHLY_MATRIX[zqID] = {}; }
+      // console.log('TOTALZ0:',3.1, 'Tranzform data',selectQTR.toUpperCase(),selectTKR.toUpperCase())
+      ai_main.MONTHLY_MATRIX[zqID][zTKR] 
+         = { tkr:zTKR, txnz:[] } //METADATA MATH destination - generative.
+      // let tgtTKR = {}, 
+      let tgtTXN = {};
+      // for(var zIDX = 0; zIDX<MONTHData.tickrz.length; zIDX++){
+      //    tgtTKR = MONTHData.tickrz[zIDX]
+      //    if(tgtTKR.tkr===zTKR){ //found tgt tkr, now loop txnz
+            for( var yIDX = 0; yIDX<tickrData.trimz.length; yIDX++){ //TRIMZ
+               tgtTXN = tickrData.trimz[yIDX];
+               ai_main.MONTHLY_MATRIX[zqID][zTKR].txnz.push(
+                  { type:"SELL",amt:tgtTXN.amt || 0,
+                     price:tgtTXN.rate,ymd:tgtTXN.ymd,role:tgtTXN.role } )
+                  //TODO error in quick datamodel, it should be this, not trimz and padz/
+            }
+            for( var xIDX = 0; xIDX<tickrData.padz.length;xIDX++){ //PADZ
+               tgtTXN = tickrData.padz[xIDX];
+               ai_main.MONTHLY_MATRIX[zqID][zTKR].txnz.push(
+                  { type:"BUY",amt:tgtTXN.amt || 0,
+                     price:tgtTXN.rate,ymd:tgtTXN.ymd,role:tgtTXN.role } )
+            }
+      //       break;
+      //    }
+      // }
+      // tkrMETASTATE = ai_main.MONTHLY_MATRIX[zqID][zTKR]
+   }tranzform_to_MONTHLYTOTALZ(QRTR.qID,tickrData.tkr.toUpperCase());
+   // }tranzform_to_MONTHLYTOTALZ(selectQTR.toUpperCase(),selectTKR.toUpperCase());
 
+   calculate_MonthlyStockNET = function(zqID,zTKR){ //generate METADATA
+      debugger;
+                  //TODO MATH
+                  tickrData.BankVAL = 1;
+                  tickrData.BookVAL = 2;
+                  tickrData.EvenRate =3;
+                  tickrData.RateAVG = 4;
+                  tickrData.LastPrice=5;
+                  tickrData.MonthlyStockNET = 6;    
+                  debugger;
+                  let monthData = ai_main.MONTHLY_MATRIX[zqID][zTKR]
+                  return;
+                  //START: NET CALCULATION integration:
+            /****************************************************\
+             * CALCULATE TRANSACTION METRICS   
+             * - tkr (ticker) and tkrz (tickers) or STOCK unit.
+             * - txn (transaction), txnz (transactions) (type) buyz/sellz.
+             * shares (sh)
+             \****************************************************/
+            //  console.log(`********| MONTH_TRXNz | ${tickrData.tkr.toUpperCase()} : ${MONTHData.qID} |*********`);
+            //  // console.log(currentDate,'|',current_ymd)
+            //  let TOTNET = 0, TOT_TAX_EST = 0, GROSS_VALUE = 0;
+            // let trxNUM = 0;
+            // let trxTYPE = '';
+            // let sharesNUM = 0;
+            let bookVAL = 0;
+            let bankBAL = 0;
+            let sharesAMT = 0; //Required to calculate book.
+            let sharesTOT = 0;
+            let monthlyNET = 0; //SINGLE TKR multi txn total.
+            // let MultiTKRMonthTOTAL = 0; //multi TKR single month.
+
+            // let bookValTOT = 0; 
+            // let lastPRICE = 0; 
+            // let brEVENPRICE = 0;
+            // let MoNetPCT = 0;
+            // let MoNetTOT = 0;  
+            // let MoUpDwn = 0;  //Monthly gain loss (all assets combined)
+
+            // // let AllUpDwn = 0; //combined gain loss (all months combined)
+            // lastPRICE = getLastPrice(Master_METASTATE); //get LAST PRICE for ticker
+            // console.log(`|${Master_METASTATE.tkr}|`,"details:*********",'last','@',lastPRICE);
+            // // txtLOGZ.push(`|${Master_METASTATE.tkr}|details:*********last@${lastPRICE}`)
+            // for(var txnIDX=0; txnIDX < Master_METASTATE.txnz.length;txnIDX++){
+            let mstrTKRtgt, mstrTXN, mstrTKRz,mstrTKR,trxNUM=0,txn;
+            // ai_main.MASTER_MATRIX
+            let calcTGTz = Object.keys(ai_main.MASTER_MATRIX); //From UI selection.
+            MonthNUM = calcTGTz.length;
+
+            for(var qtrIDX3=0; qtrIDX3 < calcTGTz.length; qtrIDX3++){
+            mstrTKRtgt = calcTGTz[qtrIDX3]
+            console.log(`|${mstrTKRtgt}|START********************`)
+            mstrTKRz = ai_main.MASTER_MATRIX[mstrTKRtgt];
+
+            for(var tkrIDX3=0; tkrIDX3 < mstrTKRz.tkrz.length; tkrIDX3++){
+            mstrTKR =mstrTKRz.tkrz[tkrIDX3]
+            // if(mstrTKR.tkr==="AMZN"){// || mstrTKR.tkr ==='NVDA' || mstrTKR.tkr ==='V'){
+            // if(mstrTKR.tkr==="V" || mstrTKR.tkr ==='COST'|| mstrTKR.tkr ==='NVDA'){
+            // if(mstrTKR.tkr ==='NVDA'){//  || mstrTKR.tkr ==='COST'){
+            // if(mstrTKR.tkr ==='COST'){
+            // if(mstrTKR.tkr ==='BTC'){
+            // if(mstrTKR.tkr==="COST" || mstrTKR.tkr ==='V'){
+            // if(mstrTKR.tkr==="GOOG" || mstrTKR.tkr ==='V'  || mstrTKR.tkr ==='COST'){
+            // if(mstrTKR.tkr==="GOOG" || mstrTKR.tkr ==='V'  || mstrTKR.tkr ==='NVDA'  || mstrTKR.tkr ==='COST'){
+            // if(mstrTKR.tkr==="GOOG" || mstrTKR.tkr ==='V'  
+            // || mstrTKR.tkr ==='NVDA'  || mstrTKR.tkr ==='COST'
+            // || mstrTKR.tkr ==='BTC'//  || mstrTKR.tkr ==='COST'
+            // ){
+            // //    // debugger; //limiter.
+
+            // } else { continue }
+            bankBAL = 0; //reset for new tkr.
+            sharesTOT = 0; //reset for new tkr.
+            if(!mstrTKR || !mstrTKR.txnz || !mstrTKR.txnz.length){continue;}//error case, empty txnz
+            for(var txnIDX3=0; txnIDX3 < mstrTKR.txnz.length; txnIDX3++){
+            mstrTXN = mstrTKR.txnz[txnIDX3];
+            trxNUM = txnIDX3+1;
+
+            /***************_CALCULATE_MONTH_NET***************/
+            // if(mstrTKR.tkr==='MSFT'){debugger;}
+            sharesAMT = parseFloat(( mstrTXN.amt / mstrTXN.price ).toFixed(3));
+            bankBAL += (mstrTXN.type==='SELL')?parseFloat(mstrTXN.amt):parseFloat(mstrTXN.amt)*-1;
+            sharesTOT += (mstrTXN.type==='BUY')?sharesAMT:sharesAMT*-1;
+            sharesTOT = parseFloat(sharesTOT.toFixed(3));
+            if(sharesTOT<0){sharesTOT=0} //edgecase sell without buy data.
+            bookVAL = Math.round(sharesTOT * mstrTXN.price);
+            monthlyNET = bookVAL + bankBAL;
+            /***************_END_CALCULATE_MONTH_NET***************/
+
+            /***************_SAVE_in_MATRIX**************/
+            // mstrTXN.TEST = "TEST1"
+            mstrTXN.bookVAL = bookVAL;
+            mstrTXN.monthlyNET = monthlyNET;
+            /***************_END_SAVE_in_MATRIX**************/
+            // console.log(trxNUM,mstrTXN.type,`${mstrTXN.amt}@${mstrTXN.price}`); 
+            //    // txtLOGZ.push(`|${trxNUM} ${txn.type} ${txn.amt}@${txn.price}`)
+            //    console.log('bankBAL',bankBAL,'bookVAL',bookVAL);
+            //    // txtLOGZ.push(`|bankBAL ${bankBAL}, bookVAL ${bookVAL}`)
+
+            //    //****************************************CALCULATE_BREAK_EVEN
+            //    bookValTOT = sharesTOT * txn.price;
+            //    //****************************************CALCULATE_BREAK_EVEN
+            //    brEVENPRICE = (bookValTOT - monthlyNET)/sharesTOT;
+            //    brEVENPRICE = brEVENPRICE.toFixed(2);
+            //    console.log("BrEvPRICE",`$${brEVENPRICE}`,'BookUpDwn $',monthlyNET);  
+            //    // txtLOGZ.push(`BrEvPRICE $${brEVENPRICE} BookUpDwn $${monthlyNET}`) 
+            //    Master_METASTATE.brEven = brEVENPRICE;       
+            //*********************************** show_shares.
+            // console.log("shares",`$${sharesTOT}`);  
+            // txtLOGZ.push(`shares $${sharesTOT}`) 
+            // tkrMETASTATE.shares = sharesTOT;      
+            //    //***************************** calculate HI_LO_VAL
+            //    if(!Master_METASTATE.HiVAL){Master_METASTATE.HiVAL = 0;}
+            //    if(!Master_METASTATE.LoVAL){Master_METASTATE.LoVAL = 0;}
+            //    if(Master_METASTATE.HiVAL<txn.price){ Master_METASTATE.HiVAL = txn.price;
+            //       console.log('NEWHi:',Master_METASTATE.HiVAL) 
+            //       // txtLOGZ.push(`NEWHi ${Master_METASTATE.HiVAL}`) 
+            //     }
+            //    else if( Master_METASTATE.LoVAL===0 || txn.price<Master_METASTATE.LoVAL){ Master_METASTATE.LoVAL = txn.price;
+            //       console.log('NEWLo:',Master_METASTATE.LoVAL)
+            //       // txtLOGZ.push(`NEWLo ${Master_METASTATE.LoVAL}`)
+            //     }
+            } //END txnz loop
+            console.log(`|${mstrTKR.tkr}|TXNZ:${trxNUM}|${mstrTKRtgt}|LAST:~${mstrTXN.price}`)
+            console.log(`|${mstrTKR.tkr}|BANK:$${bankBAL}|BOOK:~${bookVAL}`)
+            console.log(`|${mstrTKR.tkr}|MONTHNET:${monthlyNET}|${mstrTKRtgt}`)
+            // console.log(`|${mstrTKR.tkr}|LASTPRICE:********************`)
+            // console.log(`|${mstrTKR.tkr}|ROLEZ:********************`)
+            // console.log(`|${mstrTKR.tkr}|NOTEZ:********************`)
+            // debugger;
+            // MultiTKRMonthTOTAL += monthlyNET; //calculate for overall totalz 
+            // console.log(`|${mstrTKR.tkr}|SUBTOTAL:${MultiTKRMonthTOTAL}`)
+            // console.log(`|${mstrTKR.tkr}|END********************`)
+            // console.log(`|MASTER|subtotal:${MultiTKRMonthTOTAL}|${mstrTKRtgt}`)
+            } //end tkrz loop   
+                  //END: NET CALCULATION integration
+
+         } //end qtr loop
+
+
+               }; calculate_MonthlyStockNET(QRTR.qID,tickrData.tkr.toUpperCase()); 
                //END CALCULATE TRIM PAD TOTALS **************
 
                QuickROW = document.createElement('aside')
@@ -4359,32 +4528,15 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                      saveBTN_fifo.setAttribute('data-tkr',tickrData.tkr)
                      saveBTN_fifo.addEventListener("click",(e)=>{ 
                         e.target.parentElement.style.display = 'none';
-                        // if(saveBtn0 && saveBtn0.style){
-                        //    saveBtn0.style.display = 'none'; 
-                        // }
-                        // if(saveBtn04 && saveBtn04.style){
-                        //    saveBtn04.style.display = 'none'; 
-                        // }
                         //SAVE LOGIC
                         let qID_fifo = e.target.getAttribute('data-qID');
                         let tkr_fifo = e.target.getAttribute('data-tkr'); 
                         let txtSaveBtn = (e.target.getAttribute('txtSaveBtn'))?true:false;
                         let qtr = ai_main.qrtrz[qID_fifo];
                         let titleROW =  e.target.parentElement.parentElement.parentElement.children[0];
-                        // if(txtSaveBtn){
-                        //    titleROW = e.target.parentElement.parentElement.previousSibling.previousSibling.previousSibling.previousSibling
-                        // }else{
-                        //    titleROW = e.target.parentElement.parentElement.previousSibling;
-                        // }
                         let tkr2 = titleROW.children[1].value;
                         let cap2 = titleROW.children[2].children[0].value;
-                        // let fifo_grid_itemz = e.target.parentElement.parentElement.children[1].children[0]; 
                         let fifo_grid_itemz = e.target.parentElement.parentElement.children[1].children[0].children;
-                        // if(txtSaveBtn){
-                        //    fifo_grid_itemz = e.target.parentElement.parentElement.previousSibling
-                        // }else{
-                        //    fifo_grid_itemz = e.target.parentElement.parentElement.nextSibling.nextSibling.children[1].children[0].children;
-                        // }
                         //START fifo GRID SAVE
                         let fifo_TGT = {}
                         for(let d=0; d < ai_main.qrtrz[qID_fifo].tickrz.length;d++){ //GET RECORD
@@ -4410,23 +4562,7 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                            }
                         }     
                         //END fifo GRID SAVE
-                        //START NOTEZ SAVE
-                        // let notez2 = null;
-                        // if(txtSaveBtn){
-                        //    notez2 = e.target.parentElement.parentElement.children[3]
-                        // }else{
-                        //    notez2 = e.target.parentElement.parentElement.nextSibling.nextSibling.nextSibling.children[3]
-                        // }
-                        // for(let x=0; x< qtr.tickrz.length;x++){
-                        //    if(qtr.tickrz[x].tkr===tkr_fifo){
-                        //       qtr.tickrz[x].tkr = tkr2.toUpperCase();
-                        //       qtr.tickrz[x].cap = cap2;
-                        //       if(notez2){ //collapsed / expanded
-                        //          qtr.tickrz[x].notez = notez2.value;
-                        //       }
-                        //       break;
-                        //    }
-                        // } //END NOTEZ SAVE
+                        //START NOTEZ SAVE - removed.
                         // //SAVE to LOCAL STORAGE
                         localStorage.ai_main = JSON.stringify(ai_main) 
                         generateQuickClick(); //RELOAD VIEW.  
@@ -4644,17 +4780,16 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         expandBtn02.innerHTML = '💨' 
                         //META_DATA_CALCULATION: --------------------------
                         // debugger;
-                        calculateBankVAL(QRTR.qID, tickrData);
-                        calculateBookVAL(QRTR.qID, tickrData);
+                        //TODO MAKE THESE INLINE...
+                        // calculateBankVAL(QRTR.qID, tickrData);
+                        // calculateBookVAL(QRTR.qID, tickrData);
                         // calcualteEvenVAL(QRTR.qID, tickrData);
-                        // debugger;
                         //META_DATA_CALCULATION: --------------------------
                         
                         //START: TOTALS VIEWS
                         totalzROW = document.createElement('article')
-                        // totalzROW.id = 'totalzROW'
                         totalzROW.classList.add('totalzROW')
-                        totalzROW.value = tickrData.notez || ''; //move to row?
+                        totalzROW.value = tickrData.notez || ''; //TODO: move to row?
 
                         //LONGZ, TRIMZ and PADZ
                         subStateROW2 = document.createElement('section')
@@ -4703,6 +4838,8 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         subTotalzROW2.classList.add('subTotalzROW2')
                         subRateROW2 = document.createElement('section')
                         subRateROW2.classList.add('subTotalzROW2')
+                        subNetROW2 = document.createElement('section')
+                        subNetROW2.classList.add('subTotalzROW2')
                         
                         bankBOX1 = document.createElement('article')
                         bankBOX1.classList.add('bankBOX1')
@@ -4711,13 +4848,14 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         totalzLBL1.innerHTML = 'BANKInOut:'
                         totalzBANK1 = document.createElement('input')
                         totalzBANK1.classList.add('totalzBankVAL')
-                        totalzBANK1.value = `$${tickrData.bankVAL || 0}`;
+                        totalzBANK1.value = `$${tickrData.BankVAL || 0}`;
+                        totalzBANK1.readOnly = true;
                         totalzBANK1.style.width = (tickrData.bankVAL)?(tickrData.bankVAL.toString().length + 1) + 'em':'3em';
-                        totalzBANK1.addEventListener("keyup",(e)=>{ 
-                           debugger;
-                           // saveBTN_fifo.style.display = 'flex'
-                           e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
-                        }); 
+                        // totalzBANK1.addEventListener("keyup",(e)=>{ 
+                        //    debugger;
+                        //    // saveBTN_fifo.style.display = 'flex'
+                        //    e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
+                        // }); 
                         bankBOX1.appendChild(totalzLBL1);
                         bankBOX1.appendChild(totalzBANK1);
 
@@ -4727,12 +4865,13 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         totalzLBL2.innerHTML = 'BOOKUpDwn:'                        
                         totalzBOOK1 = document.createElement('input')
                         totalzBOOK1.classList.add('totalzBookVAL')
-                        totalzBOOK1.value = `$${tickrData.bookVAL || 0}`;
+                        totalzBOOK1.value = `~${tickrData.BookVAL || 0}`;
+                        totalzBOOK1.readOnly = true;
                         totalzBOOK1.style.width = ((tickrData.bookVAL)?tickrData.bookVAL.toString().length + 1:3) + 'em';
-                        totalzBOOK1.addEventListener("keyup",(e)=>{ 
-                           debugger;
-                           e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
-                        }); 
+                        // totalzBOOK1.addEventListener("keyup",(e)=>{ 
+                        //    debugger;
+                        //    e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
+                        // }); 
                         bookBOX1.appendChild(totalzLBL2);
                         bookBOX1.appendChild(totalzBOOK1);
 
@@ -4742,39 +4881,79 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         totalzLBL3.innerHTML = 'EVENRATE:'                        
                         totalzEVEN1 = document.createElement('input')
                         totalzEVEN1.classList.add('totalzEvenVAL')
-                        totalzEVEN1.value = `$${tickrData.evenVAL || 0}`;
-                        totalzEVEN1.style.width = '3em';// 444(tickrData.evenVAL.toString().length + 1) + 'em';
-                        totalzEVEN1.addEventListener("keyup",(e)=>{ 
-                           debugger;
-                           e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
-                        }); 
+                        totalzEVEN1.value = `$${tickrData.EvenRate || 0}`;
+                        totalzEVEN1.readOnly = true;
+                        totalzEVEN1.style.width = '3em';//DYNAMIC WIDTH 444(tickrData.evenVAL.toString().length + 1) + 'em';
+                        // totalzEVEN1.addEventListener("keyup",(e)=>{ 
+                        //    debugger;
+                        //    e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
+                        // }); 
                         evenBOX1.appendChild(totalzLBL3);
                         evenBOX1.appendChild(totalzEVEN1);
 
+                           
+                        rateAVGLBL3 = document.createElement('span')
+                        rateAVGLBL3.innerHTML = 'AVGRATE:'                        
+                        rateAVGVal1 = document.createElement('input')
+                        rateAVGVal1.classList.add('totalzEvenVAL')
+                        rateAVGVal1.value = `$${tickrData.RateAVG || 0}`;
+                        rateAVGVal1.readOnly = true;
+                        rateAVGVal1.style.width = '3em';// DYNAMIC WIDTH(tickrData.avgVAL.toString().length + 1) + 'em';
+                        // evenavg1.addEventListener("keyup",(e)=>{ 
+                        //    debugger;
+                        //    e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
+                        // }); 
                         avgBOX1 = document.createElement('article')
-                        avgBOX1.classList.add('evenBOX1')
-                        evenLBL3 = document.createElement('span')
-                        evenLBL3.innerHTML = 'AVGRATE:'                        
-                        evenavg1 = document.createElement('input')
-                        evenavg1.classList.add('totalzEvenVAL')
-                        evenavg1.value = `$${tickrData.evenVAL || 0}`;
-                        evenavg1.style.width = '3em';// 444(tickrData.avgVAL.toString().length + 1) + 'em';
-                        evenavg1.addEventListener("keyup",(e)=>{ 
-                           debugger;
-                           e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
-                        }); 
-                        avgBOX1.appendChild(evenLBL3);
-                        avgBOX1.appendChild(evenavg1);
+                        avgBOX1.classList.add('evenBOX1')                        
+                        avgBOX1.appendChild(rateAVGLBL3);
+                        avgBOX1.appendChild(rateAVGVal1);
+                        
+                        //------------------------------------------Monthly_Stock_Net
+                        subNETBOX1 = document.createElement('article')
+                        subNETBOX1.classList.add('evenBOX1')
+                        subNETLbl1 = document.createElement('span')
+                        subNETLbl1.innerHTML = 'MonthlyNET:'                        
+                        subNETVal1 = document.createElement('input')
+                        subNETVal1.classList.add('totalzEvenVAL')
+                        subNETVal1.value = `~${tickrData.MonthlyStockNET || 0}`;
+                        subNETVal1.readOnly = true;
 
+                        subNETVal1.style.width = '3em'; //TODO dynamic width
+                        // subNETVal1.addEventListener("keyup",(e)=>{ 
+                        //    debugger;
+                        //    e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
+                        // }); 
+                        subNETBOX1.appendChild(subNETLbl1);
+                        subNETBOX1.appendChild(subNETVal1);
+                        
+                        subLastPriceBOX1 = document.createElement('article')
+                        subLastPriceBOX1.classList.add('evenBOX1')
+                        subLastLbl1 = document.createElement('span')
+                        subLastLbl1.innerHTML = 'LastPrice:'                        
+                        subLastVal1 = document.createElement('input')
+                        subLastVal1.classList.add('totalzEvenVAL')
+                        subLastVal1.value = `~${tickrData.LastPrice || 0}`;
+                        subLastVal1.readOnly = true;
+                        subLastVal1.style.width = '3em';//todo dynamic width based on chars in num.
+                        // subLastVal1.addEventListener("keyup",(e)=>{ 
+                        //    debugger;
+                        //    e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
+                        // }); 
+                        subLastPriceBOX1.appendChild(subLastLbl1);
+                        subLastPriceBOX1.appendChild(subLastVal1);
+                        //----------------------------------------Append ROWS
                         subTotalzROW2.appendChild(bankBOX1)
                         subTotalzROW2.appendChild(bookBOX1)
                         subRateROW2.appendChild(evenBOX1)
                         subRateROW2.appendChild(avgBOX1)
+                        subNetROW2.appendChild(subNETBOX1)
+                        subNetROW2.appendChild(subLastPriceBOX1)
 
                         //---------------------------------------------GROSS AMT / PCT END
                         totalzROW.appendChild(subStateROW2)
                         totalzROW.appendChild(subTotalzROW2)
                         totalzROW.appendChild(subRateROW2)
+                        totalzROW.appendChild(subNetROW2)
                         
                         //END: TOTALZ VIEWS
 
@@ -4782,14 +4961,13 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         HiLoMnthBOX1 = document.createElement('aside')
                         HiLoMnthBOX1.innerHTML="HiLo:AMT/Date&nbsp";
                         HiLoMnthBOX1.classList.add('inputDATABOX5')
-                        // HiLoMnthBOX1.classList.add('redTXT')
                         HiLoMnthData1 = document.createElement('input')
                         HiLoMnthData1.classList.add('inputDATA0')
                         HiLoMnthData1.placeholder = "$0"; 
                         HiLoMnthData1.readOnly = true;
                         HiLoMnthData1.value = tickrData.padTOT || '';          
                         HiLoMnthBOX1.appendChild(HiLoMnthData1)
-                        totalzROW.appendChild(HiLoMnthBOX1)
+                        // totalzROW.appendChild(HiLoMnthBOX1) //TODO: add HiLo AMT,Date system.
                         //---------------------------------------------HiLo AMT / PCT END
                         tickrNOTEZROW.appendChild(totalzROW) 
 
@@ -4801,9 +4979,6 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         tickrNOTEZTXT.spellcheck = false;
                         tickrNOTEZTXT.value = tickrData.notez || '';
                         tickrNOTEZTXT.addEventListener("keyup",(e)=>{ 
-                           // debugger;
-                           // e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
-                           // e.target.nextSibling.children[0].style.display = 'flex'
                            e.target.nextSibling.style.display = 'flex'
                         }); 
                         tickrNOTEZROW.appendChild(tickrNOTEZTXT)
@@ -5276,67 +5451,67 @@ const deleteSelectedQuick = (e)=>{
    generateQuickClick(); //RELOAD VIEW. 
 }
 //BANK: means CASH_FLOW in or out of BANK MONEY.
-function calculateBankVAL(qID_TGT, tkrTGT){
-   let BANK_VAL = 0, idx,tickrData,netAMT=0; //add up NETs until TGT_QTR
-   // let qtr = ai_main.qrtrz[qID_TGT];//TGT_QTR
-   let keyzArr = Object.keys(ai_main.qrtrz);
-   for(let x=0;x<keyzArr.length;x++){ //All nets add up to TGT.
-      idx = ai_main.qrtrz[keyzArr[x]];
-      // console.log('ADD',idx.qID,'to',qID_TGT)
-      for(let y=0;y<idx.tickrz.length;y++){
-         tickrData = idx.tickrz[y];
-         if(idx.tickrz[y].tkr===tickrData.tkr){
-            if(!tickrData.bankVAL){tickrData.bankVAL=0}
-            // console.log('math...',keyzArr[x],BANK_VAL,tickrData.netAMT)
-            netAMT = parseInt(tickrData.netAMT);
-            BANK_VAL += netAMT;
-            // BANK_VAL += tickrData.netAMT;
-            if(keyzArr[x]===qID_TGT){
-               tkrTGT.bankVAL = BANK_VAL;
-               // tickrData.bankVAL = BANK_VAL;
-               // console.log('DONE...',keyzArr[x],BANK_VAL)            
-            }
-            // else{ console.log('adding...',keyzArr[x],tickrData.netAMT)}
-            break; //found tgt tkr , eject.
-         }
-      }
-      if(keyzArr[x]===qID_TGT){
-         // console.log('QID end',qID_TGT)
-         break; //Found TGT QTR, eject.
-      }
-   }
-} 
+// function calculateBankVAL(qID_TGT, tkrTGT){
+//    let BANK_VAL = 0, idx,tickrData,netAMT=0; //add up NETs until TGT_QTR
+//    // let qtr = ai_main.qrtrz[qID_TGT];//TGT_QTR
+//    let keyzArr = Object.keys(ai_main.qrtrz);
+//    for(let x=0;x<keyzArr.length;x++){ //All nets add up to TGT.
+//       idx = ai_main.qrtrz[keyzArr[x]];
+//       // console.log('ADD',idx.qID,'to',qID_TGT)
+//       for(let y=0;y<idx.tickrz.length;y++){
+//          tickrData = idx.tickrz[y];
+//          if(idx.tickrz[y].tkr===tickrData.tkr){
+//             if(!tickrData.bankVAL){tickrData.bankVAL=0}
+//             // console.log('math...',keyzArr[x],BANK_VAL,tickrData.netAMT)
+//             netAMT = parseInt(tickrData.netAMT);
+//             BANK_VAL += netAMT;
+//             // BANK_VAL += tickrData.netAMT;
+//             if(keyzArr[x]===qID_TGT){
+//                tkrTGT.bankVAL = BANK_VAL;
+//                // tickrData.bankVAL = BANK_VAL;
+//                // console.log('DONE...',keyzArr[x],BANK_VAL)            
+//             }
+//             // else{ console.log('adding...',keyzArr[x],tickrData.netAMT)}
+//             break; //found tgt tkr , eject.
+//          }
+//       }
+//       if(keyzArr[x]===qID_TGT){
+//          // console.log('QID end',qID_TGT)
+//          break; //Found TGT QTR, eject.
+//       }
+//    }
+// } 
 //BOOK: means total CASH invested in an asset.
-function calculateBookVAL(qID_TGT, tkrTGT){
-   let BOOK_VAL = 0,tickrData,idx, localBOOK = 0;
-   let keyzArr = Object.keys(ai_main.qrtrz);
-   for(let x=0;x<keyzArr.length;x++){ //All nets from before added up.
-      idx = ai_main.qrtrz[keyzArr[x]];
-      // console.log('ADD',idx.qID,'up to',qID_TGT)
-      for(let y=0;y<idx.tickrz.length;y++){
-         tickrData = idx.tickrz[y];
-         if(idx.tickrz[y].tkr===tickrData.tkr){
-            // console.log('found entrys',tickrData.padz.length, 'for',tickrData.tkr)
-            if(!tickrData.bookVAL){tickrData.bookVAL=0}
-            // BOOK_VAL = [{amt:1},{amt:2},{amt:3},{amt:4}].reduce( (a,b)=>{ console.log(a.amt,b.amt); return {amt: a.amt + b.amt};}).amt
-            if(!tickrData.padz || tickrData.padz.length===0){ tickrData.padz=[]; localBOOK = 0; } 
-            else {
-               localBOOK = tickrData.padz.reduce( (a,b)=>{ return {amt: parseInt(a.amt) + parseInt(b.amt)};}).amt
-               // console.log('reduce AMT',BOOK_VAL)
-            }
-         }
-         // console.log('math...b4',tickrData.bookVAL)
-         BOOK_VAL += localBOOK;
-         // console.log('math...after',tickrData.bookVAL)
-         break;
-      }
-      if(keyzArr[x]===qID_TGT){
-         tkrTGT.bookVAL = BOOK_VAL;
-         // console.log('DONE...',keyzArr[x],BOOK_VAL)    
-         break;
-      }
-   }
-}
+// function calculateBookVAL(qID_TGT, tkrTGT){
+//    let BOOK_VAL = 0,tickrData,idx, localBOOK = 0;
+//    let keyzArr = Object.keys(ai_main.qrtrz);
+//    for(let x=0;x<keyzArr.length;x++){ //All nets from before added up.
+//       idx = ai_main.qrtrz[keyzArr[x]];
+//       // console.log('ADD',idx.qID,'up to',qID_TGT)
+//       for(let y=0;y<idx.tickrz.length;y++){
+//          tickrData = idx.tickrz[y];
+//          if(idx.tickrz[y].tkr===tickrData.tkr){
+//             // console.log('found entrys',tickrData.padz.length, 'for',tickrData.tkr)
+//             if(!tickrData.bookVAL){tickrData.bookVAL=0}
+//             // BOOK_VAL = [{amt:1},{amt:2},{amt:3},{amt:4}].reduce( (a,b)=>{ console.log(a.amt,b.amt); return {amt: a.amt + b.amt};}).amt
+//             if(!tickrData.padz || tickrData.padz.length===0){ tickrData.padz=[]; localBOOK = 0; } 
+//             else {
+//                localBOOK = tickrData.padz.reduce( (a,b)=>{ return {amt: parseInt(a.amt) + parseInt(b.amt)};}).amt
+//                // console.log('reduce AMT',BOOK_VAL)
+//             }
+//          }
+//          // console.log('math...b4',tickrData.bookVAL)
+//          BOOK_VAL += localBOOK;
+//          // console.log('math...after',tickrData.bookVAL)
+//          break;
+//       }
+//       if(keyzArr[x]===qID_TGT){
+//          tkrTGT.bookVAL = BOOK_VAL;
+//          // console.log('DONE...',keyzArr[x],BOOK_VAL)    
+//          break;
+//       }
+//    }
+// }
 // function calcualteEvenVAL(qID, tickrData){
 //    // debugger;
 //    let EVEN_VAL = 0;
@@ -6512,11 +6687,11 @@ function calculate_MONTHLY_TOTAL(selectQTR,selectTKR){ //LOOP MNTH FLOWS to find
    //END_TEST_MONTH_DATA
 
    //TRANZFORM_DATA ai_main_totalz - accumulator pattern
-   function tranzform_to_ai_mainTOTALZ(zqID,zTKR){ //TRANZFORM: AI_MAIN DATA (input) to TOTALZ TXNZ (encode)
-      if(!ai_main.TOTALZ_MATRIX){ ai_main.TOTALZ_MATRIX = {}; }
-      if(!ai_main.TOTALZ_MATRIX[zqID]){ ai_main.TOTALZ_MATRIX[zqID] = {}; }
+   function tranzform_to_SUBTOTALZ(zqID,zTKR){ //TRANZFORM: AI_MAIN DATA (input) to TOTALZ TXNZ (encode)
+      if(!ai_main.SUBTOTALZ_MATRIX){ ai_main.SUBTOTALZ_MATRIX = {}; }
+      if(!ai_main.SUBTOTALZ_MATRIX[zqID]){ ai_main.SUBTOTALZ_MATRIX[zqID] = {}; }
       // console.log('TOTALZ0:',3.1, 'Tranzform data',selectQTR.toUpperCase(),selectTKR.toUpperCase())
-      ai_main.TOTALZ_MATRIX[zqID][zTKR] 
+      ai_main.SUBTOTALZ_MATRIX[zqID][zTKR] 
          = { tkr:zTKR, txnz:[] } //METADATA MATH destination - generative.
       let tgtTKR = {}, tgtTXN = {};
       for(var zIDX = 0; zIDX<MONTHData.tickrz.length; zIDX++){
@@ -6524,21 +6699,21 @@ function calculate_MONTHLY_TOTAL(selectQTR,selectTKR){ //LOOP MNTH FLOWS to find
          if(tgtTKR.tkr===zTKR){ //found tgt tkr, now loop txnz
             for( var yIDX = 0; yIDX<tgtTKR.trimz.length; yIDX++){ //TRIMZ
                tgtTXN = tgtTKR.trimz[yIDX];
-               ai_main.TOTALZ_MATRIX[zqID][zTKR].txnz.push(
+               ai_main.SUBTOTALZ_MATRIX[zqID][zTKR].txnz.push(
                   { type:"SELL",amt:tgtTXN.amt || 0,
                      price:tgtTXN.rate,ymd:tgtTXN.ymd,role:tgtTXN.role } )
             }
             for( var xIDX = 0; xIDX<tgtTKR.padz.length;xIDX++){ //PADZ
                tgtTXN = tgtTKR.padz[xIDX];
-               ai_main.TOTALZ_MATRIX[zqID][zTKR].txnz.push(
+               ai_main.SUBTOTALZ_MATRIX[zqID][zTKR].txnz.push(
                   { type:"BUY",amt:tgtTXN.amt || 0,
                      price:tgtTXN.rate,ymd:tgtTXN.ymd,role:tgtTXN.role } )
             }
             break;
          }
       }
-      tkrMETASTATE = ai_main.TOTALZ_MATRIX[zqID][zTKR]
-   }tranzform_to_ai_mainTOTALZ(selectQTR.toUpperCase(),selectTKR.toUpperCase());
+      tkrMETASTATE = ai_main.SUBTOTALZ_MATRIX[zqID][zTKR]
+   }tranzform_to_SUBTOTALZ(selectQTR.toUpperCase(),selectTKR.toUpperCase());
    /****************************************************\
     * CALCULATE TRANSACTION METRICS   
     * - tkr (ticker) and tkrz (tickers) or STOCK unit.
@@ -6897,8 +7072,8 @@ calculate_MONTHLY_TOTAL(MONTHData.qID,tickrData.tkr.toUpperCase())
             totalMonthlyFlow += month_data.tot_flowz;
          }
 
-         if(!ai_main.TOTALZ_MATRIX){ ai_main.TOTALZ_MATRIX = {} }
-         ai_main.TOTALZ_MATRIX.total_net_amt = totalMonthlyFlow;
+         if(!ai_main.SUBTOTALZ_MATRIX){ ai_main.SUBTOTALZ_MATRIX = {} }
+         ai_main.SUBTOTALZ_MATRIX.total_net_amt = totalMonthlyFlow;
          // console.log("A. TotalMonthlyFlow",totalMonthlyFlow)
       }; calculate_TOT_NET()
 
@@ -6958,196 +7133,18 @@ let MultiMonthMasterTOTAL = 0; //total net of combined: months,tkrz,txnz.
 let MasterTAXEstimate = 0; //22% of net for period.
 let MasterGROSS = 0; //after tax cash gains.
 let AVGgrossMonth = 0;
+let MonthNUM = 0;
 function calculate_MASTER_TOTAL(){ //LOOP MNTH FLOWS to find TOTAL MONTH data.
    MultiMonthMasterTOTAL = 0; //total net of combined: months,tkrz,txnz.
    MasterTAXEstimate = 0; //22% of net for period.
    MasterGROSS = 0; //after tax cash gains.
    AVGgrossMonth = 0;
    MonthNUM = 0;
-//    if(!selectTKR){selectTKR = 'AAA'}
-//    // selectTKR = 'COIN_RISK_REWARD'; //TEST MECHANISM
-//    // selectTKR = 'NVDA_No_Sell_Value'; //TEST MECHANISM
-//    // selectTKR = 'AAA';
-//    console.log('TOTALZ0:',3, 'DEETZ data',selectQTR.toUpperCase(),selectTKR.toUpperCase())
-//    let txnObj = null;
-//    let month_data = {tkrz:[ //TEST_MONTH_DATA
-//       {
-//          tkr:'AAA',
-//          txnz:[
-//             {type:'BUY',amt:200,price:100,date:'1/1/2024'},
-//             {type:'QUOTE',price:90,date:'1/2/2024'},
-//             {type:'QUOTE',price:60,date:'1/3/2024'},
-//             {type:'QUOTE',price:110,date:'1/4/2024'},
-//       ]},
-//       {
-//          tkr:'AMZN',
-//          txnz:[
-//             {type:'BUY',amt:100,price:144,date:'1/1/2024'},
-//             {type:'BUY',amt:145,price:145,date:'1/2/2024'},
-//             // {type:'BUY',amt:146,price:146,date:'1/3/2024'},
-//             // {type:'BUY',amt:70,price:154,date:'1/4/2024'},
-//             // {type:'BUY',amt:300,price:152,date:'1/5/2024'},
-//             // {type:'BUY',amt:200,price:153,date:'1/6/2024'},
-//             {type:'SELL',amt:10,price:158,date:'1/7/2024'},
-//             {type:'SELL',amt:15,price:160,date:'1/8/2024'},
-//             {type:'BUY',amt:30,price:155,date:'1/9/2024'},
-//             {type:'SELL',amt:10,price:157,date:'1/10/2024'},
-//             // {type:'SELL',amt:70,price:168,date:'1/11/2024'},
-//             // {type:'SELL',amt:20,price:170,date:'1/12/2024'},
-//          ],
-//          totBUYZ:0, totSELLZ:0, avgBUYZ:0, avgSELLZ:0,
-//          avgNETBUYZSELLZ:0, //amt difference between average sell and average buy.
-//          netFLOW:0, // monthly cash in / out +- //TODO RENAME InOut
-//          BOOKVAL:0, // value of stock @ price   //TODO rename UpDwn
-//          BANKBAL:0, // balance of cash in/out +-
-//          bookNET:0, // how much stock up/dwn +-
-//          bookPCT:0, // how much stock gain %
-//          netGAIN:0,  // how much book increase + SELLZ
-//          HiVAL:0,   // hi price
-//          LoVAL:0,    // lo price
-//          TOTNET:0, //total net for asset all time.
-//          /********************************EQUATION*****************\
-//           * 1_ NEWCAP $100 @ $10 = shareBAL, 
-//           *       bookVAL = 100, bankBAL = -100
-//           * 2_ BUY $10 @ $11 = shares + shareBAL, 
-//           *       bookVAL = (#sh@price), bankBAL = -110
-//           * 3_ SELL $100 @ $12 = shares - shareBAL,
-//           *       bookVAL()=10 , bankBAL = -10
-//           * ------------------------------------------
-//           * SHARES = amt/price //OR BOOKVAL / LAST_PRICE
-//           * ------------------------------------------
-//           * TOTVALUE = BOOKVAL +- BANKBAL +- NETFLOW
-//           * -----------------------------------------
-//           * BOOKVAL = (totalshares@price) //OR MONTH_END_BAL @ LAST_PRICE?
-//           * ------------------------------------------------
-//           * BANKBAL += Monthly_NetFlow (oct,nov,dec) 
-//           *          OR MONTH_START_BAL OR NEWCAP?
-//           * 
-//          \*********************************************************/
-//       },
-//       {
-//          tkr:'TSLA',
-//          txnz:[
-//             {type:'BUY',amt:100,price:236,ymd:'2023_11_30'},
-//             {type:'SELL',amt:10,price:262,ymd:'2023_12_27'},
-//             {type:'BUY',amt:30,price:199,ymd:'2024_01_24'},
-//             {type:'QUOTE',price:193},
-//          ]
-//       },
-//       {
-//          tkr:'AAA_UP',
-//          txnz:[
-//             {type:'BUY',amt:100,price:100,date:'1/1/2024'},
-//             {type:'BUY',amt:20,price:150,date:'1/2/2024'},
-//             {type:'SELL',amt:20,price:200,date:'1/3/2024'},
-//             {type:'BUY',amt:20,price:180,date:'1/3/2024'},
-//             {type:'SELL',amt:20,price:210,date:'1/4/2024'},
-//       ]},
-//       {
-//          tkr:'BBB_SIDEWAY',
-//          txnz:[
-//             {type:'BUY',amt:100,price:100,date:'1/1/2024'},
-//             {type:'SELL',amt:10,price:110,date:'1/2/2024'},
-//             {type:'BUY',amt:10,price:100,date:'1/3/2024'},
-//             {type:'SELL',amt:10,price:110,date:'1/4/2024'},
-//             {type:'BUY',amt:10,price:100,date:'1/4/2024'},
-//       ]},            
-//       {
-//          tkr:'CCC_DWN',
-//          txnz:[
-//             {type:'BUY',amt:100,price:200,date:'1/1/2024'},
-//             {type:'BUY',amt:20,price:180,date:'1/2/2024'},
-//             {type:'SELL',amt:10,price:170,date:'1/3/2024'},
-//             {type:'SELL',amt:50,price:150,date:'1/4/2024'},
-//       ]},      
-//       {
-//          tkr:'NVDA_No_Sell_Value',
-//          txnz:[
-//             {type:'BUY',amt:555,price:555,date:'4/13/2021'},
-//             {type:'BUY',amt:500,price:438,date:'9/15/2023'},
-//             {type:'BUY',amt:500,price:421,date:'9/20/2023'},
-//             {type:'BUY',amt:200,price:410,date:'9/21/2023'},
-//             {type:'BUY',amt:200,price:440,date:'9/30/2023'},
-//             {type:'BUY',amt:300,price:459,date:'10/10/2023'},
-//             {type:'BUY',amt:200,price:412,date:'10/20/2023'},
-//             {type:'BUY',amt:200,price:494,date:'11/17/2023'},
-//             {type:'BUY',amt:100,price:485,date:'11/22/2023'},
-//             {type:'QUOTE',price:725,date:'2/14/2024'},
-//       ]},  
-//       {
-//          tkr:'COIN_RISK_REWARD',
-//          txnz:[
-//             {type:'BUY',amt:584,price:292,date:'5/4/2021'},
-//             {type:'SELL',amt:30,price:112,date:'1/3/2024'},
-//             {type:'SELL',amt:20,price:127,date:'1/4/2024'},
-//             {type:'SELL',amt:25,price:142,date:'1/4/2024'},
-//             {type:'SELL',amt:10,price:151,date:'1/4/2024'},
-//             {type:'BUY',amt:154,price:154,date:'12/19/2023'},
-//             {type:'BUY',amt:156,price:156,date:'12/19/2023'},
-//             {type:'BUY',amt:170,price:170,date:'12/19/2023'},
-//             {type:'BUY',amt:100,price:175,date:'12/19/2023'},
-//             {type:'BUY',amt:100,price:173,date:'12/19/2023'},
-//             {type:'BUY',amt:100,price:166,date:'12/19/2023'},
-//             {type:'BUY',amt:20,price:143,date:'12/19/2023'},
-//             {type:'QUOTE',price:142,date:'2/14/2024'},
-//             {type:'QUOTE',price:182,date:'2/15/2024'}, //pop on earning 17%
-//             {type:'QUOTE',price:189,date:'2/16/2024'}, //pop on earning 17%
-//       ]},            
-//    ]}
-//    //END_TEST_MONTH_DATA
 
-//get calculationTGTz. if none, calculate all.
-      //GET selection, no selection means ALL.
-
-      // for(var tgtIDX=0; tgtIDX<calculationTGTz.length;tgtIDX++){ //LOOP QIDz (MONTHS.)
-      //    // selectionz[0].qID
-      //    TGTqID = calculationTGTz[tgtIDX].qID
-      //    // TGTMonth = ai_main.qrtrz[TGTqID];
-      //    // TGTMonth = ai_main.TOTALZ_MATRIX[TGTqID]
-      //    TGTMonth = ai_main.qrtrz[TGTqID];
-      //    // TGTMonth.qID;
-      //    for(var tickIDX=0; tickIDX<TGTMonth.tickrz.length;tickIDX++){
-
-      //    }
-      // }      
-
-
-      // TOTNET += monthlyNET; //calculate overall totalz
-   //TODO MOVE TO total section.
-   // console.log("|-----------------------------|")
-   // console.log("OVERALL_TOTALz")   
-   // console.log("|-----------------------------|")
-   // console.log(`${month_data.tkrz.length} assets across 1 months`)
-   // console.log("TOTAL NET GAIN/LOSS",TOTNET)
-   // TOT_TAX_EST = TOTNET * 0.22;
-   // console.log("TOTAL TAX EST (22%)",TOT_TAX_EST)
-   // GROSS_VALUE = TOTNET - TOT_TAX_EST;
-   // console.log("TOTAL GROSS", GROSS_VALUE)
-   // console.log("---------")
-   // console.log('Paper_Gains/Loss ~',0);            
-   // console.log('Trade_Gains/Loss ~',0);            
-   // console.log('---------');     
-   // console.log('TradeReserve:',1000, 'invested',0);     
-   // console.log('CorrectionReserve 10% of 50000:',10000, 'invested',0);     
-   // console.log('CrashReserve 10% of 50000:',10000, 'invested',0);  
-   // console.log('---------');     
-   // console.log('QTRHi',0,'QTRLo',0)   
-   // console.log('---------');     
-   // console.log('TOPBTMz:','10PCToffTOP',0,'20PCToffTOP',0);
-   // console.log('DAY_of_TOP',0,'TOP_AMT',0,'DAYZoffTOP',0)
-   // console.log('DAY_of_BTM',0,'BTM_AMT',0,'DAYZoffBTM',0)
-
-// debugger;
-// ai_ledger.compute_TGT_Totalz
-//TODO - TOTALZ_MATRIX to MASTERSTATE_MATRIX
-//TODO - upgrade fn to all selected and remove TKR.
    //TRANZFORM_DATA ai_main_totalz - accumulator pattern
    function calculate_ai_mainMASTER(){ //Create DataSet to store Math and Meta Data.
 
       let tgtQTR2 = null, tgtTKR2 = null, tgtqID2 = '', tgtTXN2, newTKR;
-
-      
-      
       // if(!ai_main.MASTER_MATRIX){ ai_main.MASTER_MATRIX = {}; }
       ai_main.MASTER_MATRIX = {}; //start from scratch
       for(var qtrIDX2 = 0; qtrIDX2 < ai_ledger.compute_TGT_Totalz.length; qtrIDX2++){
@@ -7178,37 +7175,7 @@ function calculate_MASTER_TOTAL(){ //LOOP MNTH FLOWS to find TOTAL MONTH data.
             ai_main.MASTER_MATRIX[tgtqID2].tkrz.push(newTKR)
          }
       }
-
-
-      // if(!ai_main.TOTALZ_MATRIX){ ai_main.TOTALZ_MATRIX = {}; }
-      // if(!ai_main.TOTALZ_MATRIX[zqID]){ ai_main.TOTALZ_MATRIX[zqID] = {}; }
-      // console.log('TOTALZ0:',3.1, 'Tranzform data',zqID,zTKR)
-      // ai_main.TOTALZ_MATRIX[zqID][zTKR] 
-      //    = { tkr:zTKR, txnz:[] } //METADATA MATH destination - generative.
-      // let tgtTKR = {}, tgtTXN = {};
-      // for(var zIDX = 0; zIDX<MONTHData.tickrz.length; zIDX++){
-      //    tgtTKR = MONTHData.tickrz[zIDX]
-      //    if(tgtTKR.tkr===zTKR){ //found tgt tkr, now loop txnz
-      //       for( var yIDX = 0; yIDX<tgtTKR.trimz.length; yIDX++){ //TRIMZ
-      //          tgtTXN = tgtTKR.trimz[yIDX];
-      //          ai_main.TOTALZ_MATRIX[zqID][zTKR].txnz.push(
-      //             { type:"SELL",amt:tgtTXN.amt || 0,
-      //                price:tgtTXN.rate,ymd:tgtTXN.ymd } )
-      //       }
-      //       for( var xIDX = 0; xIDX<tgtTKR.padz.length;xIDX++){ //PADZ
-      //          tgtTXN = tgtTKR.padz[xIDX];
-      //          ai_main.TOTALZ_MATRIX[zqID][zTKR].txnz.push(
-      //             { type:"BUY",amt:tgtTXN.amt || 0,
-      //                price:tgtTXN.rate,ymd:tgtTXN.ymd } )
-      //       }
-      //       break;
-      //    }
-      // }
-      // // month_data = {tkrz:[]}
-      // // month_data = ai_main.TOTALZ_MATRIX[zqID][zTKR]
-      // Master_METASTATE = ai_main.TOTALZ_MATRIX[zqID][zTKR]
    }; calculate_ai_mainMASTER();
-   //tranzform_to_ai_mainTOTALZ(ai_ledger.compute_TGT_Totalz[0],'AAA');
    /****************************************************\
     * CALCULATE TRANSACTION METRICS   
     * - tkr (ticker) and tkrz (tickers) or STOCK unit.
@@ -7218,11 +7185,11 @@ function calculate_MASTER_TOTAL(){ //LOOP MNTH FLOWS to find TOTAL MONTH data.
    //  console.log(`********| MONTH_TRXNz | ${tickrData.tkr.toUpperCase()} : ${MONTHData.qID} |*********`);
    //  // console.log(currentDate,'|',current_ymd)
    //  let TOTNET = 0, TOT_TAX_EST = 0, GROSS_VALUE = 0;
-   let bookVAL = 0;
-   let bankBAL = 0;
    // let trxNUM = 0;
    // let trxTYPE = '';
    // let sharesNUM = 0;
+   let bookVAL = 0;
+   let bankBAL = 0;
    let sharesAMT = 0; //Required to calculate book.
    let sharesTOT = 0;
    let monthlyNET = 0; //SINGLE TKR multi txn total.
@@ -7244,6 +7211,7 @@ function calculate_MASTER_TOTAL(){ //LOOP MNTH FLOWS to find TOTAL MONTH data.
    // ai_main.MASTER_MATRIX
    let calcTGTz = Object.keys(ai_main.MASTER_MATRIX); //From UI selection.
    MonthNUM = calcTGTz.length;
+
    for(var qtrIDX3=0; qtrIDX3 < calcTGTz.length; qtrIDX3++){
       mstrTKRtgt = calcTGTz[qtrIDX3]
       console.log(`|${mstrTKRtgt}|START********************`)
@@ -7272,21 +7240,23 @@ function calculate_MASTER_TOTAL(){ //LOOP MNTH FLOWS to find TOTAL MONTH data.
          for(var txnIDX3=0; txnIDX3 < mstrTKR.txnz.length; txnIDX3++){
             mstrTXN = mstrTKR.txnz[txnIDX3];
             trxNUM = txnIDX3+1;
-      /***************_CALCULATE_MONTH_NET***************/
-      // if(mstrTKR.tkr==='MSFT'){debugger;}
-      sharesAMT = parseFloat(( mstrTXN.amt / mstrTXN.price ).toFixed(3));
-      bankBAL += (mstrTXN.type==='SELL')?parseFloat(mstrTXN.amt):parseFloat(mstrTXN.amt)*-1;
-      sharesTOT += (mstrTXN.type==='BUY')?sharesAMT:sharesAMT*-1;
-      sharesTOT = parseFloat(sharesTOT.toFixed(3));
-      if(sharesTOT<0){sharesTOT=0} //edgecase sell without buy data.
-      bookVAL = Math.round(sharesTOT * mstrTXN.price);
-      monthlyNET = bookVAL + bankBAL;
-      /***************_END_CALCULATE_MONTH_NET***************/
-      /***************_SAVE_in_MATRIX**************/
-      // mstrTXN.TEST = "TEST1"
-      mstrTXN.bookVAL = bookVAL;
-      mstrTXN.monthlyNET = monthlyNET;
-      /***************_END_SAVE_in_MATRIX**************/
+
+            /***************_CALCULATE_MONTH_NET***************/
+            // if(mstrTKR.tkr==='MSFT'){debugger;}
+            sharesAMT = parseFloat(( mstrTXN.amt / mstrTXN.price ).toFixed(3));
+            bankBAL += (mstrTXN.type==='SELL')?parseFloat(mstrTXN.amt):parseFloat(mstrTXN.amt)*-1;
+            sharesTOT += (mstrTXN.type==='BUY')?sharesAMT:sharesAMT*-1;
+            sharesTOT = parseFloat(sharesTOT.toFixed(3));
+            if(sharesTOT<0){sharesTOT=0} //edgecase sell without buy data.
+            bookVAL = Math.round(sharesTOT * mstrTXN.price);
+            monthlyNET = bookVAL + bankBAL;
+            /***************_END_CALCULATE_MONTH_NET***************/
+            
+            /***************_SAVE_in_MATRIX**************/
+            // mstrTXN.TEST = "TEST1"
+            mstrTXN.bookVAL = bookVAL;
+            mstrTXN.monthlyNET = monthlyNET;
+            /***************_END_SAVE_in_MATRIX**************/
       // console.log(trxNUM,mstrTXN.type,`${mstrTXN.amt}@${mstrTXN.price}`); 
    //    // txtLOGZ.push(`|${trxNUM} ${txn.type} ${txn.amt}@${txn.price}`)
    //    console.log('bankBAL',bankBAL,'bookVAL',bookVAL);

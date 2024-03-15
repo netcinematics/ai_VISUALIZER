@@ -626,13 +626,25 @@ border-radius: 22px;
     width: 100%;
     justify-content: space-evenly;    
 }
-.totalzBankVAL{
+.totalzInputVAL{
+   border-radius: 13px;
+    text-align: center;
+    background: darkslategrey;
+    color: cyan;
+    font-family: cursive; 
+    margin-right:1em;  
+    width:7em;
+    padding: 0; 
+}
+/* .totalzBankVAL{
    border-radius: 13px;
     text-align: center;
     background: darkslategrey;
     color: lime;
     font-family: cursive; 
     margin-right:1em;  
+    width:7em;
+    padding: 0;
 }
 .totalzBookVAL{
    border-radius: 13px;
@@ -649,7 +661,7 @@ border-radius: 22px;
     color: cyan;
     font-family: cursive; 
     margin-right:1em;      
-}
+} */
 .capsNUMBOX1{
    font-family: sans-serif;
    font-size: 0.555em;
@@ -4009,139 +4021,149 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                tickrData.LastPrice = 0;
                tickrData.MonthlyStockNET = 0;
    //TRANZFORM_DATA ai_main_totalz - accumulator pattern
-   function tranzform_to_MONTHLYTOTALZ(zqID,zTKR){ //TRANZFORM: AI_MAIN DATA (input) to TOTALZ TXNZ (encode)
-      if(!ai_main.MONTHLY_MATRIX){ ai_main.MONTHLY_MATRIX = {}; }
-      if(!ai_main.MONTHLY_MATRIX[zqID]){ ai_main.MONTHLY_MATRIX[zqID] = {}; }
-      // console.log('TOTALZ0:',3.1, 'Tranzform data',selectQTR.toUpperCase(),selectTKR.toUpperCase())
-      ai_main.MONTHLY_MATRIX[zqID][zTKR] 
-         = { tkr:zTKR, txnz:[] } //METADATA MATH destination - generative.
-      let tgtTXN = {};
-            for( var yIDX = 0; yIDX<tickrData.trimz.length; yIDX++){ //TRIMZ
-               tgtTXN = tickrData.trimz[yIDX];
-               ai_main.MONTHLY_MATRIX[zqID][zTKR].txnz.push(
-                  { type:"SELL",amt:tgtTXN.amt || 0,
-                     price:tgtTXN.rate,ymd:tgtTXN.ymd,role:tgtTXN.role,isLong:isRoleLong(tgtTXN.role) } )
+   // function tranzform_to_MONTHLYTOTALZ(zqID,zTKR){ //TRANZFORM: AI_MAIN DATA (input) to TOTALZ TXNZ (encode)
+   //    if(!ai_main.MONTHLY_MATRIX){ ai_main.MONTHLY_MATRIX = {}; }
+   //    if(!ai_main.MONTHLY_MATRIX[zqID]){ ai_main.MONTHLY_MATRIX[zqID] = {}; }
+   //    // console.log('TOTALZ0:',3.1, 'Tranzform data',selectQTR.toUpperCase(),selectTKR.toUpperCase())
+   //    ai_main.MONTHLY_MATRIX[zqID][zTKR] 
+   //       = { tkr:zTKR, txnz:[] } //METADATA MATH destination - generative.
+   //    let tgtTXN = {};
+   //          for( var yIDX = 0; yIDX<tickrData.trimz.length; yIDX++){ //TRIMZ
+   //             tgtTXN = tickrData.trimz[yIDX];
+   //             ai_main.MONTHLY_MATRIX[zqID][zTKR].txnz.push(
+   //                { type:"SELL",amt:tgtTXN.amt || 0,
+   //                   price:tgtTXN.rate,ymd:tgtTXN.ymd,role:tgtTXN.role,isLong:isRoleLong(tgtTXN.role) } )
 
-            }
-            for( var xIDX = 0; xIDX<tickrData.padz.length;xIDX++){ //PADZ
-               tgtTXN = tickrData.padz[xIDX];
-               ai_main.MONTHLY_MATRIX[zqID][zTKR].txnz.push(
-                  { type:"BUY",amt:tgtTXN.amt || 0,
-                     price:tgtTXN.rate,ymd:tgtTXN.ymd,role:tgtTXN.role,isLong:isRoleLong(tgtTXN.role) } )
-            }
-   }//tranzform_to_MONTHLYTOTALZ(QRTR.qID,tickrData.tkr.toUpperCase());
+   //          }
+   //          for( var xIDX = 0; xIDX<tickrData.padz.length;xIDX++){ //PADZ
+   //             tgtTXN = tickrData.padz[xIDX];
+   //             ai_main.MONTHLY_MATRIX[zqID][zTKR].txnz.push(
+   //                { type:"BUY",amt:tgtTXN.amt || 0,
+   //                   price:tgtTXN.rate,ymd:tgtTXN.ymd,role:tgtTXN.role,isLong:isRoleLong(tgtTXN.role) } )
+   //          }
+   // }//tranzform_to_MONTHLYTOTALZ(QRTR.qID,tickrData.tkr.toUpperCase());
 //TODO DATAREFACTOR 
 //transform existing data to have tnxz
 //remove ai_main_transformer
 //remove tranzform_to_MONTHLYTOTALZ
 //remove ai_main.MONTHLY_MATRIX, ai_main_ai_main_SUBTOTALZ_MATRIX and tkrMETASTATE
 //#3830, #4044, #6785
-
-   calculate_MonthlyStockNET = function(zqID,zTKR){ //generate METADATA
-      //START: NET CALCULATION integration:
+   calculate_MonthlyStockNET = function(zqID,zTKR){ //MONTH ROW TKR TOTALS display DATA.
+      //START: NET CALCULATIONS AT THE ROW - calculations at expanded exist below.:
       /****************************************************\
-       * CALCULATE TRANSACTION METRICS   
-       * - tkr (ticker) and tkrz (tickers) or STOCK unit.
-       * - txn (transaction), txnz (transactions) (type) buyz/sellz.
-       * shares (sh)
+       * CALCULATE MONTHLY NET METRICS   
+       * - NET PCT on TKR ROW. 
+       * - FLOW NET on TKR ROW.
+       * - NET AMT used in expanded details.
        \****************************************************/
-      //  console.log(`********| MONTH_TRXNz | ${tickrData.tkr.toUpperCase()} : ${MONTHData.qID} |*********`);
-      //  // console.log(currentDate,'|',current_ymd)
-      //  let TOTNET = 0, TOT_TAX_EST = 0, GROSS_VALUE = 0;
-      // let trxNUM = 0;
+
+      // let TOTNET = 0, TOT_TAX_EST = 0, GROSS_VALUE = 0;
+      // console.log(`********| MONTH_TRXNz | ${tickrData.tkr.toUpperCase()} : ${QRTR.qID} |*********`);
+      // // console.log(currentDate,'|',current_ymd)
+      // let bookVAL = 0;
+      // let bankBAL = 0; //todo tickrData.BankBAL and BookVAL
+      // let trxNUM = 0; //keep these
       // let trxTYPE = '';
-      // let sharesNUM = 0;
-      let bookVAL = 0;
-      let bankBAL = 0;
-      let sharesAMT = 0; //Required to calculate book.
-      let sharesTOT = 0;
-      let monthlyNET = 0; //SINGLE TKR multi txn total.
+      // let sharesNUM = 0; //add shared tickrData.shares with caps.
+      // let sharesAMT = 0;
+      // let sharesTOT = 0;
+      // let monthlyNET = 0; //to MonthTKRNET remove monthlystocknet, or MoNETAMT
+      // let bookValTOT = 0; //running total for each txn, keep this.
+      // // let lastPRICE = 0; //TODO convert to OBJ.
+      // let brEVENPRICE = 0; //to tickrData. EvenRate
+      // let MoNetPCT = 0; //to MoNETPCT
+      // let MoNetTOT = 0;  // to MoNETTOT
+      // let MoUpDwn = 0;  //Monthly gain loss (all assets combined)
+      // let BankInOut = 0; //Monthly cash flows in or out.
+      // // let AllUpDwn = 0; //combined gain loss (all months combined)
 
-      //TODO MATH
-      tickrData.BankVAL = 0;
-      tickrData.BookVAL = 0;
-      tickrData.EvenRate =0;
-      tickrData.RateAVG = 0;
-      tickrData.LastPrice=0;
-      tickrData.MonthlyStockNET = 0;    
-      // let monthData = ai_main.MONTHLY_MATRIX[zqID][zTKR];
-
+      console.log(`********| MONTH_TRXNz | ${tickrData.tkr.toUpperCase()} : ${QRTR.qID} |*********`);
+      // console.log(currentDate,'|',current_ymd)
+      // let bookVAL = 0;
+      // let bankBAL = 0; //todo tickrData.BankBAL and BookVAL
       let txnTGT = null;
-            // let bookValTOT = 0; 
-            // let lastPRICE = 0; 
-            // let brEVENPRICE = 0;
-            // let MoNetPCT = 0;
-            // let MoNetTOT = 0;  
-            // let MoUpDwn = 0;  //Monthly gain loss (all assets combined)
+      let txnNUM = 0; //keep these
+      let txtLOGZ = []; //TRACKS STATE OF TRANSACTIONS for review.
+      // let txnTYPE = '';
+      // let sharesNUM = 0; //add shared tickrData.shares with caps.
+      // let sharesAMT = 0;
+      // let sharesTOT = 0;
+      // let monthlyNET = 0; //to MonthTKRNET remove monthlystocknet, or MoNETAMT
+      // let bookValTOT = 0; //running total for each txn, keep this.
+      // let lastPRICE = 0; //TODO convert to OBJ.
+      // let MoNetPCT = 0; //to MoNETPCT
+      // let MoNetTOT = 0;  // to MoNETTOT
+      //TODO move unnecessary calculations down to EXPANDED CALCULATIONS.
+      // let MoUpDwn = 0;  //Monthly gain loss (all assets combined)
+      // let BankInOut = 0; //Monthly cash flows in or out.
+      // let brEVENPRICE = 0; //to tickrData. EvenRate
 
-            // // let AllUpDwn = 0; //combined gain loss (all months combined)
-            // lastPRICE = getLastPrice(Master_METASTATE); //get LAST PRICE for ticker
-            // console.log(`|${Master_METASTATE.tkr}|`,"details:*********",'last','@',lastPRICE);
-            // // txtLOGZ.push(`|${Master_METASTATE.tkr}|details:*********last@${lastPRICE}`)
-            // for(var txnIDX=0; txnIDX < Master_METASTATE.txnz.length;txnIDX++){
-      // let mstrTKRtgt, mstrTXN, mstrTKRz,mstrTKR,trxNUM=0,txn;
-      // let calcTGTz = Object.keys(ai_main.MONTHLY_MATRIX); //From expanded QUICK Month
+      //METADATA-AUDIT-----------------------------------------
+      tickrData.FlowNUM = 0; //AMT in out of stock, PADZ v TRIMS.
+      tickrData.MoNETPCT = 0;//PCT of NET gain loss compared to total value, this month.
+      //------------------------------
+      tickrData.BankBAL = 0; //CASH BALANCE banked, this month, for this STOCK.
+      tickrData.BookVAL = 0; //BOOK VALUE at LastPrice
+      tickrData.LastPrice=0; //found from last price, or from last txnz price.
+      tickrData.EvenRate =0; //stock price that represents break even of all txnz.
+      tickrData.RateAVG = 0; //average price of all stock buys, this month.
+      tickrData.MonthlySTOCKNET = 0; //NET gain loss of both BANK and BOOK.
+      tickrData.BankInOut = 0; //AMT gain or Loss of BANKBAL for month.
+      tickrData.BookUpDwn = 0; //AMT gain or loss of BOOKVAL for month.
+      tickrData.SharesNUM = 0; //required to calculate NET
+      tickrData.SharesAMT = 0;
+      tickrData.SharesTOT = 0;    
 
-      // for(var qtrIDX3=0; qtrIDX3 < calcTGTz.length; qtrIDX3++){
-      //    mstrTKRtgt = calcTGTz[qtrIDX3]
-      //    console.log(`|${mstrTKRtgt}|START********************`)
-      //    mstrTKRz = ai_main.MASTER_MATRIX[mstrTKRtgt];
 
-         // for(var tkrIDX3=0; tkrIDX3 < mstrTKRz.tkrz.length; tkrIDX3++){
-            //  mstrTKR =mstrTKRz.tkrz[tkrIDX3]
-            // if(mstrTKR.tkr==="AMZN"){// || mstrTKR.tkr ==='NVDA' || mstrTKR.tkr ==='V'){
-            // if(mstrTKR.tkr==="V" || mstrTKR.tkr ==='COST'|| mstrTKR.tkr ==='NVDA'){
-            // if(mstrTKR.tkr ==='NVDA'){//  || mstrTKR.tkr ==='COST'){
-            // if(mstrTKR.tkr ==='COST'){
-            // if(mstrTKR.tkr ==='BTC'){
-            // if(mstrTKR.tkr==="COST" || mstrTKR.tkr ==='V'){
-            // if(mstrTKR.tkr==="GOOG" || mstrTKR.tkr ==='V'  || mstrTKR.tkr ==='COST'){
-            // if(mstrTKR.tkr==="GOOG" || mstrTKR.tkr ==='V'  || mstrTKR.tkr ==='NVDA'  || mstrTKR.tkr ==='COST'){
-            // if(mstrTKR.tkr==="GOOG" || mstrTKR.tkr ==='V'  
-            // || mstrTKR.tkr ==='NVDA'  || mstrTKR.tkr ==='COST'
-            // || mstrTKR.tkr ==='BTC'//  || mstrTKR.tkr ==='COST'
-            // ){
-            // //    // debugger; //limiter.
 
-            // } else { continue }
-      // bankBAL = 0; //reset for new tkr.
-      // sharesTOT = 0; //reset for new tkr.
+               tickrData.FlowNUM = 44
+      tickrData.MoNETPCT = 55
+      tickrData.MonthlySTOCKNET = 66
+
+      //END:METADATA_AUDIT------------------------------------
+      // let monthData = ai_main.MONTHLY_MATRIX[zqID][zTKR];
       if(! tickrData || ! tickrData.txnz || ! tickrData.txnz.length){return;}//error case, empty txnz
       for(var txnIDX1=0; txnIDX1 <  tickrData.txnz.length; txnIDX1++){
          txnTGT =  tickrData.txnz[txnIDX1];
-         trxNUM = txnIDX1+1;
+         txnNUM = txnIDX1+1;
 
          /***************_CALCULATE_MONTH_NET***************/
          // if( tickrData.tkr==='NVDA'){debugger;}
-         sharesAMT = parseFloat(( txnTGT.amt / txnTGT.price ).toFixed(3));
-         bankBAL += (txnTGT.type==='SELL')?parseFloat(txnTGT.amt):parseFloat(txnTGT.amt)*-1;
-         sharesTOT += (txnTGT.type==='BUY')?sharesAMT:sharesAMT*-1;
-         sharesTOT = parseFloat(sharesTOT.toFixed(3));
-         if(sharesTOT<0){sharesTOT=0} //edgecase sell without buy data.
-         bookVAL = Math.round(sharesTOT * txnTGT.price);
-         monthlyNET = bookVAL + bankBAL;
-         /***************_SAVE_in_MATRIX**************/
-         txnTGT.bookVAL = bookVAL;
-         txnTGT.monthlyNET = monthlyNET;
-               /***************_END_CALCULATE_MONTH_NET***************/
+         tickrData.SharesAMT = parseFloat(( txnTGT.amt / txnTGT.price ).toFixed(3));
+         tickrData.BankBAL += (txnTGT.type==='SELL')?parseFloat(txnTGT.amt):parseFloat(txnTGT.amt)*-1;
+         tickrData.SharesTOT += (txnTGT.type==='BUY')?tickrData.SharesAMT:tickrData.SharesAMT*-1;
+         tickrData.SharesTOT = parseFloat(tickrData.SharesTOT.toFixed(3));
+         if(tickrData.SharesTOT<0){tickrData.SharesTOT=0} //edgecase sell without buy data.
+         tickrData.BookVAL = Math.round(tickrData.SharesTOT * txnTGT.price);
+         monthlyNET = tickrData.BookVAL + tickrData.BankBAL;
+         /***************_DISPLAY_IN_LOGZ**************/
+         console.log(txnNUM,txnTGT.type,`${txnTGT.amt}@${txnTGT.price}`); 
+         txtLOGZ.push(`|${txnTGT} ${txnTGT.type} ${txnTGT.amt}@${txnTGT.price}`)
+         console.log('bankBAL',tickrData.BankBAL,'bookVAL',tickrData.BookVAL);
+         txtLOGZ.push(`|bankBAL ${tickrData.BankBAL}, bookVAL ${tickrData.BookVAL}`)
+         if(txnTGT.role){
+            console.log('txnROLE',txnTGT.role);
+            txtLOGZ.push(`|txnROLE ${txnTGT.role}`)
+         }
+         /***************_END_CALCULATE_MONTH_NET***************/
             /***************_END_SAVE_in_MATRIX**************/
             // console.log(trxNUM,txnTGT.type,`${txnTGT.amt}@${txnTGT.price}`); 
             //    // txtLOGZ.push(`|${trxNUM} ${txn.type} ${txn.amt}@${txn.price}`)
             //    console.log('bankBAL',bankBAL,'bookVAL',bookVAL);
             //    // txtLOGZ.push(`|bankBAL ${bankBAL}, bookVAL ${bookVAL}`)
 
-            //    //****************************************CALCULATE_BREAK_EVEN
-            //    bookValTOT = sharesTOT * txn.price;
-            //    //****************************************CALCULATE_BREAK_EVEN
-            //    brEVENPRICE = (bookValTOT - monthlyNET)/sharesTOT;
-            //    brEVENPRICE = brEVENPRICE.toFixed(2);
-            //    console.log("BrEvPRICE",`$${brEVENPRICE}`,'BookUpDwn $',monthlyNET);  
-            //    // txtLOGZ.push(`BrEvPRICE $${brEVENPRICE} BookUpDwn $${monthlyNET}`) 
-            //    Master_METASTATE.brEven = brEVENPRICE;       
+         //****************************************CALCULATE_BREAK_EVEN
+         bookValTOT = tickrData.SharesTOT * txnTGT.price;
+         tickrData.EvenRate = (bookValTOT - monthlyNET)/tickrData.SharesTOT;
+         tickrData.EvenRate =  tickrData.EvenRate.toFixed(2);
+         console.log("EvenRate",`$${ tickrData.EvenRate}`,'BookUpDwn $',monthlyNET);  
+         txtLOGZ.push(`BrEvPRICE $${ tickrData.EvenRate} BookUpDwn $${monthlyNET}`) 
+         //TODO move txtLOGZ and console.log - to DETAILED DISPLAY!!!
+         //****************************************CALCULATE_BREAK_EVEN
             //*********************************** show_shares.
-            // console.log("shares",`$${sharesTOT}`);  
-            // txtLOGZ.push(`shares $${sharesTOT}`) 
-            // tkrMETASTATE.shares = sharesTOT;      
+            console.log("shares",`$${tickrData.SharesTOT}`);  
+            txtLOGZ.push(`shares $${tickrData.SharesTOT}`) 
+            //TODO MOVE HI_LO_VAL to DETAILS.
             //    //***************************** calculate HI_LO_VAL
             //    if(!Master_METASTATE.HiVAL){Master_METASTATE.HiVAL = 0;}
             //    if(!Master_METASTATE.LoVAL){Master_METASTATE.LoVAL = 0;}
@@ -4154,26 +4176,88 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
             //       // txtLOGZ.push(`NEWLo ${Master_METASTATE.LoVAL}`)
             //     }
             } //END txnz loop
-            // console.log(`|${ tickrData.tkr}|TXNZ:${trxNUM}|${mstrTKRtgt}|LAST:~${mstrTXN.price}`)
             console.log(`|${ tickrData.tkr}|`);
-            console.log(`|${ tickrData.tkr}|BANK:$${bankBAL}|BOOK:~${bookVAL}`)
+            console.log(`|BANK:$${tickrData.BankBAL}|BOOK:~${tickrData.BookVAL}`)
             // console.log(`|${ tickrData.tkr}|MONTHNET:${monthlyNET}|${mstrTKRtgt}`)
             // console.log(`|${mstrTKR.tkr}|LASTPRICE:********************`)
             // console.log(`|${mstrTKR.tkr}|ROLEZ:********************`)
             // console.log(`|${mstrTKR.tkr}|NOTEZ:********************`)
-            // debugger;
-            // MultiTKRMonthTOTAL += monthlyNET; //calculate for overall totalz 
-            // console.log(`|${mstrTKR.tkr}|SUBTOTAL:${MultiTKRMonthTOTAL}`)
-            // console.log(`|${mstrTKR.tkr}|END********************`)
+            console.log(`|${tickrData.tkr}|END********************`)
             // console.log(`|MASTER|subtotal:${MultiTKRMonthTOTAL}|${mstrTKRtgt}`)
             // } //end tkrz loop   
-                  //END: NET CALCULATION integration
+   //END: NET CALCULATION integration ---------------------
+ ///EXAMPLE NET CALCULATION.
+      // debugger;
+      // tickrData.lastPRICE = parseFloat(getLastPrice(tickrData)); //get LAST PRICE for ticker
+      // console.log(`|${tickrData.tkr}|`,"details:*********",'last','@',tickrData.lastPRICE);
+      // txtLOGZ.push(`|${tickrData.tkr}|details:*********last@${tickrData.lastPRICE}`)
+      // for(var txnIDX=0; txnIDX < tickrData.txnz.length;txnIDX++){
+      //    trxNUM = txnIDX+1;
+      //    txn = tickrData.txnz[txnIDX];
+      //    // TODO convert to object not variable.
+      //    sharesAMT = parseFloat(( txn.amt / txn.price ).toFixed(3));
+      //    bankBAL += (txn.type==='SELL')?parseFloat(txn.amt):parseFloat(txn.amt)*-1;
+      //    sharesTOT += (txn.type==='BUY')?sharesAMT:sharesAMT*-1;
+      //    sharesTOT = parseFloat(sharesTOT.toFixed(3));
+      //    bookVAL = Math.round(sharesTOT * txn.price);
+      //    if(sharesTOT<0){sharesTOT=0} //edgecase sell without buy data.     
 
-         // } //end qtr loop
+      //    monthlyNET = bookVAL + bankBAL;
+      //    console.log(trxNUM,txn.type,`${txn.amt}@${txn.price}`); 
+      //    txtLOGZ.push(`|${trxNUM} ${txn.type} ${txn.amt}@${txn.price}`)
+      //    console.log('bankBAL',bankBAL,'bookVAL',bookVAL);
+      //    txtLOGZ.push(`|bankBAL ${bankBAL}, bookVAL ${bookVAL}`)
+      //    if(txn.role){
+      //       console.log('txnROLE',txn.role);
+      //       txtLOGZ.push(`|txnROLE ${txn.role}`)
+      //    }
+         
+      //    //****************************************CALCULATE_BREAK_EVEN
+      //    bookValTOT = sharesTOT * txn.price;
+      //    //****************************************CALCULATE_BREAK_EVEN
+      //    if(sharesTOT){
+      //       brEVENPRICE = (bookValTOT - monthlyNET)/sharesTOT;
+      //       brEVENPRICE = brEVENPRICE.toFixed(2);
+      //    }
+      //    console.log("BrEvPRICE",`$${brEVENPRICE}`,'BookUpDwn $',monthlyNET);  
+      //    txtLOGZ.push(`BrEvPRICE $${brEVENPRICE} BookUpDwn $${monthlyNET}`) 
+      //    tickrData.brEven = brEVENPRICE;       
+      //    //*********************************** show_shares.
+      //    console.log("shares",`~${sharesTOT}`);  
+      //    txtLOGZ.push(`shares ~${sharesTOT}`) 
+      //    tickrData.shares = sharesTOT;       
+      //    //***************************** calculate HI_LO_VAL
+      //    if(!tickrData.HiVAL){tickrData.HiVAL = 0;}
+      //    if(!tickrData.LoVAL){tickrData.LoVAL = 0;}
+      //    if(tickrData.HiVAL<txn.price){ tickrData.HiVAL = txn.price;
+      //       console.log('NEWHi:',tickrData.HiVAL) 
+      //       txtLOGZ.push(`NEWHi ${tickrData.HiVAL}`)  }
+      //    else if( tickrData.LoVAL===0 || txn.price<tickrData.LoVAL){ tickrData.LoVAL = txn.price;
+      //       console.log('NEWLo:',tickrData.LoVAL)
+      //       txtLOGZ.push(`NEWLo ${tickrData.LoVAL}`) }
+      // } //END LOOP TXNZ
+      // /*********************TOTZ_CALCZ*****************/
+      // // *****************calculate NET PERCENTAGE
+      // MoNetPCT = monthlyNET/Math.abs(bankBAL);
+      // MoNetPCT = MoNetPCT.toFixed(2)
+      // MoNetPCT = parseFloat(MoNetPCT) * 100 + '%';
+      // console.log(`|${tickrData.tkr}|****MONTH_TOTALZ_****|`)
+      // txtLOGZ.push(`|${tickrData.tkr}|****MONTH_TOTALZ_****|`)
+      // console.log('HILOz:',tickrData.HiVAL,tickrData.LoVAL)
+      // txtLOGZ.push(`|HILOz: ${tickrData.HiVAL}|${tickrData.LoVAL}`)
+      // console.log("MoUpDwn",monthlyNET,"MoUpDwnPCT",MoNetPCT)
+      // txtLOGZ.push(`|MoUpDwn: ${monthlyNET}|MoUpDwnPCT${MoNetPCT}`)
+      // bookValTOT = sharesTOT * tickrData.lastPRICE;
+      // console.log("BookValTOT",parseFloat(bookValTOT.toFixed(2)))
+      // txtLOGZ.push(`|BookValTOT: ${parseFloat(bookValTOT.toFixed(2))}`)
+      // console.log(`|${tickrData.tkr}|`,"***************end_ticker****");
+      // txtLOGZ.push(`|${tickrData.tkr}|***************end_ticker****`);
 
 
-               }; calculate_MonthlyStockNET(QRTR.qID,tickrData.tkr.toUpperCase()); 
-               //END CALCULATE TRIM PAD TOTALS **************
+
+
+      }; calculate_MonthlyStockNET(QRTR.qID,tickrData.tkr.toUpperCase()); 
+      //END MONTH ROW TKR TOTALS **************
 
                QuickROW = document.createElement('aside')
                QuickROW.classList.add('QuickROW')
@@ -4342,7 +4426,7 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                });              
                capBOX1.appendChild(capData1)
 
-               tickrData.flowAMT = 0              //TODO
+
                flowAMTBOX1 = document.createElement('aside')
                flowAMTBOX1.innerHTML="FLOW&nbsp";
                flowAMTBOX1.classList.add('inputDATABOX4')
@@ -4352,12 +4436,9 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                   (tickrData.flowAMT<0)?'redTXT':'greenTXT' ) 
                flowAMTData1.placeholder = "0";
                flowAMTData1.readOnly = true;
-               flowAMTData1.value = tickrData.netAMT || '';          
+               flowAMTData1.value = tickrData.FlowNUM || '';          
                flowAMTBOX1.appendChild(flowAMTData1)
 
-
-
-               tickrData.netAMT = 0              //TODO
                netAMTBOX1 = document.createElement('aside')
                netAMTBOX1.innerHTML="NET&nbsp";
                netAMTBOX1.classList.add('inputDATABOX4')
@@ -4365,9 +4446,9 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                netAMTData1.classList.add('inputDATA0')
                netAMTData1.classList.add( 
                   (tickrData.netAMT<0)?'redTXT':'greenTXT' ) 
-               netAMTData1.placeholder = "0";
+               netAMTData1.placeholder = "%";
                netAMTData1.readOnly = true;
-               netAMTData1.value = tickrData.netAMT || '';          
+               netAMTData1.value = tickrData.MoNETPCT || '';          
                netAMTBOX1.appendChild(netAMTData1)
 
                expandBtn1 = document.createElement('button')
@@ -4929,13 +5010,163 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                   //    tickrData.netAMT = tickrData.netAMT;
                   // }
                }; calculate_MonthlyTradeRoles();                        
+
                         //TODO MAKE THESE INLINE...
                         // calculateBankVAL(QRTR.qID, tickrData);
                         // calculateBookVAL(QRTR.qID, tickrData);
                         // calcualteEvenVAL(QRTR.qID, tickrData);
                         //META_DATA_CALCULATION: --------------------------
-                        
-                        //START: TOTALS VIEWS
+
+                                      //CALCULATE TRIM PAD TOTALS (overwrite) **************
+            //   tickrData.longTOT = 0
+            //    tickrData.trimTOT = 0
+            //    tickrData.padTOT  = 0
+   // tickrData.netAMT = 0    
+   // debugger;
+   // calculate_MonthlyTKRNET = function(){ //generate METADATA
+   //    debugger;
+   //                // if(tickrData.tkr==='BTC'){debugger;}
+   //                // if(!tickrData.trimz){tickrData.trimz=[]}          
+   //                // if(!tickrData.padz){tickrData.padz=[]}          
+   //                // if(!tickrData.longz){tickrData.longz=[]}  
+   //                // if(!tickrData.txnz){tickrData.txnz=[]}  
+   //          debugger;  
+      // let qIDVAL = QRTR.qID;
+      // let tkrTGT = tkr.toUpperCase();
+      /****************************************************\
+       * CALCULATE TRANSACTION METRICS   
+       * - tkr (ticker) and tkrz (tickers) or STOCK unit.
+       * - txn (transaction), txnz (transactions) (type) buyz/sellz.
+       * shares (sh)
+       \****************************************************/
+      // let TOTNET = 0, TOT_TAX_EST = 0, GROSS_VALUE = 0;
+      // console.log(`********| MONTH_TRXNz | ${tickrData.tkr.toUpperCase()} : ${QRTR.qID} |*********`);
+      // // console.log(currentDate,'|',current_ymd)
+      // let bookVAL = 0;
+      // let bankBAL = 0; //todo tickrData.BankBAL and BookVAL
+      // let trxNUM = 0; //keep these
+      // let trxTYPE = '';
+      // let sharesNUM = 0; //add shared tickrData.shares with caps.
+      // let sharesAMT = 0;
+      // let sharesTOT = 0;
+      // let monthlyNET = 0; //to MonthTKRNET remove monthlystocknet, or MoNETAMT
+      // let bookValTOT = 0; //running total for each txn, keep this.
+      // // let lastPRICE = 0; //TODO convert to OBJ.
+      // let brEVENPRICE = 0; //to tickrData. EvenRate
+      // let MoNetPCT = 0; //to MoNETPCT
+      // let MoNetTOT = 0;  // to MoNETTOT
+      // let MoUpDwn = 0;  //Monthly gain loss (all assets combined)
+      // let BankInOut = 0; //Monthly cash flows in or out.
+      // // let AllUpDwn = 0; //combined gain loss (all months combined)
+
+      // debugger;
+      // tickrData.lastPRICE = parseFloat(getLastPrice(tickrData)); //get LAST PRICE for ticker
+      // console.log(`|${tickrData.tkr}|`,"details:*********",'last','@',tickrData.lastPRICE);
+      // txtLOGZ.push(`|${tickrData.tkr}|details:*********last@${tickrData.lastPRICE}`)
+      // for(var txnIDX=0; txnIDX < tickrData.txnz.length;txnIDX++){
+      //    trxNUM = txnIDX+1;
+      //    txn = tickrData.txnz[txnIDX];
+      //    // TODO convert to object not variable.
+      //    sharesAMT = parseFloat(( txn.amt / txn.price ).toFixed(3));
+      //    bankBAL += (txn.type==='SELL')?parseFloat(txn.amt):parseFloat(txn.amt)*-1;
+      //    sharesTOT += (txn.type==='BUY')?sharesAMT:sharesAMT*-1;
+      //    sharesTOT = parseFloat(sharesTOT.toFixed(3));
+      //    bookVAL = Math.round(sharesTOT * txn.price);
+      //    if(sharesTOT<0){sharesTOT=0} //edgecase sell without buy data.     
+
+      //    monthlyNET = bookVAL + bankBAL;
+      //    console.log(trxNUM,txn.type,`${txn.amt}@${txn.price}`); 
+      //    txtLOGZ.push(`|${trxNUM} ${txn.type} ${txn.amt}@${txn.price}`)
+      //    console.log('bankBAL',bankBAL,'bookVAL',bookVAL);
+      //    txtLOGZ.push(`|bankBAL ${bankBAL}, bookVAL ${bookVAL}`)
+      //    if(txn.role){
+      //       console.log('txnROLE',txn.role);
+      //       txtLOGZ.push(`|txnROLE ${txn.role}`)
+      //    }
+         
+      //    //****************************************CALCULATE_BREAK_EVEN
+      //    bookValTOT = sharesTOT * txn.price;
+      //    //****************************************CALCULATE_BREAK_EVEN
+      //    if(sharesTOT){
+      //       brEVENPRICE = (bookValTOT - monthlyNET)/sharesTOT;
+      //       brEVENPRICE = brEVENPRICE.toFixed(2);
+      //    }
+      //    console.log("BrEvPRICE",`$${brEVENPRICE}`,'BookUpDwn $',monthlyNET);  
+      //    txtLOGZ.push(`BrEvPRICE $${brEVENPRICE} BookUpDwn $${monthlyNET}`) 
+      //    tickrData.brEven = brEVENPRICE;       
+      //    //*********************************** show_shares.
+      //    console.log("shares",`~${sharesTOT}`);  
+      //    txtLOGZ.push(`shares ~${sharesTOT}`) 
+      //    tickrData.shares = sharesTOT;       
+      //    //***************************** calculate HI_LO_VAL
+      //    if(!tickrData.HiVAL){tickrData.HiVAL = 0;}
+      //    if(!tickrData.LoVAL){tickrData.LoVAL = 0;}
+      //    if(tickrData.HiVAL<txn.price){ tickrData.HiVAL = txn.price;
+      //       console.log('NEWHi:',tickrData.HiVAL) 
+      //       txtLOGZ.push(`NEWHi ${tickrData.HiVAL}`)  }
+      //    else if( tickrData.LoVAL===0 || txn.price<tickrData.LoVAL){ tickrData.LoVAL = txn.price;
+      //       console.log('NEWLo:',tickrData.LoVAL)
+      //       txtLOGZ.push(`NEWLo ${tickrData.LoVAL}`) }
+      // } //END LOOP TXNZ
+      // /*********************TOTZ_CALCZ*****************/
+      // // *****************calculate NET PERCENTAGE
+      // MoNetPCT = monthlyNET/Math.abs(bankBAL);
+      // MoNetPCT = MoNetPCT.toFixed(2)
+      // MoNetPCT = parseFloat(MoNetPCT) * 100 + '%';
+      // console.log(`|${tickrData.tkr}|****MONTH_TOTALZ_****|`)
+      // txtLOGZ.push(`|${tickrData.tkr}|****MONTH_TOTALZ_****|`)
+      // console.log('HILOz:',tickrData.HiVAL,tickrData.LoVAL)
+      // txtLOGZ.push(`|HILOz: ${tickrData.HiVAL}|${tickrData.LoVAL}`)
+      // console.log("MoUpDwn",monthlyNET,"MoUpDwnPCT",MoNetPCT)
+      // txtLOGZ.push(`|MoUpDwn: ${monthlyNET}|MoUpDwnPCT${MoNetPCT}`)
+      // bookValTOT = sharesTOT * tickrData.lastPRICE;
+      // console.log("BookValTOT",parseFloat(bookValTOT.toFixed(2)))
+      // txtLOGZ.push(`|BookValTOT: ${parseFloat(bookValTOT.toFixed(2))}`)
+      // console.log(`|${tickrData.tkr}|`,"***************end_ticker****");
+      // txtLOGZ.push(`|${tickrData.tkr}|***************end_ticker****`);
+                     
+      //END---------------------calculate monthly tkr net.
+
+                  // for(var a=0; a<tickrData.trimz.length;a++){
+                  //    tickrData.trimTOT += parseFloat(tickrData.trimz[a].amt);
+                  //    if(isRoleLong(tickrData.trimz[a].role)){//LONG
+                  //    // if(tickrData.trimz[a].role==='LONG'||tickrData.trimz[a].role==='STOPLOSS'||tickrData.trimz[a].role==='UPHEDGE' ||
+                  //    //    tickrData.trimz[a].role==='UPCAP'||tickrData.trimz[a].role==='DWNCAP'||tickrData.trimz[a].role==='EXIT'){//LONG
+                  //       tickrData.longTOT += parseFloat(tickrData.trimz[a].amt);
+                  //    }
+                  // }
+                  // for(var b=0; b<tickrData.padz.length;b++){
+                  //    tickrData.padTOT += parseFloat(tickrData.padz[b].amt);
+                  //    debugger;
+                  //    if(isRoleLong(tickrData.trimz[b].role)){
+                  //    // if(tickrData.padz[b].role==='LONG'||tickrData.padz[b].role==='STOPLOSS'||tickrData.padz[b].role==='UPHEDGE' ||
+                  //    //    tickrData.padz[b].role==='UPCAP'||tickrData.padz[b].role==='DWNCAP'||tickrData.padz[b].role==='EXIT'){//LONG
+                  //       tickrData.longTOT += parseFloat(tickrData.padz[b].amt);
+                  //    }
+                  // }
+                  // debugger;
+                  // for(var b=0; b<tickrData.txnz.length;b++){
+                  //    // if(tickrData.txnz[b].role==='UpCAP') { debugger; }
+                  //    // if(tickrData.txnz[b].role==='UPCAP') { debugger; }
+                  //    if(!tickrData.txnz[b].role) { tickrData.txnz[b].role = 'unset' }
+                  //    if(isRoleLong(tickrData.txnz[b].role)){ //LONG
+                  //       tickrData.longTOT += parseFloat(tickrData.txnz[b].amt);
+                  //    }else if(tickrData.txnz[b].type==="BUY"){ //PAD
+                  //       tickrData.padTOT += parseFloat(tickrData.txnz[b].amt);
+                  //    }else if(tickrData.txnz[b].type==="SELL") { //TRIM
+                  //       tickrData.trimTOT += parseFloat(tickrData.txnz[b].amt);
+                  //    }
+                  // }
+                  // TODO: update NETFLOWS (subtract LONGZ?) updn in out math.
+                  // tickrData.netAMT = tickrData.trimTOT - tickrData.padTOT;
+                  // if(tickrData.netAMT > 0){
+                  //    tickrData.netAMT = '+' + tickrData.netAMT;
+                  // } else {
+                  //    tickrData.netAMT = tickrData.netAMT;
+                  // }
+   // }; calculate_MonthlyTKRNET();     
+
+                        //START: TOTALS VIEWS -----------------------------
                         totalzROW = document.createElement('article')
                         totalzROW.classList.add('totalzROW')
                         totalzROW.value = tickrData.notez || ''; //TODO: move to row?
@@ -4996,15 +5227,10 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         totalzLBL1 = document.createElement('span')
                         totalzLBL1.innerHTML = 'BANKInOut:'
                         totalzBANK1 = document.createElement('input')
-                        totalzBANK1.classList.add('totalzBankVAL')
+                        totalzBANK1.classList.add('totalzInputVAL')
                         totalzBANK1.value = `$${tickrData.BankVAL || 0}`;
                         totalzBANK1.readOnly = true;
-                        totalzBANK1.style.width = (tickrData.bankVAL)?(tickrData.bankVAL.toString().length + 1) + 'em':'3em';
-                        // totalzBANK1.addEventListener("keyup",(e)=>{ 
-                        //    debugger;
-                        //    // saveBTN_fifo.style.display = 'flex'
-                        //    e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
-                        // }); 
+                        // totalzBANK1.style.width = (tickrData.bankVAL)?(tickrData.bankVAL.toString().length + 1) + 'em':'3em';
                         bankBOX1.appendChild(totalzLBL1);
                         bankBOX1.appendChild(totalzBANK1);
 
@@ -5013,14 +5239,10 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         totalzLBL2 = document.createElement('span')
                         totalzLBL2.innerHTML = 'BOOKUpDwn:'                        
                         totalzBOOK1 = document.createElement('input')
-                        totalzBOOK1.classList.add('totalzBookVAL')
+                        totalzBOOK1.classList.add('totalzInputVAL')
                         totalzBOOK1.value = `~${tickrData.BookVAL || 0}`;
                         totalzBOOK1.readOnly = true;
-                        totalzBOOK1.style.width = ((tickrData.bookVAL)?tickrData.bookVAL.toString().length + 1:3) + 'em';
-                        // totalzBOOK1.addEventListener("keyup",(e)=>{ 
-                        //    debugger;
-                        //    e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
-                        // }); 
+                        // totalzBOOK1.style.width = ((tickrData.BookVAL)?tickrData.BookVAL.toString().length + 1:3) + 'em';
                         bookBOX1.appendChild(totalzLBL2);
                         bookBOX1.appendChild(totalzBOOK1);
 
@@ -5029,29 +5251,21 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         totalzLBL3 = document.createElement('span')
                         totalzLBL3.innerHTML = 'EVENRATE:'                        
                         totalzEVEN1 = document.createElement('input')
-                        totalzEVEN1.classList.add('totalzEvenVAL')
+                        totalzEVEN1.classList.add('totalzInputVAL')
                         totalzEVEN1.value = `$${tickrData.EvenRate || 0}`;
                         totalzEVEN1.readOnly = true;
-                        totalzEVEN1.style.width = '3em';//DYNAMIC WIDTH 444(tickrData.evenVAL.toString().length + 1) + 'em';
-                        // totalzEVEN1.addEventListener("keyup",(e)=>{ 
-                        //    debugger;
-                        //    e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
-                        // }); 
+                        // totalzEVEN1.style.width = '3em';//DYNAMIC WIDTH 444(tickrData.evenVAL.toString().length + 1) + 'em';
                         evenBOX1.appendChild(totalzLBL3);
                         evenBOX1.appendChild(totalzEVEN1);
-
                            
                         rateAVGLBL3 = document.createElement('span')
                         rateAVGLBL3.innerHTML = 'AVGRATE:'                        
                         rateAVGVal1 = document.createElement('input')
-                        rateAVGVal1.classList.add('totalzEvenVAL')
+                        rateAVGVal1.classList.add('totalzInputVAL')
                         rateAVGVal1.value = `$${tickrData.RateAVG || 0}`;
                         rateAVGVal1.readOnly = true;
-                        rateAVGVal1.style.width = '3em';// DYNAMIC WIDTH(tickrData.avgVAL.toString().length + 1) + 'em';
-                        // evenavg1.addEventListener("keyup",(e)=>{ 
-                        //    debugger;
-                        //    e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
-                        // }); 
+                        // rateAVGVal1.style.width = '3em';// DYNAMIC WIDTH(tickrData.avgVAL.toString().length + 1) + 'em';
+                        
                         avgBOX1 = document.createElement('article')
                         avgBOX1.classList.add('evenBOX1')                        
                         avgBOX1.appendChild(rateAVGLBL3);
@@ -5063,15 +5277,10 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         subNETLbl1 = document.createElement('span')
                         subNETLbl1.innerHTML = 'MonthlyNET:'                        
                         subNETVal1 = document.createElement('input')
-                        subNETVal1.classList.add('totalzEvenVAL')
-                        subNETVal1.value = `~${tickrData.MonthlyStockNET || 0}`;
+                        subNETVal1.classList.add('totalzInputVAL')
+                        subNETVal1.value = `~${tickrData.MonthlySTOCKNET || 0}`;
                         subNETVal1.readOnly = true;
-
-                        subNETVal1.style.width = '3em'; //TODO dynamic width
-                        // subNETVal1.addEventListener("keyup",(e)=>{ 
-                        //    debugger;
-                        //    e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
-                        // }); 
+                        // subNETVal1.style.width = '3em'; //TODO dynamic width
                         subNETBOX1.appendChild(subNETLbl1);
                         subNETBOX1.appendChild(subNETVal1);
                         
@@ -5080,14 +5289,10 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         subLastLbl1 = document.createElement('span')
                         subLastLbl1.innerHTML = 'LastPrice:'                        
                         subLastVal1 = document.createElement('input')
-                        subLastVal1.classList.add('totalzEvenVAL')
+                        subLastVal1.classList.add('totalzInputVAL')
                         subLastVal1.value = `~${tickrData.LastPrice || 0}`;
                         subLastVal1.readOnly = true;
-                        subLastVal1.style.width = '3em';//todo dynamic width based on chars in num.
-                        // subLastVal1.addEventListener("keyup",(e)=>{ 
-                        //    debugger;
-                        //    e.target.parentElement.previousSibling.previousSibling.previousSibling.children[3].children[0].style.display = 'flex';
-                        // }); 
+                        // subLastVal1.style.width = '3em';//todo dynamic width based on chars in num.
                         subLastPriceBOX1.appendChild(subLastLbl1);
                         subLastPriceBOX1.appendChild(subLastVal1);
                         //----------------------------------------Append ROWS
@@ -5103,8 +5308,6 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
                         totalzROW.appendChild(subTotalzROW2)
                         totalzROW.appendChild(subRateROW2)
                         totalzROW.appendChild(subNetROW2)
-                        
-                        //END: TOTALZ VIEWS
 
                         //---------------------------------------------HiLo AMT / PCT
                         HiLoMnthBOX1 = document.createElement('aside')
@@ -5413,7 +5616,7 @@ function saveQuickTrackEdits(e){ //TODO, this button may be unnecessary
          }
          break;
       }
-   } //END NOTEZ SAVE
+   } //END SAVE
    // //SAVE to LOCAL STORAGE
    localStorage.ai_main = JSON.stringify(ai_main) 
    generateQuickClick(); //RELOAD VIEW.  
@@ -6575,7 +6778,7 @@ const generateTotalzGridClick = ()=>{ // GENERATE ----------TOTALZ
             month_data.tot_flowz = totalMonthFlow; //TOTAL FLOWS and PCT.
             // debugger;
             // console.log('TOTALZ0:',1, 'calculate_MONTH_NET','UpDwn on header:',month_data.qID)
-            //TODO replace remove confirm?
+            //TODO replace remove confirm? 
          }; calculate_MONTH_NET(MONTHData)
 
          monthNETBOX1 = document.createElement('aside')
@@ -6716,6 +6919,7 @@ function calculate_MONTHLY_TOTAL(selectQTR,selectTKR){ //LOOP MNTH FLOWS to find
    // selectTKR = 'AAA';
    // console.log('TOTALZ0:',3, 'DEETZ data',selectQTR.toUpperCase(),selectTKR.toUpperCase())
    let txnObj = null;
+   //TODO remove
    let month_data = {tkrz:[ //TEST_MONTH_DATA
       {
          tkr:'AAA',
@@ -6843,6 +7047,7 @@ function calculate_MONTHLY_TOTAL(selectQTR,selectTKR){ //LOOP MNTH FLOWS to find
    //END_TEST_MONTH_DATA
 
    //TRANZFORM_DATA ai_main_totalz - accumulator pattern
+   //todo remove
    function tranzform_to_SUBTOTALZ(zqID,zTKR){ //TRANZFORM: AI_MAIN DATA (input) to TOTALZ TXNZ (encode)
       if(!ai_main.SUBTOTALZ_MATRIX){ ai_main.SUBTOTALZ_MATRIX = {}; }
       if(!ai_main.SUBTOTALZ_MATRIX[zqID]){ ai_main.SUBTOTALZ_MATRIX[zqID] = {}; }
@@ -7006,6 +7211,7 @@ function calculate_MONTHLY_TOTAL(selectQTR,selectTKR){ //LOOP MNTH FLOWS to find
    // tkrMETASTATE.TOTNET = "TOTNET"
    // TOTNET += monthlyNET; //calculate overall totalz TODO
 }; //calculate_MONTHLY_TOTAL(MONTHData.qID,tickrData.tkr.toUpperCase())
+//TODO remove
 // -------------------------END UI_TOTALZ-------------------------
                   // POPULATE MONTHLY DETAIL METADATA.**********************
                   //QTR UpDwn, InOut
